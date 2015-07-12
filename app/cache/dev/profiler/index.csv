@@ -1,7 +1,0 @@
-3390ae,::1,GET,http://localhost/b2c/web/app_dev.php/,1436669519,36a341,200
-36a341,::1,GET,http://localhost/b2c/web/app_dev.php/,1436669519,,404
-33780a,::1,GET,http://localhost/b2c/web/app_dev.php/hello/asd,1436669528,a8cd04,200
-a8cd04,::1,GET,http://localhost/b2c/web/app_dev.php/hello/asd,1436669528,,404
-398705,::1,GET,http://localhost/b2c/web/app_dev.php/app/sd,1436669546,5f452e,200
-5f452e,::1,GET,http://localhost/b2c/web/app_dev.php/app/sd,1436669546,,404
-cc0a43,::1,GET,http://localhost/b2c/web/app_dev.php/app/example,1436669560,,200
