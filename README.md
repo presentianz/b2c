@@ -1,4 +1,3 @@
-test
-====
+# b2c
 
-A Symfony project created on July 12, 2015, 4:49 pm.
+一个基于symfony2的小型电商网站。
