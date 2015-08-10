@@ -10,16 +10,16 @@
 <form action="{{ path("fos_user_security_check") }}" method="post">
     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
+    <label for="username">{# 'security.login.username'|trans #}用户名</label>
     <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
 
-    <label for="password">{{ 'security.login.password'|trans }}</label>
+    <label for="password">{# 'security.login.password'|trans #}密码</label>
     <input type="password" id="password" name="_password" required="required" />
 
     <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+    <label for="remember_me">{# 'security.login.remember_me'|trans #}下次自动登录</label>
 
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+    <input type="submit" id="_submit" name="_submit" value="登录" />
 </form>
-Overrided.
+已覆盖.（app/Resources/FOSUserBundle/views/Security/login.html.twig）
 {% endblock fos_user_content %}

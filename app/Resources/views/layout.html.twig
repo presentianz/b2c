@@ -7,6 +7,11 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <a href="{{path('fos_user_security_logout')}}">退出帐号</a>
+        {% else %}
+            <a href="{{path('fos_user_security_login')}}">登录</a>
+        {% endif %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
