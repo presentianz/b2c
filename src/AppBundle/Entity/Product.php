@@ -36,6 +36,13 @@ class Product
     private $price;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="sold_no", type="integer")
+     */
+    private $soldNo;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
@@ -180,5 +187,28 @@ class Product
     public function getImageLink()
     {
         return $this->imageLink;
+    }
+
+    /**
+     * Set soldNo
+     *
+     * @param integer $soldNo
+     * @return Product
+     */
+    public function setSoldNo($soldNo)
+    {
+        $this->soldNo = $soldNo;
+
+        return $this;
+    }
+
+    /**
+     * Get soldNo
+     *
+     * @return integer 
+     */
+    public function getSoldNo()
+    {
+        return $this->soldNo;
     }
 }

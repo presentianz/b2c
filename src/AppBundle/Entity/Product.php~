@@ -36,6 +36,13 @@ class Product
     private $price;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="sold_no", type="integer")
+     */
+    private $soldNo;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
