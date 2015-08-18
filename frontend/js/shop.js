@@ -13,3 +13,5 @@ $('.thumbnail').mouseleave(function() {
 	$(this).children('.zoomTool').fadeOut();
 });
 
+});
+
