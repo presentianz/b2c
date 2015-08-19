@@ -22,6 +22,7 @@ a:hover,
 a:focus {
     color: #EF5505 !important;
     text-decoration:none;
+    cursor: pointer;
 }
 
 .no-padding {
@@ -285,132 +286,74 @@ ul.nav li:hover > ul.dropdown-menu {
 }
 
 
-/* New Products */
+/*   Hot Staffs   */
+.hotdeal.well {
+    background-color: #fff;
+    padding:0;
+    margin: 20px 0px;
+}
 
-#newProductCar .carousel-control {
-    position: absolute;
-    top: -48px;
-    width: 24px;
-    height: 24px;
-    margin-top: 0;
+.hotdeal .row-up{
+    height:80px;
+}
+
+.hotdeal .row-up div:first-child {
+    padding:0px;
+    overflow: hidden;
+    height: 60px;
+    max-width: 480px;
+}
+
+.hotdeal .row-up div:last-child {
+    text-align: right;
+    padding: 0px;
+    float: right;
+    margin: 28px 0px;
+}
+
+.hotdeal h6 {
+    line-height: 28px;
+    margin: 10px 10px 10px 0px;
+    padding-left: 10px;
+    border-left: 1px dashed #ccc;
     font-size: 16px;
-    font-weight: bold;
-    line-height: 1.5em;
-    color: #ffffff;
-    text-align: center;
-    background: #FFA300;
-    border: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
 }
 
-#newProductCar .carousel-control.right {
-    right: 8px; 
-    left: auto;
+.hotdeal .row-up h6.first {
+    border-left:none;
+    margin-left: 20px;
+    }
+
+.hotdeal .row-up h6, .row-up h3 {
+    display: inline-block;
+    vertical-align: bottom;
 }
 
-#newProductCar .carousel-control.left {
-    right: 38px; 
-    left: auto;
+.hotdeal .row {
+    margin: 0;
 }
 
-#newProductCar {
-    margin-bottom:0;
+.hotdeal .row > div {
+    overflow: hidden;
+    max-height:240px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.hotdeal .row > .col-md-3 {
+    max-width: 285px;
+ }
+
+.hotdeal .row > .col-md-6 {
+    max-width: 570px;
 }
 
-.thumbnail .btn { 
-    border-radius: 0 0 0 0;
-}
-.thumbnail h4 {
-    line-height:42px;
+.hotdeal .row > div img {
+    width: 100%;
 }
 
-.thumbnail img { 
-    max-width:100%;
-}
 
-.thumbnail:hover {
-    border: 1px solid #CACACA;
-}
 
-.zoomTool {
-    width:120px; 
-    height:34px; 
-    font-size:14px; 
-    font-weight:bold; 
-    line-height:34px; 
-    text-align:center; 
-    color:#fff; 
-    border-radius:2px; 
-    background:#f89406; 
-    position:absolute; 
-    left:50%; 
-    top:44%; 
-    margin-left:-60px; 
-    z-index:999; 
-    display:none;
-}
 
-.zoomTool:hover {
-    color:#fff; 
-    text-decoration:none; 
-}
-
-.thumbnail {
-    background:#fff;
-    position:relative;
-}
-
-.thumbnail h5,
-.thumbnail p{
-    text-align:center
-}
-
-.thumbnail>a{
-    display:block; 
-    text-align:center
-}
-
-.thumbnail>a.overlay, 
-.thumbnail>a.zoomTool {
-    display:none;
-}
-
-.thumbnail .caption {
-    padding: 9px;
-    color: #555555;
-    background: #F3F2F2;
-}
-
-.shopBtn {
-    min-height: 34px;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 34px;
-    text-align: center;
-    color: #fff;
-    border-radius: 2px;
-    background: #f89406;
-    display:inline-block;
-    padding:0 12px;
-    border:0;
-}
-.shopBtn:hover {
-    color: #fff; 
-    text-decoration:none; 
-    background:#F86706;
-}
-
-.tag {
-    background:url(img/new.png) no-repeat 0 0;
-    position: absolute;
-    display:block; 
-    top: -4px;
-    right: -18px; 
-    height:48px; 
-    width:48px;
-}
+/*   Hot Staffs END */
 
 
 #gototop {
@@ -489,8 +432,6 @@ footer .col-md-2:last-child {
 
 
 
-
-
 .moreOptopm.carousel .carousel-control,.moreOptopm.carousel .carousel-control:hover {background:transparent; }
 .moreOptopm.carousel .carousel-control {border: 0; top: 50%; bottom: 0;}
 .moreOptopm.carousel .carousel-control.right, .moreOptopm.carousel .carousel-control.right:hover {right:0; }
@@ -499,53 +440,3 @@ footer .col-md-2:last-child {
 .moreOptopm.carousel .item img{padding:2px; border:1px solid #ddd}
 .moreOptopm.carousel .item img:hover{ border:1px solid pink}
 
-
-
-/*
-.dotmark{
-    padding:4px; 
-    font-size:14px; 
-    line-height:1.5em;  
-    background:#fff; 
-    border:1px dashed rgb(252, 111, 0); 
-    margin:0; color:rgb(252, 111, 0); 
-    position:relative;
-}
-.dotmark:hover{ border:1px dashed #fff; color:#fff; background:rgb(252, 111, 0);}
-.dotmark i{position:absolute; left:10%; top:-12px; font-size:21px;}
-.offerNoteWrapper{border:6px solid #fff; margin: 6px;}
-.offerNoteWrapper:hover{border-color:rgb(252, 111, 0);}
-
-
-
-
-.spaceBtm{padding-bottom:8px}
-
-.form-horizontal.qtyFrm .control-label{text-align: left;}
-.form-horizontal.qtyFrm .control-label span{font-size:18px}
-
-
-.moreOptopm{min-height:116px}
-#productDetail {margin-bottom:0}
-.tabWrapper{background:#fff; padding:14px; border:1px solid #ddd; border-top:0}
-#productView .btn-toolbar{padding-left:3px;}
-
-.control-label.alignL, .alignL{text-align:left;}
-.loginFrm{ margin-bottom:8px;}
-.loginFrm .control-group{padding:8px 14px 0; margin-bottom:0 }
-
-.actionList a{width:50%; font-size:11px; color:#444}
-
-
-#compairTbl td{text-align:center;}
-
-.table td[align=right] {text-align: right;}
-
-.bs-docs-sidenav > li > a {border: 0; border-bottom:1px solid #e5e5e5;}
-.totalInCart{line-height:26px;}
-.absoluteBlk{position:absolute; left:8px; top:8px; width:45%; }
-.relative{position:relative}
-.socialMedia .on, .socialMedia:hover .off{display:block}
-.socialMedia .off, .socialMedia:hover .on{display:none}
-
-*/
