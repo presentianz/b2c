@@ -55,10 +55,10 @@
 		<div class="container">
 			<div class="col-md-3">
 				<a class="logo" href="index.html">
-					<img src="img/logo1.png" alt="彩购网">
-				</a>
+					<img src="img/logo-caigou.png" class="logo-caigou" alt="彩购网">
+       			</a>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-8"><!--zz-->
 				<form action="#" class="navbar-search pull-left">
 					<input type="text" placeholder="Search" class="search-query">
 					<button type="submit" class="btn btn-default">搜索</button>
@@ -72,7 +72,7 @@
 					<h6><a href="#">护手霜</a></h6>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-1"><!--zz-->
 				<a class="cart" href="cart.html">
 					<h3><span class="fa fa-shopping-cart">购物车</span></h3>
 				</a>
@@ -82,12 +82,16 @@
 
 	<div class="bg">
 		<div class="container">
+          <nav class="top-nav"><!--zz-->
+    			<div class="nav-all">
+                <a href="products.html" role="button" ><p>全部商品分类</p></a>
+              </div>
+           </nav>
 			<!--Left Navbar Section -->
 			<div class="row">
 				<div id="sidebar" class="col-lg-3">
-					
 					<ul class="nav nav-list">
-						<li>
+						<!--<li>
 							<a href="products.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">全部分类<span class="fa fa-chevron-right"></span></a>
 							<ul class="well dropdown-menu drop-menu-right">
 								<li><a href="#">Manuka Health | 蜜纽康</a></li>
@@ -100,7 +104,7 @@
 								<li><a href="#">Banana Boat | 香蕉船</a></li>
 								<li><a href="#">Thompson's | 汤普森</a></li>
 							</ul>
-						</li>
+						</li>	zz-->
 						<li>
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">蜂产品<span class="fa fa-chevron-right"></span></a>
 							<ul class="well dropdown-menu drop-menu-right">
@@ -182,11 +186,13 @@
 								<li><a href="#">调节三高</a></li>
 							</ul>
 						</li>
+                      <li></li>
+                      <li></li>
 					</ul>
 					
 				</div>
-				<div class="col-lg-9">
-					<div class="well no-padding">
+				<div class="col-lg-9 no-padding">
+					<div class="well no-padding myCarousel-out">
 						<div id="myCarousel" class="carousel slide homCar">
 							<div class="carousel-inner">
 								<div class="item">
@@ -207,6 +213,23 @@
 							<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="fa fa-chevron-right"></span></a>
 						</div>
 					</div>
+                  <div class="row showpics">
+                  	<div class="col-xs-4">
+							<a href="product_details.html">
+								<img src="img/aptami.jpg" alt="">
+							</a>	
+						</div>
+           	       <div class="col-xs-4">
+							<a href="product_details.html">
+								<img src="img/aptami.jpg" alt="">
+							</a>	
+						</div>
+          	    	    <div class="col-xs-4">
+							<a href="product_details.html">
+								<img src="img/aptami.jpg" alt="">
+							</a>	
+						</div>  
+             		 </div>
 				</div>
 			</div>
 
