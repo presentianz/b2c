@@ -19,7 +19,6 @@
 	<!-- <link rel="stylesheet" href="css/animate.min.css" type="text/css"> -->
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="css/style.css" type="text/css">
-	<link rel="stylesheet" href="css/login.css" type="text/css">
 
 	<!-- Favicons if possible -->
 	<!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
@@ -79,11 +78,9 @@
 		</div>
 	</header>
 
-
-<!--   User Login Panel -->
     <div class="bg">
-	<div class="login-content container">
-		<div class="col-lg-9 col-md-8 hidden-sm hidden-xs">
+	<div class="container">
+		<div class="login-content col-lg-9">
 			<div class="well no-padding">
 				<div id="myCarousel" class="carousel slide homCar">
 					<div class="carousel-inner">
@@ -101,38 +98,34 @@
 						</div>
 
 					</div>
+					<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="fa fa-chevron-left"></span></a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="fa fa-chevron-right"></span></a>
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-3 col-md-4 col-sm-12 col-sm-12">
-			<h3>登录</h3>
+		<div class="col-lg-3">
+			<h5>登录</h5>
 			<form>
+			  <div class="control-group">
+				<label class="control-label" for="inputEmail">Email</label>
 				<div class="controls">
-				  <input  type="text" placeholder="Email">
+				  <input class="span3"  type="text" placeholder="Email">
 				</div>
+			  </div>
+			  <div class="control-group">
+				<label class="control-label" for="inputPassword">Password</label>
 				<div class="controls">
-				  <input type="password" placeholder="Password">
+				  <input type="password" class="span3" placeholder="Password">
 				</div>
-				  <button type="submit" class="btn btn-default">登录</button> 
-				  <h6>
-				  <a href="#">注册  |</a> 
-				   <a href="#">忘记密码?</a>
-				   </h6>
-				   <hr>
-				   <h4>其他用户登录</h4>
-				   <div class="social-network">
-				   <span class="fa fa-facebook"></span>
-				    <span class="fa fa-twitter"></span>
-				   <span class="fa fa-qq"></span>
-				   <span class="fa fa-weibo"></span>
-				   <span class="fa fa-weixin"></span>
-				   
-				   </div>
+			  </div>
+			  <div class="control-group">
+				<div class="controls">
+				  <button type="submit" class="defaultBtn">Sign in</button> <a href="#">Forget password?</a>
+				</div>
 			  </div>
 			</form>
 		</div>
 	</div>
-	<!--   User Login Panel END-->
 
 </div><!-- /container -->
 </div><!-- /background -->

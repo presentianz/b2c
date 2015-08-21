@@ -3,3 +3,58 @@
 .login-content .well {
     margin: 0;
 }
+
+
+.login-content > div:last-child {
+    text-align: left;
+    margin: 0px auto;
+    max-width: 300px;
+    padding: 0 20px;
+}
+
+.login-content .controls {
+    margin: 20px 0px;
+}
+
+.login-content .controls > input {
+    padding: 4px 0px;
+    width: 100%;
+    border: 1px solid #fff;
+    border-bottom-color: #ecf0f1;
+}
+
+.login-content .controls > input:hover, 
+.login-content .controls > input:focus {
+     border-bottom-color: #EF5505;
+     cursor: pointer;
+     outline: none;
+}
+.login-content button {
+    color: #ffffff;
+    background-color: #EF5505;
+    height: 35px;
+    padding: 0;
+    width: 80px;
+    border: none;
+    margin-right: 10px;
+}
+
+
+.login-content h6 {
+    display: inline-block;
+    text-align: left;
+}
+
+.login-content .social-network {
+    display: inline-block;
+    width: 100%;
+
+}
+
+.login-content .social-network span {
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    margin: 5px;
+}
