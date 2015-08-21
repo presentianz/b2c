@@ -1,709 +1,816 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
 
-	<title>Demo --- Test</title>
+		<title>Demo --- Test</title>
 
-	<!-- Bootstrap Core CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+		<!-- Bootstrap Core CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
-	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-	<link href="fonts/css/font-awesome.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+		<link href="fonts/css/font-awesome.css" rel="stylesheet">
 
-	<!-- Plugin CSS -->
-	<!-- <link rel="stylesheet" href="css/animate.min.css" type="text/css"> -->
-	<!-- Custom CSS -->
-	<link rel="stylesheet" href="css/style.css" type="text/css">
+		<!-- Plugin CSS -->
+		<!-- <link rel="stylesheet" href="css/animate.min.css" type="text/css"> -->
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/style.css" type="text/css">
 
-	<!-- Favicons if possible -->
-	<!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
+		<!-- Favicons if possible -->
+		<!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
 
-</head>
+	</head>
 
-<body>
-	<!-- Upper Header Section -->
-	<div class="navbar navbar-fixed-top">
-		<div class="topNav">
-			<div class="container">
-				<div class="pull-left">
-					<h6>欢迎来到彩购！| <a href="#">收藏彩购网</a></h6>			
-				</div>
-				<div class="pull-right">
-					<h6>	
-						<a href="login.html">登录</a><a href="register.html">注册</a>
-						<a href="myOrder.html">我的彩购</a> 
-						<a href="history.html">最近浏览</a>
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">更多</a>
-						<ul class="dropdown-menu">
-							<li><a href="#">联系我们</a></li>
-							<li><a href="#">关于我们</a></li>
-							<li><a href="#">充值</a></li>
-						</ul>
-					</h6>	
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Lower Header Section -->
-	<header>
-		<div class="container">
-			<div class="col-md-3">
-				<a class="logo" href="index.html">
-					<img src="img/logo1.png" alt="彩购网">
-				</a>
-			</div>
-			<div class="col-md-6">
-				<form action="#" class="navbar-search pull-left">
-					<input type="text" placeholder="Search" class="search-query">
-					<button type="submit" class="btn btn-default">搜索</button>
-				</form>
-				<div class="col-sm-9">
-					<h6><a href="#">麦卢卡蜂蜜</a></h6>
-					<h6><a href="#">好健康蜂胶</a></h6>
-					<h6><a href="#">爱他美婴儿奶粉</a></h6>
-					<h6><a href="#">蔓越莓</a></h6>
-					<h6><a href="#">纽乐鱼油</a></h6>
-					<h6><a href="#">护手霜</a></h6>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<a class="cart" href="cart.html">
-					<h3><span class="fa fa-shopping-cart">购物车</span></h3>
-				</a>
-			</div>
-		</div>
-	</header>
-
-	<div class="bg">
-		<div class="container">
-			<!--Left Navbar Section -->
-			<div class="row">
-				<div id="sidebar" class="col-lg-3">
-					
-					<ul class="nav nav-list">
-						<li>
-							<a href="products.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">全部分类<span class="fa fa-chevron-right"></span></a>
-							<ul class="well dropdown-menu drop-menu-right">
-								<li><a href="#">Manuka Health | 蜜纽康</a></li>
-								<li><a href="#">Swisse | 思维斯</a></li>
-								<li><a href="#">Parrs | 帕斯</a></li>
-								<li><a href="#">Royal Nectar | 皇家蜂毒</a></li>
-								<li><a href="#">Antipodes | 安迪碧斯</a></li>
-								<li><a href="#">Comvita | 康维他</a></li>
-								<li><a href="#">Healtheries | 贺寿利</a></li>
-								<li><a href="#">Banana Boat | 香蕉船</a></li>
-								<li><a href="#">Thompson's | 汤普森</a></li>
+	<body>
+		<!-- Upper Header Section -->
+		<div class="navbar navbar-fixed-top">
+			<div class="topNav">
+				<div class="container">
+					<div class="pull-left">
+						<h6>欢迎来到彩购！| <a href="#">收藏彩购网</a></h6>			
+					</div>
+					<div class="pull-right">
+						<h6>	
+							<a href="login.html">登录</a><a href="register.html">注册</a>
+							<a href="myOrder.html">我的彩购</a> 
+							<a href="history.html">最近浏览</a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">更多</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">联系我们</a></li>
+								<li><a href="#">关于我们</a></li>
+								<li><a href="#">充值</a></li>
 							</ul>
-						</li>
-						<li>
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">蜂产品<span class="fa fa-chevron-right"></span></a>
-							<ul class="well dropdown-menu drop-menu-right">
-								<li><a href="#">麦努卡蜂蜜</a></li>
-								<li><a href="#">儿童蜂蜜</a></li>
-								<li><a href="#">天然蜂胶</a></li>
-								<li><a href="#">蜂王浆</a></li>
-								<li><a href="#">蜂蜜糖</a></li>
-								<li><a href="#">蜂花粉</a></li>
-								<li><a href="#">混合麦努卡蜂蜜</a></li>
-								<li><a href="#">蜂毒产品</a></li>
-								<li><a href="#">蜂蜜制品</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="products.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">保健品<span class="fa fa-chevron-right"></span></a>
-							<ul class="well dropdown-menu drop-menu-right">
-								<li><a href="#">降三高</a></li>
-								<li><a href="#">防止癌症</a></li>
-								<li><a href="#">术后恢复</a></li>
-								<li><a href="#">关节保健</a></li>
-								<li><a href="#">均衡营养</a></li>
-								<li><a href="#">感冒免疫</a></li>
-								<li><a href="#">改善睡眠</a></li>
-								<li><a href="#">肠胃调节</a></li>
-								<li><a href="#">雾霾克星</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="products.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">母婴产品<span class="fa fa-chevron-right"></span></a>
-							<ul class="well dropdown-menu drop-menu-right">
-								<li><a href="#">婴幼儿奶粉</a></li>
-								<li><a href="#">孕期保健</a></li>
-								<li><a href="#">婴幼儿食品</a></li>
-								<li><a href="#">孕后恢复</a></li>
-								<li><a href="#">孕后化妆品</a></li>
-								<li><a href="#">婴幼儿药物洗护</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="products.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">水果生鲜</a>
-						</li>
-						<li>
-							<a href="products.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">儿童成长<span class="fa fa-chevron-right"></span></a>
-							<ul class="well dropdown-menu drop-menu-right">
-								<li><a href="#">智慧成长</a></li>
-								<li><a href="#">儿童蜂蜜</a></li>
-								<li><a href="#">止咳消炎</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="products.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">魅力女士<span class="fa fa-chevron-right"></span></a>
-							<ul class="well dropdown-menu drop-menu-right">
-								<li><a href="#">减肥瘦身</a></li>
-								<li><a href="#">延缓衰老</a></li>
-								<li><a href="#">护肤洗护</a></li>
-								<li><a href="#">排毒养颜</a></li>
-								<li><a href="#">美白祛斑</a></li>
-								<li><a href="#">补气养血</a></li>
-								<li><a href="#">调节内分泌</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="products.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">强健男士<span class="fa fa-chevron-right"></span></a>
-							<ul class="well dropdown-menu drop-menu-right">
-								<li><a href="#">补肾健体</a></li>
-								<li><a href="#">解酒护肝</a></li>
-								<li><a href="#">延缓衰老</a></li>		
-							</ul>
-						</li>
-						<li>
-							<a href="products.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">中老年保健<span class="fa fa-chevron-right"></span> </a>
-							<ul class="well dropdown-menu drop-menu-right">
-								<li><a href="#">心脑血管</a></li>
-								<li><a href="#">护眼明目</a></li>
-								<li><a href="#">溶解血栓</a></li>
-								<li><a href="#">强健骨骼</a></li>
-								<li><a href="#">强化记忆</a></li>
-								<li><a href="#">调节三高</a></li>
-							</ul>
-						</li>
-					</ul>
-					
-				</div>
-				<div class="col-lg-9">
-					<div class="well no-padding">
-						<div id="myCarousel" class="carousel slide homCar">
-							<div class="carousel-inner">
-								<div class="item">
-									<img src="img/slider1.jpg" alt="">
-									
-								</div>
-								<div class="item">
-									<img src="img/slider2.jpg" alt="">
-									
-								</div>
-								<div class="item active">
-									<img src="img/slider3.jpg" alt="">
-									
-								</div>
-								
-							</div>
-							<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="fa fa-chevron-left"></span></a>
-							<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="fa fa-chevron-right"></span></a>
-						</div>
+						</h6>	
 					</div>
 				</div>
 			</div>
+		</div>
 
-			
-			<!-- Hot Staffs -->
-			<div class="hotdeal well well-small">
-				<div class="row-up">
-					<div class="col-md-8 col-sm-8 col-xs-8">
-						<h3>特价商品</h3>
-						<h6 class="first"><a href="#">麦卢卡蜂蜜</a></h6>
+		<!-- Lower Header Section -->
+		<header>
+			<div class="container">
+				<div class="col-md-3">
+					<a class="logo" href="index.html">
+						<img src="img/logo-caigou.png" alt="彩购网">
+					</a>
+				</div>
+				<div class="col-md-7"><!--zz-->
+					<form action="#" class="navbar-search pull-left">
+						<input type="text" placeholder="Search" class="search-query">
+						<button type="submit" class="btn btn-default">搜索</button>
+					</form>
+					<div class="col-sm-9">
+						<h6><a href="#">麦卢卡蜂蜜</a></h6>
 						<h6><a href="#">好健康蜂胶</a></h6>
 						<h6><a href="#">爱他美婴儿奶粉</a></h6>
 						<h6><a href="#">蔓越莓</a></h6>
 						<h6><a href="#">纽乐鱼油</a></h6>
 						<h6><a href="#">护手霜</a></h6>
 					</div>
-					<div class="col-md-1 col-sm-1 col-xs-1">
-						<a href="products.html" title="View more">更多
-						</a> 
-					</div>
 				</div>
-				<div class="row">
-
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/aptami.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>	
-						</a>
+				<div class="col-md-2"><!--zz-->
+					<a class="cart" href="cart.html">
+						<h3><span class="fa fa-shopping-cart">购物车</span></h3>
+					</a>
+					<div class="cart-list">
+					<div class="item">
+						<div class="cart-image">
+							<img src="img/aptami.jpg" />
+						</div>
+						<div class="cart-content">
+						<h5>麦卢卡蜂蜜</h5>
+						<p>$22.00 ×３</p>
+						</div>
+						<span class="fa fa-remove"></span>
 					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/blackmores.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
+					<div class="item">
+						<div class="cart-image">
+							<img src="img/aptami.jpg" />
+						</div>
+						<div class="cart-content">
+						<h5>麦卢卡蜂蜜</h5>
+						<p>$22.00　×５</p>
+						</div>
+						<span class="fa fa-remove"></span>
 					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/Honey.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/honey2.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					
-				</div>	
+					<div class="see-more">See More</div>
+				</div>
+				</div>
+				
 			</div>
+		</header>
 
-			<!-- Hot Brands 蜂产品-->
-			<div class="hotdeal well well-small">
-				<div class="row-up">
-					<div class="col-md-8 col-sm-8 col-xs-8">
-						<h3>蜂产品</h3>
-						<h6 class="first"><a href="#">麦卢卡蜂蜜</a></h6>
-						<h6><a href="#">儿童蜂蜜</a></h6>
-						<h6><a href="#">天然蜂胶</a></h6>
-						<h6><a href="#">蜂王浆</a></h6>
-						<h6><a href="#">混合麦卢卡蜂蜜</a></h6>
+		<div class="bg">
+			<div class="container">
+				<nav id="topnav" class="top-nav"><!--zz-->
+					<div class="nav-all">
+						<a href="products.html" role="button" ><p>全部商品分类</p></a>
 					</div>
-					<div class="col-md-1 col-sm-1 col-xs-1">
-						<a href="products.html" title="View more">更多
-						</a> 
-					</div>
-				</div>
+				</nav>
+				<!--Left Navbar Section -->
 				<div class="row">
+					<div id="sidebar" class="col-lg-3">
+						<ul class="nav nav-list">
+							<li >
+								<div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									<a href="#" >蜂产品<span class="fa fa-chevron-right"></span></a>
+									<p>
+										<span><a href="#">麦卢卡蜂蜜</a></span>
+										<span><a href="#">儿童蜂蜜</a></span>
+									</p>
+								</div>
+								<ul class="well dropdown-menu drop-menu-right">
+									<li><a href="#">麦努卡蜂蜜</a></li>
+									<li><a href="#">儿童蜂蜜</a></li>
+									<li><a href="#">天然蜂胶</a></li>
+									<li><a href="#">蜂王浆</a></li>
+									<li><a href="#">蜂蜜糖</a></li>
+									<li><a href="#">蜂花粉</a></li>
+									<li><a href="#">混合麦努卡蜂蜜</a></li>
+									<li><a href="#">蜂毒产品</a></li>
+									<li><a href="#">蜂蜜制品</a></li>
+								</ul>
+							</li>
+							<li>
+								<div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									<a href="products.html" >保健品<span class="fa fa-chevron-right"></span></a>
+									<p>
+										<span><a href="#">降三高</a></span>
+										<span><a href="#">防止癌症</a></span>
+									</p>
+								</div>
+								<ul class="well dropdown-menu drop-menu-right">
+									<li><a href="#">降三高</a></li>
+									<li><a href="#">防止癌症</a></li>
+									<li><a href="#">术后恢复</a></li>
+									<li><a href="#">关节保健</a></li>
+									<li><a href="#">均衡营养</a></li>
+									<li><a href="#">感冒免疫</a></li>
+									<li><a href="#">改善睡眠</a></li>
+									<li><a href="#">肠胃调节</a></li>
+									<li><a href="#">雾霾克星</a></li>
+								</ul>
+							</li>
+							<li>
+								<div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									<a href="products.html" >母婴产品<span class="fa fa-chevron-right"></span></a>
+									<p>
+										<span><a href="#">母婴产品</a></span>
+										<span><a href="#">母婴产品</a></span>
+									</p>
+								</div>
+								<ul class="well dropdown-menu drop-menu-right">
+									<li><a href="#">婴幼儿奶粉</a></li>
+									<li><a href="#">孕期保健</a></li>
+									<li><a href="#">婴幼儿食品</a></li>
+									<li><a href="#">孕后恢复</a></li>
+									<li><a href="#">孕后化妆品</a></li>
+									<li><a href="#">婴幼儿药物洗护</a></li>
+								</ul>
+							</li>
+							<li>
+								<div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									<a href="products.html" >水果生鲜</a>
+								</div>
 
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/Honey.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
+							</li>
+							<li>
+								<div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									<a href="products.html" >儿童成长<span class="fa fa-chevron-right"></span></a>
+									<p>
+										<span><a href="#">儿童成长</a></span>
+										<span><a href="#">儿童成长</a></span>
+									</p>
 								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>	
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/honey2.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
+								<ul class="well dropdown-menu drop-menu-right">
+									<li><a href="#">智慧成长</a></li>
+									<li><a href="#">儿童蜂蜜</a></li>
+									<li><a href="#">止咳消炎</a></li>
+								</ul>
+							</li>
+							<li>
+								<div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									<a href="products.html" >魅力女士<span class="fa fa-chevron-right"></span></a>
+									<p>
+										<span><a href="#">魅力女士</a></span>
+										<span><a href="#">魅力女士</a></span>
+									</p>
 								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/manukablendhoney.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
+								<ul class="well dropdown-menu drop-menu-right">
+									<li><a href="#">减肥瘦身</a></li>
+									<li><a href="#">延缓衰老</a></li>
+									<li><a href="#">护肤洗护</a></li>
+									<li><a href="#">排毒养颜</a></li>
+									<li><a href="#">美白祛斑</a></li>
+									<li><a href="#">补气养血</a></li>
+									<li><a href="#">调节内分泌</a></li>
+								</ul>
+							</li>
+							<li>
+								<div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									<a href="products.html" >强健男士<span class="fa fa-chevron-right"></span></a>
+									<p>
+										<span><a href="#">强健男士</a></span>
+										<span><a href="#">强健男士</a></span>
+									</p>
 								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/honey2.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
+								<ul class="well dropdown-menu drop-menu-right">
+									<li><a href="#">补肾健体</a></li>
+									<li><a href="#">解酒护肝</a></li>
+									<li><a href="#">延缓衰老</a></li>		
+								</ul>
+							</li>
+							<li>
+								<div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									<a href="products.html" >中老年保健<span class="fa fa-chevron-right"></span></a>
+									<p>
+										<span><a href="#">中老年保健</a></span>
+										<span><a href="#">中老年保健</a></span>
+									</p>
 								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
+								<ul class="well dropdown-menu drop-menu-right">
+									<li><a href="#">心脑血管</a></li>
+									<li><a href="#">护眼明目</a></li>
+									<li><a href="#">溶解血栓</a></li>
+									<li><a href="#">强健骨骼</a></li>
+									<li><a href="#">强化记忆</a></li>
+									<li><a href="#">调节三高</a></li>
+								</ul>
+							</li>
+							<li></li>
+							<li></li>
+						</ul>
+						
 					</div>
-					
+					<div id="slider" class="col-lg-9 no-padding">
+						<div class="well no-padding myCarousel-out">
+							<div id="myCarousel" class="carousel slide homCar">
+								<div class="carousel-inner">
+									<div class="item">
+										<img src="img/slider1.jpg" alt="">
+										
+									</div>
+									<div class="item">
+										<img src="img/slider2.jpg" alt="">
+										
+									</div>
+									<div class="item active">
+										<img src="img/slider3.jpg" alt="">
+										
+									</div>
+									
+								</div>
+								<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+									<span class="fa fa-chevron-left"></span>
+								</a>
+								<a class="right carousel-control" href="#myCarousel" data-slide="next">
+									<span class="fa fa-chevron-right"></span>
+								</a>
+							</div>
+						</div>
+						<div class="row showpics">
+							<div class="col-xs-4">
+								<a href="product_details.html">
+									<img src="img/aptami.jpg" alt="">
+								</a>	
+							</div>
+							<div class="col-xs-4">
+								<a href="product_details.html">
+									<img src="img/aptami.jpg" alt="">
+								</a>	
+							</div>
+							<div class="col-xs-4">
+								<a href="product_details.html">
+									<img src="img/aptami.jpg" alt="">
+								</a>	
+							</div>  
+						</div>
+					</div>
 				</div>
+
+				
+				<!-- Hot Staffs -->
+				<div class="hotdeal well well-small">
+					<div class="row-up">
+						<div class="col-md-8 col-sm-8 col-xs-8">
+							<h3>特价商品</h3>
+							<h6 class="first"><a href="#">麦卢卡蜂蜜</a></h6>
+							<h6><a href="#">好健康蜂胶</a></h6>
+							<h6><a href="#">爱他美婴儿奶粉</a></h6>
+							<h6><a href="#">蔓越莓</a></h6>
+							<h6><a href="#">纽乐鱼油</a></h6>
+							<h6><a href="#">护手霜</a></h6>
+						</div>
+						<div class="col-md-1 col-sm-1 col-xs-1">
+							<a href="products.html" title="View more">更多
+							</a> 
+						</div>
+					</div>
+					<div class="row">
+
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/aptami.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>	
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/blackmores.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/Honey.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/honey2.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+
+					</div>	
+				</div>
+
+				<!-- Hot Brands 蜂产品-->
+				<div class="hotdeal well well-small">
+					<div class="row-up">
+						<div class="col-md-8 col-sm-8 col-xs-8">
+							<h3>蜂产品</h3>
+							<h6 class="first"><a href="#">麦卢卡蜂蜜</a></h6>
+							<h6><a href="#">儿童蜂蜜</a></h6>
+							<h6><a href="#">天然蜂胶</a></h6>
+							<h6><a href="#">蜂王浆</a></h6>
+							<h6><a href="#">混合麦卢卡蜂蜜</a></h6>
+						</div>
+						<div class="col-md-1 col-sm-1 col-xs-1">
+							<a href="products.html" title="View more">更多
+							</a> 
+						</div>
+					</div>
+					<div class="row">
+
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/Honey.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>	
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/honey2.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/manukablendhoney.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/honey2.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
+
+
+				<!-- Hot Brands 保健品-->
+				<div class="hotdeal well well-small">
+					<div class="row-up">
+						<div class="col-md-8 col-sm-8 col-xs-8">
+							<h3>保健品</h3>
+							<h6 class="first"><a href="#">降三高</a></h6>
+							<h6><a href="#">防止癌症</a></h6>
+							<h6><a href="#">关节保健</a></h6>
+							<h6><a href="#">改善免疫</a></h6>
+							<h6><a href="#">改善睡眠</a></h6>
+						</div>
+						<div class="col-md-1 col-sm-1 col-xs-1">
+							<a href="products.html" title="View more">更多
+							</a> 
+						</div>
+					</div>
+					<div class="row">
+
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/artemis.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>	
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/artemis.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/artemis.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/artemis.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Hot Brands 母婴产品-->
+				<div class="hotdeal well well-small">
+					<div class="row-up">
+						<div class="col-md-8 col-sm-8 col-xs-8">
+							<h3>母婴产品</h3>
+							<h6 class="first"><a href="#">婴幼儿奶粉</a></h6>
+							<h6><a href="#">孕期保健</a></h6>
+							<h6><a href="#">孕后恢复</a></h6>
+							<h6><a href="#">孕后化妆品</a></h6>
+						</div>
+						<div class="col-md-1 col-sm-1 col-xs-1">
+							<a href="products.html" title="View more">更多
+							</a> 
+						</div>
+					</div>
+					<div class="row">
+
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/royalnectar.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>	
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/royalnectar.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/royalnectar.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/royalnectar.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Hot Brands 儿童成长-->
+				<div class="hotdeal well well-small">
+					<div class="row-up">
+						<div class="col-md-8 col-sm-8 col-xs-8">
+							<h3>儿童成长</h3>
+							<h6 class="first"><a href="#">智慧成长</a></h6>
+							<h6><a href="#">儿童蜂蜜</a></h6>
+							<h6><a href="#">止咳消炎</a></h6>
+						</div>
+						<div class="col-md-1 col-sm-1 col-xs-1">
+							<a href="products.html" title="View more">更多
+							</a> 
+						</div>
+					</div>
+					<div class="row">
+
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/milkchews.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>	
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/aptami.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/aptami.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/milkchews.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Hot Brands 中老年保健-->
+				<div class="hotdeal well well-small">
+					<div class="row-up">
+						<div class="col-md-8 col-sm-8 col-xs-8">
+							<h3>中老年保健</h3>
+							<h6 class="first"><a href="#">心脑血管</a></h6>
+							<h6><a href="#">护眼明目</a></h6>
+							<h6><a href="#">强健骨骼</a></h6>
+						</div>
+						<div class="col-md-1 col-sm-1 col-xs-1">
+							<a href="products.html" title="View more">更多
+							</a> 
+						</div>
+					</div>
+					<div class="row">
+
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/swisse.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>	
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/swisse.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/swisse.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<img src="img/swisse.jpg" alt="">
+								<div class="caption">
+									<h4>好健康蜂胶</h4>
+									<div>
+										<span class="pull-left">单价 $22.00</span>
+										<button class="btn btn-default pull-right">购买</button>
+									</div>
+									<button class="btn btn-default pull-right">收藏</button>					
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div><!-- /container -->
+		</div><!-- /background -->
+
+		<div id="gototop">
+			<span class="fa fa-chevron-up"></span>
+			<div>返回顶部</div>
+		</div>
+
+		<!-- Footer -->
+		<footer>	
+			<div class="col-md-2">
+				<h5>公司简介</h5><br>
+				<p>  </p>
 			</div>
-
-
-			<!-- Hot Brands 保健品-->
-			<div class="hotdeal well well-small">
-				<div class="row-up">
-					<div class="col-md-8 col-sm-8 col-xs-8">
-						<h3>保健品</h3>
-						<h6 class="first"><a href="#">降三高</a></h6>
-						<h6><a href="#">防止癌症</a></h6>
-						<h6><a href="#">关节保健</a></h6>
-						<h6><a href="#">改善免疫</a></h6>
-						<h6><a href="#">改善睡眠</a></h6>
-					</div>
-					<div class="col-md-1 col-sm-1 col-xs-1">
-						<a href="products.html" title="View more">更多
-						</a> 
-					</div>
-				</div>
-				<div class="row">
-
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/artemis.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>	
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/artemis.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/artemis.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/artemis.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					
-				</div>
+			<div class="col-md-2">
+				<h5>新手指南</h5><br>
+				<a href="contact.html">账号注册</a><br>
+				<a href="#">充值积分</a><br>
+				<a href="#">产品退税</a><br>
+				<a href="#">购物流程</a><br>
 			</div>
-
-			<!-- Hot Brands 母婴产品-->
-			<div class="hotdeal well well-small">
-				<div class="row-up">
-					<div class="col-md-8 col-sm-8 col-xs-8">
-						<h3>母婴产品</h3>
-						<h6 class="first"><a href="#">婴幼儿奶粉</a></h6>
-						<h6><a href="#">孕期保健</a></h6>
-						<h6><a href="#">孕后恢复</a></h6>
-						<h6><a href="#">孕后化妆品</a></h6>
-					</div>
-					<div class="col-md-1 col-sm-1 col-xs-1">
-						<a href="products.html" title="View more">更多
-						</a> 
-					</div>
-				</div>
-				<div class="row">
-
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/royalnectar.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>	
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/royalnectar.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/royalnectar.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/royalnectar.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-				</div>
+			<div class="col-md-2">
+				<h5>发货说明</h5><br>
+				<a href="#">快递资费标准</a> <br>
+				<a href="#">收货时间</a><br>
+				<a href="#">订单拆分</a><br>
 			</div>
-
-			<!-- Hot Brands 儿童成长-->
-			<div class="hotdeal well well-small">
-				<div class="row-up">
-					<div class="col-md-8 col-sm-8 col-xs-8">
-						<h3>儿童成长</h3>
-						<h6 class="first"><a href="#">智慧成长</a></h6>
-						<h6><a href="#">儿童蜂蜜</a></h6>
-						<h6><a href="#">止咳消炎</a></h6>
-					</div>
-					<div class="col-md-1 col-sm-1 col-xs-1">
-						<a href="products.html" title="View more">更多
-						</a> 
-					</div>
-				</div>
-				<div class="row">
-
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/milkchews.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>	
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/aptami.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/aptami.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/milkchews.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					
-				</div>
+			<div class="col-md-2">
+				<h5>支付方式</h5><br>
+				<a href="#">在线支付</a> <br>
+				<a href="#">信用卡支付</a><br>
+				<a href="#">银行转账</a><br>
 			</div>
-
-			<!-- Hot Brands 中老年保健-->
-			<div class="hotdeal well well-small">
-				<div class="row-up">
-					<div class="col-md-8 col-sm-8 col-xs-8">
-						<h3>中老年保健</h3>
-						<h6 class="first"><a href="#">心脑血管</a></h6>
-						<h6><a href="#">护眼明目</a></h6>
-						<h6><a href="#">强健骨骼</a></h6>
-					</div>
-					<div class="col-md-1 col-sm-1 col-xs-1">
-						<a href="products.html" title="View more">更多
-						</a> 
-					</div>
-				</div>
-				<div class="row">
-
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/swisse.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>	
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/swisse.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/swisse.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-					<div class="col-md-3 col-sm-4 col-xs-6">
-						<a href="product_details.html">
-							<img src="img/swisse.jpg" alt="">
-							<div class="caption">
-								<h4>好健康蜂胶</h4>
-								<div>
-								<span class="pull-left">单价 $22.00</span>
-								<button class="btn btn-default pull-right">购买</button>
-								</div>
-								<button class="btn btn-default pull-right">收藏</button>					</div>
-						</a>
-					</div>
-				</div>
+			<div class="col-md-2">
+				<h5>售后服务</h5><br>
+				<a href="#">退换货政策</a> <br>
+				<a href="#">退换货流程</a><br>
+				<a href="#">退款说明</a><br>
+				<a href="#">我要退货/换货</a><br>
 			</div>
+			<div class="col-md-2">
+				<h5>联系我们</h5><br>
+				<a href="#">加入我们</a><br>
+				<a href="#">联系我们</a><br>
+				<a href="#">友情链接</a><br>
+			</div>
+		</footer>
 
-		</div><!-- /container -->
-	</div><!-- /background -->
 
-	<div id="gototop">
-		<span class="fa fa-chevron-up"></span>
-		<div>返回顶部</div>
-	</div>
 
-	<!-- Footer -->
-	<footer>	
-		<div class="col-md-2">
-			<h5>公司简介</h5><br>
-			<p>  </p>
+		<div class="copyright">
+			<div class="container">
+				<p class="pull-right">
+					<a href="#"><img src="img/payment/paymentexpress.png" alt="payment"></a>
+					<a href="#"><img src="img/payment/maestro.png" alt="payment"></a>
+					<a href="#"><img src="img/payment/mc.png" alt="payment"></a>
+					<a href="#"><img src="img/payment/pp.png" alt="payment"></a>
+				</p>
+				<span>Copyright &copy;2015 Charis Wan Copyright</span>
+			</div>
 		</div>
-		<div class="col-md-2">
-			<h5>新手指南</h5><br>
-			<a href="contact.html">账号注册</a><br>
-			<a href="#">充值积分</a><br>
-			<a href="#">产品退税</a><br>
-			<a href="#">购物流程</a><br>
-		</div>
-		<div class="col-md-2">
-			<h5>发货说明</h5><br>
-			<a href="#">快递资费标准</a> <br>
-			<a href="#">收货时间</a><br>
-			<a href="#">订单拆分</a><br>
-		</div>
-		<div class="col-md-2">
-			<h5>支付方式</h5><br>
-			<a href="#">在线支付</a> <br>
-			<a href="#">信用卡支付</a><br>
-			<a href="#">银行转账</a><br>
-		</div>
-		<div class="col-md-2">
-			<h5>售后服务</h5><br>
-			<a href="#">退换货政策</a> <br>
-			<a href="#">退换货流程</a><br>
-			<a href="#">退款说明</a><br>
-			<a href="#">我要退货/换货</a><br>
-		</div>
-		<div class="col-md-2">
-			<h5>联系我们</h5><br>
-			<a href="#">加入我们</a><br>
-			<a href="#">联系我们</a><br>
-			<a href="#">友情链接</a><br>
-		</div>
-	</footer>
 
+		<!-- No Javascript warnings -->
+		<noscript>
+			<div>You browser doesn't support JavaScript or has it turned off. This website requires JavaScript to working propertly.</div>
+		</noscript>
 
+		<!-- jQuery -->
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.easing-1.3.min.js"></script>
+		<script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
 
-	<div class="copyright">
-		<div class="container">
-			<p class="pull-right">
-				<a href="#"><img src="img/payment/paymentexpress.png" alt="payment"></a>
-				<a href="#"><img src="img/payment/maestro.png" alt="payment"></a>
-				<a href="#"><img src="img/payment/mc.png" alt="payment"></a>
-				<a href="#"><img src="img/payment/pp.png" alt="payment"></a>
-			</p>
-			<span>Copyright &copy;2015 Charis Wan Copyright</span>
-		</div>
-	</div>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="js/bootstrap.min.js"></script>
 
-	<!-- No Javascript warnings -->
-	<noscript>
-		<div>You browser doesn't support JavaScript or has it turned off. This website requires JavaScript to working propertly.</div>
-	</noscript>
+		<!-- Custom JavaScript -->
+		<script src="js/shop.js"></script>
 
-	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery.easing-1.3.min.js"></script>
-	<script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+	</body>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-
-	<!-- Custom JavaScript -->
-	<script src="js/shop.js"></script>
-
-</body>
-
-</html>
+	</html>
