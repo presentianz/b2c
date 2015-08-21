@@ -22,6 +22,13 @@ class UserInfo
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="full_name", type="string", length=255)
+     */
+    private $full_name;
+    
+    /**
      * @var integer
      *
      * @ORM\Column(name="exp", type="integer")
@@ -102,6 +109,29 @@ class UserInfo
         return $this->id;
     }
 
+    /**
+     * Set fullName
+     *
+     * @param string $full_name
+     * @return string
+     */
+    public function setFullName($full_name)
+    {
+    	$this->full_name = $full_name;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get fullName
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+    	return $this->full_name;
+    }
+    
     /**
      * Set exp
      *
