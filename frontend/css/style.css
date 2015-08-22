@@ -150,15 +150,16 @@ header .col-md-2 {
 
 }
 
-.cart-list {
+.cart-list {/*zz*/
     display: none;
-    min-width: 220px;
+    min-width: 250px;
     height: auto;
-    background-color: #ecf0f1;
+    background-color: #F5F5F5/*#ecf0f1*/;
     border-radius: 4px;
     position: absolute;
     z-index: 1;
-    left: 0;
+    /*left: 0;*/
+	right:-23px;
 
 } 
 
@@ -175,7 +176,7 @@ header .col-md-2 {
 
 .cart-list .item .cart-image {
     max-width: 80px;
-     max-height: 80px;
+    max-height: 80px;
 }
 
 .cart-list .item .cart-image img {
@@ -184,17 +185,64 @@ header .col-md-2 {
 
 .cart-list .item .cart-content{
     padding: 5px;
+/*zz*/
+	width: 110px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .cart-list .item .cart-content p{
-    color: #d61920;
+    color: #2c3e50;/*#d61920;zz*/
+	width:100px;
 }
 
-.cart-list span {
-        position: relative;
+.cart-list .item span {
+    position: relative;
     width: 10px;
     padding: 0px 5px;
     right: 0px;
+	font-size:12px;/*zz*/
+}
+.cart-list .item p span {
+    position: relative;
+	top:0px;
+	left:70px;
+	width: 40px;
+	display:block; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.cart-list .item .cart-content p span:first-child{/*zz*/
+    width: 75px;
+	display:block; 
+	left: 0px;
+	top:0px;
+	color: #d61920;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.cart-list .total .cart-content{/*zz*/
+    padding:0px 20px;
+	position:relative;
+	right:0px;
+	width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cart-list .total .cart-content span{/*zz*/
+    padding: 20px;
+}
+
+.cart-list .total .cart-content span:first-child{/*zz*/
+    padding: 5px;
+}
+.cart-list .total .cart-content span strong{
+	color: #d61920;
 }
 
 .cart-list .see-more {
