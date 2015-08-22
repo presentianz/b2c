@@ -20,8 +20,7 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="UserInfo")
-     * @ORM\JoinColumn(name="userinfo_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="UserInfo", mappedBy="user")
      **/
     private $userInfo;
 

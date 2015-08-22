@@ -5,6 +5,7 @@ namespace AppBundle\Controller\Product;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use AppBundle\Entity\Category;
 
 /**
  * @Route("/c")
@@ -21,12 +22,12 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="category")
+     * @Route("/{id}", name="category", requirements={"id" : "\d+"})
      */
-    public function categoryAction($id)
+    public function categoryAction(Category $category)
     {
         return $this->render('Product/category/category.html.twig', array(
-        	'category_id' => $id,
+        	'c' => $category,
         	));
     }
 }
