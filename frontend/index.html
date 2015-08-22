@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 		<meta name="description" content="">
 		<meta name="author" content="">
 
@@ -19,15 +19,14 @@
 		<!-- <link rel="stylesheet" href="css/animate.min.css" type="text/css"> -->
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="css/style.css" type="text/css">
-
+		<link rel="stylesheet" href="css/non-responsive.min.css" type="text/css">
 		<!-- Favicons if possible -->
 		<!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
-
-	</head>
-
-	<body>
+        
+	</head> 
+	<body id="index" style="display:none;">
 		<!-- Upper Header Section -->
-		<div class="navbar navbar-fixed-top">
+		<div class="navbar">
 			<div class="topNav">
 				<div class="container">
 					<div class="pull-left">
@@ -263,6 +262,11 @@
 					<div id="slider" class="col-lg-9 no-padding">
 						<div class="well no-padding myCarousel-out">
 							<div id="myCarousel" class="carousel slide homCar">
+                         		<ol class="carousel-indicators">
+                            		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                	<li data-target="#myCarousel" data-slide-to="1"></li>
+                                	<li data-target="#myCarousel" data-slide-to="2"></li>
+                           	</ol>
 								<div class="carousel-inner">
 									<div class="item">
 										<img src="img/slider1.jpg" alt="">
@@ -328,56 +332,64 @@
 
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/aptami.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/aptami.jpg" alt="">
+                            		<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>	
+                             </div>
 							</a>
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/blackmores.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+                            <div class="pro">
+                                <img src="img/blackmores.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/Honey.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+                            <div class="pro">
+                                <img src="img/Honey.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>
 
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/honey2.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/Honey2.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
-							</a>
+                             </div>						
+                         	</a>
 						</div>
 
 					</div>	
@@ -400,57 +412,62 @@
 						</div>
 					</div>
 					<div class="row">
-
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/Honey.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/Honey.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
-							</a>	
+                             </div>							</a>	
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/honey2.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/Honey2.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>							</a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+                         		<div class="pro">
+                                <img src="img/manukablendhoney.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
+									</div>
+                             </div>
 							</a>
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/manukablendhoney.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/Honey2.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
-							</a>
-						</div>
-						<div class="col-md-3 col-sm-4 col-xs-6">
-							<a href="product_details.html">
-								<img src="img/honey2.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
-									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>
 						</div>
 
@@ -478,54 +495,62 @@
 
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/artemis.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/artemis.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
-							</a>	
+                             </div>
+                          </a>	
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/artemis.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/artemis.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>								
+                         </a>
+						</div>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<a href="product_details.html">
+								<div class="pro">
+                                <img src="img/artemis.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
+									</div>
+                             </div>
 							</a>
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/artemis.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/artemis.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
-							</a>
-						</div>
-						<div class="col-md-3 col-sm-4 col-xs-6">
-							<a href="product_details.html">
-								<img src="img/artemis.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
-									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>
 						</div>
 
@@ -551,54 +576,62 @@
 
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/royalnectar.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+                            <div class="pro">
+                                <img src="img/royalnectar.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>	
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/royalnectar.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/royalnectar.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/royalnectar.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/royalnectar.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/royalnectar.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/royalnectar.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>
 						</div>
 					</div>
@@ -622,54 +655,62 @@
 
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/milkchews.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+                            <div class="pro">
+                                <img src="img/milkchews.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>	
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/aptami.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/aptami.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/aptami.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/aptami.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/milkchews.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/milkchews.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>
 						</div>
 
@@ -694,54 +735,62 @@
 
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/swisse.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/swisse.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>	
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/swisse.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/swisse.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/swisse.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/swisse.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-6">
 							<a href="product_details.html">
-								<img src="img/swisse.jpg" alt="">
-								<div class="caption">
-									<h4>好健康蜂胶</h4>
-									<div>
-										<span class="pull-left">单价 $22.00</span>
-										<button class="btn btn-default pull-right">购买</button>
+								<div class="pro">
+                                <img src="img/swisse.jpg" alt=""> 
+                                	<div class="caption">
+										<h4>好健康蜂胶</h4>
+										<div>
+											<span class="pull-left">单价 $22.00</span>
+											<button class="btn btn-default pull-right">购买</button>
+										</div>
+										<button class="btn btn-default pull-right">收藏</button>					
 									</div>
-									<button class="btn btn-default pull-right">收藏</button>					
-								</div>
+                             </div>
 							</a>
 						</div>
 					</div>
@@ -824,7 +873,7 @@
 
 		<!-- Custom JavaScript -->
 		<script src="js/shop.js"></script>
-
+       
 	</body>
 
 	</html>
