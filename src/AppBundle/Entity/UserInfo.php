@@ -91,6 +91,11 @@ class UserInfo
      */
     private $updateAt;
 
+    /**
+     * @ORM\OneToOne(targetEntity="User", inversedBy="userInfo")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     **/
+    private $user;
 
     /**
      * Get id
@@ -330,5 +335,28 @@ class UserInfo
     public function getUpdateAt()
     {
         return $this->updateAt;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     * @return UserInfo
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

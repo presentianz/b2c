@@ -1,3 +1,7 @@
+
+
+
+
 $(document).ready(function() {
     $("body").fadeIn(400);
 
@@ -12,6 +16,8 @@ $('.thumbnail').mouseenter(function() {
 $('.thumbnail').mouseleave(function() {
 	$(this).children('.zoomTool').fadeOut();
 });
+
+$("img.load").lazyload();
 
 });
 
