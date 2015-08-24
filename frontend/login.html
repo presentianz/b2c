@@ -1,36 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="author" content="">
 
-	<title>Demo --- Test</title>
+		<title>彩购网</title>
 
-	<!-- Bootstrap Core CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+		<!-- Bootstrap Core CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
-	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-	<link href="fonts/css/font-awesome.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+		<link href="fonts/css/font-awesome.css" rel="stylesheet">
 
-	<!-- Plugin CSS -->
-	<!-- <link rel="stylesheet" href="css/animate.min.css" type="text/css"> -->
-	<!-- Custom CSS -->
-	<link rel="stylesheet" href="css/style.css" type="text/css">
-	<link rel="stylesheet" href="css/login.css" type="text/css">
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+		<link rel="stylesheet" href="css/login.css" type="text/css">
+<!-- 		<link rel="stylesheet" href="css/non-responsive.min.css" type="text/css"> -->
+		<!-- Favicons if possible -->
+		<!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
 
-	<!-- Favicons if possible -->
-	<!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
-
-</head>
-
-<body>
-	<!-- Upper Header Section -->
-	<div class="navbar navbar-fixed-top">
-		<div class="topNav">
-			<div class="container">
+	</head> 
+	<body id="index" style="display:none;">
+		<!-- Upper Header Section -->
+		<div class="navbar">
+			<div class="container-non-responsive">
 				<div class="pull-left">
 					<h6>欢迎来到彩购！| <a href="#">收藏彩购网</a></h6>			
 				</div>
@@ -49,165 +44,211 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Lower Header Section -->
-	<header>
-		<div class="container">
-			<div class="col-md-3">
-				<a class="logo" href="index.html">
-					<img src="img/logo1.png" alt="彩购网">
-				</a>
-			</div>
-			<div class="col-md-6">
-				<form action="#" class="navbar-search pull-left">
-					<input type="text" placeholder="Search" class="search-query">
-					<button type="submit" class="btn btn-default">搜索</button>
-				</form>
-				<div class="col-sm-9">
-					<h6>Honey</h6>
-					<h6>health</h6>
-					<h6>Honey</h6>
-					<h6>Honey</h6>
+		<!-- Lower Header Section -->
+		<header>
+			<div class="container-non-responsive">
+				<div class="col-xs-3">
+					<a class="logo" href="index.html">
+						<img src="img/logo-caigou.png" alt="彩购网">
+					</a>
 				</div>
-			</div>
-			<div class="col-md-3">
-				<a class="cart" href="cart.html">
-					<h3><span class="fa fa-shopping-cart">购物车</span></h3>
-				</a>
-			</div>
-		</div>
-	</header>
-
-
-<!--   User Login Panel -->
-    <div class="bg">
-	<div class="login-content container">
-		<div class="col-lg-9 col-md-8 hidden-sm hidden-xs">
-			<div class="well no-padding">
-				<div id="myCarousel" class="carousel slide homCar">
-					<div class="carousel-inner">
-						<div class="item">
-							<img src="img/slider1.jpg" alt="">
-
-						</div>
-						<div class="item">
-							<img src="img/slider2.jpg" alt="">
-
-						</div>
-						<div class="item active">
-							<img src="img/slider3.jpg" alt="">
-
-						</div>
-
+				<div class="col-xs-7">
+					<form action="#" class="navbar-search pull-left">
+						<input type="text" placeholder="搜索产品..." class="search-query">
+						<button type="submit" class="btn">搜索</button>
+					</form>
+					<div class="col-xs-9">
+						<h6><a href="#">麦卢卡蜂蜜</a></h6>
+						<h6><a href="#">好健康蜂胶</a></h6>
+						<h6><a href="#">爱他美婴儿奶粉</a></h6>
+						<h6><a href="#">蔓越莓</a></h6>
+						<h6><a href="#">纽乐鱼油</a></h6>
+						<h6><a href="#">护手霜</a></h6>
 					</div>
 				</div>
+				<div class="col-xs-2">
+					<a class="cart" href="cart.html">
+						<h3><span class="fa fa-shopping-cart">购物车</span></h3>
+					</a>
+					<div class="cart-list">
+						<div class="item">
+							<div class="cart-image">
+								<img src="img/aptami.jpg" />
+							</div>
+							<div class="cart-content">
+								<h5>麦卢卡蜂蜜</h5>
+								<p>
+									<span><strong>$2000.00</strong></span>
+									<span>×20</span>
+								</p>
+							</div>
+							<span class="fa fa-remove"></span>
+						</div>
+						<div class="item">
+							<div class="cart-image">
+								<img src="img/aptami.jpg" />
+							</div>
+							<div class="cart-content">
+								<h5>麦卢卡蜂蜜</h5>
+								<p><!--z-->
+									<span><strong>$220.00</strong></span>
+									<span>×5</span>
+								</p>
+							</div>
+							<span class="fa fa-remove"></span>
+						</div>
+						<div class="total">
+							<span>共<strong>25</strong>件商品</span>
+							<span>共计<strong>$41100.00</strong></span>
+						</div>
+						<div class="see-more">更多</div>
+					</div>
+				</div>
+				
 			</div>
-		</div>
-		<div class="col-lg-3 col-md-4 col-sm-12 col-sm-12">
-			<h3>登录</h3>
-			<form>
-				<div class="controls">
-				  <input  type="text" placeholder="Email">
+		</header>
+
+		<!--   User Login Panel -->
+		<div class="bg">
+			<div class="container-non-responsive">
+				<div class="col-xs-9">
+					<div id="myCarousel" class="carousel slide">
+						<ol class="carousel-indicators">
+							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel" data-slide-to="1"></li>
+							<li data-target="#myCarousel" data-slide-to="2"></li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="item">
+								<img src="img/slider1.jpg" alt="">
+
+							</div>
+							<div class="item">
+								<img src="img/slider2.jpg" alt="">
+
+							</div>
+							<div class="item active">
+								<img src="img/slider3.jpg" alt="">
+
+							</div>
+
+						</div>
+						<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+							<span class="fa fa-chevron-left"></span>
+						</a>
+						<a class="right carousel-control" href="#myCarousel" data-slide="next">
+							<span class="fa fa-chevron-right"></span>
+						</a>
+					</div>
+					</div>
+					<div class="col-xs-3 login-content">
+						<h3>登录</h3>
+						<form>
+							<div class="controls">
+								<input  type="text" placeholder="Email">
+							</div>
+							<div class="controls">
+								<input type="password" placeholder="Password">
+							</div>
+							<button type="submit" class="btn btn-default">登录</button> 
+							<h6>
+								<a href="#">注册  |</a> 
+								<a href="#">忘记密码?</a>
+							</h6>
+							<hr>
+							<h4>其他用户登录</h4>
+							<div class="social-network">
+								<span class="fa fa-facebook"></span>
+								<span class="fa fa-twitter"></span>
+								<span class="fa fa-qq"></span>
+								<span class="fa fa-weibo"></span>
+								<span class="fa fa-weixin"></span>
+
+							</div>
+						
+					</form>
+					</div>
+				</div><!-- /container-non-responsive -->
+			</div><!-- /background -->
+
+			<!--   User Login Panel END-->
+
+			<div id="gototop">
+				<span class="fa fa-chevron-up"></span>
+				<div>返回顶部</div>
+			</div>
+
+			<!-- Footer -->
+			<footer>	
+				<div class="col-xs-2">
+					<h5>公司简介</h5><br>
+					<p>  </p>
 				</div>
-				<div class="controls">
-				  <input type="password" placeholder="Password">
+				<div class="col-xs-2">
+					<h5>新手指南</h5><br>
+					<a href="contact.html">账号注册</a><br>
+					<a href="#">充值积分</a><br>
+					<a href="#">产品退税</a><br>
+					<a href="#">购物流程</a><br>
 				</div>
-				  <button type="submit" class="btn btn-default">登录</button> 
-				  <h6>
-				  <a href="#">注册  |</a> 
-				   <a href="#">忘记密码?</a>
-				   </h6>
-				   <hr>
-				   <h4>其他用户登录</h4>
-				   <div class="social-network">
-				   <span class="fa fa-facebook"></span>
-				    <span class="fa fa-twitter"></span>
-				   <span class="fa fa-qq"></span>
-				   <span class="fa fa-weibo"></span>
-				   <span class="fa fa-weixin"></span>
-				   
-				   </div>
-			  </div>
-			</form>
-		</div>
-	</div>
-	<!--   User Login Panel END-->
-
-</div><!-- /container -->
-</div><!-- /background -->
-
-<div id="gototop">
-	<span class="fa fa-chevron-up"></span>
-	<div>返回顶部</div>
-</div>
-
-<!-- Footer -->
-<footer>	
-	<div class="col-md-2">
-		<h5>公司简介</h5><br>
-		<p>  </p>
-	</div>
-	<div class="col-md-2">
-		<h5>新手指南</h5><br>
-		<a href="contact.html">账号注册</a><br>
-		<a href="#">充值积分</a><br>
-		<a href="#">产品退税</a><br>
-		<a href="#">购物流程</a><br>
-	</div>
-	<div class="col-md-2">
-		<h5>发货说明</h5><br>
-		<a href="#">快递资费标准</a> <br>
-		<a href="#">收货时间</a><br>
-		<a href="#">订单拆分</a><br>
-	</div>
-	<div class="col-md-2">
-		<h5>支付方式</h5><br>
-		<a href="#">在线支付</a> <br>
-		<a href="#">信用卡支付</a><br>
-		<a href="#">银行转账</a><br>
-	</div>
-	<div class="col-md-2">
-		<h5>售后服务</h5><br>
-		<a href="#">退换货政策</a> <br>
-		<a href="#">退换货流程</a><br>
-		<a href="#">退款说明</a><br>
-		<a href="#">我要退货/换货</a><br>
-	</div>
-	<div class="col-md-2">
-		<h5>联系我们</h5><br>
-		<a href="#">加入我们</a><br>
-		<a href="#">联系我们</a><br>
-		<a href="#">友情链接</a><br>
-	</div>
-</footer>
+				<div class="col-xs-2">
+					<h5>发货说明</h5><br>
+					<a href="#">快递资费标准</a> <br>
+					<a href="#">收货时间</a><br>
+					<a href="#">订单拆分</a><br>
+				</div>
+				<div class="col-xs-2">
+					<h5>支付方式</h5><br>
+					<a href="#">在线支付</a> <br>
+					<a href="#">信用卡支付</a><br>
+					<a href="#">银行转账</a><br>
+				</div>
+				<div class="col-xs-2">
+					<h5>售后服务</h5><br>
+					<a href="#">退换货政策</a> <br>
+					<a href="#">退换货流程</a><br>
+					<a href="#">退款说明</a><br>
+					<a href="#">我要退货/换货</a><br>
+				</div>
+				<div class="col-xs-2">
+					<h5>联系我们</h5><br>
+					<a href="#">加入我们</a><br>
+					<a href="#">联系我们</a><br>
+					<a href="#">友情链接</a><br>
+				</div>
+			</footer>
 
 
 
-<div class="copyright">
-	<div class="container">
-		<p class="pull-right">
-			<a href="#"><img src="img/payment/paymentexpress.png" alt="payment"></a>
-			<a href="#"><img src="img/payment/maestro.png" alt="payment"></a>
-			<a href="#"><img src="img/payment/mc.png" alt="payment"></a>
-			<a href="#"><img src="img/payment/pp.png" alt="payment"></a>
-		</p>
-		<span>Copyright &copy;2015 Charis Wan Copyright</span>
-	</div>
-</div>
+			<div class="copyright">
+				<div class="container-non-responsive">
+					<p class="pull-right">
+						<a href="#"><img src="img/payment/paymentexpress.png" alt="payment"></a>
+						<a href="#"><img src="img/payment/maestro.png" alt="payment"></a>
+						<a href="#"><img src="img/payment/mc.png" alt="payment"></a>
+						<a href="#"><img src="img/payment/pp.png" alt="payment"></a>
+					</p>
+					<span>Copyright &copy;2015 彩购网 Copyright</span>
+				</div>
+			</div>
 
+			<!-- No Javascript warnings -->
+			<noscript>
+				<div>You browser doesn't support JavaScript or has it turned off. This website requires JavaScript to working propertly.</div>
+			</noscript>
 
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-<script src="js/jquery.easing-1.3.min.js"></script>
-<script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+			<!-- jQuery -->
+			<script src="js/jquery.js"></script>
+			<script src="js/jquery.easing-1.3.min.js"></script>
+			<script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+			<!-- Bootstrap Core JavaScript -->
+			<script src="js/bootstrap.min.js"></script>
 
-<!-- Custom JavaScript -->
-<script src="js/shop.js"></script>
+			<!-- Custom JavaScript -->
+			<script src="js/shop.js"></script>
 
-</body>
+		</body>
 
-</html>
+		</html>

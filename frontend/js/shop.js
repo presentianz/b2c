@@ -1,17 +1,8 @@
 
 var total; var curt = 0;
 $(document).ready(function() {
-	$('#myCarousel').carousel()
-	$('#newProductCar').carousel()
 
-	/* Home page item price animation */
-	$('.thumbnail').mouseenter(function() {
-  		$(this).children('.zoomTool').fadeIn();
-	});
-
-	$('.thumbnail').mouseleave(function() {
-		$(this).children('.zoomTool').fadeOut();
-	});
+	$('#myCarousel').carousel();
 
 	total = $("#index img").length; 
 	$("#index img").each(function(){
@@ -22,6 +13,10 @@ $(document).ready(function() {
 		} else{ 
 			image.onload = imageLoaded;
 		} 
+	});
+
+	$('#gototop').click(function(){
+         window.scrollTo(0,0);
 	}); 
 });
 
@@ -31,5 +26,7 @@ function imageLoaded(){
 		$("#index").css("display","block"); 
 	}
 }
+
+
 
 

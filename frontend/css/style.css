@@ -27,6 +27,7 @@ a:focus {
 
 .bg {
     background: #fff;
+    min-height: 450px;
 }
 
 .container-non-responsive {
@@ -147,7 +148,6 @@ header .col-xs-2 {
     position: absolute;
     z-index: 1;
 	right:-23px;
-
 } 
 
 header .col-xs-2:hover .cart-list {
@@ -189,13 +189,13 @@ header .col-xs-2:hover .cart-list {
 }
 
 .cart-list .total {
-    padding:0px 10px;
+    padding:10px;
 	position:relative;
 	width: 100%;
 }
 
 .cart-list .total span{
-    padding: 5px 15px;
+    padding: 0px 10px;
 }
 
 .cart-list strong{
@@ -237,7 +237,7 @@ header .col-xs-2:hover .cart-list {
 }
 
 /* Left Sider Navbar */
-#sidebar {/*zz*/
+#sidebar {
     width:238px;
     height:auto;
     padding: 0;
@@ -262,7 +262,7 @@ header .col-xs-2:hover .cart-list {
 
 #sidebar .nav li a .fa {
     position: absolute;
-    right: 15px;/*zz*/
+    right: 15px;
     opacity: 0.2;
 }
 
@@ -277,16 +277,16 @@ header .col-xs-2:hover .cart-list {
     background-color:#fbd1d3;
 }
    
-.nav > li > div > a{/*zz*/
+.nav > li > div > a{
     padding: 10px 25px 5px 25px;
     float: left;
     width: 100%;
 }
-.nav p {/*zz*/
+.nav p {
     margin-left:15px;
 }
 
-.nav span {/*zz*/
+.nav span {
     line-height: 28px;
     margin: 10px 10px 10px 0px;
     padding-left: 10px;
@@ -294,34 +294,34 @@ header .col-xs-2:hover .cart-list {
     font-size: 12px;
 }
 
-.nav span a {/*zz*/
+.nav span a {
     color:#666;
 }
-.nav span:first-child {/*zz*/
+.nav span:first-child {
      border-left-style:none;
 }
 
 .nav > li > a:hover, 
 .nav > .active > a:hover {
-    text-decoration: none;/*zz*/
+    text-decoration: none;
 } 
 
 .nav li:hover > .dropdown-menu {
     display: block;
 }
-.nav > li:first-child{/*zz*/
+.nav > li:first-child{
     border-width:1px;
     border-color: rgba(0,0,0,0.1);
     border-top-style:none;
 }
-.nav > li{/*zz*/
+.nav > li{
     height:63px;
     border-width:1px;
     border-color: rgba(0,0,0,0.1);
     border-top-style:dashed;
 }
 
-.dropdown-menu > div{/*zz*/
+.dropdown-menu > div{
     padding: 5px 10px;
     border: 0;
 } 
@@ -338,111 +338,70 @@ header .col-xs-2:hover .cart-list {
     border-radius: 0px;
     top: -3px;
 }
-/* Left Sider Navbar END*/
+
 
 /* Slider */
-#myCarousel.homCar .item img {
-    width:100%; 
-    max-height:400px;
-    border:0;
-    border-image-width:0;
-}
-
-#myCarousel .carousel-inner .item img {/*zz*/
-    width:930px; 
-    max-height:410px;
-}
-
-.myCarousel-out{/*zz*/
+#myCarousel { 
+    position:relative; 
+    margin: 0;
+    overflow:hidden;
     border:0;
     width: 915px;
     max-height:410px;
-    margin-bottom:0px;
 }
 
-.showpics{/*zz*/
+#myCarousel img {
+    width:100%; 
+    max-height:410px;
     border:0;
-    width:900px;
+}
+
+
+.showpics {
+    border:0;
+    width:915px;
     padding:0;
     margin-top:0px;
     margin-left:0px;
 }
 
-.showpics .col-xs-4{
+.showpics .col-xs-4 {
     border-width:1px;
     border-color: rgba(0,0,0,0.1);
     border-left-style:solid;
 }
 
-
-.carousel-inner,.carousel{
-    width:100%;
-}
-
-.carousel .item > img {
-    display:inline;
-}
-
-#myCarousel .btn {
-    border: 0 none;
-    border-radius: 0 0 0 0;
-    bottom: 49px;
-    font-size: 18px;
-    line-height: 42px;
-    padding: 0 28px;
-    position: absolute;
-    right: 0;
-    text-shadow: 0 0 0 transparent;
-} 
-
-#myCarousel { 
-    position:relative; 
-    margin: 0;
-}
-
-.homCar { 
-    overflow:hidden;
-}
-
-
 .carousel-control {
-    border: 0px; 
-    border-radius:2px;
-}
-
-.carousel-control:hover {
-    background-color: #fbd1d3; 
-    height:43px; 
-    line-height:34px; 
-    color: #fff;
-}
-
-.carousel-control {
+    border: 0;
+    border-radius: 0; 
     top: 50%;
+    height:45px;
+    width:60px;
+    line-height:35px;
+    display: none;
+    background: none !important;
 }
 
 .carousel-control span.fa{
     margin:10px 0;
 }
 
-.carousel-control.left {
-    left: -15600px;
-    height: 40px;
-    width:60px;
+.carousel-control:hover {
+    background-color: #fbd1d3; 
+    color: #fff;
+}
 
+
+.carousel-control.left {
+    left: 8px;
 }
 
 .carousel-control.right {
-    right: -15600px;
-    height: 40px;
-    width:60px;
-}
-.carousel:hover .carousel-control.right {
     right: 8px; 
     left: auto;
 }
-.carousel:hover .carousel-control.left{
-    left: 8px;
+.carousel:hover .carousel-control {
+     display: block;
 }
 
 
@@ -482,7 +441,7 @@ header .col-xs-2:hover .cart-list {
 .hotdeal .row-up h6.first {
     border-left:none;
     margin-left: 20px;
-    }
+}
 
 .hotdeal .row-up h6, .row-up h3 {
     display: inline-block;
@@ -505,8 +464,7 @@ header .col-xs-2:hover .cart-list {
 }
 
 .hotdeal .row > .col-xs-3 {
-
-    max-width: 285px;
+    max-width: 300px;
  }
 
 .hotdeal .row > .col-xs-6 {
@@ -515,33 +473,6 @@ header .col-xs-2:hover .cart-list {
 
 .hotdeal .row > div img {
 	width:270px;
-}
-
-.hotdeal .row .pro{
-	height:340px;
-    padding: 0;
-	border-style:solid;
-    border-width:5px;
-    border-color: rgba(0,0,0,0);
-}
-
-.hotdeal .row  .pro:hover{
-	border-color:#ee1c24;
-}
-
-.hotdeal .row .pro:hover h4{
-	color:#d61920;
-}
-
-.hotdeal .row .pro:hover span{
-	color:#d61920;
-}
-
-.hotdeal .row  .pro:hover .caption{
-	border-color:#ee1c24;
-}
-.hotdeal .row  .pro:hover button{
-	background-color:#ee1c24;
 }
 
 .hotdeal .caption {
@@ -579,6 +510,29 @@ header .col-xs-2:hover .cart-list {
     margin: 5px 3px;
 }
 
+.hotdeal .row .pro{
+	height:340px;
+    padding: 0;
+	border-style:solid;
+    border-width:5px;
+    border-color: rgba(0,0,0,0);
+}
+
+.hotdeal .row  .pro:hover{
+	border-color:#ee1c24;
+}
+
+.hotdeal .row .pro:hover h4,
+.hotdeal .row .pro:hover span {
+	color:#d61920;
+}
+
+.hotdeal .row  .pro:hover .caption { 
+	border-color:#ee1c24;
+}
+.hotdeal .row  .pro:hover button {
+	background-color:#ee1c24;
+}
 /*   Hot Staffs END */
 
 
@@ -654,15 +608,4 @@ footer .col-xs-2:last-child {
     text-transform:lowercase;
 }
 
-
-
-
-
-.moreOptopm.carousel .carousel-control,.moreOptopm.carousel .carousel-control:hover {background:transparent; }
-.moreOptopm.carousel .carousel-control {border: 0; top: 50%; bottom: 0;}
-.moreOptopm.carousel .carousel-control.right, .moreOptopm.carousel .carousel-control.right:hover {right:0; }
-.moreOptopm.carousel .carousel-control.left, .moreOptopm.carousel .carousel-control.left:hover {left:0; }
-.moreOptopm.carousel .carousel-control, .moreOptopm.carousel .carousel-control:hover {color: #000;}
-.moreOptopm.carousel .item img{padding:2px; border:1px solid #ddd}
-.moreOptopm.carousel .item img:hover{ border:1px solid pink}
 
