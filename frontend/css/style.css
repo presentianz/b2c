@@ -25,27 +25,6 @@ a:focus {
     cursor: pointer;
 }
 
-.no-padding {
-    padding: 0;
-}
-
-.no-margin {
-    margin: 0;
-}
-
-.align-right {
-    text-align:right;
-}
-
-.center {
-    text-align:center;
-}
-
-.clear-both {
-    clear:both;
-}
-
-
 .bg {
     background: #fff;
 }
@@ -53,10 +32,7 @@ a:focus {
 .container-non-responsive {
 	margin-left: auto;
     margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
     width: 1170px;
-
 }
 
 .row{
@@ -88,6 +64,7 @@ a:focus {
 
 
 /* navbar */
+
 header {
     background-color: #fff;
 }
@@ -102,9 +79,6 @@ header .col-xs-3 {
 }
 
 header .logo > img {
-    display: inline-block;
-　　height: auto;
-　　max-width: 100%;
     margin-top:25px;
 }
 
@@ -114,10 +88,12 @@ header .search-query {
     min-width: 450px;
     min-height: 35px;
     border: 2px solid #ee1c24;
+    outline: none;
 }
 
 header .navbar-search {
     padding: 50px 23px 0px 17px;
+    outline: none;
 }
 
 header .btn {
@@ -143,7 +119,7 @@ header .col-xs-9 {
     float: left;
     overflow: hidden;
     height: 30px;
-    max-width: 360px;
+    max-width: 500px;
 }
 
 header .col-xs-9 > h6 {
@@ -162,40 +138,43 @@ header .col-xs-2 {
 
 }
 
-.cart-list {/*zz*/
+.cart-list {
     display: none;
     min-width: 250px;
     height: auto;
-    background-color: #F5F5F5/*#ecf0f1*/;
-    border-radius: 4px;
+    background-color: #F5F5F5;
+    border-radius: 0px;
     position: absolute;
     z-index: 1;
-    /*left: 0;*/
 	right:-23px;
 
 } 
+
+header .col-xs-2:hover .cart-list {
+    display: block;
+}
 
 .cart-list .item {
     margin-bottom: 1px;
     padding: 5px 10px;
 }
 
-.cart-list .item div {
+.cart-list .item > div {
     display: inline-block;
     vertical-align: middle;
     margin: 2px;
 }
 
-.cart-list .item .cart-image {
+.cart-list .cart-image {
     max-width: 80px;
     max-height: 80px;
 }
 
-.cart-list .item .cart-image img {
+.cart-list .cart-image img {
     width: 100%;
 }
 
-.cart-list .item .cart-content{
+.cart-list .cart-content{
     padding: 5px;
 	width: 110px;
     white-space: nowrap;
@@ -203,37 +182,25 @@ header .col-xs-2 {
     text-overflow: ellipsis;
 }
 
-.cart-list .item .cart-content p{
-    color: #2c3e50;
-	width:100px;
-}
-
-
 .cart-list .item p span {
     position: relative;
-    width: 40px;
     display: inline-block;
     font-size:12px;
 }
-.cart-list .item .cart-content p span:first-child{/*zz*/
-     width: 65px;
-    color: #d61920;
-}
-.cart-list .total .cart-content{/*zz*/
+
+.cart-list .total {
     padding:0px 10px;
 	position:relative;
 	width: 100%;
 }
 
-.cart-list .total .cart-content span{/*zz*/
-    padding: 20px;
+.cart-list .total span{
+    padding: 5px 15px;
 }
 
-.cart-list .total .cart-content span:first-child{/*zz*/
-    padding: 5px;
-}
-.cart-list .total .cart-content span strong{
+.cart-list strong{
 	color: #d61920;
+	margin: 0 2px;
 }
 
 .cart-list .see-more {
@@ -244,24 +211,21 @@ header .col-xs-2 {
     background-color: #ee1c24;
     color: #fff;
     cursor: pointer;
-    border-radius: 0px 0px 4px 4px;
+    border-radius: 0px;
 }
 
-header .col-xs-2:hover .cart-list {
-    display: block;
-}
 
-/* Left Sub Navbar */
+/* Sub Navbar */
 #topnav.top-nav {
     background: #000000;
     height: 50px;
-    width: 1140px;
+    width: 1170px;
     margin: 0 auto;
 }
 
 #topnav .nav-all {
     background:#ee1c24;
-    width:239px;
+    width:254px;
     height:auto; 
 }
 
@@ -285,7 +249,7 @@ header .col-xs-2:hover .cart-list {
     border-radius: 0px;
 }
 
-#sidebar .nav .dropdown-toggle {
+#sidebar .dropdown-toggle {
     color:#000;
 }
 
@@ -293,32 +257,8 @@ header .col-xs-2:hover .cart-list {
     color:#fff;
     text-decoration: none;
     background-color: #fbd1d3;
-};
-
-#sidebar .cart {
-    border:1px solid #B94A48; 
 }
 
-#sidebar h2 {
-    font-size:21px; 
-    line-height:21px;
-}
-
-#sidebar h4 {
-    margin:0;  
-    line-height:1.5em; 
-    padding:0 13px;  
-}
-
-#sidebar a.defaultBtn:hover, 
-.defaultBtn:hover{
-    color:#fff; 
-    text-decoration:none; 
-    background:#333;
-}
-#sidebar .nav a.zoomTool {
-    color:#fff;
-} 
 
 #sidebar .nav li a .fa {
     position: absolute;
@@ -336,9 +276,7 @@ header .col-xs-2:hover .cart-list {
 .nav .open > div:focus :hover {
     background-color:#fbd1d3;
 }
-.well {/*zz*/
-    
-}   
+   
 .nav > li > div > a{/*zz*/
     padding: 10px 25px 5px 25px;
     float: left;
@@ -400,8 +338,6 @@ header .col-xs-2:hover .cart-list {
     border-radius: 0px;
     top: -3px;
 }
-
-
 /* Left Sider Navbar END*/
 
 /* Slider */
@@ -419,7 +355,7 @@ header .col-xs-2:hover .cart-list {
 
 .myCarousel-out{/*zz*/
     border:0;
-    width:900px; 
+    width: 915px;
     max-height:410px;
     margin-bottom:0px;
 }
@@ -553,22 +489,23 @@ header .col-xs-2:hover .cart-list {
     vertical-align: bottom;
 }
 
-.hotdeal .row {
-    margin: 0;
-}
-
 .hotdeal .row > div {
     overflow: hidden;
-    min-height:340px;
-    border-right: 1px solid rgba(0,0,0,0.1);
+	min-height:340px;
     padding: 0;
+	border-left-style:solid;
+    border-top-style:solid;
+    border-width:1px;
+    border-color: rgba(0,0,0,0.1);
 }
 
-.hotdeal .row > div:last-child {
-   border-right: none;
 
+.hotdeal .row > div:first-child{
+	border-left-style:none;
 }
+
 .hotdeal .row > .col-xs-3 {
+
     max-width: 285px;
  }
 
@@ -577,32 +514,63 @@ header .col-xs-2:hover .cart-list {
 }
 
 .hotdeal .row > div img {
-    width: 100%;
+	width:270px;
+}
+
+.hotdeal .row .pro{
+	height:340px;
+    padding: 0;
+	border-style:solid;
+    border-width:5px;
+    border-color: rgba(0,0,0,0);
+}
+
+.hotdeal .row  .pro:hover{
+	border-color:#ee1c24;
+}
+
+.hotdeal .row .pro:hover h4{
+	color:#d61920;
+}
+
+.hotdeal .row .pro:hover span{
+	color:#d61920;
+}
+
+.hotdeal .row  .pro:hover .caption{
+	border-color:#ee1c24;
+}
+.hotdeal .row  .pro:hover button{
+	background-color:#ee1c24;
 }
 
 .hotdeal .caption {
-    width: 100%;
+    width: 270px;
     height: 100px;
     position: absolute;
-    background-color: #ccc;
     -webkit-transition: bottom 0.3s;
     transition: bottom 0.3s;
-    bottom: 0px;
+	bottom:0px;
     padding: 5px 3px;
+	border-top-style:dashed;
+	border-width:1px;
+	border-color:rgba(0,0,0,0.1);
 }
 
 .hotdeal .caption h4 {
+    color: #000;
     text-align: center;
 }
 
 .hotdeal .caption span {
+     color: #000;
      font-weight: bold;
      margin: 10px;
 }
 
 .hotdeal .caption button {
     color: #ffffff;
-    background-color: #EF5505;
+    background-color: rgba(0,0,0,0.5);
     height: 35px;
     padding: 0;
     max-width: 60px;
@@ -610,6 +578,7 @@ header .col-xs-2:hover .cart-list {
     border: none;
     margin: 5px 3px;
 }
+
 /*   Hot Staffs END */
 
 
