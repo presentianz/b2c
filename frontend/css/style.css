@@ -45,7 +45,13 @@ a:focus {
     margin:0;
 }
 
-
+/* 加载条 */
+.progress{
+	margin: 100px;
+}
+#indexpro{
+	width:0%;
+}
 /* top navbar */
 .navbar {
     background-color: #ecf0f1;
