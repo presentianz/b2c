@@ -22,7 +22,9 @@ $(document).ready(function() {
 
 function imageLoaded(){ 
 	curt++; 
+	$("#indexpro").css("width",curt/total*100+"%");
 	if(curt==total){ 
+		$(".progress").css("display","none");
 		$("#index").css("display","block"); 
 	}
 }
