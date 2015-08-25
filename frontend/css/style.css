@@ -30,13 +30,17 @@ a:focus {
     min-height: 450px;
 }
 
+.no-padding {
+	padding:0;
+}
+
 .container-non-responsive {
 	margin-left: auto;
     margin-right: auto;
     width: 1170px;
 }
 
-.row{
+.row {
     border-bottom-style:solid;
     border-left-style:solid;
     border-right-style:solid;
@@ -44,6 +48,7 @@ a:focus {
     border-color: rgba(0,0,0,0.1);
     margin:0;
 }
+
 
 /* 加载条 */
 .progress{
@@ -244,7 +249,7 @@ header .col-xs-2:hover .cart-list {
 
 /* Left Sider Navbar */
 #sidebar {
-    width:238px;
+    width:254px;
     height:auto;
     padding: 0;
 }
@@ -253,6 +258,7 @@ header .col-xs-2:hover .cart-list {
     margin: 0;
     padding: 0;
     border-radius: 0px;
+    width: 100%;
 }
 
 #sidebar .dropdown-toggle {
@@ -339,7 +345,7 @@ header .col-xs-2:hover .cart-list {
 
 .drop-menu-right {
 	background-color: #F5F5F5;
-    left: 237px;
+    left: 253px;
     padding: 0px;
     border-radius: 0px;
     top: -3px;
