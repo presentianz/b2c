@@ -1,0 +1,18 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+
+<div class="fos_user_user_show">
+    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    <p>{{ 'profile.fullname'|trans }}: {{ user.userInfo.fullName }}</p>
+    <p>{{ 'profile.wechatno'|trans }}: {{ user.userInfo.Wechatno }}</p>
+    <p>{{ 'profile.contactno'|trans }}: {{ user.userInfo.contactno }}</p>
+    <p>{{ 'profile.country'|trans }}: {{ user.userInfo.country }}</p>
+    <p>{{ 'profile.region'|trans }}: {{ user.userInfo.region }}</p>
+    <p>{{ 'profile.city'|trans }}: {{ user.userInfo.city }}</p>
+    <p>{{ 'profile.exp'|trans }}: {{ user.userInfo.exp }}</p>
+    <p>{{ 'profile.balance'|trans }}: {{ user.userInfo.balance }}</p>
+    <p>{{ 'profile.lockedbalance'|trans }}: {{ user.userInfo.lockedbalance }}</p>
+    <a href="edit">{{ 'button.edit'|trans }}<a/>
+</div>
