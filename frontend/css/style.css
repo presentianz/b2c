@@ -413,7 +413,7 @@ header .col-xs-2:hover .cart-list {
     left: auto;
 }
 .carousel:hover .carousel-control {
-     display: block;
+    display: block;
 }
 
 
@@ -506,9 +506,9 @@ header .col-xs-2:hover .cart-list {
 }
 
 .hotdeal .caption span {
-     color: #000;
-     font-weight: bold;
-     margin: 10px;
+    color: #000;
+    font-weight: bold;
+    margin: 10px;
 }
 
 .hotdeal .caption button {
