@@ -7,12 +7,21 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+    	<a href="{{ path('homepage') }}">首页</a>
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
             <a href="{{path('fos_user_security_logout')}}">退出帐号</a>
+            <a href="{{path('fos_user_profile_show')}}">我的账号</a>
+            <a href="{{ path("fos_user_change_password") }}">修改密码<a/>
         {% else %}
             <a href="{{path('fos_user_security_login')}}">登录</a>
+            <a href="{{path('fos_user_registration_register')}}">注册</a>
         {% endif %}
+        
         {% block body %}{% endblock %}
+        
+        <!-- 此处是FOSUser信息 -->
+        {% block fos_user_content %} {% endblock fos_user_content %}
+        
         {% block javascripts %}{% endblock %}
     </body>
 </html>
