@@ -7,7 +7,7 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-    	<a href="/app_dev.php">首页</a>
+    	<a href="{{ path('homepage') }}">首页</a>
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
             <a href="{{path('fos_user_security_logout')}}">退出帐号</a>
             <a href="{{path('fos_user_profile_show')}}">我的账号</a>
