@@ -122,9 +122,9 @@ header .btn {
 }
 
 header .btn:hover {
-   cursor: pointer;
-   background-color: #ee1c24;
-   border: 1px solid #ee1c24;
+    cursor: pointer;
+    background-color: #ee1c24;
+    border: 1px solid #ee1c24;
 }
 
 header .col-xs-9 {
@@ -580,9 +580,9 @@ header .col-xs-2:hover .cart-list {
 /*   Footer  */
 footer {
     background-color:#fff;
-    color:#222;
-    padding: 30px 95px;     
+    color:#222;     
     min-height: 210px;
+    padding-top: 30px;
 }
 
 footer h5 {

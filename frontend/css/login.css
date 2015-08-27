@@ -1,7 +1,23 @@
+.login .carousel{
+    width: 100% !important;
+    padding: 0;
+    max-height: none !important;
+}
 
+.login .carousel-indicators, 
+.login .carousel-control.left,
+.login .carousel-control.right {
+    display: none;
+}
 
 .login-content {
-    margin: 0;
+    background-color: #fff;
+    padding: 10px 20px 20px 20px;
+    margin-top: 15px;
+    width: 300px;
+    top: 20px;
+    position: absolute;
+    right: 30px;
 }
 
 
@@ -31,12 +47,20 @@
 }
 .login-content button {
     color: #ffffff;
-    background-color: #EF5505;
+    background-color: #ee1c24;
     height: 35px;
+    margin: 0;
     padding: 0;
-    width: 80px;
-    border: none;
+    min-width: 80px;
     margin-right: 10px;
+    border-radius:0px;
+    border: 1px solid #ee1c24;
+}
+
+.login-content button:hover {
+    cursor: pointer;
+    background-color: #ee1c24;
+    border: 1px solid #ee1c24;
 }
 
 
