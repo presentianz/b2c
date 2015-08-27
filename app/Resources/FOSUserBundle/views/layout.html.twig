@@ -8,25 +8,7 @@
     </head>
     <body>
         <div>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <a href="{{ path('fos_user_security_logout') }}">
-                    登出
-                </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">登录</a>
-            {% endif %}
-        </div>
-
-        {% if app.request.hasPreviousSession %}
-            {% for type, messages in app.session.flashbag.all() %}
-                {% for message in messages %}
-                    <div class="flash-{{ type }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endfor %}
-        {% endif %}
-
+            	应该不需要此模板了
         <div>
             {% block fos_user_content %}
             {% endblock fos_user_content %}

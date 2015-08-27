@@ -1,4 +1,4 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends "layout.html.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
@@ -20,6 +20,8 @@
     <label for="remember_me">{# 'security.login.remember_me'|trans #}下次自动登录</label>
 
     <input type="submit" id="_submit" name="_submit" value="登录" />
+    
+    <a href="{{path("fos_user_resetting_request")}}">找回密码</a>
 </form>
 已覆盖.（app/Resources/FOSUserBundle/views/Security/login.html.twig）
 {% endblock fos_user_content %}
