@@ -9,4 +9,14 @@
 {{ 'resetting.email.message'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}
 {% endautoescape %}
 {% endblock %}
-{% block body_html %}{% endblock %}
+{% block body_html %}
+
+<p>
+用户名：{{user.username}}<br>
+
+请点击下面链接，重置密码<br>
+
+<a href="{{confirmationUrl}}">{{confirmationUrl}}</a>
+
+</p>
+{% endblock %}
