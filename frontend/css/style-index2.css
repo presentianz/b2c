@@ -172,7 +172,7 @@ header .col-xs-2 {
 	display: block;
 	width: 141px;
     height: 10px;
-    background: #000;
+    background: #fff;
     position: absolute;
     top: -5px;
     z-index: 5;
