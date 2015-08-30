@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+   
+<div id="address_content">   
+    
+联系人：{{address.name}}
+<br>
+联系电话：{{address.contactNo}}<br>
+国家：{{address.country}}<br>
+省份/地区：{{address.region}}<br>
+城市：{{address.city}}<br>
+邮编：{{address.postCode}}<br>
+地址：{{address.address}}<br>
+
+<div>
+
+<a href="{{ path('user_address_edit', { id: address.id }) }}">编辑</a>
+<a href="{{ path('user_address_remove', { id: address.id }) }}">删除</a>
+{% endblock %}

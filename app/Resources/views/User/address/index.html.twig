@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <div>发货地址管理</div>
+    
+    {% for address in addresses %}
+        <p>
+            
+            {{ address.name }}/ {{ address.contactNo }}
+           
+            
+            <a href="{{ path('user_address_edit', { id: address.id }) }}">编辑</a>
+            <a href="{{ path('user_address_remove', { id: address.id }) }}">删除</a>
+            
+            <br>
+            
+            {{ address.country }}{{ address.region }}{{ address.city }}{{ address.postCode }}<br>
+            {{ address.address }}
+        </p>
+    {% endfor %}
+    
+     <p><a href="{{ path("user_address_create") }}">创建地址<a/></p>
+     
+{% endblock %}

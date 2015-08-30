@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+{% if address.id %}
+	{{ form_start(form, { method: 'POST', action: path('user_address_edit',{ 'id': address.id }) }) }}
+{%else%}
+	{{ form_start(form, { method: 'POST', action: path('user_address_create') }) }}	
+{% endif %}
+
+    {{ form_widget(form) }}
+{{ form_end(form) }}   
+{% endblock %}

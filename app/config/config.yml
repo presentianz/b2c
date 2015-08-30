@@ -87,12 +87,17 @@ fos_user:
     firewall_name: main
     user_class: AppBundle\Entity\User
     service:
-        mailer: fos_user.mailer.default
+        mailer: fos_user.mailer.twig_swift
     registration:
         confirmation:
             from_email:
-                address: ideal818@126.com
-                sender_name: B2C公司
+                address: "%mailer_user%"
+                sender_name: "%mailer_sender_name%"
             enabled: true
         form:
             type: fos_user_registration
+    resetting:
+       email:
+          from_email:
+             address: "%mailer_user%"
+             sender_name: "%mailer_sender_name%"
