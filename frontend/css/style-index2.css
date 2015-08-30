@@ -170,9 +170,9 @@ header .col-xs-2 {
 
 .cart-block-row{
 	display: block;
-	width: 140px;
+	width: 141px;
     height: 10px;
-    background: #fff;
+    background: #000;
     position: absolute;
     top: -5px;
     z-index: 5;
