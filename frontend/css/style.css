@@ -152,17 +152,66 @@ header .col-xs-2 {
      margin-top: 30px;
 
 }
+.cart{
+    margin-top: 12px;
+    -webkit-backface-visibility: hidden;
+    text-decoration: none;
+    display: block;
+    width: 143px;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #e5e5e5;
+    position: relative;
+    background: #fff;
+    z-index: 0;
+    box-shadow: 0 0 2px rgba(0,0,0,.2);
+    float: right;
+}
+
+
+
+.cart-block-row{
+    display: block;
+    width: 141px;
+    height: 10px;
+    background: #fff;
+    position: absolute;
+    top: -5px;
+    z-index: 5;
+    right: 0;
+}
+
+.cart img{
+    float: left;
+    height: 28px;
+    width: 40px;
+    overflow: hidden;
+    padding: 0 9px;
+}
+
+.cart span{
+    width: 100px;
+    height: 30px;
+    line-height: 32px;
+    color: #666;
+    overflow: hidden;
+    float: left;
+    padding-left: 6px;
+    background: #f8f8f8;
+}
 
 .cart-list {
     display: none;
     min-width: 250px;
     height: auto;
-    background-color: #F5F5F5;
+    background-color: #fff;
     border-radius: 0px;
     position: absolute;
     z-index: 1;
-	right:-23px;
-} 
+    right: 15px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 0 2px rgba(0,0,0,.2);
+}
 
 header .col-xs-2:hover .cart-list {
     display: block;
@@ -231,8 +280,8 @@ header .col-xs-2:hover .cart-list {
 
 /* Sub Navbar */
 #topnav.top-nav {
-    background: #000000;
-    height: 50px;
+    background: #31394a;
+    height: 45px;
     width: 1170px;
     margin: 0 auto;
 }
@@ -240,15 +289,44 @@ header .col-xs-2:hover .cart-list {
 #topnav .nav-all {
     background:#ee1c24;
     width:255px;
-    height:auto; 
+    height:45px; 
+    float: left;
+    margin: 0 auto;
 }
 
 #topnav .nav-all p {
     color:#fff;
     font-size:15px;
-    line-height:50px;
+    line-height:45px;
     padding-left: 25px;
     font-weight: bold;
+}
+.clear{
+    clear: both;
+}
+
+.nav-right{
+    height: 45px;
+    display: inline-block;
+}
+
+.nav-right a{
+    float: left;
+    display: inline-block;
+    color: #fff;
+    font-size: 15px;
+    line-height: 45px;
+    padding: 0px 25px;
+    font-weight: bold;
+}
+
+.nav-right a:hover,
+.nav-right a:focus{
+    color: #999 !important;
+}
+
+.nav-right a.active{
+    background: #1d212b;
 }
 
 /* Left Sider Navbar */

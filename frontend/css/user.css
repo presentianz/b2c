@@ -23,6 +23,10 @@ button {
     border: 1px solid #ee1c24;
 }
 
+input {
+    padding-left: 10px;
+}
+
 .user .user-left {
     width:255px;
     margin-top: 30px;
@@ -115,6 +119,9 @@ button {
     width: 100%;  
 
 }
+#tab2 td {
+    vertical-align: middle;
+}
 
 #tab2 img{
     width:100px;
@@ -128,11 +135,19 @@ button {
     display:block;
 }
 
+#tab2 .clearfix input {
+    width:50px;
+}
+
 #tab5 .title {
     font-weight: bold;
     display: inline-block;
     width: 45%;
 }
+#tab5 .row.open {
+    display: none;
+}
+
 #tab5 .row {
         margin: 30px 0;
     padding: 10px;
@@ -142,25 +157,77 @@ button {
     margin-bottom: 5px;
 }
 
-#tab5 .cn-part > div {
+#tab5 .part {
+    display: none;
+}
+
+
+#tab5 .part.active {
+    display: block;
+}
+
+#tab5 .part > div {
     margin: 10px 0px;
 }
 
-#tab5 .cn-part label {
+#tab5 .part label {
     width: 100px;
 }
 
-#tab5 .cn-part input {
+#tab5 .part input {
     margin-right: 40px;
     width: 200px;
     display: inline-block;
 }
 
-#tab5 .cn-part textarea {
+#tab5 .part textarea {
     width: 548px;
     height: 60px;
     vertical-align: top;
     resize: none;
+    padding-left: 10px;
+}
+
+#tab6 .detail-content h5 > div {
+    margin-bottom: 15px;
+    padding: 10px 0px;
+    text-align: left;
+    width: 100%;
+
+}
+
+#tab6 .detail-content label {
+     width: 100px;
+}
+
+
+#tab6 .detail-content input {
+    height: 30px;
+    width: 250px;
+    margin-right: 80px;
+    display: inline-block;
+}
+
+#tab7 .row > div {
+    width: 370px;
+    float: left;
+    margin: 10px;
+}
+
+#tab7 .row > div img {
+    width:  100%;
+    margin-bottom: 10px;
+}
+
+#tab7 .row > div p {
+    float: right;
+}
+
+#tab7 .dis-btn {
+    background-color: #ccc;
+    border: 1px solid #ccc;
+    outline: none;
+    cursor: none;
 }
 
 
@@ -180,7 +247,6 @@ button {
 #tab8 .detail-content input {
     height: 30px;
     width: 250px;
-    padding: 10px 25px;
     margin-right: 80px;
 }
 

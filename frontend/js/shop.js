@@ -28,11 +28,22 @@ $(document).ready(function() {
 
      $('.order').on("click", function(e) {
     var currentAttrValue = jQuery(this).attr('href');
-    console.log(currentAttrValue);
     $(currentAttrValue).fadeIn(400).siblings().hide();
     $('.order-detail').addClass('active').siblings().removeClass('active');
     e.preventDefault();
     });
+
+      $('#tab5 .row > a').on("click", function(e) {
+    var currentAttrValue = jQuery(this).attr('href');
+    $(currentAttrValue + '.part').addClass('active').siblings().removeClass('active');
+    e.preventDefault();
+    });
+
+      $( "button.open" ).click(function() {
+      $(".row.open").toggle( "slow" );
+});
+
+
 
 });
 
