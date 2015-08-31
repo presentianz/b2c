@@ -7,6 +7,7 @@ parameters:
     database_password: b2cpassword
     mailer_transport: smtp
     mailer_host: localhost
-    mailer_user: null
+    mailer_user: gigantic222@gmail.com
+    mailer_sender_name: b2c
     mailer_password: null
     secret: bfa154a90d102be1255e7f3b9b4b5f4d9efdabc9
