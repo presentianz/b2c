@@ -3,7 +3,7 @@
     width: 100%;
     height: auto;
     font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
-    background: #ecf0f1;
+    background: #fff;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -24,6 +24,7 @@ a:focus {
     text-decoration:none !important;
     cursor: pointer;
     background-color: transparent !important;
+    outline: none;
 }
 
 .bg {
@@ -560,6 +561,7 @@ header .col-xs-2:hover .cart-list {
     right: 10px;
     color: #ccc;
     text-decoration: none;
+    padding: 0px 1px;
     
 }
 
@@ -586,6 +588,7 @@ footer {
     color:#222;     
     min-height: 210px;
     padding-top: 30px;
+    clear: both;
 }
 
 footer h5 {
@@ -604,7 +607,7 @@ footer .col-xs-2 {
 }
 
 footer .col-xs-2:last-child {
- border-right: none;
+    border-right: none;
 }
 
 .copyright { 
@@ -612,6 +615,7 @@ footer .col-xs-2:last-child {
     padding: 8px; 
     font-size: 13px; 
     background: #ecf0f1; 
+    min-height: 50px;
 }
 
 .copyright .container{

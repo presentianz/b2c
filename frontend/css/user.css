@@ -1,0 +1,189 @@
+.user {
+    min-height: 740px;
+    height: auto;
+}
+
+button {
+    color: #ffffff;
+    background-color: #ee1c24;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    min-width: 80px;
+    border-radius:0px;
+    border: 1px solid #ee1c24;
+}
+
+
+ button:hover,
+ button:focus  {
+    cursor: pointer;
+    background-color: #ee1c24;
+    border: 1px solid #ee1c24;
+}
+
+.user .user-left {
+    width:255px;
+    margin-top: 30px;
+    padding:0;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.user .user-left li {
+    text-align: left;
+    line-height: 50px;
+    font-size: 15px;
+    padding-left: 25px; 
+    height: 50px;
+    width: 100%;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+}
+
+.user .user-left li:first-child {
+    border-top-style: none;
+}
+
+.user .user-left li a {
+    padding:0;
+    color: #666;
+    font-weight: normal;
+}
+
+.user .user-left li:hover, 
+.user .user-left li:focus,
+.user .user-left li.active  {
+    outline: none;
+    background-color: #ee1c24;
+    border: none;
+    width: 255px;
+    font-weight: bold;
+}
+
+.user .user-left li a:hover,
+.user .user-left li.active a {
+    color: #fff !important;
+}
+
+.user .user-content {
+    min-height:650px;
+    margin-top: 30px;
+
+}
+
+.user .user-content .detail {
+    display:none;
+    padding-left: 40px;
+   
+}
+
+.user .user-content .detail.active {
+    display: block;
+}
+
+.user .user-content .detail-content {
+    padding: 0 10px;
+}
+
+.user .user-content .detail h3{
+    text-align: left;
+    margin: 10px;
+}
+
+
+
+#tab1 .detail-content h5 > div {
+    margin-bottom: 15px;
+    padding: 10px 0px;
+
+}
+
+#tab1 .detail-content label {
+     width: 100px;
+}
+
+#tab1 .detail-content h5 > div > div {
+    text-align: left;
+    width: 30%;
+    display: inline-block;    
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+#tab1 .detail-content h5 > div:last-child div {
+    width: 100%;  
+
+}
+
+#tab2 img{
+    width:100px;
+}
+
+#tab2 .order-detail {
+    display:none;
+}
+
+#tab2 .order-detail.active {
+    display:block;
+}
+
+#tab5 .title {
+    font-weight: bold;
+    display: inline-block;
+    width: 45%;
+}
+#tab5 .row {
+        margin: 30px 0;
+    padding: 10px;
+}
+
+#tab5 .row h5 div {
+    margin-bottom: 5px;
+}
+
+#tab5 .cn-part > div {
+    margin: 10px 0px;
+}
+
+#tab5 .cn-part label {
+    width: 100px;
+}
+
+#tab5 .cn-part input {
+    margin-right: 40px;
+    width: 200px;
+    display: inline-block;
+}
+
+#tab5 .cn-part textarea {
+    width: 548px;
+    height: 60px;
+    vertical-align: top;
+    resize: none;
+}
+
+
+#tab8 .detail-content h5 > div {
+    margin-bottom: 15px;
+    padding: 10px 0px;
+    text-align: left;
+    width: 100%;
+
+}
+
+#tab8 .detail-content label {
+     width: 100px;
+}
+
+
+#tab8 .detail-content input {
+    height: 30px;
+    width: 250px;
+    padding: 10px 25px;
+    margin-right: 80px;
+}
+
+
+
+
