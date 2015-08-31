@@ -21,8 +21,9 @@ a {
 a:hover,
 a:focus {
     color: #d61920 !important;
-    text-decoration:none;
+    text-decoration:none !important;
     cursor: pointer;
+    background-color: transparent !important;
 }
 
 .bg {
@@ -121,7 +122,8 @@ header .btn {
     border: 1px solid #ee1c24;
 }
 
-header .btn:hover {
+header .btn:hover,
+header .btn:focus {
     cursor: pointer;
     background-color: #ee1c24;
     border: 1px solid #ee1c24;
