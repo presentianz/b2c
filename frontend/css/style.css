@@ -57,6 +57,7 @@ a:focus {
     min-height: 20px !important;
     margin: 0;
     border-bottom: 1px solid #ccc;
+    min-width: 1170px;
 }
 
 .navbar a, 
@@ -85,6 +86,7 @@ a:focus {
 
 header {
     background-color: #fff;
+    min-width: 1170px;
 }
 
 header .container-non-responsive {
@@ -619,6 +621,10 @@ header .col-xs-2:hover .cart-list {
     height: 300px;
  }
 
+.hotdeal .row > .col-xs-3:hover {
+ box-shadow: #999 0px 4px 8px;
+}
+
 
 .hotdeal .row > div img {
     width: 250px;
@@ -752,6 +758,7 @@ footer {
     min-height: 210px;
     padding-top: 30px;
     clear: both;
+    min-width: 1170px;
 }
 
 footer h5 {
