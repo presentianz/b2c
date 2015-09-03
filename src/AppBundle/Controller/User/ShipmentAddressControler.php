@@ -12,7 +12,7 @@ use AppBundle\Entity\ShipmentAddress;
 use AppBundle\Form\Type\ShipmentAddressFormType;
 
 /**
- * @Route("/address")
+ * @Route("account/address")
  * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
  */
 
