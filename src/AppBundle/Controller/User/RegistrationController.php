@@ -57,7 +57,9 @@ class RegistrationController extends BaseController
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
             
-            $user->setUserInfo($this->createUserInfo());//relate user & user_info
+            $user->setUserInfo(new UserInfo());//relate user & user_info
+
+            //exit(\Doctrine\Common\Util\Debug::dump($user));
             
             $userManager->updateUser($user);
             
@@ -77,25 +79,16 @@ class RegistrationController extends BaseController
         ));
     }
     
-    //create user info record
-    function createUserInfo(){
+    //create user info record with default value in entity
+    /*function createUserInfo(){
     	$user_info = new UserInfo();
-    	$user_info->setFullName('');
-    	$user_info->setWechatNo('');
-    	$user_info->setQqNo('');
-    	$user_info->setExp(0);
-    	$user_info->setBalance('');
-    	$user_info->setCountry('');
-    	$user_info->setRegion('');
-    	$user_info->setCity('');
-    	$user_info->setContactNo('');
-    	$user_info->setUpdateAt(new \DateTime());
-    	$user_info->setLockedBalance('');
-    	
+        //exit(\Doctrine\Common\Util\Debug::dump($user_info));
+
+        //set default in the entity
     	$em = $this->getDoctrine()->getManager();
     	$em->persist($user_info);
     	$em->flush();
     	
     	return $user_info;
-    }
+    }*/
 }
