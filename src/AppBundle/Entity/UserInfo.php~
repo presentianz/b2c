@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class UserInfo
 {
@@ -24,72 +25,79 @@ class UserInfo
     /**
      * @var string
      *
-     * @ORM\Column(name="full_name", type="string", length=255)
+     * @ORM\Column(name="full_name", type="string", length=255, nullable=true)
      */
     private $full_name;
     
     /**
      * @var integer
      *
-     * @ORM\Column(name="exp", type="integer")
+     * @ORM\Column(name="exp", type="integer", options={"unsigned":true})
      */
-    private $exp;
+    private $exp = "0";
 
     /**
      * @var string
      *
-     * @ORM\Column(name="balance", type="decimal")
+     * @ORM\Column(name="balance", type="decimal", precision=8, scale=2)
      */
-    private $balance;
+    private $balance = "0";
 
     /**
      * @var string
      *
-     * @ORM\Column(name="locked_balance", type="decimal")
+     * @ORM\Column(name="locked_balance", type="decimal", precision=8, scale=2)
      */
-    private $lockedBalance;
+    private $lockedBalance = "0";
 
     /**
      * @var string
      *
-     * @ORM\Column(name="contact_no", type="string", length=255)
+     * @ORM\Column(name="contact_no", type="string", length=255, nullable=true)
      */
     private $contactNo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="wechat_no", type="string", length=255)
+     * @ORM\Column(name="wechat_no", type="string", length=255, nullable=true)
      */
     private $wechatNo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="qq_no", type="string", length=255)
+     * @ORM\Column(name="qq_no", type="string", length=255, nullable=true)
      */
     private $qqNo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="country", type="string", length=255)
+     * @ORM\Column(name="country", type="string", length=255, nullable=true)
      */
     private $country;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="region", type="string", length=255)
+     * @ORM\Column(name="region", type="string", length=255, nullable=true)
      */
     private $region;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="city", type="string", length=255)
+     * @ORM\Column(name="city", type="string", length=255, nullable=true)
      */
     private $city;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="create_at", type="datetime")
+     */
+    private $createAt;
 
     /**
      * @var \DateTime
@@ -97,12 +105,6 @@ class UserInfo
      * @ORM\Column(name="update_at", type="datetime")
      */
     private $updateAt;
-
-    /**
-     * @ORM\OneToOne(targetEntity="User", inversedBy="userInfo")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     **/
-    private $user;
 
     /**
      * Get id
@@ -388,5 +390,45 @@ class UserInfo
     public function getUser()
     {
         return $this->user;
+    }
+
+    /** 
+     * @ORM\PrePersist
+     */
+    public function createAtPrePersist()
+    {
+        $this->createAt =  new \DateTime();
+    }
+
+    /** 
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function UpdatePreUpdate()
+    {
+        $this->updateAt =  new \DateTime();
+    }
+
+    /**
+     * Set createAt
+     *
+     * @param \DateTime $createAt
+     * @return UserInfo
+     */
+    public function setCreateAt($createAt)
+    {
+        $this->createAt = $createAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreateAt()
+    {
+        return $this->createAt;
     }
 }

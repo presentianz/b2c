@@ -36,11 +36,32 @@ class Product
     private $price;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="price_discounted", type="decimal")
+     */
+    private $price_discounted;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="viewed_count", type="integer")
+     */
+    private $viewed_count;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="sold_no", type="integer")
      */
     private $soldNo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="inventory", type="integer")
+     */
+    private $inventory;
 
     /**
      * @var string
@@ -70,7 +91,7 @@ class Product
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity="Comment", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="product")
      **/
     private $comments;
 
@@ -284,5 +305,74 @@ class Product
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set price_discounted
+     *
+     * @param string $priceDiscounted
+     * @return Product
+     */
+    public function setPriceDiscounted($priceDiscounted)
+    {
+        $this->price_discounted = $priceDiscounted;
+
+        return $this;
+    }
+
+    /**
+     * Get price_discounted
+     *
+     * @return string 
+     */
+    public function getPriceDiscounted()
+    {
+        return $this->price_discounted;
+    }
+
+    /**
+     * Set viewed_count
+     *
+     * @param integer $viewedCount
+     * @return Product
+     */
+    public function setViewedCount($viewedCount)
+    {
+        $this->viewed_count = $viewedCount;
+
+        return $this;
+    }
+
+    /**
+     * Get viewed_count
+     *
+     * @return integer 
+     */
+    public function getViewedCount()
+    {
+        return $this->viewed_count;
+    }
+
+    /**
+     * Set inventory
+     *
+     * @param integer $inventory
+     * @return Product
+     */
+    public function setInventory($inventory)
+    {
+        $this->inventory = $inventory;
+
+        return $this;
+    }
+
+    /**
+     * Get inventory
+     *
+     * @return integer 
+     */
+    public function getInventory()
+    {
+        return $this->inventory;
     }
 }

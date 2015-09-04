@@ -22,7 +22,7 @@ use AppBundle\Entity\UserInfo;
 use FOS\UserBundle\Controller\ProfileController as BaseController;
 
 /**
- * @Route("/profile")
+ * @Route("/account/profile")
  */
 class ProfileController extends BaseController
 {
