@@ -7,7 +7,7 @@ $(document).ready(function() {
          window.scrollTo(0,0);
 	}); 
 
-    $('.user .user-left li > a').on("click", function(e) {
+    $('#user-page .user-left li > a').on("click", function(e) {
     var currentAttrValue = jQuery(this).attr('href');
     $('.user-content ' + currentAttrValue).fadeIn(400).siblings().hide();
     $(this).parent('li').addClass('active').siblings().removeClass('active');

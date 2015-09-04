@@ -26,20 +26,58 @@
 		<div class="navbar">
 			<div class="container-non-responsive">
 				<div class="pull-left">
-					<h6>欢迎来到彩购！| <a href="#">收藏彩购网</a></h6>			
+					<h6>欢迎来到彩购!<a href="#">收藏彩购网</a></h6>			
 				</div>
 				<div class="pull-right">
 					<h6>	
 						<a class="a-login" href="login.html">登录</a>
 						<a class="a-register" href="register.html">注册</a>
-						<a href="user.html">我的彩购</a> 
-						<a href="history.html">最近浏览</a>
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">更多</a>
-						<ul class="dropdown-menu">
-							<li><a href="#">联系我们</a></li>
-							<li><a href="#">关于我们</a></li>
-							<li><a href="#">充值</a></li>
-						</ul>
+						<div class="user">
+							<a href="user.html">我的彩购</a> 
+							<div class="clear"></div>
+							<div class="user-list">
+								<div><a href="user.html">我的账户</a></div>
+								<div><a href="user.html">我的积分</a></div>
+								<div><a href="user.html">充值</a></div>
+							</div>
+						</div>
+						<div class="history">
+							<a href="history.html" >最近浏览</a>
+							<div class="clear"></div>
+							<div class="history-list">
+								<div class="item">
+									<a href="history.html" >
+										<div class="cart-image">
+											<img src="img/aptami.jpg" />
+										</div>
+										<div class="cart-content">
+											<h5>麦卢卡蜂蜜</h5>
+											<span><strong>$2000.00</strong></span>
+										</div>
+									</a>
+								</div>
+								<div class="item">
+									<a href="history.html" >
+										<div class="cart-image">
+											<img src="img/aptami.jpg" />
+										</div>
+										<div class="cart-content">
+											<h5>麦卢卡蜂蜜</h5>
+											<span><strong>$2000.00</strong></span>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="more">
+							<a href="#">更多</a>
+							<div class="clear"></div>
+							<div class="more-list">
+								<div><a href="contact.html">联系我们</a></div>
+								<div><a href="about.html">关于我们</a></div>	
+							</div>
+						</div>
+
 					</h6>	
 				</div>
 			</div>
@@ -58,13 +96,15 @@
 						<input type="text" placeholder="搜索产品..." class="search-query">
 						<button type="submit" class="btn">搜索</button>
 					</form>
-					<div class="col-xs-9">
-						<h6><a href="#">麦卢卡蜂蜜</a></h6>
-						<h6><a href="#">好健康蜂胶</a></h6>
-						<h6><a href="#">爱他美婴儿奶粉</a></h6>
-						<h6><a href="#">蔓越莓</a></h6>
-						<h6><a href="#">纽乐鱼油</a></h6>
-						<h6><a href="#">护手霜</a></h6>
+					<div class="col-xs-9 search-keys">
+						<h6>
+							<a href="#">麦卢卡蜂蜜</a><span class="dashed"></span>
+							<a href="#">好健康蜂胶</a><span class="dashed"></span>
+							<a href="#">爱他美婴儿奶粉</a><span class="dashed"></span>
+							<a href="#">蔓越莓</a><span class="dashed"></span>
+							<a href="#">纽乐鱼油</a><span class="dashed"></span>
+							<a href="#">护手霜</a>
+						</h6>
 					</div>
 				</div>
 				<div class="col-xs-2">
@@ -74,19 +114,18 @@
 					</a>
 					<div class="clear"></div>
 					<div class="cart-list">
-					<i class="cart-block-row"></i>
+						<i class="cart-block-row"></i>
 						<div class="item">
 							<div class="cart-image">
 								<img src="img/aptami.jpg" />
 							</div>
 							<div class="cart-content">
 								<h5>麦卢卡蜂蜜</h5>
-								<p>
-									<span><strong>$2000.00</strong></span>
-									<span>×20</span>
-								</p>
+								<span><strong>$2000.00</strong></span>
+								<span>×20</span>
+								<span><a href="#">删除</a></span>
 							</div>
-							<span class="fa fa-remove"></span>
+
 						</div>
 						<div class="item">
 							<div class="cart-image">
@@ -94,26 +133,24 @@
 							</div>
 							<div class="cart-content">
 								<h5>麦卢卡蜂蜜</h5>
-								<p><!--z-->
-									<span><strong>$220.00</strong></span>
-									<span>×5</span>
-								</p>
+								<span><strong>$220.00</strong></span>
+								<span>×5</span>
+								<span><a href="#">删除</a></span>
 							</div>
-							<span class="fa fa-remove"></span>
+
 						</div>
 						<div class="total">
 							<span>共<strong>25</strong>件商品</span>
-							<span>共计<strong>$41100.00</strong></span>
+							<span>共计<strong>$411.00</strong></span>
 						</div>
-						<div class="see-more">更多</div>
+						<div class="see-more">结算</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</header>
 
 		<!--   User Register Panel -->
-		<div class="bg">
 			<div class="login container-non-responsive">
 					<div id="myCarousel" class="carousel slide">
 						<ol class="carousel-indicators">
@@ -167,7 +204,6 @@
 					</div>
 					</div>
 				</div><!-- /container-non-responsive -->
-			</div><!-- /background -->
 
 			<!--   User Login Panel END-->
 
@@ -177,8 +213,8 @@
 			</div>
 
 			<!-- Footer -->
-			<footer>	
-			<div class="container-non-responsive">
+		<footer>
+			<div class="container-non-responsive">	
 				<div class="col-xs-2">
 					<h5>公司简介</h5><br>
 					<p>  </p>
@@ -201,33 +237,28 @@
 					<a href="#">在线支付</a> <br>
 					<a href="#">信用卡支付</a><br>
 					<a href="#">银行转账</a><br>
-				</div>
-				<div class="col-xs-2">
-					<h5>售后服务</h5><br>
-					<a href="#">退换货政策</a> <br>
-					<a href="#">退换货流程</a><br>
-					<a href="#">退款说明</a><br>
-					<a href="#">我要退货/换货</a><br>
-				</div>
-				<div class="col-xs-2">
-					<h5>联系我们</h5><br>
-					<a href="#">加入我们</a><br>
-					<a href="#">联系我们</a><br>
-					<a href="#">友情链接</a><br>
-				</div>
+					<a href="#"><img src="img/payment/paymentexpress.png" alt="payment"></a>
+						<!-- <a href="#"><img src="img/payment/maestro.png" alt="payment"></a>
+						<a href="#"><img src="img/payment/mc.png" alt="payment"></a>
+						<a href="#"><img src="img/payment/pp.png" alt="payment"></a> -->
+					</div>
+					<div class="col-xs-2">
+						<h5>售后服务</h5><br>
+						<a href="#">退换货政策</a> <br>
+						<a href="#">退换货流程</a><br>
+						<a href="#">退款说明</a><br>
+						<a href="#">我要退货/换货</a><br>
+					</div>
+					<div class="col-xs-2">
+						<h5>联系我们</h5><br>
+						<a href="#">加入我们</a><br>
+						<a href="#">联系我们</a><br>
+						<a href="#">友情链接</a><br>
+					</div>
 				</div>
 			</footer>
-
-
-
 			<div class="copyright">
-				<div class="container-non-responsive">
-					<p class="pull-right">
-						<a href="#"><img src="img/payment/paymentexpress.png" alt="payment"></a>
-						<a href="#"><img src="img/payment/maestro.png" alt="payment"></a>
-						<a href="#"><img src="img/payment/mc.png" alt="payment"></a>
-						<a href="#"><img src="img/payment/pp.png" alt="payment"></a>
-					</p>
+				<div class="container-non-responsive">				
 					<span>Copyright &copy;2015 彩购网 Copyright</span>
 				</div>
 			</div>
