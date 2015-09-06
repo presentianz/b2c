@@ -1,70 +1,71 @@
 
 
-.login-left {
-    min-height: 410px;
-    text-align: center;
-}
 
 
-.login-content {
+.register-content {
     padding: 5px 20px 20px 20px;
     position: relative;
     border: 1px solid #999;
+    margin-bottom: 20px;
 }
 
 
-.login-content > div:last-child {
+.register-content > div:last-child {
     text-align: left;
     margin: 0px auto;
     max-width: 300px;
     padding: 0 20px;
 }
 
-.login-content .controls {
+.register-content .controls {
     margin: 20px 0px;
     position: relative;
 }
 
-.login-content .controls .fa {
-    color: #ee1c24;
-}
-
-.login-content .controls .fa-check-circle {
-     color: lightgreen;
-}
-
-.login-content .controls > input {
-     padding: 4px 0px;
+.register-content .controls > input {
+    padding: 4px 0px;
     border: 1px solid #fff;
     border-bottom-color: #999;
     width: 90%;
     margin-right: 8px;
 }
 
-.login-content .controls > input:hover, 
-.login-content .controls > input:focus {
+.register-content .controls .fa {
+    color: #ee1c24;
+}
+
+.register-content .controls .fa-check-circle {
+     color: lightgreen;
+}
+
+.register-content .controls > input[type="checkbox"] {
+    width: auto;
+}
+
+.register-content .controls > input:hover, 
+.register-content .controls > input:focus {
     border-bottom-color: #ee1c24;
     cursor: pointer;
     outline: none;
 }
 
-.login-content button{
+.register-content button{
     margin-right: 5px;
 }
 
 
-.login-content h6 {
+.register-content h6 {
     display: inline-block;
     text-align: left;
 }
 
-.login-content .social-network {
+.register-content .social-network {
     display: inline-block;
     width: 100%;
 
 }
 
-.login-content .social-network span {
+.register-content .social-network span {
     font-size: 20px;
     width: 30px;
     height: 30px;
@@ -72,7 +73,7 @@
     margin: 5px;
 }
 
-.login-content .error {
+.register-content .error {
     margin: 16px 0px;
     background-color: #ee1c24;
     height: 35px;
@@ -83,7 +84,7 @@
 }
 
 
-.login-content .error span {
+.register-content .error span {
      display: inline-block;
     position: absolute;
     left: -7px;
@@ -91,7 +92,7 @@
     padding: 5px 0px;
 }
 
-.login-content .error h6 {
+.register-content .error h6 {
     display: inline-block;
     padding-left: 10px;
     color: #fff;
@@ -100,6 +101,24 @@
 .error-none {
     display: none;
 }
+
+.register-email, 
+.register-active {
+    min-height: 350px;
+    text-align: center;
+}
+
+.register-email > div, 
+.register-active > div {
+    margin:60px;
+}
+
+.register-email strong, 
+.register-active strong,
+.register-active h6 a {
+    color:#ee1c24;
+}
+
 
 footer {
      min-height: 60px;

@@ -36,7 +36,7 @@
 		<!--   User Login Panel -->
 			<div id="login-page" class="container-non-responsive">
 
-			<div class="login-left col-xs-8">
+			<div class="login-left col-xs-7">
 					<a class="logo" href="search.html">
 						<img src="img/honey.jpg" alt="彩购网">
 					</a>
@@ -46,13 +46,23 @@
 						<form>
 							<div class="controls">
 								<input  type="text" placeholder="邮箱">
+								<span class="fa fa-check-circle"></span>
+								<div class="error  error-none">
+								<span class="fa fa-caret-left"></span>
+								<h6>邮箱输入错误</h6>
+								</div>
 							</div>
 							<div class="controls">
 								<input type="password" placeholder="密码">
+								<span class="fa fa-times-circle"></span>
+								<div class="error">
+								<span class="fa fa-caret-left"></span>
+								<h6>密码输入错误</h6>
+								</div>
 							</div>
 							<button>登录</button> 
 							<h6>
-								<a href="register.html">注册  |</a> 
+								<a href="register.html">注册</a><span class="dashed"></span>
 								<a href="#">忘记密码?</a>
 							</h6>
 							<hr>
@@ -93,12 +103,13 @@
 						<h5>联系我们</h5><br>
 					</div>
 				</div>
-			</footer>
+
 			<div class="copyright">
 				<div class="container-non-responsive">			
 					<span>Copyright &copy;2015 彩购网 Copyright</span>
 				</div>
 			</div>
+						</footer>
 
 		<!-- jQuery -->
 		<script src="js/jquery-1.11.3.min.js"></script>
