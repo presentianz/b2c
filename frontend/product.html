@@ -1,0 +1,335 @@
+  	<!DOCTYPE html>
+  	<html lang="en">
+  	<head>
+  		<meta charset="utf-8">
+  		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  		<meta name="description" content="">
+  		<meta name="author" content="">
+
+  		<title>彩购网－商品页</title>
+
+  		<!-- Bootstrap Core CSS -->
+  		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+  		<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+  		<link href="fonts/css/font-awesome.css" rel="stylesheet">
+
+  		<!-- Custom CSS -->
+  		<link rel="stylesheet" href="css/style.css" type="text/css">
+       <link rel="stylesheet" href="css/product.css" type="text/css">
+       
+     <!-- <link rel="stylesheet" href="css/non-responsive.min.css" type="text/css"> -->
+     <!-- Favicons if possible -->
+     <!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
+
+   </head> 
+   <body>
+    <!-- Upper Header Section -->
+    <div class="navbar">
+     <div class="container-non-responsive">
+      <div class="pull-left">
+       <h6>欢迎来到彩购！| <a href="#">收藏彩购网</a></h6>			
+     </div>
+     <div class="pull-right">
+       <h6>	
+         <a class="a-login" href="login.html">登录</a>
+         <a class="a-register" href="register.html">注册</a>
+         <a href="user.html">我的彩购</a> 
+         <a href="history.html">最近浏览</a>
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown">更多</a>
+         <ul class="dropdown-menu">
+           <li><a href="#">联系我们</a></li>
+           <li><a href="#">关于我们</a></li>
+           <li><a href="#">充值</a></li>
+         </ul>
+       </h6>	
+     </div>
+   </div>
+ </div>
+
+ <!-- Lower Header Section -->
+ <header>
+   <div class="container-non-responsive">
+    	<div class="col-xs-3">
+    		<a class="logo" href="index.html">
+    	 		<img src="img/logo.jpg" alt="彩购网">
+    		</a>
+  		</div>
+  		<div class="col-xs-7">
+           <form action="#" class="navbar-search pull-left">
+            <input type="text" placeholder="搜索产品..." class="search-query">
+            <button type="submit" class="btn">搜索</button>
+          </form>
+          <div class="col-xs-9">
+            <h6><a href="#">麦卢卡蜂蜜</a></h6>
+            <h6><a href="#">好健康蜂胶</a></h6>
+            <h6><a href="#">爱他美婴儿奶粉</a></h6>
+            <h6><a href="#">蔓越莓</a></h6>
+            <h6><a href="#">纽乐鱼油</a></h6>
+            <h6><a href="#">护手霜</a></h6>
+          </div>
+        </div>
+       <div class="col-xs-2">
+         	<a class="cart" href="cart.html">
+          		<img src="img/cart.gif">
+          		<span>&nbsp;结算购物车</span>
+        	</a>
+			<div class="clear"></div>
+			<div class="cart-list">
+ 				<i class="cart-block-row"></i>
+  				<div class="item">
+   					<div class="cart-image">
+    					<img src="img/aptami.jpg" />
+  					</div>
+                	<div class="cart-content">
+                    <h5>麦卢卡蜂蜜</h5>
+                    <p>
+                        <span><strong>$2000.00</strong></span>
+                        <span>×20</span>
+                    </p>
+                	</div>
+                	<span class="fa fa-remove"></span>
+            </div>
+               <div class="item">
+             	     <div class="cart-image">
+                       <img src="img/aptami.jpg" />
+                   </div>
+                   <div class="cart-content">
+         	           <h5>麦卢卡蜂蜜</h5>
+         	           <p><!--z-->
+           	       		<span><strong>$220.00</strong></span>
+              	       		<span>×5</span>
+                     </p>
+                   </div>
+                   <span class="fa fa-remove"></span>
+                </div>
+               <div class="total">
+                 <span>共<strong>25</strong>件商品</span>
+                 <span>共计<strong>$41100.00</strong></span>
+                </div>
+        		<div class="see-more">更多</div>
+    		</div>
+		</div>
+	</div>
+</header>
+
+<div class="bg">
+ <div class="container-non-responsive">
+  <nav id="topnav" class="top-nav">
+   <div class="nav-all">
+    	<a href="products.html" role="button" >
+     		<p>全部商品分类</p>
+   		</a>
+ 	</div>
+ 	<div class="nav-right">
+  		<a href="#" class="active">首页</a>
+      <a href="#">关于彩购</a>
+      <a href="#">物流中心</a>
+      <a href="#">联系我们</a>
+    </div>
+  </nav>
+  <!--Left Navbar Section -->
+	<div class="row" id="product-page">
+		<div class="col-xs-12">
+            <div class="page-title">
+              	<h4>商品详情</h4>
+            </div>
+            <div class="product-info clearfix">
+             	<div class="col-xs-5">
+					<a href="product_details.html">   
+						<img class="product-pictures" id="product-picture1" src="img/honey.jpg" alt="" data-big="img/honey.jpg" /><!--这里图片需要大小不一样-->
+                      <img class="product-pictures" id="product-picture2" src="img/honey2.jpg" alt="" data-big="img/honey2.jpg" style="display:none" />
+                     	<img class="product-pictures" id="product-picture3" src="img/manukablendhoney.jpg" alt="" data-big="img/manukablendhoney.jpg" style="display:none" />
+					</a>
+                    
+                  <div class="col-xs-12">
+                      <div class="col-xs-4">
+                        <img src="img/honey.jpg" onClick="productpic(1)" class="active product-pics" id="product-pic1" alt="" data-big="img/honey.jpg" >
+                      </div>
+                      <div class="col-xs-4">
+                        <img src="img/honey2.jpg" onClick="productpic(2)" class="product-pics" id="product-pic2" alt="" data-big="img/honey2.jpg" >
+                      </div>
+                      <div class="col-xs-4">
+                        <img src="img/manukablendhoney.jpg" onClick="productpic(3)"class="product-pics" id="product-pic3" alt="" data-big="img/manukablendhoney.jpg" >
+                      </div>
+                   </div>
+				</div>    
+              <div class="col-xs-7">
+              		<p class="t-type1">Thompson汤普森蜂王浆180粒</p>
+                  <p class="t-type2">简短介绍简短介绍简短介绍简短介绍简短介绍简短介绍</p>
+                  <p class="t-type3">商品编号：&nbsp;&nbsp;<span>4675</span></p>
+                  <p class="t-type3">品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;牌：&nbsp;&nbsp;<span>Jack N'Jill</span></p>
+                  <p class="t-type3">商品重量：&nbsp;&nbsp;<span>130.00克</span></p>
+                  <p class="t-type3">货&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：&nbsp;&nbsp;<span>9312657131060</span></p>
+                  <p class="t-type3">销  售  价：&nbsp;&nbsp;<span class="t-type4">NZ$</span><span class="t-type4">35.00</span></p>
+                  <p class="t-type3">约合人民币：￥<span class="t-type3">157.5</span></p>
+                  <p class="t-type3">当前汇率：1新西兰元=<span class="t-type3">4.50</span>人民币</p>
+                  <p class="t-type3">该商品已被收藏&nbsp;&nbsp;<span class="t-type2">0</span>&nbsp;&nbsp;次，已经被购买&nbsp;&nbsp;<span class="t-type2">0</span>&nbsp;&nbsp;件&nbsp;&nbsp;（库存 99,999）</p>
+              		<div class="add-to-box">
+                  	<div class="add-to-cart clearfix">
+                    		<div class="clearfix Numinput">
+                            <label for="qty">数量：</label>
+                            <input type="text" name="qty" id="qty" maxlength="12" value="1" title="数量" class="input-text qty">
+                            <button type="button" class="numadjust increase"><i class="fa fa-caret-up"></i></button>
+                            <button type="button" class="numadjust decrease" ><i class="fa fa-caret-down"></i></button>
+                        </div>
+                        <button id="checknow" type="button" title="立即购买" class="button btn-cart">  
+                       		<span>立即购买</span>  
+                        </button> 
+                        <button type="button" title="加入购物车" id="product-addtocart-button" class="button btn-cart"><span>加入购物车</span></button>
+                        <button type="button" title="添加到收藏" id="product-addtocol-button" class="button btn-cart pull-right"><span>添加到收藏</span></button>
+                    </div>                                               
+                 </div>    
+              </div> 
+          </div>
+          <div class="product-info clearfix">
+            <div class="col-xs-12">
+            	<div class="product-tabs">
+        			<ul class="product-tab clearfix">
+                   	<li id="product-tab1" class="product-tabs active" onClick="tabcontent(1)">商品详情</li>
+                     	<li id="product-tab2" class="product-tabs" onClick="tabcontent(2)">销售记录(1)</li>
+                  	<li id="product-tab3" class="product-tabs" onClick="tabcontent(3)">商品评论(2)</li>
+                     	<li id="product-tab4" class="product-tabs" onClick="tabcontent(4)">支付/配送</li>
+               	</ul>
+       				<div class="tab-content">
+                  	<div id="tab-content1" class="tab-contents" style="display: block;">
+                  		<div class="box-collateral box-description">
+                           	<p class="t-type1">&nbsp;&nbsp;&nbsp;&nbsp;这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍这是一段介绍</p>
+        						<p><img src="img/honey.jpg" alt=""></p>
+                        		<p><img src="img/honey.jpg" alt=""></p>
+                           	<p><img src="img/honey.jpg" alt=""></p>
+                    		</div>
+               		</div>
+            			<div id="tab-content2" class="tab-contents" style="display: none;">
+                                	<table id="sales-record-list" class="record-list">
+                                    <tbody><tr>
+                                        <th width="20%">买家</th>
+                                        <th width="20%">购买价</th>
+                                        <th width="20%">购买数量</th>
+                                        <th width="40%">购买时间</th>
+                                    </tr>
+                                    <tr class="sales-record-item">
+                                        <td>* 张 </td>
+                                        <td>*</td>
+                                        <td>1</td>
+                                        <td>2015-09-06 22:00:00</td>
+                                    </tr>
+                            		</tbody></table>
+                      </div>
+                    	<div id="tab-content3" class="tab-contents" style="display: none;">
+                                	<table id="comments-record-list" class="record-list">
+                                    <tbody><tr>
+                                        <th width="20%">买家</th>
+                                        <th width="60%">评论内容</th>
+                                        <th width="20%">商品星级</th>
+                                    </tr>
+                                    <tr class="comments-record-item">
+                                        <td>* 张 </td>
+                                        <td class="comments">挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr class="comments-record-item">
+                                        <td>* ZZ </td>
+                                        <td class="comments">挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的</td>
+                                        <td>4</td>
+                                    </tr>
+                            		</tbody></table>
+                      </div>
+            				<div id="tab-content4" class="tab-contents" style="display: none;">
+                    			<p class="t-type1">7天无理由退货</p>
+                             <p class="t-type2">该商品支持7天无理由退货，自商品签收之日起7天内:</p>
+                             <p class="t-type2">1、商品外包装完整，相关附（配）件齐全；（若有）要求吊牌完整；</p>
+                             <p class="t-type2">2、商品无显著穿着、无洗涤、无沾染化妆品（如口红等）、无破损等痕迹</p>
+                             <p class="t-type2">可申请无理由退货，包邮商品需要买家承担退货邮费，非包邮商品需要买家承担发货和退货邮费。</p>
+                             <p class="t-type2"><a href="#">查看相关定义和通用说明</a></p>
+                       	</div>
+                    	</div>
+   			 		</div>
+              	</div>   
+            </div>
+            <!--//product products-->     
+  		</div>
+    </div>
+  </div><!-- /container-non-responsive -->
+</div><!-- /background -->
+
+<div id="gototop">
+ <span class="fa fa-chevron-up"></span>
+ <div>返回顶部</div>
+</div>
+
+<!-- Footer -->
+<footer>	
+ <div class="col-xs-2">
+  <h5>公司简介</h5><br>
+  <p>  </p>
+</div>
+<div class="col-xs-2">
+  <h5>新手指南</h5><br>
+  <a href="contact.html">账号注册</a><br>
+  <a href="#">充值积分</a><br>
+  <a href="#">产品退税</a><br>
+  <a href="#">购物流程</a><br>
+</div>
+<div class="col-xs-2">
+  <h5>发货说明</h5><br>
+  <a href="#">快递资费标准</a> <br>
+  <a href="#">收货时间</a><br>
+  <a href="#">订单拆分</a><br>
+</div>
+<div class="col-xs-2">
+  <h5>支付方式</h5><br>
+  <a href="#">在线支付</a> <br>
+  <a href="#">信用卡支付</a><br>
+  <a href="#">银行转账</a><br>
+</div>
+<div class="col-xs-2">
+  <h5>售后服务</h5><br>
+  <a href="#">退换货政策</a> <br>
+  <a href="#">退换货流程</a><br>
+  <a href="#">退款说明</a><br>
+  <a href="#">我要退货/换货</a><br>
+</div>
+<div class="col-xs-2">
+  <h5>联系我们</h5><br>
+  <a href="#">加入我们</a><br>
+  <a href="#">联系我们</a><br>
+  <a href="#">友情链接</a><br>
+</div>
+</footer>
+
+
+
+<div class="copyright">
+ <div class="container-non-responsive">
+  <p class="pull-right">
+   <a href="#"><img src="img/payment/paymentexpress.png" alt="payment"></a>
+   <a href="#"><img src="img/payment/maestro.png" alt="payment"></a>
+   <a href="#"><img src="img/payment/mc.png" alt="payment"></a>
+   <a href="#"><img src="img/payment/pp.png" alt="payment"></a>
+ </p>
+ <span>Copyright &copy;2015 彩购网 Copyright</span>
+</div>
+</div>
+
+<!-- No Javascript warnings -->
+<noscript>
+ <div>You browser doesn't support JavaScript or has it turned off. This website requires JavaScript to working propertly.</div>
+</noscript>
+
+<!-- jQuery -->
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery.easing-1.3.min.js"></script>
+<script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="js/jquery.mlens-1.0.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script src="js/shop.js"></script>
+<script src="js/product.js"></script>
+
+</body>
+
+</html>
