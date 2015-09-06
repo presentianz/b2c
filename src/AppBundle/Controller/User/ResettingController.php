@@ -35,7 +35,7 @@ class ResettingController extends BaseController
     public function sendEmailAction(Request $request)
     {
         $username = $request->request->get('username');
-        
+
         /** @var $user UserInterface */
         $user = $this->get('fos_user.user_manager')->findUserByUsernameOrEmail($username);
 
@@ -58,7 +58,7 @@ class ResettingController extends BaseController
         $this->get('fos_user.mailer')->sendResettingEmailMessage($user);
         $user->setPasswordRequestedAt(new \DateTime());
         $this->get('fos_user.user_manager')->updateUser($user);
-        
+
         return new RedirectResponse($this->generateUrl('fos_user_resetting_check_email',
             array('email' => $this->getObfuscatedEmail($user))
         ));

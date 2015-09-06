@@ -15,11 +15,11 @@ class ProductController extends Controller
      */
     public function indexAction($id)
     {
-    	$em = $this->getDoctrine()->getManager();
-    	$data = $em->getRepository('AppBundle:Product')->getProduct($id);
+        $em = $this->getDoctrine()->getManager();
+        $data = $em->getRepository('AppBundle:Product')->getProduct($id);
         
         return $this->render('Product/product/index.html.twig', array(
-        	'data' => $data,
-        	));
+            'data' => $data,
+            ));
     }
 }
