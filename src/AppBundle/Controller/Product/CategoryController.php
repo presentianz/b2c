@@ -22,12 +22,15 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="category", requirements={"id" : "\d+"})
+     * @Route("/{id}/{page}/{sort}/{item_no}", name="category", defaults={"page":1, "sort":"soldNo-", "item_no":20}, requirements={"id" : "\d+"})
      */
-    public function categoryAction(Category $category)
+    public function categoryAction($id, $page, $sort, $item_no)
     {
+        $em = $this->getDoctrine()->getManager();
+        $data = $em->getRepository('AppBundle:Category')->getCategoryProducts($id, $page, $sort, $item_no);
+
         return $this->render('Product/category/category.html.twig', array(
-        	'c' => $category,
+        	'data' => $data,
         	));
     }
 }
