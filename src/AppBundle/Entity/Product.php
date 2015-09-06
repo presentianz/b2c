@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
  */
 class Product
 {
@@ -76,6 +78,12 @@ class Product
      * @ORM\Column(name="status", type="smallint")
      */
     private $status;
+
+    /**
+     * @var datetime
+     * @ORM\Column(name="updateAt", type="datetime")
+     */
+    private $updateAt;
 
     /**
      * @var array
@@ -374,5 +382,37 @@ class Product
     public function getInventory()
     {
         return $this->inventory;
+    }
+
+    /** 
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function UpdatePreUpdate()
+    {
+        $this->updateAt =  new \DateTime();
+    }
+
+    /**
+     * Set updateAt
+     *
+     * @param \DateTime $updateAt
+     * @return Product
+     */
+    public function setUpdateAt($updateAt)
+    {
+        $this->updateAt = $updateAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updateAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdateAt()
+    {
+        return $this->updateAt;
     }
 }

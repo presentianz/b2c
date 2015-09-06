@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
  */
 class Product
 {
@@ -76,6 +78,12 @@ class Product
      * @ORM\Column(name="status", type="smallint")
      */
     private $status;
+
+    /**
+     * @var datetime
+     * @ORM\Column(name="updateAt", type="datetime")
+     */
+    private $updateAt;
 
     /**
      * @var array
@@ -305,5 +313,83 @@ class Product
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set price_discounted
+     *
+     * @param string $priceDiscounted
+     * @return Product
+     */
+    public function setPriceDiscounted($priceDiscounted)
+    {
+        $this->price_discounted = $priceDiscounted;
+
+        return $this;
+    }
+
+    /**
+     * Get price_discounted
+     *
+     * @return string 
+     */
+    public function getPriceDiscounted()
+    {
+        return $this->price_discounted;
+    }
+
+    /**
+     * Set viewed_count
+     *
+     * @param integer $viewedCount
+     * @return Product
+     */
+    public function setViewedCount($viewedCount)
+    {
+        $this->viewed_count = $viewedCount;
+
+        return $this;
+    }
+
+    /**
+     * Get viewed_count
+     *
+     * @return integer 
+     */
+    public function getViewedCount()
+    {
+        return $this->viewed_count;
+    }
+
+    /**
+     * Set inventory
+     *
+     * @param integer $inventory
+     * @return Product
+     */
+    public function setInventory($inventory)
+    {
+        $this->inventory = $inventory;
+
+        return $this;
+    }
+
+    /**
+     * Get inventory
+     *
+     * @return integer 
+     */
+    public function getInventory()
+    {
+        return $this->inventory;
+    }
+
+    /** 
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function UpdatePreUpdate()
+    {
+        $this->updateAt =  new \DateTime();
     }
 }
