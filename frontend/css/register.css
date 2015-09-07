@@ -110,6 +110,11 @@ header .logo > img {
     height: 20px;
 }
 
+.register-content .security-level .active{
+    color:#fff;
+	background:#F11616;
+}
+
 .register-content .security-level .red {
     background-color:red;
 }
@@ -140,6 +145,20 @@ header .logo > img {
     margin-left: 90px;
 }
 
+.register-content #button {
+    color: #ffffff;
+    background-color: #ee1c24;
+    height: 30px;
+    margin: 0;
+    padding: 0 10px;
+    vertical-align: middle;
+    min-width: 80px;
+    border-radius: 0px;
+    border: 1px solid #ee1c24;
+	 width: 243px;
+    margin-left: 90px;
+}
+
 
 
 
@@ -147,7 +166,7 @@ header .logo > img {
     margin: 16px 0px;
     background-color: #ee1c24;
     height: 35px;
-    width: 50%;
+    width: 55%;
     position: absolute;
     left: 380px;
     top: -17px;

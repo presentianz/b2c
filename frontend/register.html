@@ -55,11 +55,12 @@
 					<h5>已经有账号？<a href="login.html">登录</a></h5>
 				</div>
 			</div>
+           <form id="form" name="" action="registerEmail.html" method="post" onSubmit="return mysubmit();">
 			<div class="register-content col-xs-5">
 				<div class="controls">
 					<label>邮箱</label>
-					<input  type="text" placeholder="请输入您的常用邮箱">
-					<span class="fa fa-times-circle"></span>
+					<input  type="text" name="email" placeholder="请输入您的常用邮箱">
+					<span class="fa check-fa"></span>
 					<div class="error">
 						<span class="fa fa-caret-left"></span>
 						<h6>邮箱已经注册过</h6>
@@ -67,8 +68,8 @@
 				</div>					
 				<div class="controls">
 					<label>用户名</label>
-					<input type="text" placeholder="请输入您的用户名">
-					<span class="fa fa-times-circle"></span>
+					<input type="text" name="username" placeholder="请输入您的用户名">
+					<span class="fa check-fa"></span>
 					<div class="error">
 						<span class="fa fa-caret-left"></span>
 						<h6>用户名已经注册过</h6>
@@ -76,11 +77,11 @@
 				</div>
 				<div class="controls">
 					<label>密码</label>
-					<input type="password" placeholder="请输入6到20位的数字，字母组合" min="6" maxlength="20">
-					<span class="fa fa-check-circle"></span>
+					<input type="password" name="psd1" placeholder="请输入6到20位的数字，字母组合" min="6" maxlength="20">
+					<span class="fa check-fa"></span>
 					<div class="error error-none">
 						<span class="fa fa-caret-left"></span>
-						<h6>密码有问题 建议大小写 数字</h6>
+						<h6>密码有问题 建议大小写 数字 长度</h6>
 					</div>
 				</div>
 				<div class="controls">
@@ -93,19 +94,20 @@
 				</div>
 				<div class="controls">
 					<label>确认密码</label>
-					<input type="password" placeholder="请再次输入密码">
-					<span class="fa fa-times-circle"></span>
+					<input type="password" name="psd2" placeholder="请再次输入密码">
+					<span class="fa check-fa"></span>
 					<div class="error">
 						<span class="fa fa-caret-left"></span>
 						<h6>密码不匹配</h6>
 					</div>
 				</div>
 				<div class="controls last">
-					<input type="checkbox" ><a href="">我已阅读并接受《彩购网用户协议》</a>	
+					<input type="checkbox" id="checkinfo"><a href="">我已阅读并接受《彩购网用户协议》</a>	
 				</div>	
 
-				<a href="registerEmail.html"><button>注册</button></a>
-			</div>
+				<!--<a href="registerEmail.html"><button>注册</button></a>-->
+                <input type="submit" name="submit" id="button" value="注册">  
+			</div></form>
 		</div>
 
 	</div>
@@ -153,7 +155,7 @@
 
 <!-- Custom JavaScript -->
 <script src="js/shop.js"></script>
-
+<script src="js/register.js"></script>
 </body>
 
 </html>

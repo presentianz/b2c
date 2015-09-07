@@ -1,22 +1,26 @@
 // JavaScript Document
+
 $(document).ready(function() {	
-	$(".pros-grid").find(".pro-line").removeClass("col-xs-12");
-	$(".pros-grid").find(".pro-line").addClass("col-xs-3");
-		
-	$(".pros-list").find(".pro-line").removeClass("col-xs-3");
-	$(".pros-list").find(".pro-line").addClass("col-xs-12");
+	$(".nav-all").mouseenter(function(){
+  		$(".nav-list").slideDown(1000);
+	});	
+	$(".nav-list").mouseleave(function(){
+		$(".nav-list").slideUp(1000);
+	});
 });
 
-function pagegrid(){
-	$(".search-pros").removeClass("pros-list");	
-	$(".search-pros").addClass("pros-grid");
-	$(".pros-grid").find(".pro-line").removeClass("col-xs-12");
-	$(".pros-grid").find(".pro-line").addClass("col-xs-3");
-}
 
-function pagelist(){
-	$(".search-pros").removeClass("pros-grid");	
-	$(".search-pros").addClass("pros-list");
-	$(".pros-list").find(".pro-line").removeClass("col-xs-3");
-	$(".pros-list").find(".pro-line").addClass("col-xs-12");
+function changeselectbox(i){	
+	if ($("#select-box"+i).hasClass("active")){
+		if ($("#select-box"+i).find(".fa-long-arrow-up").css("display")=="none"){
+			$("#select-box"+i).find(".fa-long-arrow-down").css("display","none");
+			$("#select-box"+i).find(".fa-long-arrow-up").css("display","inline-block");
+		}
+		else{
+			$("#select-box"+i).find(".fa-long-arrow-up").css("display","none");
+			$("#select-box"+i).find(".fa-long-arrow-down").css("display","inline-block");
+		}
+	}
+	$(".select-box-order").removeClass("active");
+	$("#select-box"+i).addClass("active");
 }
