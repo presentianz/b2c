@@ -106,7 +106,7 @@ class CartController extends Controller
             $serializer = $this->get('serializer');
             $cookies = $request->cookies;
             if ($cookies->has('cart')) {
-                
+                //cookie to array
                 $cart = json_decode($cookies->get('cart'), true);
                 //exit(\Doctrine\Common\Util\Debug::dump($cart));
                 $response = new Response();

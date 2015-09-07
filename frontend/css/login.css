@@ -2,13 +2,20 @@ header {
     border-bottom: 2px solid #ee1c24;
     min-height: 120px;
     height: auto;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 
 }
 
 header .logo > img {  
     width: 70px !important;
     height: auto;
+}
+
+header span{
+    font-size: 25px;
+    vertical-align: bottom;
+    line-height: 70px;
+    margin-left: 10px;
 }
 
 .container-login-responsive {
@@ -92,12 +99,12 @@ header .logo > img {
 
 
 .login-content button{
-    width: 100%;
+    width: 50%;
 }
 
 .login-content .controls-link {
     height: 25px;
-    margin-top: 10px;
+    margin-top: 25px;
     font-size: 13px;
 }
 
@@ -123,7 +130,7 @@ header .logo > img {
 }
 
 .login-content hr {
-    margin: 10px 0px 15px 0;
+    margin: 10px 0px;
 }
 
 
@@ -131,15 +138,15 @@ header .logo > img {
     display: inline-block;
     width: 100%;
     max-width: 300px;
-    text-align: center;
+    text-align: left;
+    margin-top: 20px;
 
 }
 
 .login-content .social-network span {
-    font-size: 16px;
-    width: 25px;
+    font-size: 13px;
     height: 25px;
-    margin-right: 5px;
+    margin-right: 15px;
     color: #aaa;
 }
 
@@ -185,3 +192,14 @@ footer .copyright {
 }
 
 
+.login-button > .right{
+    line-height: 30px;
+}
+
+.login-content .login-button{
+    margin-bottom: 35px;
+}
+
+.login-content .register{
+    margin-top: 0px;
+}
