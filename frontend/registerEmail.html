@@ -21,29 +21,41 @@
 		<!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
 
 	</head> 
-	<body>
-		<!-- Lower Header Section -->
+	<body id="register-email">
+	<!--   User Register Panel -->
 		<header>
-			<div class="container-non-responsive">
+			<div class="container-register-responsive">
 				<div class="col-xs-12">
 					<a class="logo" href="index.html">
 						<img src="img/logo.jpg" alt="彩购网">
 					</a>
-				</div>
-
+					
+				</div>	
 			</div>
 		</header>
-
-		<!--   User Register Panel -->
-		<div id="register-email" class="container-non-responsive">
+		<div  class="container-register-responsive">
 			<div class="breadcrumb">
-			<a href="register.html">注册</a>&nbsp; <span class="fa fa-angle-right"></span>&nbsp; <a href="registerEmail.html">邮箱验证</a>
+			<a href="register.html">
+					<div class="register-tab">
+						<span class="fa fa-info-circle"></span>注册
+					</div>
+				</a>  
+				<a href="registerEmail.html">
+					<div class="register-tab active">
+						<span class="fa fa-info-circle"></span>邮箱验证
+					</div>
+				</a> 
+				<a href="registerActivated.html">
+					<div class="register-tab">
+						<span class="fa fa-info-circle"></span>激活
+					</div>
+				</a>
 			</div>
 
 			<div class="register-email col-xs-12">
 			<div>
 			
-			<h3><span class="fa fa-info-circle"></span>已发送验证邮箱到<strong> wnjgon1990@163.com</strong></h3>
+			<h3><span class="fa fa-info-circle"></span>已发送验证邮箱到 wnjgon1990@163.com</h3>
 			<h6>请您进入邮箱中点击验证按钮完成注册</h6>
 			<button><a href="registerActivated.html">去邮箱验证</a></button>
 			</div>
@@ -55,38 +67,35 @@
 		</div>
 	</div><!-- /container-non-responsive -->
 
-	<!--   User register Panel END-->
-
 
 	<!-- Footer -->
-	<footer>
-		<div class="container-non-responsive">	
-			<div class="col-xs-2">
-				<h5>关于我们</h5><br>
-			</div>
-			<div class="col-xs-2">
-				<h5>常见问题</h5><br>
-			</div>
-			<div class="col-xs-2">
-				<h5>加入彩购</h5><br>
-			</div>
-			<div class="col-xs-2">
-				<h5>支付方式</h5><br>
-			</div>
-			<div class="col-xs-2">
-				<h5>彩购合作</h5><br>
-			</div>
-			<div class="col-xs-2">
-				<h5>联系我们</h5><br>
-			</div>
+<footer>
+	<div class="container-login-footer-responsive">	
+		<div class="col-xs-2">
+			<h6><a href="about.html">关于我们</a></h6>
 		</div>
-	
-	<div class="copyright">
-		<div class="container-non-responsive">			
-			<span>Copyright &copy;2015 彩购网 Copyright</span>
+		<div class="col-xs-2">
+			<h6><a href="questions.html">常见问题</a></h6>
 		</div>
+		<div class="col-xs-2">
+			<h6><a href="joinUs.html">加入彩购</a></h6>
+		</div>
+		<div class="col-xs-2">
+			<h6><a href="payment.html">支付方式</a></h6>
+		</div>
+		<div class="col-xs-2">
+			<h6><a href="corporation.html">彩购合作</a></h6>
+		</div>
+		<div class="col-xs-2">
+			<h6><a href="contact.html">联系我们</a></h6>
+		</div>
+
 	</div>
-	</footer>
+	<div class="copyright">			
+		<span>Copyright &copy;2015 彩购网 Copyright</span>
+	</div>
+
+</footer>
 
 	<!-- jQuery -->
 	<script src="js/jquery-1.11.3.min.js"></script>

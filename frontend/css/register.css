@@ -1,33 +1,125 @@
 
+header {
+    border-bottom: 2px solid #ee1c24;
+    min-height: 100px;
+    height: auto;
+}
 
+header .logo > img {  
+    width: 70px !important;
+    height: auto;
+    margin: 0;
+}
+
+.container-register-responsive {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.breadcrumb {
+    background-color: transparent;
+    border: none;
+    margin-top: 20px;
+    padding: 0;
+    border-bottom: 2px solid #f2f2f2;
+}
+
+.register-tab {
+    display: inline-block;
+    height: 40px;
+    width: 150px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    color:#aaa;
+    top: 3px;
+    position: relative;
+}
+
+.register-tab span.fa {
+    font-size: 20px;
+    margin-right: 5px;
+    vertical-align: text-bottom;
+}
+
+.register-tab:hover, 
+.register-tab:focus,
+.register-tab.active {
+    border-bottom: 3px solid #ee1c24;
+    color:#ee1c24;
+    outline: none;
+}
+
+.login-link {
+    float: right;
+}
+
+.login-link a {
+    color: #ee1c24;
+}
 
 
 .register-content {
-    padding: 5px 20px 20px 20px;
+    margin: 10px 30px 30px 30px;
     position: relative;
-    border: 1px solid #999;
-    margin-bottom: 20px;
-}
-
-
-.register-content > div:last-child {
-    text-align: left;
-    margin: 0px auto;
-    max-width: 300px;
-    padding: 0 20px;
 }
 
 .register-content .controls {
-    margin: 20px 0px;
+    margin: 15px 0px;
     position: relative;
 }
 
+
+.register-content .controls.last {
+    padding-left: 70px;
+}
+
+.register-content .controls label {
+    width: 80px;
+    text-align: right;
+    margin-right: 10px;
+    font-weight: 300;
+}
+
 .register-content .controls > input {
-    padding: 4px 0px;
-    border: 1px solid #fff;
-    border-bottom-color: #999;
-    width: 90%;
-    margin-right: 8px;
+    border: 1px solid #999;
+    padding: 8px 10px;
+    margin-right: 12px;
+    font-size: 12px;
+    width: 240px;
+}
+
+.register-content .security-level {
+    width: 243px;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    cursor: default;
+    display: inline-block;
+}
+
+.register-content .security-level span {
+    display: block;
+    float: left;
+    text-align: center;
+    font-size: 12px;
+    color: #000;
+    background-color: #f2f2f2;
+    margin-right: 1px;
+    width: 79px;
+    height: 20px;
+}
+
+.register-content .security-level .red {
+    background-color:red;
+}
+
+.register-content .security-level .orange {
+    background-color:orange;
+}
+
+.register-content .security-level .green {
+    background-color:green;
 }
 
 .register-content .controls .fa {
@@ -40,47 +132,25 @@
 
 .register-content .controls > input[type="checkbox"] {
     width: auto;
+    vertical-align: top;
 }
 
-.register-content .controls > input:hover, 
-.register-content .controls > input:focus {
-    border-bottom-color: #ee1c24;
-    cursor: pointer;
-    outline: none;
-}
-
-.register-content button{
-    margin-right: 5px;
+.register-content button {
+    width: 243px;
+    margin-left: 90px;
 }
 
 
-.register-content h6 {
-    display: inline-block;
-    text-align: left;
-}
 
-.register-content .social-network {
-    display: inline-block;
-    width: 100%;
-
-}
-
-.register-content .social-network span {
-    font-size: 20px;
-    width: 30px;
-    height: 30px;
-    padding: 10px;
-    margin: 5px;
-}
 
 .register-content .error {
     margin: 16px 0px;
     background-color: #ee1c24;
     height: 35px;
-    width: 80%;
+    width: 50%;
     position: absolute;
-    left: 290px;
-    top: -20px;
+    left: 380px;
+    top: -17px;
 }
 
 
@@ -113,21 +183,51 @@
     margin:60px;
 }
 
-.register-email strong, 
-.register-active strong,
-.register-active h6 a {
-    color:#ee1c24;
+.register-email strong,
+.register-email span.fa-info-circle, 
+.register-active span.fa-info-circle {
+    margin-right: 5px;
+    color: #ee1c24;
+     font-size: 40px;
+     vertical-align:sub;
 }
 
+.register-active h6 a {
+    color: #ee1c24;
+}
 
 footer {
-     min-height: 60px;
+    min-height: 60px;
     padding-top: 10px;
     margin-top: 30px;
+    background-color: transparent;
+    color: #aaa;
+    border-top: 2px solid #f2f2f2;
+}
+
+footer .container-login-footer-responsive {
+    margin: 0 auto;
+    max-width: 800px;
 }
 
 footer .col-xs-2 {
     min-height: 20px;
     line-height: 0px;
     margin-bottom: 10px;
+}
+
+footer a {
+    color: #aaa;
+}
+
+footer .copyright {
+    clear: both;
+    padding: 10px;
+    background-color: transparent;
+    min-height: 25px;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+    border-top: 2px solid #f2f2f2;
 }

@@ -1,4 +1,20 @@
+header {
+    border-bottom: 2px solid #ee1c24;
+    min-height: 120px;
+    height: auto;
+    margin-bottom: 30px;
 
+}
+
+header .logo > img {  
+    width: 70px !important;
+    height: auto;
+}
+
+.container-login-responsive {
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
 .login-left {
     min-height: 410px;
@@ -7,31 +23,17 @@
 
 
 .login-content {
-    padding: 5px 20px 20px 20px;
+    padding: 20px 30px;
     position: relative;
-    border: 1px solid #999;
+    border: 3px solid #f2f2f2;
 }
 
-
-.login-content > div:last-child {
-    text-align: left;
-    margin: 0px auto;
-    max-width: 300px;
-    padding: 0 20px;
-}
 
 .login-content .controls {
-    margin: 20px 0px;
+    margin: 10px 0px 15px 0;
     position: relative;
 }
 
-.login-content .controls .fa {
-    color: #ee1c24;
-}
-
-.login-content .controls .fa-check-circle {
-     color: lightgreen;
-}
 
 .login-content .controls > input {
      padding: 4px 0px;
@@ -48,29 +50,16 @@
     outline: none;
 }
 
-.login-content button{
-    margin-right: 5px;
+
+
+.login-content .controls .fa {
+    color: #ee1c24;
 }
 
-
-.login-content h6 {
-    display: inline-block;
-    text-align: left;
+.login-content .controls .fa-check-circle {
+     color: lightgreen;
 }
 
-.login-content .social-network {
-    display: inline-block;
-    width: 100%;
-
-}
-
-.login-content .social-network span {
-    font-size: 20px;
-    width: 30px;
-    height: 30px;
-    padding: 10px;
-    margin: 5px;
-}
 
 .login-content .error {
     margin: 16px 0px;
@@ -97,14 +86,80 @@
     color: #fff;
 }
 
-.error-none {
+.login-content .error-none {
     display: none;
 }
 
+
+.login-content button{
+    width: 100%;
+}
+
+.login-content .controls-link {
+    height: 25px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.login-content .controls-link input[type="checkbox"] {
+    width: auto;
+    margin-right: 3px;
+    margin-top: 0px;
+    vertical-align: text-bottom;
+}
+
+.login-content .controls-link .left {
+    float:left;
+}
+
+
+.login-content .controls-link .right {
+    float:right;
+    
+}
+
+.login-content .controls-link a {
+    color: #ee1c24;
+}
+
+.login-content hr {
+    margin: 10px 0px 15px 0;
+}
+
+
+.login-content .social-network {
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+
+}
+
+.login-content .social-network span {
+    font-size: 16px;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    color: #aaa;
+}
+
+.login-content .social-network span:hover {
+    color: #ee1c24;
+}
+
+
 footer {
-     min-height: 60px;
+    min-height: 60px;
     padding-top: 10px;
     margin-top: 30px;
+    background-color: transparent;
+    color: #aaa;
+    border-top: 2px solid #f2f2f2;
+}
+
+footer .container-login-footer-responsive {
+    margin: 0 auto;
+    max-width: 800px;
 }
 
 footer .col-xs-2 {
@@ -112,3 +167,21 @@ footer .col-xs-2 {
     line-height: 0px;
     margin-bottom: 10px;
 }
+
+footer a {
+    color: #aaa;
+}
+
+footer .copyright {
+     clear: both;
+    padding: 10px;
+    background-color: transparent;
+    min-height: 25px;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+    border-top: 2px solid #f2f2f2;
+}
+
+
