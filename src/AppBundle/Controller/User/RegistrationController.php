@@ -58,9 +58,6 @@ class RegistrationController extends BaseController
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
             
             $user->setUserInfo(new UserInfo());//relate user & user_info
-
-            //exit(\Doctrine\Common\Util\Debug::dump($user));
-            
             $userManager->updateUser($user);
             
             if (null === $response = $event->getResponse()) {

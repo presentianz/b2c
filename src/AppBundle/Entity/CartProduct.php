@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CartProductRepository")
  */
 class CartProduct
 {
@@ -148,5 +150,14 @@ class CartProduct
     public function getUser()
     {
         return $this->user;
+    }
+
+    /** 
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function prePersist()
+    {
+        $this->addAt =  new \DateTime();
     }
 }
