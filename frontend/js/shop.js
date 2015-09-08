@@ -1,6 +1,10 @@
 
 $(document).ready(function() {
 
+  $( "#header" ).load( "header.html", function() {
+  alert( "Load was performed." );
+});
+
 	$('#myCarousel').carousel();
 
 	$('#gototop').click(function(){
