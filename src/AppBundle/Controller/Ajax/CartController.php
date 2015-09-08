@@ -165,7 +165,7 @@ class CartController extends Controller
     }
 
     /**
-     * @Route("/cartAjaxGetCart", name="cart_ajax_get")
+     * @Route("/cartAjaxGet", name="cart_ajax_get")
      */
     public function getCartAction(Request $request)
     {
@@ -188,7 +188,6 @@ class CartController extends Controller
                         'price_discounted' => $product->getPriceDiscounted()
                         );
                 }
-                //exit(\Doctrine\Common\Util\Debug::dump($data));
                 return new JsonResponse($data);
             }
             else {
