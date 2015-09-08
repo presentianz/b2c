@@ -16,7 +16,7 @@ use AppBundle\Entity\CartProduct;
 class CartController extends Controller
 {
     /**
-     * @Route("/cartAjax/{id}/{no}/{action}", name="cart_ajax")
+     * @Route("/cartAjaxAction/{id}/{no}/{action}", name="cart_ajax_action")
      */
     public function indexAction($id, $no, $action, Request $request)
     {
@@ -103,14 +103,52 @@ class CartController extends Controller
             }
         }
         else {
-            $serializer = $this->get('serializer');
             $cookies = $request->cookies;
             if ($cookies->has('cart')) {
                 //cookie to array
                 $cart = json_decode($cookies->get('cart'), true);
-                //exit(\Doctrine\Common\Util\Debug::dump($cart));
+
+                switch ($action) {
+                    case '+':
+                        if (array_key_exists($id, $cart)) {
+                            $cart[$id]++;
+                        }
+                        else {
+                            $cart[$id] = 1;
+                        }
+                        break;
+
+                    case '-':
+                        if (array_key_exists($id, $cart) && $cart[$id] > 1) {
+                            $cart[$id]--;
+                        }
+                        elseif (array_key_exists($id, $cart)) {
+                            unset($cart[$id]);
+                        }
+                        else {
+                            return new Response('fail');
+                        }
+                        break;
+
+                    case 'edit':
+                        # code...
+                        if ($no <= 0) {
+                            unset($cart[$id]);
+                        }
+                        else {
+                            $cart[$id] = $no;
+                        }
+                        break;
+
+                    case 'rm':
+                        unset($cart[$id]);
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
                 $response = new Response();
-                $response->headers->clearCookie('cart');
+                $response->headers->setCookie(new Cookie('cart', json_encode($cart), time() + (3600*48)));
                 $response->send();
                 return new Response($cookies->get('cart'));
             }
@@ -120,8 +158,65 @@ class CartController extends Controller
                     );
                 $response = new Response('success');
                 $response->headers->setCookie(new Cookie('cart', json_encode($cart), time() + (3600*48)));
-                //$response->send();
+                $response->send();
                 return $response;
+            }
+        }
+    }
+
+    /**
+     * @Route("/cartAjaxGetCart", name="cart_ajax_get")
+     */
+    public function getCartAction(Request $request)
+    {
+        if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            //entity manager
+            $em = $this->getDoctrine()->getManager();
+            //user
+            $user = $this->getUser();
+            $cartProduct = $em->getRepository('AppBundle:CartProduct')->getUserCart($user->getId());
+            if ($cartProduct) {
+                $data = array();
+                foreach ($cartProduct as $value) {
+                    $product = $value->getProduct();
+                    $data[$product->getId()] = array(
+                        'id' => $product->getId(),
+                        'name' => $product->getName(),
+                        'count' => $value->getCount(),
+                        'poster' => $product->getPoster(),
+                        'price' => $product->getPrice(),
+                        'price_discounted' => $product->getPriceDiscounted()
+                        );
+                }
+                //exit(\Doctrine\Common\Util\Debug::dump($data));
+                return new JsonResponse($data);
+            }
+            else {
+                return new JsonResponse('none');
+            }
+        }
+        else {
+            $cookies = $request->cookies;
+            if ($cookies->has('cart')) {
+                //cookie to array
+                $cart = json_decode($cookies->get('cart'), true);
+                $em = $this->getDoctrine()->getManager();
+                $products = $em->getRepository('AppBundle:Product')->findById(array_keys($cart));
+                $data = array();
+                foreach ($products as $value) {
+                    $data[$value->getId()] = array(
+                        'id' => $value->getId(),
+                        'name' => $value->getName(),
+                        'count' => $cart[$value->getId()],
+                        'poster' => $value->getPoster(),
+                        'price' => $value->getPrice(),
+                        'price_discounted' => $value->getPriceDiscounted()
+                        );
+                }
+                return new JsonResponse($data);
+            }
+            else {
+                return new JsonResponse('none');
             }
         }
     }

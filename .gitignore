@@ -9,3 +9,4 @@
 /vendor/
 /web/bundles/
 /frontend/nbproject/private/
+/app/config/parameters.yml

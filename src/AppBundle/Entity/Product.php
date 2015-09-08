@@ -86,6 +86,13 @@ class Product
     private $updateAt;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="poster", type="string", length=255)
+     */
+    private $poster;
+
+    /**
      * @var array
      *
      * @ORM\Column(name="image_link", type="array")
@@ -414,5 +421,28 @@ class Product
     public function getUpdateAt()
     {
         return $this->updateAt;
+    }
+
+    /**
+     * Set poster
+     *
+     * @param string $poster
+     * @return Product
+     */
+    public function setPoster($poster)
+    {
+        $this->poster = $poster;
+
+        return $this;
+    }
+
+    /**
+     * Get poster
+     *
+     * @return string 
+     */
+    public function getPoster()
+    {
+        return $this->poster;
     }
 }
