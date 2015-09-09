@@ -27,4 +27,14 @@ class CartProductRepository extends EntityRepository
         	return false;
         }
 	}
+
+    public function getUserCart($userId)
+    {
+        $query = $this->getEntityManager()->createQuery(
+                'SELECT cp FROM AppBundle:CartProduct cp WHERE cp.user = :userId'
+            )
+            ->setParameter('userId', $userId);
+        $cartProduct = $query->getResult();
+        return $cartProduct;
+    }
 }

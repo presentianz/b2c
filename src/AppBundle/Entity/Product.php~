@@ -86,6 +86,13 @@ class Product
     private $updateAt;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="poster", type="string", length=255)
+     */
+    private $poster;
+
+    /**
      * @var array
      *
      * @ORM\Column(name="image_link", type="array")
@@ -391,5 +398,28 @@ class Product
     public function UpdatePreUpdate()
     {
         $this->updateAt =  new \DateTime();
+    }
+
+    /**
+     * Set updateAt
+     *
+     * @param \DateTime $updateAt
+     * @return Product
+     */
+    public function setUpdateAt($updateAt)
+    {
+        $this->updateAt = $updateAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updateAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdateAt()
+    {
+        return $this->updateAt;
     }
 }
