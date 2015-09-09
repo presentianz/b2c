@@ -1,13 +1,14 @@
-# This file is auto-generated during the composer install
 parameters:
     database_host: localhost
-    database_port: 3306
-    database_name: b2c
-    database_user: b2c_user
-    database_password: b2cpassword
+    database_port: '3306'
+    database_name: charis
+    database_user: root
+    database_password: root
     mailer_transport: smtp
     mailer_host: localhost
     mailer_user: gigantic222@gmail.com
     mailer_sender_name: b2c
     mailer_password: null
-    secret: bfa154a90d102be1255e7f3b9b4b5f4d9efdabc9
+    secret: 5dfd4a4344a4816a859cddaf7926e0107
+    database_driver: pdo_mysql
+    database_path: null
