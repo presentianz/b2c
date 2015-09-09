@@ -15,6 +15,31 @@
 	margin-left:10px;}
 
 /*left-side*/
+
+#sidebar {
+    width:255px;
+    height:auto;
+    padding: 0;
+}
+	
+#sidebar .nav-list{
+	display:none;
+	border:1px solid rgba(0,0,0,0.1);
+	border-top:none;
+	position:absolute;
+	background:#FFF;}
+	
+.nav-all:hover #sidebar .nav-list{
+	display:block;}
+
+#sidebar .side {
+	width:255px;
+	height:auto;
+	margin-top:20px;
+	padding:0;
+}
+
+
 #sidebar .selects {
 	padding:0;
 	margin:0;
