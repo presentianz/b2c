@@ -2,8 +2,8 @@ parameters:
     database_host: localhost
     database_port: '3306'
     database_name: charis
-    database_user: root
-    database_password: root
+    database_user: charis
+    database_password: Pa55word
     mailer_transport: smtp
     mailer_host: localhost
     mailer_user: gigantic222@gmail.com
