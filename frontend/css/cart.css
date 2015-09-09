@@ -43,7 +43,7 @@
 	padding: 0;
 }
 
-#cart-page .cart-content button {
+#cart-page .cart-content .col-xs-12 button {
 	margin: 10px 5px;
 	padding: 0 10px;
 }

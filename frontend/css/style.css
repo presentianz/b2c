@@ -43,18 +43,8 @@ button {
     border: 1px solid #ee1c24;
 }
 
-button a {
-    color: #fff;
-}
-
-button a:hover,
-button a:focus {
-    color: #fff;
-}
-
-
- button:hover,
- button:focus  {
+button:hover,
+button:focus  {
     cursor: pointer;
     background-color: #ee1c24;
     border: 1px solid #ee1c24;
@@ -75,25 +65,22 @@ input:focus {
     outline: none;
 }*/
 
-.bg {
-    background: #fff;
-    min-height: 450px;
-}
-
 .dashed {
-    padding-right: 10px;
-    border-right: 1px dashed #000;
-    margin-right: 7px;
+        padding-right: 10px;
+        border-right: 1px dashed #000;
+        margin-right: 7px;
+        vertical-align: middle;
 }
 
 .no-padding {
-	padding:0;
+       padding:0;
 }
 
+
 .container-non-responsive {
-	margin-left: auto;
-    margin-right: auto;
-    width: 1170px;
+       margin-left: auto;
+       margin-right: auto;
+       width: 1170px;
 }
 
 .row {
@@ -103,6 +90,15 @@ input:focus {
     border-width:1px;
     border-color: rgba(0,0,0,0.1);
     margin:0;
+}
+
+
+.no-border {
+    border:0;
+}
+
+.clear{
+    clear: both;
 }
 
 /* top navbar */
@@ -125,15 +121,12 @@ input:focus {
     line-height: 30px;
 }
 
-.navbar .a-login{
+.navbar .a-login,
+.navbar .a-register {
     padding-right: 3px;
     color: #506eaa;
 }
 
-.navbar .a-register{
-    padding-left: 3px;
-    color: #506eaa;
-}
 
 .navbar .user-list,
 .navbar .history-list,
@@ -230,10 +223,6 @@ header .container-non-responsive {
 	height: 130px;
 }
 
-header .col-xs-3 {
-    padding:0;
-    width:23%;
-}
 
 header .logo > img {
     width: 80px;
@@ -290,7 +279,7 @@ header .col-xs-9 > h6 {
 
 
 header .col-xs-2 {
-     min-width: 150px;
+   min-width: 150px;
 
 }
 .cart{
@@ -409,8 +398,8 @@ header .col-xs-2:hover .cart span {
 
 .cart-list .total {
     padding:10px;
-	position:relative;
-	width: 100%;
+    position:relative;
+    width: 100%;
 }
 
 .cart-list .total span{
@@ -424,13 +413,7 @@ header .col-xs-2:hover .cart span {
 
 .cart-list .see-more {
     width:100%;
-    height:30px;
-    text-align: center;
-    padding: 5px 15px;
-    background-color: #ee1c24;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 0px;
+    margin: 0;
 }
 
 
@@ -457,11 +440,6 @@ header .col-xs-2:hover .cart span {
     padding-left: 25px;
     font-weight: bold;
 }
-.clear{
-    clear: both;
-}
-
-
 
 .nav-right{
     height: 45px;
@@ -494,98 +472,79 @@ header .col-xs-2:hover .cart span {
     padding: 0;
 }
 
-#sidebar ul {
+.siderbar.col-xs-3 {
+    padding:0;
+    width: 255px;
+}
+
+
+ul.nav {
     margin: 0;
     padding: 0;
     border-radius: 0px;
     width: 100%;
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
-#sidebar .dropdown-toggle {
-    color:#000;
-}
-
-#sidebar .nav li:hover {
-    color:#fff;
-    text-decoration: none;
+.nav li:hover {
     background-color: #F5F5F5;
 }
-
-
-#sidebar .nav li a .fa {
-    position: absolute;
-    right: 15px;
-    opacity: 0.2;
-}
-
-.nav > li > div :focus, 
-.nav .open > div, 
-.nav .open > div:focus :focus {
-    background-color: #F5F5F5;
-    height:100%;
-}
-
-.nav .open > div:focus :hover {
-    background-color:#F5F5F5;
-}
-   
-.nav > li > div > a{
-    padding: 10px 25px 5px 25px;
-    float: left;
-    width: 100%;
-}
-.nav p {
-    margin-left:15px;
-}
-
-.nav span {
-    line-height: 28px;
-    margin: 10px 10px 10px 0px;
-    padding-left: 10px;
-    border: none;
-    font-size: 12px;
-}
-
-.nav span a {
-    color:#666;
-}
-.nav span:first-child {
-     border-left-style:none;
-}
-
-.nav > li > a:hover, 
-.nav > .active > a:hover {
-    text-decoration: none;
-} 
 
 .nav li:hover > .dropdown-menu {
     display: block;
 }
-.nav > li:first-child{
-    border-width:1px;
-    border-color: rgba(0,0,0,0.1);
-    border-top-style:none;
-}
+
 .nav > li{
     height:68px;
-    border-width:1px;
-    border-color: rgba(0,0,0,0.1);
-    border-top-style:dashed;
+    border-top: 1px dashed #ccc;
 }
 
-.dropdown-menu > div{
+.nav > li:first-child{
+    border-top:none;
+}
+
+.nav .nav-item {
+    padding: 10px 25px 0px 25px;
+    height: 68px;
+    width: 100%;
+}
+
+.nav .nav-item > a {
+    width: 100%;
+    font-weight: bold;
+}
+
+.nav .nav-item a .fa {
+    position: absolute;
+    right: 15px;
+    opacity: 0.2;
+    top: 30px;
+}
+
+.nav .nav-item > div {
+    overflow: hidden;
+}
+
+.nav .nav-item > div a {
+    line-height: 38px;
+    font-size: 12px;
+    margin-top: 5px;
+    color: #777;
+}
+
+.nav .nav-item > div a:hover {
+    color: #ee1c24;
+}
+
+
+.nav .dropdown-menu > div{
     padding: 5px 10px;
     border: 0;
 } 
 
-.dropdown-menu > div:hover, 
-.dropdown-menu > div:focus {
-    background-color: #F5F5F5;
-}
-
-.drop-menu-right {
+.nav .drop-menu-right {
 	background-color: #F5F5F5;
-    left: 253px;
+    left: 251px;
     padding: 0px;
     border-radius: 0px;
     top: -3px;
@@ -594,12 +553,21 @@ header .col-xs-2:hover .cart span {
 
 
 /* Slider */
+.slider-part {
+    border-bottom-style:solid;
+    border-right-style:solid;
+    border-width:1px;
+    border-color: rgba(0,0,0,0.1);
+    width: 913px;
+    height: 614px;
+}
+
 #myCarousel { 
     position:relative; 
     margin: 0;
     overflow:hidden;
     border:0;
-    width: 915px;
+    width: 913px;
     max-height:410px;
 }
 
@@ -629,6 +597,10 @@ header .col-xs-2:hover .cart span {
     border-color: rgba(0,0,0,0.1);
     border-left-style:solid;
     text-align: center;
+}
+
+.showpics .col-xs-4:first-child {
+    border-left:none;
 }
 
 
@@ -721,9 +693,9 @@ header .col-xs-2:hover .cart span {
 
 .hotdeal .row > div {
     overflow: hidden;
-	min-height:300px;
+    min-height:300px;
     padding: 0;
-	border: 1px solid #E6E6E6;
+    border: 1px solid #E6E6E6;
     max-width: 300px;
     position: relative;
     height: 300px;
@@ -736,7 +708,7 @@ header .col-xs-2:hover .cart span {
 }
 
 .hotdeal .row > div:hover {
- box-shadow: #999 0px 4px 8px;
+    box-shadow: #999 0px 4px 8px;
 }
 
 
@@ -747,7 +719,7 @@ header .col-xs-2:hover .cart span {
     position: absolute;
 }
 
- .pro-text{
+.pro-text{
     padding: 25px 0 0 15px;
     width: 250px;
     position: absolute;
@@ -755,7 +727,7 @@ header .col-xs-2:hover .cart span {
     left: 10px;
 }
 
- .pro-title{
+.pro-title{
     color: #000 !important;
     font-size: 14px;
 }
@@ -773,6 +745,37 @@ del{
     font: 14px;
     color: #000;
 }
+
+.page-title h4 {
+    font-size:20px;
+    color:#d61920;
+    padding:20px 20px;
+}
+
+.number-input {
+    position:relative;
+    background:#fff;
+    height:14px;
+    min-width:20px;
+    border-radius:0px;
+    top:-9px;
+    left:0px;
+    border:1px solid rgba(0,0,0,0.1);
+}
+
+.number-input i {
+    font-size:14px;
+    top:-1px;
+    left:6px;
+    position:absolute;
+    color: #000;
+}
+
+.number-input:last-child {
+    top:5px;
+    left:-26px;
+}
+
 /*   Hot Staffs END */
 
 
@@ -842,7 +845,7 @@ footer .col-xs-2:last-child {
     border-right: none;
 }
 
-.copyright { 
+footer .copyright { 
     clear: both; 
     padding: 10px; 
     font-size: 15px; 
@@ -852,7 +855,7 @@ footer .col-xs-2:last-child {
     color: #000;
 }
 
-.copyright .container-non-responsive {
+footer .copyright .container-non-responsive {
     text-align: center;
 }
 

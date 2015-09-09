@@ -19,8 +19,9 @@ header span{
 }
 
 .container-login-responsive {
-    max-width: 1000px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
 }
 
 .login-left {
@@ -165,8 +166,9 @@ footer {
 }
 
 footer .container-login-footer-responsive {
-    margin: 0 auto;
-    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
 }
 
 footer .col-xs-2 {

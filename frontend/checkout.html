@@ -6,7 +6,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>彩购网－结算</title>
+	<title>彩购网---结算</title>
 
 	<!-- Bootstrap Core CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -20,159 +20,46 @@
 	<!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
 </head> 
 
-<body>
-	<!-- Upper Header Section -->
-	<div class="navbar">
-		<div class="container-non-responsive">
-			<div class="pull-left">
-				<h6>欢迎来到彩购!<a href="#">收藏彩购网</a></h6>			
-			</div>
-			<div class="pull-right">
-				<h6>	
-					<a class="a-login" href="login.html">登录</a>
-					<a class="a-register" href="register.html">注册</a>
-					<div class="user">
-						<a href="user.html">我的彩购</a> 
-						<div class="clear"></div>
-						<div class="user-list">
-							<div><a href="user.html">我的账户</a></div>
-							<div><a href="user.html">我的积分</a></div>
-							<div><a href="user.html">充值</a></div>
-						</div>
-					</div>
-					<div class="history">
-						<a href="history.html" >最近浏览</a>
-						<div class="clear"></div>
-						<div class="history-list">
-							<div class="item">
-								<a href="history.html" >
-									<div class="cart-image">
-										<img src="img/aptami.jpg" />
-									</div>
-									<div class="cart-content">
-										<h5>麦卢卡蜂蜜</h5>
-										<span><strong>$2000.00</strong></span>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="history.html" >
-									<div class="cart-image">
-										<img src="img/aptami.jpg" />
-									</div>
-									<div class="cart-content">
-										<h5>麦卢卡蜂蜜</h5>
-										<span><strong>$2000.00</strong></span>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="more">
-						<a href="#">更多</a>
-						<div class="clear"></div>
-						<div class="more-list">
-							<div><a href="contact.html">联系我们</a></div>
-							<div><a href="about.html">关于我们</a></div>	
-						</div>
-					</div>
-
-				</h6>	
-			</div>
-		</div>
-	</div>
-
-	<!-- Lower Header Section -->
-	<header>
-		<div class="container-non-responsive">
-			<div class="col-xs-3">
-				<a class="logo" href="index.html">
-					<img src="img/logo.jpg" alt="彩购网">
-				</a>
-			</div>
-			<div class="col-xs-7">
-				<form action="#" class="navbar-search pull-left">
-					<input type="text" placeholder="搜索产品..." class="search-query">
-					<button>搜索</button>
-				</form>
-				<div class="col-xs-9 search-keys">
-					<h6>
-						<a href="#">麦卢卡蜂蜜</a><span class="dashed"></span>
-						<a href="#">好健康蜂胶</a><span class="dashed"></span>
-						<a href="#">爱他美婴儿奶粉</a><span class="dashed"></span>
-						<a href="#">蔓越莓</a><span class="dashed"></span>
-						<a href="#">纽乐鱼油</a><span class="dashed"></span>
-						<a href="#">护手霜</a>
-					</h6>
-				</div>
-			</div>
-			<div class="col-xs-2">
-				<a class="cart" href="cart.html">
-					<img src="img/cart.gif">
-					<span>&nbsp;结算购物车</span>
-				</a>
-				<div class="clear"></div>
-				<div class="cart-list">
-					<i class="cart-block-row"></i>
-					<div class="item">
-						<div class="cart-image">
-							<img src="img/aptami.jpg" />
-						</div>
-						<div class="cart-content">
-							<h5>麦卢卡蜂蜜</h5>
-							<span><strong>$2000.00</strong></span>
-							<span>×20</span>
-							<span><a href="#">删除</a></span>
-						</div>
-
-					</div>
-					<div class="item">
-						<div class="cart-image">
-							<img src="img/aptami.jpg" />
-						</div>
-						<div class="cart-content">
-							<h5>麦卢卡蜂蜜</h5>
-							<span><strong>$220.00</strong></span>
-							<span>×5</span>
-							<span><a href="#">删除</a></span>
-						</div>
-
-					</div>
-					<div class="total">
-						<span>共<strong>25</strong>件商品</span>
-						<span>共计<strong>$411.00</strong></span>
-					</div>
-					<div class="see-more">结算</div>
-				</div>
-			</div>
-
-		</div>
-	</header>
-
+<body id="checkout-page">
+	<div id="header"></div>
 	<div class="container-non-responsive">
-		<nav id="topnav" class="top-nav">
-			<div class="nav-all">
-				<a href="products.html" role="button" >
-					<p>全部商品分类</p>
-				</a>
-			</div>
-			<div class="nav-right">
-				<a href="index.html" class="active">首页</a>
-				<a href="about.html">关于彩购</a>
-				<a href="#">物流中心</a>
-				<a href="contact.html">联系我们</a>
-			</div>
-		</nav>
-
-		<div id="checkout-page">
+		<div class="cart-content col-xs-12">
+			<h3><strong>结算</strong></h3>	
 			<button onclick="location.href='login.html'">登录</button>
-			<div class="cart-content col-xs-12">
-				<h3><strong>结算</strong></h3>	
-				<hr>	
-				<div class="col-xs-4">
-					<div class="side">
-						<div class="side-title">地址</div>
-						<div class="side-content">
+			<hr>	
+			<div class="col-xs-8">
+				<div class="side">
+					<div class="side-title">地址</div>
+					<div class="side-content">
+						<!-- logined in can select address -->
+						<div class="default-address">
+							<h5>已有地址</h5>
+							<div class="address-content">
+								<h5>
+									<div class="address-name">Charis Wan</div>
+									<div>27 Beaudort Place, Papatoetoe, Auckland, 1025</div>
+									<div>New Zealand</div>	
+								</h5>
+							</div>
+							<div class="address-content">
+								<h5>
+									<div class="address-name">Patricj kfgs</div>
+									<div>27 Sam Place, Mt Albert, Auckland, 3325</div>
+									<div>New Zealand</div>	
+								</h5>
+							</div>
+							<div class="address-content">
+								<h5>
+									<div class="address-name">万江</div>
+									<div>湖北省武汉市江汉区三眼桥北路海虹景7栋二单元701, 430020</div>
+									<div>中国</div>	
+								</h5>
+							</div>
+							<hr>
+						</div>
+						
+						<div class="new-address">
+							<h5>新地址</h5>
 							<div>
 								<label>收件人名字：</label>
 								<input type="text">
@@ -204,211 +91,138 @@
 							</div>
 						</div>
 					</div>
-				</div> 
-
-
-
-				<div class="col-xs-4">
-					<div class="side">
-						<div class="side-title">用送方式</div>
-						<div class="side-content">
-							<div>
-								<label>标准配送*</label>
-								<p>NZ$7/kg</p>
-							</div>
-							<div>
-								<label>邮寄费用</label>
-								<p>NZ $6.00</p>
-							</div>
-						</div>
-					</div>
 				</div>
-				<div class="col-xs-4">
-					<div class="side">
-						<div class="side-title">折扣代码</div>
-						<div class="side-content">
-							<p>如果您有优惠代码，请输入。</p>
-							<input class="" value="">
-							<button title="应用优惠券" class="btn-promotion"  value="应用优惠券">应用优惠券</button>
+			</div> 
+
+
+
+			<div class="col-xs-4">
+				<div class="side">
+					<div class="side-title">用送方式</div>
+					<div class="side-content">
+						<div>
+							<h5>标准配送* NZ$7/kg</h5>
+							
+						</div>
+						<div>
+							<h5>邮寄费用:NZ $6.00</h5>
+							
 						</div>
 					</div>
-				</div> 
-
-				<div class="col-xs-4">
-					<div class="side">
-						<div class="side-title">上传身份证</div>
-						<div class="side-content">
-							<div>
-								<label>身份证号码：</label>
-								<input type="number">
-							</div>
-							<div>
-								<label>订单号：</label>
-								<input type="number">
-							</div>
-							<div>
-								<label>身份证正面：</label>
-								<input type="file">
-							</div>
-							<div>
-								<label>身份证背面：</label>
-								<input type="file">
-							</div>
-							<button>保存</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-xs-4">
-					<div class="side">
-						<div class="side-title">购物车总计</div>
-						<div class="side-content"> 
-							<div class="cart-price">
-								<p><span>小计</span><span class="pull-right">$22.00</span></p>
-								<p><span>运/税</span><span class="pull-right">$20.00</span></p>
-								<p class="total-price"><span>总计</span><span class="pull-right">$42.00</span></p>
-							</div>
-
-						</div>
-
-					</div>
-				</div>   
-
-				<div class="col-xs-4">
-					<div class="side">
-						<div class="side-title">支付方式</div>
-						<div class="side-content"> 
-								<!-- <button title="进行结账" class="btn-pay"  value="进行结账">中国银联</button>
-								<button title="进行结账" class="btn-pay"  value="进行结账">新西兰本地银行</button> -->
-								<p class="total-price"><span>总计</span><span class="pull-right">$42.00</span></p>
-								<button title="paymentexpress" class="btn-pay"  value="进行结账">立刻支付</button>
-								
-							</div>
-
-						</div>
-						
-					</div> 
-
-				</div>
-
-				<div class="hotdeal cart-down col-xs-12">
-					<div class="row-up">
-						<div class="col-xs-11">
-							<h3>可能喜欢</h3>
-						</div>
-						<div class="col-xs-1">
-							<a href="products.html">更多
-							</a> 
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-3">
-							<a href="product_details.html">
-								<img src="img/aptami.jpg" alt="">
-								<span class="pro-text"><span class="pro-title">【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰<br></span><span class="price">$79.00</span><del>$89.00</del></span>
-							</a>
-						</div>
-						<div class="col-xs-3">
-							<a href="product_details.html">
-								<img src="img/blackmores.jpg" alt=""> 
-								<span class="pro-text"><span class="pro-title">Arataki 纯天然麦卢卡蜂蜜UFM10+500g<br></span><span class="price">$49.00</span><del>$59.00</del></span>
-							</a>
-						</div>
-						<div class="col-xs-3">
-							<a href="product_details.html">
-								<img src="img/honey.jpg" alt=""> 
-								<span class="pro-text"><span class="pro-title">Thompson汤普森蜂王浆180粒<br></span><span class="price">$42.61</span><del>$49.00</del></span>
-							</a>
-
-						</div>
-						<div class="col-xs-3">
-							<a href="product_details.html">
-								<img src="img/artemis.jpg" alt="">
-								<span class="pro-text"><span class="pro-title">Blackmores澳佳宝 儿童水果味鱼油 30粒<br></span><span class="price">$16.84</span><del>$19.37</del></span>
-							</a>
-						</div>
-					</div>	
 				</div>
 			</div>
 
-			<!--//cart-page-->  
+			
+
+			<div class="col-xs-4">
+				<div class="side">
+					<div class="side-title">折扣代码</div>
+					<div class="side-content">
+						<p>如果您有优惠代码，请输入。</p>
+						<input class="" value="">
+						<button title="应用优惠券" class="btn-promotion"  value="应用优惠券">应用优惠券</button>
+					</div>
+				</div>
+			</div> 
+
+			<div class="col-xs-4">
+				<div class="side">
+					<div class="side-title">上传身份证</div>
+					<div class="side-content">
+						<div>
+							<label>身份证号码：</label>
+							<input type="number">
+						</div>
+						<div>
+							<label>订单号：</label>
+							<input type="number">
+						</div>
+						<div>
+							<label>身份证正面：</label>
+							<input type="file">
+						</div>
+						<div>
+							<label>身份证背面：</label>
+							<input type="file">
+						</div>
+						<button>保存</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+				<div class="side">
+					<div class="side-title">购物车总计</div>
+					<div class="side-content"> 
+						<div class="cart-price">
+							<p><span>小计</span><span class="pull-right">$22.00</span></p>
+							<p><span>运/税</span><span class="pull-right">$20.00</span></p>
+							<p class="total-price"><span>总计</span><span class="pull-right">$42.00</span></p>
+						</div>
+						<button title="paymentexpress" class="btn-pay"  value="进行结账">立刻支付</button>
+						<!-- <button title="进行结账" class="btn-pay"  value="进行结账">中国银联</button>
+						<button title="进行结账" class="btn-pay"  value="进行结账">新西兰本地银行</button> -->
+					</div>
+				</div>
+			</div> 
+		</div>
+
+		<div class="hotdeal cart-down col-xs-12">
+			<div class="row-up">
+				<div class="col-xs-11">
+					<h3>可能喜欢</h3>
+				</div>
+				<div class="col-xs-1">
+					<a href="products.html">更多
+					</a> 
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3">
+					<a href="product_details.html">
+						<img src="img/aptami.jpg" alt="">
+						<span class="pro-text"><span class="pro-title">【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰<br></span><span class="price">$79.00</span><del>$89.00</del></span>
+					</a>
+				</div>
+				<div class="col-xs-3">
+					<a href="product_details.html">
+						<img src="img/blackmores.jpg" alt=""> 
+						<span class="pro-text"><span class="pro-title">Arataki 纯天然麦卢卡蜂蜜UFM10+500g<br></span><span class="price">$49.00</span><del>$59.00</del></span>
+					</a>
+				</div>
+				<div class="col-xs-3">
+					<a href="product_details.html">
+						<img src="img/honey.jpg" alt=""> 
+						<span class="pro-text"><span class="pro-title">Thompson汤普森蜂王浆180粒<br></span><span class="price">$42.61</span><del>$49.00</del></span>
+					</a>
+
+				</div>
+				<div class="col-xs-3">
+					<a href="product_details.html">
+						<img src="img/artemis.jpg" alt="">
+						<span class="pro-text"><span class="pro-title">Blackmores澳佳宝 儿童水果味鱼油 30粒<br></span><span class="price">$16.84</span><del>$19.37</del></span>
+					</a>
+				</div>
+			</div>	
 		</div>
 	</div>
+
+	<!--//cart-page-->  
+</div>
 </div>
 </div><!-- /container-non-responsive -->
 
+<div id="footer"></div>
 
-<div id="gototop">
-	<span class="fa fa-chevron-up"></span>
-	<div>返回顶部</div>
-</div>
+<!-- jQuery -->
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery.easing-1.3.min.js"></script>
+<script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
 
-<!-- Footer -->
-<footer>
-	<div class="container-non-responsive">	
-		<div class="col-xs-2">
-			<h5>公司简介</h5><br>
-			<p>  </p>
-		</div>
-		<div class="col-xs-2">
-			<h5>新手指南</h5><br>
-			<a href="contact.html">账号注册</a><br>
-			<a href="#">充值积分</a><br>
-			<a href="#">产品退税</a><br>
-			<a href="#">购物流程</a><br>
-		</div>
-		<div class="col-xs-2">
-			<h5>发货说明</h5><br>
-			<a href="#">快递资费标准</a> <br>
-			<a href="#">收货时间</a><br>
-			<a href="#">订单拆分</a><br>
-		</div>
-		<div class="col-xs-2">
-			<h5>支付方式</h5><br>
-			<a href="#">在线支付</a> <br>
-			<a href="#">信用卡支付</a><br>
-			<a href="#">银行转账</a><br>
-			<a href="#"><img src="img/payment/paymentexpress.png" alt="payment"></a>
-						<!-- <a href="#"><img src="img/payment/maestro.png" alt="payment"></a>
-						<a href="#"><img src="img/payment/mc.png" alt="payment"></a>
-						<a href="#"><img src="img/payment/pp.png" alt="payment"></a> -->
-					</div>
-					<div class="col-xs-2">
-						<h5>售后服务</h5><br>
-						<a href="#">退换货政策</a> <br>
-						<a href="#">退换货流程</a><br>
-						<a href="#">退款说明</a><br>
-						<a href="#">我要退货/换货</a><br>
-					</div>
-					<div class="col-xs-2">
-						<h5>联系我们</h5><br>
-						<a href="#">加入我们</a><br>
-						<a href="#">联系我们</a><br>
-						<a href="#">友情链接</a><br>
-					</div>
-				</div>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 
-				<div class="copyright">
-					<div class="container-non-responsive">				
-						<span>Copyright &copy;2015 彩购网 Copyright</span>
-					</div>
-				</div>
-			</footer>
-			<!-- No Javascript warnings -->
-			<noscript>
-				<div>You browser doesn't support JavaScript or has it turned off. This website requires JavaScript to working propertly.</div>
-			</noscript>
-
-			<!-- jQuery -->
-			<script src="js/jquery-1.11.3.min.js"></script>
-			<script src="js/jquery.easing-1.3.min.js"></script>
-			<script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
-
-			<!-- Bootstrap Core JavaScript -->
-			<script src="js/bootstrap.min.js"></script>
-
-			<!-- Custom JavaScript -->
-			<script src="js/shop.js"></script>
-		</body>
-
-		</html>
+<!-- Custom JavaScript -->
+<script src="js/shop.js"></script>
+</body>
+</html>

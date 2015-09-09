@@ -1,9 +1,9 @@
 
 $(document).ready(function() {
 
-  $( "#header" ).load( "header.html", function() {
-  alert( "Load was performed." );
-});
+  $( "#header" ).load( "header.html");
+  $( "#footer" ).load( "footer.html");
+  $( "#siderbar" ).load( "siderbar.html");
 
 	$('#myCarousel').carousel();
 

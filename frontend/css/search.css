@@ -1,9 +1,6 @@
 
 
 /*Search Page*/
-#search-page {
-	border:0;
-}
 
 .location {
 	position: relative;
@@ -15,25 +12,6 @@
 }
 	
 /*left-side*/
-#sidebar {
-    width:255px;
-    height:auto;
-    padding: 0;
-}
-
-#sidebar .nav-list{
-	display:none;}
-	
-.nav-all:hover #sidebar .nav-list{
-	display:block;}
-
-#sidebar .side {
-	width:255px;
-	height:auto;
-	margin-top:20px;
-	padding:0;
-}
-
 #sidebar .selects {
 	padding:0;
 	margin:0;

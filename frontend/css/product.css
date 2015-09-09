@@ -1,98 +1,70 @@
-@charset "UTF-8";
-/* CSS Document */
-
-ul,li{
-	list-style:none;}
-
-/*product Page*/
-#product-page{
-	border:0;}
-.location{
-	position: relative;
-    top: -60px;
-    left: 280px;
-    color: #fff;
-	line-height:50px;
-	width:auto;}	
 
 /*right side*/
-.page-title h4{
-	font-size:20px;
-	color:#d61920;
-	padding:20px 20px;}
 #product-page .row{
 	width:100%;
 	border:0px solid rgba(0,0,0,0.1);}
 	
 /*product products*/
-#product-page .product-pros{
+#product-page .product-pros {
 	width:100%;
-	height:auto;}
-#product-page .product-info{
+	height:auto;
+}
+
+#product-page .product-info {
 	border:1px solid rgba(0,0,0,0.1);
-	padding:0px 0px 10px 0px;}
+	padding:0px 0px 10px 0px;
+}
 
-#product-page .product-info img{
-	width:100%;}
-#product-page .product-info .col-xs-4 img{
+#product-page .product-info img {
+	width:100%;
+}
+
+#product-page .product-info .col-xs-4 img {
 	border:1px solid #fff;
-	cursor:pointer;}	
+	cursor:pointer;
+}	
 #product-page .product-info .col-xs-4 img:hover,
-#product-page .product-info .col-xs-4 .active{
-	border-color:#ee1c24;}	
+#product-page .product-info .col-xs-4 .active {
+	border-color:#ee1c24;
+}	
 
-#product-page .product-info .col-xs-7 p{
+#product-page .product-info .col-xs-7 p {
 	color:#000;
 	font-size: 12px;
 	line-height:20px;
-	height:20px;}
+	height:20px;
+}
 	
-#product-page .product-info .col-xs-7 .t-type1{
+#product-page .product-info .col-xs-7 .t-type1 {
 	font-size: 18px;
 	margin-top:20px;
 	line-height:25px;
-	height:25px;}
-#product-page .product-info .col-xs-7 .t-type2{
-	color: #d61920;}
-#product-page .product-info .col-xs-7 .t-type4{
+	height:25px;
+}
+
+#product-page .product-info .col-xs-7 .t-type2 {
+	color: #d61920;
+}
+
+#product-page .product-info .col-xs-7 .t-type4 {
 	font-size: 18px;
 	color: #d61920;
 	line-height:25px;
-	height:25px;}
+	height:25px;
+}
+
 #product-page .product-info .col-xs-7 .add-to-box{
 	background:rgb(245,245,245);
 	border:1px solid rgba(0,0,0,0.1);
-	padding:20px 20px;}
-#product-page .product-info .col-xs-7 .add-to-box .Numinput label{
-	font-size: 12px;
-	color: #000;
-	height:30px;
-	line-height:30px;}
-#product-page .product-info .col-xs-7 .add-to-box .Numinput input{
-	height:30px;
+	padding:20px 20px;
+}
+
+#product-page .product-info .col-xs-7 .add-to-box input{
 	width:60px;
-	text-align:center;
-	font-size: 12px;
-	color: #000;
-	border:1px solid rgba(0,0,0,0.1);}
-#product-page .product-info .col-xs-7 .add-to-box .Numinput .numadjust{
-	position:relative;
-	background:#fff;
-	height:14px;
-	width:30px;
-	border-radius:0px;
-	top:-10px;
-	left:0px;
-	border:1px solid rgba(0,0,0,0.1);}
-#product-page .product-info .col-xs-7 .add-to-box .Numinput .numadjust i{
-	font-size:10px;
-	top:-1px;
-	left:10px;
-	position:absolute;}
-#product-page .product-info .col-xs-7 .add-to-box .Numinput .decrease{
-	top:5px;
-	left:-34px;}
-#product-page .product-info .col-xs-7 .add-to-box .btn-cart{
+}
+
+
+#product-page .product-info .col-xs-7 .add-to-box .btn-cart {
 	background-color: #FFEDED;
     color: #ee1c24;
     height: 35px;
@@ -100,48 +72,66 @@ ul,li{
     width: auto;
     border: 1px solid #ee1c24;
     margin:20px 20px 0px 0px;
-	padding:0px 20px;}
-#product-page .product-info .col-xs-7 .add-to-box .btn-cart:last-child{
-	margin:20px 0px 0px 0px;}
-#product-page .product-info .col-xs-7 .add-to-box .btn-cart:hover{
-	background-color: #ee1c24;
-    color: #fff;}
+	padding:0px 20px;
+}
 
-#product-page .product-info:last-child{
+#product-page .product-info .col-xs-7 .add-to-box .btn-cart:last-child {
+	margin:20px 0px 0px 0px;
+}
+
+#product-page .product-info .col-xs-7 .add-to-box .btn-cart:hover {
+	background-color: #ee1c24;
+    color: #fff;
+}
+
+#product-page .product-info:last-child {
 	margin-top:20px;
-	padding:20px 0px;}
-#product-page .product-info .col-xs-12 .product-tabs .product-tab{
+	padding:20px 0px;
+}
+
+#product-page .product-info .col-xs-12 .product-tabs .product-tab {
 	padding:0px;
 	width:100%;
-	border-bottom:3px solid #ee1c24;}
+	border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
 #product-page .product-info .col-xs-12 .product-tabs .product-tab li{
-	background-color: #F5F5F5;
-	color: #ee1c24;
+	color: #555;
 	height: 40px;
 	line-height:40px;
 	font-size:18px;
 	display: inline-block;
 	padding: 0px 20px;
-	border:1px solid rgba(0,0,0,0.1);
-	border-bottom:0px;}
+	
+}
+
 #product-page .product-info .col-xs-12 .product-tabs .product-tab li:hover,
-#product-page .product-info .col-xs-12 .product-tabs .product-tab .active{
-	background-color: #ee1c24;
-	color: #fff;
-	cursor:pointer;}
+#product-page .product-info .col-xs-12 .product-tabs .product-tab .active {
+	color: #ee1c24;
+	cursor:pointer;
+	border-bottom:2px solid #ee1c24;
+}
 	
 #product-page .product-info .col-xs-12 .product-tabs .tab-content{
-	margin-top:20px;}
-#product-page .product-info .col-xs-12 .product-tabs .tab-content .t-type1{
+	margin-top:20px;
+}
+
+#product-page .product-info .col-xs-12 .product-tabs .tab-content .t-type1 {
 	font-size: 16px;
 	margin:20px;
 	line-height:25px;
-	color:#000;}
-#product-page .product-info .col-xs-12 .product-tabs .tab-content img{
+	color:#000;
+}
+
+#product-page .product-info .col-xs-12 .product-tabs .tab-content img {
 	width:80%;
-	margin-left:10%;}
+	margin-left:10%;
+}
+
 #product-page .product-info .col-xs-12 .product-tabs .tab-content .record-list{
-	width:100%;}
+	width:100%;
+}
+
 #product-page .product-info .col-xs-12 .product-tabs .tab-content .record-list th,
 #product-page .product-info .col-xs-12 .product-tabs .tab-content .record-list td{
 	border:1px solid rgba(0,0,0,0.1);
@@ -149,15 +139,22 @@ ul,li{
 	line-height:25px;
 	font-size:12px;
 	color:#000;
-	text-align:center;}
+	text-align:center;
+}
+
 #product-page .product-info .col-xs-12 .product-tabs .tab-content .record-list th{
-	border-bottom:0px;}
+	border-bottom:0px;
+}
+
 #product-page .product-info .col-xs-12 .product-tabs .tab-content .record-list .comments{
 	padding:0px 20px;
-	text-align:left;}
+	text-align:left;
+}
+
 #product-page .product-info .col-xs-12 .product-tabs .tab-content .t-type2{
 	margin-left:20px;
 	font-size: 12px;
 	line-height:20px;
 	height:20px;
-	color:#000;}
+	color:#000;
+}
