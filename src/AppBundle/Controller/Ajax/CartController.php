@@ -36,72 +36,78 @@ class CartController extends Controller
             //action
             //$action = $get_request('action');
             $cartProduct = $em->getRepository('AppBundle:CartProduct')->hasItem($id, $user->getId());
+            if ($product) {
+                switch ($action) {
+                    //add one
+                    case '+':
+                        if ($cartProduct === false) {
+                            $cartProduct = new CartProduct();
+                            $cartProduct->setProduct($product);
+                            $cartProduct->setCount(1);
+                            $cartProduct->setUser($user);
+                        }
+                        else {
+                            $cartProduct->setCount($cartProduct->getCount() + 1);
 
-            switch ($action) {
-                //add one
-                case '+':
-                    if ($cartProduct === false) {
-                        $cartProduct = new CartProduct();
-                        $cartProduct->setProduct($product);
-                        $cartProduct->setCount(1);
-                        $cartProduct->setUser($user);
-                    }
-                    else {
-                        $cartProduct->setCount($cartProduct->getCount() + 1);
-
-                    }
-                    $em->persist($cartProduct);
-                    $em->flush();
-                    return new Response('success');
-                    break;
-                //delete one
-                case '-':
-                    if ($cartProduct && $cartProduct->getCount() > 1) {
-                        $cartProduct->setCount($cartProduct->getCount() - 1);
+                        }
                         $em->persist($cartProduct);
                         $em->flush();
                         return new Response('success');
-                    }
-                    elseif ($cartProduct) {
-                        return new Response('<= 1');
-                    }
-                    else {
-                        return new Response('fail');
-                    }
-                    break;
-                //edit or insert
-                case 'edit':
-                    if ($cartProduct) {
-                        $cartProduct->setCount($no);
+                        break;
+                    //delete one
+                    case '-':
+                        if ($cartProduct && $cartProduct->getCount() > 1) {
+                            $cartProduct->setCount($cartProduct->getCount() - 1);
+                            $em->persist($cartProduct);
+                            $em->flush();
+                            return new Response('success');
+                        }
+                        elseif ($cartProduct) {
+                            return new Response('<= 1');
+                        }
+                        else {
+                            return new Response('fail');
+                        }
+                        break;
+                    //edit or insert
+                    case 'edit':
+                        if ($cartProduct) {
+                            $cartProduct->setCount($no);
+                            $em->persist($cartProduct);
+                        }
+                        else {
+                            $cartProduct = new CartProduct();
+                            $cartProduct->setProduct($product);
+                            $cartProduct->setCount($no);
+                            $cartProduct->setUser($user);
+                        }
                         $em->persist($cartProduct);
-                    }
-                    else {
-                        $cartProduct = new CartProduct();
-                        $cartProduct->setProduct($product);
-                        $cartProduct->setCount($no);
-                        $cartProduct->setUser($user);
-                    }
-                    $em->persist($cartProduct);
-                    $em->flush();
-                    return new Response('success');
-                    break;
-                //remove
-                case 'rm':
-                    if ($cartProduct) {
-                        $em->remove($cartProduct);
                         $em->flush();
                         return new Response('success');
-                    }
-                    else {
-                        return new Response('fail');
-                    }
-                    break;
+                        break;
+                    //remove
+                    case 'rm':
+                        if ($cartProduct) {
+                            $em->remove($cartProduct);
+                            $em->flush();
+                            return new Response('success');
+                        }
+                        else {
+                            return new Response('fail');
+                        }
+                        break;
 
-                default:
-                    return new Response('fail');
-                    break;
+                    default:
+                        return new Response('fail');
+                        break;
+                }
+            }
+            else {
+                return new Response('no product found');
             }
         }
+
+        //anonymous user
         else {
             $cookies = $request->cookies;
             if ($cookies->has('cart')) {
@@ -111,16 +117,19 @@ class CartController extends Controller
                 switch ($action) {
                     case '+':
                         if (array_key_exists($id, $cart)) {
-                            $cart[$id]++;
+                            $cart[$id]['count']++;
+                            $cart[$id]['addAt'] = new \DateTime();
                         }
                         else {
-                            $cart[$id] = 1;
+                            $cart[$id]['count'] = 1;
+                            $cart[$id]['addAt'] = new \DateTime();
                         }
                         break;
 
                     case '-':
                         if (array_key_exists($id, $cart) && $cart[$id] > 1) {
-                            $cart[$id]--;
+                            $cart[$id]['count']--;
+                            $cart[$id]['addAt'] = new \DateTime();
                         }
                         elseif (array_key_exists($id, $cart)) {
                             unset($cart[$id]);
@@ -136,7 +145,8 @@ class CartController extends Controller
                             unset($cart[$id]);
                         }
                         else {
-                            $cart[$id] = $no;
+                            $cart[$id]['count'] = $no;
+                            $cart[$id]['addAt'] = new \DateTime();
                         }
                         break;
 
@@ -144,18 +154,40 @@ class CartController extends Controller
                         unset($cart[$id]);
                         break;
                     default:
-                        # code...
+                        return new Response('fail');
                         break;
                 }
+
                 $response = new Response();
-                $response->headers->setCookie(new Cookie('cart', json_encode($cart), time() + (3600*48)));
+                if (count($cart) <= 0) {
+                    $response->headers->clearCookie('cart');
+                }
+                else {
+                    $response->headers->setCookie(new Cookie('cart', json_encode($cart), time() + (3600*48)));
+                }
                 $response->send();
                 return new Response($cookies->get('cart'));
             }
             else {
-                $cart = array(
-                    $id => $no,
-                    );
+                if ($action == '+') {
+                    $cart = array(
+                        $id => array(
+                            'count' => 1,
+                            'addAt' => new \DateTime(),
+                            )
+                        );
+                }
+                elseif ($action == 'edit') {
+                    $cart = array(
+                        $id => array(
+                            'count' => $no,
+                            'addAt' => new \DateTime(),
+                            )
+                        );
+                }
+                else {
+                    return new Response('fail');
+                }
                 $response = new Response('success');
                 $response->headers->setCookie(new Cookie('cart', json_encode($cart), time() + (3600*48)));
                 $response->send();
@@ -206,7 +238,7 @@ class CartController extends Controller
                     $data[$value->getId()] = array(
                         'id' => $value->getId(),
                         'name' => $value->getName(),
-                        'count' => $cart[$value->getId()],
+                        'count' => $cart[$value->getId()]['count'],
                         'poster' => $value->getPoster(),
                         'price' => $value->getPrice(),
                         'price_discounted' => $value->getPriceDiscounted()
