@@ -58,7 +58,7 @@ class RecentViewedController extends Controller
 			$recentViewed = json_decode($cookies->get('recentViewed', true));
 			$em = $this->getDoctrine()->getManager();
             $products = $em->getRepository('AppBundle:Product')->findById($recentViewed);
-            //exit(\Doctrine\Common\Util\Debug::dump($products));
+            
             $data = array();
             foreach ($products as $value) {
                 array_push($data, array(

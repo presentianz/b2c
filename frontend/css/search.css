@@ -11,6 +11,9 @@
 	width:auto;
 }
 	
+.nav-all span{
+	margin-left:10px;}
+
 /*left-side*/
 #sidebar .selects {
 	padding:0;
@@ -93,11 +96,21 @@
 
 #sidebar .best-pro h4 {
 	font-size:15px;
+	margin:5px 0px;
 }
 
 #sidebar .best-pro p {
 	font-size:12px;
-}
+	margin:0px;}
+
+#sidebar .best-pro .price{
+	color: #ee1c24;
+    font-size: 1px;
+    font-weight: bold;
+    margin-top: 0px;
+	margin-left:10px;
+    width: 200px;
+    display:inline-block;}
 
 /*right side*/
 .page-title h4,h4 a{
@@ -113,13 +126,13 @@
 
 #search-page .search-result {
 	width:100%;
-	border:1px solid rgba(0,0,0,0.1);
 }
 
 #search-page .search-result .toolbar {
 	padding:10px 20px;
 	width:100%;
 	height:50px;
+	border:1px solid rgba(0,0,0,0.1);
 	//border-bottom:1px dashed rgba(0,0,0,0.1);
 }
 
@@ -194,10 +207,15 @@
 	
 #search-page .hotdeal{
 	margin-top:0px;}
+
+#search-page .hotdeal .row{
+	margin-top:20px;}
+	
 #search-page .hotdeal .row >div:last-child{
 	border-right:1px solid #E6E6E6;}
 	
 #search-page .search-result .toolbar-bottom{
-	border-bottom:0;
+	margin-top:20px;
+	border:1px solid rgba(0,0,0,0.1);
 	//border-top:1px dashed rgba(0,0,0,0.1);
 }
