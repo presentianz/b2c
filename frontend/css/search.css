@@ -16,21 +16,18 @@
 
 /*left-side*/
 
-#sidebar {
+#siderbar {
     width:255px;
     height:auto;
     padding: 0;
 }
 	
-#sidebar .nav-list{
+#siderbar .nav-list{
 	display:none;
 	border:1px solid rgba(0,0,0,0.1);
 	border-top:none;
 	position:absolute;
 	background:#FFF;}
-	
-.nav-all:hover #sidebar .nav-list{
-	display:block;}
 
 #search-page .side {
 	width:255px;
@@ -42,7 +39,7 @@
 }
 
 
-#sidebar .selects {
+#siderbar .selects {
 	padding:0;
 	margin:0;
    	width:255px;
@@ -55,26 +52,26 @@
 	margin-bottom:20px;
 }
 
-#sidebar .selects > li {
+#siderbar .selects > li {
 	padding:5px 25px;
 	border-top: 1px dashed rgba(0,0,0,0.1);
 }
 
-#sidebar .selects > li:first-child {
+#siderbar .selects > li:first-child {
 	border-top:0px;
 }
 
-#sidebar .selects ul {
+#siderbar .selects ul {
 	font-size:12px;
 	line-height:20px;
 }
 
-#sidebar .selects ul li {
+#siderbar .selects ul li {
 	padding:0px 10px;
 	color:#666;
 }
 
-#sidebar .selects label:hover {
+#siderbar .selects label:hover {
 	color:#d61920;
 }
 
