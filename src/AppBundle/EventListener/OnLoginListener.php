@@ -42,11 +42,11 @@ class OnLoginListener implements EventSubscriberInterface
 
     public function onLoginSuccess()
     {
-    	$request = $this->request;
-    	$cookies = $request->cookies;
-    	$em = $this->em;
-    	$user = $this->user;
         if ($cookies->has('cart')) {
+        	$request = $this->request;
+	    	$cookies = $request->cookies;
+	    	$em = $this->em;
+	    	$user = $this->user;
             $cartArray = json_decode($cookies->get('cart'), true);
             $cartProducts = $em->getRepository('AppBundle:CartProduct')->findByUser($user->getId());
             foreach ($cartProducts as $value) {
@@ -59,14 +59,14 @@ class OnLoginListener implements EventSubscriberInterface
                 }
             }
             if (count($cartArray) > 0) {
-                foreach ($cartArray as $key => $value) {
+            	$products = $em->getRepository('AppBundle:Product')->findById(array_keys($cartArray));
+                foreach ($products as  $value) {
                     $cartProduct = new CartProduct();
-                    $product = $em->getRepository('AppBundle:Product')->find($key);
-                    $cartProduct->setProduct($product);
-                    $cartProduct->setCount($value['count']);
+                    $cartProduct->setProduct($value);
+                    $cartProduct->setCount($cartArray[$value->getId()]['count']);
                     $cartProduct->setUser($user);
                     $em->persist($cartProduct);
-                    unset($cartArray[$key]);
+                    unset($cartArray[$value->getId()]);
                 }
                 $em->flush();
             }
