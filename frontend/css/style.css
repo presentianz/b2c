@@ -50,20 +50,23 @@ button:focus  {
     border: 1px solid #ee1c24;
 }
 
-/*input {
-    padding: 4px 5px;
-    border-bottom-color: #ddd;
-    border-left: none;
-    border-right: none;
-    border-top: none;
+input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    min-width: 30px;
+    font-size: 12px;
+    margin-right: 5px;
 }
 
 input:hover,
 input:focus {
-    border-bottom-color: #EF5505;
     cursor: pointer;
     outline: none;
-}*/
+}
+
+input.qty {
+    width: 40px;
+}
 
 .dashed {
         padding-right: 10px;
@@ -84,11 +87,11 @@ input:focus {
 }
 
 .row {
-    border-bottom-style:solid;
+/*    border-bottom-style:solid;
     border-left-style:solid;
     border-right-style:solid;
     border-width:1px;
-    border-color: rgba(0,0,0,0.1);
+    border-color: rgba(0,0,0,0.1);*/
     margin:0;
 }
 
@@ -193,7 +196,7 @@ input:focus {
     width: 100%;
 }
 
-.navbar .history .cart-content{
+.navbar .history .nav-cart-content{
     width: 100px;
     white-space: nowrap;
     overflow: hidden;
@@ -245,6 +248,7 @@ header .search-query {
     border-image: linear-gradient(to left, #ee1c24, orange, yellow, green, blue, indigo, violet); /* Standard syntax (must be last) */
     border-image-slice: 1;
     outline: none;
+    margin: 0;
 }
 
 header .navbar-search {
@@ -282,6 +286,16 @@ header .col-xs-2 {
    min-width: 150px;
 
 }
+
+
+header .col-xs-2:hover .cart-list {
+    display: block;
+}
+
+header .col-xs-2:hover .cart span {
+    background: #ffffff;
+}
+
 .cart{
     margin-top: 50px;
     -webkit-backface-visibility: hidden;
@@ -343,13 +357,6 @@ header .col-xs-2 {
     box-shadow: 0 0 2px rgba(0,0,0,.2);
 }
 
-header .col-xs-2:hover .cart-list {
-    display: block;
-}
-
-header .col-xs-2:hover .cart span {
-    background: #ffffff;
-}
 
 .cart-list .item {
     border-bottom: 1px dashed #ccc;
@@ -373,7 +380,7 @@ header .col-xs-2:hover .cart span {
     width: 100%;
 }
 
-.cart-list .cart-content{
+.cart-list .nav-cart-content{
     width: 160px;
     white-space: nowrap;
     overflow: hidden;
@@ -681,6 +688,11 @@ ul.nav {
 
 .hotdeal .row {
     height: 300px;
+    border-left-style:solid;
+    border-right-style:solid;
+    border-width:1px;
+    border-color: rgba(0,0,0,0.1);
+
 }
 
 .hotdeal .row a {
@@ -745,11 +757,30 @@ del{
     font: 14px;
     color: #000;
 }
-
+/*page title*/
 .page-title h4 {
     font-size:20px;
     color:#d61920;
     padding:20px 20px;
+}
+
+.page-title h4,h4 a {
+    font-size:20px;
+    color:#d61920;
+    padding:20px 20px;
+}
+.page-title h4 a {
+    padding:20px 10px 20px 10px;
+}
+.page-title h4 a:first-child {
+    padding:20px 10px 20px 0px;
+}
+.page-title h4 span {
+    padding:20px 10px 20px 10px; 
+}
+
+.page-content {
+    padding:20px;
 }
 
 .number-input {

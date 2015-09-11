@@ -3,10 +3,6 @@
     height: auto;
 }
 
-input {
-    padding-left: 10px;
-}
-
 #user-page .user-left {
     width:255px;
     margin-top: 30px;
@@ -236,9 +232,7 @@ input {
 
 
 #tab6 .detail-content input {
-    height: 30px;
     width: 250px;
-    margin-right: 80px;
     display: inline-block;
 }
 

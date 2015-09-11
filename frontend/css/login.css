@@ -44,11 +44,11 @@ header span{
 
 
 .login-content .controls > input {
-     padding: 4px 0px;
     border: 1px solid #fff;
-    border-bottom-color: #999;
+    border-bottom-color: #ccc;
     width: 90%;
     margin-right: 8px;
+    font-size:15px;
 }
 
 .login-content .controls > input:hover, 
