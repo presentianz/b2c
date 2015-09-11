@@ -58,34 +58,6 @@ class DefaultController extends Controller
         $cookies = $request->cookies;
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
-        if ($cookies->has('cart')) {
-            $cartArray = json_decode($cookies->get('cart'), true);
-            $cartProducts = $em->getRepository('AppBundle:CartProduct')->findByUser($user->getId());
-            foreach ($cartProducts as $value) {
-                $product = $value->getProduct();
-                if (array_key_exists($product->getId(), $cartArray)) {
-                    $value->setCount($value->getCount()+$cartArray[$product->getId()]['count']);
-                    $value->setAddAt(new \DateTime());
-                    $em->persist($value);
-                    unset($cartArray[$product->getId()]);
-                }
-            }
-            if (count($cartArray) > 0) {
-                foreach ($cartArray as $key => $value) {
-                    $cartProduct = new CartProduct();
-                    $product = $em->getRepository('AppBundle:Product')->find($key);
-                    $cartProduct->setProduct($product);
-                    $cartProduct->setCount($value['count']);
-                    $cartProduct->setUser($user);
-                    $em->persist($cartProduct);
-                    unset($cartArray[$key]);
-                }
-                $em->flush();
-            }
-            $response = new Response();
-            $response->headers->clearCookie('cart');
-            $response->send();
-        }
         $cartProducts = $em->getRepository('AppBundle:CartProduct')->findByUser($user->getId());
         return $this->render('Order/default/order_confirm.html.twig', array(
             'data' => $cartProducts

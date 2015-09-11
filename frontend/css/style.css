@@ -807,6 +807,13 @@ del{
     left:-26px;
 }
 
+.no-page {
+    margin:50px;
+    text-align: center;
+    min-height: 350px;
+}
+
+
 /*   Hot Staffs END */
 
 
@@ -889,6 +896,7 @@ footer .copyright {
 footer .copyright .container-non-responsive {
     text-align: center;
 }
+
 
 
 
