@@ -96,6 +96,7 @@ input.qty {
 }
 
 
+
 .no-border {
     border:0;
 }
@@ -169,6 +170,12 @@ input.qty {
 .navbar .more:hover {
     background-color: #fff;
     border-color: #e5e5e5;   
+}
+
+.navbar .user-list > div:hover,
+.navbar .history-list > div:hover,
+.navbar .more-list > div:hover {
+     background-color: #e5e5e5;
 }
 
 .navbar .history .item {
@@ -473,7 +480,7 @@ header .col-xs-2:hover .cart span {
 }
 
 /* Left Sider Navbar */
-#sidebar {
+#siderbar {
     width:254px;
     height:auto;
     padding: 0;
@@ -481,8 +488,13 @@ header .col-xs-2:hover .cart span {
 
 .siderbar.col-xs-3 {
     padding:0;
-    width: 255px;
+    width: 255px; 
 }
+
+.show-siderbar {
+    display:block !important; 
+}
+
 
 
 ul.nav {
@@ -758,25 +770,23 @@ del{
     color: #000;
 }
 /*page title*/
-.page-title h4 {
-    font-size:20px;
-    color:#d61920;
-    padding:20px 20px;
+.page-title {
+    border-bottom: 2px solid #ee1c24;
+    margin-left: 20px;
+    padding-top: 30px;
+    margin-bottom: 20px;
+
 }
 
-.page-title h4,h4 a {
-    font-size:20px;
-    color:#d61920;
-    padding:20px 20px;
-}
+.page-title h4, 
 .page-title h4 a {
-    padding:20px 10px 20px 10px;
+    font-size: 25px;
+    color: #d61920;
 }
-.page-title h4 a:first-child {
-    padding:20px 10px 20px 0px;
-}
-.page-title h4 span {
-    padding:20px 10px 20px 10px; 
+
+
+.page-right {
+    width:915px;
 }
 
 .page-content {
@@ -789,7 +799,7 @@ del{
     height:14px;
     min-width:20px;
     border-radius:0px;
-    top:-9px;
+    top:-8px;
     left:0px;
     border:1px solid rgba(0,0,0,0.1);
 }
@@ -803,14 +813,27 @@ del{
 }
 
 .number-input:last-child {
-    top:5px;
+    top:8px;
     left:-26px;
 }
+
+
+
+/* 404 Page */
 
 .no-page {
     margin:50px;
     text-align: center;
     min-height: 350px;
+}
+
+.no-page h1 {
+    font-size: 150px;
+    color: #ee1c24;
+}
+
+.no-page strong {
+     color: #ee1c24;
 }
 
 

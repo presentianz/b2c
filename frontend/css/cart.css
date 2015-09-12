@@ -35,9 +35,9 @@
     margin:0;
 }
 
-
-
-
+#cart-page .side-content .delievey-content {
+	margin: 10px 0px;
+}
 
 #cart-page .cart-content .col-xs-12{
 	padding: 0;
@@ -99,9 +99,7 @@
 }
 
 #cart-page .cart-content .btn-promotion {
-	position: absolute;
-    top: 76px;
-    right: 10px;
+	float: right;
 }
 
 #cart-page .cart-content .btn-pay {

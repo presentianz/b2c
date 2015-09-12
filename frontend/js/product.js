@@ -12,25 +12,25 @@ function productpic(i){
 }
 $(document).ready(function()
 {
-	$("#product-picture1").mlens( { 		
-	  imgSrc: $("#product-pictures1").attr("data-big"), 		
-	  lensShape: "circle", 		
-	  lensSize: 180, 		
-	  borderSize: 4, 		
-	  borderColor: "#fff" 
-	});
-	$("#product-picture2").mlens( { 		
-	  imgSrc: $("#product-pictures1").attr("data-big"), 		
-	  lensShape: "circle", 		
-	  lensSize: 180, 		
-	  borderSize: 4, 		
-	  borderColor: "#fff" 
-	});
-	$("#product-picture3").mlens( { 		
-	  imgSrc: $("#product-pictures1").attr("data-big"), 		
-	  lensShape: "circle", 		
-	  lensSize: 180, 		
-	  borderSize: 4, 		
-	  borderColor: "#fff" 
-	});
+	// $("#product-picture1").mlens( { 		
+	//   imgSrc: $("#product-pictures1").attr("data-big"), 		
+	//   lensShape: "circle", 		
+	//   lensSize: 180, 		
+	//   borderSize: 4, 		
+	//   borderColor: "#fff" 
+	// });
+	// $("#product-picture2").mlens( { 		
+	//   imgSrc: $("#product-pictures1").attr("data-big"), 		
+	//   lensShape: "circle", 		
+	//   lensSize: 180, 		
+	//   borderSize: 4, 		
+	//   borderColor: "#fff" 
+	// });
+	// $("#product-picture3").mlens( { 		
+	//   imgSrc: $("#product-pictures1").attr("data-big"), 		
+	//   lensShape: "circle", 		
+	//   lensSize: 180, 		
+	//   borderSize: 4, 		
+	//   borderColor: "#fff" 
+	// });
 });
