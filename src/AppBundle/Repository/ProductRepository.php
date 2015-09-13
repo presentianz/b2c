@@ -28,6 +28,8 @@ class ProductRepository extends EntityRepository
     public function searchProduct($keys, $sort, $page, $item_no)
     {
         $products = $this->createQueryBuilder('p');
+        $products_no = $this->createQueryBuilder('p');
+        $products_no->select('COUNT(p.id) AS total_no');
         if ($keys) {
             $keys = explode(' ', $keys);
             foreach ($keys as $key => $value) {
@@ -44,18 +46,20 @@ class ProductRepository extends EntityRepository
         }
         foreach ($keys as $i => $key) {
             $products->orWhere('p.name LIKE ?'.$i)->setParameter($i, '%'.$key.'%');
+            $products_no->orWhere('p.name LIKE ?'.$i)->setParameter($i, '%'.$key.'%');
         }
+        //1 = name(default), 2 = price+, 3 = price-, 4 = soldNo-, 5 = date-
         switch ($sort) {
-            case 'price+':
+            case '2':
                 $products->orderBy('p.price', 'ASC');
                 break;
-            case 'price-':
+            case '3':
                 $products->orderBy('p.price', 'DESC');
                 break;
-            case 'soldNo-':
+            case '4':
                 $products->orderBy('p.soldNo', 'DESC');
                 break;
-            case 'date-':
+            case '5':
                 $products->orderBy('p.updateAt', 'DESC');
                 break;
             default:
@@ -72,7 +76,7 @@ class ProductRepository extends EntityRepository
         $products->setFirstResult(($page-1)*$item_no)
                 ->setMaxResults($item_no);
         $data['products'] = $products->getQuery()->getResult();
-        $total_no = $products->select('COUNT(p.id) AS total_no')->getQuery()->getResult();
+        $total_no = $products_no->getQuery()->getResult();
         $data['total_page'] = ceil($total_no[0]['total_no']/$item_no);
         return $data;
     }
