@@ -19,15 +19,15 @@ class CategoryRepository extends NestedTreeRepository
             case 'price-':
                 $orderby = 'price DESC';
                 break;
-            case 'soldNo+':
-                $orderby = 'soldNo ASC';
-                break;
+            // case 'soldNo+':
+            //     $orderby = 'soldNo ASC';
+            //     break;
             case 'soldNo-':
                 $orderby = 'soldNo DESC';
                 break;
-            case 'date+':
-                $orderby = 'p.updateAt ASC';
-                break;
+            // case 'date+':
+            //     $orderby = 'p.updateAt ASC';
+            //     break;
             case 'date-':
                 $orderby = 'p.updateAt DESC';
                 break;
@@ -38,7 +38,7 @@ class CategoryRepository extends NestedTreeRepository
         }
 
         //item per page
-        $item_no = $item_no <= 20 ? 20 : ($item_no <= 40 ? 40 : 60);
+        $item_no = $item_no <= 12 ? 12 : ($item_no <= 18 ? 18 : 24);
 
         $gEM = $this->getEntityManager();
         $this_root = $gEM->getRepository('AppBundle:Category')->findOneById($id);

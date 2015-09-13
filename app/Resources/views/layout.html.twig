@@ -15,7 +15,11 @@
             <a href="{{path('fos_user_security_login')}}">登录</a>
             <a href="{{path('fos_user_registration_register')}}">注册</a>
         {% endif %}
-        
+        <form action="{{ path('search') }}" method="get"  onsubmit="">
+            <div class="search-cen">
+                <input type="text" id="keys" name="keys" lang="zh-CN" autocomplete="off" value="">
+                <input type="submit" class="scbut" value="搜索">
+        </form>
         {% block body %}{% endblock %}
         
         <!-- 此处是FOSUser信息 -->

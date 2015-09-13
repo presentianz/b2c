@@ -114,3 +114,4 @@ fos_user:
             enabled: true
         form:
             type: fos_user_registration
+
