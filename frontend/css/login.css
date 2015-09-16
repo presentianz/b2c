@@ -1,17 +1,17 @@
-header {
+#login-header {
     border-bottom: 2px solid #ee1c24;
-    min-height: 120px;
+    min-height: 100px;
     height: auto;
-    margin-bottom: 50px;
 
 }
 
-header .logo > img {  
+#login-header .logo > img {  
     width: 70px !important;
     height: auto;
+    margin: 0;
 }
 
-header span{
+#login-header span{
     font-size: 25px;
     vertical-align: bottom;
     line-height: 60px;
@@ -22,6 +22,10 @@ header span{
     margin-left: auto;
     margin-right: auto;
     width: 1000px;
+}
+
+.login {
+	margin-top:50px;
 }
 
 .login-left {
@@ -156,32 +160,34 @@ header span{
 }
 
 
-footer {
+#login-footer {
     min-height: 60px;
     padding-top: 10px;
     margin-top: 30px;
     background-color: transparent;
     color: #aaa;
     border-top: 2px solid #f2f2f2;
+    clear: both;
 }
 
-footer .container-login-footer-responsive {
+#login-footer .container-login-footer-responsive {
     margin-left: auto;
     margin-right: auto;
     width: 800px;
 }
 
-footer .col-xs-2 {
+#login-footer .col-xs-2 {
     min-height: 20px;
     line-height: 0px;
     margin-bottom: 10px;
+    display:inline-block;
 }
 
-footer a {
+#login-footer a {
     color: #aaa;
 }
 
-footer .copyright {
+#login-footer .copyright {
      clear: both;
     padding: 10px;
     background-color: transparent;

@@ -11,7 +11,7 @@
 }
 
 #user-page .user-left .nav-list {
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
     margin-bottom: 30px;
 }
 
@@ -22,7 +22,7 @@
     padding-left: 25px; 
     height: 45px;
     width: 100%;
-    border-top: 1px dashed rgba(0,0,0,0.1);
+    border-top: 1px dashed #ccc;
 }
 
 #user-page .user-left li:first-child {
@@ -53,7 +53,7 @@
     width:255px;
     height:auto;
     padding:0;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
     margin-bottom:20px;
 }
 
@@ -73,7 +73,7 @@
 }
 
 #user-page .user-left .side-item {
-    border-top: 1px dashed rgba(0,0,0,0.1);
+    border-top: 1px dashed #ccc;
     position: relative;
 }
 

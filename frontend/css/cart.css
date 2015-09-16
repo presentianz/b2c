@@ -15,8 +15,7 @@
 #cart-page .side {
     width:100%;
     height:auto;
-    padding:0;
-    border: 1px solid rgba(0,0,0,0.1);
+    padding:0;  
     margin-bottom:20px;
 }
 
@@ -33,6 +32,7 @@
 #cart-page .side-content {
     padding:10px;
     margin:0;
+    border: 1px solid #ccc;
 }
 
 #cart-page .side-content .delievey-content {
@@ -44,8 +44,8 @@
 }
 
 #cart-page .cart-content .col-xs-12 button {
-	margin: 10px 5px;
-	padding: 0 10px;
+	margin: 10px 15px;
+    padding: 0 10px;
 }
 
 #cart-page .cart-content h3 {
@@ -63,19 +63,8 @@
 }
 
 #cart-page .cart-content table th {
-	border-bottom:1px solid rgba(0,0,0,0.1);
+	border-bottom:1px solid #ccc;
 	text-align: center;
-}
-
-#cart-page .cart-content .col-xs-6{
-	padding-right: 5px;
-	margin-top: 20px;
-	padding-left: 0;
-}
-
-#cart-page .cart-content .col-xs-6:last-child{
-	padding-left: 5px;
-	padding-right:0;
 }
 
 
@@ -102,13 +91,6 @@
 	float: right;
 }
 
-#cart-page .cart-content .btn-pay {
-	width: 100%;
-    margin: 0px;
-    line-height: 30px;
-    font-size: 20px;
-    height: 40px;
-}
 
 #cart-page .cart-down {
 	margin-bottom: 20px;

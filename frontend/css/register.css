@@ -1,11 +1,11 @@
 
-header {
+#login-header {
     border-bottom: 2px solid #ee1c24;
     min-height: 100px;
     height: auto;
 }
 
-header .logo > img {  
+#login-header .logo > img {  
     width: 70px !important;
     height: auto;
     margin: 0;
@@ -16,6 +16,7 @@ header .logo > img {
     margin-right: auto;
     width: 1000px;
 }
+
 
 .breadcrumb {
     background-color: transparent;
@@ -137,7 +138,10 @@ header .logo > img {
 
 .register-content .controls > input[type="checkbox"] {
     width: auto;
-    vertical-align: top;
+    vertical-align: middle;
+    border:none;
+    outline:none;
+    
 }
 
 .register-content button {
@@ -215,33 +219,35 @@ header .logo > img {
     color: #ee1c24;
 }
 
-footer {
+#login-footer {
     min-height: 60px;
     padding-top: 10px;
     margin-top: 30px;
     background-color: transparent;
     color: #aaa;
     border-top: 2px solid #f2f2f2;
+    clear: both;
 }
 
-footer .container-login-footer-responsive {
+#login-footer .container-login-footer-responsive {
     margin-left: auto;
     margin-right: auto;
     width: 800px;
 }
 
-footer .col-xs-2 {
+#login-footer .col-xs-2 {
     min-height: 20px;
     line-height: 0px;
     margin-bottom: 10px;
+    display:inline-block;
 }
 
-footer a {
+#login-footer a {
     color: #aaa;
 }
 
-footer .copyright {
-    clear: both;
+#login-footer .copyright {
+     clear: both;
     padding: 10px;
     background-color: transparent;
     min-height: 25px;
@@ -251,3 +257,6 @@ footer .copyright {
     color: #aaa;
     border-top: 2px solid #f2f2f2;
 }
+
+
+
