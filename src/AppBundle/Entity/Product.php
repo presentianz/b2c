@@ -33,14 +33,14 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="price", type="decimal")
+     * @ORM\Column(name="price", type="decimal", precision=8, scale=2)
      */
     private $price;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="price_discounted", type="decimal")
+     * @ORM\Column(name="price_discounted", type="decimal", precision=8, scale=2)
      */
     private $price_discounted;
 

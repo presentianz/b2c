@@ -70,9 +70,9 @@ class ProductRepository extends EntityRepository
             $page = 1;
         }
         if (!(is_numeric($item_no) && $item_no > 1)) {
-            $item_no = 12;
+            $item_no = 1;
         }
-        $item_no = $item_no <= 12 ? 12 : ($item_no <= 18 ? 18 : 24);
+        $item_no = $item_no <= 1 ? 1 : ($item_no <= 2 ? 2 : 3);
         $products->setFirstResult(($page-1)*$item_no)
                 ->setMaxResults($item_no);
         $data['products'] = $products->getQuery()->getResult();

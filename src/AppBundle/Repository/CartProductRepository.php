@@ -37,4 +37,14 @@ class CartProductRepository extends EntityRepository
         $cartProduct = $query->getResult();
         return $cartProduct;
     }
+
+    public function getItem($id, $userId)
+    {
+        $query = $this->getEntityManager()->createQuery(
+                'SELECT cp FROM AppBundle:CartProduct cp WHERE cp.product IN (:id) AND cp.user = :userId'
+            )
+            ->setParameter('id', $id)
+            ->setParameter('userId', $userId);
+        return $query->getResult();
+    }
 }
