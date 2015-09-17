@@ -113,7 +113,7 @@
 
 .register-content .security-level .active{
     color:#fff;
-	background:#F11616;
+    background:#F11616;
 }
 
 .register-content .security-level .red {
@@ -133,7 +133,7 @@
 }
 
 .register-content .controls .fa-check-circle {
-     color: lightgreen;
+    color: lightgreen;
 }
 
 .register-content .controls > input[type="checkbox"] {
@@ -141,7 +141,7 @@
     vertical-align: middle;
     border:none;
     outline:none;
-    
+
 }
 
 .register-content button {
@@ -159,7 +159,7 @@
     min-width: 80px;
     border-radius: 0px;
     border: 1px solid #ee1c24;
-	 width: 243px;
+    width: 243px;
     margin-left: 90px;
 }
 
@@ -178,7 +178,7 @@
 
 
 .register-content .error span {
-     display: inline-block;
+    display: inline-block;
     position: absolute;
     left: -7px;
     font-size: 25px;
@@ -211,8 +211,8 @@
 .register-active span.fa-info-circle {
     margin-right: 5px;
     color: #ee1c24;
-     font-size: 40px;
-     vertical-align:sub;
+    font-size: 40px;
+    vertical-align:sub;
 }
 
 .register-active h6 a {
@@ -247,7 +247,7 @@
 }
 
 #login-footer .copyright {
-     clear: both;
+    clear: both;
     padding: 10px;
     background-color: transparent;
     min-height: 25px;

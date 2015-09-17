@@ -25,7 +25,7 @@
 }
 
 .login {
-	margin-top:50px;
+    margin-top:50px;
 }
 
 .login-left {
@@ -69,7 +69,7 @@
 }
 
 .login-content .controls .fa-check-circle {
-     color: lightgreen;
+    color: lightgreen;
 }
 
 
@@ -85,7 +85,7 @@
 
 
 .login-content .error span {
-     display: inline-block;
+    display: inline-block;
     position: absolute;
     left: -7px;
     font-size: 25px;
@@ -127,7 +127,7 @@
 
 .login-content .controls-link .right {
     float:right;
-    
+
 }
 
 .login-content .controls-link a {
@@ -188,7 +188,7 @@
 }
 
 #login-footer .copyright {
-     clear: both;
+    clear: both;
     padding: 10px;
     background-color: transparent;
     min-height: 25px;

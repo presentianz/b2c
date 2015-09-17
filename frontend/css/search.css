@@ -2,36 +2,36 @@
 
 /*right side*/
 #search-page .page-content .toolbar {
-	padding:10px 20px;
-	width:100%;
-	height:50px;
-	border:1px solid #ccc;
+    padding:10px 20px;
+    width:100%;
+    height:50px;
+    border:1px solid #ccc;
 }
 
 #search-page .page-content .toolbar label,
 #search-page .page-content .toolbar a {
-	font-size:13px;
-	line-height:30px;
-	height:20px;
-	color:#666;
-	font-weight:normal;
+    font-size:13px;
+    line-height:30px;
+    height:20px;
+    color:#666;
+    font-weight:normal;
 }
 
 #search-page .page-content .toolbar .fa {
-	font-size:13px;
+    font-size:13px;
 }
 
 #search-page .page-content .toolbar .prive-i .fa-long-arrow-up,
 #search-page .page-content .toolbar .prive-i .fa-long-arrow-down {
-	display:none;
+    display:none;
 }
 
 #search-page .page-content .toolbar .select-box-num {
-	width:100px;
-	height:30px;
+    width:100px;
+    height:30px;
 }
 #search-page .page-content .toolbar .select-box-num a {
-	color: #ed1846;
+    color: #ed1846;
     display: block;
     border: 1px solid #ccc;
     float: right;
@@ -46,55 +46,55 @@
 }
 
 #search-page .page-content .toolbar .select-box-num .active{
-	border-color:#EE1922;
-	background:#EE1922;
-	color:#fff;
+    border-color:#EE1922;
+    background:#EE1922;
+    color:#fff;
 }
 
 #search-page .page-content .toolbar .select-box-order {
-	width:auto;
-	margin:0px 5px;
-	height:30px;
-	background:#fff;
-	border:1px solid #EE1922;
-	text-align:center;
-	padding:0px 10px;
-	cursor:pointer;
-	display: inline-block;
+    width:auto;
+    margin:0px 5px;
+    height:30px;
+    background:#fff;
+    border:1px solid #EE1922;
+    text-align:center;
+    padding:0px 10px;
+    cursor:pointer;
+    display: inline-block;
 }
 
 #search-page .page-content .toolbar .active{
-	background:#EE1922;
+    background:#EE1922;
 }
 
 #search-page .page-content .toolbar .select-box-order i {
-	color:#EE1922;
-	font-style:normal;
-	font-size:13px;
-	line-height:30px;
+    color:#EE1922;
+    font-style:normal;
+    font-size:13px;
+    line-height:30px;
 }
 
 #search-page .page-content .toolbar .active i {
-	color:#fff;
+    color:#fff;
 }
-	
+
 #search-page .page-content .toolbar .fa-long-arrow-up{
-	display:inline-block;
+    display:inline-block;
 }
 
 #search-page .page-content .toolbar .fa-long-arrow-down{
-	display:none;
+    display:none;
 }
-	
+
 #search-page .hotdeal{
-	margin-top:0px;
+    margin-top:0px;
 }
 
 #search-page .hotdeal .row{
-	margin-top:20px;
+    margin-top:20px;
 }
-	
+
 #search-page .page-content .toolbar-bottom{
-	margin-top:20px;
-	border:1px solid #ccc;
+    margin-top:20px;
+    border:1px solid #ccc;
 }

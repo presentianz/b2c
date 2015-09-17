@@ -7,7 +7,7 @@
     width:255px;
     margin-top: 30px;
     padding:0;
-    
+
 }
 
 #user-page .user-left .nav-list {
@@ -106,7 +106,7 @@
 
 #user-page .user-content .detail {
     display:none;
-   
+
 }
 
 #user-page .user-content .detail.active {
@@ -132,7 +132,7 @@
 }
 
 #tab1 .detail-content label {
-     width: 100px;
+    width: 100px;
 }
 
 #tab1 .detail-content h5 > div > div {
@@ -178,7 +178,7 @@
 }
 
 #tab5 .row {
-        margin: 30px 0;
+    margin: 30px 0;
     padding: 10px;
 }
 
@@ -226,7 +226,7 @@
 }
 
 #tab6 .detail-content label {
-     width: 100px;
+    width: 100px;
 }
 
 
@@ -267,7 +267,7 @@
 }
 
 #tab8 .detail-content label {
-     width: 100px;
+    width: 100px;
 }
 
 

@@ -1,25 +1,25 @@
-function tabcontent(i){
-	$(".tab-contents").css("display","none");
-	$("#tab-content"+i).css("display","block");
-	$(".product-tabs").removeClass("active");
-	$("#product-tab"+i).addClass("active");
+function tabcontent(i) {
+    $(".tab-contents").css("display", "none");
+    $("#tab-content" + i).css("display", "block");
+    $(".product-tabs").removeClass("active");
+    $("#product-tab" + i).addClass("active");
 }
-function productpic(i){
-	$(".product-pics").removeClass("active");
-	$("#product-pic"+i).addClass("active");
-	$(".product-pictures").css("display","none");
-	$("#product-picture"+i).css("display","block");
+function productpic(i) {
+    $(".product-pics").removeClass("active");
+    $("#product-pic" + i).addClass("active");
+    $(".product-pictures").css("display", "none");
+    $("#product-picture" + i).css("display", "block");
 }
-$(document).ready(function()
+$(document).ready(function ()
 {
 
-	 $("#num-up").click(function(){
+    $("#num-up").click(function () {
         var $n = $("#qty");
-        $n.val( Number($n.val())+1); 
+        $n.val(Number($n.val()) + 1);
     });
-	 $("#num-down").click(function(){
+    $("#num-down").click(function () {
         var $n = $("#qty");
-        $n.val( Number($n.val())-1); 
+        $n.val(Number($n.val()) - 1);
     });
-	
+
 });

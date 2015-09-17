@@ -1,99 +1,85 @@
 
 /*Cart Page*/
-#cart-page {
-	border:0;
-	padding:0;
-}
-
 #cart-page .cart-content {
-    min-height:650px;
-    margin-top: 30px;
-
-
+    margin: 30px 0px;
+    padding: 0;
 }
 
-#cart-page .side {
-    width:100%;
-    height:auto;
-    padding:0;  
-    margin-bottom:20px;
+#cart-page .top-promo {
+    text-align: center;
+    background-color: #ccc;
+    padding: 20px;
 }
 
-#cart-page .side-title {
-    background:#EE1B23;
-    width:100%;
-    height:45px;
-    line-height:45px;
-    padding-left:25px;
-    color:#fff;
+#cart-page thead tr {
+    border-bottom:1px solid #ccc;
+}
+
+#cart-page thead th {
+    text-align: center;
 }
 
 
-#cart-page .side-content {
-    padding:10px;
-    margin:0;
-    border: 1px solid #ccc;
+#cart-page table img {
+    width:100px;
 }
 
-#cart-page .side-content .delievey-content {
-	margin: 10px 0px;
+#cart-page table td {
+    vertical-align: middle;
+    text-align: center;
+}
+#cart-page table .product-name {
+    width: 50%;
+    text-align: left;
 }
 
-#cart-page .cart-content .col-xs-12{
-	padding: 0;
+#cart-page table .name-limit {
+    display: inline-block;
+    max-width: 410px;
+    word-wrap: break-word;
+    overflow: hidden;
+    vertical-align: middle;
+    width: auto;
 }
 
-#cart-page .cart-content .col-xs-12 button {
-	margin: 10px 15px;
-    padding: 0 10px;
+#cart-page tfoot .tfoot-bottom {
+    background-color: #ccc;
 }
-
-#cart-page .cart-content h3 {
-	text-align: left;
-    margin: 10px;
-}
-
-#cart-page .cart-content table img {
-	 width:100px;
-}
-
-#cart-page .cart-content table td {
-	vertical-align: middle;
-	text-align: center;
-}
-
-#cart-page .cart-content table th {
-	border-bottom:1px solid #ccc;
-	text-align: center;
+#cart-page tfoot .total-price {
+    text-align: right;
 }
 
 
-#cart-page .cart-content .side-title{
-	background-color: #31394a;
+
+
+
+
+/*#cart-page .cart-content .side-title{
+    background-color: #31394a;
 
 }
 
 #cart-page .cart-content label {
-	display: inline-block;
-	width: 20%;
+    display: inline-block;
+    width: 20%;
 }
 
 #cart-page .cart-content .col-xs-6 button:first-child {
-	margin-left: 0;
-}
+    margin-left: 0;
+}*/
 
 
 #cart-page .cart-content .btn-offer {
-	margin: 10px 0px;
+    margin: 10px 0px;
 }
 
 #cart-page .cart-content .btn-promotion {
-	float: right;
+    float: right;
 }
 
 
 #cart-page .cart-down {
-	margin-bottom: 20px;
-	padding: 0 15px;
+    margin-bottom: 20px;
+    padding: 0 15px;
 }
 
