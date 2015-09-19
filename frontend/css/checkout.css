@@ -55,7 +55,7 @@
 
 #checkout-page thead th {
     text-align: center;
-    background-color: #ccc; 
+    background-color: #eee; 
     padding:10px;
     height: 40px;
 }
@@ -73,7 +73,7 @@
 
 
 #checkout-page tbody tr {
-    border-top:1px solid #ccc;
+    border-top:1px solid #eee;
 }
 
 #checkout-page tbody tr:first-child {
@@ -110,19 +110,24 @@
 #checkout-page .content-down .address-right {
     border:2px solid #ee1c24;
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 30px;
     width: 40%;
     padding: 20px;
+}
+
+#checkout-page .content-down .address-right .text-right {
+    margin-bottom: 10px;
 }
 
 
 #checkout-page .btn-pay {
     padding: 5px 10px;
-    margin: 10px;
+    margin-right: 2px;
     line-height: 30px;
-    font-size: 20px;
+    font-size: 25px;
     height: 40px;
     float: right;
+
 }
 
 #checkout-page .color {

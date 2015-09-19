@@ -7,6 +7,7 @@ body {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    margin:0;
 }
 
 a {
@@ -51,7 +52,7 @@ button:focus  {
 
 input {
     padding: 8px 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
     min-width: 30px;
     font-size: 12px;
     margin-right: 5px;
@@ -69,13 +70,13 @@ input.qty {
 
 .dashed {
     padding-right: 10px;
-    border-right: 1px solid #ccc;
+    border-right: 1px solid #777;
     margin-right: 7px;
     vertical-align: middle;
 }
 
 .no-padding {
-    padding:0;
+    padding:0 !important;
 }
 
 .text-left {
@@ -174,7 +175,7 @@ input.qty {
 }
 
 .navbar .history .item {
-    border-top: 1px dashed #ccc;
+    border-top: 1px dashed #eee;
     padding: 0px 10px;
     min-height: 60px;
 }
@@ -199,7 +200,7 @@ input.qty {
 }
 
 .navbar .history .nav-cart-content{
-    width: 100px;
+    width: auto;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -225,7 +226,7 @@ input.qty {
 }
 
 #mid-header .container-non-responsive {
-    height: 130px;
+    height: 120px;
 }
 
 
@@ -280,7 +281,7 @@ input.qty {
 
 #mid-header .col-xs-9 > h6 {
     display: inline-block;
-    padding: 0px 6px;
+    padding: 10px 6px;
 }
 
 
@@ -339,7 +340,7 @@ input.qty {
     width: 100px;
     height: 33px;
     line-height: 35px;
-    color: #666;
+    color: #777;
     overflow: hidden;
     float: left;
     padding-left: 6px;
@@ -361,7 +362,7 @@ input.qty {
 
 
 .cart-list .item {
-    border-bottom: 1px dashed #ccc;
+    border-bottom: 1px dashed #eee;
     padding: 0px 10px;
     height: 60px;
     min-height: 50px;
@@ -497,7 +498,7 @@ ul.nav {
     padding: 0;
     border-radius: 0px;
     width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
 }
 
 .nav li:hover {
@@ -510,7 +511,7 @@ ul.nav {
 
 .nav > li{
     height:68px;
-    border-top: 1px dashed #ccc;
+    border-top: 1px dashed #eee;
 }
 
 .nav > li:first-child{
@@ -571,7 +572,7 @@ ul.nav {
     border-bottom-style:solid;
     border-right-style:solid;
     border-width:1px;
-    border-color: #ccc;
+    border-color: #eee;
     width: 917px;
     height: 614px;
     overflow:hidden;
@@ -608,7 +609,7 @@ ul.nav {
 
 .showpics .col-xs-4 {
     border-width:1px;
-    border-color: #ccc;
+    border-color: #eee;
     border-left-style:solid;
     text-align: center;
 }
@@ -656,25 +657,24 @@ ul.nav {
 .hotdeal {
     background-color: #fff;
     padding:0;
-    margin-top: 20px;
+    margin:30px 0px;
 }
 
 .hotdeal .row-up{
-    height:80px;
+    height:45px;
 }
 
 .hotdeal .row-up div {
     text-align: right;
     padding: 0px;
     float: right;
-    margin: 28px 0px;
 }
 
 .hotdeal .row-up div:first-child {
     padding:0px;
     margin:0px;
     overflow: hidden;
-    height: 60px;
+    height: 30px;
     max-width: none;
     float: left;
     text-align: left;
@@ -683,19 +683,18 @@ ul.nav {
 
 
 .hotdeal .row-up a {
-    color: #666;
+    color: #777;
 }
 
 .hotdeal h6 {
     line-height: 18px;
-    margin: 5px 5px 10px 5px;
     margin-left: 30px;
     font-size: 14px;
 }
 
 .hotdeal .row-up h6, .row-up h3 {
     display: inline-block;
-    vertical-align: bottom;
+    vertical-align: middle;
 }
 
 .hotdeal .row {
@@ -788,11 +787,11 @@ del{
     padding:0;
     margin:0;
     width:100%;
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
 }
 
 .siderbar .side-item {
-    border-top: 1px dashed #ccc;
+    border-top: 1px dashed #eee;
     position: relative;
 }
 
@@ -817,11 +816,12 @@ del{
 }
 
 
-/*page title*/
+/*each page style*/
 .page-title {
     border-bottom: 2px solid #ee1c24;
     padding-top: 30px;
     margin-bottom: 20px;
+    padding-bottom: 5px;
 }
 
 .page-title h4, 
@@ -855,7 +855,7 @@ del{
     top:-8px;
     left:0px;
 
-    border:1px solid #ccc;
+    border:1px solid #eee;
 }
 
 .number-input-down {
@@ -874,30 +874,6 @@ del{
 }
 
 
-
-
-
-/* 404 Page */
-
-.no-page {
-    margin:50px;
-    text-align: center;
-    min-height: 350px;
-}
-
-.no-page h1 {
-    font-size: 150px;
-    color: #ee1c24;
-}
-
-.no-page strong {
-    color: #ee1c24;
-}
-
-
-/*   Hot Staffs END */
-
-
 #gototop {
     display: block;
     position: fixed;
@@ -905,7 +881,7 @@ del{
     height:50px;
     bottom: 10px;
     right: 10px;
-    color: #ccc;
+    color: #eee;
     text-decoration: none;
     padding: 0px 1px;
 
@@ -923,7 +899,7 @@ del{
 
 #gototop:hover {
     color: #fff;
-    background-color: #ccc;
+    background-color: #eee;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -932,7 +908,7 @@ del{
 footer {
     background-color:#f2f2f2;
     color:#000;     
-    min-height: 210px;
+    min-height: 180px;
     padding-top: 30px;
     margin-top: 30px;
     clear: both;
@@ -956,7 +932,7 @@ footer .col-xs-2 {
     border-left: 1px solid #ccc;
     text-align: center;
     min-height: 150px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 footer .col-xs-2:first-child {
@@ -976,6 +952,98 @@ footer .copyright {
 footer .copyright .container-non-responsive {
     text-align: center;
 }
+
+
+/* 404 Page */
+
+.no-page {
+    margin:50px;
+    text-align: center;
+    min-height: 350px;
+}
+
+.no-page h1 {
+    font-size: 150px;
+    color: #ee1c24;
+}
+
+.no-page strong {
+    color: #ee1c24;
+}
+
+
+
+/* popup page style */
+.bg-mask {
+    width: 100%;
+    height:100%;
+    z-index: 1;
+    position: fixed;
+    left:0;
+    top:0;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.page-center {
+    width: 520px;
+    height: auto;
+    padding: 0;
+    z-index: 2;
+    background-color: #fff;
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 100px;
+}
+
+.page-center .title {
+    width:100%;
+    height:30px;
+    text-align:left;
+    padding: 5px 10px;
+    color: #fff;
+    background-color: #ff0000;
+}
+
+.page-center .title h4 {
+    margin:0;
+}
+
+.page-center .title span.fa {
+    position: absolute;
+    right:10px;
+    top:3px;
+    font-size: 18px;
+}
+
+.page-center .content {
+   width:100%;
+   padding:10px;
+   
+}
+
+.page-center .content-each {
+    margin:10px 0px;
+}
+
+.page-center .content-each label {
+    width: 120px;
+    text-align: right;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+#top-address .part.active {
+    display: block;
+}
+
+#top-address .part {
+    display: none;
+}
+
+
 
 
 

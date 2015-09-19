@@ -7,12 +7,12 @@
 
 #cart-page .top-promo {
     text-align: center;
-    background-color: #ccc;
+    background-color: #eee;
     padding: 20px;
 }
 
 #cart-page thead tr {
-    border-bottom:1px solid #ccc;
+    border-bottom:1px solid #eee;
 }
 
 #cart-page thead th {
@@ -43,30 +43,11 @@
 }
 
 #cart-page tfoot .tfoot-bottom {
-    background-color: #ccc;
+    background-color: #eee;
 }
 #cart-page tfoot .total-price {
     text-align: right;
 }
-
-
-
-
-
-
-/*#cart-page .cart-content .side-title{
-    background-color: #31394a;
-
-}
-
-#cart-page .cart-content label {
-    display: inline-block;
-    width: 20%;
-}
-
-#cart-page .cart-content .col-xs-6 button:first-child {
-    margin-left: 0;
-}*/
 
 
 #cart-page .cart-content .btn-offer {

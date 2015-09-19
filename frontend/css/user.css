@@ -1,17 +1,17 @@
-#user-page {
-    min-height: 740px;
-    height: auto;
+
+.color {
+    color: #ee1c24;
+    font-weight: bold;
 }
 
+
 #user-page .user-left {
-    width:255px;
     margin-top: 30px;
-    padding:0;
 
 }
 
 #user-page .user-left .nav-list {
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
     margin-bottom: 30px;
 }
 
@@ -25,6 +25,8 @@
     border-top: 1px dashed #ccc;
 }
 
+
+
 #user-page .user-left li:first-child {
     border-top-style: none;
 }
@@ -35,248 +37,224 @@
     font-weight: normal;
 }
 
-#user-page .user-left li:hover, 
-#user-page .user-left li:focus,
-#user-page .user-left li.active  {
-    outline: none;
-    background-color: #ee1c24;
-    border: none;
-    font-weight: bold;
+
+#user-page .detail {
+    display: none;
 }
 
-#user-page .user-left li a:hover,
-#user-page .user-left li.active a {
-    color: #fff !important;
-}
-
-#user-page .user-left .side {
-    width:255px;
-    height:auto;
-    padding:0;
-    border: 1px solid #ccc;
-    margin-bottom:20px;
-}
-
-#user-page .user-left .side-title {
-    background:#EE1B23;
-    width:255px;
-    height:45px;
-    line-height:45px;
-    padding-left:25px;
-    color:#fff;
-}
-
-
-#user-page .user-left .side-content {
-    padding:0;
-    margin:0;
-}
-
-#user-page .user-left .side-item {
-    border-top: 1px dashed #ccc;
-    position: relative;
-}
-
-#user-page .user-left .side-item:first-child {
-    border-top:none;
-}
-
-#user-page .user-left .side-item img {
-    vertical-align: middle;
-    width: 80%;
-    position: relative;
-    margin-top: 50px;
-    margin-left: 50px;
-}
-
-#user-page .user-left .side-item > span {
-    padding: 0 0 0 20px;
-}
-
-#user-page .user-left .pro-text {
-    width: 200px;
+#user-page .detail.active {
+    display: block;
 }
 
 
 #user-page .user-content {
-    min-height:650px;
-    margin-top: 30px;
-
+    min-height: 180px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ee1c24;
+    height: auto;
+    overflow: auto;
 }
 
-#user-page .user-content .detail {
-    display:none;
-
-}
-
-#user-page .user-content .detail.active {
-    display: block;
-}
-
-#user-page .user-content .detail-content {
-    padding: 0 20px;
-}
-
-#user-page .user-content .detail h3{
-    text-align: left;
-    margin: 10px;
-}
-
-
-
-
-#tab1 .detail-content h5 > div {
+#user-page .user-content h5 > div {
     margin-bottom: 15px;
-    padding: 10px 0px;
-
-}
-
-#tab1 .detail-content label {
-    width: 100px;
-}
-
-#tab1 .detail-content h5 > div > div {
-    text-align: left;
-    width: 30%;
-    display: inline-block;    
-    overflow: hidden;
-    white-space: nowrap;
-
-}
-
-#tab1 .detail-content h5 > div:last-child div {
-    width: 100%;  
-
-}
-#tab2 td {
-    vertical-align: middle;
-}
-
-#tab2 img{
-    width:100px;
-}
-
-#tab2 .order-detail {
-    display:none;
-}
-
-#tab2 .order-detail.active {
-    display:block;
-}
-
-#tab2 .clearfix input {
-    width:50px;
-}
-
-#tab5 .title {
-    font-weight: bold;
-    display: inline-block;
-    width: 45%;
-}
-#tab5 .row.open {
-    display: none;
-}
-
-#tab5 .row {
-    margin: 30px 0;
-    padding: 10px;
-}
-
-#tab5 .row h5 div {
-    margin-bottom: 5px;
-}
-
-#tab5 .part {
-    display: none;
-}
-
-
-#tab5 .part.active {
-    display: block;
-}
-
-#tab5 .part > div {
-    margin: 10px 0px;
-}
-
-#tab5 .part label {
-    width: 100px;
-}
-
-#tab5 .part input {
-    margin-right: 40px;
-    width: 200px;
-    display: inline-block;
-}
-
-#tab5 .part textarea {
-    width: 548px;
-    height: 60px;
-    vertical-align: top;
-    resize: none;
-    padding-left: 10px;
-}
-
-#tab6 .detail-content h5 > div {
-    margin-bottom: 15px;
-    padding: 10px 0px;
     text-align: left;
     width: 100%;
-
 }
 
-#tab6 .detail-content label {
-    width: 100px;
+#user-page .user-content h5 > div label {
+     width: 100px;
 }
 
-
-#tab6 .detail-content input {
+#user-page .user-content h5 > div input {
     width: 250px;
     display: inline-block;
+
 }
 
-#tab7 .row > div {
-    width: 370px;
-    float: left;
-    margin: 10px;
+
+/* tab1 user info */
+#user-page .user-info {
+    padding:0;
 }
 
-#tab7 .row > div img {
-    width:  100%;
-    margin-bottom: 10px;
+#user-page .user-info-each {
+    margin: 5px 0;
+    font-size: 15px;
+    overflow: hidden;
+
 }
 
-#tab7 .row > div p {
+#user-page .user-info-each span {
+    padding-right:10px;
+}
+
+#user-page .user-info-each .fa-edit {
     float: right;
 }
 
-#tab7 .dis-btn {
-    background-color: #ccc;
-    border: 1px solid #ccc;
-    outline: none;
-    cursor: none;
-}
+#user-page .user-info-each > div {
+    width: 60%;
+     display: inline-block;
+     vertical-align: top;
+} 
 
-
-#tab8 .detail-content h5 > div {
-    margin-bottom: 15px;
-    padding: 10px 0px;
-    text-align: left;
-    width: 100%;
-
-}
-
-#tab8 .detail-content label {
+#user-page .user-info-each label {
     width: 100px;
+    text-align: left;
+    display: inline-block;
+}
+
+#user-page .status-each {
+    display: inline-block;
+    height: 80px;
+    width: 120px;
+    overflow: hidden;
+    padding: 5px;
+    margin: 0 10px;
+    text-align: center;
+
+}
+
+#user-page .status-each h2 {
+    color: #ee1c24;
+    margin-bottom: 5px;
+}
+
+/* tab2 order statement*/
+#user-page .order-detail {
+    position: relative;
+    margin-bottom: 20px;
+    clear: both;
+    overflow: auto;
+    height: auto;
+    border: 2px solid #ccc;
+
+}
+
+#user-page .order-title {
+    min-height: 70px;
+    width: 100%;
+    padding: 0px;
+    background-color: #eee;
+
+}
+
+#user-page .order-title span {
+    padding-left: 5px;
+}
+
+#user-page .order-title-item {
+    display: inline-block;
+    padding: 5px 15px;
+    overflow: hidden;
+    word-wrap: break-word;
+    vertical-align: top;
+    width: auto;
+}
+
+#user-page .order-title label {
+    font-size: 12px;
+    font-weight: normal;
+    color: #aaa;
+}
+
+#user-page .order-title .pull-right {
+    text-align: right;
+}
+
+#user-page .order-title .pull-left label {
+    margin-bottom: 10px;
+}
+
+#user-page .order-content {
+    padding:0;
+}
+
+#user-page .order-product {
+    padding:0;
+    margin:5px;
+    height: 90px;
+    width: 430px;
+    border: 1px solid #eee;
+}
+
+#user-page .img {
+    width: 100px;
+    padding: 0;
+}
+
+#user-page .img img {
+    width: 100%;
+}
+
+#user-page .order-product-name {
+    overflow: hidden;
+    word-wrap: break-word; 
+    padding: 7px;  
+}
+
+#user-page .order-product-name h5 {
+    margin-bottom: 5px;
+}
+
+#user-page .order-product-name h6 {
+    color:#ccc;
+}
+
+/* tab3 topup*/
+#user-page .topup-title h5{
+    margin-top: 10px;
 }
 
 
-#tab8 .detail-content input {
-    height: 30px;
-    width: 250px;
-    margin-right: 80px;
+#user-page .topup-content {
+    margin: 10px 0px;
 }
 
+#user-page .topup-rate {
+    color: #777;
+}
+
+/* tab5 address */
+
+#user-page .address-detail {
+    overflow: auto;
+}
+
+#user-page .address-detail .title {
+    font-weight: bold;
+    margin-top: 10px;
+
+}
+
+#user-page .address-each {
+    padding: 15px;
+    margin: 10px 20px 10px 0px;
+    min-height: 100px;
+    overflow: hidden;
+    word-wrap: break-word;
+    float: left;
+    width: 420px;
+    background-color: #eee;  
+        border: 1px solid #ccc;
+}
+
+#user-page .address-each h5 {
+    width:260px;
+}
+
+#user-page table {
+    padding: 0;
+}
+
+#user-page thead th {
+    background-color: #eee;
+    text-align: center;
+}
+
+#user-page table td {
+    text-align: center;
+}
 
 
 
