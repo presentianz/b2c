@@ -11,6 +11,13 @@
     margin: 0;
 }
 
+#login-header span{
+    font-size: 25px;
+    margin-left: 20px;
+    position: absolute;
+    bottom: 0px;
+}
+
 .container-register-responsive {
     margin-left: auto;
     margin-right: auto;
@@ -38,8 +45,8 @@
     position: relative;
 }
 
-.register-tab span.fa {
-    font-size: 20px;
+.register-tab i.fa {
+    font-size: 23px;
     margin-right: 5px;
     vertical-align: text-bottom;
 }
@@ -54,6 +61,7 @@
 
 .login-link {
     float: right;
+    margin-top: 17px;
 }
 
 .login-link a {
@@ -73,7 +81,12 @@
 
 
 .register-content .controls.last {
-    padding-left: 70px;
+    padding-left: 63px;
+    line-height: 35px;
+}
+
+.register-content .controls.last a {
+    margin-right: 5px;
 }
 
 .register-content .controls label {
@@ -111,9 +124,18 @@
     height: 20px;
 }
 
-.register-content .security-level .active{
+.register-content .security-level .red {
     color:#fff;
-    background:#F11616;
+    background-color:#ee1c24;
+}
+
+.register-content .security-level .orange {
+    color:#fff;
+    background-color:orange;
+}
+.register-content .security-level .green {
+    color:#fff;
+    background-color:#38F116;
 }
 
 
@@ -127,7 +149,6 @@
 
 .register-content .controls > input[type="checkbox"] {
     width: auto;
-    vertical-align: middle;
     border:none;
     outline:none;
 
@@ -139,10 +160,6 @@
 }
 
 
-
-
-
-
 .register-content .error {
     margin: 16px 0px;
     background-color: #ee1c24;
@@ -151,10 +168,11 @@
     position: absolute;
     left: 380px;
     top: -17px;
+    display: none;
 }
 
 
-.register-content .error span {
+.register-content .error i {
     display: inline-block;
     position: absolute;
     left: -7px;
@@ -169,10 +187,14 @@
     margin: 11px 0px;
 }
 
-
-.error-none {
-    display: none;
+.register-email h3,
+.register-active h3, 
+.register-email h6, 
+.register-active h6 {
+    margin: 20px 0;
 }
+
+
 
 .register-email, 
 .register-active {
@@ -186,8 +208,8 @@
 }
 
 .register-email strong,
-.register-email span.fa-info-circle, 
-.register-active span.fa-info-circle {
+.register-email i.fa-info-circle, 
+.register-active i.fa-info-circle {
     margin-right: 5px;
     color: #ee1c24;
     font-size: 40px;
@@ -200,25 +222,17 @@
 
 #login-footer {
     min-height: 60px;
-    padding-top: 10px;
     margin-top: 30px;
-    background-color: transparent;
     color: #aaa;
     border-top: 2px solid #f2f2f2;
     clear: both;
 }
 
-#login-footer .container-login-footer-responsive {
-    margin-left: auto;
-    margin-right: auto;
-    width: 800px;
-}
-
 #login-footer .col-xs-2 {
-    min-height: 20px;
-    line-height: 0px;
-    margin-bottom: 10px;
-    display:inline-block;
+    min-height: 30px;
+    display: inline-block;
+    text-align: center;
+    padding: 15px 0px;
 }
 
 #login-footer a {
@@ -228,7 +242,6 @@
 #login-footer .copyright {
     clear: both;
     padding: 10px;
-    background-color: transparent;
     min-height: 25px;
     width: 100%;
     text-align: center;
@@ -236,6 +249,5 @@
     color: #aaa;
     border-top: 2px solid #f2f2f2;
 }
-
 
 

@@ -1,161 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="">
-        <meta name="author" content="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <title>彩购网</title>
+    <title>彩购网</title>
 
-        <!-- Bootstrap Core CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-        <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="css/style.css" type="text/css">
-        <link rel="stylesheet" href="css/register.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/register.css" type="text/css">
 
-        <!-- Favicons if possible -->
-        <!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
+    <!-- Favicons if possible -->
+    <!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
 
-    </head> 
-    <body id="register-page">
-        <!--   User Register Panel -->
-        <div id="login-header">
-            <div class="container-register-responsive">
-                <div class="col-xs-12">
-                    <a class="logo" href="index.html">
-                        <img src="img/logo.jpg" alt="彩购网">
-                    </a>
-                </div>	
-            </div>
-        </div>
-        <div  class="container-register-responsive">
-            <div class="breadcrumb">
-                <a href="register.html">
-                    <div class="register-tab active">
-                        <span class="fa fa-info-circle"></span>注册
-                    </div>
-                </a>  
-                <a href="registerEmail.html">
-                    <div class="register-tab">
-                        <span class="fa fa-info-circle"></span>邮箱验证
-                    </div>
-                </a> 
-                <a href="registerActivated.html">
-                    <div class="register-tab">
-                        <span class="fa fa-info-circle"></span>激活
-                    </div>
+</head> 
+<body id="register-page">
+    <!--   User Register Panel -->
+    <div id="login-header">
+        <div class="container-register-responsive">
+            <div class="col-xs-12">
+                <a class="logo" href="index.html">
+                    <img src="img/logo.jpg" alt="彩购网">
                 </a>
-
-                <div class="login-link">
-                    <h5>已经有账号？<a href="login.html">登录</a></h5>
+                 <span>账户注册</span>
+            </div>	
+        </div>
+    </div>
+    <div  class="container-register-responsive">
+        <div class="breadcrumb">
+            <a href="register.html">
+                <div class="register-tab active">
+                <i class="fa fa-info-circle"></i>注册
                 </div>
+            </a>  
+            <a href="registerEmail.html">
+                <div class="register-tab">
+                    <i class="fa fa-info-circle"></i>邮箱验证
+                </div>
+            </a> 
+            <a href="registerActivated.html">
+                <div class="register-tab">
+                    <i class="fa fa-info-circle"></i>激活
+                </div>
+            </a>
+
+            <div class="login-link">
+                <h5>已经有账号？<a href="login.html">登录</a></h5>
             </div>
-            <form id="form" name="register" action="registerEmail.html" method="post" onSubmit="return reigster();">
-                <div class="register-content col-xs-5">
-                    <div class="controls">
-                        <label>邮箱</label>
-                        <input  type="text" name="email" placeholder="请输入您的常用邮箱">
-                        <span class="fa check-fa"></span>
-                        <div class="error">
-                            <span class="fa fa-caret-left"></span>
-                            <h6>邮箱不能为空</h6>
-                        </div>
-                    </div>					
-                    <div class="controls">
-                        <label>用户名</label>
-                        <input type="text" name="username" placeholder="请输入您的用户名">
-                        <span class="fa check-fa"></span>
-                        <div class="error">
-                            <span class="fa fa-caret-left"></span>
-                            <h6>用户名不能为空</h6>
-                        </div>
+        </div>
+        <form id="form" name="register" action="registerEmail.html" method="post" onSubmit="return reigster();">
+            <div class="register-content col-xs-5">
+                <div class="controls">
+                    <label>邮箱</label>
+                    <input  type="text" name="email" placeholder="请输入您的常用邮箱">
+                    <i class="fa check-icon"></i>
+                    <div class="error">
+                        <i class="fa fa-caret-left"></i>
+                        <h6>邮箱不能为空</h6>
                     </div>
-                    <div class="controls">
-                        <label>密码</label>
-                        <input type="password" name="psd1" placeholder="请输入6到20位的数字，字母组合"  maxlength="20">
-                        <span class="fa check-fa"></span>
-                        <div class="error error-none">
-                            <span class="fa fa-caret-left"></span>
-                            <h6>密码不能为空</h6>
-                        </div>
+                </div>					
+                <div class="controls">
+                    <label>用户名</label>
+                    <input type="text" name="username" placeholder="请输入您的用户名">
+                    <i class="fa check-icon"></i>
+                    <div class="error">
+                        <i class="fa fa-caret-left"></i>
+                        <h6>用户名不能为空</h6>
                     </div>
-                    <div class="controls">
-                        <label></label>
-                        <div class="security-level">
-                            <span class="block1">危险</span>
-                            <span class="block2">适中</span>
-                            <span class="block3">安全</span>
-                        </div>
-                    </div>
-                    <div class="controls">
-                        <label>确认密码</label>
-                        <input type="password" name="psd2" placeholder="请再次输入密码">
-                        <span class="fa check-fa"></span>
-                        <div class="error">
-                            <span class="fa fa-caret-left"></span>
-                            <h6>密码不能为空</h6>
-                        </div>
-                    </div>
-                    <div class="controls last">
-                        <input type="checkbox" id="checkinfo"><a href="">我已阅读并接受《彩购网用户协议》</a>
-                        <span class="fa check-fa"></span>
-                        <div class="error">
-                            <span class="fa fa-caret-left"></span>
-                            <h6>请请勾选并阅读协议</h6>
-                        </div>	
-                    </div>	
-
-                    <button>注册</button> 
                 </div>
-            </form>
-        </div><!-- /container-non-responsive -->
+                <div class="controls">
+                    <label>密码</label>
+                    <input type="password" name="psd1" placeholder="请输入6到20位的数字，字母组合"  maxlength="20">
+                    <i class="fa check-icon"></i>
+                    <div class="error">
+                        <i class="fa fa-caret-left"></i>
+                        <h6>密码不能为空</h6>
+                    </div>
+                </div>
+                <div class="controls">
+                    <label></label>
+                    <div class="security-level">
+                        <span class="block1">危险</span>
+                        <span class="block2">适中</span>
+                        <span class="block3">安全</span>
+                    </div>
+                </div>
+                <div class="controls">
+                    <label>确认密码</label>
+                    <input type="password" name="psd2" placeholder="请再次输入密码">
+                    <i class="fa check-icon"></i>
+                    <div class="error">
+                        <i class="fa fa-caret-left"></i>
+                        <h6>密码不能为空</h6>
+                    </div>
+                </div>
+                <div class="controls last">
+                    <input type="checkbox" id="checkinfo"><a href="">我已阅读并接受《彩购网用户协议》</a>
+                    <i class="fa check-icon"></i>
+                    <div class="error">
+                        <i class="fa fa-caret-left"></i>
+                        <h6>请请勾选并阅读协议</h6>
+                    </div>	
+                </div>	
 
-<!--   User register Panel END-->
-
-
-<!-- Footer -->
-<div id="login-footer">
-    <div class="container-login-footer-responsive">	
-        <div class="col-xs-2">
-            <h6><a href="about.html">关于我们</a></h6>
-        </div>
-        <div class="col-xs-2">
-            <h6><a href="questions.html">常见问题</a></h6>
-        </div>
-        <div class="col-xs-2">
-            <h6><a href="joinUs.html">加入彩购</a></h6>
-        </div>
-        <div class="col-xs-2">
-            <h6><a href="payment.html">支付方式</a></h6>
-        </div>
-        <div class="col-xs-2">
-            <h6><a href="corporation.html">彩购合作</a></h6>
-        </div>
-        <div class="col-xs-2">
-            <h6><a href="contact.html">联系我们</a></h6>
+                <button>注册</button> 
+            </div>
+        </form>
+            <!-- Footer -->
+    <div id="login-footer">
+            <div class="col-xs-2">
+                <h6><a href="about.html">关于我们</a></h6>
+            </div>
+            <div class="col-xs-2">
+                <h6><a href="questions.html">常见问题</a></h6>
+            </div>
+            <div class="col-xs-2">
+                <h6><a href="joinUs.html">加入彩购</a></h6>
+            </div>
+            <div class="col-xs-2">
+                <h6><a href="payment.html">支付方式</a></h6>
+            </div>
+            <div class="col-xs-2">
+                <h6><a href="corporation.html">彩购合作</a></h6>
+            </div>
+            <div class="col-xs-2">
+                <h6><a href="contact.html">联系我们</a></h6>
+            </div>
+        <div class="copyright">         
+            <span>Copyright &copy;2015 彩购网 Copyright</span>
         </div>
 
     </div>
-    <div class="copyright">			
-        <span>Copyright &copy;2015 彩购网 Copyright</span>
-    </div>
+    </div><!-- /container-non-responsive -->
 
-</div>
 
-<!-- jQuery -->
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/jquery.easing-1.3.min.js"></script>
-<script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery.easing-1.3.min.js"></script>
+    <script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-<!-- Custom JavaScript -->
-<script src="js/shop.js"></script>
-<script src="js/register.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/shop.js"></script>
+    <script src="js/register.js"></script>
 </body>
 
 </html>

@@ -23,13 +23,18 @@
     top: 100px;
 }
 
+.page-center button {
+    position: relative;
+    left: 90px;
+}
+
 .page-center .title {
     width:100%;
     height:30px;
     text-align:left;
     padding: 5px 10px;
     color: #fff;
-    background-color: #ff0000;
+    background-color: #ee1c24;
 }
 
 .page-center .title h4 {
@@ -50,30 +55,35 @@
    
 }
 
-
 .page-center .part.active {
     display: block;
 }
 
 .page-center .part {
     display: none;
+    padding:10px 80px;
 }
 
 .page-center .controls {
     margin:10px 0px;
+    position: relative;
 }
 
 .page-center .controls label {
-    width: 120px;
+    width: 75px;
     text-align: right;
     margin-right: 10px;
-    vertical-align: middle;
-    margin-right: 10px;
+    vertical-align: top;
+    line-height: 35px;
 }
 
+.page-center .controls.last {
+        padding-left: 63px;
+        line-height: 35px;
+}
 
-.page-center .content-each.last {
-    padding-left: 70px;
+.page-center .controls.last a {
+    font-size: 13px;
 }
 
 
@@ -81,7 +91,17 @@
     border: 1px solid #999;
     padding: 8px 10px;
     font-size: 12px;
-    width: 240px;
+    width: 210px;
+}
+
+.page-center .controls > textarea {
+    width: 210px;
+    font-size: 12px;
+    resize:none;
+    padding: 8px 10px;
+     border: 1px solid #999;
+     margin-right: 5px;
+     height: 60px;
 }
 
 .page-center .security-level {
@@ -101,19 +121,32 @@
     color: #000;
     background-color: #f2f2f2;
     margin-right: 1px;
-    width: 79px;
+    width: 69px;
     height: 20px;
 }
 
-.page-center .security-level .active{
+.page-center .security-level .red {
     color:#fff;
-    background:#F11616;
+    background-color:#ee1c24;
+}
+
+.page-center .security-level .orange {
+    color:#fff;
+    background-color:orange;
+}
+.page-center .security-level .green {
+    color:#fff;
+    background-color:#38F116;
 }
 
 
 .page-center .controls .fa {
     color: #ee1c24;
+    line-height: 35px;
+    vertical-align: top;
+
 }
+
 
 .page-center .controls .fa-check-circle {
     color: lightgreen;
@@ -121,12 +154,10 @@
 
 .page-center .controls > input[type="checkbox"] {
     width: auto;
-    vertical-align: middle;
     border:none;
     outline:none;
 
 }
-
 
 .page-center .error {
     margin: 16px 0px;
@@ -134,24 +165,50 @@
     height: 35px;
     width: 55%;
     position: absolute;
-    left: 380px;
+    left: 340px;
     top: -17px;
+    display: none;
+    line-height: 35px;
 }
 
 
-.page-center .error span {
+.page-center .error i {
     display: inline-block;
     position: absolute;
     left: -7px;
     font-size: 25px;
-    padding: 5px 0px;
 }
+
 
 .page-center .error h6 {
     display: inline-block;
     padding-left: 10px;
     color: #fff;
-    margin: 11px 0px;
+}
+
+.page-center .controls .pull-right {
+    line-height: 30px;
+    margin-right: 18px;
+    font-size: 13px;
+}
+
+.page-center .social-network {
+     width: 100%;
+    text-align: center;
+    padding: 0px 5px;
+    clear: both;
+
+}
+
+.page-center .social-network i {
+    font-size: 13px;
+    height: 25px;
+    margin-right: 15px;
+    color: #aaa !important;
+}
+
+.page-center .social-network i:hover {
+    color: #ee1c24;
 }
 
 
