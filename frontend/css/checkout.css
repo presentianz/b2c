@@ -7,6 +7,12 @@
 
 }
 
+#checkout-page .checkout-content.top {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
 #checkout-page .address-left {
     display: inline-block;
     width: 100px;
@@ -25,21 +31,23 @@
 }
 
 #checkout-page .address-content .first-address {
-    color:#fff;
+    color:#eee;
 }
 
 #checkout-page .address-content .edit-address {
     display:none;
 }
 
-#checkout-page .address-content:hover, 
+#checkout-page .address-content {
+    cursor: pointer;
+}
+
 #checkout-page .address-content.active {
     background-color: #ee1c24;
-     color:#fff;
+    color:#fff;
 }
 
 
-#checkout-page .address-content:hover .edit-address,
 #checkout-page .address-content.active .edit-address {
     display:inline-block;
     color: #fff;
@@ -137,5 +145,18 @@
 #checkout-page .cart-down {
     margin-bottom: 20px;
     padding: 0 15px;
+}
+
+#checkout-page .delivery-options {
+    position: absolute;
+    z-index: 1;
+    display: none;
+    padding: 5px 10px;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 15px;
+    text-align: left;
+    background-color: #fff;
+    box-shadow: 0 2px 5px #ccc;
 }
 

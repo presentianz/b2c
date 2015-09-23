@@ -15,6 +15,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/user.css" type="text/css">
+    <link rel="stylesheet" href="css/popup.css" type="text/css">
 
     <!-- Favicons if possible -->
     <!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
@@ -95,17 +96,19 @@
                     <div class="user-content">
                         <div class="col-xs-6 user-info">
                             <div class="user-info-each">
-                                <label>姓名：</label>
+                                <label>用户名：</label>
                                 <div>
-                                    <span>Charis Wan</span>
-                                    <span class="fa fa-edit"></span>
+                                    <i class="fa fa-edit" id="edit-name"></i>
+                                    <span class="edit-name-1">Charis Wan</span>
+                                    <input type="text" value="Charis Wan" class="edit-name-2 hide">                                   
                                 </div>
                             </div>
                             <div class="user-info-each">
-                                <LABEL>账户：</LABEL>
+                                <LABEL>邮箱：</LABEL>
                                 <div>
-                                    <span class="fa fa-edit"></span>
-                                    <span>wanjiang1990@gmail.com</span>                              
+                                    <i class="fa fa-edit" id="edit-email"></i>
+                                    <span class="edit-email-1">wanjiang1990@gmail.com</span>
+                                    <input type="text" value="wanjiang1990@gmail.com" class="edit-email-2 hide">
                                 </div>
                             </div>
                             <div class="user-info-each">
@@ -115,12 +118,12 @@
                             <div class="user-info-each">
                                 <LABEL>主要地址：</LABEL>
                                 <div>
-                                    <span class="fa fa-edit"></span>
-                                    <span >27 Beaufort Place, Papatoetoe,Auckland, 
+                                    <span>27 Beaufort Place, Papatoetoe,Auckland, 
                                         New Zealand ,
                                         1025
+                                        <div><a href="#tab5" class="tab">(查看地址)</a></div>
                                     </span>
-                                    <div><a href="#tab5">(查看地址)</a></div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -131,7 +134,7 @@
                             </div>
                             <div class="status-each">
                                 <h2>$0.00 </h2>
-                                <div><a href="product.html">账户余额 (充值)</a></div>
+                                <div><a href="product.html">账户余额 (<span class="color">充值</span>)</a></div>
 
                             </div>
                             <div class="status-each">
@@ -161,7 +164,7 @@
                                     </div>
                                     <div class="order-title-item">
                                         <label>收件人：</label>
-                                        <h5>万江<span class="fa fa-edit"></span></h5>
+                                        <h5>万江<span class="fa fa-edit add-address"></span></h5>
                                     </div>
                                     <div class="order-title-item">
                                         <label>总价：</label>
@@ -174,8 +177,8 @@
                                 </div>
                                 <div class="order-title-each pull-right">
                                     <div class="order-title-item">
-                                     <label>订单号：201502938423</label>
-                                     <h5>
+                                       <label>订单号：201502938423</label>
+                                       <h5>
                                         <button>付款</button>
                                         <span>取消订单</span>
                                     </h5>
@@ -206,7 +209,13 @@
                                 </div>
                                 <div class="order-title-item">
                                     <label>收件人：</label>
-                                    <h5>万江<span class="fa fa-arrow-down"></span></h5>
+                                    <h5>万江<span class="fa fa-arrow-down address-hover"></span>
+                                        <div class="hover-address">
+                                            <div>万江 (0215456851)</div>
+                                            <div>湖北省武汉市江汉区三眼桥北路海虹景7栋二单元701, 430020</div> 
+                                            <div>中国</div>  
+                                        </div>
+                                    </h5>
                                 </div>
                                 <div class="order-title-item">
                                     <label>总价：</label>
@@ -219,16 +228,16 @@
                             </div>
                             <div class="order-title-each pull-right">
                                 <div class="order-title-item">
-                                 <label>订单号：2013252938423</label>
-                                 <h5> 
-                                     <button>发货状态</button>                              
-                                     <span>等待发货</span>
+                                   <label>订单号：2013252938423</label>
+                                   <h5> 
+                                       <button>发货状态</button>                              
+                                       <span>等待发货</span>
 
-                                 </h5>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="order-content">
+                                   </h5>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="order-content">
                         <div class="col-xs-6 order-product">
                             <div class="col-xs-3 img">
                                 <img src="img/honey.jpg" />
@@ -249,345 +258,353 @@
                                 <h5><a href="product.html">
                                     【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
                                 </a></h5>
-                                <h6>3段</h6>                                                                </div>
+                                <h6>3段</h6>                                                              
                             </div>
-                            <div class="col-xs-6 order-product">
-                                <div class="col-xs-3 img">
-                                    <img src="img/honey.jpg" />
-                                </div>
-                                <div class="col-xs-9 order-product-name">
-                                    <h5><a href="product.html">
-                                        【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
-                                    </a></h5>
-                                    <h6>3段</h6>                                          
-                                </div>
+                        </div>
+                        <div class="col-xs-6 order-product">
+                            <div class="col-xs-3 img">
+                                <img src="img/honey.jpg" />
                             </div>
-                            <div class="col-xs-6 order-product">
-                                <div class="col-xs-3 img">
-                                    <img src="img/honey.jpg" />
-                                </div>
-                                <div class="col-xs-9 order-product-name">
-                                    <h5><a href="product.html">
-                                        【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
-                                    </a></h5>
-                                    <h6>3段</h6>                                          
-                                </div>
+                            <div class="col-xs-9 order-product-name">
+                                <h5><a href="product.html">
+                                    【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
+                                </a></h5>
+                                <h6>3段</h6>                                          
                             </div>
-                            <div class="col-xs-6 order-product">
-                                <div class="col-xs-3 img">
-                                    <img src="img/honey.jpg" />
-                                </div>
-                                <div class="col-xs-9 order-product-name">
-                                    <h5><a href="product.html">
-                                        【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
-                                    </a></h5>
-                                    <h6>3段</h6>                                          
-                                </div>
+                        </div>
+                        <div class="col-xs-6 order-product">
+                            <div class="col-xs-3 img">
+                                <img src="img/honey.jpg" />
+                            </div>
+                            <div class="col-xs-9 order-product-name">
+                                <h5><a href="product.html">
+                                    【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
+                                </a></h5>
+                                <h6>3段</h6>                                          
+                            </div>
+                        </div>
+                        <div class="col-xs-6 order-product">
+                            <div class="col-xs-3 img">
+                                <img src="img/honey.jpg" />
+                            </div>
+                            <div class="col-xs-9 order-product-name">
+                                <h5><a href="product.html">
+                                    【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
+                                </a></h5>
+                                <h6>3段</h6>                                          
                             </div>
                         </div>
                     </div>
-                    <div id="20150293232" class="order-detail">
-                        <div class="order-title">
-                            <div class="order-title-each pull-left">
-                                <div class="order-title-item">
-                                    <label>提交时间：</label>
-                                    <h5>2015-07-04</h5>
-                                </div>
-                                <div class="order-title-item">
-                                    <label>收件人：</label>
-                                    <h5>万江<span class="fa fa-arrow-down"></span></h5>
-                                </div>
-                                <div class="order-title-item">
-                                    <label>总价：</label>
-                                    <h5>NZD:<span class="color">$27.00</span></h5>
-                                </div>
-                                <div class="order-title-item">
-                                    <label>订单状态：</label>
-                                    <h5>已付款<span><a href="#tab1011" class="tab color">(订单详情)</a></span></h5>
-                                </div>
+                </div>
+                <div id="20150293232" class="order-detail">
+                    <div class="order-title">
+                        <div class="order-title-each pull-left">
+                            <div class="order-title-item">
+                                <label>提交时间：</label>
+                                <h5>2015-07-04</h5>
                             </div>
-                            <div class="order-title-each pull-right">
-                                <div class="order-title-item">
-                                 <label>订单号：20150293232</label>
-                                 <h5>                               
-                                    <button>确认收货</button>
-                                    <span>已发货</span>
+                            <div class="order-title-item">
+                                <label>收件人：</label>
+                                <h5>万江<span class="fa fa-arrow-down address-hover"></span>
+                                    <div class="hover-address">
+                                        <div>万江 (0215456851)</div>
+                                        <div>湖北省武汉市江汉区三眼桥北路海虹景7栋二单元701, 430020</div> 
+                                        <div>中国</div>  
+                                    </div>
                                 </h5>
                             </div>
+                            <div class="order-title-item">
+                                <label>总价：</label>
+                                <h5>NZD:<span class="color">$27.00</span></h5>
+                            </div>
+                            <div class="order-title-item">
+                                <label>订单状态：</label>
+                                <h5>已付款<span><a href="#tab1011" class="tab color">(订单详情)</a></span></h5>
+                            </div>
+                        </div>
+                        <div class="order-title-each pull-right">
+                            <div class="order-title-item">
+                               <label>订单号：20150293232</label>
+                               <h5>                               
+                                <button>确认收货</button>
+                                <span>已发货</span>
+                            </h5>
                         </div>
                     </div>
-                    <div class="order-content">
-                        <div class="col-xs-6 order-product">
-                            <div class="col-xs-3 img">
-                                <img src="img/honey.jpg" />
-                            </div>
-                            <div class="col-xs-9 order-product-name">
-                                <h5><a href="product.html">
-                                    【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
-                                </a></h5>
-                                <h6>3段</h6>                                          
-
-                            </div>
+                </div>
+                <div class="order-content">
+                    <div class="col-xs-6 order-product">
+                        <div class="col-xs-3 img">
+                            <img src="img/honey.jpg" />
+                        </div>
+                        <div class="col-xs-9 order-product-name">
+                            <h5><a href="product.html">
+                                【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
+                            </a></h5>
+                            <h6>3段</h6>                                          
 
                         </div>
-                        <div class="col-xs-6 order-product">
-                            <div class="col-xs-3 img">
-                                <img src="img/honey.jpg" />
-                            </div>
-                            <div class="col-xs-9 order-product-name">
-                                <h5><a href="product.html">
-                                    【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
-                                </a></h5>
-                                <h6>3段</h6>                                          
-                            </div>
+
+                    </div>
+                    <div class="col-xs-6 order-product">
+                        <div class="col-xs-3 img">
+                            <img src="img/honey.jpg" />
+                        </div>
+                        <div class="col-xs-9 order-product-name">
+                            <h5><a href="product.html">
+                                【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
+                            </a></h5>
+                            <h6>3段</h6>                                          
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <div id="tab3" class="detail">
+    <div id="tab3" class="detail">
+        <div class="page-title">
+            <h4>充值</h4>
+        </div>
+        <div class="user-content">
+            <div class="topup-title">
+                <img src="img/payment/paymentexpress.png">
+                <h5>【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰</h5> 
+            </div>
+            <div class="topup-content">
+                <label>充值金额：</label>
+                <input type="text">
+                <button>充值</button>
+            </div>
+            <div class="topup-rate">
+                <h6>当前汇率(纽币/人民币):
+                    <span class="color">1:4.05</span></h6>
+                </div>
+
+                <hr>
+                <div class="topup-statement">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>充值时间</th>
+                                <th>充值金额</th>
+                                <th>充值方式</th>
+                                <th>可退金额</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2015-08-07</td>
+                                <td>$20.00</td>
+                                <td>信用卡</td>
+                                <td>$0.00</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div id="tab4" class="detail">
             <div class="page-title">
-                <h4>充值</h4>
+                <h4>消费历史</h4>
             </div>
             <div class="user-content">
-                <div class="topup-title">
-                    <img src="img/payment/paymentexpress.png">
-                    <h5>【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰</h5> 
-                </div>
-                <div class="topup-content">
-                    <label>充值金额：</label>
-                    <input type="text">
-                    <button>充值</button>
-                </div>
-                <div class="topup-rate">
-                    <h6>当前汇率(纽币/人民币):
-                        <span class="color">1:4.05</span></h6>
-                    </div>
-
-                    <hr>
-                    <div class="topup-statement">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>充值时间</th>
-                                    <th>充值金额</th>
-                                    <th>充值方式</th>
-                                    <th>可退金额</th>
-                                    <th>操作</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2015-08-07</td>
-                                    <td>$20.00</td>
-                                    <td>信用卡</td>
-                                    <td>$0.00</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-
-
-                </div>
+                <!--payment statment-->
             </div>
-            <div id="tab4" class="detail">
-                <div class="page-title">
-                    <h4>消费历史</h4>
-                </div>
-                <div class="user-content">
-                    <!--payment statment-->
-                </div>
+        </div>
+        <div id="tab5" class="detail">
+            <div class="page-title">
+                <h4>常用地址</h4>
             </div>
-            <div id="tab5" class="detail">
-                <div class="page-title">
-                    <h4>常用地址</h4>
-                </div>
-                <div class="user-content">
-                    <div class="address-detail">
-                        <div class="title">默认地址</div>
-                        <div class="address-each"> 
-                            <h5>
-                                <label>Charis Wan <span>(0215456851)</span></label> 
-                                <div>27 Beaudort Place, Papatoetoe, Auckland, 1025</div>
+            <div class="user-content">
+                <div class="address-detail">
+                    <div class="title">默认地址</div>
+                    <div class="address-each"> 
+                        <h5>
+                            <label>Charis Wan <span>(0215456851)</span></label> 
+                            <div>27 Beaudort Place, Papatoetoe, Auckland, 1025</div>
 
-                                <div>New Zealand</div>	
-                            </h5>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="address-detail">
-                        <div class="title">其它地址</div>
-                        <div class="address-each"> 
-                            <a href="#" class="pull-right">设为默认地址</a>
-                            <h5>
-                                <label>Patricj kfgs <span>(0215456851)</span></label>
-                                <div>27 Sam Place, Mt Albert, Auckland, 3325</div>
-                                
-                                <div>New Zealand</div>	
-                            </h5>
-                        </div>
-
-                        <div class="address-each">
-                           <a href="#" class="pull-right">设为默认地址</a>
-                           <h5>
-                            <label>万江 <span>(0215456851)</span></label>
-                            <div>湖北省武汉市江汉区三眼桥北路海虹景7栋二单元701, 430020</div> 
-                            <div>中国</div>	
+                            <div>New Zealand</div>	
                         </h5>
                     </div>
-                    <div class="address-each">
+                </div>
+                <button class="add-pop-address" onclick="popup(1)">添加</button>
+                <hr>
+                <div class="address-detail">
+                    <div class="title">其它地址</div>
+                    <div class="address-each"> 
                         <a href="#" class="pull-right">设为默认地址</a>
                         <h5>
-                            <label>万江 <span>(0215456851)</span></label>
-                            <div>湖北省武汉市江汉区三眼桥北路海虹景7栋二单元701, 430020</div> 
-                            <div>中国</div>   
+                            <label>Patricj kfgs <span>(0215456851)</span></label>
+                            <div>27 Sam Place, Mt Albert, Auckland, 3325</div>
+                            
+                            <div>New Zealand</div>	
                         </h5>
                     </div>
+
+                    <div class="address-each">
+                     <a href="#" class="pull-right">设为默认地址</a>
+                     <h5>
+                        <label>万江 <span>(0215456851)</span></label>
+                        <div>湖北省武汉市江汉区三眼桥北路海虹景7栋二单元701, 430020</div> 
+                        <div>中国</div>	
+                    </h5>
                 </div>
-                <button id="add-address">添加</button>
+                <div class="address-each">
+                    <a href="#" class="pull-right">设为默认地址</a>
+                    <h5>
+                        <label>万江 <span>(0215456851)</span></label>
+                        <div>湖北省武汉市江汉区三眼桥北路海虹景7栋二单元701, 430020</div> 
+                        <div>中国</div>   
+                    </h5>
+                </div>
             </div>
+            
         </div>
-
-
-        <div id="tab6" class="detail">
-            <div class="page-title">
-                <h4>上传身份证</h4>
-            </div>
-            <div class="user-content">
-                <h5>直邮中国的快递必须提供收件人身份证才可以正常通关</h5>
-                <p>如果保存地址是没有上传收件人身份证信息，可以在 我的账户 下的 上传身份证 下上传，否者无法发货</p>
-                <h5>
-                    <div>
-                        <label>身份证号码：</label>
-                        <input type="text">
-                    </div>
-                    <div>
-                        <label>订单号：</label>
-                        <input type="text">
-                    </div>
-                    <div>
-                        <label>身份证正面：</label>
-                        <input type="file">
-                    </div>
-                    <div>
-                        <label>身份证背面：</label>
-                        <input type="file">
-                    </div>               
-                </h5>
-                <button>保存</button>  
-            </div>
-        </div>
-        <div id="tab8" class="detail">
-            <div class="page-title">
-                <h4>修改密码</h4>
-            </div>
-            <div class="user-content">
-               
-                <h5>
-                    <div>
-                        <LABEL>旧密码：</LABEL>
-                        <input type="password">
-
-                    </div>
-                    <div>
-                        <LABEL>新密码：</LABEL>
-                        <input type="password">
-
-                    </div>
-                    <div>
-                        <LABEL>确定新密码：</LABEL>
-                        <input type="password">
-
-                    </div>
-                    
-                </h5>
-                <button>保存</button>
-            </div>
-        </div>
-        <div id="tab9" class="detail">
-            <div class="page-title">
-                <h4>邮件选择</h4>
-            </div>
-            <div class="user-content">
-                
-                <div class="checkbox">
-                    <label class="checkbox">
-                        <input type="checkbox" value="option1" >当请求密码重置的时候
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label class="checkbox">
-                        <input type="checkbox" value="option2" >当生产新的订单的时候
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label class="checkbox">
-                        <input type="checkbox" value="option3">当使用信用卡付款的时候
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label class="checkbox">
-                        <input type="checkbox" value="option4" >当你的订单已发货的时候
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label class="checkbox">
-                        <input type="checkbox" value="option5" >当你的账号有中弹改动的时候
-                    </label>
-                </div>
-                <button>保存</button>
-            </div>
-        </div>
-
-        <div id="tab10" class="detail">
-            <div class="page-title">
-                <h4>订单详情</h4>
-            </div>
-            <div class="user-content">
-               <div class="order-transfer-info">
-                   <!--wait for second-->
-               </div>
-               <div class="order-status-info">
-                <label>当前订单状态</label>
-                <span class="color">待付款</span>
-                <span>(请在 0小时 40分：45秒内完成付款，过期会自动取消订单)</span>
-                <button onclick="location.href='payment.html'">付款</button>
-
-            </div>
-            <hr>
-            <div class="order-delievery-info">
-               <label>物流信息</label>
-               <div><span>发货时间：</span><span>暂未发货</span></div>
-               <div><span>配送方式：</span><span>快递</span></div>
-               <div><span>快递单号：</span><span>暂无</span></div>
-               <!--wait for second-->
-           </div>
-           <hr>
-           <div class="order-person-info">
-             <label>收件人信息</label>
-             <div><span>姓名：</span><span>万江</span></div>
-             <div><span>电话：</span><span>12341546213</span></div>
-             <div><span>地址：</span>
-               <span>湖北省武汉市江汉区三眼桥北路海虹景7栋二单元701, 430020</span>
-           </div>
-           <div><span>国家：</span><span>中国</span></div>
-       </div>
-       <hr>
-       <div class="order-info">
-        <label>订单信息</label>
-        <div><span>订单号：</span><span>20152346854</span></div>
-        <div><span>提交时间：</span><span>2015-08-07</span></div>
-        <div><span>订单总价：</span><span>NZD：27.00</span></div>
     </div>
-    <hr>
-    <div class="order-product-info">
-       <label>商品信息</label>
-   </div>
-   <table class="table">
+
+
+    <div id="tab6" class="detail">
+        <div class="page-title">
+            <h4>上传身份证</h4>
+        </div>
+        <div class="user-content">
+            <h5>直邮中国的快递必须提供收件人身份证才可以正常通关</h5>
+            <p>如果保存地址是没有上传收件人身份证信息，可以在 我的账户 下的 上传身份证 下上传，否者无法发货</p>
+            <h5>
+                <div>
+                    <label>身份证号码：</label>
+                    <input type="text">
+                </div>
+                <div>
+                    <label>订单号：</label>
+                    <input type="text">
+                </div>
+                <div>
+                    <label>身份证正面：</label>
+                    <input type="file">
+                </div>
+                <div>
+                    <label>身份证背面：</label>
+                    <input type="file">
+                </div>               
+            </h5>
+            <button>保存</button>  
+        </div>
+    </div>
+    <div id="tab8" class="detail">
+        <div class="page-title">
+            <h4>修改密码</h4>
+        </div>
+        <div class="user-content">
+         
+            <h5>
+                <div>
+                    <LABEL>旧密码：</LABEL>
+                    <input type="password">
+
+                </div>
+                <div>
+                    <LABEL>新密码：</LABEL>
+                    <input type="password">
+
+                </div>
+                <div>
+                    <LABEL>确定新密码：</LABEL>
+                    <input type="password">
+
+                </div>
+                
+            </h5>
+            <button>保存</button>
+        </div>
+    </div>
+    <div id="tab9" class="detail">
+        <div class="page-title">
+            <h4>邮件选择</h4>
+        </div>
+        <div class="user-content">
+            
+            <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" value="option1" >当请求密码重置的时候
+                </label>
+            </div>
+            <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" value="option2" >当生产新的订单的时候
+                </label>
+            </div>
+            <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" value="option3">当使用信用卡付款的时候
+                </label>
+            </div>
+            <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" value="option4" >当你的订单已发货的时候
+                </label>
+            </div>
+            <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" value="option5" >当你的账号有中弹改动的时候
+                </label>
+            </div>
+            <button>保存</button>
+        </div>
+    </div>
+
+    <div id="tab10" class="detail">
+        <div class="page-title">
+            <h4>订单详情</h4>
+        </div>
+        <div class="user-content">
+         <div class="order-transfer-info">
+             <!--wait for second-->
+         </div>
+         <div class="order-status-info">
+            <label>当前订单状态</label>
+            <span class="color">待付款</span>
+            <span>(请在 0小时 40分：45秒内完成付款，过期会自动取消订单)</span>
+            <button onclick="location.href='payment.html'">付款</button>
+
+        </div>
+        <hr>
+        <div class="order-info">
+         <label>物流信息</label>
+         <div><span>发货时间：</span><span>暂未发货</span></div>
+         <div><span>配送方式：</span><span>快递</span></div>
+         <div><span>快递单号：</span><span>暂无</span></div>
+         <!--wait for second-->
+     </div>
+     <hr>
+     <div class="order-info">
+       <label>收件人信息</label>
+       <div><span>姓名：</span><span>万江</span></div>
+       <div><span>电话：</span><span>12341546213</span></div>
+       <div><span>地址：</span>
+         <span>湖北省武汉市江汉区三眼桥北路海虹景7栋二单元701, 430020</span>
+     </div>
+     <div><span>国家：</span><span>中国</span></div>
+ </div>
+ <hr>
+ <div class="order-info">
+    <label>订单信息</label>
+    <div><span>订单号：</span><span>20152346854</span></div>
+    <div><span>提交时间：</span><span>2015-08-07</span></div>
+    <div><span>订单总价：</span><span>NZD：27.00</span></div>
+</div>
+<hr>
+<div class="order-product-info">
+ <label>商品信息</label>
+</div>
+<table class="table">
     <thead>
         <tr>
             <th width="60%">商品名称</th>
@@ -612,11 +629,11 @@
             <td>1</td>
             <td>27.00</td>
             <td class="operate">
-               <button>付款</button>
-               <div><a href="#">取消订单</a></div>
-           </td>
-       </tr>
-       <tr>
+             <button>付款</button>
+             <div><a href="#">取消订单</a></div>
+         </td>
+     </tr>
+     <tr>
         <td class="text-left">
             <div class="col-xs-3 img">
                 <img src="img/honey.jpg" />
@@ -635,18 +652,8 @@
 </tbody>
 </table>
 
-
-
-
-
-
-
-
-
 </div>
 </div>
-
-
 
 </div>
 

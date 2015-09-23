@@ -9,6 +9,7 @@
     text-align: center;
     background-color: #eee;
     padding: 20px;
+    border: 1px solid #ccc;
 }
 
 #cart-page thead tr {

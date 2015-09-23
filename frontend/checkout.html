@@ -1,182 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="">
-        <meta name="author" content="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <title>彩购网---结算</title>
+    <title>彩购网---结算</title>
 
-        <!-- Bootstrap Core CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-        <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="css/style.css" type="text/css">
-        <link rel="stylesheet" href="css/checkout.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/checkout.css" type="text/css">
+     <link rel="stylesheet" href="css/popup.css" type="text/css">
 
-        <!-- Favicons if possible -->
-        <!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
-    </head> 
+    <!-- Favicons if possible -->
+    <!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
+</head> 
 
-    <body id="checkout-page">
-        <div id="header"></div>
-        <div class="container-non-responsive">
-            <div class="page-title">
-                <h4>结算</h4>
-            </div>	
-            <div class="page-content">
-                <div class="col-xs-12 checkout-content">
-                    <!-- logined in can select address -->
-                    <div class="address-left"><h5>已有地址</h5></div>
-                    <div class="address-right">
-                        <div class="address-content active"> 
-                            <span class="first-address">邮寄至</span>
-                            <span class="address-detail">
-                                <input type="checkbox" checked/>                                      
-                                27 Beaudort Place, Papatoetoe, Auckland, New Zealand  1025
-                                <strong> (Charis Wan)  2132132131</strong>
-                            </span>
-                            <a href=""><span class="edit-address pull-right">修改地址</span></a>
-                        </div>
-                        <div class="address-content">  
-                            <span class="first-address">邮寄至</span>
-                            <span class="address-detail">
-                                <input type="checkbox" />
-                                湖北省武汉市江汉区三眼桥北路海红旗701
-                                <strong>（万江）  2132132131</strong>
-                            </span>
-                            <a href=""><span class="edit-address pull-right">修改地址</span></a>
-                        </div>
-                        <div class="address-content">  
-                            <span class="first-address">邮寄至</span>
-                            <span class="address-detail">
-                                <input type="checkbox" />
-                                湖北省武汉市江汉区三眼桥北路海红旗701
-                                <strong>（万江）  2132132131</strong>
-                            </span>
-                            <a href=""><span class="edit-address pull-right">修改地址</span></a>
-                        </div>
-                    </div>
-                    <div class="address-left"><a href="#">新地址</a></div>
-                    <hr>
-                </div> 
-                <div class="col-xs-12 checkout-content">
-                    <div class="content-up"> 
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="product-name">商品信息</th>
-                                    <th class="text-left">数量</th>
-                                    <th class="text-right">价格</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="product-name">
-                                        <img src='img/blackmores.jpg'/>
-                                        <div class="name-limit"><a href="product.html">好健康蜂胶</a>
-                                        </div>
-                                    </td>
-                                    <td>1</td>
-                                    <td class="text-right color">45.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="product-name">
-                                        <img src='img/blackmores.jpg'/>
-                                        <div class="name-limit"><a href="product.html">好健康蜂胶</a>
-                                        </div>
-                                    </td>
-                                    <td>1</td>
-                                    <td class="text-right color">45.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="product-name">
-                                        <img src='img/blackmores.jpg'/>
-                                        <div class="name-limit"><a href="product.html">好健康蜂胶</a>
-                                        </div>
-                                    </td>
-                                    <td>1</td>
-                                    <td class="text-right color">45.00</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr><td class="text-right"><strong>运送方式:</strong></td><td><input type="text" placeholder="快递"></td><td class="text-right color">20.00</td> </tr>
-                                <tr><td class="text-right"><strong>运送保险:</strong></td><td><input type="checkbox"> 购买保险</td> <td class="text-right color">0.00</td></tr>
-                                <tr><td class="text-right"><strong>优惠方式:</strong></td><td><input type="text" placeholder="使用优惠券"></td><td class="text-right color">-0.00</td> </tr>
-                                <tr><td class="text-right"><strong>合计:</strong></td><td>（含运费和各项费用)</td><td class="text-right color"><h3>$20.00</h3></td> </tr>
-                            </tfoot>
-                        </table>
-                        <hr>
-                    </div>
-                    <div class="content-down"> 
-                        <div class="address-left">
-                            <p><strong>快递要求：</strong></p>
-                            <p>1.保健品、食品包裹：总数不超过<strong>16个</strong>，且总重量不超过<strong>7公斤</strong>，含有蜂蜜的包裹总数不超过<strong>14个</strong>。</p>
-                            <p>2.含化妆品包裹：总数不超过<strong>12个</strong>，总重量不超过<strong>4公斤</strong>。</p>
-                            <p>3.奶粉类包裹：请务必提供收件人相对应的身份证信息。</p>
-                        </div>
-                        <div  class="address-right">
-                            <div class="text-right"><strong>寄送至：</strong> 湖北省武汉市江汉区三眼桥北路海红旗701</div>
-                            <div class="text-right"><strong>收货人：</strong>万江  2132132131</div>
-                            <div class="text-right color"><h3><strong>应付总额：</strong>$42.00</h3></div>
-                        </div>
-                    </div>
-                    <button onclick="" title="提交订单" class="btn-pay"  value="提交订单">提交订单</button>
+<body id="checkout-page">
+    <div id="header"></div>
+    <div class="container-non-responsive">
+        <div class="page-title">
+            <h4>结算</h4>
+        </div>	
+        <div class="page-content">
+            <div class="col-xs-12 checkout-content top">
+                <!-- logined in can select address -->
+                
+                <h5><strong>已有地址</strong></h5>
+                <div class="address-content"> 
+                    <span class="first-address">邮寄至---</span>
+                    <span class="address-detail">
+                       
+                        27 Beaudort Place, Papatoetoe, Auckland, New Zealand  1025
+                        <strong> (Charis Wan)  2132132131</strong>
+                    </span>
+                    <a onclick="popup(1)"><span class="edit-address pull-right">修改地址</span></a>
                 </div>
-                <div class="hotdeal cart-down col-xs-12">
-                    <div class="row-up">
-                        <div class="col-xs-11">
-                            <h3>可能喜欢</h3>
-                        </div>
-                        <div class="col-xs-1">
-                            <a href="products.html">更多
-                            </a> 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <a href="product.html">
-                                <img src="img/aptami.jpg" alt="">
-                                <span class="pro-text"><span class="pro-title">【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰<br></span><span class="price">$79.00</span><del>$89.00</del></span>
-                            </a>
-                        </div>
-                        <div class="col-xs-3">
-                            <a href="product.html">
-                                <img src="img/blackmores.jpg" alt=""> 
-                                <span class="pro-text"><span class="pro-title">Arataki 纯天然麦卢卡蜂蜜UFM10+500g<br></span><span class="price">$49.00</span><del>$59.00</del></span>
-                            </a>
-                        </div>
-                        <div class="col-xs-3">
-                            <a href="product.html">
-                                <img src="img/honey.jpg" alt=""> 
-                                <span class="pro-text"><span class="pro-title">Thompson汤普森蜂王浆180粒<br></span><span class="price">$42.61</span><del>$49.00</del></span>
-                            </a>
-
-                        </div>
-                        <div class="col-xs-3">
-                            <a href="product.html">
-                                <img src="img/artemis.jpg" alt="">
-                                <span class="pro-text"><span class="pro-title">Blackmores澳佳宝 儿童水果味鱼油 30粒<br></span><span class="price">$16.84</span><del>$19.37</del></span>
-                            </a>
-                        </div>
-                    </div>	
+                <div class="address-content">  
+                    <span class="first-address">邮寄至---</span>
+                    <span class="address-detail">
+                     
+                        湖北省武汉市江汉区三眼桥北路海红旗701
+                        <strong>（万江）  2132132131</strong>
+                    </span>
+                    <a onclick="popup(1)"><span class="edit-address pull-right">修改地址</span></a>
                 </div>
-            </div>  <!--//cart-page-->  
-        </div><!-- /container-non-responsive -->
+                <div class="address-content">  
+                    <span class="first-address">邮寄至---</span>
+                    <span class="address-detail">
+                      
+                        湖北省武汉市江汉区三眼桥北路海红旗701
+                        <strong>（万江）  2132132131</strong>
+                    </span>
+                    <a onclick="popup(1)"><span class="edit-address pull-right">修改地址</span></a>
+                </div>
+                <a  onclick="popup(1)"><h5><strong>新地址</strong></h5></a>
+                
+            </div> 
+            <div class="col-xs-12 checkout-content">
+                <div class="content-up"> 
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="product-name">商品信息</th>
+                                <th class="text-left">数量</th>
+                                <th class="text-right">价格</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="product-name">
+                                    <img src='img/blackmores.jpg'/>
+                                    <div class="name-limit"><a href="product.html">好健康蜂胶</a>
+                                    </div>
+                                </td>
+                                <td>1</td>
+                                <td class="text-right color">45.00</td>
+                            </tr>
+                            <tr>
+                                <td class="product-name">
+                                    <img src='img/blackmores.jpg'/>
+                                    <div class="name-limit"><a href="product.html">好健康蜂胶</a>
+                                    </div>
+                                </td>
+                                <td>1</td>
+                                <td class="text-right color">45.00</td>
+                            </tr>
+                            <tr>
+                                <td class="product-name">
+                                    <img src='img/blackmores.jpg'/>
+                                    <div class="name-limit"><a href="product.html">好健康蜂胶</a>
+                                    </div>
+                                </td>
+                                <td>1</td>
+                                <td class="text-right color">45.00</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td class="text-right"><strong>运送方式:</strong></td>
+                                <td>
+                                <input type="text" placeholder="快递" id="delivery-option">
 
-        <div id="footer"></div>
+                                <ul class="delivery-options">
+                                    <li><span>快递（3-5天）</span><span class="color">$20.00</span></li>
+                                    <li> <span>平递（7-10天）</span><span class="color">$0.00</span></li>
+                                    <li> <span>海运（10-15天）</span><span class="color">$0.00</span></li>
+                                </ul> 
 
-        <!-- jQuery -->
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/jquery.easing-1.3.min.js"></script>
-        <script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
+                            </td>
+                            <td class="text-right color">20.00</td> </tr>
+                            <tr><td class="text-right"><strong>运送保险:</strong></td>
+                                <td><input type="checkbox"> 购买保险</td>
+                                <td class="text-right color">0.00</td></tr>
+                                <tr><td class="text-right"><strong>优惠方式:</strong></td>
+                                    <td><input type="text" placeholder="使用优惠券"></td>
+                                    <td class="text-right color">-0.00</td> </tr>
+                                    <tr><td class="text-right"><strong>合计:</strong></td>
+                                        <td>（含运费和各项费用)</td>
+                                        <td class="text-right color"><h3>$20.00</h3></td> </tr>
+                                    </tfoot>
+                                </table>
+                                <hr>
+                            </div>
+                            <div class="content-down"> 
+                                <div class="address-left">
+                                    <p><strong>快递要求：</strong></p>
+                                    <p>1.保健品、食品包裹：总数不超过<strong>16个</strong>，且总重量不超过<strong>7公斤</strong>，含有蜂蜜的包裹总数不超过<strong>14个</strong>。</p>
+                                    <p>2.含化妆品包裹：总数不超过<strong>12个</strong>，总重量不超过<strong>4公斤</strong>。</p>
+                                    <p>3.奶粉类包裹：请务必提供收件人相对应的身份证信息。</p>
+                                </div>
+                                <div  class="address-right">
+                                    <div class="text-right"><strong>寄送至：</strong> 湖北省武汉市江汉区三眼桥北路海红旗701</div>
+                                    <div class="text-right"><strong>收货人：</strong>万江  2132132131</div>
+                                    <div class="text-right color"><h3><strong>应付总额：</strong>$42.00</h3></div>
+                                </div>
+                            </div>
+                            <button onclick="popup(2)" title="提交订单" class="btn-pay" value="提交订单" >提交订单</button>
+                        </div>
+                        <div class="hotdeal cart-down col-xs-12">
+                            <div class="row-up">
+                                <div class="col-xs-11">
+                                    <h3>可能喜欢</h3>
+                                </div>
+                                <div class="col-xs-1">
+                                    <a href="products.html">更多
+                                    </a> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <a href="product.html">
+                                        <img src="img/aptami.jpg" alt="">
+                                        <span class="pro-text"><span class="pro-title">【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰<br></span><span class="price">$79.00</span><del>$89.00</del></span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-3">
+                                    <a href="product.html">
+                                        <img src="img/blackmores.jpg" alt=""> 
+                                        <span class="pro-text"><span class="pro-title">Arataki 纯天然麦卢卡蜂蜜UFM10+500g<br></span><span class="price">$49.00</span><del>$59.00</del></span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-3">
+                                    <a href="product.html">
+                                        <img src="img/honey.jpg" alt=""> 
+                                        <span class="pro-text"><span class="pro-title">Thompson汤普森蜂王浆180粒<br></span><span class="price">$42.61</span><del>$49.00</del></span>
+                                    </a>
 
-        <!-- Custom JavaScript -->
-        <script src="js/shop.js"></script>
-    </body>
-</html>
+                                </div>
+                                <div class="col-xs-3">
+                                    <a href="product.html">
+                                        <img src="img/artemis.jpg" alt="">
+                                        <span class="pro-text"><span class="pro-title">Blackmores澳佳宝 儿童水果味鱼油 30粒<br></span><span class="price">$16.84</span><del>$19.37</del></span>
+                                    </a>
+                                </div>
+                            </div>	
+                        </div>
+                    </div>  <!--//cart-page-->  
+                </div><!-- /container-non-responsive -->
+
+                <div id="popup-address" style="display:none;"></div>
+                <div id="popup-login" style="display:none;"></div>
+                <div id="footer"></div>
+
+                <!-- jQuery -->
+                <script src="js/jquery-1.11.3.min.js"></script>
+                <script src="js/jquery.easing-1.3.min.js"></script>
+                <script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+
+                <!-- Bootstrap Core JavaScript -->
+                <script src="js/bootstrap.min.js"></script>
+
+                <!-- Custom JavaScript -->
+                <script src="js/shop.js"></script>
+                <script src="js/checkout.js"></script>
+                 <script src="js/register.js"></script>
+
+            </body>
+            </html>

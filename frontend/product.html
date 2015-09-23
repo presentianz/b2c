@@ -137,11 +137,9 @@
                                             <button class="number-input" id="num-up"><i class="fa fa-caret-up"></i></button>
                                             <button class="number-input number-input-down" id="num-down"><i class="fa fa-caret-down"></i></button>
                                         </div>
-                                        <button id="checknow" title="立即购买" onclick="checkout.html">  
-                                            <span>立即购买</span>  
-                                        </button> 
-                                        <button title="加入购物车" id="product-addtocart-button" onclick="cart.html"><span>加入购物车</span></button>
-                                        <button title="添加到收藏" id="product-addtocol-button" class="pull-right"><span>添加到收藏</span></button>
+                                        <button title="立即购买" onclick="location.href='checkout.html'"> 立即购买</button> 
+                                        <button title="加入购物车" onclick="popup(3)">加入购物车</button>
+                                        <button title="添加到收藏" class="pull-right">添加到收藏</button>
                                     </div>                                               
                                 </div>    
                             </div> 
@@ -200,6 +198,7 @@
             </div>
         </div><!-- /container-non-responsive -->
 
+        <div id="popup-cart" style="display:none;"></div>
         <div id="footer"></div>
 
         <!-- jQuery -->

@@ -55,17 +55,16 @@
     overflow: auto;
 }
 
-#user-page .user-content h5 > div {
-    margin-bottom: 15px;
+#user-page .user-content h5 div {
+    margin-bottom: 10px;
     text-align: left;
-    width: 100%;
 }
 
-#user-page .user-content h5 > div label {
+#user-page .user-content h5 div label {
      width: 100px;
 }
 
-#user-page .user-content h5 > div input {
+#user-page .user-content h5 div input {
     width: 250px;
     display: inline-block;
 
@@ -88,12 +87,13 @@
     padding-right:10px;
 }
 
-#user-page .user-info-each .fa-edit {
+#user-page .user-info-each .fa {
     float: right;
+    margin-top: 5px;
 }
 
 #user-page .user-info-each > div {
-    width: 60%;
+    width: 70%;
      display: inline-block;
      vertical-align: top;
 } 
@@ -152,6 +152,27 @@
     width: auto;
 }
 
+#user-page .fa-arrow-down.address-hover {
+    cursor: pointer;
+}
+
+#user-page .order-title-item .hover-address {
+    position: absolute;
+    background-color: #fff;
+    z-index: 1;
+    padding: 15px 10px;
+    width: 260px;
+    height: 110px;
+    top: 30px;
+    left: 190px;
+    box-shadow: 1px 1px 10px #ccc;
+    display: none;
+}
+
+#user-page .fa-arrow-down.address-hover:hover + .hover-address {
+    display: block;
+}
+
 #user-page .order-title label {
     font-size: 12px;
     font-weight: normal;
@@ -201,6 +222,8 @@
     color:#ccc;
 }
 
+
+
 /* tab3 topup*/
 #user-page .topup-title h5{
     margin-top: 10px;
@@ -241,6 +264,14 @@
 
 #user-page .address-each h5 {
     width:260px;
+}
+
+
+/*tab10 order detail*/
+#user-page .order-info {
+    background-color: #eee;
+    padding: 10px;
+    height: auto;
 }
 
 #user-page table {

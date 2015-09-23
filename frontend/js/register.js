@@ -19,8 +19,8 @@ function bitTotal(num) {
 }
 var flag1 = flag2 = flag3 = flag4 = false;
 $(document).ready(function () {
-    $(".controls").find(".error").css("display", "none");
-    $(".controls").find(".check-fa").css("display", "none");
+    $(".controls .error").css("display", "none");
+    $(".controls .check-fa").css("display", "none");
 
     $("input[name=email]").blur(function (e) {
         var email = $("input[name=email]").val();
