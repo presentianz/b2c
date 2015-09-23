@@ -17,22 +17,25 @@ function bitTotal(num) {
     }
     return modes;
 }
-var flag1 = flag2 = flag3 = flag4 = false;
+
+var flag1 = flag2 = flag3 = flag4 = flag5=false;
+
 $(document).ready(function () {
     $(".controls .error").css("display", "none");
     $(".controls .check-fa").css("display", "none");
-
     $("input[name=email]").blur(function (e) {
         var email = $("input[name=email]").val();
         if (email == "") {
             flag1 = false;
-            $("input[name=email]").parent().find(".error").find("h6").html("邮箱不能为空");
+          //  $("input[name=email]").parent().find(".error").find("h6").html("邮箱不能为空");
             wrong("input[name=email]");
         }
         else {
+            console.log("worng email");
             var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
             var result = reg.test(email);
             if (result == false) {
+
                 flag1 = false;
                 $("input[name=email]").parent().find(".error").find("h6").html("邮箱格式不正确");
                 wrong("input[name=email]");
@@ -46,10 +49,10 @@ $(document).ready(function () {
     });
 
     $("input[name=username]").blur(function (e) {
-        var username = $("input[name=username]").val();
+         var username = $("input[name=username]").val();
         if (username == "") {
             flag2 = false;
-            $("input[name=username]").parent().find(".error").find("h6").html("用户名不能为空");
+          //  $("input[name=username]").parent().find(".error").find("h6").html("用户名不能为空");
             wrong("input[name=username]");
         }
         else {
@@ -59,13 +62,18 @@ $(document).ready(function () {
         //$("input[name=username]").parent().find(".error").find("h6").html("用户名已经注册过");
     });
 
-    $("input[name=psd1]").blur(function (e) {
-        var psd1 = $("input[name=psd1]").val();
-        var psd2 = $("input[name=psd2]").val();
+    $("input[name=psd1]").blur(function (e) { 
+     var psd1 = $("input[name=psd1]").val();  
         var reg = /^[\w]{6,20}$/;
         var result = reg.test(psd1);
-        if (result == false) {
+        if (psd1 == "") {
             flag3 = false;
+        //  $("input[name=psd1]").parent().find(".error").find("h6").html("密码不能为空");
+            wrong("input[name=psd1]");
+        }
+        else if (result == false) {
+            flag3 = false;
+           $("input[name=psd1]").parent().find(".error").find("h6").html("密码需要至少6个字节");
             wrong("input[name=psd1]");
         }
         else {
@@ -94,26 +102,16 @@ $(document).ready(function () {
                     break;
             }
         }
-        if (psd2 != "") {
-            if (psd1 != psd2) {
-                flag4 = false;
 
-                $("input[name=psd2]").parent().find(".error").find("h6").html("密码不匹配");
-                wrong("input[name=psd2]");
-            }
-            else {
-                flag4 = true;
-                correct("input[name=psd2]");
-            }
-        }
     });
 
     $("input[name=psd2]").blur(function (e) {
-        var psd1 = $("input[name=psd1]").val();
+         var psd1 = $("input[name=psd1]").val();
         var psd2 = $("input[name=psd2]").val();
+
         if (psd2 == "") {
             flag4 = false;
-            $("input[name=psd2]").parent().find(".error").find("h6").html("确认密码不能为空");
+           // $("input[name=psd2]").parent().find(".error").find("h6").html("确认密码不能为空");
             wrong("input[name=psd2]");
         }
         else {
@@ -126,6 +124,18 @@ $(document).ready(function () {
                 flag4 = true;
                 correct("input[name=psd2]");
             }
+        }
+    });
+
+    $("input[id=checkinfo]").blur(function (e) {
+        var checkinfo = document.getElementById("checkinfo");
+        if(checkinfo.checked){
+             flag5=true;
+             correct("input[id=checkinfo]");
+        }
+        else {
+            flag5=false;
+            wrong("input[id=checkinfo]");
         }
     });
 
@@ -150,12 +160,52 @@ function wrong(checking) {
 }
 
 
-function mysubmit() {
-    var checkbox = document.getElementById('checkinfo');
-    if ((flag1 && flag2 && flag3 && flag4) && (checkbox.checked))
-        return true
-    else
+function reigster() {
+    if (flag1 && flag2 && flag3 && flag4 && flag5) {
+          console.log("success to regiseter");
+        return true;
+    }     
+    else if($("input[name=email]").val()==""){
+        console.log("fail to regiseter");
+        wrong("input[name=email]");
         return false;
+    }
+      else if($("input[name=username]").val()==""){
+        console.log("fail to regiseter");
+         wrong("input[name=username]");
+        return false;
+    }
+      else if($("input[name=psd1]").val()==""){
+        console.log("fail to regiseter");
+         wrong("input[name=psd1]");
+        return false;
+    }
+      else if($("input[name=psd2]").val()==""){
+        console.log("fail to regiseter");
+         wrong("input[name=psd2]");
+        return false;
+    }
+
+    else {
+        console.log("fail to regiseter");
+        return false;
+    }
+
+        
+}
+
+function login() {
+    if (flag1 && flag3){
+        console.log("success to login");
+        location.href="index.html";
+        return true;
+    }
+         
+    else{
+        console.log("fail to login");
+        return false;
+    }
+         
 }
 
 

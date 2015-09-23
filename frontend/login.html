@@ -44,14 +44,15 @@
                     <img src="img/honey.jpg" alt="彩购网">
                 </a>
             </div>
-
+           
             <div class="login-content col-xs-4 col-xs-offset-1">
+            
                 <div class="controls">
-                    <input  type="text" name="email" placeholder="请输入您的用户名">
+                    <input  type="text" name="email" placeholder="请输入您的邮箱">
                     <span class="fa check-fa"></span>
                     <div class="error">
                         <span class="fa fa-caret-left"></span>
-                        <h6>用户名输入错误</h6>
+                        <h6>邮箱不能为空</h6>
                     </div>
                 </div>
                 <div class="controls">
@@ -59,15 +60,14 @@
                     <span class="fa check-fa"></span>
                     <div class="error">
                         <span class="fa fa-caret-left"></span>
-                        <h6>密码输入错误</h6>
+                        <h6>密码不能为空</h6>
                     </div>
                 </div>
                 <div class="controls-link login-button">
-                    <button onclick="">登录</button> 
+                    <button onclick="return login()">登录</button> 
                     <div class="right"><input type="checkbox">自动登录</div>
 
                 </div>
-
                 <hr>
                 <div class="controls-link register">
                     <div class="right"><a href="register.html">注册新帐号</a></div>
@@ -80,6 +80,7 @@
                     <a href="questions.html"><span class="fa fa-weixin"> 微信</span></a>
                 </div>
             </div>
+            
 
         </div><!-- /container-non-responsive -->
 

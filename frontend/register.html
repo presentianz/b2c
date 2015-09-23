@@ -10,7 +10,6 @@
 
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-
         <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 
         <!-- Custom CSS -->
@@ -54,7 +53,7 @@
                     <h5>已经有账号？<a href="login.html">登录</a></h5>
                 </div>
             </div>
-            <form id="form" name="" action="registerEmail.html" method="post" onSubmit="return mysubmit();">
+            <form id="form" name="register" action="registerEmail.html" method="post" onSubmit="return reigster();">
                 <div class="register-content col-xs-5">
                     <div class="controls">
                         <label>邮箱</label>
@@ -62,7 +61,7 @@
                         <span class="fa check-fa"></span>
                         <div class="error">
                             <span class="fa fa-caret-left"></span>
-                            <h6>邮箱已经注册过</h6>
+                            <h6>邮箱不能为空</h6>
                         </div>
                     </div>					
                     <div class="controls">
@@ -71,7 +70,7 @@
                         <span class="fa check-fa"></span>
                         <div class="error">
                             <span class="fa fa-caret-left"></span>
-                            <h6>用户名已经注册过</h6>
+                            <h6>用户名不能为空</h6>
                         </div>
                     </div>
                     <div class="controls">
@@ -80,7 +79,7 @@
                         <span class="fa check-fa"></span>
                         <div class="error error-none">
                             <span class="fa fa-caret-left"></span>
-                            <h6>密码有问题 建议大小写 数字 长度</h6>
+                            <h6>密码不能为空</h6>
                         </div>
                     </div>
                     <div class="controls">
@@ -97,15 +96,19 @@
                         <span class="fa check-fa"></span>
                         <div class="error">
                             <span class="fa fa-caret-left"></span>
-                            <h6>密码不匹配</h6>
+                            <h6>密码不能为空</h6>
                         </div>
                     </div>
                     <div class="controls last">
-                        <input type="checkbox" id="checkinfo"><a href="">我已阅读并接受《彩购网用户协议》</a>	
+                        <input type="checkbox" id="checkinfo"><a href="">我已阅读并接受《彩购网用户协议》</a>
+                        <span class="fa check-fa"></span>
+                        <div class="error">
+                            <span class="fa fa-caret-left"></span>
+                            <h6>请请勾选并阅读协议</h6>
+                        </div>	
                     </div>	
 
-                    <!--<a href="registerEmail.html"><button>注册</button></a>-->
-                    <input type="submit" name="submit" id="button" value="注册">  
+                    <button>注册</button> 
                 </div>
             </form>
         </div><!-- /container-non-responsive -->
