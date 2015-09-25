@@ -40,6 +40,8 @@ button {
     vertical-align: middle;
     min-width: 80px;
     border-radius:0px;
+    -webkit-border-radius:0px;  
+    -moz-border-radius:0px;
     border: 1px solid #ee1c24;
 }
 
@@ -61,6 +63,10 @@ input {
 input:hover,
 input:focus {
     cursor: pointer;
+    outline: none;
+}
+
+input[type=checkbox] {
     outline: none;
 }
 
@@ -142,9 +148,13 @@ input.qty {
     height: auto;
     background-color: #fff;
     border-radius: 0px;
+    -webkit-border-radius:0px;  
+    -moz-border-radius:0px;
     position: absolute;
     z-index: 1;
-    box-shadow: 0 2px 1px rgba(0,0,0,.1);
+    box-shadow: 0 2px 1px #999;
+    -webkit-box-shadow: 0 2px 1px #999;
+    -moz-box-shadow:0 2px 1px #999;
 }
 
 .navbar .user,
@@ -241,10 +251,9 @@ input.qty {
 
 #mid-header .search-query {
     padding: 4px 14px;
-    border-radius:0px;
     min-width: 450px;
     min-height: 35px;
-    border: 3px solid transparent;
+    border: 3px solid #ee1c24; /* for IE 8 */
     border-image: -webkit-linear-gradient(right, #ee1c24, orange, yellow, green, blue, indigo, violet); /* For Safari 5.1 to 6.0 */
     border-image: -o-linear-gradient(right, #ee1c24, orange, yellow, green, blue, indigo, violet); /* For Opera 11.1 to 12.0 */
     border-image: -moz-linear-gradient(right, #ee1c24, orange, yellow, green, blue, indigo, violet); /* For Fx 3.6 to 15 */
@@ -252,6 +261,11 @@ input.qty {
     border-image-slice: 1;
     outline: none;
     margin: 0;
+    border-radius:0px;
+    -webkit-border-radius:0px;  
+    -moz-border-radius:0px;
+    /*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);*/
+
 }
 
 #mid-header .navbar-search {
@@ -311,11 +325,11 @@ input.qty {
     position: relative;
     background: #fff;
     z-index: 0;
-    box-shadow: 0 0 2px rgba(0,0,0,.2);
+    box-shadow: 0 0 2px #999;
+    -webkit-box-shadow: 0 0 2px #999;
+    -moz-box-shadow:0 0 2px #999;
     float: right;
 }
-
-
 
 .cart-block-row{
     display: block;
@@ -353,11 +367,15 @@ input.qty {
     height: auto;
     background-color: #fff;
     border-radius: 0px;
+    -webkit-border-radius:0px;  
+    -moz-border-radius:0px;
     position: absolute;
     z-index: 1;
     right: 15px;
     border: 1px solid #e5e5e5;
-    box-shadow: 0 0 2px rgba(0,0,0,.2);
+    box-shadow: 0 0 2px #999;
+    -webkit-box-shadow: 0 0 2px #999;
+    -moz-box-shadow:0 0 2px #999;
 }
 
 
@@ -497,6 +515,8 @@ ul.nav {
     margin: 0;
     padding: 0;
     border-radius: 0px;
+    -webkit-border-radius:0px;  
+    -moz-border-radius:0px;
     width: 100%;
     border: 1px solid #eee;
 }
@@ -529,10 +549,10 @@ ul.nav {
     font-weight: bold;
 }
 
-.nav .nav-item a .fa {
+.nav .nav-item a i.fa {
     position: absolute;
     right: 15px;
-    opacity: 0.2;
+    color: #ccc;
     top: 30px;
 }
 
@@ -562,6 +582,8 @@ ul.nav {
     left: 249px;
     padding: 0px;
     border-radius: 0px;
+    -webkit-border-radius:0px;  
+    -moz-border-radius:0px;
     top: -3px;
     width: 312px;
 }
@@ -590,6 +612,12 @@ ul.nav {
     width:100%; 
     max-height:410px;
     border:0;
+}
+
+.carousel-indicators li {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
 }
 
 
@@ -621,21 +649,25 @@ ul.nav {
 
 .carousel-control {
     border: 0;
-    border-radius: 0; 
+    border-radius: 0px; 
+    -webkit-border-radius:0px;  
+    -moz-border-radius:0px;
     top: 50%;
     height:45px;
     width:60px;
     line-height:35px;
     display: none;
     background: none !important;
+
+    
 }
 
-.carousel-control span.fa{
+.carousel-control i.fa{
     margin:10px 0;
 }
 
 .carousel-control:hover {
-    background-color: #fbd1d3; 
+    background: transparent !important;
     color: #fff;
 }
 
@@ -650,6 +682,7 @@ ul.nav {
 }
 .carousel:hover .carousel-control {
     display: block;
+    filter: none !important;
 }
 
 
@@ -727,7 +760,11 @@ ul.nav {
 }
 
 .hotdeal .row > div:hover {
-    box-shadow: #999 0px 4px 8px;
+    box-shadow: 0px 4px 8px #999;
+    -webkit-box-shadow: 0px 4px 8px #999;
+    -moz-box-shadow:0px 4px 8px #999;
+    /* border: 1px solid #eee;  for IE 8 */
+
 }
 
 
@@ -852,6 +889,8 @@ del{
     height:14px;
     min-width:20px;
     border-radius:0px;
+    -webkit-border-radius:0px;  
+    -moz-border-radius:0px;
     top:-8px;
     left:0px;
 
@@ -887,7 +926,7 @@ del{
 
 }
 
-#gototop span.fa {
+#gototop i.fa {
     width: 3px;
     height:3px;
     padding: 5px 16px 10px 16px;
@@ -900,8 +939,45 @@ del{
 #gototop:hover {
     color: #fff;
     background-color: #eee;
-    border-radius: 4px;
+    border-radius: 0px;
+    -webkit-border-radius:0px;  
+    -moz-border-radius:0px;
     cursor: pointer;
+}
+
+/* loading */
+#loading {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE 8 */
+    filter: alpha(opacity=70); /* IE 5-7 */
+    -moz-opacity: 0.7;/* Netscape */
+    -khtml-opacity: 0.7;/* Safari 1.x */
+    opacity: 0.7;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    display: none;
+}
+
+#loading > div {
+    width: 180px;
+    position: relative;
+    margin: 180px auto;
+}
+
+#loading > div img {
+    width: 100%;
+}
+
+#loading > div h4 {
+    color: #ee1c24;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+
 }
 
 /*   Footer  */

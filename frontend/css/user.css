@@ -87,7 +87,7 @@
     padding-right:10px;
 }
 
-#user-page .user-info-each .fa {
+#user-page .user-info-each i.fa {
     float: right;
     margin-top: 5px;
 }
@@ -152,7 +152,7 @@
     width: auto;
 }
 
-#user-page .fa-arrow-down.address-hover {
+#user-page i.fa-arrow-down.address-hover {
     cursor: pointer;
 }
 
@@ -165,11 +165,13 @@
     height: 110px;
     top: 30px;
     left: 190px;
-    box-shadow: 1px 1px 10px #ccc;
+    box-shadow: 1px 1px 10px #999;
+    -webkit-box-shadow:1px 1px 10px #999;
+    -moz-box-shadow:1px 1px 10px #999;
     display: none;
 }
 
-#user-page .fa-arrow-down.address-hover:hover + .hover-address {
+#user-page i.fa-arrow-down.address-hover:hover + .hover-address {
     display: block;
 }
 

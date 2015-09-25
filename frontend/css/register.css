@@ -139,11 +139,11 @@
 }
 
 
-.register-content .controls .fa {
+.register-content .controls i.fa {
     color: #ee1c24;
 }
 
-.register-content .controls .fa-check-circle {
+.register-content .controls i.fa-check-circle {
     color: lightgreen;
 }
 

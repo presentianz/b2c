@@ -36,7 +36,7 @@
 .login-content {
     padding: 20px 30px;
     position: relative;
-    border: 2px solid #e0e0e0;
+    border: 2px solid #eee;
 }
 
 
@@ -46,28 +46,26 @@
 }
 
 
+.login-content .controls label {
+    width: 50px;
+    font-weight: 300;
+}
+
 .login-content .controls > input {
     border: 1px solid #fff;
     border-bottom-color: #ccc;
-    width: 90%;
+    padding: 4px 10px;
+    font-size: 15px;
+    width: 70%;
     margin-right: 8px;
-    font-size:15px;
-}
-
-.login-content .controls > input:hover, 
-.login-content .controls > input:focus {
-    border-bottom-color: #ee1c24;
-    cursor: pointer;
-    outline: none;
 }
 
 
-
-.login-content .controls .fa {
+.login-content .controls i.fa {
     color: #ee1c24;
 }
 
-.login-content .controls .fa-check-circle {
+.login-content .controls i.fa-check-circle {
     color: lightgreen;
 }
 

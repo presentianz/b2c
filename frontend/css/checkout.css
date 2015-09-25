@@ -152,11 +152,13 @@
     z-index: 1;
     display: none;
     padding: 5px 10px;
-    margin: 2px 0 0;
+    margin: 2px 0;
     list-style: none;
     font-size: 15px;
     text-align: left;
     background-color: #fff;
-    box-shadow: 0 2px 5px #ccc;
+    box-shadow: 0 2px 5px #999;
+    -webkit-box-shadow: 0 2px 5px #999;
+    -moz-box-shadow:0 2px 5px #999;
 }
 

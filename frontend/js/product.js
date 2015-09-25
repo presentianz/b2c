@@ -22,4 +22,9 @@ $(document).ready(function ()
         $n.val(Number($n.val()) - 1);
     });
 
+    $('#collect').click(function() {
+        console.log("sss");
+        $("#loading").css("display", "block");
+});
+
 });

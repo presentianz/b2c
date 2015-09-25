@@ -1,6 +1,5 @@
 
 $(document).ready(function () {
-
     $("#header").load("header.html");
     $("#footer").load("footer.html", function () {
         $('#gototop').click(function () {
@@ -16,11 +15,13 @@ $(document).ready(function () {
             $('#siderbar').toggleClass('show-siderbar');
         });
     });
+});
 
 
-
-
-
+$(function() {
+    $("img.lazy").lazyload({
+        effect : "fadeIn"
+    });
 });
 
 
@@ -117,6 +118,8 @@ function popup(i) {
          });
 
 }
+
+
 
 
 
