@@ -12,7 +12,7 @@ $(document).ready(function () {
 
     $("#siderbar").load("siderbar.html", function () {
         $('.nav-all').click(function () {
-            $('#siderbar').toggleClass('show-siderbar');
+           $('#siderbar').slideToggle('slow');        
         });
     });
 });
