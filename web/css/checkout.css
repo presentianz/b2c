@@ -1,0 +1,164 @@
+
+/*Cart Page*/
+
+#checkout-page .checkout-content {
+    margin: 10px 0px;
+    padding:0;
+
+}
+
+#checkout-page .checkout-content.top {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+#checkout-page .address-left {
+    display: inline-block;
+    width: 100px;
+    vertical-align: top;
+}
+
+#checkout-page .address-right {
+    display: inline-block;
+    width: 1064px;
+    overflow: hidden;
+}
+
+#checkout-page .address-content {
+    margin: 5px 0px;
+    padding: 5px 10px;
+}
+
+#checkout-page .address-content .first-address {
+    color:#eee;
+}
+
+#checkout-page .address-content .edit-address {
+    display:none;
+}
+
+#checkout-page .address-content {
+    cursor: pointer;
+}
+
+#checkout-page .address-content.active {
+    background-color: #ee1c24;
+    color:#fff;
+}
+
+
+#checkout-page .address-content.active .edit-address {
+    display:inline-block;
+    color: #fff;
+}
+
+
+
+
+#checkout-page table {
+    width: 100%;
+}
+
+
+#checkout-page thead th {
+    text-align: center;
+    background-color: #eee; 
+    padding:10px;
+    height: 40px;
+}
+
+
+#checkout-page table img {
+    width:100px;
+}
+
+#checkout-page table td {
+    vertical-align: middle;
+    text-align: left;
+    padding: 5px 10px;
+}
+
+
+#checkout-page tbody tr {
+    border-top:1px solid #eee;
+}
+
+#checkout-page tbody tr:first-child {
+    border-top:none;
+}
+
+#checkout-page table .product-name {
+    width: 80%;
+    text-align: left;
+}
+
+#checkout-page table .name-limit {
+    display: inline-block;
+    max-width: 660px;
+    word-wrap: break-word;
+    overflow: hidden;
+    vertical-align: middle;
+    width: auto;
+}
+
+#checkout-page tfoot {
+    padding-top: 20px;
+}
+
+#checkout-page .content-down {
+    margin:10px 0;
+}
+
+#checkout-page .content-down .address-left {
+    display: inline-block;
+    width:57%;
+}
+
+#checkout-page .content-down .address-right {
+    border:2px solid #ee1c24;
+    display: inline-block;
+    margin-left: 30px;
+    width: 40%;
+    padding: 20px;
+}
+
+#checkout-page .content-down .address-right .text-right {
+    margin-bottom: 10px;
+}
+
+
+#checkout-page .btn-pay {
+    padding: 5px 10px;
+    margin-right: 2px;
+    line-height: 30px;
+    font-size: 25px;
+    height: 40px;
+    float: right;
+
+}
+
+#checkout-page .color {
+     color:#ee1c24; 
+}
+
+#checkout-page .cart-down {
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+#checkout-page .delivery-options {
+    position: absolute;
+    z-index: 1;
+    display: none;
+    padding: 5px 10px;
+    margin: 2px 0;
+    list-style: none;
+    font-size: 15px;
+    text-align: left;
+    background-color: #fff;
+    box-shadow: 0 2px 5px #999;
+    -webkit-box-shadow: 0 2px 5px #999;
+    -moz-box-shadow:0 2px 5px #999;
+}
+
