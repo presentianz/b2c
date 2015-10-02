@@ -1,0 +1,53 @@
+#contact-page .page-content .col-xs-8，
+#contact-page .page-content .col-xs-4{
+    margin:5px;
+}
+
+#contact-page .contact-part {
+    width: 100%;
+    clear: both;
+    margin-bottom: 20px;
+    min-height: 200px;
+}
+
+
+#contact-page .contact-des {
+    min-height: 400px;
+    margin-right: 30px;
+}
+
+#contact-page .contact-des > div span {
+    margin-right:5px;
+}
+
+#contact-page .contact-info div {
+    margin-top: 10px;
+}
+
+#contact-page .contact-info {
+    margin-top: 40px;
+}
+
+#contact-page .contact-info i {
+    margin-right: 5px;
+}
+
+
+#contact-page .controls-group .controls {
+    margin-bottom: 10px;
+}
+
+
+#contact-page  input {
+    width: 250px;
+}
+
+#contact-page textarea {
+    height: 125px;
+    width: 250px;
+    vertical-align: top;
+    border-color:#ccc;
+    resize:none;
+}
+
+

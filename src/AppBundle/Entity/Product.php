@@ -35,40 +35,40 @@ class Product
      *
      * @ORM\Column(name="price", type="decimal", precision=8, scale=2)
      */
-    private $price;
+    private $price = 0;
 
     /**
      * @var string
      *
      * @ORM\Column(name="price_discounted", type="decimal", precision=8, scale=2)
      */
-    private $price_discounted;
+    private $price_discounted = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="viewed_count", type="integer")
      */
-    private $viewed_count;
+    private $viewed_count = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="sold_no", type="integer")
      */
-    private $soldNo;
+    private $soldNo = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="inventory", type="integer")
      */
-    private $inventory;
+    private $inventory = 0;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -77,7 +77,7 @@ class Product
      *
      * @ORM\Column(name="status", type="smallint")
      */
-    private $status;
+    private $status = 0;
 
     /**
      * @var datetime
@@ -90,14 +90,14 @@ class Product
      *
      * @ORM\Column(name="poster", type="string", length=255)
      */
-    private $poster;
+    private $poster = "";
 
     /**
      * @var array
      *
      * @ORM\Column(name="image_link", type="array")
      */
-    private $imageLink;
+    private $imageLink = array();
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")

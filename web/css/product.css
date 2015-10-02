@@ -1,0 +1,134 @@
+
+
+/*product products*/
+#product-page .product-pros {
+    width:100%;
+    height:auto;
+}
+
+#product-page .product-info {
+    border:1px solid #ccc;
+    padding:20px 0px;
+    margin:20px 0px;
+}
+
+
+#product-page .product-info img {
+    width:100%;
+}
+
+#product-page .product-info .col-xs-4 img {
+    border:1px solid #fff;
+    cursor:pointer;
+}	
+
+#product-page .product-info .col-xs-4 img:hover,
+#product-page .product-info .col-xs-4 .active {
+    border-color:#ee1c24;
+}	
+
+#product-page .product-info .col-xs-7 p {
+    color:#000;
+    font-size: 12px;
+    line-height:20px;
+    height:20px;
+}
+
+#product-page .product-info .col-xs-7 .t-type1 {
+    font-size: 18px;
+    margin-top:20px;
+    line-height:25px;
+    height:25px;
+}
+
+#product-page .product-info .col-xs-7 .t-type2 {
+    color: #d61920;
+}
+
+#product-page .product-info .col-xs-7 .t-type4 {
+    font-size: 18px;
+    color: #d61920;
+    line-height:25px;
+    height:25px;
+}
+
+#product-page .add-to-box{
+    border:1px solid #ccc;
+    padding:20px;
+    margin: 10px 0;
+}
+
+#product-page .add-to-box .add-to-cart > div {
+    margin-bottom: 10px;
+}
+
+
+#product-page .product-tabs .product-tab {
+    padding:0px;
+    width:100%;
+    border-bottom:1px solid #ccc;
+}
+
+#product-page .product-tabs .product-tab li{
+    color: #555;
+    height: 40px;
+    line-height:40px;
+    font-size:18px;
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+#product-page .product-tab li:hover,
+#product-page .product-tabs .product-tab .active {
+    color: #ee1c24;
+    cursor:pointer;
+    border-bottom:2px solid #ee1c24;
+}
+
+#product-page .product-tabs .tab-content{
+    margin-top:20px;
+}
+
+#product-page .product-tabs .tab-content .t-type1 {
+    font-size: 16px;
+    margin:20px;
+    line-height:25px;
+    color:#000;
+}
+
+#product-page .product-tabs .tab-content .t-type2{
+    margin-left:20px;
+    font-size: 12px;
+    line-height:20px;
+    height:20px;
+    color:#000;
+}
+
+#product-page .product-tabs .tab-content img {
+    width:80%;
+    margin-left:10%;
+}
+
+#product-page .product-tabs .tab-content .record-list{
+    width:100%;
+}
+
+#product-page .product-tabs .tab-content .record-list th,
+#product-page .product-tabs .tab-content .record-list td{
+    border:1px solid #ccc;
+    height: 25px;
+    line-height:25px;
+    font-size:12px;
+    color:#000;
+    text-align:center;
+}
+
+#product-page .product-tabs .tab-content .record-list th{
+    border-bottom:0px;
+}
+
+#product-page .product-tabs .tab-content .record-list .comments{
+    padding:0px 20px;
+    text-align:left;
+}
+

@@ -1,19 +1,41 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}B2C{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        <div>
-            	应该不需要此模板了
-        <div>
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
-        </div>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>彩购网{% block title %}{% endblock %}</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">     
+    <!-- Favicons if possible -->
+    <!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
+    {% block stylesheets %}{% endblock %}
 
-        {% block javascripts %}{% endblock %}
-    </body>
+</head>
+<body>
+
+    {% block body %}{% endblock %}
+
+    <script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.easing-1.3.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.scrollTo-1.4.3.1-min.js') }}"></script>
+    <script src="{{ asset('js/jquery.lazyload.min.js') }}"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="{{ asset('js/shop.js') }}"></script>
+
+    {% block javascripts %}
+    {% endblock %}
+
+</body>
+
 </html>
+
