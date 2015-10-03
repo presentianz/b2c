@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $data = $em->getRepository('AppBundle:Product')->getProduct($id);
-        
+
         return $this->render('Product/product/index.html.twig', array(
             'data' => $data,
             ));

@@ -13,22 +13,22 @@ class CategoryRepository extends NestedTreeRepository
     {
         //sorting
         switch ($sort) {
-            case 'price+':
+            case '2':
                 $orderby = 'price ASC';
                 break;
-            case 'price-':
+            case '3':
                 $orderby = 'price DESC';
                 break;
             // case 'soldNo+':
             //     $orderby = 'soldNo ASC';
             //     break;
-            case 'soldNo-':
+            case '4':
                 $orderby = 'soldNo DESC';
                 break;
             // case 'date+':
             //     $orderby = 'p.updateAt ASC';
             //     break;
-            case 'date-':
+            case '5':
                 $orderby = 'p.updateAt DESC';
                 break;
 
