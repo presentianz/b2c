@@ -1,11 +1,64 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
+<div class="detail active">
+ <div class="page-title">
+     <h4>账户信息</h4>
+ </div>
+ <div class="user-content">
+    <div class="col-xs-6 user-info">
+            <div class="user-info-each">
+                <label>{{ 'profile.show.username'|trans }}:</label>
+                <div>
+                    <span class="edit-name">{{ user.username }}</span>
+                    <a href="edit" class="fa fa-edit pull-right">{{ 'button.edit'|trans }}<a/> 
+                </div>
+            </div>
+            <div class="user-info-each">
+                <LABEL>{{ 'profile.show.email'|trans }}:</LABEL>
+                <div>
+                    <span class="edit-email"> {{ user.email }}</span>
+                </div>
+            </div>
+            <div class="user-info-each">
+                <LABEL>注册日期：</LABEL>
+                <div> <span>{{ user.userInfo.exp }}</span> </div>
+            </div>
+            <div class="user-info-each">
+                <LABEL>主要地址：</LABEL>
+                <div>
+                    <span>{{ user.userInfo.region }},
+                     {{ user.userInfo.city }},
+                     {{ user.userInfo.country }}
+                     <div><a href="{{path("user_address")}}">(查看地址)</a></div>
+                    </span>
+                </div>
+           </div>
+     </div>
+     <div class="col-xs-6 user-info">
+        <div class="status-each">
+            <h2>1</h2>
+            <div><a href="">(查看所有订单)</a></div>
+        </div>
+        <div class="status-each">
+            <h2>${{user.userInfo.balance}}</h2>
+            <div><a href="">账户余额 (<span class="color">充值</span>)</a></div>
 
+        </div>
+        <div class="status-each">
+            <h2>{{user.userInfo.balance}}</h2>
+            <div><a href="">我的积分</a></div>
+
+        </div>
+    </div>
+    <div class="col-xs-12 user-info-below">
+    </div>
+</div>
+</div>
 
 <div class="fos_user_user_show">
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-    <p>{{ 'profile.fullname'|trans }}: {{ user.userInfo.fullName }}</p>
+    <p>{{ 'profile.fullname'|trans }}: {{ user.userInfo.fullname }}</p>
     <p>{{ 'profile.wechatno'|trans }}: {{ user.userInfo.Wechatno }}</p>
     <p>{{ 'profile.contactno'|trans }}: {{ user.userInfo.contactno }}</p>
     <p>{{ 'profile.country'|trans }}: {{ user.userInfo.country }}</p>
@@ -15,4 +68,6 @@
     <p>{{ 'profile.balance'|trans }}: {{ user.userInfo.balance }}</p>
     <p>{{ 'profile.lockedbalance'|trans }}: {{ user.userInfo.lockedbalance }}</p>
     <a href="edit">{{ 'button.edit'|trans }}<a/>
-</div>
+     </div>
+
+

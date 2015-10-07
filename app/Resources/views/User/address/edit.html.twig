@@ -1,6 +1,15 @@
-{% extends 'layout.html.twig' %}
+{% extends 'layout_user.html.twig' %}
 
-{% block body %}
+{% block fos_user_content %}
+
+<div class="bg-mask save"></div>
+<div id="top-address" class="page-center">
+    <div class="title">
+        <h4>新建地址/修改地址</h4>
+        <i class="fa fa-remove save"></i>
+    </div> 
+
+    <div class="content">
 
 {% if address.id %}
 	{{ form_start(form, { method: 'POST', action: path('user_address_edit',{ 'id': address.id }) }) }}
@@ -10,4 +19,11 @@
 
     {{ form_widget(form) }}
 {{ form_end(form) }}   
-{% endblock %}
+
+
+
+	</div>
+	</div>
+
+
+{% endblock fos_user_content %}

@@ -1,6 +1,5 @@
-{% extends 'layout.html.twig' %}
-
-{% block body %}
+{% extends 'layout_user.html.twig' %}
+{% block fos_user_content %}
    
 <div id="address_content">   
     
@@ -17,4 +16,4 @@
 
 <a href="{{ path('user_address_edit', { id: address.id }) }}">编辑</a>
 <a href="{{ path('user_address_remove', { id: address.id }) }}">删除</a>
-{% endblock %}
+{% endblock fos_user_content %}

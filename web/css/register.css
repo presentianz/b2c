@@ -1,30 +1,4 @@
 
-#login-header {
-    border-bottom: 2px solid #ee1c24;
-    min-height: 100px;
-    height: auto;
-}
-
-#login-header .logo > img {  
-    width: 70px !important;
-    height: auto;
-    margin: 0;
-}
-
-#login-header span{
-    font-size: 25px;
-    margin-left: 20px;
-    position: absolute;
-    bottom: 0px;
-}
-
-.container-register-responsive {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1000px;
-}
-
-
 .breadcrumb {
     background-color: transparent;
     border: none;
@@ -51,8 +25,6 @@
     vertical-align: text-bottom;
 }
 
-.register-tab:hover, 
-.register-tab:focus,
 .register-tab.active {
     border-bottom: 3px solid #ee1c24;
     color:#ee1c24;
@@ -154,7 +126,7 @@
 
 }
 
-.register-content button {
+.register-content input[type="submit"] {
     width: 243px;
     margin-left: 90px;
 }
@@ -218,36 +190,6 @@
 
 .register-active h6 a {
     color: #ee1c24;
-}
-
-#login-footer {
-    min-height: 60px;
-    margin-top: 30px;
-    color: #aaa;
-    border-top: 2px solid #f2f2f2;
-    clear: both;
-}
-
-#login-footer .col-xs-2 {
-    min-height: 30px;
-    display: inline-block;
-    text-align: center;
-    padding: 15px 0px;
-}
-
-#login-footer a {
-    color: #aaa;
-}
-
-#login-footer .copyright {
-    clear: both;
-    padding: 10px;
-    min-height: 25px;
-    width: 100%;
-    text-align: center;
-    font-size: 13px;
-    color: #aaa;
-    border-top: 2px solid #f2f2f2;
 }
 
 

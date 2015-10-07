@@ -1,0 +1,28 @@
+{% extends 'layout_main.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+
+<div id="header"></div>
+    <!--   About Panel -->
+    <div class="container-non-responsive">
+        <div class="row no-border">
+            <div class="col-xs-3 siderbar">
+                <div id="siderbar"></div>
+            </div>
+            <div class="col-xs-9 page-right">
+                <div class="page-title">
+                    <h4>关于我们</h4>
+                </div>
+                <div class="page-content">采购网是一家专注纽澳特产品，护肤品，保健品为一体的大型连锁专营店。<br>
+                    我们代理的都是新西兰澳洲药房所认可的大品牌，绝对一手货源，百分百保真。产品种类繁多，有上千种网络热销产品，代购追捧单品，经济实惠，价格合理。
+                </div>	
+            </div>	
+
+        </div>
+    </div><!-- /container-non-responsive -->
+
+{% endblock %}

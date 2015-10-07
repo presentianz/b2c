@@ -5,46 +5,50 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>彩购网{% block title %}{% endblock %}</title>
+        <title>彩购网---{% block title %}主页{% endblock %}</title>
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
         <!-- Custom CSS -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">		
-        <!-- Favicons if possible -->
-        <!-- <link rel="shortcut icon" href="ico/favicon.ico"> -->
+         <link rel="stylesheet" href="{{ asset('css/popup.css') }}" type="text/css">         
         {% block stylesheets %}{% endblock %}
+        <!-- Custom icon -->
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         <div id="header">
             <div class="navbar">
                 <div class="container-non-responsive">
                     <div class="pull-left">
-                        <h6>欢迎来到彩购!<a href="#">收藏彩购网</a>    </h6>       
+                        <h6>欢迎来到彩购!<a href="{{ path('homepage') }}">收藏彩购网</a></h6>       
                     </div>
                     <div class="pull-right">
-                            <h6>
-                        <div id="before-login" style="display:inline-block;">
-                        <a class="a-login" href="{{ path('fos_user_security_login') }}">登录</a>
-                           <a class="a-register" href="{{ path('fos_user_registration_register') }}">注册</a>
+                            <h6>                  
+                            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                            <div id="after-login">
+                           Hi <a class="no-padding a-login" href="">Charis</a>
+                            <a class="no-padding a-login" href="{{path('fos_user_security_logout')}}">（退出）</a>
                             </div>
-                            <div id="after-login" style="display:none;">
-                           Hi <a class="no-padding a-login" href="user.html">Charis Wan</a>
-                            <a class="no-padding" href="index.html">（退出）</a>
-                            </div>
-                            <div class="user">
-                               <a href="login.html">我的彩购</a> 
+                             <div class="user">
+                               <a href="{{path('user_home')}}">我的彩购</a> 
                                 <div class="user-list">
                                     <div><a href="login.html">我的账户</a></div>
                                     <div><a href="login.html">我的积分</a></div>
                                     <div><a href="login.html">充值</a></div>
                                 </div>
                             </div>
+                             {% else %}
+                         <div id="before-login">
+                        <a class="a-login" href="{{path('fos_user_security_login')}}">登录</a>
+                           <a class="a-login" href="{{path('fos_user_registration_register')}}">注册</a>
+                            </div>
+                             {% endif %}            
                             <div class="history">
-                                <a href="product.html" >最近浏览</a>
+                                <a href="" >最近浏览</a>
                                 <div class="history-list">
                                     <div class="item">
-                                        <a href="product.html" >
+                                        <a href="" >
                                             <div class="cart-image">
                                                 <img src="{{ asset('img/aptami.jpg') }}" />
                                             </div>
@@ -55,7 +59,7 @@
                                         </a>
                                     </div>
                                     <div class="item">
-                                       <a href="product.html" >
+                                       <a href="" >
                                             <div class="cart-image">
                                                 <img src="{{ asset('img/aptami.jpg') }}" />
                                             </div>
@@ -84,28 +88,30 @@
             <div id="mid-header">
                 <div class="container-non-responsive">
                     <div class="col-xs-3">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="{{ path('homepage') }}">
                             <img src="{{ asset('img/logo.jpg') }}" alt="彩购网">
                         </a>
                     </div>
                     <div class="col-xs-7">
+                    <form action="{{ path('search') }}" method="get" onsubmit="">
                         <div class="navbar-search pull-left">
-                            <input type="text" placeholder="搜索产品..." class="search-query">
-                            <button onclick="location.href = 'search.html'">搜索</button>
+                            <input type="text" id="keys" name="keys" lang="zh-CN" autocomplete="off" value="" placeholder="搜索产品..." class="search-query">
+                            <input type="submit" class="scbut" value="搜索">
                         </div>
+                         </form>
                         <div class="col-xs-9 search-keys">
                             <h6>
-                                <a href="product.html">麦卢卡蜂蜜</a><span class="dashed"></span>
-                                <a href="product.html">好健康蜂胶</a><span class="dashed"></span>
-                                <a href="product.html">爱他美婴儿奶粉</a><span class="dashed"></span>
-                                <a href="product.html">蔓越莓</a><span class="dashed"></span>
-                                <a href="product.html">纽乐鱼油</a><span class="dashed"></span>
-                                <a href="product.html">护手霜</a>
+                                <a href="">麦卢卡蜂蜜</a><span class="dashed"></span>
+                                <a href="">好健康蜂胶</a><span class="dashed"></span>
+                                <a href="">爱他美婴儿奶粉</a><span class="dashed"></span>
+                                <a href="">蔓越莓</a><span class="dashed"></span>
+                                <a href="">纽乐鱼油</a><span class="dashed"></span>
+                                <a href="">护手霜</a>
                             </h6>
                         </div>
                     </div>
                     <div class="col-xs-2">
-                        <a class="cart" href="cart.html">
+                        <a class="cart">
                             <img src="{{ asset('img/cart.gif') }}">
                             <span>&nbsp;购物车 &nbsp;(2)</span>
                         </a>
@@ -140,7 +146,9 @@
                                 <span>共<strong>25</strong>件商品</span>
                                 <span>共计<strong>$411.00</strong></span>
                             </div>
-                            <button class="see-more" onclick="location.href = 'cart.html'">结算</button>
+                            <form action="{{path('cart')}}" method="get" onsubmit="">
+                            <input type="submit"  value="结算">
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -153,7 +161,7 @@
                     </a>
                 </div>
                 <div class="nav-right">
-                    <a href="index.html" class="active">首页</a>
+                    <a href="{{path('homepage')}}" class="active">首页</a>
                     <a href="about.html">关于彩购</a>
                     <a href="#">物流中心</a>
                     <a href="contact.html">联系我们</a>

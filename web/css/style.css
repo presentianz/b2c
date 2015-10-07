@@ -31,7 +31,7 @@ ul,li{
     list-style:none;
 }
 
-button {
+input[type="submit"] {
     color: #ffffff;
     background-color: #ee1c24;
     height: 30px;
@@ -44,9 +44,9 @@ button {
     -moz-border-radius:0px;
     border: 1px solid #ee1c24;
 }
-
-button:hover,
-button:focus  {
+ 
+input[type="submit"]:hover, 
+input[type="submit"]:focus {
     cursor: pointer;
     background-color: #ee1c24;
     border: 1px solid #ee1c24;
@@ -124,7 +124,7 @@ input.qty {
 }
 
 .navbar a, 
-.navbar h6{
+.navbar h6 {
     display: inline-block;
     padding: 0px 10px;
     font-weight: normal;
@@ -133,12 +133,10 @@ input.qty {
     line-height: 30px;
 }
 
-.navbar .a-login,
-.navbar .a-register {
+.navbar .a-login {
     padding-right: 3px;
     color: #506eaa;
 }
-
 
 .navbar .user-list,
 .navbar .history-list,
@@ -159,7 +157,9 @@ input.qty {
 
 .navbar .user,
 .navbar .history,
-.navbar .more {
+.navbar .more,
+#after-login,
+#before-login {
     display: inline-block;
     z-index: 5;
 }
@@ -274,7 +274,7 @@ input.qty {
 }
 
 
-#mid-header .navbar-search button {
+#mid-header .navbar-search input[type="submit"] {
     height: 35px;
     vertical-align: top;
     margin-left: -5px;
@@ -442,6 +442,10 @@ input.qty {
 .cart-list .see-more {
     width:100%;
     margin: 0;
+}
+
+.cart-list input[type="submit"] {
+    width: 100%;
 }
 
 

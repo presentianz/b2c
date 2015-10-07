@@ -1,5 +1,156 @@
-{% extends 'layout.html.twig' %}
+{% extends 'layout_main.html.twig' %}
+
+{% block title %}购物车{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/cart.css') }}" type="text/css">
+{% endblock %}
 
 {% block body %}
-    {{ dump(data) }}
+
+<div id="header"></div>
+    <div id="cart-page" class="container-non-responsive">
+        <div class="page-title">
+            <h4>购物车</h4>
+        </div>
+        <div class="page-content">
+            <div class="col-xs-12 top-promo">
+                <span>如果您有优惠代码，请输入。
+                    <input class="" value="">
+                    <input type="submit" title="应用优惠券" class="btn-promotion"  value="应用优惠券">
+                </span>
+            </div>
+
+            <div class="cart-content col-xs-12">	           
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="50%">商品</th>
+                            <th width="10%">单价（纽币）</th>
+                            <th width="15%">数量</th>
+                            <th width="15%">价格（纽币）</th>
+                            <th width="10%">操作</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- if there are not items -->
+                        <tr class="hide">
+                            <td colspan="5"><font>
+                                您的购物车是空的</font>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="product-name">
+                                <input type="checkbox" />
+                                <img src="{{asset('img/artemis.jpg')}}"/>
+                                <div class="name-limit"><a href="product.html">好健康蜂胶</a></div>
+                            </td>
+                            <td>$45.00</td>
+                            <td class="clearfix text-right">
+                                <input type="text" value="1" maxlength="99" class="qty">
+                                <button class="number-input"><i class="fa fa-caret-up"></i></button>
+                                <button class="number-input number-input-down"><i class="fa fa-caret-down"></i></button>
+                            </td>
+                            <td><strong>$45.00</strong></td>
+                            <td><a href="">删除</a></td>
+                        </tr>
+                        <tr>
+                            <td class="product-name">
+                                <input type="checkbox" />
+                                <img src="{{asset('img/artemis.jpg')}}"/>
+                                <div class="name-limit"><a href="product.html">好健康蜂胶</a></div>
+                            </td>
+                            <td>$45.00</td>
+                            <td class="clearfix text-right">
+                                <input type="text" value="1" maxlength="99" class="qty">
+                                <button class="number-input"><i class="fa fa-caret-up"></i></button>
+                                <button class="number-input number-input-down"><i class="fa fa-caret-down"></i></button>
+                            </td>
+                            <td><strong>$45.00</strong></td>
+                            <td><a href="">删除</a></td>
+                        </tr>
+                        <tr>
+                            <td class="product-name">
+                                <input type="checkbox" />
+                                <img src="{{asset('img/artemis.jpg')}}"/>
+                                <div class="name-limit"><a href="product.html">好健康蜂胶</a></div>
+                            </td>
+                            <td>$45.00</td>
+                            <td class="clearfix text-right">
+                                <input type="text" value="1" maxlength="99" class="qty">
+                                <button class="number-input"><i class="fa fa-caret-up"></i></button>
+                                <button class="number-input number-input-down"><i class="fa fa-caret-down"></i></button>
+                            </td>
+                            <td><strong>$45.00</strong></td>
+                            <td><a href="">删除</a></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="text-left">
+                                <span><input type="checkbox" />选择全部商品
+                                </span> 
+                            </td>
+                            <td colspan="3" class="text-right"><p><a href="#">删除所选商品</a></p>  </td>
+                            <td class="text-right">
+                                <p>已经选择<strong>1</strong>商品</p> 
+                            </td>
+                        </tr>
+                        <tr class="tfoot-bottom"> 
+                            <td class="text-left"><input type="submit"  value="清空购物车"></td>
+                            <td colspan="3" class="total-price">商品总价 （不含运费）：<strong>$45.00</strong> </td>
+                            <td><form action="{{path('checkout')}}" method="get" onsubmit="">
+                            <input type="submit" value="结算">
+                            </form></td>
+                        </tr>
+                    </tfoot>
+
+                </table>
+                {{ dump(data) }}
+            </div> <!--//cart-page-->  
+
+            <div class="hotdeal cart-down col-xs-12">
+                <div class="row-up">
+                    <div class="col-xs-11">
+                        <h3>可能喜欢</h3>
+                    </div>
+                    <div class="col-xs-1">
+                        <a href="products.html">更多
+                        </a> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <a href="product.html">
+                            <img src="{{asset('img/artemis.jpg')}}" alt="">
+                            <span class="pro-text"><span class="pro-title">【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰<br></span><span class="price">$79.00</span><del>$89.00</del></span>
+                        </a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="product.html">
+                            <img src="{{asset('img/blackmores.jpg')}}" alt=""> 
+                            <span class="pro-text"><span class="pro-title">Arataki 纯天然麦卢卡蜂蜜UFM10+500g<br></span><span class="price">$49.00</span><del>$59.00</del></span>
+                        </a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="product.html">
+                            <img src="{{asset('img/honey.jpg')}}" alt=""> 
+                            <span class="pro-text"><span class="pro-title">Thompson汤普森蜂王浆180粒<br></span><span class="price">$42.61</span><del>$49.00</del></span>
+                        </a>
+
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="product.html">
+                            <img src="{{asset('img/artemis.jpg')}}" alt="">
+                            <span class="pro-text"><span class="pro-title">Blackmores澳佳宝 儿童水果味鱼油 30粒<br></span><span class="price">$16.84</span><del>$19.37</del></span>
+                        </a>
+                    </div>
+                </div>	
+            </div>
+        </div>  
+    </div><!-- /container-non-responsive -->
+
+    
 {% endblock %}

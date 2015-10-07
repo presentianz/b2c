@@ -1,8 +1,90 @@
+
 {% trans_default_domain 'FOSUserBundle' %}
 
-<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+
+{% block fos_user_content %}
+
+ 	<div class="breadcrumb">
+                <div class="register-tab active">
+                <i class="fa fa-info-circle"></i>注册
+                </div> 
+                <div class="register-tab">
+                    <i class="fa fa-info-circle"></i>邮箱验证
+                </div>
+                <div class="register-tab">
+                    <i class="fa fa-info-circle"></i>激活
+                </div>
+            <div class="login-link">
+                <h5>已经有账号？<a href="{{path('fos_user_security_login')}}">登录</a></h5>
+            </div>
+        </div>
+
+     <form action="{{ path('fos_user_registration_check_email') }}" method="POST" class="fos_user_registration_register" onSubmit="return reigster();">
+            <div class="register-content col-xs-5">
+                <div class="controls">
+                    <label>邮箱</label>
+                    <input  type="text" name="email" placeholder="请输入您的常用邮箱">
+                    <i class="fa check-icon"></i>
+                    <div class="error">
+                        <i class="fa fa-caret-left"></i>
+                        <h6>邮箱不能为空</h6>
+                    </div>
+                </div>					
+                <div class="controls">
+                    <label>用户名</label>
+                    <input type="text" name="username" placeholder="请输入您的用户名">
+                    <i class="fa check-icon"></i>
+                    <div class="error">
+                        <i class="fa fa-caret-left"></i>
+                        <h6>用户名不能为空</h6>
+                    </div>
+                </div>
+                <div class="controls">
+                    <label>密码</label>
+                    <input type="password" name="psd1" placeholder="请输入6到20位的数字，字母组合"  maxlength="20">
+                    <i class="fa check-icon"></i>
+                    <div class="error">
+                        <i class="fa fa-caret-left"></i>
+                        <h6>密码不能为空</h6>
+                    </div>
+                </div>
+                <div class="controls">
+                    <label></label>
+                    <div class="security-level">
+                        <span class="block1">危险</span>
+                        <span class="block2">适中</span>
+                        <span class="block3">安全</span>
+                    </div>
+                </div>
+                <div class="controls">
+                    <label>确认密码</label>
+                    <input type="password" name="psd2" placeholder="请再次输入密码">
+                    <i class="fa check-icon"></i>
+                    <div class="error">
+                        <i class="fa fa-caret-left"></i>
+                        <h6>密码不能为空</h6>
+                    </div>
+                </div>
+                <div class="controls last">
+                    <input type="checkbox" id="checkinfo"><a href="">我已阅读并接受《彩购网用户协议》</a>
+                    <i class="fa check-icon"></i>
+                    <div class="error">
+                        <i class="fa fa-caret-left"></i>
+                        <h6>请请勾选并阅读协议</h6>
+                    </div>	
+                </div>	
+               <input type="submit" value="{{ 'registration.submit'|trans }}" />
+            </div>
+        </form>
+{% endblock %}
+
+
+ <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
     {{ form_widget(form) }}
     <div>
         <input type="submit" value="{{ 'registration.submit'|trans }}" />
     </div>
 </form>
+
+
+
