@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class UserOrder
 {
@@ -38,7 +39,7 @@ class UserOrder
     /**
      * @var string
      *
-     * @ORM\Column(name="total_price", type="decimal")
+     * @ORM\Column(name="total_price", type="decimal", precision=8, scale=2)
      */
     private $totalPrice;
 
@@ -52,7 +53,7 @@ class UserOrder
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="paid_at", type="datetime")
+     * @ORM\Column(name="paid_at", type="datetime", nullable=true)
      */
     private $paidAt;
 
@@ -254,5 +255,13 @@ class UserOrder
     public function getOrderProducts()
     {
         return $this->orderProducts;
+    }
+
+    /** 
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+        $this->createAt =  new \DateTime();
     }
 }

@@ -23,7 +23,7 @@ a:focus {
     color: #ee1c24;
     text-decoration:none !important;
     cursor: pointer;
-    background-color: transparent !important;
+    /*background-color: transparent !important; */
     outline: none;
 }
 
@@ -776,7 +776,7 @@ ul.nav {
 }
 
 .pro-text{
-    padding: 25px 0 0 15px;
+    padding: 25px 0 0 25px;
     width: 250px;
     position: absolute;
     top: 10px;
@@ -784,8 +784,9 @@ ul.nav {
 }
 
 .pro-title{
-    color: #000 !important;
+    color: #444 !important;
     font-size: 14px;
+    font-weight: bold;
 }
 
 .price{
@@ -798,8 +799,13 @@ ul.nav {
 }
 
 del{
-    font: 14px;
+    font-size: 13px;
     color: #000;
+}
+
+.sold-no{
+    font-size: 11px;
+    color: #6D6D6D;
 }
 
 /*-- siderbar --*/
@@ -865,6 +871,12 @@ del{
 .page-title h4 a {
     font-size: 25px;
     color: #d61920;
+}
+
+.page-title span{
+    font-weight: bold;
+    font-size: 19px;
+    color: #444;
 }
 
 

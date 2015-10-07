@@ -391,10 +391,6 @@ class Product
         return $this->inventory;
     }
 
-    /** 
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
     public function UpdatePreUpdate()
     {
         $this->updateAt =  new \DateTime();

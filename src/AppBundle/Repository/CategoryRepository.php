@@ -19,15 +19,11 @@ class CategoryRepository extends NestedTreeRepository
             case '3':
                 $orderby = 'price DESC';
                 break;
-            // case 'soldNo+':
-            //     $orderby = 'soldNo ASC';
-            //     break;
+
             case '4':
                 $orderby = 'soldNo DESC';
                 break;
-            // case 'date+':
-            //     $orderby = 'p.updateAt ASC';
-            //     break;
+
             case '5':
                 $orderby = 'p.updateAt DESC';
                 break;
@@ -38,7 +34,7 @@ class CategoryRepository extends NestedTreeRepository
         }
 
         //item per page
-        $item_no = $item_no <= 12 ? 12 : ($item_no <= 18 ? 18 : 24);
+        $item_no = $item_no <= 18 ? 18 : ($item_no <= 24 ? 24 : 36);
 
         $gEM = $this->getEntityManager();
         $this_root = $gEM->getRepository('AppBundle:Category')->findOneById($id);
@@ -50,7 +46,7 @@ class CategoryRepository extends NestedTreeRepository
 
         //find data
         $query_products = $gEM->createQuery(
-                'SELECT c.name AS category_name, p.id, p.name, p.price AS price, p.price_discounted, p.soldNo AS soldNo, p.inventory, p.status, p.updateAt 
+                'SELECT c.name AS category_name, p.id, p.name, p.price AS price, p.price_discounted AS priceDiscounted, p.soldNo AS soldNo, p.inventory, p.status, p.updateAt 
                 FROM AppBundle:Category c JOIN c.products p 
                 WHERE c.id IN (:ids) 
                 ORDER BY '.$orderby
@@ -74,7 +70,18 @@ class CategoryRepository extends NestedTreeRepository
         $data['total_page'] = ceil($total[0]['total']/$item_no);
         $data['path'] = $gEM->getRepository('AppBundle:Category')->getPath($this_root);
         $data['children'] = $gEM->getRepository('AppBundle:Category')->children($this_root, true);
+        $data['row_no'] = ceil(count($data['products'])/3);
 
         return $data;
+    }
+    
+    public function findByParentId($parentId)
+    {
+        $query = $this->getEntityManager()->createQuery(
+                'SELECT c FROM AppBundle:Category c WHERE c.parent = :parentId'
+            )
+            ->setParameter('parentId', $parentId);
+        $category = $query->getResult();
+        return $category;
     }
 }

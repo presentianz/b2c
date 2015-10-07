@@ -1,15 +1,15 @@
 
 
 /*right side*/
-#search-page .page-content .toolbar {
+.search-page-container .page-content .toolbar {
     padding:10px 20px;
     width:100%;
     height:50px;
     border:1px solid #ccc;
 }
 
-#search-page .page-content .toolbar label,
-#search-page .page-content .toolbar a {
+.search-page-container .page-content .toolbar label,
+.search-page-container .page-content .toolbar a {
     font-size:13px;
     line-height:30px;
     height:20px;
@@ -17,20 +17,20 @@
     font-weight:normal;
 }
 
-#search-page .page-content .toolbar i.fa {
+.search-page-container .page-content .toolbar i.fa {
     font-size:13px;
 }
 
-#search-page .page-content .toolbar .prive-i i.fa-long-arrow-up,
-#search-page .page-content .toolbar .prive-i i.fa-long-arrow-down {
+.search-page-container .page-content .toolbar .prive-i i.fa-long-arrow-up,
+.search-page-container .page-content .toolbar .prive-i i.fa-long-arrow-down {
     display:none;
 }
 
-#search-page .page-content .toolbar .select-box-num {
+.search-page-container .page-content .toolbar .select-box-num {
     width:100px;
     height:30px;
 }
-#search-page .page-content .toolbar .select-box-num a {
+.search-page-container .page-content .toolbar .select-box-num a {
     color: #ed1846;
     display: block;
     border: 1px solid #ccc;
@@ -47,13 +47,13 @@
     text-align: center;
 }
 
-#search-page .page-content .toolbar .select-box-num .active{
+.search-page-container .page-content .toolbar .select-box-num .active{
     border-color:#EE1922;
     background:#EE1922;
     color:#fff;
 }
 
-#search-page .page-content .toolbar .select-box-order {
+.search-page-container .page-content .toolbar .select-box-order {
     width:auto;
     margin:0px 5px;
     height:30px;
@@ -65,38 +65,36 @@
     display: inline-block;
 }
 
-#search-page .page-content .toolbar .active{
+.search-page-container .page-content .toolbar .active{
     background:#EE1922;
 }
 
-#search-page .page-content .toolbar .select-box-order i {
+.search-page-container .page-content .toolbar .select-box-order i {
     color:#EE1922;
     font-style:normal;
     font-size:13px;
     line-height:30px;
 }
 
-#search-page .page-content .toolbar .active i {
+.search-page-container .page-content .toolbar .active i {
     color:#fff;
 }
 
-#search-page .page-content .toolbar i.fa-long-arrow-up{
+.search-page-container .page-content .toolbar i.fa-long-arrow-up{
     display:inline-block;
 }
 
-#search-page .page-content .toolbar i.fa-long-arrow-down{
-    display:none;
-}
 
-#search-page .hotdeal{
+
+.search-page-container .hotdeal{
     margin-top:0px;
 }
 
-#search-page .hotdeal .row{
+.search-page-container .hotdeal .row{
     margin-top:20px;
 }
 
-#search-page .page-content .toolbar-bottom{
+.search-page-container .page-content .toolbar-bottom{
     margin-top:20px;
     border:1px solid #ccc;
 }
