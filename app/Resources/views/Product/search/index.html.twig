@@ -1,5 +1,6 @@
 {% extends 'layout_main.html.twig' %}
 
+{% block title %}搜索{% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/search.css') }}" type="text/css">
 {% endblock %}
@@ -28,6 +29,7 @@
                         <!--toolbar-->  
                         <div class="toolbar">
                             <div class="pull-left">
+
                                 <a href="{{ path('search', {
                                     keys : app.request.get('keys'),
                                     sort : 1,
@@ -75,6 +77,7 @@
                                         <i class="fa fa-long-arrow-down"></i>
                                     </div>
                                 </a>
+
                             </div>
 
                             <div class="pull-right">
@@ -95,6 +98,7 @@
                                         sort : app.request.get('sort'),
                                         item_no: 18
                                     }) }}" {% if app.request.get('item_no') == 18 or not app.request.get('item_no') %} class="active" {% endif %}>18</a>
+
                                 </span>
                             </div>
 
@@ -102,6 +106,7 @@
                         <!--//toolbar-->  
                         <!--search products--> 
                         <div class="hotdeal clearfix">
+
                         {# {{ dump(data) }} #}
                         {% for i in 1..(data.row_no) %}
                             <div class="row">
@@ -115,13 +120,14 @@
                                 {% endfor %}
                             </div>
                         {% endfor %}
-                            
 
                         </div> 
+
                         <div class="toolbar toolbar-bottom">
                             <div class="pull-right">
                                 <label>页面：</label>
                                 <span class="select-box-num">
+
                                     <a href="{{ path('search', {
                                         keys : app.request.get('keys'),
                                         page : (app.request.get('page')) ? app.request.get('page')+1 : 2,
@@ -142,5 +148,13 @@
                     </div>
                 </div>  
             </div> <!--//search products-->     
+
         </div>
+
+        </div><!-- /container-non-responsive -->
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/search.js') }}"></script>
 {% endblock %}

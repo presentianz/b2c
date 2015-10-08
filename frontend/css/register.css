@@ -18,6 +18,12 @@
     bottom: 0px;
 }
 
+.container-login-responsive {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+}
+
 .container-register-responsive {
     margin-left: auto;
     margin-right: auto;

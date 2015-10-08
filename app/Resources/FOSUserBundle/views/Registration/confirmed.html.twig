@@ -1,11 +1,31 @@
-{% extends "layout.html.twig" %}
+{% extends 'FOSUserBundle:Registeration:register.html.twig' %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
-    {% if app.session is not empty %}
-        {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
-        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>{% endif %}
-    {% endif %}
+<div class="breadcrumb">
+	<div class="register-tab">
+		<i class="fa fa-info-circle"></i>注册
+	</div> 
+	<div class="register-tab">
+		<i class="fa fa-info-circle"></i>邮箱验证
+	</div>
+	<div class="register-tab active">
+		<i class="fa fa-info-circle"></i>激活
+	</div>
+</div>
+
+<div class="register-active col-xs-12">
+	<div>
+		<h3><i class="fa fa-info-circle"></i>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}  注册成功</h3>
+		<h6>3秒为您自动跳转至 <a href="{{path('homepage')}}">彩购网</a></h6>
+		{% if app.session is not empty %}
+			{% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+				{% if targetUrl is not empty %}
+					<h6><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></h6>
+				{% endif %}
+		{% endif %}
+	</div>
+</div>
+
 {% endblock fos_user_content %}

@@ -1,24 +1,49 @@
-{% extends 'layout.html.twig' %}
+{% extends 'layout_user.html.twig' %}
 
-{% block body %}
-    <div>发货地址管理</div>
-    
-    {% for address in addresses %}
-        <p>
+{% block fos_user_content %}
+
+        <div class="detail">
+            <div class="page-title">
+                <h4>常用地址</h4>
+            </div>
+            <div class="user-content">
+                <div class="address-detail">
+                    <div class="title">默认地址</div>
+                    <div class="address-each"> 
+                        <h5>
+                            <label>Charis Wan <span>(0215456851)</span></label> 
+                            <div>27 Beaudort Place, Papatoetoe, Auckland, 1025</div>
+
+                            <div>New Zealand</div>  
+                        </h5>
+                    </div>
+                </div>
+                <form action="{{path('user_address_create')}}" method="get" onsubmit="">
+                            <input type="submit" title="添加" value="添加" >
+                            </form>
+                <hr>
+                <div class="address-detail">
+                    <div class="title">其它地址</div>
+                    {% for address in addresses %}
+                    <div class="address-each"> 
+                        <a href="#" class="pull-right">设为默认地址</a>
+                        <h5>
+                            <label>{{ address.name }}<span>({{ address.contactNo }})</span></label>
+                                 <div>
+                                 {{ address.address }}, 
+                                 {{ address.region }},
+                                 {{ address.city }}, 
+                                 {{ address.postCode }}
+                                 </div>
+                            <div>{{ address.country }}</div>  
+                        </h5>
+                         <a href="{{ path('user_address_edit', { id: address.id }) }}">编辑</a>
+                         <a href="{{ path('user_address_remove', { id: address.id }) }}">删除</a>
+                    </div>
+                    {% endfor %}
+            </div>
             
-            {{ address.name }}/ {{ address.contactNo }}
-           
-            
-            <a href="{{ path('user_address_edit', { id: address.id }) }}">编辑</a>
-            <a href="{{ path('user_address_remove', { id: address.id }) }}">删除</a>
-            
-            <br>
-            
-            {{ address.country }}{{ address.region }}{{ address.city }}{{ address.postCode }}<br>
-            {{ address.address }}
-        </p>
-    {% endfor %}
-    
-     <p><a href="{{ path("user_address_create") }}">创建地址<a/></p>
+        </div>
+    </div>
      
-{% endblock %}
+{% endblock fos_user_content %}

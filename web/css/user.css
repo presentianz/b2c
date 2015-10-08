@@ -38,13 +38,6 @@
 }
 
 
-#user-page .detail {
-    display: none;
-}
-
-#user-page .detail.active {
-    display: block;
-}
 
 
 #user-page .user-content {

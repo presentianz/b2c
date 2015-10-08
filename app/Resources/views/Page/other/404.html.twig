@@ -1,0 +1,18 @@
+{% extends 'layout_main.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+<div id="header"></div>
+		<div class="container-non-responsive">
+			<div class="no-page">
+				<h1>404</h1>
+				<h5>您要的产品我们找不到了</h5>
+				<h6>点击<a href="{{path(homepage)}}"><strong>这里</strong></a>回到主页</h6>
+
+			</div>
+		</div><!-- /container-non-responsive -->
+
+{% endblock %}

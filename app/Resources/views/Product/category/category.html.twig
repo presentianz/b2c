@@ -5,6 +5,7 @@
 {% endblock %}
 
 
+
 {% block body %}
     <div class="container-non-responsive search-page-container">
             <!--Left Navbar Section -->
@@ -13,11 +14,8 @@
                     <div id="siderbar">
                     	{% include 'Widget/sidebar.html.twig' %}
                     </div>
-
                     {% include 'Widget/bestPro.html.twig' %}
-
                     {% include 'Widget/discountPro.html.twig' %}
-
                 </div>
 
                 <div class="col-xs-9 page-right">
@@ -40,9 +38,8 @@
 	                        	<a class="search-keys" href="{{ path('category', {id : category.id}) }}">{{ category.name }}</a>
 	                        {% endfor %}
                         {% endif %}
-                        
                     </div>
-                    {{dump(data)}}
+                    {#{{dump(data)}}#}
                     <div class="page-content">
                         <!--toolbar-->  
                         <div class="toolbar">
@@ -163,4 +160,8 @@
                 </div>  
             </div>
         </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/search.js') }}"></script>
 {% endblock %}

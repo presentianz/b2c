@@ -28,7 +28,7 @@
     top: 100px;
 }
 
-.page-center button {
+.page-center input[type="submit"] {
     position: relative;
     left: 90px;
 }

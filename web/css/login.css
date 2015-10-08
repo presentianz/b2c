@@ -98,7 +98,7 @@
 }
 
 
-.login-content button{
+.login-content input[type="submit"]{
     width: 50%;
 }
 
@@ -152,6 +152,8 @@
     color: #aaa;
     border-top: 2px solid #f2f2f2;
     clear: both;
+    width: 1000px;
+    margin:0 auto;
 }
 
 #login-footer .col-xs-2 {
