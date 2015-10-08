@@ -97,12 +97,8 @@
                     <div class="col-xs-7">
                     <form action="{{ path('search') }}" method="get" onsubmit="">
                         <div class="navbar-search pull-left">
-
-                            <form action="{{ path('search') }}" method="get"  onsubmit="">
-                                    <input type="text" id="keys" name="keys" lang="zh-CN" placeholder="搜索产品..." class="search-query" value="{{ app.request.get('keys') }}">
-                                    <button>搜索</button>
-                            </form>
-
+                            <input type="text" id="keys" name="keys" lang="zh-CN" placeholder="搜索产品..." class="search-query" value="{{ app.request.get('keys') }}">
+                            <input type="submit"  value="搜索">
                         </div>
                          </form>
                         <div class="col-xs-9 search-keys">
