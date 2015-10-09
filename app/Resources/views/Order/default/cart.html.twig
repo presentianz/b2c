@@ -110,45 +110,10 @@
                 </table>
                 {{ dump(data) }}
             </div> <!--//cart-page-->  
-
-            <div class="hotdeal cart-down col-xs-12">
-                <div class="row-up">
-                    <div class="col-xs-11">
-                        <h3>可能喜欢</h3>
-                    </div>
-                    <div class="col-xs-1">
-                        <a href="products.html">更多
-                        </a> 
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <a href="product.html">
-                            <img src="{{asset('img/artemis.jpg')}}" alt="">
-                            <span class="pro-text"><span class="pro-title">【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰<br></span><span class="price">$79.00</span><del>$89.00</del></span>
-                        </a>
-                    </div>
-                    <div class="col-xs-3">
-                        <a href="product.html">
-                            <img src="{{asset('img/blackmores.jpg')}}" alt=""> 
-                            <span class="pro-text"><span class="pro-title">Arataki 纯天然麦卢卡蜂蜜UFM10+500g<br></span><span class="price">$49.00</span><del>$59.00</del></span>
-                        </a>
-                    </div>
-                    <div class="col-xs-3">
-                        <a href="product.html">
-                            <img src="{{asset('img/honey.jpg')}}" alt=""> 
-                            <span class="pro-text"><span class="pro-title">Thompson汤普森蜂王浆180粒<br></span><span class="price">$42.61</span><del>$49.00</del></span>
-                        </a>
-
-                    </div>
-                    <div class="col-xs-3">
-                        <a href="product.html">
-                            <img src="{{asset('img/artemis.jpg')}}" alt="">
-                            <span class="pro-text"><span class="pro-title">Blackmores澳佳宝 儿童水果味鱼油 30粒<br></span><span class="price">$16.84</span><del>$19.37</del></span>
-                        </a>
-                    </div>
-                </div>	
-            </div>
+            <div class="cart-down col-xs-12">
+            {% include 'Widget/hotPro.html.twig' %}
+           </div>
+            
         </div>  
     </div><!-- /container-non-responsive -->
 

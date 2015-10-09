@@ -11,8 +11,15 @@
     <div class="container-non-responsive">
         <div class="row no-border">
             <div class="col-xs-3 siderbar">
-                <div id="siderbar"></div>
-            </div>
+                    <div id="siderbar">
+                        {% include 'Widget/sidebar.html.twig' %}
+                    </div>
+
+                    {% include 'Widget/bestPro.html.twig' %}
+
+                    {% include 'Widget/discountPro.html.twig' %}
+
+                </div>
             <div class="col-xs-9 page-right">
                 <div class="page-title">
                     <h4>关于我们</h4>

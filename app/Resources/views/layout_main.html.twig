@@ -98,10 +98,12 @@
                     <form action="{{ path('search') }}" method="get" onsubmit="">
                         <div class="navbar-search pull-left">
 
+
                             <form action="{{ path('search') }}" method="get"  onsubmit="">
                                     <input type="text" id="keys" name="keys" lang="zh-CN" placeholder="搜索产品..." class="search-query" value="{{ app.request.get('keys') }}">
                                     <input type="submit" value="搜索">
                             </form>
+
 
                         </div>
                          </form>
