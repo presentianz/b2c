@@ -26,6 +26,10 @@ class CategoryController extends Controller
         }
         else {
             $data = $em->getRepository('AppBundle:Category')->getCategoryProducts($id, $page, $sort, $item_no);
+            if(count($data['children']) == 0) {
+                $data['children'] = $em->getRepository('AppBundle:Category')->findBrothers(
+                    $data['path'][count($data['path']) - 1]->getParent(), $id);
+            }
         }
         return $this->render('Product/category/category.html.twig', array(
         	'data' => $data,

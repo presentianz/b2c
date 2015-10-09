@@ -1,0 +1,50 @@
+<!-- Hot Staffs -->
+            <div class="hotdeal">
+                <div class="row-up">
+                    <div class="col-xs-11">
+                        <h3>特价商品</h3>
+                        <h6>
+                            <a href="#">麦卢卡蜂蜜</a><span class="dashed"></span>
+                            <a href="#">好健康蜂胶</a><span class="dashed"></span>
+                            <a href="#">爱他美婴儿奶粉</a><span class="dashed"></span>
+                            <a href="#">蔓越莓</a><span class="dashed"></span>
+                            <a href="#">纽乐鱼油</a><span class="dashed"></span>
+                            <a href="#">护手霜</a>
+                        </h6>
+                    </div>
+                    <div class="col-xs-1">
+                        <a href="products.html">更多
+                        </a> 
+                    </div>
+                </div>
+                <div class="row">
+                    {#<div class="col-xs-3">
+                        <a href="product.html">
+                            <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/aptami.jpg') }}" alt="">
+                            <span class="pro-text"><span class="pro-title">【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰<br></span><span class="price">$79.00</span><del>$89.00</del></span>
+                        </a>
+                    </div>#}
+                    {% for product in data %}
+                        <div class="col-xs-3">
+                            <a href="{{ path('product', {id : product.id}) }}">
+                                <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg','img/blackmores.jpg', 'img/artemis.jpg'])) }}" alt="">
+                                <span class="pro-text"><span class="pro-title">{{ product.name }}<br></span><span class="price">${{ product.priceDiscounted }}</span><del>${{ product.price }}</del><br><span class="sold-no">售出：{{ product.soldNo }}</span></span>
+                            </a>
+                        </div>
+                    {% endfor %}
+                    
+                    {#<div class="col-xs-3">
+                        <a href="product.html">
+                            <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/honey.jpg') }}" alt=""> 
+                            <span class="pro-text"><span class="pro-title">Thompson汤普森蜂王浆180粒<br></span><span class="price">$42.61</span><del>$49.00</del></span>
+                        </a>
+
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="product.html">
+                            <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/artemis.jpg') }}" alt="">
+                            <span class="pro-text"><span class="pro-title">Blackmores澳佳宝 儿童水果味鱼油 30粒<br></span><span class="price">$16.84</span><del>$19.37</del></span>
+                        </a>
+                    </div>#}
+                </div>	
+            </div>

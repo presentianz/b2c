@@ -16,8 +16,9 @@ class ProductController extends Controller
     public function indexAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $data = $em->getRepository('AppBundle:Product')->getProduct($id);
-
+        $data = array();
+        $data['product'] = $em->getRepository('AppBundle:Product')->findOneById($id);
+        $data['path'] = $em->getRepository('AppBundle:Category')->getPath($data['product']->getCategory());
         return $this->render('Product/product/index.html.twig', array(
             'data' => $data,
             ));

@@ -23,7 +23,7 @@ class SearchController extends Controller
         $sort = $request->query->get('sort');
         $page = $request->query->get('page');
         $item_no = $request->query->get('item_no');
-
+        
         $em = $this->getDoctrine()->getManager();
         $data = $em->getRepository('AppBundle:Product')->searchProduct($keys, $sort, $page, $item_no);
         return $this->render('Product/search/index.html.twig', array(

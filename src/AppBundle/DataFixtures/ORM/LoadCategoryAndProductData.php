@@ -15,43 +15,39 @@ class LoadCategoryAndProductData implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        for ($i=0; $i < 4; $i++) {
+        for ($i=0; $i < rand(4, 7); $i++) {
             $category = new Category();
             $category->setName('分类'.$i);
             $manager->persist($category);
             $parent1 = $category;
-            $product1 = $this->generateProduct();
-            $product2 = $this->generateProduct();
+            for ($l=0; $l < rand(1,4); $l++) { 
+                $product = $this->generateProduct();
+                $product->setCategory($category);
+                $manager->persist($product);
+            }
 
-            $product1->setCategory($category);
-            $product2->setCategory($category);
-            $manager->persist($product1);
-            $manager->persist($product2);
-
-            for ($j=0; $j < 4; $j++) {
+            for ($j=0; $j < rand(4, 7); $j++) {
                 $category = new Category();
                 $category->setName('分类'.$i.$j);
                 $category->setParent($parent1);
                 $manager->persist($category);
                 $parent2 = $category;
-                $product1 = $this->generateProduct();
-                $product2 = $this->generateProduct();
-                $product1->setCategory($category);
-                $product2->setCategory($category);
-                $manager->persist($product1);
-                $manager->persist($product2);
+                for ($l=0; $l < rand(1,4); $l++) { 
+                    $product = $this->generateProduct();
+                    $product->setCategory($category);
+                    $manager->persist($product);
+                }
 
-                for ($k=0; $k < 4; $k++) {
+                for ($k=0; $k < rand(4, 7); $k++) {
                     $category = new Category();
                     $category->setName('分类'.$i.$j.$k);
                     $category->setParent($parent2);
                     $manager->persist($category);
-                    $product1 = $this->generateProduct();
-                    $product2 = $this->generateProduct();
-                    $product1->setCategory($category);
-                    $product2->setCategory($category);
-                    $manager->persist($product1);
-                    $manager->persist($product2);
+                    for ($l=0; $l < rand(1,4); $l++) { 
+                        $product = $this->generateProduct();
+                        $product->setCategory($category);
+                        $manager->persist($product);
+                    }
                 }
             }
         }
@@ -61,18 +57,22 @@ class LoadCategoryAndProductData implements FixtureInterface
     private function generateProduct()
     {
         $product = new Product();
-        $product->setName($this->genstr());
+        $product->setName($this->genstr(rand(10, 25)));
         $product->setPrice(rand(32, 999) / 10);
         $product->setPriceDiscounted($product->getPrice()*0.9);
         $product->setSoldNo(rand(0, 500));
         $product->setUpdateAt($this->rand_date('2013-01-01', '2015-10-06'));
+        $product->setBrand($this->genstr(rand(3,8)));
+        $product->setInventory(rand(0, 200));
+        $product->setDescription($this->genstr(rand(3,8)).' '.$this->genstr(rand(3,8)).' '.$this->genstr(rand(3,8)));
+        $product->setProductKey(substr(uniqid(),0,10));
+        $product->setWeight(rand(0, 1200));
         return $product;
     }
 
-    private function genstr()
+    private function genstr($lenth)
     {
         $str = '';
-        $lenth = rand(10, 25);
         for ($i=0; $i < $lenth; $i++) {
             $str.= mb_substr($this->chars, floor(mt_rand(0,mb_strlen($this->chars,'utf-8')-1)), 1, 'utf-8');
         }

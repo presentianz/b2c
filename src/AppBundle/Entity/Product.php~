@@ -100,6 +100,27 @@ class Product
     private $imageLink = array();
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="brand", type="string", length=255)
+     */
+    private $brand;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="weight", type="string", length=255)
+     */
+    private $weight;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_key", type="string", length=255)
+     */
+    private $productKey;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      **/
@@ -391,10 +412,6 @@ class Product
         return $this->inventory;
     }
 
-    /** 
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
     public function UpdatePreUpdate()
     {
         $this->updateAt =  new \DateTime();

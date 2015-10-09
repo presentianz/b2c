@@ -67,6 +67,7 @@ class CategoryRepository extends NestedTreeRepository
 
         $data = array();
         $data['products'] = $products;
+        $data['total_no'] = $total[0]['total'];
         $data['total_page'] = ceil($total[0]['total']/$item_no);
         $data['path'] = $gEM->getRepository('AppBundle:Category')->getPath($this_root);
         $data['children'] = $gEM->getRepository('AppBundle:Category')->children($this_root, true);
@@ -74,13 +75,24 @@ class CategoryRepository extends NestedTreeRepository
 
         return $data;
     }
-    
+
     public function findByParentId($parentId)
     {
         $query = $this->getEntityManager()->createQuery(
                 'SELECT c FROM AppBundle:Category c WHERE c.parent = :parentId'
             )
             ->setParameter('parentId', $parentId);
+        $category = $query->getResult();
+        return $category;
+    }
+
+    public function findBrothers($parentId, $id)
+    {
+        $query = $this->getEntityManager()->createQuery(
+                'SELECT c FROM AppBundle:Category c WHERE c.parent = :parentId AND c.id != :id'
+            )
+            ->setParameter('parentId', $parentId)
+            ->setParameter('id', $id);
         $category = $query->getResult();
         return $category;
     }

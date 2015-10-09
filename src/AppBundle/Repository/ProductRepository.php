@@ -45,8 +45,10 @@ class ProductRepository extends EntityRepository
             $keys = array();
         }
         foreach ($keys as $i => $key) {
-            $products->orWhere('p.name LIKE ?'.$i)->setParameter($i, '%'.$key.'%');
-            $products_no->orWhere('p.name LIKE ?'.$i)->setParameter($i, '%'.$key.'%');
+            // $products->orWhere('p.name LIKE ?'.$i)->setParameter($i, '%'.$key.'%');
+            // $products_no->orWhere('p.name LIKE ?'.$i)->setParameter($i, '%'.$key.'%');
+            $products->orWhere('LOCATE(:key'.$i.', p.name) > 0')->setParameter('key'.$i, $key);
+            $products_no->orWhere('LOCATE(:key'.$i.', p.name) > 0')->setParameter('key'.$i, $key);
         }
         //1 = name(default), 2 = price+, 3 = price-, 4 = soldNo-, 5 = date-
         switch ($sort) {
@@ -78,7 +80,21 @@ class ProductRepository extends EntityRepository
         $data['products'] = $products->getQuery()->getResult();
         $total_no = $products_no->getQuery()->getResult();
         $data['total_page'] = ceil($total_no[0]['total_no']/$item_no);
+        $data['total_no'] = $total_no[0]['total_no'];
         $data['row_no'] = ceil(count($data['products'])/3);
         return $data;
+    }
+
+    public function findRandomFourProducts()
+    {
+        $em = $this->getEntityManager();
+        $rows = $em->createQuery('SELECT COUNT(p.id) FROM AppBundle:Product p')->getSingleScalarResult();
+        $offset = max(0, rand(0, $rows - 3));
+        $query = $em->createQuery('SELECT DISTINCT p FROM AppBundle:Product p')
+            ->setMaxResults(4)
+            ->setFirstResult($offset);
+        $products = $query->getResult();
+
+        return $products;
     }
 }

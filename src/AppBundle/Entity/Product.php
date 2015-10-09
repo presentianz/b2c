@@ -100,6 +100,27 @@ class Product
     private $imageLink = array();
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="brand", type="string", length=255, nullable=true)
+     */
+    private $brand;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="weight", type="string", length=255, nullable=true)
+     */
+    private $weight;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_key", type="string", length=255, nullable=true)
+     */
+    private $productKey;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      **/
@@ -440,5 +461,74 @@ class Product
     public function getPoster()
     {
         return $this->poster;
+    }
+
+    /**
+     * Set brand
+     *
+     * @param string $brand
+     * @return Product
+     */
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Get brand
+     *
+     * @return string 
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * Set weight
+     *
+     * @param string $weight
+     * @return Product
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Get weight
+     *
+     * @return string 
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * Set productKey
+     *
+     * @param string $productKey
+     * @return Product
+     */
+    public function setProductKey($productKey)
+    {
+        $this->productKey = $productKey;
+
+        return $this;
+    }
+
+    /**
+     * Get productKey
+     *
+     * @return string 
+     */
+    public function getProductKey()
+    {
+        return $this->productKey;
     }
 }
