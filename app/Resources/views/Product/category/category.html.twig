@@ -19,26 +19,32 @@
                 </div>
 
                 <div class="col-xs-9 page-right">
-                    <div class="page-title">
-                        <span>
-	                        {% if data.path is defined %}
-	                        	<ol class="breadcrumb">
-	                        		{% for category in data.path %}
-	                        		    <li><a href="{{ path('category', { id : category.id }) }}">{{ category.name }}</a></li>
-	                        		{% endfor %}
-								</ol>
-                                 (共{{ data.total_no }}件商品)
-	                        {% else %}
-	                        	全部分类 (共{{ data.total_no }}件商品)
-	                        {% endif %}
-                        </span>
-                        <br>
+                <div class="page-breadcrumb">
+                 <ol>
+                    <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
+                     {% if data.path is defined %}      
+                         {% for category in data.path %}
+                              <li>&nbsp;>&nbsp;<a href="{{ path('category', { id : category.id }) }}">{{ category.name }} </a></li>
+                         {% endfor %}
+                         <li>(共{{ data.total_no }}件商品)</li>
+                            {% else %}
+                            <li> &nbsp;>&nbsp;全部分类 (共{{ data.total_no }}件商品) </li>
+                            {% endif %}
+                    
+                         </ol>
+                        
                         {% if data.children|length > 0 %}
-                        	可选分类：
-                        	{% for category in data.children %}
-	                        	<a class="search-keys" href="{{ path('category', {id : category.id}) }}">{{ category.name }}</a>
-	                        {% endfor %}
+                        <div class="toolbar">
+                        <span>可选分类</span>
+                            {% for category in data.children %}
+                            <a class="search-keys" href="{{ path('category', {id : category.id}) }}">{{ category.name }}</a>
+                            {% endfor %}
+                        </div>
                         {% endif %}
+                       
+                    </div>
+
+                    <div class="page-title">
                     </div>
                     {#{{dump(data)}}#}
                     <div class="page-content">

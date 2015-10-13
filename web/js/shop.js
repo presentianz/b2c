@@ -7,9 +7,15 @@ $(document).ready(function () {
 
     $('#myCarousel').carousel();
 
-        $('.nav-all').click(function () {
-            $('#siderbar').toggleClass('show-siderbar');
-        });
+        $('.nav-all').hover(
+            function () {
+            $('#siderbar').css('display',"block");
+           });
+
+         $('#siderbar').mouseleave(
+            function () {
+            $(this).css('display',"none");
+           });
 
          $('.save').click(function () {
                 $("#top-address").css("display", "none");

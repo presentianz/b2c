@@ -10,29 +10,15 @@
                 <label>{{ 'profile.show.username'|trans }}:</label>
                 <div>
                     <span class="edit-name">{{ user.username }}</span>
-                    <a href="edit" class="fa fa-edit pull-right">{{ 'button.edit'|trans }}<a/> 
+                    <a href="edit" class="fa fa-edit pull-right">{{ 'button.edit'|trans }}</a> 
                 </div>
             </div>
             <div class="user-info-each">
-                <LABEL>{{ 'profile.show.email'|trans }}:</LABEL>
+                <label>{{ 'profile.show.email'|trans }}:</label>
                 <div>
                     <span class="edit-email"> {{ user.email }}</span>
                 </div>
-            </div>
-            <div class="user-info-each">
-                <LABEL>注册日期：</LABEL>
-                <div> <span>{{ user.userInfo.exp }}</span> </div>
-            </div>
-            <div class="user-info-each">
-                <LABEL>主要地址：</LABEL>
-                <div>
-                    <span>{{ user.userInfo.region }},
-                     {{ user.userInfo.city }},
-                     {{ user.userInfo.country }}
-                     <div><a href="{{path("user_address")}}">(查看地址)</a></div>
-                    </span>
-                </div>
-           </div>
+            </div>  
      </div>
      <div class="col-xs-6 user-info">
         <div class="status-each">
@@ -50,12 +36,10 @@
 
         </div>
     </div>
-    <div class="col-xs-12 user-info-below">
-    </div>
 </div>
 </div>
 
-<div class="fos_user_user_show">
+{# <div class="fos_user_user_show">
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
     <p>{{ 'profile.fullname'|trans }}: {{ user.userInfo.fullname }}</p>
@@ -68,6 +52,6 @@
     <p>{{ 'profile.balance'|trans }}: {{ user.userInfo.balance }}</p>
     <p>{{ 'profile.lockedbalance'|trans }}: {{ user.userInfo.lockedbalance }}</p>
     <a href="edit">{{ 'button.edit'|trans }}<a/>
-     </div>
+     </div> #}
 
 

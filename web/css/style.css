@@ -507,17 +507,16 @@ input.qty {
     width:253px;
     height:auto;
     padding: 0;
+    display: none;
+    position: absolute;
+    z-index: 2;
+    background-color: #fff;
 }
 
 .siderbar.col-xs-3 {
     padding:0;
     width: 253px; 
 }
-
-.show-siderbar {
-    display:block !important; 
-}
-
 
 
 ul.nav {
@@ -589,12 +588,31 @@ ul.nav {
 .nav .drop-menu-right {
     background-color: #F5F5F5;
     left: 249px;
-    padding: 0px;
+    padding: 0px 0px 10px 5px;
     border-radius: 0px;
     -webkit-border-radius:0px;  
     -moz-border-radius:0px;
     top: -3px;
     width: 312px;
+}
+
+.nav .drop-menu-right div a {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.nav .drop-menu-right .sub-menu {
+    font-size: 12px;
+    color: #777;
+}
+
+.nav .drop-menu-right .sub-menu a {
+    color: #777;
+    font-size: 12px;
+}
+
+.nav .drop-menu-right .sub-menu a:hover {
+     color: #ee1c24;
 }
 
 
@@ -869,6 +887,53 @@ del{
 
 
 /*each page style*/
+
+.page-breadcrumb {
+
+}
+
+.page-breadcrumb ol {
+    padding: 8px 0px;
+    list-style: none;
+}
+
+.page-breadcrumb ol li {
+    display: inline-block;
+}
+
+.page-breadcrumb ol li.active {
+    color: #ee1c24;
+}
+
+.page-breadcrumb ol li i.fa {
+     font-size: 18px; 
+}
+
+  
+
+.page-breadcrumb .toolbar {
+    width: 100%;
+}
+
+.page-breadcrumb .toolbar > span {
+    background-color: #ee1c24;
+    margin-right: 10px;
+    color: #fff;
+    padding: 7px 10px 6px 10px;
+}
+
+.page-breadcrumb .toolbar .search-keys {
+    width: auto;
+    margin: 0px 5px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #EE1922;
+    text-align: center;
+    padding: 0px 10px;
+    display: inline-block;
+    line-height: 30px;
+}
+
 .page-title {
     border-bottom: 2px solid #ee1c24;
     padding-top: 30px;

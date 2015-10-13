@@ -41,8 +41,8 @@
 
 
 #user-page .user-content {
-    min-height: 180px;
-    padding-bottom: 20px;
+    min-height: 90px;
+    padding-bottom: 10px;
     border-bottom: 2px solid #ee1c24;
     height: auto;
     overflow: auto;
@@ -67,6 +67,7 @@
 /* tab1 user info */
 #user-page .user-info {
     padding:0;
+    height: 80px;
 }
 
 #user-page .user-info-each {
@@ -80,8 +81,7 @@
     padding-right:10px;
 }
 
-#user-page .user-info-each i.fa {
-    float: right;
+#user-page .user-info-each a.fa {
     margin-top: 5px;
 }
 

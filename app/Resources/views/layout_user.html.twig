@@ -10,6 +10,9 @@
 
 <div id="header"></div>
 <div id="user-page" class="container-non-responsive">
+     <div id="siderbar">
+     {% include 'Widget/sidebar.html.twig' %}
+      </div>
 	<div class="user-left col-xs-3 siderbar">
 		<ul class="nav nav-list">
 			<li class="active">
@@ -42,35 +45,7 @@
             </ul>
 
             <!--best pros-->
-            <div class="side">
-            	<div class="side-title">
-            		<p>人气商品</p>
-            	</div>
-            	<div class="side-content">
-            		<div class="side-item">
-            			<a href="product.html">
-            				<img src="{{asset('img/aptami.jpg')}}" alt="">
-            				<span class="pro-text">
-            					<span class="pro-title">【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰<br></span>
-            					<span class="price">$79.00</span>
-            					<del>$89.00</del>
-            				</span>
-            			</a>
-            		</div>
-            		<div class="side-item">
-            			<a href="product.html">
-            				<img src="{{asset('img/aptami.jpg')}}" alt="">
-            				<span class="pro-text"><span class="pro-title">【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰<br></span><span class="price">$79.00</span><del>$89.00</del></span>
-            			</a>
-            		</div>
-            		<div class="side-item">
-            			<a href="product.html">
-            				<img src="{{asset('img/aptami.jpg')}}" alt="">
-            				<span class="pro-text"><span class="pro-title">【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰<br></span><span class="price">$79.00</span><del>$89.00</del></span>
-            			</a>
-            		</div>
-            	</div>
-            </div> 
+            {% include 'Widget/bestPro.html.twig' %} 
 
         </div>
         <div class="col-xs-9 page-right">
