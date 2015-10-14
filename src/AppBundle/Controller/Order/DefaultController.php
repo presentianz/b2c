@@ -41,7 +41,7 @@ class DefaultController extends Controller
                 }
             }
             else {
-                $cartProducts = 'empty';
+                $cartProducts = '';
             }
         }
         return $this->render('Order/default/cart.html.twig', array(
@@ -55,7 +55,6 @@ class DefaultController extends Controller
      */
     public function orderConfirmAction(Request $request)
     {
-        $cookies = $request->cookies;
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
         $cartProducts = $em->getRepository('AppBundle:CartProduct')->findByUser($user->getId());
@@ -68,9 +67,15 @@ class DefaultController extends Controller
 
     /**
      * @Route("/checkout", name="checkout")
+     * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      */
-    public function checkoutAction()
+    public function checkoutAction(Request $request)
     {
-        return $this->render('Order/default/checkout.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $cartArray = $request->request->get('product-id');
+        $products = $em->getRepository('AppBundle:CartProduct')->getItem($cartArray, $this->getUser()->getId());
+        return $this->render('Order/default/checkout.html.twig', array(
+            'data' => $products
+            ));
     }
 }

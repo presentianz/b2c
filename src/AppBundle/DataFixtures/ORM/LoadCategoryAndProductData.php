@@ -15,9 +15,9 @@ class LoadCategoryAndProductData implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        for ($i=0; $i < rand(4, 7); $i++) {
+        for ($i=0; $i < 9; $i++) {
             $category = new Category();
-            $category->setName('分类'.$i);
+            $category->setName($this->genstr(rand(2,5)));
             $manager->persist($category);
             $parent1 = $category;
             for ($l=0; $l < rand(1,4); $l++) { 
@@ -28,7 +28,7 @@ class LoadCategoryAndProductData implements FixtureInterface
 
             for ($j=0; $j < rand(4, 7); $j++) {
                 $category = new Category();
-                $category->setName('分类'.$i.$j);
+                $category->setName($this->genstr(rand(2,5)));
                 $category->setParent($parent1);
                 $manager->persist($category);
                 $parent2 = $category;
@@ -40,7 +40,7 @@ class LoadCategoryAndProductData implements FixtureInterface
 
                 for ($k=0; $k < rand(4, 7); $k++) {
                     $category = new Category();
-                    $category->setName('分类'.$i.$j.$k);
+                    $category->setName($this->genstr(rand(2,5)));
                     $category->setParent($parent2);
                     $manager->persist($category);
                     for ($l=0; $l < rand(1,4); $l++) { 
@@ -57,7 +57,11 @@ class LoadCategoryAndProductData implements FixtureInterface
     private function generateProduct()
     {
         $product = new Product();
-        $product->setName($this->genstr(rand(10, 25)));
+        $name = array();
+        for ($i=0; $i < rand(3,6); $i++) { 
+            array_push($name, $this->genstr(rand(3, 8)));
+        }
+        $product->setName(implode(' ', $name));
         $product->setPrice(rand(32, 999) / 10);
         $product->setPriceDiscounted($product->getPrice()*0.9);
         $product->setSoldNo(rand(0, 500));

@@ -5,9 +5,9 @@
         <div class="row no-border">
             <!--loaded sider bar-->
             <div class="col-xs-3 siderbar">
-             <div id="siderbar-main">
-                    	{% include 'Widget/sidebar.html.twig' %}
-             </div>
+                <div id="siderbar-main">
+                    {{ render(controller('AppBundle:Widget/Menu:index')) }}
+                </div>
             </div>
             <div class="col-xs-9 no-padding slider-part">
                 <div id="myCarousel" class="carousel slide">
@@ -58,9 +58,8 @@
             </div>
         </div>
 
-        {% for i in 0..5 %}
-            {{ render(controller('AppBundle:Widget/Test:index')) }}
 
-        {% endfor %}
+        {{ render(controller('AppBundle:Widget/Default:index')) }}
+
     </div><!-- /container-non-responsive -->
 {% endblock %}

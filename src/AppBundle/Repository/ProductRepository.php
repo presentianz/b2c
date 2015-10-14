@@ -27,30 +27,43 @@ class ProductRepository extends EntityRepository
 
     public function searchProduct($keys, $sort, $page, $item_no)
     {
-        $products = $this->createQueryBuilder('p');
-        $products_no = $this->createQueryBuilder('p');
-        $products_no->select('COUNT(p.id) AS total_no');
         if ($keys) {
-            $keys = explode(' ', $keys);
-            foreach ($keys as $key => $value) {
-                if ($value == '') {
-                    unset($keys[$key]);
-                }
-            }
-            if (count($keys) == 0) {
-                $keys = array();
-            }
+            $keys = preg_replace("/(\s+)|(　+)+/", " ", $keys);
+            $keys = preg_replace( "/(^\s*)|(\s*$)/ ", "",$keys);
+            $keys = preg_replace("/(\s+)/", " ", $keys);
+            $keys = explode(" ",$keys);
         }
         else {
             $keys = array();
         }
+
+        $products = $this->createQueryBuilder('p');
+        //add weight
+        if (count($keys) > 0) {
+            $weight = array();
+            foreach ($keys as $key) {
+                array_push($weight, 'SIGN(LOCATE(\''.$key.'\', p.name))');
+            }
+            $weight = implode(' + ', $weight);
+            $products->select($weight.' as weight');
+            $products->addOrderBy('weight', 'DESC');
+        }
+        //add left columns
+        $products->addSelect('
+                        p.id AS id, 
+                        p.name AS name,
+                        p.price AS price,
+                        p.price_discounted AS priceDiscounted,
+                        p.soldNo AS soldNo');
+        $products_no = $this->createQueryBuilder('p');
+        $products_no->select('COUNT(p.id) AS total_no');
         foreach ($keys as $i => $key) {
             // $products->orWhere('p.name LIKE ?'.$i)->setParameter($i, '%'.$key.'%');
             // $products_no->orWhere('p.name LIKE ?'.$i)->setParameter($i, '%'.$key.'%');
             $products->orWhere('LOCATE(:key'.$i.', p.name) > 0')->setParameter('key'.$i, $key);
             $products_no->orWhere('LOCATE(:key'.$i.', p.name) > 0')->setParameter('key'.$i, $key);
         }
-        //1 = name(default), 2 = price+, 3 = price-, 4 = soldNo-, 5 = date-
+        //1 = update(default), 2 = price+, 3 = price-, 4 = soldNo-, 5 = date-
         switch ($sort) {
             case '2':
                 $products->orderBy('p.price', 'ASC');
@@ -65,7 +78,7 @@ class ProductRepository extends EntityRepository
                 $products->orderBy('p.updateAt', 'DESC');
                 break;
             default:
-                $products->orderBy('p.name');
+                $products->addOrderBy('p.updateAt', 'DESC');
                 break;
         }
         if (!(is_numeric($page) && $page > 1)) {
@@ -85,7 +98,9 @@ class ProductRepository extends EntityRepository
         return $data;
     }
 
-    public function findRandomFourProducts()
+
+
+    public function findMainPageProducts()
     {
         $em = $this->getEntityManager();
         $rows = $em->createQuery('SELECT COUNT(p.id) FROM AppBundle:Product p')->getSingleScalarResult();

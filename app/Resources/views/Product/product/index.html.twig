@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-xs-3 siderbar">
                 <div id="siderbar">
-                    {% include 'Widget/sidebar.html.twig' %}
+                    {{ render(controller('AppBundle:Widget/Menu:index')) }}
                 </div>
                 {% include 'Widget/bestPro.html.twig' %}
                 {% include 'Widget/discountPro.html.twig' %}
@@ -78,11 +78,7 @@
                                     <form method="get" action="{{ path('checkout') }}">
                                     <input type="submit" value="立即购买" class="pull-right">
                                     </form>
-                                     <form method="get" action="{{ path('cart') }}">
-                                    <input type="submit" value="加入购物车" class="pull-right"> 
-                                    </form>
-                                    
-                                  
+                                    <input type="submit" data-id="{{ data.product.id }}" value="加入购物车" class="pull-right" id="add-cart-button"> 
                                 </div>                                               
                             </div>    
                         </div> 
@@ -140,7 +136,6 @@
 <div id="loading">
     <div>
         <h4>加载中， 请稍等</h4>
-        <img src="img/ajax-loader.gif">
     </div>
 </div>
 	{#{{ dump(data) }}#}
@@ -149,4 +144,32 @@
 {% block javascripts %}
         <script src="{{ asset('js/product.js') }}"></script>
         <script src="{{ asset('js/search.js') }}"></script>
+        <script type="text/javascript">
+            (function () {
+                $('#add-cart-button').click(function (e) {
+                    e.preventDefault();
+                    $this = $(this);
+                    var productId = $this.attr("data-id");
+                    $.ajax({
+                        url:"{{path('cart_ajax_action')}}",
+                        method: "POST",
+                        data: {
+                            id : productId,
+                            no: $('#qty').val(),
+                            action : "+"
+                        },
+                        dataType: "json"
+                    })
+                    .done(function (rep) {
+                        console.log( rep );
+                        if (rep.granted) {
+                            alert("添加成功！");
+                        }
+                        else {
+                            alert("添加失败！");
+                        }
+                    })
+                })
+            })();
+        </script>
     {% endblock %}

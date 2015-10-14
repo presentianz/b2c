@@ -1,19 +1,17 @@
 <!-- Hot Staffs -->
+        {% for row in data %}
             <div class="hotdeal">
                 <div class="row-up">
                     <div class="col-xs-11">
-                        <h3>特价商品</h3>
+                        <h3>{{ row.node.name }}</h3>
                         <h6>
-                            <a href="#">麦卢卡蜂蜜</a><span class="dashed"></span>
-                            <a href="#">好健康蜂胶</a><span class="dashed"></span>
-                            <a href="#">爱他美婴儿奶粉</a><span class="dashed"></span>
-                            <a href="#">蔓越莓</a><span class="dashed"></span>
-                            <a href="#">纽乐鱼油</a><span class="dashed"></span>
-                            <a href="#">护手霜</a>
+                            {% for child in row.node.__children|slice(0,5) %}
+                                <a href="{{ path('category', { id : child.id }) }}">{{ child.name }}</a><span class="dashed"></span>
+                            {% endfor %}
                         </h6>
                     </div>
                     <div class="col-xs-1">
-                        <a href="products.html">更多
+                        <a href="{{ path('category', { id : row.node.id }) }}">更多
                         </a> 
                     </div>
                 </div>
@@ -24,10 +22,10 @@
                             <span class="pro-text"><span class="pro-title">【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰<br></span><span class="price">$79.00</span><del>$89.00</del></span>
                         </a>
                     </div>#}
-                    {% for product in data %}
+                    {% for product in row.products %}
                         <div class="col-xs-3">
                             <a href="{{ path('product', {id : product.id}) }}">
-                                <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg','img/blackmores.jpg', 'img/artemis.jpg'])) }}" alt="">
+                                <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
                                 <span class="pro-text"><span class="pro-title">{{ product.name }}<br></span><span class="price">${{ product.priceDiscounted }}</span><del>${{ product.price }}</del><br><span class="sold-no">售出：{{ product.soldNo }}</span></span>
                             </a>
                         </div>
@@ -48,3 +46,4 @@
                     </div>#}
                 </div>	
             </div>
+        {% endfor %}

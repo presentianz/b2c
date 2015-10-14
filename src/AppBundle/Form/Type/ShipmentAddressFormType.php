@@ -25,9 +25,7 @@ class ShipmentAddressFormType extends AbstractType
 			    	->add('region','text',array('label'=>'省份/地区'))
 			    	->add('city','text',array('label'=>'城市'))
 			    	->add('post_code','text',array('label'=>'邮编'))
-			    	->add('address','textarea',array('label'=>'详细地址'))
-			    	->add('save', 'submit', array('label' => '提交'))
-        ;
+			    	->add('address','textarea',array('label'=>'详细地址'));
     }
 
     public function configureOptions(OptionsResolver $resolver)

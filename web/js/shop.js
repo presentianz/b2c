@@ -28,7 +28,9 @@ $(document).ready(function () {
 
 $(function() {
     $("img.lazy").lazyload({
-        effect : "fadeIn"
+        failure_limit : 99999, 
+        effect : "fadeIn",
+        threshold : 10
     });
 });
 
