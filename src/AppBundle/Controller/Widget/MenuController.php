@@ -10,14 +10,18 @@ use AppBundle\Entity\Category;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class TestController extends Controller
+class MenuController extends Controller
 {
+	/* miss * annotation
+	 * @Route("/menu", name = "menu")
+	 */
+
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $data = $em->getRepository('AppBundle:Product')->findRandomFourProducts();
-        return $this->render('Widget/test/index.html.twig', array(
-            'data' => $data
+		$tree = $em->getRepository('AppBundle:Category')->get2LevelCategory();
+       	return $this->render('Widget/menu/index.html.twig', array(
+            'data' => $tree
             ));
     }
 }

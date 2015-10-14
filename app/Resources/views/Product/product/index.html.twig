@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-xs-3 siderbar">
                 <div id="siderbar">
-                    {% include 'Widget/sidebar.html.twig' %}
+                    {{ render(controller('AppBundle:Widget/Menu:index')) }}
                 </div>
                 {% include 'Widget/bestPro.html.twig' %}
                 {% include 'Widget/discountPro.html.twig' %}
@@ -67,7 +67,7 @@
                                         <button class="number-input number-input-down" id="num-down"><i class="fa fa-caret-down"></i></button>
                                     </div>
                                     <button title="立即购买" onclick="location.href='checkout.html'"> 立即购买</button> 
-                                    <button title="加入购物车" onclick="popup(3)">加入购物车</button>
+                                    <button title="加入购物车" id="add-cart-button" data-id="{{ data.product.id }}">加入购物车</button>
                                     <button title="添加到收藏" class="pull-right" id="collect">添加到收藏</button>
                                 </div>                                               
                             </div>    
@@ -133,7 +133,6 @@
 <div id="loading">
     <div>
         <h4>加载中， 请稍等</h4>
-        <img src="img/ajax-loader.gif">
     </div>
 </div>
 	{#{{ dump(data) }}#}
@@ -142,4 +141,32 @@
 {% block javascripts %}
         <script src="{{ asset('js/product.js') }}"></script>
         <script src="{{ asset('js/search.js') }}"></script>
+        <script type="text/javascript">
+            (function () {
+                $('#add-cart-button').click(function (e) {
+                    e.preventDefault();
+                    $this = $(this);
+                    var productId = $this.attr("data-id");
+                    $.ajax({
+                        url:"{{path('cart_ajax_action')}}",
+                        method: "POST",
+                        data: {
+                            id : productId,
+                            no: $('#qty').val(),
+                            action : "+"
+                        },
+                        dataType: "json"
+                    })
+                    .done(function (rep) {
+                        console.log( rep );
+                        if (rep.granted) {
+                            alert("添加成功！");
+                        }
+                        else {
+                            alert("添加失败！");
+                        }
+                    })
+                })
+            })();
+        </script>
     {% endblock %}

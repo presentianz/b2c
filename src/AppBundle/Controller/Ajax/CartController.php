@@ -16,10 +16,14 @@ use AppBundle\Entity\CartProduct;
 class CartController extends Controller
 {
     /**
-     * @Route("/cartAjaxAction/{id}/{no}/{action}", name="cart_ajax_action")
+     * @Route("/cartAjaxAction", name="cart_ajax_action", condition="request.isXmlHttpRequest()")
      */
-    public function indexAction($id, $no, $action, Request $request)
+    public function indexAction(Request $request)
     {
+        $id = $this->container->get('request')->get('id');
+        $no = $this->container->get('request')->get('no');
+        $action = $this->container->get('request')->get('action');
+        $return = array('granted' => true);
         //check if user logged in
         if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             //entity manager
@@ -36,6 +40,7 @@ class CartController extends Controller
             //action
             //$action = $get_request('action');
             $cartProduct = $em->getRepository('AppBundle:CartProduct')->hasItem($id, $user->getId());
+
             if ($product) {
                 switch ($action) {
                     //add one
@@ -43,16 +48,15 @@ class CartController extends Controller
                         if ($cartProduct === false) {
                             $cartProduct = new CartProduct();
                             $cartProduct->setProduct($product);
-                            $cartProduct->setCount(1);
+                            $cartProduct->setCount($no);
                             $cartProduct->setUser($user);
                         }
                         else {
-                            $cartProduct->setCount($cartProduct->getCount() + 1);
+                            $cartProduct->setCount($cartProduct->getCount() + $no);
 
                         }
                         $em->persist($cartProduct);
                         $em->flush();
-                        return new Response('success');
                         break;
                     //delete one
                     case '-':
@@ -60,13 +64,12 @@ class CartController extends Controller
                             $cartProduct->setCount($cartProduct->getCount() - 1);
                             $em->persist($cartProduct);
                             $em->flush();
-                            return new Response('success');
                         }
                         elseif ($cartProduct) {
-                            return new Response('<= 1');
+                            $return['granted'] == false;
                         }
                         else {
-                            return new Response('fail');
+                            $return['granted'] == false;
                         }
                         break;
                     //edit or insert
@@ -83,45 +86,45 @@ class CartController extends Controller
                         }
                         $em->persist($cartProduct);
                         $em->flush();
-                        return new Response('success');
                         break;
                     //remove
                     case 'rm':
                         if ($cartProduct) {
                             $em->remove($cartProduct);
                             $em->flush();
-                            return new Response('success');
                         }
                         else {
-                            return new Response('fail');
+                            $return['granted'] == false;
                         }
                         break;
 
                     default:
-                        return new Response('fail');
+                        $return['granted'] == false;
                         break;
                 }
+
             }
             else {
-                return new Response('no product found');
+                $return['granted'] == false;
             }
+            return new Response(json_encode($return));
         }
 
         //anonymous user
         else {
             $cookies = $request->cookies;
+            $response = new Response();
             if ($cookies->has('cart')) {
                 //cookie to array
                 $cart = json_decode($cookies->get('cart'), true);
-
                 switch ($action) {
                     case '+':
                         if (array_key_exists($id, $cart)) {
-                            $cart[$id]['count']++;
+                            $cart[$id]['count'] += $no;
                             $cart[$id]['addAt'] = new \DateTime();
                         }
                         else {
-                            $cart[$id]['count'] = 1;
+                            $cart[$id]['count'] = $no;
                             $cart[$id]['addAt'] = new \DateTime();
                         }
                         break;
@@ -135,7 +138,7 @@ class CartController extends Controller
                             unset($cart[$id]);
                         }
                         else {
-                            return new Response('fail');
+                            $return['granted'] == false;
                         }
                         break;
 
@@ -154,11 +157,9 @@ class CartController extends Controller
                         unset($cart[$id]);
                         break;
                     default:
-                        return new Response('fail');
+                        $return['granted'] == false;
                         break;
                 }
-
-                $response = new Response();
                 if (count($cart) <= 0) {
                     $response->headers->clearCookie('cart');
                 }
@@ -166,13 +167,12 @@ class CartController extends Controller
                     $response->headers->setCookie(new Cookie('cart', json_encode($cart), time() + (3600*48)));
                 }
                 $response->send();
-                return new Response($cookies->get('cart'));
             }
             else {
                 if ($action == '+') {
                     $cart = array(
                         $id => array(
-                            'count' => 1,
+                            'count' => $no,
                             'addAt' => new \DateTime(),
                             )
                         );
@@ -186,13 +186,12 @@ class CartController extends Controller
                         );
                 }
                 else {
-                    return new Response('fail');
+                    $return['granted'] == false;
                 }
-                $response = new Response('success');
                 $response->headers->setCookie(new Cookie('cart', json_encode($cart), time() + (3600*48)));
                 $response->send();
-                return $response;
             }
+            return new Response(json_encode($return));
         }
     }
 

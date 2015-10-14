@@ -16,8 +16,13 @@
 {%else%}
 	{{ form_start(form, { method: 'POST', action: path('user_address_create') }) }}	
 {% endif %}
+    {{ dump(form) }}
 
-    {{ form_widget(form) }}
+    <label>name</label>{{ form_widget(form.name) }}
+    <label>contact</label>{{ form_widget(form.contact_no, {'attr': {
+                                                    'class': 'field-contact field-contact',
+                                                    'id' : 'id'}}) }}
+    <input type="submit" value="提交" />
 {{ form_end(form) }}   
 
 

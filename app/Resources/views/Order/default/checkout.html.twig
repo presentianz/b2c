@@ -16,7 +16,6 @@
         <div class="page-content">
             <div class="col-xs-12 checkout-content top">
                 <!-- logined in can select address -->
-                
                 <h5><strong>已有地址</strong></h5>
                 <div class="address-content"> 
                     <span class="first-address">邮寄至</span>
@@ -59,33 +58,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="product-name">
-                        <img src="{{asset('img/artemis.jpg')}}"/>
-                        <div class="name-limit"><a href="product.html">好健康蜂胶</a>
-                        </div>
-                    </td>
-                    <td>1</td>
-                    <td class="text-right color">45.00</td>
-                </tr>
-                <tr>
-                    <td class="product-name">
-                        <img src="{{asset('img/artemis.jpg')}}"/>
-                        <div class="name-limit"><a href="product.html">好健康蜂胶</a>
-                        </div>
-                    </td>
-                    <td>1</td>
-                    <td class="text-right color">45.00</td>
-                </tr>
-                <tr>
-                    <td class="product-name">
-                        <img src="{{asset('img/artemis.jpg')}}"/>
-                        <div class="name-limit"><a href="product.html">好健康蜂胶</a>
-                        </div>
-                    </td>
-                    <td>1</td>
-                    <td class="text-right color">45.00</td>
-                </tr>
+                {% for cartProduct in data %}
+                    <tr>
+                        <td class="product-name">
+                            <img src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}"/>
+                            <div class="name-limit"><a href="{{ path('product', { id : cartProduct.product.id }) }}">{{ cartProduct.product.name }}</a>
+                            </div>
+                        </td>
+                        <td>{{ cartProduct.count }}</td>
+                        <td class="text-right color">{{ cartProduct.count*cartProduct.product.priceDiscounted }}</td>
+                    </tr>
+                {% endfor %}
             </tbody>
             <tfoot>
                 <tr><td class="text-right"><strong>运送方式:</strong></td>

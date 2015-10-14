@@ -8,11 +8,11 @@
 
 {% block body %}
 
-<div id="header"></div>
     <div id="cart-page" class="container-non-responsive">
         <div class="page-title">
             <h4>购物车</h4>
         </div>
+
         <div class="page-content">
             <div class="col-xs-12 top-promo">
                 <span>如果您有优惠代码，请输入。
@@ -21,7 +21,7 @@
                 </span>
             </div>
 
-            <div class="cart-content col-xs-12">	           
+            <div class="cart-content col-xs-12">               
                 <table class="table">
                     <thead>
                         <tr>
@@ -34,58 +34,33 @@
                     </thead>
 
                     <tbody>
+                        <form action="{{path('checkout')}}" method="post" onsubmit="">
                         <!-- if there are not items -->
-                        <tr class="hide">
-                            <td colspan="5"><font>
-                                您的购物车是空的</font>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="product-name">
-                                <input type="checkbox" />
-                                <img src="{{asset('img/artemis.jpg')}}"/>
-                                <div class="name-limit"><a href="product.html">好健康蜂胶</a></div>
-                            </td>
-                            <td>$45.00</td>
-                            <td class="clearfix text-right">
-                                <input type="text" value="1" maxlength="99" class="qty">
-                                <button class="number-input"><i class="fa fa-caret-up"></i></button>
-                                <button class="number-input number-input-down"><i class="fa fa-caret-down"></i></button>
-                            </td>
-                            <td><strong>$45.00</strong></td>
-                            <td><a href="">删除</a></td>
-                        </tr>
-                        <tr>
-                            <td class="product-name">
-                                <input type="checkbox" />
-                                <img src="{{asset('img/artemis.jpg')}}"/>
-                                <div class="name-limit"><a href="product.html">好健康蜂胶</a></div>
-                            </td>
-                            <td>$45.00</td>
-                            <td class="clearfix text-right">
-                                <input type="text" value="1" maxlength="99" class="qty">
-                                <button class="number-input"><i class="fa fa-caret-up"></i></button>
-                                <button class="number-input number-input-down"><i class="fa fa-caret-down"></i></button>
-                            </td>
-                            <td><strong>$45.00</strong></td>
-                            <td><a href="">删除</a></td>
-                        </tr>
-                        <tr>
-                            <td class="product-name">
-                                <input type="checkbox" />
-                                <img src="{{asset('img/artemis.jpg')}}"/>
-                                <div class="name-limit"><a href="product.html">好健康蜂胶</a></div>
-                            </td>
-                            <td>$45.00</td>
-                            <td class="clearfix text-right">
-                                <input type="text" value="1" maxlength="99" class="qty">
-                                <button class="number-input"><i class="fa fa-caret-up"></i></button>
-                                <button class="number-input number-input-down"><i class="fa fa-caret-down"></i></button>
-                            </td>
-                            <td><strong>$45.00</strong></td>
-                            <td><a href="">删除</a></td>
-                        </tr>
+                        {% if data|length > 0 %}
+                            {% for cartproduct in data %}
+                                <tr>
+                                    <td class="product-name">
+                                        <input type="checkbox" name="product-id[]" value="{{ cartproduct.product.id }}" />
+                                        <img src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg','img/blackmores.jpg', 'img/artemis.jpg'])) }}"/>
+                                        <div class="name-limit"><a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a></div>
+                                    </td>
+                                    <td>{{ cartproduct.product.priceDiscounted }}</td>
+                                    <td class="clearfix text-right">
+                                        <input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty">
+                                        <button class="number-input"><i class="fa fa-caret-up"></i></button>
+                                        <button class="number-input number-input-down"><i class="fa fa-caret-down"></i></button>
+                                    </td>
+                                    <td><strong>{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
+                                    <td><a class="delete-product-href" data-id="{{ cartproduct.product.id }}" href="#">删除</a></td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="5"><font>
+                                    您的购物车是空的</font>
+                                </td>
+                            </tr>
+                        {% endif %}
                     </tbody>
                     <tfoot>
                         <tr>
@@ -93,29 +68,55 @@
                                 <span><input type="checkbox" />选择全部商品
                                 </span> 
                             </td>
-                            <td colspan="3" class="text-right"><p><a href="#">删除所选商品</a></p>  </td>
-                            <td class="text-right">
-                                <p>已经选择<strong>1</strong>商品</p> 
-                            </td>
+                            
                         </tr>
                         <tr class="tfoot-bottom"> 
                             <td class="text-left"><input type="submit"  value="清空购物车"></td>
                             <td colspan="3" class="total-price">商品总价 （不含运费）：<strong>$45.00</strong> </td>
-                            <td><form action="{{path('checkout')}}" method="get" onsubmit="">
+                            <td>
                             <input type="submit" value="结算">
-                            </form></td>
+                            </td>
                         </tr>
+                        </form>
                     </tfoot>
 
                 </table>
-                {{ dump(data) }}
-            </div> <!--//cart-page-->  
-            <div class="cart-down col-xs-12">
+            </div>
+        </div> <!--//cart-page-->
+
+        <div class="cart-down col-xs-12">
             {% include 'Widget/hotPro.html.twig' %}
-           </div>
-            
-        </div>  
+        </div>
     </div><!-- /container-non-responsive -->
 
-    
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        (function () {
+            $('.delete-product-href').click(function (e) {
+                e.preventDefault();
+                $this = $(this);
+                var productId = $this.attr("data-id");
+                $.ajax({
+                    url:"{{path('cart_ajax_action')}}",
+                    method: "POST",
+                    data: {
+                        id : productId,
+                        action : "rm"
+                    },
+                    dataType: "json"
+                })
+                .done(function (rep) {
+                    console.log( rep );
+                    if (rep.granted) {
+                        location.reload(true);
+                    }
+                    else {
+                        alert("删除失败");
+                    }
+                })
+            })
+        })();
+    </script>
 {% endblock %}

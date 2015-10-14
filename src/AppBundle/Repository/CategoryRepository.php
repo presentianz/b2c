@@ -29,7 +29,7 @@ class CategoryRepository extends NestedTreeRepository
                 break;
 
             default:
-                $orderby = 'p.name ASC';
+                $orderby = 'p.updateAt DESC';
                 break;
         }
 
@@ -74,6 +74,44 @@ class CategoryRepository extends NestedTreeRepository
         $data['row_no'] = ceil(count($data['products'])/3);
 
         return $data;
+    }
+
+    public function getRandomProductsUnderCategory($id, $no)
+    {
+        $em = $this->getEntityManager();
+        $this_root = $em->getRepository('AppBundle:Category')->findOneById($id);
+        $children = $em->getRepository('AppBundle:Category')->children($this_root);
+        $ids = [$id];
+        foreach ($children as $child) {
+            array_push($ids, $child->getId());
+        }
+        $rows = $em->createQuery('SELECT COUNT(p.id) 
+                FROM AppBundle:Category c JOIN c.products p 
+                WHERE c.id IN (:ids)')->setParameter('ids', $ids)->getSingleScalarResult();
+        $offset = max(0, rand(0, $rows - 3));
+        $query = $em->createQuery('SELECT DISTINCT c.name AS category_name, p.id, p.name, p.price AS price, p.price_discounted AS priceDiscounted, p.soldNo AS soldNo, p.inventory, p.status, p.updateAt 
+                FROM AppBundle:Category c JOIN c.products p 
+                WHERE c.id IN (:ids)')
+            ->setParameter('ids', $ids)
+            ->setMaxResults($no)
+            ->setFirstResult($offset);
+        $products = $query->getResult();
+        return $products;
+    }
+
+    public function get2LevelCategory()
+    {
+        $em = $this->getEntityManager();
+        $query = $em
+            ->createQueryBuilder()
+            ->select('node')
+            ->from('AppBundle:Category', 'node')
+            ->orderBy('node.root, node.lft', 'ASC')
+            ->where('node.lvl = 0 OR node.lvl = 1')
+            ->getQuery();
+        $options = array('decorate' => false);
+        $tree = $em->getRepository('AppBundle:Category')->buildTree($query->getArrayResult(), $options);
+        return $tree;
     }
 
     public function findByParentId($parentId)
