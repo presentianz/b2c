@@ -22,6 +22,30 @@ class DefaultController extends Controller
             'data' => $data));
     }
 
+      /**
+     * @Route("/404", name="404")
+     */
+    public function fourOfourAction()
+    {
+        return $this->render('Page/other/404.html.twig');
+    }
+
+      /**
+     * @Route("/about", name="about")
+     */
+    public function aboutAction()
+    {
+        return $this->render('Page/other/about.html.twig');
+    }
+
+     /**
+     * @Route("/contact", name="contact")
+     */
+    public function contactAction()
+    {
+        return $this->render('Page/other/contact.html.twig');
+    }
+
     // /**
     //  * @Route("/test")
     //  */

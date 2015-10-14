@@ -16,6 +16,7 @@ a {
     transition: all .35s;
     text-decoration:none;
     color: #000;
+    outline: none;
 }
 
 a:hover,
@@ -23,12 +24,26 @@ a:focus {
     color: #ee1c24;
     text-decoration:none !important;
     cursor: pointer;
-    /*background-color: transparent !important; */
     outline: none;
 }
 
 ul,li{
     list-style:none;
+}
+
+input {
+    padding: 8px 10px;
+    border: 1px solid #eee;
+    min-width: 30px;
+    font-size: 12px;
+    margin-right: 5px;
+    outline: none;
+}
+
+input:hover,
+input:focus {
+    cursor: pointer;
+    outline: none;
 }
 
 input[type="submit"] {
@@ -53,23 +68,6 @@ input[type="submit"]:focus {
     border: 1px solid #ee1c24;
 }
 
-input {
-    padding: 8px 10px;
-    border: 1px solid #eee;
-    min-width: 30px;
-    font-size: 12px;
-    margin-right: 5px;
-}
-
-input:hover,
-input:focus {
-    cursor: pointer;
-    outline: none;
-}
-
-input[type=checkbox] {
-    outline: none;
-}
 
 input.qty {
     width: 60px;
@@ -527,6 +525,7 @@ ul.nav {
     -moz-border-radius:0px;
     width: 100%;
     border: 1px solid #eee;
+    height: 613px;
 }
 
 .nav li:hover {
@@ -934,8 +933,14 @@ del{
     line-height: 30px;
 }
 
-.page-title {
-    border-bottom: 2px solid #ee1c24;
+.page-title { 
+    border-bottom: 3px solid #ee1c24; /* for IE 8 */
+    border-image: -webkit-linear-gradient(right, #ee1c24, orange, yellow, green, blue, indigo, violet); /* For Safari 5.1 to 6.0 */
+    border-image: -o-linear-gradient(right, #ee1c24, orange, yellow, green, blue, indigo, violet); /* For Opera 11.1 to 12.0 */
+    border-image: -moz-linear-gradient(right, #ee1c24, orange, yellow, green, blue, indigo, violet); /* For Fx 3.6 to 15 */
+    border-image: linear-gradient(to left, #ee1c24, orange, yellow, green, blue, indigo, violet); /* Standard syntax (must be last) */
+    border-image-slice: 1;
+    border-image-width: 0px 0px 3px 0px;
     padding-top: 30px;
     margin-bottom: 20px;
     padding-bottom: 5px;

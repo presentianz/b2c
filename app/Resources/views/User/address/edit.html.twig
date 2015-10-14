@@ -1,4 +1,4 @@
-{% extends 'layout_user.html.twig' %}
+{% extends 'views/User/default/index.html.twig' %}
 
 {% block fos_user_content %}
 
@@ -13,7 +13,7 @@
 
 {% if address.id %}
 	{{ form_start(form, { method: 'POST', action: path('user_address_edit',{ 'id': address.id }) }) }}
-{%else%}
+{% else %}
 	{{ form_start(form, { method: 'POST', action: path('user_address_create') }) }}	
 {% endif %}
     {{ dump(form) }}
