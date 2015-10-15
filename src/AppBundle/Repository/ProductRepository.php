@@ -54,7 +54,8 @@ class ProductRepository extends EntityRepository
                         p.name AS name,
                         p.price AS price,
                         p.price_discounted AS priceDiscounted,
-                        p.soldNo AS soldNo');
+                        p.soldNo AS soldNo,
+                        p.click AS click');
         $products_no = $this->createQueryBuilder('p');
         $products_no->select('COUNT(p.id) AS total_no');
         foreach ($keys as $i => $key) {
@@ -76,6 +77,9 @@ class ProductRepository extends EntityRepository
                 break;
             case '5':
                 $products->orderBy('p.updateAt', 'DESC');
+                break;
+            case '6':
+                $products->orderBy('p.click', 'DESC');
                 break;
             default:
                 $products->addOrderBy('p.updateAt', 'DESC');

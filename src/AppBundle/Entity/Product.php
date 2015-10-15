@@ -66,6 +66,13 @@ class Product
     private $inventory = 0;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="click", type="integer")
+     */
+    private $click = 0;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="description", type="text", nullable=true)
@@ -530,5 +537,28 @@ class Product
     public function getProductKey()
     {
         return $this->productKey;
+    }
+
+    /**
+     * Set click
+     *
+     * @param integer $click
+     * @return Product
+     */
+    public function setClick($click)
+    {
+        $this->click = $click;
+
+        return $this;
+    }
+
+    /**
+     * Get click
+     *
+     * @return integer 
+     */
+    public function getClick()
+    {
+        return $this->click;
     }
 }
