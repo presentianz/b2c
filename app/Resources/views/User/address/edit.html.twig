@@ -19,9 +19,7 @@
     {{ dump(form) }}
 
     <label>name</label>{{ form_widget(form.name) }}
-    <label>contact</label>{{ form_widget(form.contact_no, {'attr': {
-                                                    'class': 'field-contact field-contact',
-                                                    'id' : 'id'}}) }}
+    <label>contact</label>{{ form_widget(form.contact_no) }}
     <input type="submit" value="提交" />
 {{ form_end(form) }}   
 

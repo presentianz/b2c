@@ -300,20 +300,25 @@ input.qty {
 
 #mid-header .col-xs-2 {
     min-width: 150px;
+}
 
+#mid-header .cart-wrapper{
+    width: 145px;
+    height: 35px;
+    position: absolute;
+    top: 50px;
 }
 
 
-#mid-header .col-xs-2:hover .cart-list {
+#mid-header .col-xs-2 > .cart-wrapper:hover .cart-list {
     display: block;
 }
 
-#mid-header .col-xs-2:hover .cart span {
-    background: #ffffff;
+#mid-header .col-xs-2 > .cart-wrapper:hover .cart span {
+    background: #fff;
 }
 
 .cart{
-    margin-top: 50px;
     -webkit-backface-visibility: hidden;
     text-decoration: none;
     display: block;
@@ -370,7 +375,7 @@ input.qty {
     -moz-border-radius:0px;
     position: absolute;
     z-index: 1;
-    right: 15px;
+    right: 0px;
     border: 1px solid #e5e5e5;
     box-shadow: 0 0 2px #999;
     -webkit-box-shadow: 0 0 2px #999;
@@ -464,17 +469,19 @@ input.qty {
     margin: 0 auto;
 }
 
-#topnav .nav-all p {
-    color:#fff;
+#topnav .nav-all > a {
     font-size:15px;
     line-height:45px;
     padding-left: 25px;
     font-weight: bold;
+    margin-right: 5px;
+    color: #fff;
 }
 
-#topnav .nav-all p a{
-    color:#fff;
+#topnav .nav-all > i.fa {
+    color: #fff;
 }
+
 
 #topnav .nav-right{
     height: 45px;
@@ -511,6 +518,11 @@ input.qty {
     background-color: #fff;
 }
 
+
+#topnav .nav-all:hover #siderbar {
+    display: block;
+}
+
 .siderbar.col-xs-3 {
     padding:0;
     width: 253px; 
@@ -524,9 +536,13 @@ ul.nav {
     -webkit-border-radius:0px;  
     -moz-border-radius:0px;
     width: 100%;
-    border: 1px solid #eee;
+    border: 1px solid #eee; 
+}
+
+#siderbar-main ul.nav {
     height: 613px;
 }
+
 
 .nav li:hover {
     background-color: #F5F5F5;
@@ -912,6 +928,8 @@ del{
 
 .page-breadcrumb .toolbar {
     width: 100%;
+    overflow: hidden;
+    height: 30px;
 }
 
 .page-breadcrumb .toolbar > span {
@@ -941,7 +959,6 @@ del{
     border-image: linear-gradient(to left, #ee1c24, orange, yellow, green, blue, indigo, violet); /* Standard syntax (must be last) */
     border-image-slice: 1;
     border-image-width: 0px 0px 3px 0px;
-    padding-top: 30px;
     margin-bottom: 20px;
     padding-bottom: 5px;
 }

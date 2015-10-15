@@ -7,16 +7,6 @@ $(document).ready(function () {
 
     $('#myCarousel').carousel();
 
-        $('.nav-all').hover(
-            function () {
-            $('#siderbar').css('display',"block");
-           });
-
-         $('#siderbar').mouseleave(
-            function () {
-            $(this).css('display',"none");
-           });
-
          $('.save').click(function () {
                 $("#top-address").css("display", "none");
                 $(".bg-mask").css("display", "none");
