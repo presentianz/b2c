@@ -2,31 +2,33 @@
 
 {% block fos_user_content %}
 
-<div class="bg-mask save"></div>
-<div id="top-address" class="page-center">
-    <div class="title">
-        <h4>新建地址/修改地址</h4>
-        <i class="fa fa-remove save"></i>
-    </div> 
+<div class="page-title">
+    <h4>新建地址/修改地址</h4>
+</div>
+<div class="user-content">
 
-    <div class="content">
+    {% if address.id %}
+    {{ form_start(form, { method: 'POST', action: path('user_address_edit',{ 'id': address.id }) }) }}
+    {% else %}
+    {{ form_start(form, { method: 'POST', action: path('user_address_create') }) }}	
+    {% endif %}
+<div class="form">
+    <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
+     <div>{{ form_label(form.contact_no) }}{{ form_widget(form.contact_no) }}</div>
+     <div>{{ form_label(form.id_no) }}{{ form_widget(form.id_no) }}</div>
+     <div>{{ form_label(form.id_scans) }}{{ form_widget(form.id_scans) }}</div>
+     <div>{{ form_label(form.country) }}{{ form_widget(form.country) }}</div>
+     <div>{{ form_label(form.region) }}{{ form_widget(form.region) }}</div>
+     <div>{{ form_label(form.city) }}{{ form_widget(form.city) }}</div>
+    <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
+     <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
+ </div>
+     <div><input type="submit" value="提交" />
+    {{ form_end(form) }}   
 
-{% if address.id %}
-	{{ form_start(form, { method: 'POST', action: path('user_address_edit',{ 'id': address.id }) }) }}
-{% else %}
-	{{ form_start(form, { method: 'POST', action: path('user_address_create') }) }}	
-{% endif %}
-    {{ dump(form) }}
-
-    <label>name</label>{{ form_widget(form.name) }}
-    <label>contact</label>{{ form_widget(form.contact_no) }}
-    <input type="submit" value="提交" />
-{{ form_end(form) }}   
 
 
-
-	</div>
-	</div>
+</div>
 
 
 {% endblock fos_user_content %}

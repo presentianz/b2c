@@ -73,13 +73,6 @@ input.qty {
     width: 60px;
 }
 
-.dashed {
-    padding-right: 10px;
-    border-right: 1px solid #777;
-    margin-right: 7px;
-    vertical-align: middle;
-}
-
 .no-padding {
     padding:0 !important;
 }
@@ -122,7 +115,6 @@ input.qty {
     min-width: 1170px;
 }
 
-.navbar a, 
 .navbar h6 {
     display: inline-block;
     padding: 0px 10px;
@@ -132,14 +124,12 @@ input.qty {
     line-height: 29px;
 }
 
-.navbar .a-login {
-    padding-right: 3px;
+.navbar .a-login h6 {
+    padding:0 1px;
     color: #506eaa;
 }
 
-.navbar .user-list,
-.navbar .history-list,
-.navbar .more-list {
+.navbar .history-list {
     display: none;
     min-width: 70px;
     height: auto;
@@ -154,9 +144,7 @@ input.qty {
     -moz-box-shadow:0 3px 5px #999;
 }
 
-.navbar .user,
 .navbar .history,
-.navbar .more,
 #after-login,
 #before-login {
     display: inline-block;
@@ -164,22 +152,16 @@ input.qty {
 }
 
 
-.navbar .user:hover .user-list,
-.navbar .history:hover .history-list,
-.navbar .more:hover .more-list {
+.navbar .history:hover .history-list {
     display: block;
     top:29px;
 }
 
-.navbar .user:hover,
-.navbar .history:hover,
-.navbar .more:hover {
+.navbar .history:hover{
     background-color: #fff; 
 }
 
-.navbar .user-list > div:hover,
-.navbar .history-list > div:hover,
-.navbar .more-list > div:hover {
+.navbar .history-list > div:hover {
     background-color: #e5e5e5;
 }
 
@@ -201,7 +183,6 @@ input.qty {
 
 .navbar .history .cart-image {
     max-width: 60px;
-    max-height: 60px;
 }
 
 .navbar .history .cart-image img {
@@ -228,6 +209,11 @@ input.qty {
 
 }
 
+.navbar .history .history-clear {
+    text-align: center;
+    background-color: #eee;
+}
+
 /* navbar */
 #mid-header {
     min-width: 1170px;
@@ -247,9 +233,9 @@ input.qty {
 }
 
 
-
-#mid-header .search-query {
+.search-query {
     padding: 4px 14px;
+    line-height: 20px;
     min-width: 450px;
     min-height: 35px;
     border: 3px solid #ee1c24; /* for IE 8 */
@@ -267,42 +253,33 @@ input.qty {
 
 }
 
-#mid-header .navbar-search {
+.navbar-search {
     margin: 50px 23px 0px 17px;
     outline: none;
 }
 
 
-#mid-header .navbar-search input[type="submit"] {
+.navbar-search input[type="submit"] {
     height: 35px;
     vertical-align: top;
     margin-left: -5px;
 }
 
-#mid-header .search-keys a {
-    color: #777;
-    font-size: 12px;
-}
-
-
-#mid-header .col-xs-9 {
-    float: left;
+.search-keys {
     overflow: hidden;
     height: 30px;
     max-width: 500px;
+    color: #777;
 }
 
-#mid-header .col-xs-9 > h6 {
+.search-keys a {
+    color: #777;
     display: inline-block;
-    padding: 10px 6px;
+    margin: 8px 3px;
 }
 
 
-#mid-header .col-xs-2 {
-    min-width: 150px;
-}
-
-#mid-header .cart-wrapper{
+.cart-wrapper{
     width: 145px;
     height: 35px;
     position: absolute;
@@ -310,11 +287,11 @@ input.qty {
 }
 
 
-#mid-header .col-xs-2 > .cart-wrapper:hover .cart-list {
+.cart-wrapper:hover .cart-list {
     display: block;
 }
 
-#mid-header .col-xs-2 > .cart-wrapper:hover .cart span {
+.cart-wrapper:hover .cart span {
     background: #fff;
 }
 
@@ -439,7 +416,7 @@ input.qty {
 }
 
 .cart-list strong{
-    color: #d61920;
+    color: #ee1c24;
     margin: 0 2px;
 }
 
@@ -454,14 +431,14 @@ input.qty {
 
 
 /* Sub Navbar */
-#topnav.top-nav {
+.sub-nav {
     background: #31394a;
     height: 45px;
     width: 1170px;
     margin: 0 auto;
 }
 
-#topnav .nav-all {
+.sub-nav .nav-all {
     background:#ee1c24;
     width:253px;
     height:45px; 
@@ -469,7 +446,7 @@ input.qty {
     margin: 0 auto;
 }
 
-#topnav .nav-all > a {
+.sub-nav .nav-all > a {
     font-size:15px;
     line-height:45px;
     padding-left: 25px;
@@ -478,17 +455,17 @@ input.qty {
     color: #fff;
 }
 
-#topnav .nav-all > i.fa {
+.sub-nav .nav-all > i.fa {
     color: #fff;
 }
 
 
-#topnav .nav-right{
+.sub-nav .nav-right {
     height: 45px;
     display: inline-block;
 }
 
-#topnav .nav-right a{
+.sub-nav .nav-right > a {
     float: left;
     display: inline-block;
     color: #fff;
@@ -498,12 +475,12 @@ input.qty {
     font-weight: bold;
 }
 
-#topnav .nav-right a:hover,
-#topnav .nav-right a:focus{
+.sub-nav .nav-right a:hover,
+.sub-nav .nav-right a:focus{
     color: #999 !important;
 }
 
-#topnav .nav-right a.active{
+.sub-nav .nav-right a.active{
     background: #1d212b;
 }
 
@@ -519,7 +496,7 @@ input.qty {
 }
 
 
-#topnav .nav-all:hover #siderbar {
+#sub-navbar .nav-all:hover #siderbar {
     display: block;
 }
 
@@ -817,7 +794,7 @@ ul.nav {
     position: absolute;
 }
 
-.pro-text{
+.pro-text {
     padding: 25px 0 0 25px;
     width: 250px;
     position: absolute;
@@ -825,13 +802,13 @@ ul.nav {
     left: 10px;
 }
 
-.pro-title{
+.pro-title {
     color: #444 !important;
     font-size: 14px;
     font-weight: bold;
 }
 
-.price{
+.price {
     color: #ee1c24;
     font-size: 16px;
     font-weight: bold;
@@ -840,12 +817,12 @@ ul.nav {
     display: block;
 }
 
-del{
+del {
     font-size: 13px;
     color: #000;
 }
 
-.sold-no{
+.sold-no {
     font-size: 11px;
     color: #6D6D6D;
 }
@@ -961,6 +938,7 @@ del{
     border-image-width: 0px 0px 3px 0px;
     margin-bottom: 20px;
     padding-bottom: 5px;
+    padding-top: 10px;
 }
 
 .page-title h4, 
@@ -1053,40 +1031,6 @@ del{
     cursor: pointer;
 }
 
-/* loading */
-#loading {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE 8 */
-    filter: alpha(opacity=70); /* IE 5-7 */
-    -moz-opacity: 0.7;/* Netscape */
-    -khtml-opacity: 0.7;/* Safari 1.x */
-    opacity: 0.7;
-    background-color: #fff;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    overflow: hidden;
-    display: none;
-}
-
-#loading > div {
-    width: 180px;
-    position: relative;
-    margin: 180px auto;
-}
-
-#loading > div img {
-    width: 100%;
-}
-
-#loading > div h4 {
-    color: #ee1c24;
-    margin-bottom: 10px;
-    text-align: center;
-    font-weight: bold;
-
-}
 
 /*   Footer  */
 footer {
@@ -1153,6 +1097,42 @@ footer .copyright .container-non-responsive {
 
 .no-page strong {
     color: #ee1c24;
+}
+
+
+/* loading */
+#loading {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE 8 */
+    filter: alpha(opacity=70); /* IE 5-7 */
+    -moz-opacity: 0.7;/* Netscape */
+    -khtml-opacity: 0.7;/* Safari 1.x */
+    opacity: 0.7;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    display: none;
+}
+
+#loading > div {
+    width: 180px;
+    position: relative;
+    margin: 180px auto;
+}
+
+#loading > div img {
+    width: 100%;
+}
+
+#loading > div h4 {
+    color: #ee1c24;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+
 }
 
 

@@ -1,29 +1,12 @@
 {% extends 'views/User/default/index.html.twig' %}
 
 {% block fos_user_content %}
-
-        <div class="detail">
             <div class="page-title">
                 <h4>常用地址</h4>
             </div>
             <div class="user-content">
                 <div class="address-detail">
-                    <div class="title">默认地址</div>
-                    <div class="address-each"> 
-                        <h5>
-                            <label>Charis Wan <span>(0215456851)</span></label> 
-                            <div>27 Beaudort Place, Papatoetoe, Auckland, 1025</div>
-
-                            <div>New Zealand</div>  
-                        </h5>
-                    </div>
-                </div>
-                <form action="{{path('user_address_create')}}" method="get" onsubmit="">
-                            <input type="submit" title="添加" value="添加" >
-                            </form>
-                <hr>
-                <div class="address-detail">
-                    <div class="title">其它地址</div>
+                    <div class="title">常用地址</div>
                     {% for address in addresses %}
                     <div class="address-each"> 
                         <a href="#" class="pull-right">设为默认地址</a>
@@ -42,8 +25,10 @@
                     </div>
                     {% endfor %}
             </div>
+             <form action="{{path('user_address_create')}}" method="get" onsubmit="">
+                            <input type="submit" title="添加" value="添加" >
+                            </form>
             
         </div>
-    </div>
      
 {% endblock fos_user_content %}
