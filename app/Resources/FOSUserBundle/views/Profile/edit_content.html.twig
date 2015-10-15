@@ -1,8 +1,32 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
-    </div>
-</form>
+		<div class="page-title">
+            <h4>用户信息修改</h4>
+        </div>
+        <div class="user-content">
+		<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+			<div class="form">
+				<div>
+				{{ form_label(form.username) }}
+   				 {{ form_widget(form.username) }}
+				</div>
+				<div>
+				{{ form_label(form.email) }}
+   				 {{ form_widget(form.email) }}
+				</div>
+				<div>
+				{{ form_label(form.current_password) }}
+   				 {{ form_widget(form.current_password) }}
+				</div>
+			</div>
+			<div class="form">
+				<div>
+   				 {{ form_widget(form.userInfo) }}
+				</div>
+			</div>
+    		<div>
+    		 {{ form_widget(form.cancel) }}
+        	<input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+   			</div>
+		</form>
+		</div>

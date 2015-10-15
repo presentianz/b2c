@@ -4,9 +4,30 @@
     font-weight: bold;
 }
 
+.user-sub-nav {
+    margin: 10px auto;
+    background-color: #fff;
+}
+
+.user-top-search {
+    margin: 5px 0px 5px 30px;
+}
+
+.user-nav-right {  
+    float: right;
+    height: 45px;
+    width: 150px;
+
+}
+
+.user-top-cart {
+    top: 45px;
+}
+
+
 
 #user-page .user-left {
-    margin-top: 30px;
+    margin-top: 10px;
 
 }
 
@@ -23,9 +44,9 @@
     height: 45px;
     width: 100%;
     border-top: 1px dashed #ccc;
+    background-color: transparent;
+
 }
-
-
 
 #user-page .user-left li:first-child {
     border-top-style: none;
@@ -35,10 +56,16 @@
     padding:0;
     color: #666;
     font-weight: normal;
+    background-color: transparent;
+    display: inline-block;
+    margin-right: 10px;
+    width: 90px;
 }
 
-
-
+#user-page .user-left li a:hover,
+#user-page .user-left li a:hover {
+    color: #ee1c24;
+}
 
 #user-page .user-content {
     min-height: 90px;
@@ -48,16 +75,22 @@
     overflow: auto;
 }
 
-#user-page .user-content h5 div {
+#user-page .user-content .form {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 80px;
+}
+
+#user-page .user-content .form div {
     margin-bottom: 10px;
     text-align: left;
 }
 
-#user-page .user-content h5 div label {
+#user-page .user-content .form div label {
      width: 100px;
 }
 
-#user-page .user-content h5 div input {
+#user-page .user-content .form div input {
     width: 250px;
     display: inline-block;
 
