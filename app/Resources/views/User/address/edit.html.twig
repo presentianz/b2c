@@ -1,18 +1,13 @@
 {% extends 'views/User/default/index.html.twig' %}
-
+{% block page_title %}新建地址/修改地址{% endblock page_title %}
 {% block fos_user_content %}
-
-<div class="page-title">
-    <h4>新建地址/修改地址</h4>
-</div>
-<div class="user-content">
 
     {% if address.id %}
     {{ form_start(form, { method: 'POST', action: path('user_address_edit',{ 'id': address.id }) }) }}
     {% else %}
     {{ form_start(form, { method: 'POST', action: path('user_address_create') }) }}	
     {% endif %}
-<div class="form">
+    <div class="form">
     <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
      <div>{{ form_label(form.contact_no) }}{{ form_widget(form.contact_no) }}</div>
      <div>{{ form_label(form.id_no) }}{{ form_widget(form.id_no) }}</div>
@@ -22,13 +17,8 @@
      <div>{{ form_label(form.city) }}{{ form_widget(form.city) }}</div>
     <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
      <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
- </div>
-     <div><input type="submit" value="提交" />
+    </div>
+     <div><input type="submit" value="提交" /></div>
     {{ form_end(form) }}   
-
-
-
-</div>
-
 
 {% endblock fos_user_content %}

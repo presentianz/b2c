@@ -31,11 +31,11 @@
                                 <a class="no-padding a-login" href="{{path('fos_user_security_logout')}}"><h6>登出</h6></a>
                             </div>
                              <div id="user-home" class="history">
-                                <a href="{{path('user_home')}}"><h6>我的彩购</h6></a> 
+                                <a href="{{ path('user_profile') }}"><h6>我的彩购</h6></a> 
                                 <div class="history-list">
-                                    <div><a href="{{path('user_home')}}"><h6>我的账户</h6></a></div>
-                                    <div><a href="{{path('user_home')}}"><h6>我的积分</h6></a></div>
-                                    <div><a href="{{path('user_home')}}"><h6>充值</h6></a></div>
+                                    <div><a href="{{path('user_profile')}}"><h6>我的账户</h6></a></div>
+                                    <div><a href="{{path('user_profile')}}"><h6>我的积分</h6></a></div>
+                                    <div><a href="{{path('user_profile')}}"><h6>充值</h6></a></div>
                                 </div>
                             </div>
                              {% else %}

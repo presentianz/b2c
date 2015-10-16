@@ -35,7 +35,6 @@
 
                     <tbody>
                         <form action="{{path('checkout')}}" method="post" onsubmit="">
-                        <!-- if there are not items -->
                         {% if data|length > 0 %}
                             {% for cartproduct in data %}
                                 <tr>
@@ -92,31 +91,5 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script type="text/javascript">
-        (function () {
-            $('.delete-product-href').click(function (e) {
-                e.preventDefault();
-                $this = $(this);
-                var productId = $this.attr("data-id");
-                $.ajax({
-                    url:"{{path('cart_ajax_action')}}",
-                    method: "POST",
-                    data: {
-                        id : productId,
-                        action : "rm"
-                    },
-                    dataType: "json"
-                })
-                .done(function (rep) {
-                    console.log( rep );
-                    if (rep.granted) {
-                        location.reload(true);
-                    }
-                    else {
-                        alert("删除失败");
-                    }
-                })
-            })
-        })();
-    </script>
+    <script src="{{ asset('js/cart.js') }}"></script>
 {% endblock %}

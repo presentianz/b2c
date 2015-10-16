@@ -15,7 +15,6 @@
             </div>
 
             <div class="col-xs-9 page-right">
-                
                     <div class="page-breadcrumb">
                  <ol>
                     <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
@@ -73,7 +72,7 @@
                                         </button>
                                         </div>
                                     <form method="get" action="{{ path('checkout') }}">
-                                    <input type="submit" value="立即购买" class="pull-right">
+                                    <input type="submit" value="立即购买" class="pull-right" data-id="{{ data.product.id }}" id="buy-now">
                                     </form>
                                     <input type="submit" data-id="{{ data.product.id }}" value="加入购物车" class="pull-right" id="add-cart-button"> 
                                 </div>                                               
@@ -89,7 +88,7 @@
                                     <li id="product-tab3" class="product-tabs" onClick="tabcontent(3)">支付/配送</li>
 
                                 </ul>
-                                <div class="tab-content">
+                                    <div class="tab-content">
                                     <div id="tab-content1" class="tab-contents" style="display: block;">
                                         <div class="box-collateral box-description">
                                             <p><img src="{{ asset('img/sample.jpg') }}" alt=""></p>
@@ -127,8 +126,6 @@
         </div>
     </div><!-- /container-non-responsive -->
 
-<div id="popup-cart" style="display:none;"></div>
-
 <!--loading -->
 <div id="loading">
     <div>
@@ -141,32 +138,4 @@
 {% block javascripts %}
         <script src="{{ asset('js/product.js') }}"></script>
         <script src="{{ asset('js/search.js') }}"></script>
-        <script type="text/javascript">
-            (function () {
-                $('#add-cart-button').click(function (e) {
-                    e.preventDefault();
-                    $this = $(this);
-                    var productId = $this.attr("data-id");
-                    $.ajax({
-                        url:"{{path('cart_ajax_action')}}",
-                        method: "POST",
-                        data: {
-                            id : productId,
-                            no: $('#qty').val(),
-                            action : "+"
-                        },
-                        dataType: "json"
-                    })
-                    .done(function (rep) {
-                        console.log( rep );
-                        if (rep.granted) {
-                            alert("添加成功！");
-                        }
-                        else {
-                            alert("添加失败！");
-                        }
-                    })
-                })
-            })();
-        </script>
     {% endblock %}

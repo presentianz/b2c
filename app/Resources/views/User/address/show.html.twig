@@ -1,19 +1,24 @@
-{% extends 'views/User/default/index.html.twig' %}
-{% block fos_user_content %}
-   
-<div id="address_content">   
-    
-联系人：{{address.name}}
-<br>
-联系电话：{{address.contactNo}}<br>
-国家：{{address.country}}<br>
-省份/地区：{{address.region}}<br>
-城市：{{address.city}}<br>
-邮编：{{address.postCode}}<br>
-地址：{{address.address}}<br>
+                {% for address in addresses %}
+                    <div class="address-each"> 
+                        <a href="#" class="pull-right">设为默认地址</a>
+                        <h5>
+                            <label>{{ address.name }}<span>({{ address.contactNo }})</span></label>
+                                 <div>
+                                 {{ address.address }}, 
+                                 {{ address.region }},
+                                 {{ address.city }}, 
+                                 {{ address.postCode }}
+                                 </div>
+                            <div>{{ address.country }}</div>  
+                        </h5>
+                         <a href="{{ path('user_address_edit', { id: address.id }) }}">编辑</a>
+                         <a href="{{ path('user_address_remove', { id: address.id }) }}">删除</a>
+                    </div>
+                    {% endfor %}
+            	<div>
+             	<form action="{{path('user_address_create')}}" method="get" onsubmit="">
+                <input type="submit" title="添加" value="添加" >
+                </form>
+            	</div>
 
-<div>
 
-<a href="{{ path('user_address_edit', { id: address.id }) }}">编辑</a>
-<a href="{{ path('user_address_remove', { id: address.id }) }}">删除</a>
-{% endblock fos_user_content %}

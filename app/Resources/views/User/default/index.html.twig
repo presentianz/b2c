@@ -74,7 +74,7 @@
 		<ul class="nav nav-list">
 			<li class="active">
 				<a href="{{path("fos_user_profile_show")}}">账户管理</a>
-                <a href="#tab2">我的订单</a>
+                <a href="{{path("user_order")}}">我的订单</a>
 			</li>
 			<li>
 				<a href="{{path("user_address")}}">常用地址</a>
@@ -96,10 +96,15 @@
         </div>
         <div class="col-xs-9 page-right">
         	<div class="page-content">
-        	{% block fos_user_content %}
-            {% include "FOSUserBundle:Profile:show_content.html.twig" %}
-        		 {#{{ dump(app.user) }}#}
-            {% endblock fos_user_content %}
+                <div class="page-title">
+                    <h4>{% block page_title %}用户信息{% endblock page_title %}</h4>
+                </div>
+                <div class="user-content">
+        	       {% block fos_user_content %}
+                     {% include "FOSUserBundle:Profile:show_content.html.twig" %}
+        		       {#{{ dump(app.user) }}#}
+                   {% endblock fos_user_content %}
+                </div>
         </div>
     </div>
  </div>
