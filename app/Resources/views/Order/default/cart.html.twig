@@ -45,9 +45,13 @@
                                     </td>
                                     <td>{{ cartproduct.product.priceDiscounted }}</td>
                                     <td class="clearfix text-right">
-                                        <input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty">
-                                        <button class="number-input"><i class="fa fa-caret-up"></i></button>
-                                        <button class="number-input number-input-down"><i class="fa fa-caret-down"></i></button>
+                                        <div class="number-group">
+                                            <input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" id="{{cartproduct.product.id }}">
+                                            <div class="number-button" >
+                                                <div id="number-up" class="number-input number-input-up" data-id="{{cartproduct.product.id }}"><i class="fa fa-caret-up"></i></div>
+                                                <div id="number-down" class="number-input number-input-down" data-id="{{cartproduct.product.id }}"><i class="fa fa-caret-down"></i></div>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td><strong>{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
                                     <td><a class="delete-product-href" data-id="{{ cartproduct.product.id }}" href="#">删除</a></td>

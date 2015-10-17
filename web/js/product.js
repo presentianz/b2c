@@ -13,15 +13,6 @@ function productpic(i) {
 $(document).ready(function ()
 {
 
-    $("#num-up").click(function () {
-        var $n = $("#qty");
-        $n.val(Number($n.val()) + 1);
-    });
-    $("#num-down").click(function () {
-        var $n = $("#qty");
-        $n.val(Number($n.val()) - 1);
-    });
-
     $('#collect').click(function() {
         $("#loading").css("display", "block");
         });

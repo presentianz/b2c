@@ -61,16 +61,19 @@
                             <p class="t-type3">该商品已被收藏&nbsp;&nbsp;<span class="t-type2">0</span>&nbsp;&nbsp;次，已经被购买&nbsp;&nbsp;<span class="t-type2">{{ data.product.soldNo }}</span>&nbsp;&nbsp;件&nbsp;&nbsp;（库存 {{ data.product.inventory }}）</p>
                             <div class="add-to-box">
                                 <div class="add-to-cart clearfix">
+                                    <div class="pull-left number-label">
+                                        <label for="qty">数量：</label> 
+                                    </div>
                                     <div class="pull-left">
-                                        <label for="qty">数量：</label>
-                                        <input type="text" name="qty" id="qty" maxlength="12" value="1" title="数量" class="input-text qty">
-                                        <button class="number-input" id="num-up">
-                                        <i class="fa fa-caret-up"></i>
-                                        </button>
-                                        <button class="number-input number-input-down" id="num-down">
-                                        <i class="fa fa-caret-down"></i>
-                                        </button>
+                                         <div class="number-group">
+                                            <input type="text" maxlength="99" class="qty" value="1" id="123">
+                                             <div class="number-button">
+                                            <div id="number-up" class="number-input number-input-up" data-id="123"><i class="fa fa-caret-up"></i></div>
+                                             <div id="number-down" class="number-input number-input-down" data-id="123"><i class="fa fa-caret-down"></i></div>
+                                             </div>
                                         </div>
+                                    </div>
+                                       
                                     <form method="get" action="{{ path('checkout') }}">
                                     <input type="submit" value="立即购买" class="pull-right" data-id="{{ data.product.id }}" id="buy-now">
                                     </form>

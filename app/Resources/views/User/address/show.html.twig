@@ -2,8 +2,8 @@
                     <div class="address-each"> 
                         <a href="#" class="pull-right">设为默认地址</a>
                         <h5>
-                            <label>{{ address.name }}<span>({{ address.contactNo }})</span></label>
-                                 <div>
+                            <label>{{ address.name }}<span>&nbsp;&nbsp;({{ address.contactNo }})</span></label>
+                                 <div class="address-detail">
                                  {{ address.address }}, 
                                  {{ address.region }},
                                  {{ address.city }}, 
@@ -11,8 +11,10 @@
                                  </div>
                             <div>{{ address.country }}</div>  
                         </h5>
-                         <a href="{{ path('user_address_edit', { id: address.id }) }}">编辑</a>
-                         <a href="{{ path('user_address_remove', { id: address.id }) }}">删除</a>
+                        <a href="{{ path('user_address_edit', { id: address.id }) }}">
+                        <strong>编辑</strong></a>
+                        <a href="{{ path('user_address_remove', { id: address.id }) }}">
+                        <strong>删除</strong></a>
                     </div>
                     {% endfor %}
             	<div>

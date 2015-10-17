@@ -14,11 +14,25 @@
    				 {{ form_widget(form.current_password) }}
 				</div>
 			</div>
-			<div class="form">
+				<div class="form">
 				<div>
-   				 {{ form_widget(form.userInfo) }}
+				{{ form_label(form.userInfo.fullname) }}
+   				 {{ form_widget(form.userInfo.fullname) }}
+				</div>
+				<div>
+				{{ form_label(form.userInfo.wechatno) }}
+   				 {{ form_widget(form.userInfo.wechatno) }}
+				</div>
+				<div>
+				{{ form_label(form.userInfo.qqno) }}
+   				 {{ form_widget(form.userInfo.qqno) }}
+				</div>
+				<div>
+				{{ form_label(form.userInfo.contactno) }}
+   				 {{ form_widget(form.userInfo.contactno) }}
 				</div>
 			</div>
+
     		<div>
     		 {{ form_widget(form.cancel) }}
         	<input type="submit" value="{{ 'profile.edit.submit'|trans }}" />

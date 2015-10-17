@@ -287,11 +287,21 @@
     float: left;
     width: 420px;
     background-color: #eee;  
-        border: 1px solid #ccc;
+    border: 1px solid #ccc;
+    height: 130px;
 }
 
 #user-page .address-each h5 {
     width:260px;
+}
+
+#user-page .address-each h5 > div {
+    margin-bottom: 5px;
+}
+
+#user-page .address-each h5 .address-detail {
+    min-height: 30px;
+    word-wrap: break-word;
 }
 
 
