@@ -17,33 +17,49 @@ $(document).ready(function ()
         $("#loading").css("display", "block");
         });
 
-    $('#add-cart-button').click(function (e) {
-                    e.preventDefault();
-                    $this = $(this);
-                    var productId = $this.attr("data-id");
-                    $.ajax({
-                        url:"{{path('cart_ajax_action')}}",
-                        method: "POST",
-                        data: {
-                            id : productId,
-                            no: $('#qty').val(),
-                            action : "+"
-                        },
-                        dataType: "json"
-                    })
-                    .done(function (rep) {
-                        console.log( rep );
-                        if (rep.granted) {
-                            alert("添加成功！");
-                        }
-                        else {
-                            alert("添加失败！");
-                        }
-                    })
-       });
-
-
-   
-
-
+    
 });
+
+(function () {
+    
+    $("#number-up").click(function (e) {
+        e.preventDefault();
+        $this = $(this);
+        var productId = $this.attr("data-id");
+        var $n = $("#" + productId);
+        $n.val(Number($n.val()) + 1);
+    });
+
+    $("#number-down").click(function (e) {
+        e.preventDefault();
+        $this = $(this);
+        var productId = $this.attr("data-id");
+        var $n = $("#" + productId);
+        $n.val(Number($n.val()) - 1);
+    });
+
+    $('#add-cart-button').click(function (e) {
+        e.preventDefault();
+        $this = $(this);
+        var productId = $this.attr("data-id");
+        $.ajax({
+            url: $this.attr("data-path"),
+            method: "POST",
+            data: {
+                id : productId,
+                no: $('#123').val(),
+                action : "+"
+            },
+            dataType: "json"
+        })
+        .done(function (rep) {
+            console.log( rep );
+            if (rep.granted) {
+                alert("添加成功！");
+            }
+            else {
+                alert("添加失败！");
+            }
+        })
+    });
+})();

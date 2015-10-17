@@ -48,13 +48,13 @@
                                         <div class="number-group">
                                             <input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" id="{{cartproduct.product.id }}">
                                             <div class="number-button" >
-                                                <div id="number-up" class="number-input number-input-up" data-id="{{cartproduct.product.id }}"><i class="fa fa-caret-up"></i></div>
-                                                <div id="number-down" class="number-input number-input-down" data-id="{{cartproduct.product.id }}"><i class="fa fa-caret-down"></i></div>
+                                                <div class="number-input number-input-up cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="+" data-no="1"><i class="fa fa-caret-up"></i></div>
+                                                <div class="number-input number-input-down cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="-" data-no="1"><i class="fa fa-caret-down"></i></div>
                                             </div>
                                         </div>
                                     </td>
                                     <td><strong>{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
-                                    <td><a class="delete-product-href" data-id="{{ cartproduct.product.id }}" href="#">删除</a></td>
+                                    <td><a class="cart-action-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm" href="#">删除</a></td>
                                 </tr>
                             {% endfor %}
                         {% else %}
@@ -71,7 +71,6 @@
                                 <span><input type="checkbox" />选择全部商品
                                 </span> 
                             </td>
-                            
                         </tr>
                         <tr class="tfoot-bottom"> 
                             <td class="text-left"><input type="submit"  value="清空购物车"></td>

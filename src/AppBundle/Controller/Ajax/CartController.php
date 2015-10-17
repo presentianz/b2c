@@ -45,7 +45,7 @@ class CartController extends Controller
                 switch ($action) {
                     //add one
                     case '+':
-                        if ($cartProduct === false) {
+                        if ($cartProduct == false) {
                             $cartProduct = new CartProduct();
                             $cartProduct->setProduct($product);
                             $cartProduct->setCount($no);
@@ -66,10 +66,10 @@ class CartController extends Controller
                             $em->flush();
                         }
                         elseif ($cartProduct) {
-                            $return['granted'] == false;
+                            $return['granted'] = false;
                         }
                         else {
-                            $return['granted'] == false;
+                            $return['granted'] = false;
                         }
                         break;
                     //edit or insert
@@ -94,18 +94,18 @@ class CartController extends Controller
                             $em->flush();
                         }
                         else {
-                            $return['granted'] == false;
+                            $return['granted'] = false;
                         }
                         break;
 
                     default:
-                        $return['granted'] == false;
+                        $return['granted'] = false;
                         break;
                 }
 
             }
             else {
-                $return['granted'] == false;
+                $return['granted'] = false;
             }
             return new Response(json_encode($return));
         }

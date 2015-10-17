@@ -122,7 +122,7 @@
                                 {% for product in data.products|slice(3*(i - 1), 3) %}
                                     <div class="col-xs-4">
                                         <a href="{{ path('product', {id : product.id}) }}">
-                                            <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
+                                            <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
                                             <span class="pro-text"><span class="pro-title">{{ product.name }}<br></span><span class="price">${{ product.priceDiscounted }}</span><del>${{ product.price }}</del><br><span class="sold-no">售出：{{ product.soldNo }}</span><br><span class="sold-no">浏览数：{{ product.click }}</span></span>
                                         </a>
                                     </div>

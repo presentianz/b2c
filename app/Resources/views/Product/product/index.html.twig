@@ -75,11 +75,11 @@
                                     </div>
                                        
                                     <form method="get" action="{{ path('checkout') }}">
-                                    <input type="submit" value="立即购买" class="pull-right" data-id="{{ data.product.id }}" id="buy-now">
+                                        <input type="submit" value="立即购买" class="pull-right" data-id="{{ data.product.id }}" id="buy-now">
                                     </form>
-                                    <input type="submit" data-id="{{ data.product.id }}" value="加入购物车" class="pull-right" id="add-cart-button"> 
-                                </div>                                               
-                            </div>    
+                                    <input type="submit" data-id="{{ data.product.id }}" data-path="{{ path('cart_ajax_action') }}" value="加入购物车" class="pull-right" id="add-cart-button"> 
+                                </div>
+                            </div>
                         </div> 
                     </div>
                     <div class="product-info clearfix">
@@ -139,6 +139,6 @@
 {% endblock %}
 
 {% block javascripts %}
-        <script src="{{ asset('js/product.js') }}"></script>
-        <script src="{{ asset('js/search.js') }}"></script>
-    {% endblock %}
+    <script src="{{ asset('js/product.js') }}"></script>
+    <script src="{{ asset('js/search.js') }}"></script>
+{% endblock %}
