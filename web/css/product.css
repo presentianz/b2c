@@ -72,6 +72,11 @@
     margin: 10px 0;
 }
 
+#product-page .add-to-cart .number-label {
+    line-height: 35px;
+    margin-right: 10px;  
+}
+
 #product-page .add-to-cart input[type="submit"] {
     margin-left: 10px;
     height: 35px;

@@ -1,0 +1,92 @@
+    {% extends 'views/User/default/index.html.twig' %}
+{% block page_title %}订单详情{% endblock page_title %}
+{% block fos_user_content %}      
+
+          <div class="order-transfer-info">
+               <!--wait for second-->
+           </div>
+           <div class="order-status-info">
+            <label>当前订单状态</label>
+            <span class="color">待付款</span>
+            <span>(请在 0小时 40分：45秒内完成付款，过期会自动取消订单)</span>
+            <input type="submit" value="付款"/>
+
+        </div>
+        <hr>
+        <div class="order-info">
+           <label>物流信息</label>
+           <div><span>发货时间：</span><span>暂未发货</span></div>
+           <div><span>配送方式：</span><span>快递</span></div>
+           <div><span>快递单号：</span><span>暂无</span></div>
+           <!--wait for second-->
+       </div>
+       <hr>
+       <div class="order-info">
+         <label>收件人信息</label>
+         <div><span>姓名：</span><span>万江</span></div>
+         <div><span>电话：</span><span>12341546213</span></div>
+         <div><span>地址：</span>
+           <span>湖北省武汉市江汉区三眼桥北路海虹景7栋二单元701, 430020</span>
+       </div>
+       <div><span>国家：</span><span>中国</span></div>
+   </div>
+   <hr>
+   <div class="order-info">
+    <label>订单信息</label>
+    <div><span>订单号：</span><span>20152346854</span></div>
+    <div><span>提交时间：</span><span>2015-08-07</span></div>
+    <div><span>订单总价：</span><span>NZD：27.00</span></div>
+</div>
+<hr>
+<div class="order-product-info">
+   <label>商品信息</label>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th width="60%">商品名称</th>
+            <th>数量</th>
+            <th>单价（纽币）</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="text-left">
+                <div class="col-xs-3 img">
+                    <img src="{{ asset('img/honey.jpg') }}" />
+                </div>
+                <div class="col-xs-9 order-product-name">
+                    <h5><a href="product.html">
+                        【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
+                    </a></h5>
+                    <h6>3段</h6>                                          
+                </div>
+            </td>
+            <td>1</td>
+            <td>27.00</td>
+            <td class="operate">
+               <input type="submit" value="付款"/>
+               <div><a href="#">取消订单</a></div>
+           </td>
+       </tr>
+       <tr>
+        <td class="text-left">
+            <div class="col-xs-3 img">
+                <img src="{{ asset('img/honey.jpg') }}" />
+            </div>
+            <div class="col-xs-9 order-product-name">
+                <h5><a href="product.html">
+                    【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
+                </a></h5>
+                <h6>3段</h6>                                          
+            </div>
+        </td>
+        <td>1</td>
+        <td>27.00</td>
+        
+    </tr>
+</tbody>
+</table>
+
+{% endblock fos_user_content %}
