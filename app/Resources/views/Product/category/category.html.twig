@@ -156,13 +156,15 @@
                         <div class="toolbar toolbar-bottom">
                             <div class="pull-right">
                                 <label>页面：</label>
-                                <span class="select-box-num">                                
+                                <span class="select-box-num select-page-number">                                
                                     <a href="{{ path('category', {
                                         id : id,
                                         page : page + 1,
                                         sort : sort,
                                         item_no: item_no
                                     }) }}" {% if page == data.total_page %} class="hide" {% endif %} class="i-next" href="#" title="下一个"><i class="fa fa-caret-right"></i></a>
+                                     <a id="next" href="#" class="next">
+                                    <i class="fa fa-angle-double-right"></i></a>
                                     {% for i in data.total_page..1 %}
                                         <a href="{{ path('category', {
                                             id : id,
@@ -171,6 +173,8 @@
                                             item_no: item_no
                                         }) }}" {% if i == page %} class="active" {% endif %}> {{ i }}</a>
                                     {% endfor %}
+                                     <a id="prev" href="#" class="prev">
+                                   <i class="fa fa-angle-double-left"></i></a>
                                     <a href="{{ path('category', {
                                         id : id,
                                         page : page - 1,
