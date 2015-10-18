@@ -51,41 +51,27 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td class="text-left">
-                <div class="col-xs-3 img">
-                    <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
-                </div>
-                <div class="col-xs-9 order-product-name">
-                    <h5><a href="product.html">
-                        【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
-                    </a></h5>
-                    <h6>3段</h6>                                          
-                </div>
-            </td>
-            <td>1</td>
-            <td>27.00</td>
-            <td class="operate">
-               <input type="submit" value="付款"/>
-               <div><a href="#">取消订单</a></div>
-           </td>
-       </tr>
-       <tr>
-        <td class="text-left">
-            <div class="col-xs-3 img">
-               <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
-            </div>
-            <div class="col-xs-9 order-product-name">
-                <h5><a href="product.html">
-                    【爱他美奶粉】爱他美金装一段奶粉 宝宝最佳选择 新西兰
-                </a></h5>
-                <h6>3段</h6>                                          
-            </div>
-        </td>
-        <td>1</td>
-        <td>27.00</td>
-        
-    </tr>
+        {% for orderProduct in data.orderProducts %}
+            <tr>
+                <td class="text-left">
+                    <div class="col-xs-3 img">
+                        <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
+                    </div>
+                    <div class="col-xs-9 order-product-name">
+                        <h5><a href="{{ path('product', { id : orderProduct.product.id }) }}">
+                            {{ orderProduct.product.name }}
+                        </a></h5>
+                        <h6></h6>                                          
+                    </div>
+                </td>
+                <td>{{ orderProduct.count }}</td>
+                <td>{{ orderProduct.price }}</td>
+                <td class="operate">
+                   <input type="submit" value="付款"/>
+                   <div><a href="#">取消订单</a></div>
+               </td>
+           </tr>
+        {% endfor %}
 </tbody>
 </table>
 

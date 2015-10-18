@@ -58,6 +58,7 @@
             </thead>
             <tbody>
              {% set sum = 0 %}
+             {% set ids = [] %}
                 {% for cartProduct in data %}
                     <tr>
                         <td class="product-name">
@@ -69,7 +70,9 @@
                         <td class="text-right color">{{ cartProduct.count*cartProduct.product.priceDiscounted }}</td>
                     </tr>
                      {% set sum = sum + cartProduct.count*cartProduct.product.priceDiscounted %}
+                     {% set ids = ids|merge([cartProduct.product.id]) %}
                 {% endfor %}
+                {% set ids = ids|join(' ') %}
             </tbody>
             <tfoot>
                 <tr><td class="text-right"><strong>运送方式:</strong></td>
@@ -114,19 +117,44 @@
                             </h3></div>
                         </div>
                     </div>
-                            <form action="{{path('order_confirm')}}" method="get" onsubmit="">
-                            <input type="submit" title="提交订单" class="btn-pay" value="提交订单" >
-                            </form>
-                   
-                      </div>
-                 </div>
-              <div class="cart-down col-xs-12">
-            {% include 'Widget/hotPro.html.twig' %}
+                    
+                            <input type="submit" title="提交订单" data-id="{{ ids }}" class="btn-pay" value="提交订单" >
+
+                    </div>
+                </div>
+            <div class="cart-down col-xs-12">
+                {% include 'Widget/hotPro.html.twig' %}
            </div>       
         </div><!-- /container-non-responsive -->
 
 {% endblock %}
 
 {% block javascripts %}
-        <script src="{{ asset('js/checkout.js') }}"></script>
-    {% endblock %}
+    <script src="{{ asset('js/checkout.js') }}"></script>
+    <script type="text/javascript">
+    (function () {
+        $('.btn-pay').click(function () {
+            $this = $(this);
+        var productId = $this.attr("data-id");
+        $.ajax({
+            url: "{{ path('order_generation') }}",
+            method: "GET",
+            data: {
+                id : productId,
+            },
+            dataType: "json"
+        })
+        .done(function (rep) {
+            console.log(rep);
+            if (rep.granted) {
+                alert("成功！");
+                window.location.replace("{{ path('order_confirm') }}"+'?id='+rep.id);
+            }
+            else {
+                alert("。。");
+            }
+        })
+        });
+    })();
+    </script>
+{% endblock %}

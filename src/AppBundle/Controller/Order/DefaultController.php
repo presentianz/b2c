@@ -55,11 +55,12 @@ class DefaultController extends Controller
      */
     public function orderConfirmAction(Request $request)
     {
+        $id = $request->query->get('id');
         $em = $this->getDoctrine()->getManager();
-        $user = $this->getUser();
-        $cartProducts = $em->getRepository('AppBundle:CartProduct')->findByUser($user->getId());
+        $order = $em->getRepository('AppBundle:UserOrder')->findOneById($id);
+        
         return $this->render('Order/default/order_confirm.html.twig', array(
-            'data' => $cartProducts
+            'data' => $order
             ));
     }
 

@@ -27,7 +27,11 @@ class OrderController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('User/order/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $orders = $em->getRepository('AppBundle:UserOrder')->findByUser($this->getUser()->getId());
+        return $this->render('User/order/index.html.twig', array(
+            'data' => $orders
+            ));
     }
 
     /**
@@ -35,8 +39,10 @@ class OrderController extends Controller
      */
     public function detailAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
+        $order = $em->getRepository('AppBundle:UserOrder')->findOneById($id);
         return $this->render('User/order/detail.html.twig', array(
-            "id" => $id
-        ));
+            "data" => $order
+            ));
     }
 }
