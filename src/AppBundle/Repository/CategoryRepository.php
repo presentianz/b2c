@@ -28,6 +28,10 @@ class CategoryRepository extends NestedTreeRepository
                 $orderby = 'p.updateAt DESC';
                 break;
 
+            case '6':
+                $orderby = 'p.click DESC';
+                break;
+
             default:
                 $orderby = 'p.updateAt DESC';
                 break;
@@ -46,7 +50,14 @@ class CategoryRepository extends NestedTreeRepository
 
         //find data
         $query_products = $gEM->createQuery(
-                'SELECT c.name AS category_name, p.id, p.name, p.price AS price, p.price_discounted AS priceDiscounted, p.soldNo AS soldNo, p.inventory, p.status, p.updateAt 
+                'SELECT c.name AS category_name, 
+                        p.id, p.name, p.price AS price, 
+                        p.price_discounted AS priceDiscounted, 
+                        p.soldNo AS soldNo, 
+                        p.inventory, 
+                        p.status, 
+                        p.updateAt, 
+                        p.click
                 FROM AppBundle:Category c JOIN c.products p 
                 WHERE c.id IN (:ids) 
                 ORDER BY '.$orderby
@@ -89,7 +100,15 @@ class CategoryRepository extends NestedTreeRepository
                 FROM AppBundle:Category c JOIN c.products p 
                 WHERE c.id IN (:ids)')->setParameter('ids', $ids)->getSingleScalarResult();
         $offset = max(0, rand(0, $rows - 3));
-        $query = $em->createQuery('SELECT DISTINCT c.name AS category_name, p.id, p.name, p.price AS price, p.price_discounted AS priceDiscounted, p.soldNo AS soldNo, p.inventory, p.status, p.updateAt 
+        $query = $em->createQuery('SELECT DISTINCT 
+                                    c.name AS category_name, 
+                                    p.id, p.name, p.price AS price, 
+                                    p.price_discounted AS priceDiscounted, 
+                                    p.soldNo AS soldNo, 
+                                    p.inventory, 
+                                    p.status, 
+                                    p.updateAt, 
+                                    p.click
                 FROM AppBundle:Category c JOIN c.products p 
                 WHERE c.id IN (:ids)')
             ->setParameter('ids', $ids)

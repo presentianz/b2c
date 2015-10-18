@@ -20,3 +20,8 @@ services:
         scope: request
         tags:
             - { name: kernel.event_subscriber }
+
+    product.click.increment:
+        class: AppBundle\EventListener\ProductClickIncrement
+        tags:
+            - { name: doctrine.event_listener, event: postLoad }
