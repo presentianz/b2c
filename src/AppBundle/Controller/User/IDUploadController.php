@@ -7,26 +7,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
- * @Route("/account")
+ * @Route("/account/idupload")
  * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
  */
 
-class DefaultController extends Controller
+class IDUploadController extends Controller
 {
     /**
-     * @Route("/", name="user_home")
+     * @Route("/", name="user_id_upload")
      */
     public function indexAction()
     {
-        return $this->render('User/default/index.html.twig');
-    }
-
-     /**
-     * @Route("/email", name="user_email")
-     */
-    public function emailAction()
-    {
-        return $this->render('User/email/email.html.twig');
+        return $this->render('User/address/id_upload.html.twig');
     }
 
   

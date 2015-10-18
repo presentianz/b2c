@@ -2,6 +2,32 @@
 
 {% block title %}订单确认{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/order-confirm.css') }}" type="text/css">
+{% endblock %}
+
 {% block body %}
-    {{ dump(data) }}
+   
+    <div id="checkout-page" class="container-non-responsive">
+        <div class="page-title">
+            <h4>订单确认</h4>
+        </div>	
+        <div class="page-content">
+         {{ dump(data) }}
+         <div class="order-confirm-content">
+         	<h4>您的订单提交成功，感谢您光临<a href="{{ path('homepage') }}">彩购网</a></h4>
+         	<div class="order-confirm-id">
+         	<label>订单号:</label>
+         	<a href="{{ path('user_order_detail',{ 'id': '21023141213121' }) }}">
+         	<span class="color">21023141213121</span></a>
+         <span>请您耐心等待， 我们会尽安排发货处理，感谢您的支持！</span>
+         	</div>
+         	<div>继续购物，<a href="{{ path('homepage') }}">请点这里</a></div>
+
+         </div>
+        </div>
+        <div class="cart-down col-xs-12">
+            {% include 'Widget/hotPro.html.twig' %}
+        </div>
+    </div>
 {% endblock %}

@@ -73,14 +73,11 @@
                 <tr><td class="text-right"><strong>运送方式:</strong></td>
                     <td>
                         <input type="text" placeholder="快递" id="delivery-option">
-
                         <ul class="delivery-options">
                             <li><span>快递（3-5天）</span><span class="color">$20.00</span></li>
                             <li> <span>平递（7-10天）</span><span class="color">$0.00</span></li>
                             <li> <span>海运（10-15天）</span><span class="color">$0.00</span></li>
                         </ul> 
-
-
                     </td>
                     <td class="text-right color">20.00</td> </tr>
                     <tr><td class="text-right"><strong>运送保险:</strong></td>
@@ -109,18 +106,16 @@
                             <div class="text-right color"><h3><strong>应付总额：</strong>$42.00</h3></div>
                         </div>
                     </div>
-                    <form action="{{path('order_confirm')}}" method="get" onsubmit="">
+                            <form action="{{path('order_confirm')}}" method="get" onsubmit="">
                             <input type="submit" title="提交订单" class="btn-pay" value="提交订单" >
                             </form>
                    
-                </div>
+                      </div>
+                 </div>
               <div class="cart-down col-xs-12">
             {% include 'Widget/hotPro.html.twig' %}
-           </div>
-
-            </div>  <!--//cart-page-->  
+           </div>       
         </div><!-- /container-non-responsive -->
-        <div id="footer"></div>
 
 {% endblock %}
 

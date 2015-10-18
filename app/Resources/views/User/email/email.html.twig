@@ -1,0 +1,30 @@
+ {% extends 'views/User/default/index.html.twig' %}
+{% block page_title %}邮件选择{% endblock page_title %}
+{% block fos_user_content %}
+ <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" value="option1" >当请求密码重置的时候
+                </label>
+            </div>
+            <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" value="option2" >当生产新的订单的时候
+                </label>
+            </div>
+            <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" value="option3">当使用信用卡付款的时候
+                </label>
+            </div>
+            <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" value="option4" >当你的订单已发货的时候
+                </label>
+            </div>
+            <div class="checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" value="option5" >当你的账号有中弹改动的时候
+                </label>
+            </div>
+            <input type="submit" value="保存">
+            {% endblock fos_user_content %}

@@ -34,7 +34,7 @@
                             <i class="cart-block-row"></i>
                             <div class="item">
                                 <div class="cart-image">
-                                    <img src="{{ asset('img/aptami.jpg') }}" />
+                                   <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
                                 </div>
                                 <div class="nav-cart-content">
                                     <h5>麦卢卡蜂蜜</h5>
@@ -45,7 +45,7 @@
                             </div>
                             <div class="item">
                                 <div class="cart-image">
-                                    <img src="{{ asset('img/aptami.jpg') }}" />
+                                   <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
                                 </div>
                                 <div class="nav-cart-content">
                                     <h5>麦卢卡蜂蜜</h5>
@@ -78,15 +78,15 @@
 			</li>
 			<li>
 				<a href="{{path("user_address")}}">常用地址</a>
-                <a href="#tab6">上传身份证</a>
+                <a href="{{path("user_id_upload")}}">上传身份证</a>
 			</li>
 			<li>
-				<a href="#tab3">充值</a>
+				<a href="{{path("user_topup")}}">充值</a>
                 <a href="#tab4">消费历史</a>
 			</li>
             <li>
                 <a href="{{path("fos_user_change_password")}}">修改密码</a>
-                <a href="#tab9">邮件选择</a>
+                <a href="{{path("user_email")}}">邮件选择</a>
             </li>
             </ul>
 

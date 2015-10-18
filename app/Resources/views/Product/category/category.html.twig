@@ -30,7 +30,7 @@
                         
                         {% if data.children|length > 0 %}
                         <div class="toolbar">
-                        <span>可选分类</span>
+                        <div>可选分类</div>
                             {% for category in data.children %}
                             <a class="search-keys" href="{{ path('category', {id : category.id}) }}">{{ category.name }}</a>
                             {% endfor %}
@@ -140,13 +140,13 @@
                         <div class="toolbar toolbar-bottom">
                             <div class="pull-right">
                                 <label>页面：</label>
-                                <span class="select-box-num">
+                                <span class="select-box-num">                                
                                     <a href="{{ path('category', {
                                         id : id,
                                         page : page + 1,
                                         sort : sort,
                                         item_no: item_no
-                                    }) }}" class="i-next" href="#" title="下一个"><i class="fa fa-caret-right"></i></a>
+                                    }) }}" {% if page == data.total_page %} class="hide" {% endif %} class="i-next" href="#" title="下一个"><i class="fa fa-caret-right"></i></a>
                                     {% for i in data.total_page..1 %}
                                         <a href="{{ path('category', {
                                             id : id,
@@ -155,6 +155,12 @@
                                             item_no: item_no
                                         }) }}" {% if i == page %} class="active" {% endif %}> {{ i }}</a>
                                     {% endfor %}
+                                    <a href="{{ path('category', {
+                                        id : id,
+                                        page : page - 1,
+                                        sort : sort,
+                                        item_no: item_no
+                                    }) }}" {% if page - 1 == 0 %} class="hide" {% endif %} class="i-next" href="#" title="上一个"><i class="fa fa-caret-left"></i></a>
                                 </span>
                             </div>
                         </div> 

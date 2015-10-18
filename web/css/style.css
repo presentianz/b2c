@@ -68,7 +68,21 @@ input[type="submit"]:focus {
     border: 1px solid #ee1c24;
 }
 
+textarea {
+    width: 250px;
+    vertical-align: top;
+    height: 80px;
+    resize: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-color: #eee;
+}
 
+select {
+    width: 250px;
+    border-color: #eee;
+    outline: none;
+}
 
 .no-padding {
     padding:0 !important;
@@ -918,11 +932,15 @@ del {
     height: 30px;
 }
 
-.page-breadcrumb .toolbar > span {
+.page-breadcrumb .toolbar > div {
     background-color: #ee1c24;
     margin-right: 10px;
     color: #fff;
-    padding: 7px 10px 6px 10px;
+    padding: 0px 10px 0px 10px;
+    line-height: 30px;
+    width: 85px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .page-breadcrumb .toolbar .search-keys {

@@ -18,7 +18,10 @@
     <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
      <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
     </div>
-     <div><input type="submit" value="提交" /></div>
+     <div>
+     <button onclick="window.history.back();">取消</button>
+     <input type="submit" value="提交" />
+     </div>
     {{ form_end(form) }}   
 
 {% endblock fos_user_content %}

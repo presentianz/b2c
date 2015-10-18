@@ -7,27 +7,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
- * @Route("/account")
+ * @Route("/account/topup")
  * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
  */
 
-class DefaultController extends Controller
+class TopupController extends Controller
 {
     /**
-     * @Route("/", name="user_home")
+     * @Route("/", name="user_topup")
      */
     public function indexAction()
     {
-        return $this->render('User/default/index.html.twig');
+        return $this->render('User/payment/topup.html.twig');
     }
-
-     /**
-     * @Route("/email", name="user_email")
-     */
-    public function emailAction()
-    {
-        return $this->render('User/email/email.html.twig');
-    }
-
-  
 }

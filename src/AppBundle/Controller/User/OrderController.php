@@ -31,10 +31,12 @@ class OrderController extends Controller
     }
 
     /**
-     * @Route("/detail", name="user_order_detail")
+     * @Route("/detail/{id}", name="user_order_detail")
      */
-    public function detailAction()
+    public function detailAction($id)
     {
-        return $this->render('User/order/detail.html.twig');
+        return $this->render('User/order/detail.html.twig', array(
+            "id" => $id
+        ));
     }
 }
