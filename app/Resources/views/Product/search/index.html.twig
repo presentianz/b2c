@@ -123,7 +123,14 @@
                                     <div class="col-xs-4">
                                         <a href="{{ path('product', {id : product.id}) }}">
                                             <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
-                                            <span class="pro-text"><span class="pro-title">{{ product.name }}<br></span><span class="price">${{ product.priceDiscounted }}</span><del>${{ product.price }}</del><br><span class="sold-no">售出：{{ product.soldNo }}</span><br><span class="sold-no">浏览数：{{ product.click }}</span></span>
+                                             <div class="pro-text">
+                                            <div class="pro-title">{{ product.name }}<br></div>
+                                            <div class="price">${{ product.priceDiscounted }}</div>
+                                            <del>${{ product.price }}</del>
+                                             <br>
+                                            <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
+                                             <div class="sold-no">浏览数：{{ product.click }}</div>
+                                            </div>
                                         </a>
                                     </div>
                                 {% endfor %}
@@ -135,23 +142,34 @@
                         <div class="toolbar toolbar-bottom">
                             <div class="pull-right">
                                 <label>页面：</label>
-                                <span class="select-box-num">
-
-                                    <a href="{{ path('search', {
+                                <span class="select-box-num select-page-number">     
+                                 <a href="{{ path('search', {
                                         keys : app.request.get('keys'),
                                         page : (app.request.get('page')) ? app.request.get('page')+1 : 2,
                                         sort : app.request.get('sort'),
                                         item_no: app.request.get('item_no')
-                                    }) }}" class="i-next" href="#" title="下一个"><i class="fa fa-caret-right"></i></a>
+                                    }) }}" {% if app.request.get('page') == data.total_page  %} class="hide" {% endif %} class="i-next" title="下一个"><i class="fa fa-caret-right"></i></a> 
+                                                           
+                                    <a id="next" href="#" class="next">
+                                    <i class="fa fa-angle-double-right"></i></a>
                                     {% for i in data.total_page..1 %}
-                                        <a href="{{ path('search', {
+                                    <a href="{{ path('search', {
                                             keys : app.request.get('keys'),
                                             page : i,
                                             sort : app.request.get('sort'),
                                             item_no: app.request.get('item_no')
                                         }) }}" {% if not app.request.get('page') and i == 1 %} class="active" {% elseif i == app.request.get('page') %} class="active" {% endif %}> {{ i }}</a>
                                     {% endfor %}
-                                </span>
+                                   <a id="prev" href="#" class="prev">
+                                   <i class="fa fa-angle-double-left"></i></a>
+                                    
+                                    <a href="{{ path('search', {
+                                        keys : app.request.get('keys'),
+                                        page : (app.request.get('page')) ? app.request.get('page')-1 : 2,
+                                        sort : app.request.get('sort'),
+                                        item_no: app.request.get('item_no')
+                                    }) }}" {% if app.request.get('page') - 1 == 0  %} class="hide" {% endif %} class="i-prev" title="上一个"><i class="fa fa-caret-left"></i></a>
+                               
                             </div>
                         </div> 
                     </div>

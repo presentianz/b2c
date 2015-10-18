@@ -57,6 +57,7 @@
                 </tr>
             </thead>
             <tbody>
+             {% set sum = 0 %}
                 {% for cartProduct in data %}
                     <tr>
                         <td class="product-name">
@@ -67,6 +68,7 @@
                         <td>{{ cartProduct.count }}</td>
                         <td class="text-right color">{{ cartProduct.count*cartProduct.product.priceDiscounted }}</td>
                     </tr>
+                     {% set sum = sum + cartProduct.count*cartProduct.product.priceDiscounted %}
                 {% endfor %}
             </tbody>
             <tfoot>
@@ -103,7 +105,13 @@
                         <div  class="address-right">
                             <div class="text-right"><strong>寄送至：</strong> 湖北省武汉市江汉区三眼桥北路海红旗701</div>
                             <div class="text-right"><strong>收货人：</strong>万江  2132132131</div>
-                            <div class="text-right color"><h3><strong>应付总额：</strong>$42.00</h3></div>
+                            <div class="text-right color"><h3><strong>应付总额：</strong>
+                              {% if data|length > 0 %}
+                             <strong>{{ sum }}</strong>
+                             {% else %}
+                              <strong>$0.00</strong> 
+                              {% endif %}
+                            </h3></div>
                         </div>
                     </div>
                             <form action="{{path('order_confirm')}}" method="get" onsubmit="">

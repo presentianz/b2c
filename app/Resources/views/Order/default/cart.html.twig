@@ -36,6 +36,7 @@
                     <tbody>
                         <form action="{{path('checkout')}}" method="post" onsubmit="">
                         {% if data|length > 0 %}
+                        {% set sum = 0 %}
                             {% for cartproduct in data %}
                                 <tr>
                                     <td class="product-name">
@@ -56,11 +57,12 @@
                                     <td><strong>{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
                                     <td><a class="cart-action-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm" href="#">删除</a></td>
                                 </tr>
+                                {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted %}
                             {% endfor %}
                         {% else %}
                             <tr>
-                                <td colspan="5"><font>
-                                    您的购物车是空的</font>
+                                <td colspan="5">
+                                <h3 style="padding: 30px 0px;">您的购物车是空的</h3>
                                 </td>
                             </tr>
                         {% endif %}
@@ -74,7 +76,12 @@
                         </tr>
                         <tr class="tfoot-bottom"> 
                             <td class="text-left"><input type="submit"  value="清空购物车"></td>
-                            <td colspan="3" class="total-price">商品总价 （不含运费）：<strong>$45.00</strong> </td>
+                            <td colspan="3" class="total-price">商品总价 （不含运费）：
+                             {% if data|length > 0 %}
+                             <strong>${{ sum }}</strong>
+                             {% else %}
+                              <strong>$0.00</strong> 
+                              {% endif %}
                             <td>
                             <input type="submit" value="结算">
                             </td>
