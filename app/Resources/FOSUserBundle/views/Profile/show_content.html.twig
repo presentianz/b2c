@@ -18,16 +18,16 @@
      <div class="col-xs-6 user-info">
         <div class="status-each">
             <h2>1</h2>
-            <div><a href="">(查看所有订单)</a></div>
+            <div><a href="{{path('user_order')}}">(查看所有订单)</a></div>
         </div>
         <div class="status-each">
             <h2>${{user.userInfo.balance}}</h2>
-            <div><a href="">账户余额 (<span class="color">充值</span>)</a></div>
+            <div><a href="{{path('user_topup')}}">账户余额 (<span class="color">充值</span>)</a></div>
 
         </div>
         <div class="status-each">
             <h2>{{user.userInfo.balance}}</h2>
-            <div><a href="">我的积分</a></div>
+            <div><a href="{{path('user_topup')}}">我的积分</a></div>
 
         </div>
     </div>
