@@ -25,7 +25,7 @@
          </div>
         </div>
         <div class="cart-down col-xs-12">
-            {% include 'Widget/hotPro.html.twig' %}
+            {{ render(controller('AppBundle:Widget/Default:hotPro')) }}
         </div>
     </div>
 {% endblock %}
