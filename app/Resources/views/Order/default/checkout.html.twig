@@ -118,12 +118,12 @@
                         </div>
                     </div>
                     
-                            <input type="submit" title="提交订单" data-id="{{ ids }}" class="btn-pay" value="提交订单" >
+                        <input type="submit" title="提交订单" data-id="{{ ids }}" class="btn-pay" value="提交订单" >
 
                     </div>
                 </div>
             <div class="cart-down col-xs-12">
-                {% include 'Widget/hotPro.html.twig' %}
+                {{ render(controller('AppBundle:Widget/Default:hotPro')) }}
            </div>       
         </div><!-- /container-non-responsive -->
 

@@ -32,8 +32,30 @@ class DefaultController extends Controller
             ));
     }
 
-    public function underSearchBox()
+    public function bestProAction()
     {
-        
+        $em = $this->getDoctrine()->getManager();
+        $products = $em->getRepository('AppBundle:Product')->findRandomProducts(3);
+        return $this->render('Widget/default/bestPro.html.twig', array(
+            'data' => $products
+            ));
+    }
+
+    public function discountProAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $products = $em->getRepository('AppBundle:Product')->findRandomProducts(3);
+        return $this->render('Widget/default/discountPro.html.twig', array(
+            'data' => $products
+            ));
+    }
+
+    public function hotProAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $products = $em->getRepository('AppBundle:Product')->findRandomProducts(4);
+        return $this->render('Widget/default/hotPro.html.twig', array(
+            'data' => $products
+            ));
     }
 }

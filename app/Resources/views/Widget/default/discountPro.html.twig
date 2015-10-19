@@ -1,0 +1,20 @@
+<!--best pros-->
+                    <div class="side">
+                        <div class="side-title">
+                            <p>折扣商品</p>
+                        </div>
+                        <div class="side-content">
+                            {% for product in data %}
+                                <div class="side-item">
+                                    <a href="{{ path('product', { id : product.id }) }}">
+                                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
+                                        <span class="pro-text">
+                                            <span class="pro-title">{{ product.name }}<br></span>
+                                            <span class="price">${{ product.priceDiscounted }}</span>
+                                            <del>${{ product.price }}</del>
+                                        </span>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div> 

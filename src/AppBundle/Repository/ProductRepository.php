@@ -104,13 +104,13 @@ class ProductRepository extends EntityRepository
 
 
 
-    public function findMainPageProducts()
+    public function findRandomProducts($no)
     {
         $em = $this->getEntityManager();
         $rows = $em->createQuery('SELECT COUNT(p.id) FROM AppBundle:Product p')->getSingleScalarResult();
-        $offset = max(0, rand(0, $rows - 3));
+        $offset = max(0, rand(0, $rows - $no + 1));
         $query = $em->createQuery('SELECT DISTINCT p FROM AppBundle:Product p')
-            ->setMaxResults(4)
+            ->setMaxResults($no)
             ->setFirstResult($offset);
         $products = $query->getResult();
 
