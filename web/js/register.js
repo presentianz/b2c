@@ -21,11 +21,12 @@ function bitTotal(num) {
 var flag1 = flag2 = flag3 = flag4 = flag5 = false;
 
 $(document).ready(function () {
-    $("input[name=email]").blur(function (e) {
-        var email = $("input[name=email]").val();
+    $("input[name='fos_user_registration_form[email]']").blur(function (e) {
+        console.log("sssssss");
+        var email = $("input[name='fos_user_registration_form[email]']").val();
         if (email == "") {
             flag1 = false;
-            wrong("input[name=email]");
+            wrong("input[name='fos_user_registration_form[email]']");
         }
         else {
             var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
@@ -33,47 +34,47 @@ $(document).ready(function () {
             if (result == false) {
 
                 flag1 = false;
-                $("input[name=email]").parent().find(".error").find("h6").html("邮箱格式不正确");
-                wrong("input[name=email]");
+                $("input[name='fos_user_registration_form[email]']").parent().find(".error").find("h6").html("邮箱格式不正确");
+                wrong("input[name='fos_user_registration_form[email]']");
             }
             else {
                 flag1 = true;
-                correct("input[name=email]");
+                correct("input[name='fos_user_registration_form[email]']");
             }
         }
-        //$("input[name=email]").parent().find(".error").find("h6").html("邮箱已经注册过");	
+        //$("input[name='fos_user_registration_form[email]']").parent().find(".error").find("h6").html("邮箱已经注册过");	
     });
 
-    $("input[name=username]").blur(function (e) {
-       var username = $("input[name=username]").val();
+    $("input[name='fos_user_registration_form[username]']").blur(function (e) {
+       var username = $("input[name='fos_user_registration_form[username]']").val();
        if (username == "") {
         flag2 = false;
-        wrong("input[name=username]");
+        wrong("input[name='fos_user_registration_form[username]']");
     }
     else {
         flag2 = true;
-        correct("input[name=username]");
+        correct("input[name='fos_user_registration_form[username]']");
     }
-        //$("input[name=username]").parent().find(".error").find("h6").html("用户名已经注册过");
+        //$("input[name='fos_user_registration_form[username]']").parent().find(".error").find("h6").html("用户名已经注册过");
     });
 
-    $("input[name=psd1]").blur(function (e) { 
-       var psd1 = $("input[name=psd1]").val();  
+    $("input[name='fos_user_registration_form[plainPassword][first]']").blur(function (e) { 
+       var psd1 = $("input[name='fos_user_registration_form[plainPassword][first]']").val();  
        var reg = /^[\w]{6,20}$/;
        var result = reg.test(psd1);
        if (psd1 == "") {
         flag3 = false;
-        wrong("input[name=psd1]");
+        wrong("input[name='fos_user_registration_form[plainPassword][first]']");
         $(".security-level").find("span").removeClass("orange red green");
     }
     else if (result == false) {
         flag3 = false;
-        $("input[name=psd1]").parent().find(".error").find("h6").html("密码需要至少6个字节");
-        wrong("input[name=psd1]");
+        $("input[name='fos_user_registration_form[plainPassword][first]']").parent().find(".error").find("h6").html("密码需要至少6个字节");
+        wrong("input[name='fos_user_registration_form[plainPassword][first]']");
     }
     else {
         flag3 = true;
-        correct("input[name=psd1]");
+        correct("input[name='fos_user_registration_form[plainPassword][first]']");
         Modes = 0;
         for (i = 0; i < psd1.length; i++) {
                 //测试每一个字符的类别并统计一共有多少种模式.    
@@ -106,22 +107,22 @@ $(document).ready(function () {
 
     });
 
-$("input[name=psd2]").blur(function (e) {
-   var psd1 = $("input[name=psd1]").val();
-   var psd2 = $("input[name=psd2]").val();
+$("input[name='fos_user_registration_form[plainPassword][second]']").blur(function (e) {
+   var psd1 = $("input[name='fos_user_registration_form[plainPassword][first]']").val();
+   var psd2 = $("input[name='fos_user_registration_form[plainPassword][second]']").val();
    if (psd2 == "") {
     flag4 = false;
-    wrong("input[name=psd2]");
+    wrong("input[name='fos_user_registration_form[plainPassword][second]']");
 }
 else {
     if (psd1 != psd2) {
         flag4 = false;
-        wrong("input[name=psd2]");
-        $("input[name=psd2]").parent().find(".error").find("h6").html("密码不匹配");
+        wrong("input[name='fos_user_registration_form[plainPassword][second]']");
+        $("input[name='fos_user_registration_form[plainPassword][second]']").parent().find(".error").find("h6").html("密码不匹配");
     }
     else {
         flag4 = true;
-        correct("input[name=psd2]");
+        correct("input[name='fos_user_registration_form[plainPassword][second]']");
     }
 }
 });
@@ -163,9 +164,9 @@ function reigster() {
     if (flag1 && flag2 && flag3 && flag4 && flag5) {
          console.log("success");
          console.log("success to register");
-         var email = $("input[name=email]").val();
-        var username = $("input[name=username]").val();
-        var psd1 = $("input[name=psd1]").val();
+         var email = $("input[name='fos_user_registration_form[email]']").val();
+        var username = $("input[name='fos_user_registration_form[username]']").val();
+        var psd1 = $("input[name='fos_user_registration_form[plainPassword][first]']").val();
         console.log(email + username + psd1);
         var user = {"email" : email, "name" : username, "password": psd1};
         var userObject = [];
@@ -174,20 +175,20 @@ function reigster() {
         return true;
 
     }     
-    else if($("input[name=email]").val()==""){
-        wrong("input[name=email]");
+    else if($("input[name='fos_user_registration_form[email]']").val()==""){
+        wrong("input[name='fos_user_registration_form[email]']");
         return false;
     }
-    else if($("input[name=username]").val()==""){
-       wrong("input[name=username]");
+    else if($("input[name='fos_user_registration_form[username]']").val()==""){
+       wrong("input[name='fos_user_registration_form[username]']");
        return false;
    }
-   else if($("input[name=psd1]").val()==""){
-       wrong("input[name=psd1]");
+   else if($("input[name='fos_user_registration_form[plainPassword][first]']").val()==""){
+       wrong("input[name='fos_user_registration_form[plainPassword][first]']");
        return false;
    }
-   else if($("input[name=psd2]").val()==""){
-       wrong("input[name=psd2]");
+   else if($("input[name='fos_user_registration_form[plainPassword][second]']").val()==""){
+       wrong("input[name='fos_user_registration_form[plainPassword][second]']");
        return false;
    }
    else if(!checkinfo.checked){
@@ -204,21 +205,20 @@ function reigster() {
 
 function login() {
     if (flag1 && flag3){
-       // location.href="index.html";
         console.log("success");
          console.log("success to register");
-         var email = $("input[name=email]").val();
-        var psd1 = $("input[name=psd1]").val();
+         var email = $("input[name='fos_user_registration_form[email]']").val();
+        var psd1 = $("input[name='fos_user_registration_form[plainPassword][first]']").val();
         console.log(email + psd1);
 
         return true;
     } 
-    else if($("input[name=email]").val()==""){
-        wrong("input[name=email]");
+    else if($("input[name='fos_user_registration_form[email]']").val()==""){
+        wrong("input[name='fos_user_registration_form[email]']");
         return false;
     }
-    else if($("input[name=psd1]").val()==""){
-       wrong("input[name=psd1]");
+    else if($("input[name='fos_user_registration_form[plainPassword][first]']").val()==""){
+       wrong("input[name='fos_user_registration_form[plainPassword][first]']");
        return false;
    }      
    else{

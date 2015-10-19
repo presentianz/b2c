@@ -1,7 +1,6 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
-
 {% block fos_user_content %}
 
  	<div class="breadcrumb">
@@ -19,11 +18,11 @@
             </div>
         </div>
 
-     <form action="{{ path('fos_user_registration_check_email') }}" method="POST" class="fos_user_registration_register" onSubmit="return reigster();">
+     <form action="{{ path('fos_user_registration_check_email') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register" onSubmit="return reigster();">
             <div class="register-content col-xs-5">
                 <div class="controls">
-                    <label>邮箱</label>
-                    <input  type="text" name="email" placeholder="请输入您的常用邮箱">
+                    {{form_label(form.email)}}
+                    {{form_widget(form.email, {'attr': {'placeholder': '请输入您的常用邮箱'}})}}
                     <i class="fa check-icon"></i>
                     <div class="error">
                         <i class="fa fa-caret-left"></i>
@@ -31,8 +30,8 @@
                     </div>
                 </div>					
                 <div class="controls">
-                    <label>用户名</label>
-                    <input type="text" name="username" placeholder="请输入您的用户名">
+                    {{form_label(form.username)}}
+                    {{form_widget(form.username, {'attr': {'placeholder': '请输入您的用户名'}})}}
                     <i class="fa check-icon"></i>
                     <div class="error">
                         <i class="fa fa-caret-left"></i>
@@ -40,8 +39,8 @@
                     </div>
                 </div>
                 <div class="controls">
-                    <label>密码</label>
-                    <input type="password" name="psd1" placeholder="请输入6到20位的数字，字母组合"  maxlength="20">
+                 {{form_label(form.plainPassword.first)}}
+                 {{form_widget(form.plainPassword.first, {'attr': {'placeholder': '请输入6到20位的数字，字母组合', 'maxlength': '20'}})}}
                     <i class="fa check-icon"></i>
                     <div class="error">
                         <i class="fa fa-caret-left"></i>
@@ -57,8 +56,8 @@
                     </div>
                 </div>
                 <div class="controls">
-                    <label>确认密码</label>
-                    <input type="password" name="psd2" placeholder="请再次输入密码">
+                    {{form_label(form.plainPassword.second)}}
+                   {{form_widget(form.plainPassword.second, {'attr': {'placeholder': '请再次输入密码'}})}}
                     <i class="fa check-icon"></i>
                     <div class="error">
                         <i class="fa fa-caret-left"></i>
@@ -78,13 +77,6 @@
         </form>
 {% endblock %}
 
-
- <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
-    </div>
-</form>
 
 
 
