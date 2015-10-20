@@ -1,37 +1,37 @@
 <!-- Hot Staffs -->
-        {% for row in data %}
-            <div class="hotdeal">
-                <div class="row-up">
-                    <div class="col-xs-11">
-                        <h3>{{ row.node.name }}</h3>
-                        <h5>
-                            <a href="{{ path('category', { id : row.node.__children|first.id }) }}">{{ row.node.__children|first.name }}</a>
-                            {% for child in row.node.__children|slice(1,4) %}
-                            <span>&nbsp;| &nbsp;</span>
-                                <a href="{{ path('category', { id : child.id }) }}">{{ child.name }}</a>
-                            {% endfor %}
-                        </h5>
-                    </div>
-                    <div class="col-xs-1">
-                        <a href="{{ path('category', { id : row.node.id }) }}">更多
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    {% for product in row.products %}
-                        <div class="col-xs-3">
-                            <a href="{{ path('product', {id : product.id}) }}">
-                                <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
-                                <div class="pro-text">
-                                <div class="pro-title">{{ product.name }}<br></div>
-                                <div class="price">${{ product.priceDiscounted }}</div>
-                                <del>${{ product.price }}</del>
-                                <br>
-                                <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
-                                </div>
-                            </a>
-                        </div>
+{% for row in data %}
+    <div class="hotdeal">
+        <div class="row-up">
+            <div class="col-xs-11">
+                <h3>{{ row.node.name }}</h3>
+                <h5>
+                    <a href="{{ path('category', { id : row.node.__children|first.id }) }}">{{ row.node.__children|first.name }}</a>
+                    {% for child in row.node.__children|slice(1,4) %}
+                    <span>&nbsp;| &nbsp;</span>
+                        <a href="{{ path('category', { id : child.id }) }}">{{ child.name }}</a>
                     {% endfor %}
-                </div>	
+                </h5>
             </div>
-        {% endfor %}
+            <div class="col-xs-1">
+                <a href="{{ path('category', { id : row.node.id }) }}">更多
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            {% for product in row.products %}
+                <div class="col-xs-3">
+                    <a href="{{ path('product', {id : product.id}) }}">
+                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
+                        <div class="pro-text">
+                            <div class="pro-title">{{ product.name }}<br></div>
+                            <div class="price">${{ product.priceDiscounted }}</div>
+                            <del>${{ product.price }}</del>
+                            <br>
+                            <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>	
+    </div>
+{% endfor %}

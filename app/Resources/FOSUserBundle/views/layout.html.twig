@@ -18,40 +18,40 @@
 </head>
 <body>
 
-<!--   User Register Panel -->
-    <div id="login-header">
-        <div class="container-login-responsive">
-            <div class="col-xs-12">
-                <a class="logo" href="{{ path('homepage') }}">
-                    <img src="{{ asset('img/logo.jpg') }}" alt="彩购网">
-                </a>
-                {% block subtitle %}{% endblock subtitle %}              
+<div id="login-header">
+    <div class="container-login-responsive">
+        <div class="col-xs-12">
+            <a class="logo" href="{{ path('homepage') }}">
+                <img src="{{ asset('img/logo.jpg') }}" alt="彩购网">
+            </a>
+            <span>
+                {% block subtitle %}{% endblock subtitle %}    
+             </span>          
             </div>  
         </div>
     </div>
 
+{% block body %}{% endblock %}
 
-    {% block body %}{% endblock %}
-
-                <!-- Footer -->
+     <!-- Footer -->
     <div id="login-footer">
             <div class="col-xs-2">
-                <h6><a href="">关于我们</a></h6>
+                <h6><a href="{{ path('about') }}">关于我们</a></h6>
             </div>
             <div class="col-xs-2">
-                <h6><a href="">常见问题</a></h6>
+                <h6><a href="{{ path('homepage') }}">常见问题</a></h6>
             </div>
             <div class="col-xs-2">
-                <h6><a href="">加入彩购</a></h6>
+                <h6><a href="{{ path('homepage') }}">加入彩购</a></h6>
             </div>
             <div class="col-xs-2">
-                <h6><a href="">支付方式</a></h6>
+                <h6><a href="{{ path('homepage') }}">支付方式</a></h6>
             </div>
             <div class="col-xs-2">
-                <h6><a href="corporation.html">彩购合作</a></h6>
+                <h6><a href="{{ path('homepage') }}">彩购合作</a></h6>
             </div>
             <div class="col-xs-2">
-                <h6><a href="">联系我们</a></h6>
+                <h6><a href="{{ path('contact') }}">联系我们</a></h6>
             </div>
         <div class="copyright">         
             <span>Copyright &copy;2015 彩购网 Copyright</span>

@@ -1,22 +1,22 @@
 <!--best pros-->
-                    <div class="side">
-                        <div class="side-title">
-                            <p>人气商品</p>
-                        </div>
-                        <div class="side-content">
-                            {% for product in data %}
-                                <div class="side-item">
-                                    <a href="{{ path('product', { id : product.id }) }}">
-                                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
-                                         <div class="pro-text">
-                                        <div class="pro-title">{{ product.name }}<br></div>
-                                         <div class="price">${{ product.priceDiscounted }}</div>
-                                        <del>${{ product.price }}</del>
-                                        <br>
-                                         <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
-                                         </div>
-                                    </a>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div> 
+<div class="side">
+    <div class="side-title">
+        <p>人气商品</p>
+    </div>
+    <div class="side-content">
+        {% for product in data %}
+            <div class="side-item">
+                <a href="{{ path('product', { id : product.id }) }}">
+                    <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
+                     <div class="pro-text">
+                        <div class="pro-title">{{ product.name }}<br></div>
+                        <div class="price">${{ product.priceDiscounted }}</div>
+                        <del>${{ product.price }}</del>
+                        <br>
+                        <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
+                     </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div> 

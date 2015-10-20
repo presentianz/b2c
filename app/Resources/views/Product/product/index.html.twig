@@ -3,142 +3,134 @@
 {% block title %}商品{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/product.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ asset('css/product.css') }}" type="text/css">
 {% endblock %}
 
 {% block body %}
-    <div id="product-page" class="container-non-responsive">
-        <div class="row">
-            <div class="col-xs-3 siderbar">
-                {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
-                {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
-            </div>
-
-            <div class="col-xs-9 page-right">
-                    <div class="page-breadcrumb">
-                 <ol>
+<div id="product-page" class="container-non-responsive">
+    <div class="row">
+        <div class="col-xs-3 siderbar">
+            {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+            {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
+        </div>
+        <div class="col-xs-9 page-right">
+            <div class="page-breadcrumb">
+                <ol>
                     <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
-                        {% for category in data.path %}
-                            <li>&nbsp;>&nbsp;<a href="{{ path('category', { id : category.id }) }}">{{ category.name }}</a></li>
-                        {% endfor %}
-                        &nbsp;>&nbsp;<li class="active">{{ data.product.name }}</li>
-                    </ol>
-                </div>
-
-                    <div class="page-title">
-                </div>
-                <div class="page-content">
-                    <div class="product-info clearfix">
-                        <div class="col-xs-5">
-                            <a href="product.html">   
-                                <img class="product-pictures" id="product-picture1" src="{{ asset('img/honey.jpg') }}" alt="" data-big="{{ asset('img/honey.jpg') }}" />
-                                <img class="product-pictures" id="product-picture2" src="{{ asset('img/honey2.jpg') }}" alt="" data-big="{{ asset('img/honey2.jpg') }}" style="display:none" />
-                                <img class="product-pictures" id="product-picture3" src="{{ asset('img/manukablendhoney.jpg') }}" alt="" data-big="{{ asset('img/manukablendhoney.jpg') }}" style="display:none" />
-                            </a>
-
-                            <div class="col-xs-12 product-pictures-below">
-                                <div class="col-xs-4">
-                                    <img src="{{ asset('img/honey.jpg') }}" onClick="productpic(1)" class="active product-pics" id="product-pic1" alt="" data-big="{{ asset('img/honey.jpg') }}" >
-                                </div>
-                                <div class="col-xs-4">
-                                    <img src="{{ asset('img/honey2.jpg') }}" onClick="productpic(2)" class="product-pics" id="product-pic2" alt="" data-big="{{ asset('img/honey2.jpg') }}" >
-                                </div>
-                                <div class="col-xs-4">
-                                    <img src="{{ asset('img/manukablendhoney.jpg') }}" onClick="productpic(3)" class="product-pics" id="product-pic3" alt="" data-big="{{ asset('img/manukablendhoney.jpg') }}" >
-                                </div>
+                    {% for category in data.path %}
+                        <li>&nbsp;>&nbsp;<a href="{{ path('category', { id : category.id }) }}">{{ category.name }}</a></li>
+                    {% endfor %}
+                    &nbsp;>&nbsp;<li class="active">{{ data.product.name }}</li>
+                </ol>
+            </div>
+            <div class="page-title">
+            </div>
+            <div class="page-content">
+                <div class="product-info clearfix">
+                    <div class="col-xs-5"> 
+                            <img class="product-pictures" id="product-picture1" src="{{ asset('img/honey.jpg') }}" alt="" />
+                            <img class="product-pictures hide" id="product-picture2" src="{{ asset('img/honey2.jpg') }}" alt="" />
+                            <img class="product-pictures hide" id="product-picture3" src="{{ asset('img/manukablendhoney.jpg') }}" alt=""  />
+                        <div class="col-xs-12 product-pictures-below">
+                            <div class="col-xs-4">
+                                <img src="{{ asset('img/honey.jpg') }}" onClick="productpic(1)" class="active product-pics" id="product-pic1" alt="" / >
                             </div>
-                        </div>    
-                        <div class="col-xs-7">
-                            <p class="t-type1">{{ data.product.name }}</p>
-                            <p class="t-type2">{{ data.product.description }}</p>
-                            <p class="t-type3">品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;牌：&nbsp;&nbsp;<span>{{ data.product.brand }}</span></p>
-                            <p class="t-type3">商品重量：&nbsp;&nbsp;<span>{{ data.product.weight }}克</span></p>
-                            <p class="t-type3">货&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：&nbsp;&nbsp;<span>{{ data.product.productKey }}</span></p>
-                            <p class="t-type3">原&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价 ：&nbsp;&nbsp;<del><span class="t-type3">NZ$</span><span class="t-type3">{{ data.product.price }}</span></del></p>
-                            <p class="t-type4">促销价：&nbsp;&nbsp;<span class="t-type4">NZ$</span><span class="t-type4">{{ data.product.priceDiscounted }}</span></p>
-                            <p class="t-type3">约合人民币：￥<span class="t-type3">{{ data.product.priceDiscounted * 4.5 }}</span></p>
-                            <p class="t-type3">当前汇率：1新西兰元=<span class="t-type3">4.50</span>人民币</p>
-                            <p class="t-type3">该商品已被浏览&nbsp;&nbsp;<span class="t-type2">{{ data.product.click }}</span>&nbsp;&nbsp;次，已经被购买&nbsp;&nbsp;<span class="t-type2">{{ data.product.soldNo }}</span>&nbsp;&nbsp;件&nbsp;&nbsp;（库存 {{ data.product.inventory }}）</p>
-                            <div class="add-to-box">
-                                <div class="add-to-cart clearfix">
-                                    <div class="pull-left number-label">
-                                        <label for="qty">数量：</label> 
-                                    </div>
-                                    <div class="pull-left">
-                                         <div class="number-group">
-                                            <input type="text" maxlength="99" class="qty" value="1" id="123">
-                                             <div class="number-button">
-                                            <div id="number-up" class="number-input number-input-up" data-id="123"><i class="fa fa-caret-up"></i></div>
-                                             <div id="number-down" class="number-input number-input-down" data-id="123"><i class="fa fa-caret-down"></i></div>
-                                             </div>
-                                        </div>
-                                    </div>
-                                       
-                                    <form method="get" action="{{ path('checkout') }}">
-                                        <input type="submit" value="立即购买" class="pull-right" data-id="{{ data.product.id }}" id="buy-now">
-                                    </form>
-                                    <input type="submit" data-id="{{ data.product.id }}" data-path="{{ path('cart_ajax_action') }}" value="加入购物车" class="pull-right" id="add-cart-button"> 
-                                </div>
+                            <div class="col-xs-4">
+                                <img src="{{ asset('img/honey2.jpg') }}" onClick="productpic(2)" class="product-pics" id="product-pic2" alt="" />
                             </div>
-                        </div> 
-                    </div>
-                    <div class="product-info clearfix">
-                        <div class="col-xs-12">
-                            <div class="product-tabs">
-                                <ul class="product-tab clearfix">
-                                    <li id="product-tab1" class="product-tabs active" onClick="tabcontent(1)">商品详情</li>
-                                    <li id="product-tab2" class="product-tabs" onClick="tabcontent(2)">商品评论({{ data.product.comments|length }})</li>
-                                    <li id="product-tab3" class="product-tabs" onClick="tabcontent(3)">支付/配送</li>
-
-                                </ul>
-                                    <div class="tab-content">
-                                    <div id="tab-content1" class="tab-contents" style="display: block;">
-                                        <div class="box-collateral box-description">
-                                            <p><img src="{{ asset('img/sample.jpg') }}" alt=""></p>
-                                        </div>
-                                    </div>
-
-                                    <div id="tab-content2" class="tab-contents" style="display: none;">
-                                        <table id="comments-record-list" class="record-list">
-                                            <tbody><tr>
-                                                    <th width="40%">买家</th>
-                                                    <th width="60%">评论内容</th>
-                                                </tr>
-                                                <tr class="comments-record-item">
-                                                    <td>* 张 </td>
-                                                    <td class="comments">挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div id="tab-content3" class="tab-contents" style="display: none;">
-                                    <p class="t-type1">7天无理由退货</p>
-                                    <p class="t-type2">该商品支持7天无理由退货，自商品签收之日起7天内:</p>
-                                    <p class="t-type2">1、商品外包装完整，相关附（配）件齐全；（若有）要求吊牌完整；</p>
-                                    <p class="t-type2">2、商品无显著穿着、无洗涤、无沾染化妆品（如口红等）、无破损等痕迹</p>
-                                    <p class="t-type2">可申请无理由退货，包邮商品需要买家承担退货邮费，非包邮商品需要买家承担发货和退货邮费。</p>
-                                    <p class="t-type2"><a href="#">查看相关定义和通用说明</a></p>
-                                </div>
+                            <div class="col-xs-4">
+                                <img src="{{ asset('img/manukablendhoney.jpg') }}" onClick="productpic(3)" class="product-pics" id="product-pic3" alt=""  />
                             </div>
                         </div>
-                    </div>   
+                    </div>    
+                    <div class="col-xs-7">
+                        <p class="product-title">{{ data.product.name }}</p>
+                        <p class="product-desc">{{ data.product.description }}</p>
+                        <p><label>品牌:</label><span>{{ data.product.brand }}</span></p>
+                        <p><label>商品重量:</label><span>{{ data.product.weight }}克</span></p>
+                        <p><label>货号:</label><span>{{ data.product.productKey }}</span></p>           
+                        <p><label>原价:</label><span><del>NZ${{ data.product.price }}</del></span></p>
+                        <p class="product-promo"><label>促销价:</label><span>NZ${{ data.product.priceDiscounted }}</span></p>
+                        <p><label>约合人民币:</label><span>￥{{ data.product.priceDiscounted * 4.5 }}</span></p>
+                        <p><label>当前汇率:</label><span>1新西兰元=4.50人民币</span></p>
+                        <p>该商品已被浏览<span class="product-desc"> {{ data.product.click }} </span>次，已经被购买<span class="product-desc"> {{ data.product.soldNo }} </span>件（库存 {{ data.product.inventory }}）</p>
+                        <div class="add-to-box">
+                            <div class="add-to-cart clearfix">
+                                <div class="pull-left number-label">
+                                    <label for="qty">数量：</label> 
+                                </div>
+                                <div class="pull-left">
+                                     <div class="number-group">
+                                        <input type="text" maxlength="99" class="qty" value="1" id="123">
+                                         <div class="number-button">
+                                        <div id="number-up" class="number-input number-input-up" data-id="123"><i class="fa fa-caret-up"></i></div>
+                                         <div id="number-down" class="number-input number-input-down" data-id="123"><i class="fa fa-caret-down"></i></div>
+                                         </div>
+                                    </div>
+                                </div> 
+                                <form method="get" action="{{ path('checkout') }}">
+                                    <input type="submit" value="立即购买" class="pull-right" data-id="{{ data.product.id }}" id="buy-now">
+                                </form>
+                                <input type="submit" data-id="{{ data.product.id }}" data-path="{{ path('cart_ajax_action') }}" value="加入购物车" class="pull-right" id="add-cart-button"> 
+                            </div>
+                        </div>
+                    </div> 
                 </div>
+                <div class="product-info clearfix">
+                    <div class="col-xs-12">
+                        <div class="product-tabs">
+                            <ul class="product-tab clearfix">
+                                <li id="product-tab1" class="product-tabs active" onClick="tabcontent(1)">商品详情</li>
+                                <li id="product-tab2" class="product-tabs" onClick="tabcontent(2)">商品评论({{ data.product.comments|length }})</li>
+                                <li id="product-tab3" class="product-tabs" onClick="tabcontent(3)">支付/配送</li>
+                            </ul>
+                                <div class="tab-content">
+                                <div id="tab-content1" class="tab-contents">
+                                    <img src="{{ asset('img/sample.jpg') }}" alt="">
+                                </div>
+                                <div id="tab-content2" class="tab-contents hide">
+                                    <table id="comments-record-list" class="record-list">
+                                        <tbody><tr>
+                                                <th width="40%">买家</th>
+                                                <th width="60%">评论内容</th>
+                                            </tr>
+                                            <tr class="comments-record-item">
+                                                <td>* 张 </td>
+                                                <td class="comments">挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的挺好的</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="tab-content3" class="tab-contents hide">
+                                    <div class="tab-content-title">7天无理由退货</div>
+                                    <div class="tab-content-desc">该商品支持7天无理由退货，自商品签收之日起7天内:<br>
+                                1、商品外包装完整，相关附（配）件齐全；（若有）要求吊牌完整；<br>
+                                2、商品无显著穿着、无洗涤、无沾染化妆品（如口红等）、无破损等痕迹<br>
+                                可申请无理由退货，包邮商品需要买家承担退货邮费，非包邮商品需要买家承担发货和退货邮费<br>
+                                    <a href="#">查看相关定义和通用说明</a>
+                                     </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>   
             </div>
-        <!--//product products-->     
         </div>
-    </div><!-- /container-non-responsive -->
+    <!--//product products-->     
+    </div>
+</div><!-- /container-non-responsive -->
 
 <!--loading -->
 <div id="loading">
-    <div>
-        <h4>加载中， 请稍等</h4>
-    </div>
+<div>
+    <h4>加载中， 请稍等</h4>
 </div>
-	{#{{ dump(data) }}#}
+</div>
+{#{{ dump(data) }}#}
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('js/product.js') }}"></script>
-    <script src="{{ asset('js/search.js') }}"></script>
+<script src="{{ asset('js/product.js') }}"></script>
+<script src="{{ asset('js/search.js') }}"></script>
 {% endblock %}

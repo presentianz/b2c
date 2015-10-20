@@ -1,14 +1,14 @@
 function tabcontent(i) {
-    $(".tab-contents").css("display", "none");
-    $("#tab-content" + i).css("display", "block");
+    $(".tab-contents").addClass("hide");
+    $("#tab-content" + i).removeClass("hide");
     $(".product-tabs").removeClass("active");
     $("#product-tab" + i).addClass("active");
 }
 function productpic(i) {
     $(".product-pics").removeClass("active");
     $("#product-pic" + i).addClass("active");
-    $(".product-pictures").css("display", "none");
-    $("#product-picture" + i).css("display", "block");
+    $(".product-pictures").addClass("hide");
+    $("#product-picture" + i).removeClass("hide");
 }
 $(document).ready(function ()
 {

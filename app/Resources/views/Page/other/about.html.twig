@@ -5,10 +5,8 @@
     <div class="container-non-responsive">
         <div class="row no-border">
             <div class="col-xs-3 siderbar">
-                    {% include 'Widget/bestPro.html.twig' %}
-
-                    {% include 'Widget/discountPro.html.twig' %}
-
+                    {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+                    {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
                 </div>
             <div class="col-xs-9 page-right">
                     <div class="page-breadcrumb">

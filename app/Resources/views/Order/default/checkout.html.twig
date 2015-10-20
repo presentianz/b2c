@@ -14,40 +14,38 @@
         </div>	
         <div class="page-content">
             <div class="col-xs-12 checkout-content top">
-                <!-- logined in can select address -->
                 <h5><strong>已有地址</strong></h5>
                 <div class="address-content"> 
                     <span class="first-address">邮寄至</span>
                     <span class="address-detail">
-                     <input type="checkbox" />
-                     27 Beaudort Place, Papatoetoe, Auckland, New Zealand  1025
-                     <strong> (Charis Wan)  2132132131</strong>
-                 </span>
-                 <a href=""><span class="edit-address pull-right">修改地址</span></a>
-             </div>
-             <div class="address-content">  
-                <span class="first-address">邮寄至</span>
-                <span class="address-detail">
-                   <input type="checkbox" />
-                   湖北省武汉市江汉区三眼桥北路海红旗701
-                   <strong>（万江）  2132132131</strong>
-               </span>
-               <a href=""><span class="edit-address pull-right">修改地址</span></a>
-           </div>
-           <div class="address-content">  
-            <span class="first-address">邮寄至</span>
-            <span class="address-detail">
-              <input type="checkbox" />
-              湖北省武汉市江汉区三眼桥北路海红旗701
-              <strong>（万江）  2132132131</strong>
-          </span>
-          <a href=""><span class="edit-address pull-right">修改地址</span></a>
-      </div>
-      <a  href=""><h5><strong>新地址</strong></h5></a>
-      
-  </div> 
-  <div class="col-xs-12 checkout-content">
-    <div class="content-up"> 
+                      <input type="checkbox" />
+                        27 Beaudort Place, Papatoetoe, Auckland, New Zealand  1025
+                        <strong> (Charis Wan)  2132132131</strong>
+                    </span>
+                    <a href=""><span class="edit-address pull-right">修改地址</span></a>
+                </div>
+                <div class="address-content">  
+                    <span class="first-address">邮寄至</span>
+                    <span class="address-detail">
+                      <input type="checkbox" />
+                        湖北省武汉市江汉区三眼桥北路海红旗701
+                        <strong>（万江）  2132132131</strong>
+                    </span>
+                    <a href=""><span class="edit-address pull-right">修改地址</span></a>
+                </div>
+                <div class="address-content">  
+                    <span class="first-address">邮寄至</span>
+                    <span class="address-detail">
+                      <input type="checkbox" />
+                         湖北省武汉市江汉区三眼桥北路海红旗701
+                         <strong>（万江）  2132132131</strong>
+                    </span>
+                    <a href=""><span class="edit-address pull-right">修改地址</span></a>
+                </div>
+                <a href="{{path('user_address')}}"><h5><strong>新地址</strong></h5></a>    
+          </div> 
+      <div class="col-xs-12 checkout-content">
+       <div class="content-up"> 
         <table>
             <thead>
                 <tr>
@@ -110,14 +108,13 @@
                             <div class="text-right"><strong>收货人：</strong>万江  2132132131</div>
                             <div class="text-right color"><h3><strong>应付总额：</strong>
                               {% if data|length > 0 %}
-                             <strong>{{ sum }}</strong>
-                             {% else %}
-                              <strong>$0.00</strong> 
+                                  <strong>{{ sum }}</strong>
+                              {% else %}
+                                   <strong>$0.00</strong> 
                               {% endif %}
                             </h3></div>
                         </div>
                     </div>
-                    
                         <input type="submit" title="提交订单" data-id="{{ ids }}" class="btn-pay" value="提交订单" >
 
                     </div>

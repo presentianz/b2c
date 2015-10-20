@@ -12,7 +12,6 @@
         <div class="page-title">
             <h4>购物车</h4>
         </div>
-
         <div class="page-content">
             <div class="col-xs-12 top-promo">
                 <span>如果您有优惠代码，请输入。
@@ -20,8 +19,7 @@
                     <input type="submit" title="应用优惠券" class="btn-promotion"  value="应用优惠券">
                 </span>
             </div>
-
-            <div class="cart-content col-xs-12">               
+             <div class="cart-content col-xs-12">               
                 <table class="table">
                     <thead>
                         <tr>
@@ -32,7 +30,6 @@
                             <th width="10%">操作</th>
                         </tr>
                     </thead>
-
                     <tbody>
                         <form action="{{path('checkout')}}" method="post" onsubmit="">
                         {% if data|length > 0 %}
@@ -70,7 +67,8 @@
                     <tfoot>
                         <tr>
                             <td class="text-left">
-                                <span><input type="checkbox" />选择全部商品
+                                <span>
+                                <input type="checkbox" />选择全部商品
                                 </span> 
                             </td>
                         </tr>
@@ -78,9 +76,9 @@
                             <td class="text-left"><input type="submit"  value="清空购物车"></td>
                             <td colspan="3" class="total-price">商品总价 （不含运费）：
                              {% if data|length > 0 %}
-                             <strong>${{ sum }}</strong>
+                                <strong>${{ sum }}</strong>
                              {% else %}
-                              <strong>$0.00</strong> 
+                                 <strong>$0.00</strong> 
                               {% endif %}
                             <td>
                             <input type="submit" value="结算">

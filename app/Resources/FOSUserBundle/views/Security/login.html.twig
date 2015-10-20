@@ -6,13 +6,11 @@
 <link rel="stylesheet" href="{{ asset('css/login.css') }}" type="text/css">
 {% endblock %}
 
-{% block subtitle %}
- <span>账户登录</span>
- {% endblock subtitle %}
+{% block subtitle %}账户登录{% endblock subtitle %}
 
 {% block body %}
      <div class="container-login-responsive login">
-    <div class="login-left col-xs-5">
+     <div class="login-left col-xs-5">
         <a class="logo" href="search.html">
             <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="彩购网">
         </a>
@@ -65,6 +63,6 @@
 
 {% endblock %}
 
-    {% block javascripts %}
-<script src="{{ asset('js/register.js') }}"></script>
- {% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/register.js') }}"></script>
+{% endblock %}

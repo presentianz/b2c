@@ -3,7 +3,6 @@
 {% block body %}
     <div class="container-non-responsive">
         <div class="row no-border">
-            <!--loaded sider bar-->
             <div class="col-xs-3 siderbar">
                 <div id="siderbar-main">
                     {{ render(controller('AppBundle:Widget/Menu:index')) }}
@@ -40,26 +39,23 @@
                 </div>
                 <div class="row showpics">
                     <div class="col-xs-4">
-                        <a href="product.html">
+                        <a href="{{ path('homepage') }}">
                             <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/sub1.jpg') }}" src="{{ asset('img/default.png') }}">
                         </a>	
                     </div> 
                     <div class="col-xs-4">
-                        <a href="product.html">
+                        <a href="{{ path('homepage') }}">
                             <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/sub2.jpg') }}" src="{{ asset('img/default.png') }}">
                         </a>	
                     </div>
                     <div class="col-xs-4">
-                        <a href="product.html">
+                        <a href="{{ path('homepage') }}">
                             <img class="lazy" src="{{ asset('img/default.png') }}"data-original="{{ asset('img/sub3.jpg') }}" src="{{ asset('img/default.png') }}">
                         </a>	
                     </div>  
                 </div>
             </div>
         </div>
-
-
         {{ render(controller('AppBundle:Widget/Default:index')) }}
-
     </div><!-- /container-non-responsive -->
 {% endblock %}
