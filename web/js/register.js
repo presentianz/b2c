@@ -161,17 +161,10 @@ function wrong(checking) {
 
 
 function reigster() {
+    $("#loading").css("display", "block");
     if (flag1 && flag2 && flag3 && flag4 && flag5) {
-         console.log("success");
-         console.log("success to register");
-         var email = $("input[name='fos_user_registration_form[email]']").val();
-        var username = $("input[name='fos_user_registration_form[username]']").val();
-        var psd1 = $("input[name='fos_user_registration_form[plainPassword][first]']").val();
-        console.log(email + username + psd1);
-        var user = {"email" : email, "name" : username, "password": psd1};
-        var userObject = [];
-        userObject.push(user);
-        console.log(userObject);
+        $("#loading").css("display", "none");
+        alert("reigster success");
         return true;
 
     }     
@@ -196,7 +189,6 @@ function reigster() {
        return false;
    }
    else {
-   
         return false;
 }
 
@@ -204,13 +196,10 @@ function reigster() {
 }
 
 function login() {
+    $("#loading").css("display", "block");
     if (flag1 && flag3){
-        console.log("success");
-         console.log("success to register");
-         var email = $("input[name='fos_user_registration_form[email]']").val();
-        var psd1 = $("input[name='fos_user_registration_form[plainPassword][first]']").val();
-        console.log(email + psd1);
-
+        $("#loading").css("display", "none");
+        alert("login success");
         return true;
     } 
     else if($("input[name='fos_user_registration_form[email]']").val()==""){
@@ -222,8 +211,6 @@ function login() {
        return false;
    }      
    else{
-    console.log("fail to login");
-
     return false;
 }
 

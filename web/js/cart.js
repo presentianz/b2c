@@ -2,6 +2,7 @@
     $('.cart-action-button').click(function (e) {
         e.preventDefault();
         $this = $(this);
+        $("#loading").css("display", "block");
         $.ajax({
             url: $this.attr("data-path"),
             method: "POST",
@@ -39,6 +40,7 @@
                     alert(": (");
                 }
             }
+            $("#loading").css("display", "none");
         })
     })
 })();

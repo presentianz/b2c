@@ -10,15 +10,6 @@ function productpic(i) {
     $(".product-pictures").addClass("hide");
     $("#product-picture" + i).removeClass("hide");
 }
-$(document).ready(function ()
-{
-
-    $('#collect').click(function() {
-        $("#loading").css("display", "block");
-        });
-
-    
-});
 
 (function () {
     
@@ -41,6 +32,7 @@ $(document).ready(function ()
     $('#add-cart-button').click(function (e) {
         e.preventDefault();
         $this = $(this);
+        $("#loading").css("display", "block");
         var productId = $this.attr("data-id");
         $.ajax({
             url: $this.attr("data-path"),
@@ -54,6 +46,7 @@ $(document).ready(function ()
         })
         .done(function (rep) {
             console.log( rep );
+           $("#loading").css("display", "none");
             if (rep.granted) {
                 alert("添加成功！");
             }

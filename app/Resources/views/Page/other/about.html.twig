@@ -1,7 +1,6 @@
 {% extends 'layout_main.html.twig' %}
 
 {% block body %}
-    <!--   About Panel -->
     <div class="container-non-responsive">
         <div class="row no-border">
             <div class="col-xs-3 siderbar">
@@ -9,11 +8,11 @@
                     {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
                 </div>
             <div class="col-xs-9 page-right">
-                    <div class="page-breadcrumb">
-                 <ol>
-                    <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
-                    <li>&nbsp;>&nbsp;关于我们</li>
-                </ol>
+                <div class="page-breadcrumb">
+                    <ol>
+                        <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
+                        <li>&nbsp;>&nbsp;关于我们</li>
+                     </ol>
                 </div>
                 <div class="page-title">
                     <h4>关于我们</h4>
@@ -22,8 +21,6 @@
                     我们代理的都是新西兰澳洲药房所认可的大品牌，绝对一手货源，百分百保真。产品种类繁多，有上千种网络热销产品，代购追捧单品，经济实惠，价格合理。
                 </div>	
             </div>	
-
         </div>
     </div><!-- /container-non-responsive -->
-
 {% endblock %}

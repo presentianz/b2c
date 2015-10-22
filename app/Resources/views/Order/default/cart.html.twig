@@ -21,6 +21,7 @@
             </div>
              <div class="cart-content col-xs-12">               
                 <table class="table">
+                {% if data|length > 0 %}
                     <thead>
                         <tr>
                             <th width="50%">商品</th>
@@ -30,9 +31,8 @@
                             <th width="10%">操作</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody>    
                         <form action="{{path('checkout')}}" method="post" onsubmit="">
-                        {% if data|length > 0 %}
                         {% set sum = 0 %}
                             {% for cartproduct in data %}
                                 <tr>
@@ -56,13 +56,6 @@
                                 </tr>
                                 {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted %}
                             {% endfor %}
-                        {% else %}
-                            <tr>
-                                <td colspan="5">
-                                <h3 style="padding: 30px 0px;">您的购物车是空的</h3>
-                                </td>
-                            </tr>
-                        {% endif %}
                     </tbody>
                     <tfoot>
                         <tr>
@@ -86,7 +79,15 @@
                         </tr>
                         </form>
                     </tfoot>
-
+                    {% else %}
+                        <tbody>   
+                            <tr>
+                                <td colspan="5">
+                                    <h3>您的购物车是空的,去<a href="{{path('homepage')}}">这里逛逛</a></h3>
+                                </td>
+                            </tr>
+                        </tbody>
+                        {% endif %}
                 </table>
             </div>
         </div>

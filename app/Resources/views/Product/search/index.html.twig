@@ -35,7 +35,7 @@
                                     keys : app.request.get('keys'),
                                     sort : 1,
                                     item_no: app.request.get('item_no')}) }}">
-                                    <div class="select-box-order {% if app.request.get('sort') == 1  or not app.request.get('sort') %} active {% endif %}" id="select-box1" onClick="changeselectbox(1)">
+                                    <div class="select-box-order {% if app.request.get('sort') == 1  or not app.request.get('sort') %} active {% endif %}">
                                         <i>默认排序</i>  
                                     </div>
                                 </a>
@@ -44,7 +44,7 @@
                                     keys : app.request.get('keys'),
                                     item_no: app.request.get('item_no'),
                                     sort : 3 }) }}">
-                                    <div class="select-box-order active" id="select-box2" onClick="changeselectbox(2)">
+                                    <div class="select-box-order active">
                                         <i>价格</i>
                                         <i class="fa fa-long-arrow-up"></i>
                                     </div>
@@ -54,7 +54,7 @@
                                     keys : app.request.get('keys'),
                                     item_no: app.request.get('item_no'),
                                     sort : 2 }) }}">
-                                    <div class="select-box-order {% if app.request.get('sort') == 3 %} active {% endif %}" id="select-box2" onClick="changeselectbox(2)">
+                                    <div class="select-box-order {% if app.request.get('sort') == 3 %} active {% endif %}">
                                         <i>价格</i>
                                         <i class="fa fa-long-arrow-down"></i>
                                     </div>
@@ -64,7 +64,7 @@
                                     keys : app.request.get('keys'),
                                     item_no: app.request.get('item_no'),
                                     sort : 4 }) }}">
-                                    <div class="select-box-order {% if app.request.get('sort') == 4 %} active {% endif %}" id="select-box3" onClick="changeselectbox(3)">
+                                    <div class="select-box-order {% if app.request.get('sort') == 4 %} active {% endif %}">
                                         <i>销量</i>
                                         <i class="fa fa-long-arrow-down"></i>
                                     </div>
@@ -73,7 +73,7 @@
                                     keys : app.request.get('keys'),
                                     item_no: app.request.get('item_no'),
                                     sort : 5}) }}">
-                                    <div class="select-box-order {% if app.request.get('sort') == 5 %} active {% endif %}" id="select-box4" onClick="changeselectbox(4)">
+                                    <div class="select-box-order {% if app.request.get('sort') == 5 %} active {% endif %}">
                                         <i>发布时间</i>
                                         <i class="fa fa-long-arrow-down"></i>
                                     </div>
@@ -82,7 +82,7 @@
                                     keys : app.request.get('keys'),
                                     item_no: app.request.get('item_no'),
                                     sort : 6}) }}">
-                                    <div class="select-box-order {% if app.request.get('sort') == 6 %} active {% endif %}" id="select-box5" onClick="changeselectbox(5)">
+                                    <div class="select-box-order {% if app.request.get('sort') == 6 %} active {% endif %}">
                                         <i>浏览次数</i>
                                         <i class="fa fa-long-arrow-down"></i>
                                     </div>

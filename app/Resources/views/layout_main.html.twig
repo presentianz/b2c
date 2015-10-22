@@ -68,11 +68,10 @@
                                              <span><strong>$2000.00</strong></span>
                                         </div>   
                                     </div>
-                                </a>
-                                    
-                                    <div class="history-clear">
-                                    <a href="{{ path('homepage') }}"><h6>删除浏览记录</h6></a>
-                                    </div>
+                                </a> 
+                                <div class="history-clear">
+                                <a href="{{ path('homepage') }}"><h6>删除浏览记录</h6></a>
+                                </div>
                                 </div>
                             </div>
                             <div id="more" class="history">
@@ -155,7 +154,7 @@
                 </div>
             </div>
 
-            <nav id="sub-navbar" class="sub-nav">
+            <div id="sub-navbar" class="sub-nav">
                 <div class="nav-all">
                     <a href="{{ path('category') }}">全部商品分类</a>
                     <i class="fa fa-chevron-down"></i>
@@ -169,74 +168,81 @@
                     <a href="{{ path('homepage') }}">物流中心</a>
                     <a href="{{ path('contact') }}">联系我们</a>
                 </div>
-            </nav>
+            </div>
             {% endblock %}
         </div>
 
         <!-- body -->
         {% block body %}{% endblock %}
         <div id="footer">
-            <footer>
-                <div class="container-non-responsive">  
-                    <div class="col-xs-2">
-                            <h5>公司简介</h5><br>
-                             <a href="{{ path('about') }}">
-                            <p> 采购网是一家专注纽澳特产品，护肤品，保健品为一体的大型连锁专营店。 </p>
-                        </a>
-                    </div>
-                    <div class="col-xs-2">
-                        <h5>新手指南</h5><br>
-                        <a href="{{ path('contact') }}">账号注册</a><br>
-                        <a href="{{ path('homepage') }}">充值积分</a><br>
-                        <a href="{{ path('homepage') }}">产品退税</a><br>
-                        <a href="{{ path('homepage') }}">购物流程</a><br>
-                    </div>
-                    <div class="col-xs-2">
-                        <h5>发货说明</h5><br>
-                        <a href="{{ path('homepage') }}">快递资费标准</a> <br>
-                        <a href="{{ path('homepage') }}">收货时间</a><br>
-                        <a href="{{ path('homepage') }}">订单拆分</a><br>    
-                    </div>
-                    <div class="col-xs-2">
-                        <h5>支付方式</h5><br>
-                        <a href="payment.html">在线支付</a> <br>
-                        <a href="{{ path('homepage') }}">信用卡支付</a><br>
-                        <a href="{{ path('homepage') }}">银行转账</a><br>
-                        <a href="{{ path('homepage') }}"><img src="{{ asset('img/payment/paymentexpress.png') }}" alt="payment"></a>
-                    </div>
-                    <div class="col-xs-2">
-                        <h5>售后服务</h5><br>
-                        <a href="{{ path('homepage') }}">退换货政策</a> <br>
-                        <a href="{{ path('homepage') }}">退换货流程</a><br>
-                        <a href="{{ path('homepage') }}">退款说明</a><br>
-                        <a href="{{ path('homepage') }}">我要退货/换货</a><br>
-                    </div>
-                    <div class="col-xs-2">
-                        <h5>联系我们</h5><br>
-                        <a href="joinUs.html">加入我们</a><br>
-                        <a href="{{ path('contact') }}">联系我们</a><br>
-                        <a href="{{ path('homepage') }}">友情链接</a><br>
-                    </div>
-                </div>
-
-                <div class="copyright">
-                    <div class="container-non-responsive">              
-                        <span>Copyright &copy;2015 彩购网 Copyright</span>
-                    </div>
-                </div>
-            </footer>
-
-
-            <div id="gototop">
-                <i class="fa fa-chevron-up"></i>
-                <div>返回顶部</div>
+        <div class="container-non-responsive">  
+            <div class="col-xs-2">
+                    <h5>公司简介</h5><br>
+                     <a href="{{ path('about') }}">
+                    <p> 采购网是一家专注纽澳特产品，护肤品，保健品为一体的大型连锁专营店。 </p>
+                </a>
             </div>
-
-        <!-- No Javascript warnings -->
-            <noscript>
-                <div>You browser doesn't support JavaScript or has it turned off. This website requires JavaScript to working propertly.</div>
-            </noscript>
+            <div class="col-xs-2">
+                <h5>新手指南</h5><br>
+                <a href="{{ path('contact') }}">账号注册</a><br>
+                <a href="{{ path('homepage') }}">充值积分</a><br>
+                <a href="{{ path('homepage') }}">产品退税</a><br>
+                <a href="{{ path('homepage') }}">购物流程</a><br>
+            </div>
+            <div class="col-xs-2">
+                <h5>发货说明</h5><br>
+                <a href="{{ path('homepage') }}">快递资费标准</a> <br>
+                <a href="{{ path('homepage') }}">收货时间</a><br>
+                <a href="{{ path('homepage') }}">订单拆分</a><br>    
+            </div>
+            <div class="col-xs-2">
+                <h5>支付方式</h5><br>
+                <a href="payment.html">在线支付</a> <br>
+                <a href="{{ path('homepage') }}">信用卡支付</a><br>
+                <a href="{{ path('homepage') }}">银行转账</a><br>
+                <a href="{{ path('homepage') }}"><img src="{{ asset('img/payment/paymentexpress.png') }}" alt="payment"></a>
+            </div>
+            <div class="col-xs-2">
+                <h5>售后服务</h5><br>
+                <a href="{{ path('homepage') }}">退换货政策</a> <br>
+                <a href="{{ path('homepage') }}">退换货流程</a><br>
+                <a href="{{ path('homepage') }}">退款说明</a><br>
+                <a href="{{ path('homepage') }}">我要退货/换货</a><br>
+            </div>
+            <div class="col-xs-2">
+                <h5>联系我们</h5><br>
+                <a href="joinUs.html">加入我们</a><br>
+                <a href="{{ path('contact') }}">联系我们</a><br>
+                <a href="{{ path('homepage') }}">友情链接</a><br>
+            </div>
         </div>
+
+        <div class="copyright">
+            <div class="container-non-responsive">              
+                <span>Copyright &copy;2015 彩购网 Copyright</span>
+            </div>
+        </div>
+        </div>
+
+        <!--loading -->
+        <div id="loading">
+            <div>
+                <h4>加载中， 请稍等</h4>
+                 <img src="{{ asset('img/ajax-loader.gif') }}">
+            </div>
+        </div>
+
+        <!--gototop -->
+        <div id="gototop">
+            <i class="fa fa-chevron-up"></i>
+            <div>返回顶部</div>
+        </div>
+
+    <!-- No Javascript warnings -->
+    <noscript>
+        <div>You browser doesn't support JavaScript or has it turned off. This website requires JavaScript to working propertly.</div>
+    </noscript>
+    
 
         <!-- jQuery -->
         <script type="text/javascript" src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>

@@ -11,11 +11,10 @@
                     {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
                     {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
                 </div>
-
                 <div class="col-xs-9 page-right">
                 <div class="page-breadcrumb">
-                 <ol>
-                    <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
+                    <ol>
+                     <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
                      {% if data.path is defined %}      
                          {% for category in data.path %}
                               <li>&nbsp;>&nbsp;<a href="{{ path('category', { id : category.id }) }}">{{ category.name }} </a></li>
@@ -24,9 +23,7 @@
                             {% else %}
                             <li> &nbsp;>&nbsp;全部分类 (共{{ data.total_no }}件商品) </li>
                             {% endif %}
-                    
-                         </ol>
-                        
+                      </ol>
                         {% if data.children|length > 0 %}
                         <div class="toolbar">
                         <div>可选分类</div>
@@ -34,15 +31,11 @@
                             <a class="search-keys" href="{{ path('category', {id : category.id}) }}">{{ category.name }}</a>
                             {% endfor %}
                         </div>
-                        {% endif %}
-                       
+                        {% endif %}                      
                     </div>
-
                     <div class="page-title">
                     </div>
-                    {#{{dump(data)}}#}
-                    <div class="page-content">
-                        <!--toolbar-->  
+                    <div class="page-content"> 
                         <div class="toolbar">
                             <div class="pull-left">
                                 <a href="{{ path('category', {
@@ -50,7 +43,7 @@
                                     sort : 1,
                                     item_no : item_no
                                     }) }}">
-                                    <div class="select-box-order {% if sort == 1 %} active {% endif %}" id="select-box1" onClick="changeselectbox(1)">
+                                    <div class="select-box-order {% if sort == 1 %} active {% endif %}">
                                         <i>默认排序</i>  
                                     </div>
                                 </a>
@@ -60,7 +53,7 @@
                                     page : 1,
                                     item_no : item_no,
                                     sort : 3 }) }}">
-                                    <div class="select-box-order active" id="select-box2" onClick="changeselectbox(2)">
+                                    <div class="select-box-order active">
                                         <i>价格</i>
                                         <i class="fa fa-long-arrow-up"></i>
                                     </div>
@@ -71,7 +64,7 @@
                                     page : 1,
                                     item_no : item_no,
                                     sort : 2 }) }}">
-                                    <div class="select-box-order {% if sort == 3 %} active {% endif %}" id="select-box2" onClick="changeselectbox(2)">
+                                    <div class="select-box-order {% if sort == 3 %} active {% endif %}">
                                         <i>价格</i>
                                         <i class="fa fa-long-arrow-down"></i>
                                     </div>
@@ -81,7 +74,7 @@
                                     id : id,
                                     item_no: item_no,
                                     sort : 4 }) }}">
-                                    <div class="select-box-order {% if sort == 4 %} active {% endif %}" id="select-box3" onClick="changeselectbox(3)">
+                                    <div class="select-box-order {% if sort == 4 %} active {% endif %}">
                                         <i>销量</i>
                                         <i class="fa fa-long-arrow-down"></i>
                                     </div>
@@ -90,7 +83,7 @@
                                     id : id,
                                     item_no: item_no,
                                     sort : 5}) }}">
-                                    <div class="select-box-order {% if sort == 5 %} active {% endif %}" id="select-box4" onClick="changeselectbox(4)">
+                                    <div class="select-box-order {% if sort == 5 %} active {% endif %}">
                                         <i>发布时间</i>
                                         <i class="fa fa-long-arrow-down"></i>
                                     </div>
@@ -99,7 +92,7 @@
                                     id : id,
                                     item_no: item_no,
                                     sort : 6}) }}">
-                                    <div class="select-box-order {% if sort == 6 %} active {% endif %}" id="select-box5" onClick="changeselectbox(5)">
+                                    <div class="select-box-order {% if sort == 6 %} active {% endif %}" id="select-box5">
                                         <i>浏览次数</i>
                                         <i class="fa fa-long-arrow-down"></i>
                                     </div>
@@ -128,8 +121,7 @@
                             </div>
 
                         </div>
-                        <!--//toolbar-->  
-                        <!--search products--> 
+
                         <div class="hotdeal clearfix">
                         {% for i in 1..(data.row_no) %}
                             <div class="row">
