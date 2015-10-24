@@ -1,7 +1,9 @@
 $(document).ready(function () {
     
     $('#myCarousel').carousel();
-    $('#gototop').click(function () {window.scrollTo(0, 0); });
+    $('#gototop').click(function () { $('html, body').animate({
+            scrollTop: 0
+        }, 800); });
        
 
     var $pagination = $('.select-page-number');
