@@ -4,17 +4,37 @@ $(document).ready(function () {
     $('#gototop').click(function () {window.scrollTo(0, 0); });
        
 
-    
-
     var $pagination = $('.select-page-number');
     var $lis = $pagination.find('a:not(#prev, #next, .i-next, .i-prev)');
-    $lis.filter(':lt(-6)').hide();
-    $lis.filter(':gt(-5)').addClass('activee');
+    $lis.filter('.page').hide();
+    var idx = $lis.index($lis.filter('.active')) || 0;
+    var total = $lis.filter('.page').length;
+    var $toHighlight;
+    if(idx - 2 < 0 ) $toHighlight = $lis.slice(idx, idx + 5);
+    else if(idx + 3 > total) $toHighlight = $lis.slice(idx - 4, idx);
+    else $toHighlight = $lis.slice(idx - 2, idx + 3);
+    $toHighlight.addClass('show')
+    $lis.filter(".active").addClass('show');
+    $lis.filter('.show').show();
+    
+
+    var $prev = $("#next").click(function () {
+        var idx = $lis.index($lis.filter('.show:first')) || 0;
+         var start =  idx - 5;
+        var $toHighlight = $lis.slice(start, start + 5);
+        if ($toHighlight.length == 0) {
+            $prev.hide();
+            return;
+        }           
+        $next.show();
+
+        $lis.filter('.show').removeClass('show').hide();
+        $toHighlight.show().addClass('show')
+    });
 
     
     var $next = $("#prev").click(function () {
-        var idx = $lis.index($lis.filter('.activee:last')) || 0;
-        
+        var idx = $lis.index($lis.filter('.show:last')) || 0;      
         var $toHighlight = $lis.slice(idx + 1, idx + 6);
         if ($toHighlight.length == 0) {
             $prev.show();
@@ -22,26 +42,10 @@ $(document).ready(function () {
         }
         
         $next.show();        
-        $lis.filter('.activee').removeClass('activee').hide();
-        $toHighlight.show().addClass('activee')
+        $lis.filter('.show').removeClass('show').hide();
+        $toHighlight.show().addClass('show')
     });
-    
-    var $prev = $("#next").click(function () {
-        var idx = $lis.index($lis.filter('.activee:first')) || 0;
-        
-        var start = idx < 4 ? 0 : idx - 4;
-        var $toHighlight = $lis.slice(start, start + 5);
-        console.log($toHighlight);
-        if ($toHighlight.length == 0) {
-            $prev.hide();
-            return;
-        }      
-        
-        $next.show();
 
-        $lis.filter('.activee').removeClass('activee').hide();
-        $toHighlight.show().addClass('activee')
-    });
     
 }); // close jquery
 

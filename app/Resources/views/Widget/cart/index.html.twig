@@ -1,0 +1,33 @@
+<div class="clear"></div>
+<div class="cart-list">
+    <i class="cart-block-row"></i>
+    <div class="item">
+        <div class="cart-image">
+           <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
+        </div>
+        <div class="nav-cart-content">
+            <h5>麦卢卡蜂蜜</h5>
+            <span><strong>$2000.00</strong></span>
+            <span>×20</span>
+            <span class="remove"><a href="#">删除</a></span>
+        </div>
+    </div>
+    <div class="item">
+        <div class="cart-image">
+           <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
+        </div>
+        <div class="nav-cart-content">
+            <h5>麦卢卡蜂蜜</h5>
+            <span><strong>$220.00</strong></span>
+            <span>×5</span>
+            <span class="remove"><a href="#">删除</a></span>
+        </div>
+    </div>
+    <div class="total">
+        <span>共<strong>25</strong>件商品</span>
+        <span>共计<strong>$411.00</strong></span>
+    </div>
+    <form action="{{path('cart')}}" method="get" onsubmit="">
+        <input type="submit"  value="结算">
+    </form>
+</div>

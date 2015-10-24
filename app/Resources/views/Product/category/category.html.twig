@@ -147,14 +147,20 @@
                         <div class="toolbar toolbar-bottom">
                             <div class="pull-right">
                                 <label>页面：</label>
-                                <span class="select-box-num select-page-number">                                
+                                <span class="select-box-num select-page-number">                            
                                     <a href="{{ path('category', {
                                         id : id,
                                         page : page + 1,
                                         sort : sort,
                                         item_no: item_no
-                                    }) }}" {% if page == data.total_page %} class="hide" {% endif %} class="i-next" href="#" title="下一个"><i class="fa fa-caret-right"></i></a>
-                                     <a id="next" href="#" class="next">
+                                    }) }}" {% if page == data.total_page %} class="hide" {% endif %} class="i-next" title="下一个">
+                                    <i class="fa fa-caret-right"></i></a>
+                                    <a id="next" href="{{ path('category', {
+                                        id : id,
+                                        page : page + 5,
+                                        sort : sort,
+                                        item_no: item_no
+                                    }) }}" {% if page + 5 >= data.total_page %} class="hide" {% endif %} class="next">
                                     <i class="fa fa-angle-double-right"></i></a>
                                     {% for i in data.total_page..1 %}
                                         <a href="{{ path('category', {
@@ -162,16 +168,22 @@
                                             page : i,
                                             sort : sort,
                                             item_no: item_no
-                                        }) }}" {% if i == page %} class="active" {% endif %}> {{ i }}</a>
+                                        }) }}" {% if i == page %} class="page active" {% endif %} class="page"> {{ i }}</a>
                                     {% endfor %}
-                                     <a id="prev" href="#" class="prev">
-                                   <i class="fa fa-angle-double-left"></i></a>
+                                    <a id="prev" href="{{ path('category', {
+                                        id : id,
+                                        page : page - 5,
+                                        sort : sort,
+                                        item_no: item_no
+                                    }) }}" {% if page - 5 <= 0 %} class="hide" {% endif %} class="prev">
+                                    <i class="fa fa-angle-double-left"></i></a>
                                     <a href="{{ path('category', {
                                         id : id,
                                         page : page - 1,
                                         sort : sort,
                                         item_no: item_no
-                                    }) }}" {% if page - 1 == 0 %} class="hide" {% endif %} class="i-next" href="#" title="上一个"><i class="fa fa-caret-left"></i></a>
+                                    }) }}" {% if page - 1 == 0 %} class="hide" {% endif %} class="i-next"  title="上一个">
+                                    <i class="fa fa-caret-left"></i></a>
                                 </span>
                             </div>
                         </div> 
@@ -183,4 +195,8 @@
 
 {% block javascripts %}
     <script src="{{ asset('js/search.js') }}"></script>
+    <script type="text/javascript">
+</script>
+
+
 {% endblock %}

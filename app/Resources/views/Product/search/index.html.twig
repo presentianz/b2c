@@ -143,14 +143,18 @@
                             <div class="pull-right">
                                 <label>页面：</label>
                                 <span class="select-box-num select-page-number">     
-                                 <a href="{{ path('search', {
+                                    <a href="{{ path('search', {
                                         keys : app.request.get('keys'),
                                         page : (app.request.get('page')) ? app.request.get('page')+1 : 2,
                                         sort : app.request.get('sort'),
                                         item_no: app.request.get('item_no')
                                     }) }}" {% if app.request.get('page') == data.total_page  %} class="hide" {% endif %} class="i-next" title="下一个"><i class="fa fa-caret-right"></i></a> 
-                                                           
-                                    <a id="next" href="#" class="next">
+                                    <a id="next" href="{{ path('category', {
+                                        keys : app.request.get('keys'),
+                                        page : (app.request.get('page')) ? app.request.get('page')+5 : 10,
+                                        sort : app.request.get('sort'),
+                                        item_no: app.request.get('item_no')
+                                    }) }}" {% if app.request.get('page') + 5 >= data.total_page %} class="hide" {% endif %} class="next">
                                     <i class="fa fa-angle-double-right"></i></a>
                                     {% for i in data.total_page..1 %}
                                     <a href="{{ path('search', {
@@ -158,17 +162,22 @@
                                             page : i,
                                             sort : app.request.get('sort'),
                                             item_no: app.request.get('item_no')
-                                        }) }}" {% if not app.request.get('page') and i == 1 %} class="active" {% elseif i == app.request.get('page') %} class="active" {% endif %}> {{ i }}</a>
+                                        }) }}" {% if not app.request.get('page') and i == 1 %} class="page active" {% elseif i == app.request.get('page') %} class="page active" {% endif %} class="page"> {{ i }}</a>
                                     {% endfor %}
-                                   <a id="prev" href="#" class="prev">
-                                   <i class="fa fa-angle-double-left"></i></a>
-                                    
+                                    <a id="prev" href="{{ path('category', {
+                                        keys : app.request.get('keys'),
+                                        page : (app.request.get('page')) ? app.request.get('page')-5 : 10,
+                                        sort : app.request.get('sort'),
+                                        item_no: app.request.get('item_no')
+                                    }) }}" {% if app.request.get('page') - 5 <= 0 %} class="hide" {% endif %} class="prev">
+                                    <i class="fa fa-angle-double-left"></i></a>  
                                     <a href="{{ path('search', {
                                         keys : app.request.get('keys'),
                                         page : (app.request.get('page')) ? app.request.get('page')-1 : 2,
                                         sort : app.request.get('sort'),
                                         item_no: app.request.get('item_no')
-                                    }) }}" {% if app.request.get('page') - 1 == 0  %} class="hide" {% endif %} class="i-prev" title="上一个"><i class="fa fa-caret-left"></i></a>
+                                    }) }}" {% if app.request.get('page') - 1 == 0  %} class="hide" {% endif %} class="i-prev" title="上一个">
+                                    <i class="fa fa-caret-left"></i></a>
                                
                             </div>
                         </div> 
