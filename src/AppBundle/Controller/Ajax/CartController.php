@@ -65,8 +65,13 @@ class CartController extends Controller
                             $em->persist($cartProduct);
                             $em->flush();
                         }
+                        // elseif ($cartProduct && $cartProduct->getCount() < 1) {
+                        //     $cartProduct->setCount(0);
+                        //     $em->persist($cartProduct);
+                        //     $em->flush();
+                        // }
                         elseif ($cartProduct) {
-                            $return['granted'] = false;
+                             $return['granted'] = false;
                         }
                         else {
                             $return['granted'] = false;
