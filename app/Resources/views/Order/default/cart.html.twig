@@ -44,7 +44,7 @@
                                     <td>{{ cartproduct.product.priceDiscounted }}</td>
                                     <td class="clearfix text-right">
                                         <div class="number-group">
-                                            <input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}">
+                                            <input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">
                                             <div class="number-button" >
                                                 <div class="number-input number-input-up cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="+" data-no="1"><i class="fa fa-caret-up"></i></div>
                                                 <div class="number-input number-input-down cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="-" data-no="1"><i class="fa fa-caret-down"></i></div>

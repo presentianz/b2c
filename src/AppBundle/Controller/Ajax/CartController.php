@@ -58,6 +58,19 @@ class CartController extends Controller
                         $em->persist($cartProduct);
                         $em->flush();
                         break;
+                    case 'number':
+                        if ($cartProduct == false) {
+                            $cartProduct = new CartProduct();
+                            $cartProduct->setProduct($product);
+                            $cartProduct->setCount($no);
+                            $cartProduct->setUser($user);
+                        } 
+                        else {
+                        $cartProduct->setCount($no);
+                        } 
+                        $em->persist($cartProduct);
+                        $em->flush();
+                        break;
                     //delete one
                     case '-':
                         if ($cartProduct && $cartProduct->getCount() > 1) {

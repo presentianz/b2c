@@ -22,7 +22,6 @@ var flag1 = flag2 = flag3 = flag4 = flag5 = false;
 
 $(document).ready(function () {
     $("input[name='fos_user_registration_form[email]']").blur(function (e) {
-        console.log("sssssss");
         var email = $("input[name='fos_user_registration_form[email]']").val();
         if (email == "") {
             flag1 = false;
@@ -213,8 +212,6 @@ function login() {
    else{
     return false;
 }
-
-
 
 }
 
