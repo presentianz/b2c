@@ -4,6 +4,7 @@
         e.preventDefault();
         $this = $(this);
         var value = $("#"+ $this.attr("id")).val();
+        console.log(value);
         if (value !== "" || value !== null || value !== undefined) {
            $.ajax({
             //need to fix backend
@@ -20,7 +21,6 @@
 
                if (rep.granted) {
                 console.log("seccuss");
-                
                 var price = $("#price_" + $this.attr("id")).html();
                 console.log(price);
                 var newPrice = Math.round(Number(price) * parseInt(value) * 100)/100;
@@ -42,6 +42,7 @@ $('.cart-action-button').click(function (e) {
     var value =$("#" + $this.attr("data-id")).val();
     if (value !== "" || value !== null || value !== undefined) {
         if ($this.hasClass("number-input-up")) {
+            alert("111");
             if ( value <= 99 ) {
                $(".number-input-down").css("display", "block");
                var newVal = parseFloat(value) + 1;
@@ -49,6 +50,7 @@ $('.cart-action-button').click(function (e) {
        } 
        else if ($this.hasClass("number-input-down")) {
         if (value > 1) {
+            alert("222");
             var newVal = parseFloat(value) - 1;
             $this.css("display", "block");
         } else {

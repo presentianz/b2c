@@ -35,7 +35,7 @@
                         <form action="{{path('checkout')}}" method="post" onsubmit="">
                         {% set sum = 0 %}
                             {% for cartproduct in data %}
-                                <tr id="{{ cartproduct.product.id }}">
+                                <tr>
                                     <td class="product-name">
                                         <input type="checkbox" name="product-id[]" value="{{ cartproduct.product.id }}" />
                                         <img src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg','img/blackmores.jpg', 'img/artemis.jpg'])) }}"/>
