@@ -24,11 +24,7 @@
                     </div>
                 </div>
                 <div class="user-nav-right">
-                    <div class="cart-wrapper user-top-cart">
-                        <a class="cart" href="{{ path('cart') }}">
-                            <img src="{{ asset('img/cart.gif') }}">
-                            <span>&nbsp;购物车 &nbsp;</span>
-                        </a>
+                    <div class="cart-wrapper user-top-cart"> 
                          {{ render(controller('AppBundle:Widget/Cart:index')) }}
                     </div>
                 </div>

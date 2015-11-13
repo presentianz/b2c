@@ -12,22 +12,36 @@ function productpic(i) {
 }
 
 (function () {
-    
-    $("#number-up").click(function (e) {
+    $('.number-input').click(function (e) {
         e.preventDefault();
         $this = $(this);
-        var productId = $this.attr("data-id");
-        var $n = $("#" + productId);
-        $n.val(Number($n.val()) + 1);
-    });
+        var value =$("#" + $this.attr("data-id")).val();
+        if (value !== "" || value !== null || value !== undefined) {
+            if ($this.hasClass("number-input-up")) {
+                if ( value <= 99 ) {
+                   $(".number-input-down").css("display", "block");
+                   var newVal = parseFloat(value) + 1;
+               } 
+           } 
+           else if ($this.hasClass("number-input-down")) {
+            if (value > 1) {
+                var newVal = parseFloat(value) - 1;
+                $this.css("display", "block");
+            } else {
+                $this.css("display", "none");
+                newVal = 1;
+            }
+        }
+        $("#" + $this.attr("data-id")).val(newVal);
+    }else {
+        alert("(:！");
 
-    $("#number-down").click(function (e) {
-        e.preventDefault();
-        $this = $(this);
-        var productId = $this.attr("data-id");
-        var $n = $("#" + productId);
-        $n.val(Number($n.val()) - 1);
-    });
+    }
+
+
+})
+
+
 
     $('#add-cart-button').click(function (e) {
         e.preventDefault();
@@ -46,7 +60,7 @@ function productpic(i) {
         })
         .done(function (rep) {
             console.log( rep );
-           $("#loading").css("display", "none");
+            $("#loading").css("display", "none");
             if (rep.granted) {
                 alert("添加成功！");
             }
