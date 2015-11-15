@@ -1,10 +1,10 @@
 $(document).ready(function () {
-    
+
     $('#myCarousel').carousel();
     $('#gototop').click(function () { $('html, body').animate({
-            scrollTop: 0
-        }, 800); });
-       
+        scrollTop: 0
+    }, 800); });
+
 
     var $pagination = $('.select-page-number');
     var $lis = $pagination.find('a:not(#prev, #next, .i-next, .i-prev)');
@@ -22,7 +22,7 @@ $(document).ready(function () {
 
     var $prev = $("#next").click(function () {
         var idx = $lis.index($lis.filter('.show:first')) || 0;
-         var start =  idx - 5;
+        var start =  idx - 5;
         var $toHighlight = $lis.slice(start, start + 5);
         if ($toHighlight.length == 0) {
             $prev.hide();
@@ -77,6 +77,53 @@ $(function() {
             }
         }
     });
+});
+
+$(function() {
+    $(".hover-action").hover(function(e) {
+    e.preventDefault();
+    $this = $(this);
+    //  $.ajax({
+    //     url: $this.attr("data-path"),
+    //     method: "GET",
+    //     data: {
+    //         id : $this.attr("id"),
+    //         action : $this.attr("data-action"),
+    //     },
+    //     dataType: "json"
+    // })
+    //  .done(function (rep) {
+    //      console.log("seccuss");
+    //  });
+ });
+
+    $('.cart-remove-button').click(function (e) {
+        e.preventDefault();
+        $this = $(this);
+         $("#loading").css("display", "block");
+        $.ajax({
+            url: $this.attr("data-path"),
+            method: "POST",
+            data: {
+                id : $this.attr("data-id"),
+                action : $this.attr("data-action"),
+                no : $this.attr("data-no")
+            },
+            dataType: "json"
+        })
+        .done(function (rep) {
+            if (rep.granted) {
+                 $("#loading").css("display", "none");
+                 $("#"+ $this.attr("data-id")).css("display","none");
+                alert("removed");
+            }
+            else {
+                $("#"+ $this.attr("data-id")).css("display","block");
+                location.reload(true);
+                alert(": (");
+            }
+        })
+})
 });
 
 
