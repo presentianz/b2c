@@ -1,4 +1,4 @@
-{% extends '::base.html.twig' %}
+{% extends 'Admin/admin_layout.html.twig' %}
 
 {% block body -%}
     <h1>Product</h1>
@@ -53,10 +53,7 @@
                 <th>Poster</th>
                 <td>{{ entity.poster }}</td>
             </tr>
-            <tr>
-                <th>Imagelink</th>
-                <td>{{ entity.imageLink }}</td>
-            </tr>
+
             <tr>
                 <th>Brand</th>
                 <td>{{ entity.brand }}</td>

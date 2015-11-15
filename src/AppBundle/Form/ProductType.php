@@ -30,7 +30,6 @@ class ProductType extends AbstractType
             ->add('brand')
             ->add('weight')
             ->add('productKey')
-            ->add('category')
         ;
     }
     

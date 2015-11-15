@@ -1,16 +1,24 @@
-{% extends '::base.html.twig' %}
+{% extends 'Admin/admin_layout.html.twig' %}
 
 {% block body -%}
-    <h1>Product edit</h1>
+    <section id="content">
+		<section class="vbox">
+			<section class="scrollable padder">
+				<div class="m-b-md">
+					<h3 class="m-b-none">修改商品</h3>
+				</div>
 
-    {{ form(edit_form) }}
+			    {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_product') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+			        <ul class="record_actions">
+			    <li>
+			        <a href="{{ path('admin_product') }}">
+			            Back to the list
+			        </a>
+			    </li>
+			    <li>{{ form(delete_form) }}</li>
+			</ul>
+			</section>
+      </section>
+  </section>
 {% endblock %}

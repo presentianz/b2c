@@ -1,6 +1,94 @@
 {% extends 'Admin/admin_layout.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('js/datatables/datatables.css')}}" type="text/css" />
+{% endblock %}
 
 {% block body -%}
+
+    <section id="content">
+          <section class="vbox">
+            <section class="scrollable padder">
+              <div class="m-b-md">
+                <h3 class="m-b-none">商品列表</h3>
+              </div>
+              <section class="panel panel-default">
+                <div class="table-responsive">
+                    <div class="dataTables_wrapper" role="grid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="dataTables_length">
+                                    <label>Show 
+                                    <select>
+                                        <option value="20" selected="selected">20</option>
+                                        <option value="40">40</option>
+                                        <option value="60">60</option>
+                                        <option value="80">80</option>
+                                    </select> entries</label>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped m-b-none dataTable">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc">ID</th>
+                                    <th class="sorting">名称</th>
+                                    <th class="sorting">原价</th>
+                                    <th class="sorting">折后价格</th>
+                                    <th class="sorting">浏览次数</th>
+                                    <th class="sorting">销售</th>
+                                    <th>编辑</th>
+                                </tr>
+                            </thead>
+                            <tbody role="alert" aria-live="polite" aria-relevant="all">
+                                {% for entity in entities %}
+                                    <tr>
+                                        <td><a href="{{ path('admin_product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+                                        <td>
+                                        {% if entity.name|length > 20 %}
+                                            {{ entity.name|slice(0, 20) }}...
+                                        {% else %}
+                                            {{ entity.name }}
+                                        {% endif %}</td>
+
+                                        <td>{{ entity.price }}</td>
+
+                                        <td>{{ entity.pricediscounted }}</td>
+
+                                        <td>{{ entity.click }}</td>
+
+                                        <td>{{ entity.soldNo }}</td>
+
+                                        <td>
+                                            <a href="{{ path('admin_product_edit', { 'id': entity.id }) }}">编辑</a>
+                                        </td>
+
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="dataTables_info" id="DataTables_Table_0_info">Showing 1 to 10 of 57 entries</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate">
+                                <a tabindex="0" class="first paginate_button paginate_button_disabled" id="DataTables_Table_0_first">First</a>
+                                <a tabindex="0" class="previous paginate_button paginate_button_disabled" id="DataTables_Table_0_previous">Previous</a>
+                                <span>
+                                    <a tabindex="0" class="paginate_active">1</a><a tabindex="0" class="paginate_button">2</a><a tabindex="0" class="paginate_button">3</a><a tabindex="0" class="paginate_button">4</a><a tabindex="0" class="paginate_button">5</a>
+                                </span>
+                                <a tabindex="0" class="next paginate_button" id="DataTables_Table_0_next">Next</a><a tabindex="0" class="last paginate_button" id="DataTables_Table_0_last">Last</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </section>
+        </section>
+      </section>
+      <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+    </section>
 
     {#<h1>Product list</h1>
 
@@ -14,17 +102,24 @@
                 <th>Viewed_count</th>
                 <th>Soldno</th>
                 <th>Actions</th>
-            </tr>
+        </tr>
+
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('admin_product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
                 <td>{{ entity.name }}</td>
+
                 <td>{{ entity.price }}</td>
+
                 <td>{{ entity.pricediscounted }}</td>
+
                 <td>{{ entity.viewedcount }}</td>
+
                 <td>{{ entity.soldNo }}</td>
+
                 <td>
                 <ul>
                     <li>
@@ -35,7 +130,9 @@
                     </li>
                 </ul>
                 </td>
-            </tr>
+
+        </tr>
+
         {% endfor %}
         </tbody>
     </table>
@@ -48,4 +145,9 @@
         </li>
     </ul>#}
     
+
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{asset('js/datatables/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('js/datatables/jquery.csv-0.71.min.js')}}"></script>
     {% endblock %}
