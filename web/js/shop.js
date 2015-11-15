@@ -58,6 +58,25 @@ $(function() {
         effect : "fadeIn",
         threshold : 10
     });
+
+    $("#bookmarkme").click(function(e) {
+        e.preventDefault();
+        try
+        {
+            window.external.addFavorite(location.href,document.title);
+        }
+        catch (e)
+        {
+            try
+            {
+                window.sidebar.addPanel(location.href,document.title,"");
+            }
+            catch (e)
+            {
+                alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请使用Ctrl+D进行添加");
+            }
+        }
+    });
 });
 
 

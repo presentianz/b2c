@@ -16,14 +16,14 @@ use AppBundle\Entity\UserOrder;
 
 
 /**
- * @Route("/account/order")
+ * @Route("/account")
  * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
  */
 
 class OrderController extends Controller
 {
     /**
-     * @Route("/", name="user_order")
+     * @Route("/order", name="user_order")
      */
     public function indexAction()
     {
@@ -35,7 +35,7 @@ class OrderController extends Controller
     }
 
     /**
-     * @Route("/detail/{id}", name="user_order_detail")
+     * @Route("/order/detail/{id}", name="user_order_detail")
      */
     public function detailAction($id)
     {

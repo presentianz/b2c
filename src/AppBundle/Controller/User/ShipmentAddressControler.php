@@ -12,14 +12,14 @@ use AppBundle\Entity\ShipmentAddress;
 use AppBundle\Form\Type\ShipmentAddressFormType;
 
 /**
- * @Route("account/address")
+ * @Route("/account")
  * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
  */
 
 class ShipmentAddressControler extends Controller
 {
     /**
-     * @Route("/", name="user_address")
+     * @Route("/address", name="user_address")
      */
     public function indexAction()
     {
@@ -34,7 +34,7 @@ class ShipmentAddressControler extends Controller
     }
     
     /**
-     * @Route("/show/{id}", name="user_address_show")
+     * @Route("/address/show/{id}", name="user_address_show")
      */
     public function showAction($id)
     {

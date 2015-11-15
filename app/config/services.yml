@@ -22,6 +22,6 @@ services:
             - { name: kernel.event_subscriber }
 
     product.click.increment:
-        class: AppBundle\EventListener\ProductClickIncrement
-        tags:
-            - { name: doctrine.event_listener, event: postLoad }
+        class: AppBundle\Service\ProductClikcIncrement
+        arguments: 
+            entityManager: "@doctrine.orm.entity_manager"

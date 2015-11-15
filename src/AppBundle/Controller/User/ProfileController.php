@@ -22,12 +22,12 @@ use AppBundle\Entity\UserInfo;
 use FOS\UserBundle\Controller\ProfileController as BaseController;
 
 /**
- * @Route("/account/profile")
+ * @Route("/account")
  */
-class ProfileController extends BaseController
+class ProfileController extends Controller
 {
 	/**
-	 * @Route("/", name="user_profile")
+	 * @Route("/profile", name="user_profile")
 	 */
     public function showAction()
     {
@@ -35,14 +35,15 @@ class ProfileController extends BaseController
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
-        
+        if($this->get('security.context')->isGranted('ROLE_ADMIN'))
+            return $this->redirectToRoute('admin_index');
         return $this->render('FOSUserBundle:Profile:show.html.twig', array(
             'user' => $user
         ));
     }
 
     /**
-	 * @Route("/edit", name="user_profile_edit")
+	 * @Route("/profile/edit", name="user_profile_edit")
 	 */
     public function editAction(Request $request)
     {

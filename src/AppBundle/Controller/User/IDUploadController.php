@@ -7,14 +7,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
- * @Route("/account/idupload")
+ * @Route("/account")
  * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
  */
 
 class IDUploadController extends Controller
 {
     /**
-     * @Route("/", name="user_id_upload")
+     * @Route("/idupload", name="user_id_upload")
      */
     public function indexAction()
     {

@@ -95,9 +95,9 @@ class ProductRepository extends EntityRepository
         $products->setFirstResult(($page-1)*$item_no)
                 ->setMaxResults($item_no);
         $data['products'] = $products->getQuery()->getResult();
-        $total_no = $products_no->getQuery()->getResult();
-        $data['total_page'] = ceil($total_no[0]['total_no']/$item_no);
-        $data['total_no'] = $total_no[0]['total_no'];
+        $total_no = $products_no->getQuery()->getSingleScalarResult();
+        $data['total_page'] = ceil($total_no/$item_no);
+        $data['total_no'] = $total_no;
         $data['row_no'] = ceil(count($data['products'])/3);
         return $data;
     }
@@ -109,7 +109,7 @@ class ProductRepository extends EntityRepository
         $em = $this->getEntityManager();
         $rows = $em->createQuery('SELECT COUNT(p.id) FROM AppBundle:Product p')->getSingleScalarResult();
         $offset = max(0, rand(0, $rows - $no + 1));
-        $query = $em->createQuery('SELECT DISTINCT p FROM AppBundle:Product p')
+        $query = $em->createQuery('SELECT p FROM AppBundle:Product p')
             ->setMaxResults($no)
             ->setFirstResult($offset);
         $products = $query->getResult();

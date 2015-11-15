@@ -7,14 +7,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
- * @Route("/account/topup")
+ * @Route("/account")
  * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
  */
 
 class TopupController extends Controller
 {
     /**
-     * @Route("/", name="user_topup")
+     * @Route("/topup", name="user_topup")
      */
     public function indexAction()
     {

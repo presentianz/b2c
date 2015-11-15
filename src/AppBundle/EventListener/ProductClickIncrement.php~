@@ -15,7 +15,7 @@ class ProductClickIncrement
         // perhaps you only want to act on some "Product" entity
         if ($entity instanceof Product) {
             $entity->setClick($entity->getClick() + 1);
-            $entityManager->flush();
+            //$entityManager->flush();
         }
     }
 }

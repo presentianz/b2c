@@ -19,6 +19,9 @@ class ProductController extends Controller
         $data = array();
         $data['product'] = $em->getRepository('AppBundle:Product')->findOneById($id);
         $data['path'] = $em->getRepository('AppBundle:Category')->getPath($data['product']->getCategory());
+
+        $this->get('product.click.increment')->clickIncrement($data['product']);
+        
         return $this->render('Product/product/index.html.twig', array(
             'data' => $data,
             ));

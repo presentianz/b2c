@@ -74,12 +74,12 @@ class CategoryRepository extends NestedTreeRepository
                 WHERE c.id IN (:ids)'
             )
             ->setParameter('ids', $ids);
-        $total = $query_total->getResult();
+        $total = $query_total->getSingleScalarResult();
 
         $data = array();
         $data['products'] = $products;
-        $data['total_no'] = $total[0]['total'];
-        $data['total_page'] = ceil($total[0]['total']/$item_no);
+        $data['total_no'] = $total;
+        $data['total_page'] = ceil($total/$item_no);
         $data['path'] = $gEM->getRepository('AppBundle:Category')->getPath($this_root);
         $data['children'] = $gEM->getRepository('AppBundle:Category')->children($this_root, true);
         $data['row_no'] = ceil(count($data['products'])/3);
@@ -100,7 +100,7 @@ class CategoryRepository extends NestedTreeRepository
                 FROM AppBundle:Category c JOIN c.products p 
                 WHERE c.id IN (:ids)')->setParameter('ids', $ids)->getSingleScalarResult();
         $offset = max(0, rand(0, $rows - 3));
-        $query = $em->createQuery('SELECT DISTINCT 
+        $query = $em->createQuery('SELECT 
                                     c.name AS category_name, 
                                     p.id, p.name, p.price AS price, 
                                     p.price_discounted AS priceDiscounted, 

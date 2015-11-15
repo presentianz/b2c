@@ -1,0 +1,370 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+{% block title %}
+    数据总览
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block body %}
+    <section id="content">
+          <section class="hbox stretch">
+            <section>
+              <section class="vbox">
+                <section class="scrollable padder">              
+                  <section class="row m-b-md">
+                    <div class="col-sm-6">
+                      <h3 class="m-b-xs text-black">网站数据总览</h3>
+                      <small>欢迎回来, {{ app.user.username }}</small>
+                    </div>
+                    
+                  </section>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <div class="panel b-a">
+                        <div class="row m-n">
+                          <div class="col-md-6 b-b b-r">
+                            <a href="#" class="block padder-v hover">
+                              <span class="i-s i-s-2x pull-left m-r-sm">
+                                <i class="i i-hexagon2 i-s-base text-danger hover-rotate"></i>
+                                <i class="i i-t-shirt i-1x text-white"></i>
+                              </span>
+                              <span class="clear">
+                                <span class="h3 block m-t-xs text-danger">2,000</span>
+                                <small class="text-muted text-u-c">商品</small>
+                              </span>
+                            </a>
+                          </div>
+                          <div class="col-md-6 b-b">
+                            <a href="#" class="block padder-v hover">
+                              <span class="i-s i-s-2x pull-left m-r-sm">
+                                <i class="i i-hexagon2 i-s-base text-success-lt hover-rotate"></i>
+                                <i class="i i-users2 i-sm text-white"></i>
+                              </span>
+                              <span class="clear">
+                                <span class="h3 block m-t-xs text-success">152</span>
+                                <small class="text-muted text-u-c">用户</small>
+                              </span>
+                            </a>
+                          </div>
+                          <div class="col-md-6 b-b b-r">
+                            <a href="#" class="block padder-v hover">
+                              <span class="i-s i-s-2x pull-left m-r-sm">
+                                <i class="i i-hexagon2 i-s-base text-info hover-rotate"></i>
+                                <i class="i i-flow-tree i-sm text-white"></i>
+                              </span>
+                              <span class="clear">
+                                <span class="h3 block m-t-xs text-info">25</span>
+                                <small class="text-muted text-u-c">分类</small>
+                              </span>
+                            </a>
+                          </div>
+                          <div class="col-md-6 b-b">
+                            <a href="#" class="block padder-v hover">
+                              <span class="i-s i-s-2x pull-left m-r-sm">
+                                <i class="i i-hexagon2 i-s-base text-primary hover-rotate"></i>
+                                <i class="i i-stack i-sm text-white"></i>
+                              </span>
+                              <span class="clear">
+                                <span class="h3 block m-t-xs text-primary">3500</span>
+                                <small class="text-muted text-u-c">订单</small>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                      <div class="panel b-a">
+                        <div class="panel-heading no-border bg-success lt text-center">
+                          <a href="#">
+                            <span class="block fa-2x m-t m-b text-white">未处理订单</span>
+                          </a>
+                        </div>
+                        <div class="padder-v text-center clearfix">                            
+                          <div class="col-xs-6 b-r">
+                            <div class="h3 font-bold">15</div>
+                            <small class="text-muted">已付款</small>
+                          </div>
+                          <div class="col-xs-6">
+                            <div class="h3 font-bold">20</div>
+                            <small class="text-muted">未付款</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2 col-sm-3">
+                      <div class="panel b-a">
+                        <div class="panel-heading no-border bg-danger lter text-center">
+                          <a href="#">
+                            <span class="block fa-2x m-t m-b text-white">库存</span>
+                          </a>
+                        </div>
+                        <div class="padder-v text-center clearfix">                            
+                          <div class="col-xs-12">
+                            <div class="h3 font-bold">7</div>
+                            <small class="text-muted">售罄</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2 col-sm-3">
+                      <div class="panel b-a">
+                        <div class="panel-heading no-border bg-info lter text-center">
+                          <a href="#">
+                            <span class="block fa-2x m-t m-b text-white">用户</span>
+                          </a>
+                        </div>
+                        <div class="padder-v text-center clearfix">                            
+                          <div class="col-xs-12">
+                            <div class="h3 font-bold">20</div>
+                            <small class="text-muted">本周注册</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>           
+                  <div class="row bg-light dk m-b">
+                    <div class="col-md-6 dker">
+                      <section>
+                        <header class="font-bold padder-v">
+                          <div class="pull-right">
+                            <div class="btn-group">
+                              <button data-toggle="dropdown" class="btn btn-sm btn-rounded btn-default dropdown-toggle">
+                                <span class="dropdown-label">周</span> 
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-select">
+                                  <li><a href="#"><input type="radio" name="b">月</a></li>
+                                  <li><a href="#"><input type="radio" name="b">周</a></li>
+                                  <li><a href="#"><input type="radio" name="b">日</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                          销售额
+                        </header>
+                        <div class="panel-body">
+                          <div id="flot-sp1ine" style="height:210px"></div>
+                        </div>
+                        <div class="row text-center no-gutter">
+                          <div class="col-xs-3">
+                            <span class="h4 font-bold m-t block">125</span>
+                            <small class="text-muted m-b block">订单数量</small>
+                          </div>
+                          <div class="col-xs-3">
+                            <span class="h4 font-bold m-t block">6,450</span>
+                            <small class="text-muted m-b block">销售额</small>
+                          </div>
+                          <div class="col-xs-3">
+                            <span class="h4 font-bold m-t block">522</span>
+                            <small class="text-muted m-b block">出货数量</small>
+                          </div>
+                          <div class="col-xs-3">
+                            <span class="h4 font-bold m-t block">75</span>
+                            <small class="text-muted m-b block">活跃用户数</small>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                    <div class="col-md-6">
+                      <section>
+                        <header class="font-bold padder-v">
+                          <div class="btn-group pull-right">
+                            <button data-toggle="dropdown" class="btn btn-sm btn-rounded btn-default dropdown-toggle">
+                              <span class="dropdown-label">过去七天</span> 
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-select">
+                                <li><a href="#"><input type="radio" name="a">今天</a></li>
+                                <li><a href="#"><input type="radio" name="a">过去七天</a></li>
+                                <li><a href="#"><input type="radio" name="a">过去三十天</a></li>
+                                <li><a href="#"><input type="radio" name="a">过去九十天</a></li>
+                            </ul>
+                          </div>
+                          销售分类
+                        </header>
+                        <div class="panel-body flot-legend">
+                          <div id="flot-pie-donut"  style="height:240px"></div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <section class="panel b-a">
+                        <div class="panel-heading b-b">
+                          <a href="#" class="font-bold">销售排名</a>
+                        </div>
+                        <ul class="list-group list-group-lg no-bg auto">                          
+                          <a href="#" class="list-group-item clearfix">
+                            <span class="pull-left thumb-sm avatar m-r">
+                              <img src="{{asset('img/admin/a4.png')}}" alt="...">
+                              <i class="on b-white bottom"></i>
+                            </span>
+                            <span class="clear">
+                              <span>Chris Fox</span>
+                              <small class="text-muted clear text-ellipsis">What's up, buddy</small>
+                            </span>
+                          </a>
+                          <a href="#" class="list-group-item clearfix">
+                            <span class="pull-left thumb-sm avatar m-r">
+                              <img src="{{asset('img/admin/a5.png')}}" alt="...">
+                              <i class="on b-white bottom"></i>
+                            </span>
+                            <span class="clear">
+                              <span>Amanda Conlan</span>
+                              <small class="text-muted clear text-ellipsis">Come online and we need talk about the plans that we have discussed</small>
+                            </span>
+                          </a>
+                          <a href="#" class="list-group-item clearfix">
+                            <span class="pull-left thumb-sm avatar m-r">
+                              <img src="{{asset('img/admin/a6.png')}}" alt="...">
+                              <i class="busy b-white bottom"></i>
+                            </span>
+                            <span class="clear">
+                              <span>Dan Doorack</span>
+                              <small class="text-muted clear text-ellipsis">Hey, Some good news</small>
+                            </span>
+                          </a>
+                          <a href="#" class="list-group-item clearfix">
+                            <span class="pull-left thumb-sm avatar m-r">
+                              <img src="{{asset('img/admin/a7.png')}}" alt="...">
+                              <i class="away b-white bottom"></i>
+                            </span>
+                            <span class="clear">
+                              <span>Lauren Taylor</span>
+                              <small class="text-muted clear text-ellipsis">Nice to talk with you.</small>
+                            </span>
+                          </a>
+                        </ul>
+                        <div class="clearfix panel-footer">
+                          <a href="#" class="block text-muted">更多</a>
+                        </div>
+                      </section>
+                    </div>
+                    <div class="col-md-4">
+                      <section class="panel b-a">
+                        <div class="panel-heading b-b">
+                          <a href="#" class="font-bold">关注度排名</a>
+                        </div>
+                        <ul class="list-group list-group-lg no-bg auto">                          
+                          <a href="#" class="list-group-item clearfix">
+                            <span class="pull-left thumb-sm avatar m-r">
+                              <img src="{{asset('img/admin/a4.png')}}" alt="...">
+                              <i class="on b-white bottom"></i>
+                            </span>
+                            <span class="clear">
+                              <span>Chris Fox</span>
+                              <small class="text-muted clear text-ellipsis">What's up, buddy</small>
+                            </span>
+                          </a>
+                          <a href="#" class="list-group-item clearfix">
+                            <span class="pull-left thumb-sm avatar m-r">
+                              <img src="{{asset('img/admin/a5.png')}}" alt="...">
+                              <i class="on b-white bottom"></i>
+                            </span>
+                            <span class="clear">
+                              <span>Amanda Conlan</span>
+                              <small class="text-muted clear text-ellipsis">Come online and we need talk about the plans that we have discussed</small>
+                            </span>
+                          </a>
+                          <a href="#" class="list-group-item clearfix">
+                            <span class="pull-left thumb-sm avatar m-r">
+                              <img src="{{asset('img/admin/a6.png')}}" alt="...">
+                              <i class="busy b-white bottom"></i>
+                            </span>
+                            <span class="clear">
+                              <span>Dan Doorack</span>
+                              <small class="text-muted clear text-ellipsis">Hey, Some good news</small>
+                            </span>
+                          </a>
+                          <a href="#" class="list-group-item clearfix">
+                            <span class="pull-left thumb-sm avatar m-r">
+                              <img src="{{asset('img/admin/a7.png')}}" alt="...">
+                              <i class="away b-white bottom"></i>
+                            </span>
+                            <span class="clear">
+                              <span>Lauren Taylor</span>
+                              <small class="text-muted clear text-ellipsis">Nice to talk with you.</small>
+                            </span>
+                          </a>
+                        </ul>
+                        <div class="clearfix panel-footer">
+                          <a href="#" class="block text-muted">更多</a>
+                        </div>
+                      </section>
+                    </div>
+                    <div class="col-md-4">
+                      <section class="panel b-a">
+                        <div class="panel-heading b-b">
+                          <a href="#" class="font-bold">最新评论</a>
+                        </div>
+                        <ul class="list-group list-group-lg no-bg auto">                          
+                          <a href="#" class="list-group-item clearfix">
+                            <span class="pull-left thumb-sm avatar m-r">
+                              <img src="{{asset('img/admin/a4.png')}}" alt="...">
+                              <i class="on b-white bottom"></i>
+                            </span>
+                            <span class="clear">
+                              <span>Chris Fox</span>
+                              <small class="text-muted clear text-ellipsis">What's up, buddy</small>
+                            </span>
+                          </a>
+                          <a href="#" class="list-group-item clearfix">
+                            <span class="pull-left thumb-sm avatar m-r">
+                              <img src="{{asset('img/admin/a5.png')}}" alt="...">
+                              <i class="on b-white bottom"></i>
+                            </span>
+                            <span class="clear">
+                              <span>Amanda Conlan</span>
+                              <small class="text-muted clear text-ellipsis">Come online and we need talk about the plans that we have discussed</small>
+                            </span>
+                          </a>
+                          <a href="#" class="list-group-item clearfix">
+                            <span class="pull-left thumb-sm avatar m-r">
+                              <img src="{{asset('img/admin/a6.png')}}" alt="...">
+                              <i class="busy b-white bottom"></i>
+                            </span>
+                            <span class="clear">
+                              <span>Dan Doorack</span>
+                              <small class="text-muted clear text-ellipsis">Hey, Some good news</small>
+                            </span>
+                          </a>
+                          <a href="#" class="list-group-item clearfix">
+                            <span class="pull-left thumb-sm avatar m-r">
+                              <img src="{{asset('img/admin/a7.png')}}" alt="...">
+                              <i class="away b-white bottom"></i>
+                            </span>
+                            <span class="clear">
+                              <span>Lauren Taylor</span>
+                              <small class="text-muted clear text-ellipsis">Nice to talk with you.</small>
+                            </span>
+                          </a>
+                        </ul>
+                        <div class="clearfix panel-footer">
+                          <a href="#" class="block text-muted">全部评论</a>
+                        </div>
+                      </section>
+                    </div>
+                    
+                  </div>
+                </section>
+              </section>
+            </section>
+
+            <!-- / side content -->
+          </section>
+          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+        </section>
+{% endblock %}
+
+{% block javascripts %}
+      <script src="{{asset('js/charts/easypiechart/jquery.easy-pie-chart.js')}}"></script>
+  <script src="{{asset('js/charts/sparkline/jquery.sparkline.min.js')}}"></script>
+  <script src="{{asset('js/charts/flot/jquery.flot.min.js')}}"></script>
+  <script src="{{asset('js/charts/flot/jquery.flot.tooltip.min.js')}}"></script>
+  <script src="{{asset('js/charts/flot/jquery.flot.spline.js')}}"></script>
+  <script src="{{asset('js/charts/flot/jquery.flot.pie.min.js')}}"></script>
+  <script src="{{asset('js/charts/flot/jquery.flot.resize.js')}}"></script>
+  <script src="{{asset('js/charts/flot/jquery.flot.grow.js')}}"></script>
+  <script src="{{asset('js/charts/flot/demo.js')}}"></script>
+{% endblock %}
