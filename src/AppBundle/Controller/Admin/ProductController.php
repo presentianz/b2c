@@ -24,15 +24,22 @@ class ProductController extends Controller
      * @Route("", name="admin_product")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        $keys = $request->query->get('keys');
+        $sort = $request->query->get('sort');
+        $page = $request->query->get('page');
+        $item_no = $request->query->get('item_no');
+        if (!(is_numeric($item_no) && $item_no > 1)) {
+            $item_no = 20;
+        }
+        if(!$sort)
+            $sort = 7;
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('AppBundle:Product')->findAll();
-
+        $data = $em->getRepository('AppBundle:Product')->searchProduct($keys, $sort, $page, $item_no);
         return $this->render('Admin/Product/index.html.twig', array(
-            'entities' => $entities,
-        ));
+            'data' => $data,
+            ));
     }
     /**
      * Creates a new Product entity.

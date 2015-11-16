@@ -81,7 +81,7 @@
   border-right-width: 1px;
 }
 .dataTables_wrapper th {
-  cursor: pointer;
+  /*cursor: pointer;*/
   outline: 0;
 }
 .dataTables_wrapper th:after {
