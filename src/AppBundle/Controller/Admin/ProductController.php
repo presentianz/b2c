@@ -24,15 +24,22 @@ class ProductController extends Controller
      * @Route("", name="admin_product")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        $keys = $request->query->get('keys');
+        $sort = $request->query->get('sort');
+        $page = $request->query->get('page');
+        $item_no = $request->query->get('item_no');
+        if (!(is_numeric($item_no) && $item_no > 1)) {
+            $item_no = 20;
+        }
+        if(!$sort)
+            $sort = 7;
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('AppBundle:Product')->findAll();
-
+        $data = $em->getRepository('AppBundle:Product')->searchProduct($keys, $sort, $page, $item_no);
         return $this->render('Admin/Product/index.html.twig', array(
-            'entities' => $entities,
-        ));
+            'data' => $data,
+            ));
     }
     /**
      * Creates a new Product entity.
@@ -53,11 +60,10 @@ class ProductController extends Controller
 
             return $this->redirect($this->generateUrl('admin_product_show', array('id' => $entity->getId())));
         }
-
-        return array(
+        return $this->render('Admin/Product/new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+        ));
     }
 
     /**
@@ -90,10 +96,10 @@ class ProductController extends Controller
         $entity = new Product();
         $form   = $this->createCreateForm($entity);
 
-        return array(
+        return $this->render('Admin/Product/new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+        ));
     }
 
     /**
@@ -114,10 +120,11 @@ class ProductController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
-            'entity'      => $entity,
+        return $this->render('Admin/Product/show.html.twig', array(
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
+
     }
 
     /**
@@ -139,11 +146,11 @@ class ProductController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('Admin/Product/edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
@@ -190,11 +197,11 @@ class ProductController extends Controller
             return $this->redirect($this->generateUrl('admin_product_edit', array('id' => $id)));
         }
 
-        return array(
+        return $this->render('Admin/Product/edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
     /**
      * Deletes a Product entity.

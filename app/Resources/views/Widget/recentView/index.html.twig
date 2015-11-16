@@ -1,0 +1,16 @@
+{% for product in data %}
+<a href="{{ path('product', {id : product.id}) }}" >
+    <div class="item"> 
+        <div class="cart-image">
+             <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
+        </div>
+        <div class="nav-cart-content">
+             <div><h5>{{ product.name }}</h5></div>
+             <span><strong>${{ product.price }}</strong></span>
+        </div>   
+    </div>
+</a>
+ {% endfor %}
+<div class="history-clear">
+<a href="{{ path('homepage') }}"><h6>删除浏览记录</h6></a>
+</div>

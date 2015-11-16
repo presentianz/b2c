@@ -406,8 +406,7 @@ select {
 
 .cart-list .item {
     border-bottom: 1px dashed #eee;
-    padding: 0px 10px;
-    height: 60px;
+    padding: 5px 10px;
     min-height: 50px;
 }
 
@@ -428,9 +427,9 @@ select {
 
 .cart-list .nav-cart-content{
     width: 160px;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    word-break: break-word;
 }
 
 .cart-list .item span {
@@ -446,20 +445,21 @@ select {
 }
 
 .cart-list .item h5 {
-    margin: 5px 0px;
+    margin-top: 5px;
 }
 
 .cart-list .total {
     padding:10px;
     position:relative;
     width: 100%;
+    text-align: center;
 }
 
-.cart-list .total span{
+.cart-list .total span {
     padding: 0px 10px;
 }
 
-.cart-list strong{
+.cart-list strong {
     color: #ee1c24;
     margin: 0 2px;
 }

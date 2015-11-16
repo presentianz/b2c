@@ -46,32 +46,8 @@
                              {% endif %}            
                             <div id="history-view" class="history">
                                 <h6>最近浏览</h6>
-                                <div class="history-list history-view">
-                                <a href="{{ path('homepage') }}" >
-                                    <div class="item"> 
-                                        <div class="cart-image">
-                                             <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
-                                        </div>
-                                        <div class="nav-cart-content">
-                                             <div><h5>麦卢卡蜂蜜</h5></div>
-                                             <span><strong>$2000.00</strong></span>
-                                        </div>   
-                                    </div>
-                                </a>
-                                <a href="{{ path('homepage') }}" >
-                                    <div class="item"> 
-                                        <div class="cart-image">
-                                             <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
-                                        </div>
-                                        <div class="nav-cart-content">
-                                             <div><h5>麦卢卡蜂蜜</h5></div>
-                                             <span><strong>$2000.00</strong></span>
-                                        </div>   
-                                    </div>
-                                </a> 
-                                <div class="history-clear">
-                                <a href="{{ path('homepage') }}"><h6>删除浏览记录</h6></a>
-                                </div>
+                                <div class="history-list history-view hover-action">
+                                {{ render(controller('AppBundle:Widget/RecentView:index')) }}
                                 </div>
                             </div>
                             <div id="more" class="history">
@@ -111,11 +87,7 @@
                         </div>
                     </div>
                     <div class="col-xs-2">
-                    <div class="cart-wrapper">
-                        <a class="cart" href="{{ path('cart') }}">
-                            <img src="{{ asset('img/cart.gif') }}">
-                            <span>&nbsp;购物车 &nbsp;</span>
-                        </a>
+                    <div class="cart-wrapper hover-action">
                         {{ render(controller('AppBundle:Widget/Cart:index')) }}
                     </div>
                     </div>

@@ -1,6 +1,271 @@
 {% extends 'Admin/admin_layout.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('js/datatables/datatables.css')}}" type="text/css" />
+{% endblock %}
+
+{% block nav %}
+    <nav class="nav-primary hidden-xs">
+  <div class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">数据库</div>
+  <ul class="nav nav-main" data-ride="collapse">
+  <li>
+    <a href="{{ path('admin_index') }}" class="auto">
+    <i class="i i-statistics icon">
+    </i>
+    <span class="font-bold">数据总览</span>
+    </a>
+  </li>
+  <li class="active">
+    <a href="#" class="auto">
+    <span class="pull-right text-muted">
+      <i class="i i-circle-sm-o text"></i>
+      <i class="i i-circle-sm text-active"></i>
+    </span>
+    <i class="i i-t-shirt icon">
+    </i>
+    <span class="font-bold">商品管理</span>
+    </a>
+    <ul class="nav dk">
+    <li class="active">
+      <a href="{{ path('admin_product') }}" class="auto">
+      <span class="pull-right text-muted">
+          <i class="i i-circle-sm-o text"></i>
+          <i class="i i-circle-sm text-active"></i>
+        </span>
+      <i class="i i-dot"></i>
+
+      <span>商品列表</span>
+      </a>
+    </li>
+    <li >
+      <a href="{{ path('admin_product_new') }}" class="auto">                                                        
+      <i class="i i-dot"></i>
+
+      <span>添加商品</span>
+      </a>
+    </li>
+    </ul>
+  </li>
+  <li >
+    <a href="#" class="auto">
+    <span class="pull-right text-muted">
+      <i class="i i-circle-sm-o text"></i>
+      <i class="i i-circle-sm text-active"></i>
+    </span>
+    <i class="i i-flow-tree icon">
+    </i>
+    <span class="font-bold">分类管理</span>
+    </a>
+    <ul class="nav dk">
+    <li >
+      <a href="buttons.html" class="auto">                                                        
+      <i class="i i-dot"></i>
+
+      <span>分类列表</span>
+      </a>
+    </li>
+    <li >
+      <a href="icons.html" class="auto">
+      <i class="i i-dot"></i>
+
+      <span>添加分类</span>
+      </a>
+    </li>
+    
+    </ul>
+  </li>
+  <li >
+    <a href="#" class="auto">
+    <i class="i  i-users3 icon">
+    </i>
+    <span class="font-bold">用户管理</span>
+    </a>
+  </li>
+  <li >
+    <a href="#" class="auto">
+    <i class="i i-stack icon">
+    </i>
+    <span class="font-bold">订单管理</span>
+    </a>
+  </li>
+            <li >
+              <a href="#" class="auto">
+                <i class="fa fa-dollar">
+                </i>
+                <span class="font-bold">付款明细</span>
+              </a>
+            </li>
+            <li >
+              <a href="#" class="auto">
+                <i class="i i-book icon">
+                </i>
+                <span class="font-bold">地址管理</span>
+              </a>
+            </li>
+            <li >
+              <a href="#" class="auto">
+                <i class="fa fa-comment-o icon">
+                </i>
+                <span class="font-bold">评论管理</span>
+              </a>
+            </li>
+  </ul>
+  <div class="line dk hidden-nav-xs"></div>
+  <div class="text-muted text-xs hidden-nav-xs padder m-t-sm m-b-sm">网站资源</div>
+  <ul class="nav">
+  <li >
+              <a href="#" class="auto">
+                <i class="fa fa-file-image-o">
+                </i>
+                <span class="font-bold">图片管理</span>
+              </a>
+            </li>
+            <li >
+              <a href="#" class="auto">
+                <i class="i i-vcard icon">
+                </i>
+                <span class="font-bold">身份证管理</span>
+              </a>
+            </li>
+  </ul>
+  
+</nav>
+{% endblock %}
 
 {% block body -%}
+
+    <section id="content">
+          <section class="vbox">
+            <section class="scrollable padder">
+              <div class="m-b-md">
+                <h3 class="m-b-none">商品列表</h3>
+              </div>
+              <section class="panel panel-default">
+                <div class="table-responsive">
+                    <div class="dataTables_wrapper" role="grid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="dataTables_length">
+                                    <a class="dropdown open">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                        每页显示 <b class="caret"></b>
+                                      </a>
+                                      <ul class="dropdown-menu animated fadeInRight">            
+                                        <li>
+                                          <span class="arrow top"></span>
+                                          <a href="{{ path('admin_product',{item_no : 20}) }}">20行</a>
+                                        </li>
+                                        <li>
+                                          <a href="{{ path('admin_product',{item_no : 40}) }}">40行</a>
+                                        </li>
+
+                                        <li>
+                                          <a href="{{ path('admin_product',{item_no : 60}) }}">60行</a>
+                                        </li>
+                                      </ul>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6"><div class="dataTables_filter" id="example_filter"><form action="{{ path('admin_product') }}" method="get"><label>搜索 <input type="text" aria-controls="example" name="keys" value="{{app.request.get('keys')}}"></form></label></div></div>
+                        </div>
+                        <table class="table table-striped m-b-none dataTable">
+                            <thead>
+                                <tr role="row">
+                                    {% if not app.request.get('sort') or app.request.get('sort') == 7 %}
+                                        <th class="sorting_asc"><a href="{{ path('admin_product',{sort:8, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a></th>
+                                    {% elseif app.request.get('sort') == 8 %}
+                                        <th class="sorting_desc"><a href="{{ path('admin_product',{sort:7, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a></th>
+                                    {% else %}
+                                        <th class="sorting"><a href="{{ path('admin_product',{sort:7, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a></th>
+                                    {% endif %}
+                                    {% if app.request.get('sort') == 9 %}
+                                        <th class="sorting_asc"><a href="{{ path('admin_product',{sort:10, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">名称</a></th>
+                                    {% elseif app.request.get('sort') == 10 %}
+                                        <th class="sorting_desc"><a href="{{ path('admin_product',{sort:9, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">名称</a></th>
+                                    {% else %}
+                                        <th class="sorting"><a href="{{ path('admin_product',{sort:9, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">名称</a></th>
+                                    {% endif %}
+                                    {% if app.request.get('sort') == 2 %}
+                                        <th class="sorting_asc"><a href="{{ path('admin_product',{sort:3, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">原价</a></th>
+                                    {% elseif app.request.get('sort') == 3 %}
+                                        <th class="sorting_desc"><a href="{{ path('admin_product',{sort:2, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">原价</a></th>
+                                    {% else %}
+                                        <th class="sorting"><a href="{{ path('admin_product',{sort:2, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">原价</a></th>
+                                    {% endif %}
+                                    {% if app.request.get('sort') == 11 %}
+                                        <th class="sorting_asc"><a href="{{ path('admin_product',{sort:12, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">折后价格</a></th>
+                                    {% elseif app.request.get('sort') == 12 %}
+                                        <th class="sorting_desc"><a href="{{ path('admin_product',{sort:11, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">折后价格</a></th>
+                                    {% else %}
+                                        <th class="sorting"><a href="{{ path('admin_product',{sort:11, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">折后价格</a></th>
+                                    {% endif %}
+                                    {% if app.request.get('sort') == 13 %}
+                                        <th class="sorting_asc"><a href="{{ path('admin_product',{sort:6, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">浏览次数</a></th>
+                                    {% elseif app.request.get('sort') == 6 %}
+                                        <th class="sorting_desc"><a href="{{ path('admin_product',{sort:13, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">浏览次数</a></th>
+                                    {% else %}
+                                        <th class="sorting"><a href="{{ path('admin_product',{sort:13, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">浏览次数</a></th>
+                                    {% endif %}
+                                    {% if app.request.get('sort') == 14 %}
+                                        <th class="sorting_asc"><a href="{{ path('admin_product',{sort:4, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">销售</a></th>
+                                    {% elseif app.request.get('sort') == 4 %}
+                                        <th class="sorting_desc"><a href="{{ path('admin_product',{sort:14, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">销售</a></th>
+                                    {% else %}
+                                        <th class="sorting"><a href="{{ path('admin_product',{sort:14, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">销售</a></th>
+                                    {% endif %}
+                                    <th>编辑</th>
+                                </tr>
+                            </thead>
+                            <tbody role="alert" aria-live="polite" aria-relevant="all">
+                                {% for entity in data.products %}
+                                    <tr>
+                                        <td><a href="{{ path('admin_product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
+                                        <td>
+                                        {% if entity.name|length > 20 %}
+                                            <span title="{{ entity.name }}">{{ entity.name|slice(0, 20) }}...</span>
+                                        {% else %}
+                                            <span title="{{ entity.name }}">{{ entity.name }}</span>
+                                        {% endif %}</td>
+
+                                        <td>{{ entity.price }}</td>
+
+                                        <td>{{ entity.priceDiscounted }}</td>
+
+                                        <td>{{ entity.click }}</td>
+
+                                        <td>{{ entity.soldNo }}</td>
+
+                                        <td>
+                                            <a href="{{ path('admin_product_edit', { 'id': entity.id }) }}">编辑</a>
+                                        </td>
+
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="dataTables_info" id="DataTables_Table_0_info">Showing 1 to 10 of 57 entries</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate">
+                                <a tabindex="0" class="first paginate_button paginate_button_disabled" id="DataTables_Table_0_first">First</a>
+                                <a tabindex="0" class="previous paginate_button paginate_button_disabled" id="DataTables_Table_0_previous">Previous</a>
+                                <span>
+                                    <a tabindex="0" class="paginate_active">1</a><a tabindex="0" class="paginate_button">2</a><a tabindex="0" class="paginate_button">3</a><a tabindex="0" class="paginate_button">4</a><a tabindex="0" class="paginate_button">5</a>
+                                </span>
+                                <a tabindex="0" class="next paginate_button" id="DataTables_Table_0_next">Next</a><a tabindex="0" class="last paginate_button" id="DataTables_Table_0_last">Last</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+          </section>
+        </section>
+      </section>
+      <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+    </section>
 
     {#<h1>Product list</h1>
 
@@ -14,17 +279,24 @@
                 <th>Viewed_count</th>
                 <th>Soldno</th>
                 <th>Actions</th>
-            </tr>
+        </tr>
+
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('admin_product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+
                 <td>{{ entity.name }}</td>
+
                 <td>{{ entity.price }}</td>
+
                 <td>{{ entity.pricediscounted }}</td>
+
                 <td>{{ entity.viewedcount }}</td>
+
                 <td>{{ entity.soldNo }}</td>
+
                 <td>
                 <ul>
                     <li>
@@ -35,7 +307,9 @@
                     </li>
                 </ul>
                 </td>
-            </tr>
+
+        </tr>
+
         {% endfor %}
         </tbody>
     </table>
@@ -48,4 +322,9 @@
         </li>
     </ul>#}
     
+
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{asset('js/datatables/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('js/datatables/jquery.csv-0.71.min.js')}}"></script>
     {% endblock %}

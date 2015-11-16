@@ -64,7 +64,8 @@ class ProductRepository extends EntityRepository
             $products->orWhere('LOCATE(:key'.$i.', p.name) > 0')->setParameter('key'.$i, $key);
             $products_no->orWhere('LOCATE(:key'.$i.', p.name) > 0')->setParameter('key'.$i, $key);
         }
-        //1 = update(default), 2 = price+, 3 = price-, 4 = soldNo-, 5 = date-
+        //1 = update(default), 2 = price+, 3 = price-, 4 = soldNo-, 5 = date-, 6 = click-, 7 = id+
+        //8 = id-, 9 = name+, 10 = name-, 11 = disprice+, 12 = disprice-, 13 = click+, 14 = soldNo+
         switch ($sort) {
             case '2':
                 $products->orderBy('p.price', 'ASC');
@@ -81,6 +82,36 @@ class ProductRepository extends EntityRepository
             case '6':
                 $products->orderBy('p.click', 'DESC');
                 break;
+            case '7':
+                $products->orderBy('p.id', 'ASC');
+                break;
+            case '8':
+                $products->orderBy('p.id', 'DESC');
+                break;
+            case '9':
+                $products->orderBy('p.name', 'ASC');
+                break;
+            case '10':
+                $products->orderBy('p.name', 'DESC');
+                break;
+            case '11':
+                $products->orderBy('p.price_discounted', 'ASC');
+                break;
+            case '12':
+                $products->orderBy('p.price_discounted', 'DESC');
+                break;
+            case '13':
+                $products->orderBy('p.click', 'ASC');
+                break;
+            case '6':
+                $products->orderBy('p.click', 'DESC');
+                break;
+            case '14':
+                $products->orderBy('p.soldNo', 'ASC');
+                break;
+            case '4':
+                $products->orderBy('p.soldNo', 'DESC');
+                break;
             default:
                 $products->addOrderBy('p.updateAt', 'DESC');
                 break;
@@ -89,9 +120,9 @@ class ProductRepository extends EntityRepository
             $page = 1;
         }
         if (!(is_numeric($item_no) && $item_no > 1)) {
-            $item_no = 1;
+            $item_no = 18;
         }
-        $item_no = $item_no <= 18 ? 18 : ($item_no <= 24 ? 24 : 36);
+        //$item_no = $item_no <= 18 ? 18 : ($item_no <= 24 ? 24 : 36);
         $products->setFirstResult(($page-1)*$item_no)
                 ->setMaxResults($item_no);
         $data['products'] = $products->getQuery()->getResult();
