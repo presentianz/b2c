@@ -14,9 +14,9 @@
            <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
         </div>
         <div class="nav-cart-content">
-            <h5>{{ cartproduct.product.name }}</h5>
-            <span><strong>${{ cartproduct.product.priceDiscounted }}</strong></span>
-            <span>×{{ cartproduct.count }}</span>
+            <h5 id="name_{{ cartproduct.product.id }}">{{ cartproduct.product.name }}</h5>
+            <span id="price_{{ cartproduct.product.id }}"><strong>${{ cartproduct.product.priceDiscounted }}</strong></span>
+            <span id="count_{{ cartproduct.product.id }}">×{{ cartproduct.count }}</span>
             <span class="remove"><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm" href="#">删除</a></span>
         </div>
     </div>
@@ -25,8 +25,8 @@
     {% endfor %}
     
     <div class="total">
-        <span>共<strong>{{ count }}</strong>件商品</span>
-        <span>共计<strong>${{ sum }}</strong></span>
+        <span>共<strong id="total-number">{{ count }}</strong>件商品</span>
+        <span>共计<strong id="total">${{ sum }}</strong></span>
     </div>
     <form action="{{path('cart')}}" method="get" onsubmit="">
         <input type="submit"  value="结算">

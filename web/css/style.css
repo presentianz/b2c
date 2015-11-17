@@ -323,7 +323,7 @@ select {
 }
 
 
-.cart-wrapper{
+.cart-wrapper {
     width: 145px;
     height: 35px;
     position: absolute;
@@ -331,9 +331,9 @@ select {
 }
 
 
-.cart-wrapper:hover .cart-list {
+/*.cart-wrapper:hover .cart-list {
     display: block;
-}
+}*/
 
 .cart-wrapper:hover .cart span {
     background: #fff;
@@ -1178,6 +1178,7 @@ input.qty {
     top: 0px;
     left: 0px;
     overflow: hidden;
+    z-index: 2;
     display: none;
 }
 

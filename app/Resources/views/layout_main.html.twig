@@ -87,7 +87,7 @@
                         </div>
                     </div>
                     <div class="col-xs-2">
-                    <div class="cart-wrapper hover-action">
+                    <div class="cart-wrapper" data-path="{{ path('cart_ajax_get') }}">
                         {{ render(controller('AppBundle:Widget/Cart:index')) }}
                     </div>
                     </div>

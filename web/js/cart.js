@@ -4,7 +4,6 @@
         e.preventDefault();
         $this = $(this);
         var value = $("#"+ $this.attr("id")).val();
-        console.log(value);
         if (value !== "" || value !== null || value !== undefined) {
            $.ajax({
             //need to fix backend
@@ -18,15 +17,11 @@
             dataType: "json"
         })
            .done(function (rep) {
-
                if (rep.granted) {
-                console.log("seccuss");
-                var price = $("#price_" + $this.attr("id")).html();
-                console.log(price);
+                var price = $("#oneprice_" + $this.attr("id")).html();
                 var newPrice = Math.round(Number(price) * parseInt(value) * 100)/100;
-                console.log(newPrice);
                 $("#allprice_" + $this.attr("id")).html("<strong>" + newPrice + "</strong>");
-
+                
             }
         })
 
@@ -39,10 +34,9 @@
 $('.cart-action-button').click(function (e) {
     e.preventDefault();
     $this = $(this);
-    var value =$("#" + $this.attr("data-id")).val();
+    var value =$("#" + $this.attr("data-id")).val();;
     if (value !== "" || value !== null || value !== undefined) {
         if ($this.hasClass("number-input-up")) {
-            alert("111");
             if ( value <= 99 ) {
                $(".number-input-down").css("display", "block");
                var newVal = parseFloat(value) + 1;
@@ -50,7 +44,6 @@ $('.cart-action-button').click(function (e) {
        } 
        else if ($this.hasClass("number-input-down")) {
         if (value > 1) {
-            alert("222");
             var newVal = parseFloat(value) - 1;
             $this.css("display", "block");
         } else {
@@ -70,15 +63,26 @@ $('.cart-action-button').click(function (e) {
     })
     .done(function (rep) {
         if (rep.granted) {
+            
             $("#" + $this.attr("data-id")).val(newVal);
-            var price = $("#price_" + $this.attr("data-id")).html();
+            var price = $("#oneprice_" + $this.attr("data-id")).html();
             var newPrice = Math.round(Number(price) * parseInt(newVal) * 100)/100;
             $("#allprice_" + $this.attr("data-id")).html("<strong>" + newPrice + "</strong>");
+            var total = Number($("#totalprice").html().slice(1));
+            if ($this.hasClass("number-input-up")) {
+               var newtotal = Math.round((total + Number(price))*100)/100;
+               console.log(newtotal);
+            } else if ($this.hasClass("number-input-down")) {
+              var newtotal =  Math.round((total - Number(price))*100)/100;
+            }
+
+            $("#totalprice").html("$" + newtotal);
         }
         else {
             location.reload(true);
             alert(": (");
         }
+
     })
     } else {
     alert(": (");

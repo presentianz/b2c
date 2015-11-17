@@ -41,7 +41,7 @@
                                         <img src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg','img/blackmores.jpg', 'img/artemis.jpg'])) }}"/>
                                         <div class="name-limit"><a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a></div>
                                     </td>
-                                    <td id="price_{{cartproduct.product.id }}">{{ cartproduct.product.priceDiscounted }}</td>
+                                    <td id="oneprice_{{cartproduct.product.id }}">{{ cartproduct.product.priceDiscounted }}</td>
                                     <td class="clearfix text-right">
                                         <div class="number-group">
                                             <input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">
@@ -69,7 +69,7 @@
                             <td class="text-left"><input type="submit"  value="清空购物车"></td>
                             <td colspan="3" class="total-price">商品总价 （不含运费）：
                              {% if data|length > 0 %}
-                                <strong id="total">${{ sum }}</strong>
+                                <strong id="totalprice">${{ sum }}</strong>
                              {% else %}
                                  <strong>$0.00</strong> 
                               {% endif %}

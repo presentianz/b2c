@@ -80,26 +80,44 @@ $(function() {
 });
 
 $(function() {
-    $(".hover-action").hover(function(e) {
+    $(".cart-wrapper").hover(function(e) {
     e.preventDefault();
     $this = $(this);
-    //  $.ajax({
-    //     url: $this.attr("data-path"),
-    //     method: "GET",
-    //     data: {
-    //         id : $this.attr("id"),
-    //         action : $this.attr("data-action"),
-    //     },
-    //     dataType: "json"
-    // })
-    //  .done(function (rep) {
-    //      console.log("seccuss");
-    //  });
+     $.ajax({
+        url: $this.attr("data-path"),
+        method: "GET",
+        dataType: "json"
+    })
+     .done(function (rep) {
+        var num = 0;
+        var total = 0;
+        console.log(rep);
+        if(rep !== "none" ) {
+         $.each(rep, function(id, value){
+           $("#name_" + id).html(value.name);
+           $("#count_" + id).html("x" + value.count);
+           $("#price_" + id + " strong").html("$" + value.price_discounted);
+           num = num + Number(value.count);
+           total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
+         });
+         $("#total-number").html(num);
+          $("#total").html('$' +total);
+         
+     } else {
+        $(".total").html("您的购物车为空！");
+     }
+     $(".cart-list").show();
+     })
+ }, function(e) {
+    e.preventDefault();
+    $(".cart-list").hide();
+
  });
 
     $('.cart-remove-button').click(function (e) {
         e.preventDefault();
         $this = $(this);
+        
          $("#loading").css("display", "block");
         $.ajax({
             url: $this.attr("data-path"),
@@ -111,14 +129,16 @@ $(function() {
             },
             dataType: "json"
         })
+
         .done(function (rep) {
             if (rep.granted) {
-                 $("#loading").css("display", "none");
-                 $("#"+ $this.attr("data-id")).css("display","none");
-                alert("removed");
+                 window.location.reload();
+                 setTimeout(function() {
+                    $("#loading").css("display", "none");
+                },2000);
+                 
             }
             else {
-                $("#"+ $this.attr("data-id")).css("display","block");
                 location.reload(true);
                 alert(": (");
             }

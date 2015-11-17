@@ -3523,3 +3523,27 @@ fieldset[disabled] .i-checks input + i:before {
     padding: 15px;
   }
 }
+
+
+/* --custom style --- */
+
+.form {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 80px;
+}
+
+.form div {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.form div label {
+     width: 100px;
+}
+
+ .form div input {
+    width: 250px;
+    display: inline-block;
+
+}

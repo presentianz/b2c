@@ -59,14 +59,17 @@ function productpic(i) {
             dataType: "json"
         })
         .done(function (rep) {
-            console.log( rep );
-            $("#loading").css("display", "none");
             if (rep.granted) {
-                alert("添加成功！");
+                window.location.reload();
+                 setTimeout(function() {
+                    $("#loading").css("display", "none");
+                },2000);
+                 
             }
             else {
                 alert("添加失败！");
             }
         })
+
     });
 })();
