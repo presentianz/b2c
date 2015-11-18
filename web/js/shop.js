@@ -155,6 +155,10 @@ $(function() {
         .done(function (rep) {
             if (rep.granted) {
                 $this.closest('.item').remove();
+                if ($('.cart-list').find('.item').length == 0){
+                    $('.cart-list').empty().hide();
+                    $('.cart-wrapper').attr('data-hovered','unhovered');
+                }
             }
             else {
                 alert(": (");
