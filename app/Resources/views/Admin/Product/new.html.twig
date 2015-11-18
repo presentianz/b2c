@@ -28,6 +28,8 @@
       <span>添加商品</span>
     </a>
   </li>
+  </ul>
+  </li>
 
 
   {% endblock %}
@@ -55,15 +57,13 @@
        <div> {{form_label(form.brand)}} {{form_widget(form.brand)}}</div>
        <div> {{form_label(form.weight)}} {{form_widget(form.weight)}}</div>
        <div> {{form_label(form.productKey)}} {{form_widget(form.productKey)}}</div>
-     </div>
 
-     <ul class="record_actions">
-      <li>
-        <a href="{{ path('admin_product') }}">
-          Back to the list
+       <div class="admin-buttons">
+        <a href="{{ path('admin_product') }}">Back
         </a>
-      </li>
-    </ul>
+      </div>
+    </div>
+
   </section>
 </section>
 </section>
