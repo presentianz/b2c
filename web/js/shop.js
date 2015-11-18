@@ -138,6 +138,7 @@ $(function() {
         $(".cart-list").hide();
     });
 
+//cart delete
     $('.cart-list').on('click', '.cart-remove-button', function (e) {
         e.preventDefault();
         $this = $(this);
@@ -155,6 +156,9 @@ $(function() {
         .done(function (rep) {
             if (rep.granted) {
                 $this.closest('.item').remove();
+
+                //price update...
+
                 if ($('.cart-list').find('.item').length == 0){
                     $('.cart-list').empty().hide();
                     $('.cart-wrapper').attr('data-hovered','unhovered');
