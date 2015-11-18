@@ -16,7 +16,7 @@ use AppBundle\Entity\CartProduct;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/cart", name="cart")
+     * @Route("/cart", name="cart", options={"expose"=true})
      */
     public function cartAction(Request $request)
     {

@@ -16,7 +16,7 @@ use AppBundle\Entity\CartProduct;
 class CartController extends Controller
 {
     /**
-     * @Route("/cartAjaxAction", name="cart_ajax_action", condition="request.isXmlHttpRequest()")
+     * @Route("/cartAjaxAction", name="cart_ajax_action", condition="request.isXmlHttpRequest()", options={"expose"=true})
      */
     public function indexAction(Request $request)
     {

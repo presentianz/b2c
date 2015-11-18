@@ -79,46 +79,68 @@ $(function() {
     });
 });
 
+
+//hover cart
 $(function() {
     $(".cart-wrapper").hover(function(e) {
-    e.preventDefault();
-    $this = $(this);
-     $.ajax({
-        url: $this.attr("data-path"),
-        method: "GET",
-        dataType: "json"
-    })
-     .done(function (rep) {
-        var num = 0;
-        var total = 0;
-        console.log(rep);
-        if(rep !== "none" ) {
-         $.each(rep, function(id, value){
-           $("#name_" + id).html(value.name);
-           $("#count_" + id).html("x" + value.count);
-           $("#price_" + id + " strong").html("$" + value.price_discounted);
-           num = num + Number(value.count);
-           total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
-         });
-         $("#total-number").html(num);
-          $("#total").html('$' +total);
-         
-     } else {
-        $(".total").html("您的购物车为空！");
-     }
-     $(".cart-list").show();
-     })
- }, function(e) {
-    e.preventDefault();
-    $(".cart-list").hide();
-
- });
-
-    $('.cart-remove-button').click(function (e) {
         e.preventDefault();
         $this = $(this);
-        
-         $("#loading").css("display", "block");
+        if($this.attr('data-hovered') == 'unhovered'){
+            $this.attr('data-hovered','hovered');
+            $('.cart-list').empty();
+            $.ajax({
+            url: $this.attr("data-path"),
+            method: "GET",
+            dataType: "json"
+            })
+            .done(function (rep) {
+                var num = 0;
+                var total = 0;
+                console.log(rep);
+                var innerHtml="";
+                innerHtml += "<i class=\"cart-block-row\"><\/i>";
+                if (rep !== 'none') {
+                    $.each(rep, function(index, value) {
+                        innerHtml += "<div class=\"item\">";
+                        innerHtml += "<div class=\"cart-image\">";
+                        innerHtml += "<img class=\"lazy\" src=\""+ assetsBaseDir +['img\/aptami.jpg', 'img\/honey.jpg', 'img\/honey2.jpg' ,'img\/blackmores.jpg', 'img\/artemis.jpg', 'img\/manukablendhoney.jpg', 'img\/milkchews.jpg', 'img\/royalnectar.jpg', 'img\/swisse.jpg'][Math.floor(Math.random() * 9)]+"\" alt=\"\">";
+                        innerHtml += "<\/div>";
+                        innerHtml += "<div class=\"nav-cart-content\">";
+                        innerHtml += "<h5 id=\"name_"+index+"\">"+value.name+"<\/h5>";
+                        innerHtml += "<span id=\"price_"+index+"\"><strong>$"+value.price_discounted+"<\/strong><\/span>";
+                        innerHtml += "<span id=\""+index+"\">×"+value.count+"<\/span>";
+                        innerHtml += "<span class=\"remove\"><a class=\"cart-remove-button\" data-path=\""+Routing.generate('cart_ajax_action')+"\" data-id=\""+index+"\" data-action=\"rm\" href=\"#\">删除<\/a><\/span>";
+                        innerHtml += "<\/div>";
+                        innerHtml += "<\/div>";
+                        num += Number(value.count);
+                        total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
+                    });
+                    innerHtml += "<div class=\"total\">";
+                    innerHtml += "<span>共<strong id=\"total-number\">"+num+"<\/strong>件商品<\/span>";
+                    innerHtml += "<span>共计<strong id=\"total\">$ "+total+"<\/strong><\/span>";
+                    innerHtml += "<\/div>";
+                    innerHtml += "<form action=\""+Routing.generate('cart')+"\" method=\"get\" onsubmit=\"\">";
+                    innerHtml += "<input type=\"submit\"  value=\"结算\">";
+                    innerHtml += "<\/form>";
+                }
+                else {
+                    innerHtml += "<div class=\"total\">";
+                    innerHtml += "您的购物车为空！";
+                    innerHtml += "<\/div>";
+                }
+                $('.cart-list').html(innerHtml);
+            })
+        }
+        $(".cart-list").show();
+    },
+    function(e) {
+        e.preventDefault();
+        $(".cart-list").hide();
+    });
+
+    $('.cart-list').on('click', '.cart-remove-button', function (e) {
+        e.preventDefault();
+        $this = $(this);
         $.ajax({
             url: $this.attr("data-path"),
             method: "POST",
@@ -132,19 +154,16 @@ $(function() {
 
         .done(function (rep) {
             if (rep.granted) {
-                 window.location.reload();
-                 setTimeout(function() {
-                    $("#loading").css("display", "none");
-                },2000);
-                 
+                $this.closest('.item').remove();
             }
             else {
-                location.reload(true);
                 alert(": (");
             }
         })
-})
+    })
 });
+
+
 
 
 

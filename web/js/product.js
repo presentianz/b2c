@@ -46,7 +46,7 @@ function productpic(i) {
     $('#add-cart-button').click(function (e) {
         e.preventDefault();
         $this = $(this);
-        $("#loading").css("display", "block");
+        //$("#loading").css("display", "block");
         var productId = $this.attr("data-id");
         $.ajax({
             url: $this.attr("data-path"),
@@ -60,11 +60,8 @@ function productpic(i) {
         })
         .done(function (rep) {
             if (rep.granted) {
-                window.location.reload();
-                 setTimeout(function() {
-                    $("#loading").css("display", "none");
-                },2000);
-                 
+                alert('添加成功');
+                $('.cart-wrapper').attr('data-hovered','unhovered');
             }
             else {
                 alert("添加失败！");

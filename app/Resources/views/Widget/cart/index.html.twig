@@ -1,9 +1,9 @@
-<a class="cart" href="{{ path('cart') }}">
+<a class="cart" id="cart"  href="{{ path('cart') }}">
     <img src="{{ asset('img/cart.gif') }}">
     <span>&nbsp;购物车 &nbsp;</span>
 </a>
 <div class="clear"></div>
-<div class="cart-list">
+<div class="cart-list">{#
     <i class="cart-block-row"></i>
     {% if data|length > 0 %}
     {% set sum = 0 %}
@@ -23,7 +23,7 @@
     {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted %}
     {% set count = count  + cartproduct.count %}
     {% endfor %}
-    
+
     <div class="total">
         <span>共<strong id="total-number">{{ count }}</strong>件商品</span>
         <span>共计<strong id="total">${{ sum }}</strong></span>
@@ -35,5 +35,8 @@
     <div class="total">
     您的购物车为空！
     </div>
-    {% endif %}
+    {% endif %}#}
 </div>
+
+
+
