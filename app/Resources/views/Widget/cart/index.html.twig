@@ -3,39 +3,11 @@
     <span>&nbsp;购物车 &nbsp;</span>
 </a>
 <div class="clear"></div>
-<div class="cart-list">{#
-    <i class="cart-block-row"></i>
-    {% if data|length > 0 %}
-    {% set sum = 0 %}
-    {% set count = 0 %}
-    {% for cartproduct in data %}
-    <div class="item">
-        <div class="cart-image">
-           <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
-        </div>
-        <div class="nav-cart-content">
-            <h5 id="name_{{ cartproduct.product.id }}">{{ cartproduct.product.name }}</h5>
-            <span id="price_{{ cartproduct.product.id }}"><strong>${{ cartproduct.product.priceDiscounted }}</strong></span>
-            <span id="count_{{ cartproduct.product.id }}">×{{ cartproduct.count }}</span>
-            <span class="remove"><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm" href="#">删除</a></span>
-        </div>
-    </div>
-    {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted %}
-    {% set count = count  + cartproduct.count %}
-    {% endfor %}
-
-    <div class="total">
-        <span>共<strong id="total-number">{{ count }}</strong>件商品</span>
-        <span>共计<strong id="total">${{ sum }}</strong></span>
-    </div>
-    <form action="{{path('cart')}}" method="get" onsubmit="">
-        <input type="submit"  value="结算">
-    </form>
-    {% else %}
-    <div class="total">
-    您的购物车为空！
-    </div>
-    {% endif %}#}
+<div class="cart-list">
+<i class="cart-block-row"></i>
+<div class="cart-spinner">
+ <img src="{{ asset('img/spinner.gif')}}">
+</div>
 </div>
 
 
