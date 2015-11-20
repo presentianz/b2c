@@ -21,7 +21,7 @@ class RecentViewedController extends Controller
 		$response = new Response();
 		if ($cookies->has('recentViewed')) {
 			$recentViewed = json_decode($cookies->get('recentViewed'), true);
-			if ($action === '+') {
+			if ($action === 'add') {
 				if (!in_array($id, $recentViewed)) {
 					array_push($recentViewed, $id);
 				}
@@ -37,7 +37,7 @@ class RecentViewedController extends Controller
 		}
 		else {
 			$response = new Response();
-			if ($action === '+') {
+			if ($action === 'add') {
 				$response->headers->setCookie(new Cookie('recentViewed', json_encode(array($id)), time() + (3600*48)));
                 $response->send();
                 return new Response($cookies->get('recentViewed'));

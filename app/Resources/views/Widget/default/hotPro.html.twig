@@ -12,7 +12,7 @@
     <div class="row">
     {% for product in data %}
         <div class="col-xs-3">
-            <a href="{{ path('product', { id : product.id }) }}">
+            <div data-path="{{ path('recent_viewed_action', { id : product.id, action: 'add' }) }}" data-id="{{ product.id }}" class="add-review">
                 <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
                  <div class="pro-text">
                     <div class="pro-title">{{ product.name }}<br></div>
@@ -21,8 +21,8 @@
                     <br>
                     <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
                 </div>
-            </a>
-        </div>
+            </div>
+        </div>s
     {% endfor %}
     </div>	
 </div>

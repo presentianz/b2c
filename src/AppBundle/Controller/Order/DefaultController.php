@@ -50,7 +50,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/orderConfirm", name="order_confirm")
+     * @Route("/orderConfirm", name="order_confirm", options={"expose"=true}))
      * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      */
     public function orderConfirmAction(Request $request)

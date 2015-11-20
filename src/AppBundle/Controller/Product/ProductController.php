@@ -11,7 +11,7 @@ use AppBundle\Entity\Product;
 class ProductController extends Controller
 {
     /**
-     * @Route("/p/{id}", name="product", requirements={"id" : "\d+"})
+     * @Route("/p/{id}", name="product", requirements={"id" : "\d+"}, options={"expose"=true})
      */
     public function indexAction($id)
     {

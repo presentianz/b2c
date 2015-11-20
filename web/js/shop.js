@@ -82,6 +82,24 @@ $(function() {
 
 //hover cart
 $(function() {
+
+            $('.add-review').click(function (e) {
+        e.preventDefault();
+        $this = $(this);
+        var productId = $this.attr("data-id");
+        $.ajax({
+            url: $this.attr("data-path"),
+            method: "POST",
+            dataType: "json"
+        })
+        .done(function (rep) {
+            console.log(rep);
+            window.location.href=Routing.generate('product') + "/" + $this.attr("data-id");
+           
+        })
+
+    });
+
     $(".cart-wrapper").hover(function(e) {
         e.preventDefault();
         $this = $(this);
@@ -114,30 +132,85 @@ $(function() {
                         num += Number(value.count);
                         total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
                     });
-                innerHtml += "<div class=\"total\">";
-                innerHtml += "<span>共<strong id=\"total-number\">"+num+"<\/strong>件商品<\/span>";
-                innerHtml += "<span>共计<strong id=\"total\">$"+total+"<\/strong><\/span>";
-                innerHtml += "<\/div>";
-                innerHtml += "<form action=\""+Routing.generate('cart')+"\" method=\"get\" onsubmit=\"\">";
-                innerHtml += "<input type=\"submit\"  value=\"结算\">";
-                innerHtml += "<\/form>";
-}
-else {
-    innerHtml += "<div class=\"total\">";
-    innerHtml += "您的购物车为空！";
-    innerHtml += "<\/div>";
-}
+                        innerHtml += "<div class=\"total\">";
+                        innerHtml += "<span>共<strong id=\"total-number\">"+num+"<\/strong>件商品<\/span>";
+                        innerHtml += "<span>共计<strong id=\"total\">$"+total+"<\/strong><\/span>";
+                        innerHtml += "<\/div>";
+                        innerHtml += "<form action=\""+Routing.generate('cart')+"\" method=\"get\" onsubmit=\"\">";
+                        innerHtml += "<input type=\"submit\"  value=\"结算\">";
+                        innerHtml += "<\/form>";
+                    }
+                    else {
+                    innerHtml += "<div class=\"total\">";
+                    innerHtml += "您的购物车为空！";
+                    innerHtml += "<\/div>";
+                    }
 
-$('.cart-list').html(innerHtml);
-})
-}
+                    $('.cart-list').html(innerHtml);
+                })
+            }
+            $(".cart-list").show();
+            },
+            function(e) {
+                e.preventDefault();
+                $(".cart-list").hide();
+            });
 
-$(".cart-list").show();
-},
-function(e) {
-    e.preventDefault();
-    $(".cart-list").hide();
-});
+
+    $("#history-view").hover(function(e) {
+        e.preventDefault();
+        $this = $(this);
+        $("#history-view").css("background-color","#fff");
+        if($this.attr('data-hovered') == 'unhovered'){
+            $this.attr('data-hovered','hovered');
+            console.log("rep");
+            $.ajax({
+                url: $this.attr("data-path"),
+                method: "GET",
+                dataType: "json"
+            })
+            .done(function (rep) {
+                console.log(rep);
+                var innerHtml="";
+                 
+                if (rep !== 'none') {
+                    innerHtml += "<div class=\"sub-list\">";
+                    $.each(rep, function(index, value) {
+                        innerHtml += "<a href=\""+index+"\">";
+                        innerHtml += "<div class=\"item\">";
+                        innerHtml += "<div class=\"cart-image\">";
+                        innerHtml += "<img class=\"lazy\" src=\""+ assetsBaseDir +['img\/aptami.jpg', 'img\/honey.jpg', 'img\/honey2.jpg' ,'img\/blackmores.jpg', 'img\/artemis.jpg', 'img\/manukablendhoney.jpg', 'img\/milkchews.jpg', 'img\/royalnectar.jpg', 'img\/swisse.jpg'][Math.floor(Math.random() * 9)]+"\" alt=\"\">";
+                        innerHtml += "<\/div>";
+                        innerHtml += "<div class=\"nav-cart-content\">";
+                        innerHtml += "<div><h5 id=\"viewname_"+index+"\">"+value.name+"<\/h5><\/div>";
+                        innerHtml += "<div><span id=\"viewprice_"+index+"\"><strong>$"+value.price_discounted+"<\/strong><\/span><\/div>";
+                        innerHtml += "<\/div>";
+                        innerHtml += "<\/div>";
+                        innerHtml += "<\/a>";
+                        
+                    });
+                        innerHtml += "<\/div>";
+                        innerHtml += "<div class=\"history-clear\">";
+                        innerHtml += "<h6>删除浏览记录<\/h6>";
+                        innerHtml += "<\/div>";
+                    }
+                    else {
+                    innerHtml += "<div class=\"total\">";
+                    innerHtml += "您的浏览记录为空！";
+                    innerHtml += "<\/div>";
+                    }
+
+                    $('.history-view').html(innerHtml);
+                })
+            }
+            
+            $(".history-view").show();
+            },
+            function(e) {
+                e.preventDefault();
+                $("#history-view").css("background","transparent");
+                $(".history-view").hide();
+            });
 
 //cart delete
 $('.cart-list').on('click', '.cart-remove-button', function (e) {

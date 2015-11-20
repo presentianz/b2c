@@ -41,12 +41,17 @@ function productpic(i) {
 
 })
 
+    $('.continue-shop').click(function() {
+        $('.pop-cart').css('display','none');
+    });
 
 
-    $('#add-cart-button').click(function (e) {
+
+
+
+    $('.add-cart-button').click(function (e) {
         e.preventDefault();
         $this = $(this);
-        //$("#loading").css("display", "block");
         var productId = $this.attr("data-id");
         $.ajax({
             url: $this.attr("data-path"),
@@ -60,8 +65,9 @@ function productpic(i) {
         })
         .done(function (rep) {
             if (rep.granted) {
-                alert('添加成功');
                 $('.cart-wrapper').attr('data-hovered','unhovered');
+                $('.pop-cart').css('display','block');
+
             }
             else {
                 alert("添加失败！");

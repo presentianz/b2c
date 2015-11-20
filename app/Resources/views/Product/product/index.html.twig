@@ -7,6 +7,9 @@
 {% endblock %}
 
 {% block body %}
+
+
+
 <div id="product-page" class="container-non-responsive">
     <div class="row">
         <div class="col-xs-3 siderbar">
@@ -69,9 +72,9 @@
                                     </div>
                                 </div> 
                                 <form method="get" action="{{ path('checkout') }}">
-                                    <input type="submit" value="立即购买" class="pull-right" data-id="{{ data.product.id }}" id="buy-now">
+                                    <input type="submit" value="立即购买" class="pull-right buy-now" data-id="{{ data.product.id }}">
                                 </form>
-                                <input type="submit" data-id="{{ data.product.id }}" data-path="{{ path('cart_ajax_action') }}" value="加入购物车" class="pull-right" id="add-cart-button"> 
+                                <input type="submit" data-id="{{ data.product.id }}" data-path="{{ path('cart_ajax_action') }}" value="加入购物车" class="pull-right add-cart-button"> 
                             </div>
                         </div>
                     </div> 
@@ -118,7 +121,23 @@
             </div>
         </div>   
     </div>
+    <div class="pop-cart">
+    <div><h3><i class="fa fa-info"></i>
+            <span>你的商品添加成功！</span></h3>
+            <span>
+                <form method="get" action="{{ path('checkout') }}">
+                    <input type="submit" value="结算" data-id="{{ data.product.id }}" class="buy-now">
+                </form>
+            </span>
+            <span>
+                <input type="submit" value="继续购物" class="continue-shop"> 
+            </span>
+        </div>
+    </div>
 </div><!-- /container-non-responsive -->
+
+
+
 
 
 {% endblock %}

@@ -30,7 +30,7 @@
                                 <a class="no-padding a-login" href="{{ path('user_profile') }}"><h6>{{ app.user.email }}&nbsp;|</h6></a>
                                 <a class="no-padding a-login" href="{{path('fos_user_security_logout')}}"><h6>登出</h6></a>
                             </div>
-                             <div id="user-home" class="history">
+                             <div id="user-home" class="history nav-hover">
                                 <a href="{{ path('user_profile') }}"><h6>我的彩购</h6></a> 
                                 <div class="history-list">
                                     <div><a href="{{path('user_profile')}}"><h6>我的账户</h6></a></div>
@@ -44,13 +44,15 @@
                                 <a class="a-login" href="{{path('fos_user_registration_register')}}"><h6>注册</h6></a>
                             </div>
                              {% endif %}            
-                            <div id="history-view" class="history">
+                            <div id="history-view" class="history" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}">
                                 <h6>最近浏览</h6>
-                                <div class="history-list history-view hover-action">
-                                {{ render(controller('AppBundle:Widget/RecentView:index')) }}
+                                <div class="history-list history-view">
+                                <div class="cart-spinner">
+                                <img src="{{ asset('img/spinner.gif')}}">
+                                </div>
                                 </div>
                             </div>
-                            <div id="more" class="history">
+                            <div id="more" class="history nav-hover">
                                 <h6>更多</h6>
                                 <div class="history-list">
                                     <div><a href="{{ path('contact') }}"><h6>联系我们</h6></a></div>

@@ -143,4 +143,31 @@
     border-bottom:0px;
 }
 
+#product-page .pop-cart {
+    display: none;
+    background: #f2f2f2;
+    width: 500px;
+    height: 170px;
+    margin: 100px auto;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 0 2px #999;
+    -webkit-box-shadow: 0 0 2px #999;
+    -moz-box-shadow:0 0 2px #999;
+}
+
+#product-page .pop-cart > div {
+    padding: 50px;
+    text-align: center;
+}
+
+#product-page .pop-cart > div > span {
+    display: inline-block;
+    margin:10px;
+}
+
 

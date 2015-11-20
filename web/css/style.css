@@ -188,17 +188,22 @@ select {
 }
 
 
-.navbar .history:hover .history-list {
+.navbar .nav-hover:hover .history-list {
     display: block;
     top:29px;
 }
 
-.navbar .history:hover {
+.navbar .nav-hover:hover {
     background-color: #fff; 
 }
 
 .navbar .history-list.history-view {
-     min-width: 160px;
+     min-width: 220px;
+    
+}
+.navbar .history-list .sub-list {
+     max-height: 350px;
+    overflow-y: scroll;
 }
 
 .navbar .history-list a h6:hover {
