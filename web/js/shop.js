@@ -83,7 +83,7 @@ $(function() {
 //hover cart
 $(function() {
 
-            $('.add-review').click(function (e) {
+       $('.add-review').click(function (e) {
         e.preventDefault();
         $this = $(this);
         var productId = $this.attr("data-id");
@@ -93,7 +93,6 @@ $(function() {
             dataType: "json"
         })
         .done(function (rep) {
-            console.log(rep);
             window.location.href=Routing.generate('product') + "/" + $this.attr("data-id");
            
         })
@@ -103,7 +102,7 @@ $(function() {
     $(".cart-wrapper").hover(function(e) {
         e.preventDefault();
         $this = $(this);
-        
+        console.log("try");
         if($this.attr('data-hovered') == 'unhovered'){
             $this.attr('data-hovered','hovered');
             $.ajax({
@@ -112,6 +111,7 @@ $(function() {
                 dataType: "json"
             })
             .done(function (rep) {
+                console.log(rep);
                 var num = 0;
                 var total = 0;
                 var innerHtml="";
@@ -163,14 +163,12 @@ $(function() {
         $("#history-view").css("background-color","#fff");
         if($this.attr('data-hovered') == 'unhovered'){
             $this.attr('data-hovered','hovered');
-            console.log("rep");
             $.ajax({
                 url: $this.attr("data-path"),
                 method: "GET",
                 dataType: "json"
             })
             .done(function (rep) {
-                console.log(rep);
                 var innerHtml="";
                  
                 if (rep !== 'none') {
