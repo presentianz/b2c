@@ -162,7 +162,7 @@
                               page : i,
                               sort : app.request.get('sort'),
                               item_no: app.request.get('item_no')
-                          }) }}" {% if not app.request.get('page') and i == 1 %} class="paginate_activepaginate_button" {% elseif i == app.request.get('page') %} class="paginate_active paginate_button" {% else %} class="paginate_button" {% endif %}> {{ i }}</a>
+                          }) }}" {% if not app.request.get('page') and i == 1 %} class="paginate_active paginate_button" {% elseif i == app.request.get('page') %} class="paginate_active paginate_button" {% else %} class="paginate_button" {% endif %}> {{ i }}</a>
                       {% endfor %}
                     </span>
                     <a tabindex="0" class="next paginate_button" id="DataTables_Table_0_next" href="{{ path('admin_product',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:(app.request.get('page')) ? app.request.get('page')+1 : 2,keys:app.request.get('keys')}) }}">Next</a>
