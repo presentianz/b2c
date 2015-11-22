@@ -37,10 +37,11 @@
   {% block body -%}
   <section id="content">
     <section class="vbox">
+      <header class="header bg-light b-b">
+        <p>添加商品</p>
+      </header>
      <section class="scrollable padder">
-      <div class="m-b-md">
-       <h3 class="m-b-none">添加商品</h3>
-     </div>
+      
      <div class="form">
        <div> {{form_label(form.name)}} {{form_widget(form.name)}}</div>
        <div> {{form_label(form.price)}} {{form_widget(form.price)}}</div>
@@ -53,7 +54,7 @@
        <div> {{form_label(form.status)}} {{form_widget(form.status)}}</div>
        <div> {{form_label(form.updateAt)}} {{form_widget(form.updateAt)}}</div>
        <div> {{form_label(form.poster)}} {{form_widget(form.poster)}}</div>
-       <div> {{form_label(form.imageLink)}} {{form_widget(form.imageLink)}}</div>
+       <div> <label>分类</label> {{form_widget(form.category)}}</div>
        <div> {{form_label(form.brand)}} {{form_widget(form.brand)}}</div>
        <div> {{form_label(form.weight)}} {{form_widget(form.weight)}}</div>
        <div> {{form_label(form.productKey)}} {{form_widget(form.productKey)}}</div>

@@ -1,0 +1,66 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+
+{% block adminCategory %}
+    <li class="active">
+        <a href="#" class="auto">
+            <span class="pull-right text-muted">
+                <i class="i i-circle-sm-o text"></i>
+                <i class="i i-circle-sm text-active"></i>
+            </span>
+            <i class="i i-flow-tree icon">
+            </i>
+            <span class="font-bold">分类管理</span>
+        </a>
+        <ul class="nav dk">
+            <li>
+                <a href="{{path('admin_category')}}" class="auto">
+                
+                    <i class="i i-dot"></i>
+
+                    <span>分类列表</span>
+                </a>
+            </li>
+            <li  class="active">
+                <a href="{{path('admin_category_new')}}" class="auto">
+                <span class="pull-right text-muted">
+                    <i class="i i-circle-sm-o text"></i>
+                    <i class="i i-circle-sm text-active"></i>
+                </span>
+                    <i class="i i-dot"></i>
+
+                    <span>添加分类</span>
+                </a>
+            </li>
+
+        </ul>
+    </li>
+{% endblock %}
+
+{% block body -%}
+
+<section id="content">
+    <section class="vbox">
+        <header class="header bg-light b-b">
+            <p>编辑分类</p>
+        </header>
+
+        <section class="scrollable wrapper">
+            <div class="form">
+                {{ form_start(form) }}
+                    <div>
+                        <label>名称</label>
+                        {{form_widget(form.name)}}
+                    </div>
+
+                    <div>
+                        <label>上级分类</label>
+                        {{form_widget(form.parent)}}
+                    </div>
+                <div class="admin-buttons">
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </section>
+</section>
+
+{% endblock %}

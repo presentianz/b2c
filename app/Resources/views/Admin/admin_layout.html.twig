@@ -119,6 +119,7 @@
 											</ul>
 										</li>
 										{% endblock %}
+										{% block adminCategory %}
 										<li >
 											<a href="#" class="auto">
 												<span class="pull-right text-muted">
@@ -131,14 +132,14 @@
 											</a>
 											<ul class="nav dk">
 												<li >
-													<a href="#" class="auto">                                                        
+													<a href="{{path('admin_category')}}" class="auto">                                                        
 														<i class="i i-dot"></i>
 
 														<span>分类列表</span>
 													</a>
 												</li>
 												<li >
-												<a href="#" class="auto">
+												<a href="{{path('admin_category_new')}}" class="auto">
 														<i class="i i-dot"></i>
 
 														<span>添加分类</span>
@@ -147,6 +148,7 @@
 
 											</ul>
 										</li>
+										{% endblock %}
 										<li >
 											<a href="#" class="auto">
 												<i class="i  i-users3 icon">
@@ -233,11 +235,16 @@
 	<!-- App -->
 	<script src="{{asset('js/app.js')}}"></script>  
 	<script src="{{asset('js/slimscroll/jquery.slimscroll.min.js')}}"></script>
+
+	<!-- Js Routing -->
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="{{asset('js/app.plugin.js')}}"></script>
 	{% block javascripts %}
 
 	{% endblock %}
 
 
-	<script src="{{asset('js/app.plugin.js')}}"></script>
+	
 </body>
 </html>

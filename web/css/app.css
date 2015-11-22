@@ -3533,7 +3533,7 @@ fieldset[disabled] .i-checks input + i:before {
     margin-right: 80px;
 }
 
-.form > div {
+.form div {
     margin-bottom: 10px;
     text-align: left;
 }
@@ -3615,3 +3615,12 @@ fieldset[disabled] .i-checks input + i:before {
     -moz-border-radius:0px;
     border: 1px solid #ee1c24;
   }
+
+
+
+
+/* customized css */
+.dd-handle a{
+  color: #1a0dab;
+  text-decoration: underline;
+}

@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ProductType extends AbstractType
+class CategoryType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -16,29 +16,18 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('price')
-            ->add('price_discounted')
-            ->add('viewed_count')
-            ->add('soldNo')
-            ->add('inventory')
-            ->add('click')
-            ->add('description')
-            ->add('status')
-            ->add('updateAt')
-            ->add('poster')
-            ->add('imageLink')
-            ->add('brand')
-            ->add('weight')
-            ->add('productKey')
-            ->add('category', 'entity', array(
+            // ->add('lft')
+            // ->add('lvl')
+            // ->add('rgt')
+            // ->add('root')
+            ->add('parent', 'entity', array(
                 'class' => 'AppBundle:Category',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('p')
                         ->orderBy('p.root', 'ASC')
                         ->addOrderBy('p.lft', 'ASC');
                 },
-            ))
-        ;
+            ));
     }
     
     /**
@@ -47,7 +36,7 @@ class ProductType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Product'
+            'data_class' => 'AppBundle\Entity\Category'
         ));
     }
 
@@ -56,6 +45,6 @@ class ProductType extends AbstractType
      */
     public function getName()
     {
-        return 'appbundle_product';
+        return 'appbundle_category';
     }
 }

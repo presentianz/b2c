@@ -1,0 +1,77 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('js/nestable/nestable.css')}}" type="text/css" />
+{% endblock %}
+{% block adminCategory %}
+    <li class="active">
+        <a href="#" class="auto">
+            <span class="pull-right text-muted">
+                <i class="i i-circle-sm-o text"></i>
+                <i class="i i-circle-sm text-active"></i>
+            </span>
+            <i class="i i-flow-tree icon">
+            </i>
+            <span class="font-bold">分类管理</span>
+        </a>
+        <ul class="nav dk">
+            <li class="active">
+                <a href="{{path('admin_category')}}" class="auto">
+                <span class="pull-right text-muted">
+                    <i class="i i-circle-sm-o text"></i>
+                    <i class="i i-circle-sm text-active"></i>
+                </span>
+                    <i class="i i-dot"></i>
+
+                    <span>分类列表</span>
+                </a>
+            </li>
+            <li >
+                <a href="{{path('admin_category_new')}}" class="auto">
+                    <i class="i i-dot"></i>
+
+                    <span>添加分类</span>
+                </a>
+            </li>
+
+        </ul>
+    </li>
+{% endblock %}
+
+{% block body -%}
+
+<section id="content">
+    <section class="vbox">
+        <header class="header bg-light b-b">
+            <p>分类列表</p>
+        </header>
+        <section class="scrollable wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="dd" id="nestable">
+                        {{tree | raw}}
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        
+    </section>
+</section>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{asset('js/nestable/jquery.nestable.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            $('#nestable').nestable().nestable('collapseAll');
+
+            $(".dd-nodrag").on("mousedown", function(e) { // mousedown prevent nestable click
+                e.preventDefault();
+                return false;
+            });
+        });
+    </script>
+{% endblock %}

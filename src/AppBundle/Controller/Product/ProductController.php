@@ -18,7 +18,10 @@ class ProductController extends Controller
         $em = $this->getDoctrine()->getManager();
         $data = array();
         $data['product'] = $em->getRepository('AppBundle:Product')->findOneById($id);
-        $data['path'] = $em->getRepository('AppBundle:Category')->getPath($data['product']->getCategory());
+        if($data['product']->getCategory() == null)
+            $data['path'] = null;
+        else
+            $data['path'] = $em->getRepository('AppBundle:Category')->getPath($data['product']->getCategory());
 
         $this->get('product.click.increment')->clickIncrement($data['product']);
         
