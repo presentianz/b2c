@@ -1,16 +1,4 @@
-{% extends 'views/User/default/index.html.twig' %}
-{% block page_title %}订单详情{% endblock page_title %}
-{% block fos_user_content %}      
-      <div class="order-transfer-info">
-       <!--wait for second-->
-      </div>
-      <div class="order-status-info">
-        <label>当前订单状态</label>
-            <span class="color">待付款</span>
-            <span>(请在 0小时 40分：45秒内完成付款，过期会自动取消订单)</span>
-            <input type="submit" value="付款"/>
-      </div>
-      <hr>
+
       <div class="order-info">
            <label>物流信息</label>
            <div><span>发货时间：</span><span>暂未发货</span></div>
@@ -18,7 +6,6 @@
            <div><span>快递单号：</span><span>暂无</span></div>
            <!--wait for second-->
        </div>
-       <hr>
        <div class="order-info">
          <label>收件人信息</label>
          <div><span>姓名：</span><span>万江</span></div>
@@ -28,41 +15,54 @@
          </div>
          <div><span>国家：</span><span>中国</span></div>
        </div>
-       <hr>
        <div class="order-info">
          <label>订单信息</label>
          <div><span>订单号：</span><span>20152346854</span></div>
          <div><span>提交时间：</span><span>2015-08-07</span></div>
          <div><span>订单总价：</span><span>NZD：27.00</span></div>
       </div>
-      <hr>
       <div class="order-product-info">
          <label>商品信息</label>
       </div>
       <table class="table">
           <thead>
               <tr>
-                  <th width="60%">商品名称</th>
+                  <th></th>
+                  <th width="50%">商品名称</th>
                   <th>数量</th>
                   <th>单价（纽币）</th>
                   <th>操作</th>
               </tr>
           </thead>
           <tbody>
-              {% for orderProduct in data.orderProducts %}
+              {% for orderProduct in order.orderProducts %}
                   <tr>
                       <td class="text-left">
                           <div class="col-xs-3 img">
                               <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
                           </div>
-                          <div class="col-xs-9 order-product-name">
-                              <h5><a href="{{ path('product', { id : orderProduct.product.id }) }}">
+                          </td>
+                          <td class="text-left">
+                          <div class="col-xs-12 order-product-name">
+                              <h5>
+                              <a href="{{ path('product', { id : orderProduct.product.id }) }}">
                                   {{ orderProduct.product.name }}
-                              </a></h5>
-                              <h6></h6>                                          
+                              </a>
+                              </h5>                                         
                           </div>
                       </td>
-                      <td>{{ orderProduct.count }}</td>
+                     {# <td>{{ orderProduct.count }}</td> #}
+
+                      <td>
+                       <div class="number-group">
+                            <input type="text" value="{{ orderProduct.count }}" maxlength="99" class="qty" min="1" id="{{orderProduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">
+                            <div class="number-button" >
+                                <div class="number-input number-input-up cart-action-button" data-id="{{orderProduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="+" data-no="1"><i class="fa fa-caret-up"></i></div>
+                                <div class="number-input number-input-down cart-action-button" data-id="{{orderProduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="-" data-no="1"><i class="fa fa-caret-down"></i></div>
+                            </div>
+                        </div>
+                      </td>
+
                       <td>{{ orderProduct.price }}</td>
                       <td class="operate">
                          <input type="submit" value="付款"/>
@@ -72,5 +72,3 @@
               {% endfor %}
       </tbody>
       </table>
-
-{% endblock fos_user_content %}

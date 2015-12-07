@@ -45,10 +45,6 @@ function productpic(i) {
         $('.pop-cart').css('display','none');
     });
 
-
-
-
-
     $('.add-cart-button').click(function (e) {
         e.preventDefault();
         $this = $(this);
