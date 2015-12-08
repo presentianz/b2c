@@ -18,6 +18,17 @@ class ProductController extends Controller
         $em = $this->getDoctrine()->getManager();
         $data = array();
         $data['product'] = $em->getRepository('AppBundle:Product')->findOneById($id);
+        $dir = $this->get('kernel')->getImgSrcDir().'/'.$data['product']->getImageLink();
+        if(file_exists($dir.'/poster'))
+           $data['poster'] = array_values(array_diff(scandir($dir.'/poster'), array('.', '..')));
+        else
+            $data['poster'] = array();
+
+        if(file_exists($dir.'/imgDes'))
+           $data['imgDes'] = array_values(array_diff(scandir($dir.'/imgDes'), array('.', '..')));
+        else
+            $data['imgDes'] = array();
+
         if($data['product']->getCategory() == null)
             $data['path'] = null;
         else

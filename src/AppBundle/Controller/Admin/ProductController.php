@@ -195,7 +195,7 @@ class ProductController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_product_edit', array('id' => $id)));
+            return $this->redirectToRoute('admin_product_show', array('id' => $id));
         }
 
         return $this->render('Admin/Product/edit.html.twig', array(

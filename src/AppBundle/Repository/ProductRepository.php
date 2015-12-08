@@ -55,7 +55,9 @@ class ProductRepository extends EntityRepository
                         p.price AS price,
                         p.price_discounted AS priceDiscounted,
                         p.soldNo AS soldNo,
-                        p.click AS click');
+                        p.click AS click,
+                        p.poster AS poster,
+                        p.imageLink AS imageLink');
         $products_no = $this->createQueryBuilder('p');
         $products_no->select('COUNT(p.id) AS total_no');
         foreach ($keys as $i => $key) {

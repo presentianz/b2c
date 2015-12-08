@@ -36,7 +36,7 @@ class OrderProduct
     private $count;
 
     /**
-     * @ORM\ManyToOne(targetEntity="UserOrder", inversedBy="orderProducts")
+     * @ORM\ManyToOne(targetEntity="UserOrder", inversedBy="orderProducts", cascade={"persist"})
      * @ORM\JoinColumn(name="user_order_id", referencedColumnName="id")
      **/
     private $userOrder;

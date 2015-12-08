@@ -31,19 +31,15 @@
             <div class="page-content">
                 <div class="product-info clearfix">
                     <div class="col-xs-5"> 
-                            <img class="product-pictures" id="product-picture1" src="{{ asset('img/honey.jpg') }}" alt="" />
-                            <img class="product-pictures hide" id="product-picture2" src="{{ asset('img/honey2.jpg') }}" alt="" />
-                            <img class="product-pictures hide" id="product-picture3" src="{{ asset('img/manukablendhoney.jpg') }}" alt=""  />
+                            {% for key,poster in data.poster %}
+                                <img class="product-pictures {{( key == 0 ) ? '' : 'hide'}}" id="product-picture{{key}}" src="{{ asset('img/src') }}/{{data.product.imageLink}}/poster/{{poster}}" alt="" />
+                            {% endfor %}
                         <div class="col-xs-12 product-pictures-below">
-                            <div class="col-xs-4">
-                                <img src="{{ asset('img/honey.jpg') }}" onClick="productpic(1)" class="active product-pics" id="product-pic1" alt="" / >
-                            </div>
-                            <div class="col-xs-4">
-                                <img src="{{ asset('img/honey2.jpg') }}" onClick="productpic(2)" class="product-pics" id="product-pic2" alt="" />
-                            </div>
-                            <div class="col-xs-4">
-                                <img src="{{ asset('img/manukablendhoney.jpg') }}" onClick="productpic(3)" class="product-pics" id="product-pic3" alt=""  />
-                            </div>
+                            {% for key,poster in data.poster %}
+                                <div class="col-xs-4">
+                                    <img src="{{ asset('img/src') }}/{{data.product.imageLink}}/poster/{{poster}}" onClick="productpic({{key}})" class="{{( key == 0 ) ? 'active' : ''}} product-pics" id="product-pic{{key}}" alt="" / >
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>    
                     <div class="col-xs-7">
@@ -89,7 +85,9 @@
                             </ul>
                                 <div class="tab-content">
                                 <div id="tab-content1" class="tab-contents">
-                                    <img src="{{ asset('img/sample.jpg') }}" alt="">
+                                    {% for imgDes in data.imgDes %}
+                                        <img src="{{ asset('img/src') }}/{{data.product.imageLink}}/imgDes/{{imgDes}}" alt="">
+                                    {% endfor %}
                                 </div>
                                 <div id="tab-content2" class="tab-contents hide">
                                     <table id="comments-record-list" class="record-list">

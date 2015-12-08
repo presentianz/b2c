@@ -53,7 +53,7 @@
                   <tr>
                       <td class="text-left">
                           <div class="col-xs-3 img">
-                              <img class="lazy" src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
+                              <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{orderProduct.product.imageLink}}/poster/{{orderProduct.product.poster}}" alt="">
                           </div>
                           <div class="col-xs-9 order-product-name">
                               <h5><a href="{{ path('product', { id : orderProduct.product.id }) }}">

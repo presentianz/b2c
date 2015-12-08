@@ -25,6 +25,7 @@ class ProductType extends AbstractType
             ->add('description')
             ->add('status')
             ->add('imageLink')
+            ->add('poster')
             ->add('brand')
             ->add('weight')
             ->add('productKey')

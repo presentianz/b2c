@@ -22,7 +22,7 @@ class ImgUploader {
     private $isXhr;
     public $uploadDir;                    // File upload directory (include trailing slash)
     public $allowedExtensions;            // Array of permitted file extensions
-    public $sizeLimit = 1048576;         // Max file upload size in bytes (default 10MB)
+    public $sizeLimit = 10048576;         // Max file upload size in bytes (default 10MB)
     public $newFileName;                  // Optionally save uploaded files with a new name by setting this
     public $corsInputName = 'XHR_CORS_TARGETORIGIN';
     public $uploadName = 'uploadfile';

@@ -57,6 +57,7 @@ class Category
      * @Gedmo\TreeParent
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="children")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\OrderBy({"root" = "ASC"})
      */
     private $parent;
 
@@ -292,5 +293,14 @@ class Category
     public function getProducts()
     {
         return $this->products;
+    }
+
+    public function __toString()
+    {
+        $dash = '';
+        for ($i=0; $i < $this->lvl; $i++) { 
+            $dash .= ' --- ';
+        }
+        return $dash.$this->name;
     }
 }

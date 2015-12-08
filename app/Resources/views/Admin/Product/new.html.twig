@@ -24,6 +24,7 @@
      <div> {{form_label(form.weight)}} {{form_widget(form.weight)}}</div>
      <div> {{form_label(form.productKey)}} {{form_widget(form.productKey)}}</div>
      <div style="display: none;">{{form_widget(form.imageLink)}}</div>
+     <div style="display: none;">{{form_widget(form.poster)}}</div>
      <div>
         <div id="progressBox1"> <label>上传产品封面图片</label><span class="btn btn-primary btn-sm" id="uploadBtn1">选择图片</span></div>
         <div id="info1"></div><div style="clear: both;"></div>
@@ -58,6 +59,7 @@
         }
 
         function retriveImg (imgLink, type, obj) {
+            var arr = [];
             $.ajax({
                 url: Routing.generate('get_image'),
                 method: "POST",
@@ -69,11 +71,16 @@
             })
             .done(function (rep) {
                 var innerHtml = "";
-                $.each(rep, function(index, value){
-                    if(value != '.' && value != '..')
+                $.each(rep, function(index, value) {
+                    if(value != '.' && value != '..') {
                         innerHtml +="<u class='pull-left' style='padding-right:10px;'><a target='_blank' href=''>"+ value +"</a> <i class='fa fa-remove' class='remove'></i></u>";
+                        arr.push(value);
+                    }
                 });
                 obj.html(innerHtml);
+                if(type == 'poster') {
+                  $('#appbundle_product_poster').val(arr[0]);
+                }
             })
         }
 

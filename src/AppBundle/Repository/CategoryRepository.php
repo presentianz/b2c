@@ -57,7 +57,9 @@ class CategoryRepository extends NestedTreeRepository
                         p.inventory, 
                         p.status, 
                         p.updateAt, 
-                        p.click
+                        p.click, 
+                        p.poster, 
+                        p.imageLink 
                 FROM AppBundle:Category c JOIN c.products p 
                 WHERE c.id IN (:ids) 
                 ORDER BY '.$orderby
@@ -108,7 +110,9 @@ class CategoryRepository extends NestedTreeRepository
                                     p.inventory, 
                                     p.status, 
                                     p.updateAt, 
-                                    p.click
+                                    p.click,
+                                    p.poster, 
+                                    p.imageLink 
                 FROM AppBundle:Category c JOIN c.products p 
                 WHERE c.id IN (:ids)')
             ->setParameter('ids', $ids)
