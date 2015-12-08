@@ -94,6 +94,7 @@ class ProductController extends Controller
     public function newAction()
     {
         $entity = new Product();
+        $entity->SetImageLink(uniqid());
         $form   = $this->createCreateForm($entity);
 
         return $this->render('Admin/Product/new.html.twig', array(

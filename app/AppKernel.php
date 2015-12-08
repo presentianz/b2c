@@ -36,4 +36,8 @@ class AppKernel extends Kernel
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
     }
+
+    public function getImgSrcDir(){
+        return realpath(parent::getRootDir().'/../web/img/src');
+    }
 }

@@ -51,10 +51,6 @@
                 <th>Updateat</th>
                 <td>{{ entity.updateAt|date('Y-m-d H:i:s') }}</td>
             </tr>
-            <tr>
-                <th>Poster</th>
-                <td>{{ entity.poster }}</td>
-            </tr>
 
             <tr>
                 <th>Brand</th>
@@ -82,6 +78,5 @@
             Edit
         </a>
     </li>
-    <li>{{ dump(form(delete_form)) }}</li>
 </ul>
 {% endblock %}

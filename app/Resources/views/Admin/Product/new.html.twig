@@ -1,73 +1,220 @@
 {% extends 'Admin/admin_layout.html.twig' %}
 
-{% block adminProduct %}
-<li class="active">
-  <a href="#" class="auto">
-    <span class="pull-right text-muted">
-      <i class="i i-circle-sm-o text"></i>
-      <i class="i i-circle-sm text-active"></i>
-    </span>
-    <i class="i i-t-shirt icon">
-    </i>
-    <span class="font-bold">商品管理</span>
-  </a>
-  <ul class="nav dk">
-   <li >
-     <a href="{{ path('admin_product') }}" class="auto">  
-       <i class="i i-dot"></i>
-       <span>商品列表</span>
-     </a>
-   </li>
-   <li  class="active">
-    <a href="{{ path('admin_product_new') }}" class="auto">
-      <span class="pull-right text-muted">
-        <i class="i i-circle-sm-o text"></i>
-        <i class="i i-circle-sm text-active"></i>
-      </span>
-      <i class="i i-dot"></i>
-      <span>添加商品</span>
-    </a>
-  </li>
-  </ul>
-  </li>
+{% block body -%}
+<section id="content">
+  <section class="vbox">
+    <header class="header bg-light b-b">
+        <p>修改商品</p>
+    </header>
+   <section class="scrollable padder">
 
+   <div class="form">
+   {{ form_start(form) }}
+     <div> <label>名称</label> {{form_widget(form.name)}}</div>
+     <div> <label>原价</label> {{form_widget(form.price)}}</div>
+     <div> <label>折后价格</label> {{form_widget(form.price_discounted)}}</div>
+     <div> {{form_label(form.viewed_count)}} {{form_widget(form.viewed_count)}}</div>
+     <div> {{form_label(form.soldNo)}} {{form_widget(form.soldNo)}}</div>
+     <div> {{form_label(form.inventory)}} {{form_widget(form.inventory)}}</div>
+     <div> {{form_label(form.click)}} {{form_widget(form.click)}}</div>
+     <div> {{form_label(form.description)}} {{form_widget(form.description)}}</div>
+     <div> {{form_label(form.status)}} {{form_widget(form.status)}}</div>
+     <div> <label>分类</label> {{form_widget(form.category)}}</div>
+     <div> {{form_label(form.brand)}} {{form_widget(form.brand)}}</div>
+     <div> {{form_label(form.weight)}} {{form_widget(form.weight)}}</div>
+     <div> {{form_label(form.productKey)}} {{form_widget(form.productKey)}}</div>
+     <div style="display: none;">{{form_widget(form.imageLink)}}</div>
+     <div>
+        <div id="progressBox1"> <label>上传产品封面图片</label><span class="btn btn-primary btn-sm" id="uploadBtn1">选择图片</span></div>
+        <div id="info1"></div><div style="clear: both;"></div>
+     <div id="progressBox2"> <label>上传产品描述图片</label><span class="btn btn-primary btn-sm" id="uploadBtn2">选择图片</span></div>
+     <div id="info2"></div><div style="clear: both;"></div>
 
-  {% endblock %}
+     {{ form_end(form) }}
+     <div class="admin-buttons">
+     <a href="{{ path('admin_product') }}">Back</a>
 
-  {% block body -%}
-  <section id="content">
-    <section class="vbox">
-      <header class="header bg-light b-b">
-        <p>添加商品</p>
-      </header>
-     <section class="scrollable padder">
-      
-     <div class="form">
-       <div> {{form_label(form.name)}} {{form_widget(form.name)}}</div>
-       <div> {{form_label(form.price)}} {{form_widget(form.price)}}</div>
-       <div> {{form_label(form.price_discounted)}} {{form_widget(form.price_discounted)}}</div>
-       <div> {{form_label(form.viewed_count)}} {{form_widget(form.viewed_count)}}</div>
-       <div> {{form_label(form.soldNo)}} {{form_widget(form.soldNo)}}</div>
-       <div> {{form_label(form.inventory)}} {{form_widget(form.inventory)}}</div>
-       <div> {{form_label(form.click)}} {{form_widget(form.click)}}</div>
-       <div> {{form_label(form.description)}} {{form_widget(form.description)}}</div>
-       <div> {{form_label(form.status)}} {{form_widget(form.status)}}</div>
-       <div> {{form_label(form.updateAt)}} {{form_widget(form.updateAt)}}</div>
-       <div> {{form_label(form.poster)}} {{form_widget(form.poster)}}</div>
-       <div> <label>分类</label> {{form_widget(form.category)}}</div>
-       <div> {{form_label(form.brand)}} {{form_widget(form.brand)}}</div>
-       <div> {{form_label(form.weight)}} {{form_widget(form.weight)}}</div>
-       <div> {{form_label(form.productKey)}} {{form_widget(form.productKey)}}</div>
+     </div>
 
-       <div class="admin-buttons">
-        <a href="{{ path('admin_product') }}">Back
-        </a>
-      </div>
-    </div>
+   </div>
 
-  </section>
+ </section>
 </section>
 </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{asset('js/SimpleAjaxUploader.js')}}"></script>
+    <script type="text/javascript">
+    var imgScr = "{{asset('img/src')}}";
+
+      function escapeTags( str ) {
+            return String( str )
+                .replace( /&/g, '&amp;' )
+                .replace( /"/g, '&quot;' )
+                .replace( /'/g, '&#39;' )
+                .replace( /</g, '&lt;' )
+                .replace( />/g, '&gt;' );
+        }
+
+        function retriveImg (imgLink, type, obj) {
+            $.ajax({
+                url: Routing.generate('get_image'),
+                method: "POST",
+                data: {
+                    imgLink: imgLink,
+                    type: type
+                },
+                dataType: "json"
+            })
+            .done(function (rep) {
+                var innerHtml = "";
+                $.each(rep, function(index, value){
+                    if(value != '.' && value != '..')
+                        innerHtml +="<u class='pull-left' style='padding-right:10px;'><a target='_blank' href=''>"+ value +"</a> <i class='fa fa-remove' class='remove'></i></u>";
+                });
+                obj.html(innerHtml);
+            })
+        }
+
+        window.onload = function() {
 
 
+            var btn1 = $('#uploadBtn1');
+            var btn2 = $('#uploadBtn2');
+            var imgLink = $('#appbundle_product_imageLink').val();
+            retriveImg (imgLink, 'poster', $('#info1'));
+            retriveImg (imgLink, 'imgDes', $('#info2'));
+              //progressBar = $('#progressBar'),
+              //msgBox = $('#msgBox');
+            var uploader1 = new ss.SimpleUpload({
+              button: btn1,
+              url: Routing.generate('img_upload'), // server side handler
+              responseType: 'json',
+              name: 'uploadfile',
+              multiple: true,
+              allowedExtensions: ['png','jpg'], // for example, if we were uploading pics
+              hoverClass: 'ui-state-hover',
+              focusClass: 'ui-state-focus',
+              disabledClass: 'ui-state-disabled',
+              data: {
+                    imgLink: imgLink,
+                    type: 'poster'
+                },
+              onSubmit: function(filename, extension) {
+                  // Create the elements of our progress bar
+                  var progress = document.createElement('div'), // container for progress bar
+                      bar = document.createElement('div'), // actual progress bar
+                      fileSize = document.createElement('div'), // container for upload file size
+                      wrapper = document.createElement('div'), // container for this progress bar
+                      progressBox = document.getElementById('progressBox1'); // on page container for progress bars
+
+                  // Assign each element its corresponding class
+                  progress.className = 'progress';
+                  bar.className = 'progress-bar';            
+                  fileSize.className = 'size';
+                  wrapper.className = 'wrapper';
+
+                  // Assemble the progress bar and add it to the page
+                  progress.appendChild(bar); 
+                  wrapper.innerHTML = '<div class="name">'+filename+'</div>'; // filename is passed to onSubmit()
+                  wrapper.appendChild(fileSize);
+                  wrapper.appendChild(progress);                                       
+                  progressBox.appendChild(wrapper); // just an element on the page to hold the progress bars    
+
+                  // Assign roles to the elements of the progress bar
+                  this.setProgressBar(bar); // will serve as the actual progress bar
+                  this.setFileSizeBox(fileSize); // display file size beside progress bar
+                  this.setProgressContainer(wrapper); // designate the containing div to be removed 
+                },
+
+               // Do something after finishing the upload
+               // Note that the progress bar will be automatically removed upon completion because everything 
+               // is encased in the "wrapper", which was designated to be removed with setProgressContainer() 
+              onExtError: function( filename, extension ) {
+                    alert('只接受jpg,png上传');
+                },
+              onComplete:   function(filename, response) {
+                  if ( response.success === true ) {
+
+                  }
+                  else {
+                        if ( response.msg )  {
+                            //msgBox.innerHTML = escapeTags( response.msg );
+                            alert(response.msg);
+
+                        } else {
+                            alert('An error occurred and the upload failed.');
+                        }
+                    }
+                  retriveImg ($('#appbundle_product_imageLink').val(), 'poster', $('#info1'));
+                },
+            });
+            
+            var uploader2 = new ss.SimpleUpload({
+              button: btn2,
+              url: Routing.generate('img_upload'), // server side handler
+              responseType: 'json',
+              name: 'uploadfile',
+              multiple: true,
+              allowedExtensions: ['png','jpg'], // for example, if we were uploading pics
+              hoverClass: 'ui-state-hover',
+              focusClass: 'ui-state-focus',
+              disabledClass: 'ui-state-disabled',
+              data: {
+                    imgLink: $('#appbundle_product_imageLink').val(),
+                    type: 'imgDes'
+                },
+              onSubmit: function(filename, extension) {
+                  // Create the elements of our progress bar
+                  var progress = document.createElement('div'), // container for progress bar
+                      bar = document.createElement('div'), // actual progress bar
+                      fileSize = document.createElement('div'), // container for upload file size
+                      wrapper = document.createElement('div'), // container for this progress bar
+                      progressBox = document.getElementById('progressBox2'); // on page container for progress bars
+
+                  // Assign each element its corresponding class
+                  progress.className = 'progress';
+                  bar.className = 'progress-bar';            
+                  fileSize.className = 'size';
+                  wrapper.className = 'wrapper';
+
+                  // Assemble the progress bar and add it to the page
+                  progress.appendChild(bar); 
+                  wrapper.innerHTML = '<div class="name">'+filename+'</div>'; // filename is passed to onSubmit()
+                  wrapper.appendChild(fileSize);
+                  wrapper.appendChild(progress);                                       
+                  progressBox.appendChild(wrapper); // just an element on the page to hold the progress bars    
+
+                  // Assign roles to the elements of the progress bar
+                  this.setProgressBar(bar); // will serve as the actual progress bar
+                  this.setFileSizeBox(fileSize); // display file size beside progress bar
+                  this.setProgressContainer(wrapper); // designate the containing div to be removed 
+                },
+
+               // Do something after finishing the upload
+               // Note that the progress bar will be automatically removed upon completion because everything 
+               // is encased in the "wrapper", which was designated to be removed with setProgressContainer() 
+              onExtError: function( filename, extension ) {
+                    alert('只接受jpg,png上传');
+                },
+              onComplete:   function(filename, response) {
+                  if ( response.success === true ) {
+                    //$('#info2').append('<p>'+filename+'</p>');
+                  }
+                  else {
+                        if ( response.msg )  {
+                            //msgBox.innerHTML = escapeTags( response.msg );
+                            alert(response.msg);
+
+                        } else {
+                            alert('An error occurred and the upload failed.');
+                        }
+                    }
+                  retriveImg (imgLink, 'imgDes', $('#info2'));// Stuff to do after finishing an upload...
+                },
+            });
+
+        }
+    </script>
 {% endblock %}

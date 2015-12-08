@@ -4,6 +4,7 @@
         <div class="row-up">
             <div class="col-xs-11">
                 <h3>{{ row.node.name }}</h3>
+                {% if row.node.__children|length > 0 %}
                 <h5>
                     <a href="{{ path('category', { id : row.node.__children|first.id }) }}">{{ row.node.__children|first.name }}</a>
                     {% for child in row.node.__children|slice(1,4) %}
@@ -11,6 +12,7 @@
                         <a href="{{ path('category', { id : child.id }) }}">{{ child.name }}</a>
                     {% endfor %}
                 </h5>
+                {% endif %}
             </div>
             <div class="col-xs-1">
                 <a href="{{ path('category', { id : row.node.id }) }}">更多

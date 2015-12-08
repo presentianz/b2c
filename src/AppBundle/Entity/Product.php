@@ -92,19 +92,13 @@ class Product
      */
     private $updateAt;
 
+
     /**
      * @var string
      *
-     * @ORM\Column(name="poster", type="string", length=255)
+     * @ORM\Column(name="image_link", type="string", length=255)
      */
-    private $poster = "";
-
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="image_link", type="array")
-     */
-    private $imageLink = array();
+    private $imageLink = "";
 
     /**
      * @var string
@@ -447,28 +441,6 @@ class Product
         return $this->updateAt;
     }
 
-    /**
-     * Set poster
-     *
-     * @param string $poster
-     * @return Product
-     */
-    public function setPoster($poster)
-    {
-        $this->poster = $poster;
-
-        return $this;
-    }
-
-    /**
-     * Get poster
-     *
-     * @return string 
-     */
-    public function getPoster()
-    {
-        return $this->poster;
-    }
 
     /**
      * Set brand

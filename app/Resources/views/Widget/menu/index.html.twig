@@ -3,10 +3,12 @@
 	    <li>
 	        <div class="nav-item">
 	            <a href="{{ path('category', { id : sub1.id }) }}" >{{ sub1.name }}<i class="fa fa-chevron-right"></i></a>
+	            {% if sub1.__children|length > 0 %}
 	            <div>
 	                <a href="{{ path('category', { id : sub1.__children[0].id }) }}">{{ sub1.__children[0].name }}</a>&nbsp;&nbsp;&nbsp;
 	                <a href="{{ path('category', { id : sub1.__children[1].id }) }}">{{ sub1.__children[1].name }}</a>
 	            </div>
+	            {% endif %}
 	        </div>
 	        <div class="well dropdown-menu drop-menu-right">
 	            {% for sub2 in sub1.__children %}
