@@ -59,6 +59,27 @@ class ImgUploadController extends Controller
             $files = scandir($dir);
         else
             $files = array();
-        return new Response(json_encode($files));
+        return new Response(json_encode(array_diff($files, array('.', '..'))));
+    }
+
+    /**
+     * @Route("/delete_image", name="delete_image", condition="request.isXmlHttpRequest()", options={"expose"=true})
+     */
+    public function deleteImage(Request $request)
+    {
+        $imgLink = $this->container->get('request')->get('imgLink');
+        $type = $this->container->get('request')->get('type');
+        $fileName = $this->container->get('request')->get('fileName');
+        $dir = $this->get('kernel')->getImgSrcDir().'/'.$imgLink.'/'.$type.'/'.$fileName;
+        if(file_exists($dir)) {
+            unlink($dir);
+            return new Response(json_encode(array(
+                'success' => true,
+            )));
+        }
+        else
+            return new Response(json_encode(array(
+                'success' => false,
+            )));
     }
 }
