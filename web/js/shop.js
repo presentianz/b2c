@@ -86,17 +86,22 @@ $(function() {
        $('.add-review').click(function (e) {
         e.preventDefault();
         $this = $(this);
-        var productId = $this.attr("data-id");
+        var productId = $this.attr("id");
+        console.log("+++++");
         $.ajax({
             url: $this.attr("data-path"),
             method: "POST",
             dataType: "json"
         })
         .done(function (rep) {
-            window.location.href=Routing.generate('product') + "/" + $this.attr("data-id");
+           // window.location.href=Routing.generate('product') + "/" + $this.attr("data-id");
            
         })
 
+    });
+
+     $('.continue-shop').click(function() {
+        $('.pop-cart').css('display','none');
     });
 
     $(".cart-wrapper").hover(function(e) {
@@ -185,6 +190,7 @@ $(function() {
                         innerHtml += "<\/div>";
                         innerHtml += "<\/div>";
                         innerHtml += "<\/a>";
+                        innerHtml += "<hr style=\"margin:0;\">";
                         
                     });
                         innerHtml += "<\/div>";

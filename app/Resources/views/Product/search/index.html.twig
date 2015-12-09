@@ -176,7 +176,7 @@
                                         page : (app.request.get('page')) ? app.request.get('page')-1 : 2,
                                         sort : app.request.get('sort'),
                                         item_no: app.request.get('item_no')
-                                    }) }}" {% if app.request.get('page') - 1 == 0  %} class="hide" {% endif %} class="i-prev" title="上一个">
+                                    }) }}" {% if app.request.get('page') - 1 == 0  %} class="hide" {% endif %} {% if app.request.get('page') == data.total_page %} class="hide" {% endif %} class="i-prev" title="上一个">
                                     <i class="fa fa-caret-left"></i></a>
                                
                             </div>

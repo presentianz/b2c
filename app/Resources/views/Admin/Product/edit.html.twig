@@ -4,26 +4,27 @@
 <section id="content">
   <section class="vbox">
     <header class="header bg-light b-b">
-        <p>修改商品</p>
+        <p><strong>修改商品</strong></p>
     </header>
    <section class="scrollable padder">
 
    <div class="form">
-     <div> {{form_label(edit_form.name)}} {{form_widget(edit_form.name)}}</div>
-     <div> {{form_label(edit_form.price)}} {{form_widget(edit_form.price)}}</div>
-     <div> {{form_label(edit_form.price_discounted)}} {{form_widget(edit_form.price_discounted)}}</div>
-     <div> {{form_label(edit_form.viewed_count)}} {{form_widget(edit_form.viewed_count)}}</div>
-     <div> {{form_label(edit_form.soldNo)}} {{form_widget(edit_form.soldNo)}}</div>
-     <div> {{form_label(edit_form.inventory)}} {{form_widget(edit_form.inventory)}}</div>
-     <div> {{form_label(edit_form.click)}} {{form_widget(edit_form.click)}}</div>
-     <div> {{form_label(edit_form.description)}} {{form_widget(edit_form.description)}}</div>
-     <div> {{form_label(edit_form.status)}} {{form_widget(edit_form.status)}}</div>
-     <div> {{form_label(edit_form.updateAt)}} {{form_widget(edit_form.updateAt)}}</div>
-     <div> {{form_label(edit_form.poster)}} {{form_widget(edit_form.poster)}}</div>
-     <div> <label>分类</label> {{form_widget(edit_form.category)}}</div>
-     <div> {{form_label(edit_form.brand)}} {{form_widget(edit_form.brand)}}</div>
-     <div> {{form_label(edit_form.weight)}} {{form_widget(edit_form.weight)}}</div>
-     <div> {{form_label(edit_form.productKey)}} {{form_widget(edit_form.productKey)}}</div>
+
+      <div> <label>商品名称：</label> {{form_widget(edit_form.name)}}</div>
+       <div> <label>原价：</label> {{form_widget(edit_form.price)}}</div>
+       <div> <label>促销价：</label> {{form_widget(edit_form.price_discounted)}}</div>
+       <div> <label>浏览次数：</label> {{form_widget(edit_form.viewed_count)}}</div>
+       <div> <label>售出数量：</label> {{form_widget(edit_form.soldNo)}}</div>
+       <div> <label>库存：</label> {{form_widget(edit_form.inventory)}}</div>
+       <div> <label>点击次数：</label> {{form_widget(edit_form.click)}}</div>
+       <div> <label>商品描述：</label> {{form_widget(edit_form.description)}}</div>
+       <div> <label>商品状态：</label> {{form_widget(edit_form.status)}}</div>
+       <div> <label>更新日期：</label> {{form_widget(edit_form.updateAt)}}</div>
+       <div> <label>发布：</label> {{form_widget(edit_form.poster)}}</div>
+       <div> <label>分类：</label> {{form_widget(edit_form.category)}}</div>
+       <div> <label>品牌：</label> {{form_widget(edit_form.brand)}}</div>
+       <div> <label>重量：</label> {{form_widget(edit_form.weight)}}</div>
+       <div> <label>商品编号：</label> {{form_widget(edit_form.productKey)}}</div>
 
 
      <div class="admin-buttons">

@@ -206,6 +206,7 @@ select {
     overflow-y: scroll;
 }
 
+
 .navbar .history-list a h6:hover {
     color: #ee1c24;
 }
@@ -1214,6 +1215,43 @@ input.qty {
     text-align: center;
     font-weight: bold;
 
+}
+
+/*pop-cart*/
+.pop-cart {
+    display: none;
+    background: #f2f2f2;
+    width: 500px;
+    height: 170px;
+    margin: 100px auto;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 0 2px #999;
+    -webkit-box-shadow: 0 0 2px #999;
+    -moz-box-shadow:0 0 2px #999;
+}
+
+ .pop-cart > div {
+    padding: 30px;
+    text-align: center;
+}
+
+ .pop-cart i.fa {
+    font-size: 35px;
+}
+
+ .pop-cart > div > span {
+    display: inline-block;
+    margin:10px;
+}
+
+ .pop-cart p {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 

@@ -67,7 +67,7 @@
                         <td>{{ cartProduct.count }}</td>
                         <td class="text-right color">{{ cartProduct.count*cartProduct.product.priceDiscounted }}</td>
                     </tr>
-                     {% set sum = sum + cartProduct.count*cartProduct.product.priceDiscounted %}
+                     {% set sum = sum + cartProduct.count*cartProduct.product.priceDiscounted + 20 %}
                      {% set ids = ids|merge([cartProduct.product.id]) %}
                 {% endfor %}
                 {% set ids = ids|join(' ') %}
@@ -91,7 +91,13 @@
                             <td class="text-right color">-0.00</td> </tr>
                             <tr><td class="text-right"><strong>合计:</strong></td>
                                 <td>（含运费和各项费用)</td>
-                                <td class="text-right color"><h3>$20.00</h3></td> </tr>
+                                <td class="text-right color"><h3>
+                                {% if data|length > 0 %}
+                                  {{ sum }}
+                              {% else %}
+                                   $0.00
+                              {% endif %}
+                                </h3></td> </tr>
                             </tfoot>
                         </table>
                         <hr>
@@ -115,7 +121,7 @@
                             </h3></div>
                         </div>
                     </div>
-                        <input type="submit" title="提交订单" data-id="{{ ids }}" class="btn-pay" value="提交订单" >
+                        <input type="submit" title="提交订单" class="btn-pay" value="提交订单" >
 
                     </div>
                 </div>
@@ -124,13 +130,29 @@
            </div>       
         </div><!-- /container-non-responsive -->
 
+    <div class="pop-cart">
+    <div><h3><i class="fa fa-info-circle"></i>
+            <span>确定提交订单？</span></h3>
+            <span>
+                <input type="submit" title="确定提交" data-id="{{ ids }}" class="btn-confirm" value="确定提交" >
+            </span>
+            <p class="continue-shop">继续购物</p>
+        </div>
+    </div>
+
 {% endblock %}
 
 {% block javascripts %}
     <script src="{{ asset('js/checkout.js') }}"></script>
     <script type="text/javascript">
     (function () {
-        $('.btn-pay').click(function () {
+
+        $('.btn-pay').click(function() {
+        $('.pop-cart').css('display','block');
+        });
+
+
+        $('.btn-confirm').click(function () {
             $this = $(this);
         var productId = $this.attr("data-id");
         $.ajax({
@@ -146,6 +168,7 @@
             if (rep.granted) {
                 alert("成功！");
                 window.location.replace("{{ path('order_confirm') }}"+'?id='+rep.id);
+                
             }
             else {
                 alert("。。");

@@ -122,10 +122,11 @@
         </div>   
     </div>
     <div class="pop-cart">
-    <div><h3><i class="fa fa-info-circle"></i>
+    <div>
+    <h3><i class="fa fa-info-circle"></i>
             <span>你的商品添加成功！</span></h3>
             <span>
-                <form method="get" action="{{ path('checkout') }}">
+                <form method="get" action="{{ path('cart') }}">
                     <input type="submit" value="去购物车结算" data-id="{{ data.product.id }}" class="buy-now">
                 </form>
             </span>
@@ -142,5 +143,4 @@
 
 {% block javascripts %}
 <script src="{{ asset('js/product.js') }}"></script>
-<script src="{{ asset('js/search.js') }}"></script>
 {% endblock %}

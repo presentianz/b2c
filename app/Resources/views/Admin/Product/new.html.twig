@@ -38,26 +38,26 @@
   <section id="content">
     <section class="vbox">
       <header class="header bg-light b-b">
-        <p>添加商品</p>
+        <p><strong>添加商品</strong></p>
       </header>
      <section class="scrollable padder">
       
      <div class="form">
-       <div> {{form_label(form.name)}} {{form_widget(form.name)}}</div>
-       <div> {{form_label(form.price)}} {{form_widget(form.price)}}</div>
-       <div> {{form_label(form.price_discounted)}} {{form_widget(form.price_discounted)}}</div>
-       <div> {{form_label(form.viewed_count)}} {{form_widget(form.viewed_count)}}</div>
-       <div> {{form_label(form.soldNo)}} {{form_widget(form.soldNo)}}</div>
-       <div> {{form_label(form.inventory)}} {{form_widget(form.inventory)}}</div>
-       <div> {{form_label(form.click)}} {{form_widget(form.click)}}</div>
-       <div> {{form_label(form.description)}} {{form_widget(form.description)}}</div>
-       <div> {{form_label(form.status)}} {{form_widget(form.status)}}</div>
-       <div> {{form_label(form.updateAt)}} {{form_widget(form.updateAt)}}</div>
-       <div> {{form_label(form.poster)}} {{form_widget(form.poster)}}</div>
-       <div> <label>分类</label> {{form_widget(form.category)}}</div>
-       <div> {{form_label(form.brand)}} {{form_widget(form.brand)}}</div>
-       <div> {{form_label(form.weight)}} {{form_widget(form.weight)}}</div>
-       <div> {{form_label(form.productKey)}} {{form_widget(form.productKey)}}</div>
+       <div> <label>商品名称：</label> {{form_widget(form.name)}}</div>
+       <div> <label>原价：</label> {{form_widget(form.price)}}</div>
+       <div> <label>促销价：</label> {{form_widget(form.price_discounted)}}</div>
+       <div> <label>浏览次数：</label> {{form_widget(form.viewed_count)}}</div>
+       <div> <label>售出数量：</label> {{form_widget(form.soldNo)}}</div>
+       <div> <label>库存：</label> {{form_widget(form.inventory)}}</div>
+       <div> <label>点击次数：</label> {{form_widget(form.click)}}</div>
+       <div> <label>商品描述：</label> {{form_widget(form.description)}}</div>
+       <div> <label>商品状态：</label> {{form_widget(form.status)}}</div>
+       <div> <label>更新日期：</label> {{form_widget(form.updateAt)}}</div>
+       <div> <label>发布：</label> {{form_widget(form.poster)}}</div>
+       <div> <label>分类：</label> {{form_widget(form.category)}}</div>
+       <div> <label>品牌：</label> {{form_widget(form.brand)}}</div>
+       <div> <label>重量：</label> {{form_widget(form.weight)}}</div>
+       <div> <label>商品编号：</label> {{form_widget(form.productKey)}}</div>
 
        <div class="admin-buttons">
         <a href="{{ path('admin_product') }}">Back

@@ -16,7 +16,7 @@
                     </div>
                     <div class="order-title-item">
                         <label>订单状态：</label>
-                        <h5>未付款<span><a class="color user-order-hover">(订单详情)</a></i></h5>
+                        <h5>未付款<span><a class="color user-order-hover" id="{{ order.orderId }}">(订单详情)</a></i></h5>
                     </div>
                 </div>
                     <div class="order-title-each pull-right">
@@ -50,7 +50,7 @@
         </div>
         #}
 
-        <div class="order-content hide">
+        <div id="order_content_{{ order.orderId }}" class="order-content hide">
          {% block fos_user_content %}
         {% include "views/User/order/detail.html.twig" %}
         {% endblock fos_user_content %}

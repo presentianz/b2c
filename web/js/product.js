@@ -41,9 +41,7 @@ function productpic(i) {
 
 })
 
-    $('.continue-shop').click(function() {
-        $('.pop-cart').css('display','none');
-    });
+
 
     $('.add-cart-button').click(function (e) {
         e.preventDefault();

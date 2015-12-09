@@ -182,7 +182,8 @@
                                         page : page - 1,
                                         sort : sort,
                                         item_no: item_no
-                                    }) }}" {% if page - 1 == 0 %} class="hide" {% endif %} class="i-next"  title="上一个">
+                                    }) }}" {% if page - 1 == 0 %} class="hide" {% endif %}
+                                    {% if page == 1 %} class="hide" {% endif %} class="i-next"  title="上一个">
                                     <i class="fa fa-caret-left"></i></a>
                                 </span>
                             </div>
@@ -193,10 +194,3 @@
         </div>
 {% endblock %}
 
-{% block javascripts %}
-    <script src="{{ asset('js/search.js') }}"></script>
-    <script type="text/javascript">
-</script>
-
-
-{% endblock %}
