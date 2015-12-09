@@ -125,7 +125,7 @@ $(function() {
                     $.each(rep, function(index, value) {
                         innerHtml += "<div class=\"item\">";
                         innerHtml += "<div class=\"cart-image\">";
-                        innerHtml += "<img class=\"lazy\" src=\""+ assetsBaseDir +['img\/aptami.jpg', 'img\/honey.jpg', 'img\/honey2.jpg' ,'img\/blackmores.jpg', 'img\/artemis.jpg', 'img\/manukablendhoney.jpg', 'img\/milkchews.jpg', 'img\/royalnectar.jpg', 'img\/swisse.jpg'][Math.floor(Math.random() * 9)]+"\" alt=\"\">";
+                        innerHtml += "<img class=\"lazy\" src=\""+ assetsBaseDir + "\/img\/src\/" + value.imageLink + "\/poster\/" + value.poster +"\" alt=\"\">";
                         innerHtml += "<\/div>";
                         innerHtml += "<div class=\"nav-cart-content\">";
                         innerHtml += "<h5 id=\"name_"+index+"\">"+value.name+"<\/h5>";

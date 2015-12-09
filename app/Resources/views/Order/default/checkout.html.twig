@@ -60,7 +60,7 @@
                 {% for cartProduct in data %}
                     <tr>
                         <td class="product-name">
-                            <img src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}"/>
+                            <img src="{{ asset('img/src') }}/{{cartProduct.product.imageLink}}/poster/{{cartProduct.product.poster}}"/>
                             <div class="name-limit"><a href="{{ path('product', { id : cartProduct.product.id }) }}">{{ cartProduct.product.name }}</a>
                             </div>
                         </td>

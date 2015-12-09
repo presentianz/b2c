@@ -15,7 +15,7 @@ class LoadCategoryAndProductData implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        for ($i=0; $i < 9; $i++) {
+        /*for ($i=0; $i < 9; $i++) {
             $category = new Category();
             $category->setName($this->genstr(rand(2,5)));
             $manager->persist($category);
@@ -50,6 +50,14 @@ class LoadCategoryAndProductData implements FixtureInterface
                     }
                 }
             }
+        }*/
+        for ($i=0; $i < 9; $i++) {
+            $category = new Category();
+            $category->setName('分类'.$i);
+            $manager->persist($category);
+            $product = $this->generateProduct();
+            $product->setCategory($category);
+            $manager->persist($product);
         }
         $manager->flush();
     }
@@ -72,6 +80,7 @@ class LoadCategoryAndProductData implements FixtureInterface
         $product->setProductKey(substr(uniqid(),0,10));
         $product->setWeight(rand(0, 1200));
         $product->setClick(rand(0, 1000));
+        $product->setImageLink(uniqid());
         return $product;
     }
 

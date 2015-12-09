@@ -38,7 +38,7 @@
                                 <tr>
                                     <td class="product-name">
                                         <input type="checkbox" name="product-id[]" value="{{ cartproduct.product.id }}" />
-                                        <img src="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg','img/blackmores.jpg', 'img/artemis.jpg'])) }}"/>
+                                        <img src="{{ asset('img/src') }}/{{cartproduct.product.imageLink}}/poster/{{cartproduct.product.poster}}"/>
                                         <div class="name-limit"><a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a></div>
                                     </td>
                                     <td id="oneprice_{{cartproduct.product.id }}">{{ cartproduct.product.priceDiscounted }}</td>

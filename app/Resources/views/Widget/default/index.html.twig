@@ -4,6 +4,7 @@
         <div class="row-up">
             <div class="col-xs-11">
                 <h3>{{ row.node.name }}</h3>
+                {% if row.node.__children|length > 0 %}
                 <h5>
                     <a href="{{ path('category', { id : row.node.__children|first.id }) }}">{{ row.node.__children|first.name }}</a>
                     {% for child in row.node.__children|slice(1,4) %}
@@ -11,6 +12,7 @@
                         <a href="{{ path('category', { id : child.id }) }}">{{ child.name }}</a>
                     {% endfor %}
                 </h5>
+                {% endif %}
             </div>
             <div class="col-xs-1">
                 <a href="{{ path('category', { id : row.node.id }) }}">更多
@@ -22,7 +24,7 @@
                 <div class="col-xs-3">
                 <a href="{{ path('product', {id : product.id}) }}">
                 {#<div data-path="{{ path('recent_viewed_action', { id : product.id, action: 'add' }) }}" data-id="{{ product.id }}" class="add-review">#}
-                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset(random(['img/aptami.jpg', 'img/honey.jpg', 'img/honey2.jpg' ,'img/blackmores.jpg', 'img/artemis.jpg', 'img/manukablendhoney.jpg', 'img/milkchews.jpg', 'img/royalnectar.jpg', 'img/swisse.jpg'])) }}" alt="">
+                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
                         <div class="pro-text">
                             <div class="pro-title">{{ product.name }}<br></div>
                             <div class="price">${{ product.priceDiscounted }}</div>
