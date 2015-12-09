@@ -34,13 +34,13 @@
                       <div class="panel b-a">
                         <div class="row m-n">
                           <div class="col-md-6 b-b b-r">
-                            <a href="#" class="block padder-v hover">
+                            <a href="{{path('admin_product')}}" class="block padder-v hover">
                               <span class="i-s i-s-2x pull-left m-r-sm">
                                 <i class="i i-hexagon2 i-s-base text-danger hover-rotate"></i>
                                 <i class="i i-t-shirt i-1x text-white"></i>
                               </span>
                               <span class="clear">
-                                <span class="h3 block m-t-xs text-danger">2,000</span>
+                                <span class="h3 block m-t-xs text-danger">{{data.productNo}}</span>
                                 <small class="text-muted text-u-c">商品</small>
                               </span>
                             </a>
@@ -52,19 +52,19 @@
                                 <i class="i i-users2 i-sm text-white"></i>
                               </span>
                               <span class="clear">
-                                <span class="h3 block m-t-xs text-success">152</span>
+                                <span class="h3 block m-t-xs text-success">{{data.userNo}}</span>
                                 <small class="text-muted text-u-c">用户</small>
                               </span>
                             </a>
                           </div>
                           <div class="col-md-6 b-b b-r">
-                            <a href="#" class="block padder-v hover">
+                            <a href="{{path('admin_category')}}" class="block padder-v hover">
                               <span class="i-s i-s-2x pull-left m-r-sm">
                                 <i class="i i-hexagon2 i-s-base text-info hover-rotate"></i>
                                 <i class="i i-flow-tree i-sm text-white"></i>
                               </span>
                               <span class="clear">
-                                <span class="h3 block m-t-xs text-info">25</span>
+                                <span class="h3 block m-t-xs text-info">{{data.categoryNo}}</span>
                                 <small class="text-muted text-u-c">分类</small>
                               </span>
                             </a>
@@ -76,7 +76,7 @@
                                 <i class="i i-stack i-sm text-white"></i>
                               </span>
                               <span class="clear">
-                                <span class="h3 block m-t-xs text-primary">3500</span>
+                                <span class="h3 block m-t-xs text-primary">{{data.orderNo}}</span>
                                 <small class="text-muted text-u-c">订单</small>
                               </span>
                             </a>
@@ -93,11 +93,11 @@
                         </div>
                         <div class="padder-v text-center clearfix">                            
                           <div class="col-xs-6 b-r">
-                            <div class="h3 font-bold">15</div>
+                            <div class="h3 font-bold">0</div>
                             <small class="text-muted">已付款</small>
                           </div>
                           <div class="col-xs-6">
-                            <div class="h3 font-bold">20</div>
+                            <div class="h3 font-bold">1</div>
                             <small class="text-muted">未付款</small>
                           </div>
                         </div>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="padder-v text-center clearfix">                            
                           <div class="col-xs-12">
-                            <div class="h3 font-bold">7</div>
+                            <div class="h3 font-bold">{{data.soldOutpPoductNo}}</div>
                             <small class="text-muted">售罄</small>
                           </div>
                         </div>
@@ -127,7 +127,7 @@
                         </div>
                         <div class="padder-v text-center clearfix">                            
                           <div class="col-xs-12">
-                            <div class="h3 font-bold">20</div>
+                            <div class="h3 font-bold">{{data.userNo}}</div>
                             <small class="text-muted">本周注册</small>
                           </div>
                         </div>
