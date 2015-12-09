@@ -9,6 +9,7 @@
 /vendor/
 /web/bundles/
 /web/img/src/*
+!web/img/src/.gitkeep
 /frontend/nbproject/private/
 /app/config/parameters.yml
 /meta/nbproject/private/
