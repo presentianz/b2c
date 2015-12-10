@@ -14,7 +14,7 @@
         </div>	
         <div class="page-content">
             <div class="col-xs-12 checkout-content top">
-                <h5><strong>已有地址</strong></h5>
+                <h5><strong>邮寄地址</strong></h5>
                {# <div class="address-content"> 
                     <span class="first-address">邮寄至</span>
                     <span class="address-detail">
@@ -24,37 +24,14 @@
                     </span>
                     <a href=""><span class="edit-address pull-right">修改地址</span></a>
                 </div> #}
-                <select class="form-control" id="sel1">
+                <select class="control" >
                 <option>湖北省武汉市江汉区三眼桥海红旗701 (王刚）  213322131
-                <a href=""><span class="edit-address">修改地址</span></a>
                 </option>
                 <option>湖北省武汉市江汉区三眼桥北路海红旗701 (万江）  2132432131</option>
                 <option>湖北省武汉市三眼桥北路海红旗701 (小胖）  2132132131</option>
                 <option>湖北省武汉市江汉区三眼桥北路海红旗701 (万江）  2132132131</option>
-                <option></option>
                 </select>
-                <a href="{{path('user_address')}}"><h5><strong>新地址</strong></h5></a>
-
-                {#<div class="address-content">  
-                    <span class="first-address">邮寄至</span>
-                    <span class="address-detail">
-                      <input type="checkbox" />
-                        湖北省武汉市江汉区三眼桥北路海红旗701
-                        <strong>（万江）  2132132131</strong>
-                    </span>
-                    <a href=""><span class="edit-address pull-right">修改地址</span></a>
-                </div>
-                <div class="address-content">  
-                    <span class="first-address">邮寄至</span>
-                    <span class="address-detail">
-                      <input type="checkbox" />
-                         湖北省武汉市江汉区三眼桥北路海红旗701
-                         <strong>（万江）  2132132131</strong>
-                    </span>
-                    <a href=""><span class="edit-address pull-right">修改地址</span></a>
-                </div>
-
-                <a href="{{path('user_address')}}"><h5><strong>新地址</strong></h5></a>    #}
+                <a href="{{path('user_address')}}" class="button-style">新建地址</a>
           </div> 
       <div class="col-xs-12 checkout-content">
        <div class="content-up"> 
@@ -87,12 +64,12 @@
             <tfoot>
                 <tr><td class="text-right"><strong>运送方式:</strong></td>
                     <td>
-                        <input type="text" placeholder="快递" id="delivery-option">
-                        <ul class="delivery-options">
-                            <li><span>快递（3-5天）</span><span class="color">$20.00</span></li>
-                            <li> <span>平递（7-10天）</span><span class="color">$0.00</span></li>
-                            <li> <span>海运（10-15天）</span><span class="color">$0.00</span></li>
-                        </ul> 
+                        <select class="delivery-options">
+                        <option>快递</option>
+                            <option><span>快递（3-5天）</span><span class="color">$20.00</span></option>
+                            <option> <span>平递（7-10天）</span><span class="color">$0.00</span></option>
+                            <option> <span>海运（10-15天）</span><span class="color">$0.00</span></option>
+                        </select> 
                     </td>
                     <td class="text-right color">20.00</td> </tr>
                     <tr><td class="text-right"><strong>运送保险:</strong></td>

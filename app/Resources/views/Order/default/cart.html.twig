@@ -52,7 +52,7 @@
                                         </div>
                                     </td>
                                     <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
-                                    <td><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm" href="#">删除</a></td>
+                                    <td><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm">删除</a></td>
                                 </tr>
                                 {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted %}
                             {% endfor %}
@@ -74,7 +74,7 @@
                                  <strong>$0.00</strong> 
                               {% endif %}
                             <td>
-                            <input type="submit" value="结算">
+                            <input type="submit" value="结算" disabled class="submit-pay disabled">
                             </td>
                         </tr>
                         </form>

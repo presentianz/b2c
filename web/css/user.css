@@ -90,11 +90,19 @@
 
 }
 
+#user-page hr {
+    margin: 5px auto;
+}
+
 
 /* tab1 user info */
 #user-page .user-info {
     padding:0;
     height: 80px;
+}
+
+#user-page .user-info > label {
+    font-size: 18px;
 }
 
 #user-page .user-info-each {
@@ -308,7 +316,6 @@
 
 /*tab10 order detail*/
 #user-page .order-info {
-    background-color: #eee;
     padding: 10px;
     height: auto;
 }

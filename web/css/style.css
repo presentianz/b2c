@@ -84,6 +84,28 @@ select {
     outline: none;
 }
 
+select.control {
+    display: inline-block;
+    width: 50%;
+    height: 30px;
+    padding: 4px 10px;
+    font-size: 15px;
+    vertical-align: middle;
+    margin: 5px 10px 5px 0px;
+}
+
+select.delivery-options {
+    width: 98%;
+    height: 35px;
+    padding: 8px 10px;
+    border: 1px solid #eee;
+    min-width: 30px;
+    font-size: 12px;
+    margin-right: 5px;
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
 .no-padding {
     padding:0 !important;
 }
@@ -120,6 +142,12 @@ select {
 .color {
     color: #ee1c24;
     font-weight: bold;
+}
+
+.disabled {
+    background-color: #e5e5e5 !important;
+    border-color: #e5e5e5 !important;
+    cursor: auto !important;
 }
 
 .bg-error {
