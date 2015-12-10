@@ -116,7 +116,6 @@ $(function() {
                 dataType: "json"
             })
             .done(function (rep) {
-                console.log(rep);
                 var num = 0;
                 var total = 0;
                 var innerHtml="";
@@ -169,13 +168,12 @@ $(function() {
         if($this.attr('data-hovered') == 'unhovered'){
             $this.attr('data-hovered','hovered');
             $.ajax({
-                url: $this.attr("data-path"),
-                method: "GET",
+                url: Routing.generate('recent_view_ajax_get'),
+                method: "POST",
                 dataType: "json"
             })
             .done(function (rep) {
                 var innerHtml="";
-                 
                 if (rep !== 'none') {
                     innerHtml += "<div class=\"sub-list\">";
                     $.each(rep, function(index, value) {
@@ -195,7 +193,7 @@ $(function() {
                     });
                         innerHtml += "<\/div>";
                         innerHtml += "<div class=\"history-clear\">";
-                        innerHtml += "<h6>删除浏览记录<\/h6>";
+                        innerHtml += "<a href=\"#\"><h6>删除浏览记录<\/h6><\/a>";
                         innerHtml += "<\/div>";
                     }
                     else {
@@ -208,13 +206,13 @@ $(function() {
                 })
             }
             
-            $(".history-view").show();
-            },
-            function(e) {
-                e.preventDefault();
-                $("#history-view").css("background","transparent");
-                $(".history-view").hide();
-            });
+        $(".history-view").show();
+        },
+        function(e) {
+            e.preventDefault();
+            $("#history-view").css("background","transparent");
+            $(".history-view").hide();
+        });
 
 //cart delete
 $('.cart-list').on('click', '.cart-remove-button', function (e) {
@@ -259,7 +257,27 @@ $('.cart-list').on('click', '.cart-remove-button', function (e) {
                 alert(": (");
             }
         })
-})
+    })
+
+//recentview delete
+    $('#history-view').on('click', '.history-clear a', function (e) {
+        e.preventDefault();
+        $this = $(this);
+        $.ajax({
+            url: Routing.generate('recent_viewed_action', { id:0,action:'delete' }),
+            method: "POST",
+            dataType: "json"
+        })
+        .done(function (rep) {
+            if(rep == 'cleared') {
+                var innerHtml = "<div class=\"cart-spinner\"><img src=\"/b2c/web/img/spinner.gif\"></div>";
+                $('.history-view').html(innerHtml);
+                $('#history-view').attr('data-hovered', 'unhovered');
+                $("#history-view").css("background","transparent");
+                $(".history-view").hide();
+            }
+        })
+    })
 });
 
 

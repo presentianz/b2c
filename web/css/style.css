@@ -465,7 +465,8 @@ select {
     margin-top: 5px;
 }
 
-.cart-list .total {
+.cart-list .total,
+.history-list .total {
     padding:10px;
     position:relative;
     width: 100%;
