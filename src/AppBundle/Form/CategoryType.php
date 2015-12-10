@@ -20,14 +20,7 @@ class CategoryType extends AbstractType
             // ->add('lvl')
             // ->add('rgt')
             // ->add('root')
-            ->add('parent', 'entity', array(
-                'class' => 'AppBundle:Category',
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('p')
-                        ->orderBy('p.root', 'ASC')
-                        ->addOrderBy('p.lft', 'ASC');
-                },
-            ));
+            ->add('parent');
     }
     
     /**

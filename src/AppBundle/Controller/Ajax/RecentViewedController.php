@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 class RecentViewedController extends Controller
 {
 	/**
-     * @Route("/recentViewedAjaxAction/{id}/{action}", name="recent_viewed_action")
+     * @Route("/recentViewedAjaxAction/{id}/{action}", name="recent_viewed_action", condition="request.isXmlHttpRequest()", options={"expose"=true})
      */
 	public function indexAction($id, $action, Request $request)
 	{
@@ -27,12 +27,12 @@ class RecentViewedController extends Controller
 				}
 				$response->headers->setCookie(new Cookie('recentViewed', json_encode($recentViewed), time() + (3600*48)));
                 $response->send();
-                return new Response($cookies->get('recentViewed'));
+                return new JsonResponse($cookies->get('recentViewed'));
 			}
 			else {
 				$response->headers->clearCookie('recentViewed');
  				$response->send();
- 				return new Response('cleared');
+ 				return new JsonResponse('cleared');
 			}
 		}
 		else {
@@ -40,16 +40,16 @@ class RecentViewedController extends Controller
 			if ($action === 'add') {
 				$response->headers->setCookie(new Cookie('recentViewed', json_encode(array($id)), time() + (3600*48)));
                 $response->send();
-                return new Response($cookies->get('recentViewed'));
+                return new JsonResponse($cookies->get('recentViewed'));
 			}
 			else {
-				return new Response('nothing to delete');
+				return new JsonResponse('nothing to delete');
 			}
 		}
 	}
 
 	/**
-     * @Route("/recentViewedAjaxGet", name="recent_view_ajax_get")
+     * @Route("/recentViewedAjaxGet", name="recent_view_ajax_get", condition="request.isXmlHttpRequest()", options={"expose"=true})
      */
 	public function getRecentViewed(Request $request)
 	{
@@ -66,13 +66,14 @@ class RecentViewedController extends Controller
                     'name' => $value->getName(),
                     'poster' => $value->getPoster(),
                     'price' => $value->getPrice(),
+                    'imageLink' => $value->getImageLink(),
                     'price_discounted' => $value->getPriceDiscounted()
                 	));
             };
             return new JsonResponse($data);
 		}
 		else {
-			return new Response('no recent viewed');
+			return new JsonResponse('none');
 		}
 	}
 }

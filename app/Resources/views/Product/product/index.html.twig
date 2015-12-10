@@ -29,7 +29,7 @@
             <div class="page-title">
             </div>
             <div class="page-content">
-                <div class="product-info clearfix">
+                <div class="product-info clearfix" data-product-id="{{data.product.id}}">
                     <div class="col-xs-5"> 
                             {% for key,poster in data.poster %}
                                 <img class="product-pictures {{( key == 0 ) ? '' : 'hide'}}" id="product-picture{{key}}" src="{{ asset('img/src') }}/{{data.product.imageLink}}/poster/{{poster}}" alt="" />
