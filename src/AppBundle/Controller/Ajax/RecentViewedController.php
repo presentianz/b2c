@@ -66,6 +66,7 @@ class RecentViewedController extends Controller
                     'name' => $value->getName(),
                     'poster' => $value->getPoster(),
                     'price' => $value->getPrice(),
+                    'imageLink' => $value->getImageLink(),
                     'price_discounted' => $value->getPriceDiscounted()
                 	));
             };
