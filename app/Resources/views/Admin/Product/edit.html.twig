@@ -30,12 +30,13 @@
         <div class="info" id="info1"></div><div style="clear: both;"></div>
        <div id="progressBox2"> <label>上传产品描述图片</label><span class="btn btn-primary btn-sm" id="uploadBtn2">选择图片</span></div>
        <div class="info" id="info2"></div><div style="clear: both;"></div>
-     {{ form_end(edit_form) }}
      
      <div class="admin-buttons">
-     <a href="{{ path('admin_product') }}">Back</a>
-       {{form(delete_form) }}
+     <a href="{{ path('admin_product') }}">返回</a>
+          {{form_widget(delete_form.submit, { 'label': '删除' }) }}
+     {{form_widget(edit_form.submit, { 'label': '更新' }) }}
      </div>
+      {{ form_end(edit_form) }}
 
    </div>
 

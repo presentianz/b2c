@@ -15,7 +15,7 @@
         <div class="page-content">
             <div class="col-xs-12 checkout-content top">
                 <h5><strong>已有地址</strong></h5>
-                <div class="address-content"> 
+               {# <div class="address-content"> 
                     <span class="first-address">邮寄至</span>
                     <span class="address-detail">
                       <input type="checkbox" />
@@ -23,8 +23,19 @@
                         <strong> (Charis Wan)  2132132131</strong>
                     </span>
                     <a href=""><span class="edit-address pull-right">修改地址</span></a>
-                </div>
-                <div class="address-content">  
+                </div> #}
+                <select class="form-control" id="sel1">
+                <option>湖北省武汉市江汉区三眼桥海红旗701 (王刚）  213322131
+                <a href=""><span class="edit-address">修改地址</span></a>
+                </option>
+                <option>湖北省武汉市江汉区三眼桥北路海红旗701 (万江）  2132432131</option>
+                <option>湖北省武汉市三眼桥北路海红旗701 (小胖）  2132132131</option>
+                <option>湖北省武汉市江汉区三眼桥北路海红旗701 (万江）  2132132131</option>
+                <option></option>
+                </select>
+                <a href="{{path('user_address')}}"><h5><strong>新地址</strong></h5></a>
+
+                {#<div class="address-content">  
                     <span class="first-address">邮寄至</span>
                     <span class="address-detail">
                       <input type="checkbox" />
@@ -42,7 +53,8 @@
                     </span>
                     <a href=""><span class="edit-address pull-right">修改地址</span></a>
                 </div>
-                <a href="{{path('user_address')}}"><h5><strong>新地址</strong></h5></a>    
+
+                <a href="{{path('user_address')}}"><h5><strong>新地址</strong></h5></a>    #}
           </div> 
       <div class="col-xs-12 checkout-content">
        <div class="content-up"> 
