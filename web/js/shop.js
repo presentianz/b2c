@@ -177,7 +177,7 @@ $(function() {
                 if (rep !== 'none') {
                     innerHtml += "<div class=\"sub-list\">";
                     $.each(rep, function(index, value) {
-                        innerHtml += "<a href=\""+index+"\">";
+                        innerHtml += "<a href=\""+Routing.generate('product',{id:value.id})+"\">";
                         innerHtml += "<div class=\"item\">";
                         innerHtml += "<div class=\"cart-image\">";
                         innerHtml += "<img class=\"lazy\" src=\""+ assetsBaseDir +"\/img\/src\/" + value.imageLink + "\/poster\/" + value.poster +"\" alt=\"\">";

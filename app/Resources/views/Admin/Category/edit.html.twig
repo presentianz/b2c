@@ -47,11 +47,12 @@
                         <label>名称</label>
                         {{form_widget(edit_form.name)}}
                     </div>
-
-                    <div {% if entity.lvl == 0 %}style="display: none;"{% endif %}>
+                {% if entity.lvl != 0 %}
+                    <div>
                         <label>上级分类</label>
                         {{ form_widget(edit_form.parent) }}
                     </div>
+                {% endif %}
                 <div class="admin-buttons">
                     {{ form_end(edit_form) }}
                     {% if entity.lvl != 0 %}
