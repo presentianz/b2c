@@ -101,7 +101,7 @@ class CategoryRepository extends NestedTreeRepository
         $rows = $em->createQuery('SELECT COUNT(p.id) 
                 FROM AppBundle:Category c JOIN c.products p 
                 WHERE c.id IN (:ids)')->setParameter('ids', $ids)->getSingleScalarResult();
-        $offset = max(0, rand(0, $rows - 3));
+
         $query = $em->createQuery('SELECT 
                                     c.name AS category_name, 
                                     p.id, p.name, p.price AS price, 
@@ -116,8 +116,7 @@ class CategoryRepository extends NestedTreeRepository
                 FROM AppBundle:Category c JOIN c.products p 
                 WHERE c.id IN (:ids)')
             ->setParameter('ids', $ids)
-            ->setMaxResults($no)
-            ->setFirstResult($offset);
+            ->setMaxResults($no);
         $products = $query->getResult();
         return $products;
     }
