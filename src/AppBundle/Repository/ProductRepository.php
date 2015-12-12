@@ -55,7 +55,9 @@ class ProductRepository extends EntityRepository
                         p.price AS price,
                         p.price_discounted AS priceDiscounted,
                         p.soldNo AS soldNo,
-                        p.click AS click');
+                        p.click AS click,
+                        p.poster AS poster,
+                        p.imageLink AS imageLink');
         $products_no = $this->createQueryBuilder('p');
         $products_no->select('COUNT(p.id) AS total_no');
         foreach ($keys as $i => $key) {
@@ -138,11 +140,11 @@ class ProductRepository extends EntityRepository
     public function findRandomProducts($no)
     {
         $em = $this->getEntityManager();
-        $rows = $em->createQuery('SELECT COUNT(p.id) FROM AppBundle:Product p')->getSingleScalarResult();
-        $offset = max(0, rand(0, $rows - $no + 1));
+        //$rows = $em->createQuery('SELECT COUNT(p.id) FROM AppBundle:Product p')->getSingleScalarResult();
+        //$offset = max(0, rand(0, $rows - $no + 1));
         $query = $em->createQuery('SELECT p FROM AppBundle:Product p')
-            ->setMaxResults($no)
-            ->setFirstResult($offset);
+            ->setMaxResults($no);
+            //->setFirstResult($offset);
         $products = $query->getResult();
 
         return $products;

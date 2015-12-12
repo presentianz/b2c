@@ -20,6 +20,34 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('Admin/Default/index.html.twig');
+    	$em = $this->getDoctrine()->getEntityManager();
+
+    	$data = [];
+    	$queries = [];
+
+    	$queries['productNo'] = $em->createQuery(
+                'SELECT COUNT(p.id) FROM AppBundle:Product p'
+            );
+    	$queries['userNo'] = $em->createQuery(
+                'SELECT COUNT(u.id) FROM AppBundle:User u'
+            );
+    	$queries['categoryNo'] = $em->createQuery(
+                'SELECT COUNT(c.id) FROM AppBundle:Category c'
+            );
+    	$queries['orderNo'] = $em->createQuery(
+                'SELECT COUNT(o.id) FROM AppBundle:UserOrder o'
+            );
+    	$queries['soldOutpPoductNo'] = $em->createQuery(
+                'SELECT COUNT(p.id) FROM AppBundle:Product p WHERE p.inventory <= 0'
+            );
+
+    	foreach ($queries as $key => $query) {
+    		$data[$key] = $query->getSingleScalarResult();
+    	}
+
+    	//exit(\Doctrine\Common\Util\Debug::dump($data));
+        return $this->render('Admin/Default/index.html.twig', array(
+        	'data' => $data,
+        	));
     }
 }

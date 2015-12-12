@@ -16,7 +16,7 @@
                     </div>
                     <div class="order-title-item">
                         <label>订单状态：</label>
-                        <h5>未付款<span><a href="{{ path('user_order_detail', { 'id': order.id })}}" class="color">(订单详情)</a></i></h5>
+                        <h5>未付款<span><a class="color user-order-hover" id="{{ order.orderId }}">(订单详情)</a></i></h5>
                     </div>
                 </div>
                     <div class="order-title-each pull-right">
@@ -29,7 +29,11 @@
                     </div>
                 </div>
         </div>
-       {# <div class="order-content">
+
+
+
+        <!-- hover detail -->
+        {#<div class="order-content">
             {% for orderProduct in order.orderProducts %}
                 <div class="col-xs-6 order-product">
                 <div class="col-xs-3 img">
@@ -43,9 +47,16 @@
                 </div>
             </div>
             {% endfor %}
-
         </div>
         #}
+
+        <div id="order_content_{{ order.orderId }}" class="order-content hide">
+         {% block fos_user_content %}
+        {% include "views/User/order/detail.html.twig" %}
+        {% endblock fos_user_content %}
+        </div>
+        
     </div>
 {% endfor %}
 
+       

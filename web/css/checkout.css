@@ -140,18 +140,20 @@
     padding: 0 15px;
 }
 
-#checkout-page .delivery-options {
-    position: absolute;
-    z-index: 1;
-    display: none;
-    padding: 5px 10px;
-    margin: 2px 0;
-    list-style: none;
+
+#checkout-page a.button-style {
+    color: #ffffff;
+    background-color: #ee1c24;
     font-size: 15px;
-    text-align: left;
-    background-color: #fff;
-    box-shadow: 0 2px 5px #999;
-    -webkit-box-shadow: 0 2px 5px #999;
-    -moz-box-shadow:0 2px 5px #999;
+    height: 50px;
+    margin: 0;
+    padding: 5px 10px;
+    line-height: 30px;
+    min-width: 80px;
+    border-radius: 0px;
+    vertical-align: middle;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border: 1px solid #ee1c24;
 }
 

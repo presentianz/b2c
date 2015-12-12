@@ -84,6 +84,28 @@ select {
     outline: none;
 }
 
+select.control {
+    display: inline-block;
+    width: 50%;
+    height: 30px;
+    padding: 4px 10px;
+    font-size: 15px;
+    vertical-align: middle;
+    margin: 5px 10px 5px 0px;
+}
+
+select.delivery-options {
+    width: 98%;
+    height: 35px;
+    padding: 8px 10px;
+    border: 1px solid #eee;
+    min-width: 30px;
+    font-size: 12px;
+    margin-right: 5px;
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
 .no-padding {
     padding:0 !important;
 }
@@ -120,6 +142,12 @@ select {
 .color {
     color: #ee1c24;
     font-weight: bold;
+}
+
+.disabled {
+    background-color: #e5e5e5 !important;
+    border-color: #e5e5e5 !important;
+    cursor: auto !important;
 }
 
 .bg-error {
@@ -205,6 +233,7 @@ select {
      max-height: 350px;
     overflow-y: scroll;
 }
+
 
 .navbar .history-list a h6:hover {
     color: #ee1c24;
@@ -464,7 +493,8 @@ select {
     margin-top: 5px;
 }
 
-.cart-list .total {
+.cart-list .total,
+.history-list .total {
     padding:10px;
     position:relative;
     width: 100%;
@@ -1214,6 +1244,43 @@ input.qty {
     text-align: center;
     font-weight: bold;
 
+}
+
+/*pop-cart*/
+.pop-cart {
+    display: none;
+    background: #f2f2f2;
+    width: 500px;
+    height: 170px;
+    margin: 100px auto;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 0 2px #999;
+    -webkit-box-shadow: 0 0 2px #999;
+    -moz-box-shadow:0 0 2px #999;
+}
+
+ .pop-cart > div {
+    padding: 30px;
+    text-align: center;
+}
+
+ .pop-cart i.fa {
+    font-size: 35px;
+}
+
+ .pop-cart > div > span {
+    display: inline-block;
+    margin:10px;
+}
+
+ .pop-cart p {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 

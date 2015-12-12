@@ -90,11 +90,19 @@
 
 }
 
+#user-page hr {
+    margin: 5px auto;
+}
+
 
 /* tab1 user info */
 #user-page .user-info {
     padding:0;
     height: 80px;
+}
+
+#user-page .user-info > label {
+    font-size: 18px;
 }
 
 #user-page .user-info-each {
@@ -141,6 +149,13 @@
 }
 
 /* tab2 order statement*/
+#user-page .order-search {
+    position: relative;
+    top: -8px;
+    right: -8px;
+}
+
+
 #user-page .order-detail {
     position: relative;
     margin-bottom: 20px;
@@ -301,7 +316,6 @@
 
 /*tab10 order detail*/
 #user-page .order-info {
-    background-color: #eee;
     padding: 10px;
     height: auto;
 }
@@ -317,7 +331,61 @@
 
 #user-page table td {
     text-align: center;
+    vertical-align: middle;
 }
+
+/* id upload image */
+#user-page .idupload-image-each {
+    padding: 15px;
+    margin: 10px 20px 10px 0px;
+    min-height: 100px;
+    overflow: hidden;
+    word-wrap: break-word;
+    float: left;
+    width: 400px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+}
+
+#user-page .idupload-image-detail {
+    overflow: auto;
+    padding: 5px;
+} 
+
+#user-page .idupload-image {
+    width: 140px;
+    height: 80px;
+    margin: 10px;
+    display: inline-block;
+    position: relative;
+}
+
+#user-page .idupload-image img {
+    width: 100%;
+}
+
+#user-page .idupload-content,
+#user-page .idupload-content-below {
+    clear: both;
+}
+
+#user-page .idupload-image-remove {
+    position: absolute;
+    width: 100%;
+    height: 82px;
+    top: 0px;
+    background: black;
+    opacity: 0.8;
+}
+#user-page .idupload-image-remove i {
+    font-size: 40px;
+    color: #fff;
+    position: relative;
+    width: 30px;
+    left: 40%;
+    top: 20px;
+}
+
 
 
 

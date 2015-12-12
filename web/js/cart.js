@@ -63,7 +63,7 @@ $('.cart-action-button').click(function (e) {
     })
     .done(function (rep) {
         if (rep.granted) {
-            
+            alert("hehe");
             $("#" + $this.attr("data-id")).val(newVal);
             var price = $("#oneprice_" + $this.attr("data-id")).html();
             var newPrice = Math.round(Number(price) * parseInt(newVal) * 100)/100;
@@ -89,11 +89,31 @@ $('.cart-action-button').click(function (e) {
 }
 })
 
+
+
+     $(".submit-pay").prop('disabled', true);
+     $("input[name='product-id[]']").click(function() {
+        if($(this).prop('checked')) {
+           $(".submit-pay").prop('disabled', false);
+           $(".submit-pay").removeClass("disabled");
+        } else {
+            $(".submit-pay").prop('disabled', true);
+           $(".submit-pay").addClass("disabled");
+        }
+     });
+
 })();
 
 function selectAll(source) {
   var checkboxes = document.getElementsByName('product-id[]');
   for(var i=0, n=checkboxes.length;i<n;i++) {
     checkboxes[i].checked = source.checked;
+    if(checkboxes[i].checked) {
+           $(".submit-pay").prop('disabled', false);
+           $(".submit-pay").removeClass("disabled");
+        } else {
+            $(".submit-pay").prop('disabled', true);
+           $(".submit-pay").addClass("disabled");
+        }
 }
 }

@@ -41,12 +41,6 @@ function productpic(i) {
 
 })
 
-    $('.continue-shop').click(function() {
-        $('.pop-cart').css('display','none');
-    });
-
-
-
 
 
     $('.add-cart-button').click(function (e) {
@@ -74,5 +68,16 @@ function productpic(i) {
             }
         })
 
+    });
+
+    $( document ).ready(function() {
+        $.ajax({
+            url: Routing.generate('recent_viewed_action', { action: 'add', id:$('.product-info').attr('data-product-id') }),
+            method: "POST",
+            dataType: "json"
+        })
+        .done(function (rep) {
+            $('#history-view').attr('data-hovered','unhovered');
+        });
     });
 })();

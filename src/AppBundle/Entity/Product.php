@@ -92,19 +92,20 @@ class Product
      */
     private $updateAt;
 
+
     /**
      * @var string
      *
-     * @ORM\Column(name="poster", type="string", length=255)
+     * @ORM\Column(name="image_link", type="string", length=255)
      */
-    private $poster = "";
+    private $imageLink = "";
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="image_link", type="array")
+     * @ORM\Column(name="poster", type="string", length=255, nullable=true)
      */
-    private $imageLink = array();
+    private $poster = "";
 
     /**
      * @var string
@@ -418,7 +419,10 @@ class Product
     {
         return $this->inventory;
     }
-
+    /** 
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
     public function UpdatePreUpdate()
     {
         $this->updateAt =  new \DateTime();
@@ -447,28 +451,6 @@ class Product
         return $this->updateAt;
     }
 
-    /**
-     * Set poster
-     *
-     * @param string $poster
-     * @return Product
-     */
-    public function setPoster($poster)
-    {
-        $this->poster = $poster;
-
-        return $this;
-    }
-
-    /**
-     * Get poster
-     *
-     * @return string 
-     */
-    public function getPoster()
-    {
-        return $this->poster;
-    }
 
     /**
      * Set brand
@@ -560,5 +542,28 @@ class Product
     public function getClick()
     {
         return $this->click;
+    }
+
+    /**
+     * Set poster
+     *
+     * @param string $poster
+     * @return Product
+     */
+    public function setPoster($poster)
+    {
+        $this->poster = $poster;
+
+        return $this;
+    }
+
+    /**
+     * Get poster
+     *
+     * @return string 
+     */
+    public function getPoster()
+    {
+        return $this->poster;
     }
 }

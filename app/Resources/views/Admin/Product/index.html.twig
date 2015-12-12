@@ -40,7 +40,7 @@
 <section id="content">
   <section class="vbox">
     <header class="header bg-light b-b">
-        <p>商品列表</p>
+      <p><strong>商品列表</strong></p>
     </header>
     <section class="scrollable padder">
       
@@ -154,8 +154,8 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="dataTables_paginate paging_full_numbers select-page-number" id="DataTables_Table_0_paginate">
-                    <a tabindex="0" class="first paginate_button paginate_button_disabled" id="DataTables_Table_0_first" href="{{ path('admin_product',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:1,keys:app.request.get('keys')}) }}">First</a>
-                    <a tabindex="0" class="previous paginate_button paginate_button_disabled" id="DataTables_Table_0_previous" href="{{ path('admin_product',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:(app.request.get('page')) ? app.request.get('page')-1 : 2,keys:app.request.get('keys')}) }}">Previous</a>
+                    <a tabindex="0" class="first paginate_button paginate_button_disabled" id="DataTables_Table_0_first" href="{{ path('admin_product',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:1,keys:app.request.get('keys')}) }}">首页</a>
+                    <a tabindex="0" class="previous paginate_button paginate_button_disabled" id="DataTables_Table_0_previous" href="{{ path('admin_product',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:(app.request.get('page')) ? app.request.get('page')-1 : 2,keys:app.request.get('keys')}) }}">上一页</a>
                     <span>
                       {% for i in 1..data.total_page %}
                       <a tabindex="0" href="{{ path('admin_product', {
@@ -166,8 +166,8 @@
                           }) }}" {% if not app.request.get('page') and i == 1 %} class="paginate_active paginate_button" {% elseif i == app.request.get('page') %} class="paginate_active paginate_button" {% else %} class="paginate_button" {% endif %}> {{ i }}</a>
                       {% endfor %}
                     </span>
-                    <a tabindex="0" class="next paginate_button" id="DataTables_Table_0_next" href="{{ path('admin_product',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:(app.request.get('page')) ? app.request.get('page')+1 : 2,keys:app.request.get('keys')}) }}">Next</a>
-                    <a tabindex="0" class="last paginate_button" id="DataTables_Table_0_last" href="{{ path('admin_product',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:data.total_page,keys:app.request.get('keys')}) }}">Last</a>
+                    <a tabindex="0" class="next paginate_button" id="DataTables_Table_0_next" href="{{ path('admin_product',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:(app.request.get('page')) ? app.request.get('page')+1 : 2,keys:app.request.get('keys')}) }}">下一页</a>
+                    <a tabindex="0" class="last paginate_button" id="DataTables_Table_0_last" href="{{ path('admin_product',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:data.total_page,keys:app.request.get('keys')}) }}">末页</a>
                   </div>
                 </div>
               </div>
