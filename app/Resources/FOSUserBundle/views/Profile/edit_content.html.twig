@@ -34,7 +34,7 @@
 		</div>
 	</div>
 	<div>
-		{{ form_widget(form.cancel) }}
+		<input type="submit" value="取消" onclick="window.history.back();">
 		<input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
 	</div>
 </form>

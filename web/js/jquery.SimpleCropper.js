@@ -164,6 +164,7 @@
 
                     // Add image to dropbox element
                     dropbox.appendChild(current_image);
+                    
                 }
 
                 reader.readAsDataURL(file);
@@ -235,3 +236,5 @@
         });
     }
 }(jQuery));
+
+

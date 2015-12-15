@@ -1,4 +1,3 @@
-
 var imgScr = "{{asset('img/src')}}";
 
 function escapeTags( str ) {
