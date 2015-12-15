@@ -47,7 +47,7 @@ class ShipmentAddressControler extends Controller
     }
     
     /**
-     * @Route("/edit/{id}", name="user_address_edit")
+     * @Route("/address/edit/{id}", name="user_address_edit")
      */
     public function editAction(Request $request , $id)
     {
@@ -77,7 +77,7 @@ class ShipmentAddressControler extends Controller
     }
     
     /**
-     * @Route("/create", name="user_address_create")
+     * @Route("/address/create", name="user_address_create")
      */
     public function createAction(Request $request)
     {
@@ -108,7 +108,7 @@ class ShipmentAddressControler extends Controller
     }
     
     /**
-     * @Route("/remove/{id}", name="user_address_remove")
+     * @Route("/address/remove/{id}", name="user_address_remove")
      */
     public function removeAction($id){
     	
@@ -120,9 +120,11 @@ class ShipmentAddressControler extends Controller
     	
     	return $this->redirectToRoute('user_address');
     }
-    
-    
+
+
     public function Doctrine() {
     	return $this->getDoctrine()->getRepository('AppBundle:ShipmentAddress');
     }
+
+
 }

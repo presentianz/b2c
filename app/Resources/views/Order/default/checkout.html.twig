@@ -24,12 +24,19 @@
                     </span>
                     <a href=""><span class="edit-address pull-right">修改地址</span></a>
                 </div> #}
-                <select class="control" >
-                <option>湖北省武汉市江汉区三眼桥海红旗701 (王刚）  213322131
+                <select class="control" id="select-location">
+                <option>
+                    湖北省武汉市江汉区三眼桥海红旗701 王刚 13582658451
                 </option>
-                <option>湖北省武汉市江汉区三眼桥北路海红旗701 (万江）  2132432131</option>
-                <option>湖北省武汉市三眼桥北路海红旗701 (小胖）  2132132131</option>
-                <option>湖北省武汉市江汉区三眼桥北路海红旗701 (万江）  2132132131</option>
+                <option>
+                    湖北省武汉市三眼桥408 小海 1039884938
+                    </option>
+                <option>
+                    湖北省江汉区三眼桥海红旗701 王红 133098495
+                </option>
+                <option>
+                    河南省合肥市市江汉区406 南京 122309833
+                </option>
                 </select>
                 <a href="{{path('user_address')}}" class="button-style">新建地址</a>
           </div> 
@@ -99,15 +106,25 @@
                             <p>3.奶粉类包裹：请务必提供收件人相对应的身份证信息。</p>
                         </div>
                         <div  class="address-right">
-                            <div class="text-right"><strong>寄送至：</strong> 湖北省武汉市江汉区三眼桥北路海红旗701</div>
-                            <div class="text-right"><strong>收货人：</strong>万江  2132132131</div>
-                            <div class="text-right color"><h3><strong>应付总额：</strong>
-                              {% if data|length > 0 %}
-                                  <strong>{{ sum }}</strong>
-                              {% else %}
-                                   <strong>$0.00</strong> 
-                              {% endif %}
-                            </h3></div>
+                            <div class="text-right">
+                                <strong>寄送至：</strong> 
+                                <span class="shipped-address">湖北省武汉市江汉区三眼桥北路海红旗701</span>
+                            </div>
+                             <div class="text-right">
+                                <strong>收货人：</strong>
+                                <span class="shipped-name">万江</span>
+                                <span class="shipped-number">2132132131</span>
+                             </div>
+                             <div class="text-right">
+                                <h3 class="color"> 
+                                <strong>应付总额：</strong>
+                                  {% if data|length > 0 %}
+                                      <strong>{{ sum }}</strong>
+                                  {% else %}
+                                       <strong>$0.00</strong> 
+                                  {% endif %}
+                                </h3>
+                            </div>
                         </div>
                     </div>
                         <input type="submit" title="提交订单" class="btn-pay" value="提交订单" >

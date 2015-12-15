@@ -5,6 +5,8 @@ $(document).ready(function () {
         scrollTop: 0
     }, 800); });
 
+    $('.cropme').simpleCropper();
+
 
     var $pagination = $('.select-page-number');
     var $lis = $pagination.find('a:not(#prev, #next, .i-next, .i-prev)');
