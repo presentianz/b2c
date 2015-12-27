@@ -3,6 +3,7 @@ body {
     width: 100%;
     height: auto;
     font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
+    background-color: #dce1e4;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -21,7 +22,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #ee1c24;
+    color: #a8df4e;
     text-decoration:none !important;
     cursor: pointer;
     outline: none;
@@ -48,7 +49,7 @@ input:focus {
 
 input[type="submit"] {
     color: #ffffff;
-    background-color: #ee1c24;
+    background-color: #a8df4e;
     font-size: 15px;
     height: 30px;
     margin: 0;
@@ -58,14 +59,14 @@ input[type="submit"] {
     border-radius:0px;
     -webkit-border-radius:0px;  
     -moz-border-radius:0px;
-    border: 1px solid #ee1c24;
+    border: 1px solid #a8df4e;
 }
  
 input[type="submit"]:hover, 
 input[type="submit"]:focus {
     cursor: pointer;
-    background-color: #ee1c24;
-    border: 1px solid #ee1c24;
+    background-color: #a8df4e;
+    border: 1px solid #a8df4e;
 }
 
 textarea {
@@ -140,7 +141,7 @@ select.delivery-options {
 
 
 .color {
-    color: #ee1c24;
+    color: #a8df4e;
     font-weight: bold;
 }
 
@@ -167,7 +168,7 @@ select.delivery-options {
 
 /* top navbar */
 .navbar {
-    background-color: #f2f2f2;
+    
     min-height: 20px !important;
     height: 30px;
     margin: 0;
@@ -177,19 +178,48 @@ select.delivery-options {
 
 .navbar h6 {
     display: inline-block;
-    padding: 0px 10px;
-    font-weight: normal;
+    padding-left: 10px;
     color: #6c6c6c;
-    margin: 0px;
     line-height: 29px;
+
 }
 
-.navbar .a-login h6 {
-    padding:0 5px;
-    color: #506eaa;
+.navbar h6:hover {
+    color: #a8df4e;
 }
 
-.navbar .history-list {
+
+/*mid-header */
+#mid-header {
+    min-width: 1170px;
+    clear: both;
+    margin-bottom: 30px;
+    background-color: white;
+    height: 120px;
+}
+
+#mid-header .container-non-responsive > div {
+    vertical-align: bottom;
+    position: relative;
+    display: inline-block;
+    float: none;
+    padding: 0px;
+}
+
+#mid-header .logo > img {
+    margin-top: 15px;
+}
+
+
+
+#mid-header .a-login h6 {
+    display: inline-block;
+    padding: 0px 10px;
+    color: #6c6c6c;
+}
+
+
+#mid-header .history-list {
     display: none;
     min-width: 72px;
     max-width: 200px;
@@ -207,7 +237,7 @@ select.delivery-options {
     -moz-box-shadow:0 3px 5px #999;
 }
 
-.navbar .history,
+#mid-header .history,
 #after-login,
 #before-login {
     display: inline-block;
@@ -216,58 +246,58 @@ select.delivery-options {
 }
 
 
-.navbar .nav-hover:hover .history-list {
+#mid-header .nav-hover:hover .history-list {
     display: block;
     top:29px;
 }
 
-.navbar .nav-hover:hover {
+#mid-header .nav-hover:hover {
     background-color: #fff; 
 }
 
-.navbar .history-list.history-view {
+#mid-header .history-list.history-view {
      min-width: 220px;
     
 }
-.navbar .history-list .sub-list {
+#mid-header .history-list .sub-list {
      max-height: 350px;
     overflow-y: scroll;
 }
 
 
-.navbar .history-list a h6:hover {
-    color: #ee1c24;
+#mid-header .history-list a h6:hover {
+    color: #a8df4e;
 }
 
-.navbar .history .item {
+#mid-header .history .item {
     border-top: 1px dashed #eee;
     padding: 10px;
     min-height: 60px;
 }
 
-.navbar .history .item:first-child {
+#mid-header .history .item:first-child {
     border-top:none;
 }
 
-.navbar .history .item > div {
+#mid-header .history .item > div {
     display: inline-block;
     vertical-align: top;
 }
 
-.navbar .history .cart-image {
+#mid-header .history .cart-image {
     width: 60px;
 }
 
-.navbar .history .cart-image img {
+#mid-header .history .cart-image img {
     width: 100%;
 }
 
-.navbar .history .nav-cart-content {
+#mid-header .history .nav-cart-content {
     width: auto;
     margin: 10px 5px 5px 5px;
 }
 
-.navbar .history .nav-cart-content > div {
+#mid-header .history .nav-cart-content > div {
     margin-bottom:5px;
     max-width: 100px;
     word-break: break-word;
@@ -275,11 +305,11 @@ select.delivery-options {
     text-overflow: ellipsis; 
 }
 
-.navbar .history .nav-cart-content > div h5 {
+#mid-header .history .nav-cart-content > div h5 {
      font-size:13px;
 }
 
-.navbar .history .nav-cart-content span {
+#mid-header .history .nav-cart-content span {
     position: relative;
     display: inline-block;
     font-size:12px;
@@ -287,27 +317,9 @@ select.delivery-options {
     line-height: 0px;
 }
 
-.navbar .history .history-clear {
+#mid-header .history .history-clear {
     text-align: center;
     background-color: #eee;
-}
-
-/* navbar */
-#mid-header {
-    min-width: 1170px;
-    clear: both;
-}
-
-#mid-header .container-non-responsive {
-    height: 120px;
-}
-
-
-#mid-header .logo > img {
-    width: 80px;
-    height: 100px;
-    margin-left: 30px;
-    margin-top: 15px;
 }
 
 
@@ -316,11 +328,11 @@ select.delivery-options {
     line-height: 20px;
     min-width: 450px;
     min-height: 35px;
-    border: 3px solid #ee1c24; /* for IE 8 */
-    border-image: -webkit-linear-gradient(right, #ee1c24, orange, yellow, green, blue, indigo, violet); /* For Safari 5.1 to 6.0 */
-    border-image: -o-linear-gradient(right, #ee1c24, orange, yellow, green, blue, indigo, violet); /* For Opera 11.1 to 12.0 */
-    border-image: -moz-linear-gradient(right, #ee1c24, orange, yellow, green, blue, indigo, violet); /* For Fx 3.6 to 15 */
-    border-image: linear-gradient(to left, #ee1c24, orange, yellow, green, blue, indigo, violet); /* Standard syntax (must be last) */
+    border: 3px solid #a8df4e; /* for IE 8 */
+    border-image: -webkit-linear-gradient(right, #a8df4e, orange, yellow, green, blue, indigo, violet); /* For Safari 5.1 to 6.0 */
+    border-image: -o-linear-gradient(right, #a8df4e, orange, yellow, green, blue, indigo, violet); /* For Opera 11.1 to 12.0 */
+    border-image: -moz-linear-gradient(right, #a8df4e, orange, yellow, green, blue, indigo, violet); /* For Fx 3.6 to 15 */
+    border-image: linear-gradient(to left, #a8df4e, orange, yellow, green, blue, indigo, violet); /* Standard syntax (must be last) */
     border-image-slice: 1;
     outline: none;
     margin: 0;
@@ -332,7 +344,7 @@ select.delivery-options {
 }
 
 .navbar-search {
-    margin: 50px 23px 0px 17px;
+   
     outline: none;
 }
 
@@ -356,12 +368,13 @@ select.delivery-options {
     margin: 8px 3px;
 }
 
+.search-keys a:hover {
+    border-bottom: 2px solid #a8df4e;
+}
+
 
 .cart-wrapper {
-    width: 145px;
-    height: 35px;
-    position: absolute;
-    top: 50px;
+
 }
 
 
@@ -506,7 +519,7 @@ select.delivery-options {
 }
 
 .cart-list strong {
-    color: #ee1c24;
+    color: #a8df4e;
     margin: 0 2px;
 }
 
@@ -529,7 +542,7 @@ select.delivery-options {
 }
 
 .sub-nav .nav-all {
-    background:#ee1c24;
+    background:#a8df4e;
     width:253px;
     height:45px; 
     float: left;
@@ -657,7 +670,7 @@ ul.nav {
 }
 
 .nav .nav-item > div a:hover {
-    color: #ee1c24;
+    color: #a8df4e;
 }
 
 
@@ -693,7 +706,7 @@ ul.nav {
 }
 
 .nav .drop-menu-right .sub-menu a:hover {
-     color: #ee1c24;
+     color: #a8df4e;
 }
 
 
@@ -904,7 +917,7 @@ ul.nav {
 }
 
 .price {
-    color: #ee1c24;
+    color: #a8df4e;
     font-size: 16px;
     font-weight: bold;
     margin-top: 20px;
@@ -990,7 +1003,7 @@ del {
 }
 
 .page-breadcrumb ol li.active {
-    color: #ee1c24;
+    color: #a8df4e;
 }
 
 .page-breadcrumb ol li i.fa {
@@ -1006,7 +1019,7 @@ del {
 }
 
 .page-breadcrumb .toolbar > div {
-    background-color: #ee1c24;
+    background-color: #a8df4e;
     margin-right: 10px;
     color: #fff;
     padding: 0px 10px 0px 10px;
@@ -1029,11 +1042,11 @@ del {
 }
 
 .page-title { 
-    border-bottom: 3px solid #ee1c24; /* for IE 8 */
-    border-image: -webkit-linear-gradient(right, #ee1c24, orange, yellow, green, blue, indigo, violet); /* For Safari 5.1 to 6.0 */
-    border-image: -o-linear-gradient(right, #ee1c24, orange, yellow, green, blue, indigo, violet); /* For Opera 11.1 to 12.0 */
-    border-image: -moz-linear-gradient(right, #ee1c24, orange, yellow, green, blue, indigo, violet); /* For Fx 3.6 to 15 */
-    border-image: linear-gradient(to left, #ee1c24, orange, yellow, green, blue, indigo, violet); /* Standard syntax (must be last) */
+    border-bottom: 3px solid #a8df4e; /* for IE 8 */
+    border-image: -webkit-linear-gradient(right, #a8df4e, orange, yellow, green, blue, indigo, violet); /* For Safari 5.1 to 6.0 */
+    border-image: -o-linear-gradient(right, #a8df4e, orange, yellow, green, blue, indigo, violet); /* For Opera 11.1 to 12.0 */
+    border-image: -moz-linear-gradient(right, #a8df4e, orange, yellow, green, blue, indigo, violet); /* For Fx 3.6 to 15 */
+    border-image: linear-gradient(to left, #a8df4e, orange, yellow, green, blue, indigo, violet); /* Standard syntax (must be last) */
     border-image-slice: 1;
     border-image-width: 0px 0px 3px 0px;
     margin-bottom: 20px;
@@ -1202,11 +1215,11 @@ input.qty {
 
 .no-page h1 {
     font-size: 150px;
-    color: #ee1c24;
+    color: #a8df4e;
 }
 
 .no-page strong {
-    color: #ee1c24;
+    color: #a8df4e;
 }
 
 
@@ -1239,7 +1252,7 @@ input.qty {
 }
 
 #loading > div h4 {
-    color: #ee1c24;
+    color: #a8df4e;
     margin-bottom: 10px;
     text-align: center;
     font-weight: bold;

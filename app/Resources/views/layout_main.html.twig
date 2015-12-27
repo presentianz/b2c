@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
         <!-- Custom CSS -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+        <!-- Custom upload image CSS -->
         <link rel="stylesheet" href="{{ asset('css/uploadimage.css') }}" type="text/css"/>
         <link rel="stylesheet" href="{{ asset('css/jquery.Jcrop.css') }}"  type="text/css"/>
 
@@ -22,17 +23,56 @@
         <div id="header">
             <div class="navbar">
                 <div class="container-non-responsive">
-                    <div class="pull-left">
+                    <div class="pull-right">
                         <a href="{{ path('homepage') }}"><h6>欢迎来到彩购!</h6></a>
-                        <a id="bookmarkme" href="javascript:;"><h6>收藏彩购网</h6></a>       
+                        <a id="bookmarkme" href="javascript:;"><h6>收藏网站</h6></a>       
+                    </div>  
+                </div>
+            </div>
+
+             {% block header %}
+            <!-- Lower Header Section -->
+            <div id="mid-header">
+                <div class="container-non-responsive">
+                    <div class="col-xs-2">
+                        <a class="logo" href="{{ path('homepage') }}">
+                            <img src="{{ asset('img/logo-caigou.png') }}" alt="彩购网">
+                        </a>
                     </div>
+                    <div class="col-xs-9">
+                        <div class="navbar-top">
+                            <div class="search-keys pull-left">                           
+                                <a href=""><h6>麦卢卡蜂蜜</h6></a>&nbsp;|
+                                <a href=""><h6>好健康蜂胶</h6></a>&nbsp;|
+                                <a href=""><h6>爱他美婴儿奶粉</h6></a>&nbsp;|
+                                <a href=""><h6>蔓越莓</h6></a>&nbsp;|
+                                <a href=""><h6>纽乐鱼油</h6></a>&nbsp;|
+                                <a href=""><h6>护手霜</h6></a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="{{ path('homepage') }}"><h6>$ NZ Dollar</h6></a>
+                                <a href="{{ path('homepage') }}"><h6>CN</h6></a>       
+                            </div> 
+                        </div>
+                        <div class="navbar-below">
+                            <div class="col-xs-8">
+                            <div class="navbar-search pull-left">
+                            
+                            <form action="{{ path('search') }}" method="get"  onsubmit="">
+                                 <input type="text" id="keys" name="keys" lang="zh-CN" placeholder="搜索产品..." class="search-query" value="{{ app.request.get('keys') }}">
+                                 <input type="submit" value="搜索">
+                            </form>
+                            
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
                     <div class="pull-right">                 
                             {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                             <div id="after-login">
-                                <a class="no-padding a-login" href="{{ path('user_profile') }}"><h6>{{ app.user.email }}&nbsp;|</h6></a>
-                                <a class="no-padding a-login" href="{{path('fos_user_security_logout')}}"><h6>登出</h6></a>
+                                <a class="a-login" href="{{ path('user_profile') }}"><h6>{{ app.user.email }}&nbsp;|</h6></a>
+                                <a class="a-login" href="{{path('fos_user_security_logout')}}"><h6>登出</h6></a>
                             </div>
-                             <div id="user-home" class="history nav-hover">
+                             <div id="user-home" class="history nav-hover a-login">
                                 <a href="{{ path('user_profile') }}"><h6>我的彩购</h6></a> 
                                 <div class="history-list">
                                     <div><a href="{{path('user_profile')}}"><h6>我的账户</h6></a></div>
@@ -46,7 +86,7 @@
                                 <a class="a-login" href="{{path('fos_user_registration_register')}}"><h6>注册</h6></a>
                             </div>
                              {% endif %}            
-                            <div id="history-view" class="history" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}">
+                            <div id="history-view" class="history a-login" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}">
                                 <h6>最近浏览</h6>
                                 <div class="history-list history-view">
                                     <div class="cart-spinner">
@@ -54,47 +94,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="more" class="history nav-hover">
-                                <h6>更多</h6>
-                                <div class="history-list">
-                                    <div><a href="{{ path('contact') }}"><h6>联系我们</h6></a></div>
-                                    <div><a href="{{ path('about') }}"><h6>关于我们</h6></a></div>    
-                                </div>
-                            </div>
-                    </div>
-                </div>
-            </div>
-
-             {% block header %}
-            <!-- Lower Header Section -->
-            <div id="mid-header">
-                <div class="container-non-responsive">
-                    <div class="col-xs-3">
-                        <a class="logo" href="{{ path('homepage') }}">
-                            <img src="{{ asset('img/logo.jpg') }}" alt="彩购网">
-                        </a>
-                    </div>
-                    <div class="col-xs-7">
-                        <div class="navbar-search pull-left">
-                            <form action="{{ path('search') }}" method="get"  onsubmit="">
-                                 <input type="text" id="keys" name="keys" lang="zh-CN" placeholder="搜索产品..." class="search-query" value="{{ app.request.get('keys') }}">
-                                 <input type="submit" value="搜索">
-                            </form>
-                            <div class="search-keys pull-left">                           
-                                <a href=""><h6>麦卢卡蜂蜜</h6></a>&nbsp;|
-                                <a href=""><h6>好健康蜂胶</h6></a>&nbsp;|
-                                <a href=""><h6>爱他美婴儿奶粉</h6></a>&nbsp;|
-                                <a href=""><h6>蔓越莓</h6></a>&nbsp;|
-                                <a href=""><h6>纽乐鱼油</h6></a>&nbsp;|
-                                <a href=""><h6>护手霜</h6></a>
-                            </div>
                         </div>
                     </div>
+
                     <div class="col-xs-2">
                     <div class="cart-wrapper" data-hovered="unhovered" data-path="{{ path('cart_ajax_get') }}">
                         {{ render(controller('AppBundle:Widget/Cart:index')) }}
                     </div>
                     </div>
+                </div>
+                </div>
                 </div>
             </div>
 
