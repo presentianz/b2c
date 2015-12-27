@@ -37,25 +37,23 @@
                         <i class="fa fa-chevron-right"></i>
                     </a>
                 </div>
-                <div class="row showpics">
-                    <div class="col-xs-4">
-                        <a href="{{ path('homepage') }}">
-                            <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/sub1.jpg') }}" src="{{ asset('img/default.png') }}">
-                        </a>	
-                    </div> 
-                    <div class="col-xs-4">
-                        <a href="{{ path('homepage') }}">
-                            <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/sub2.jpg') }}" src="{{ asset('img/default.png') }}">
-                        </a>	
-                    </div>
-                    <div class="col-xs-4">
-                        <a href="{{ path('homepage') }}">
-                            <img class="lazy" src="{{ asset('img/default.png') }}"data-original="{{ asset('img/sub3.jpg') }}" src="{{ asset('img/default.png') }}">
-                        </a>	
-                    </div>  
-                </div>
             </div>
         </div>
         {{ render(controller('AppBundle:Widget/Default:index')) }}
+        <div class="row no-border footer-desc">
+            <div class="col-xs-6 footer-about">
+            <h3>关于我们</h3>
+            <div>采购网是一家专注纽澳特产品，护肤品，保健品为一体的大型连锁专营店。<br>
+                    我们代理的都是新西兰澳洲药房所认可的大品牌，绝对一手货源，百分百保真。产品种类繁多，有上千种网络热销产品，代购追捧单品，经济实惠，价格合理。</div>
+            </div>
+            <div class="col-xs-3 footer-feedback">
+                <h3>客户反馈</h3>
+            </div>
+            <div class="col-xs-3 footer-guarantee">
+                <h3>Plenty Bay 保证</h3>
+            </div>
+        </div>
+
+
     </div><!-- /container-non-responsive -->
 {% endblock %}
