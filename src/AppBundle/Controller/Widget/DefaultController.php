@@ -25,7 +25,7 @@ class DefaultController extends Controller
         $tree = $em->getRepository('AppBundle:Category')->get2LevelCategory();
         $data = array();
         foreach ($tree as $key => $value) {
-            $products = $em->getRepository('AppBundle:Category')->getRandomProductsUnderCategory($value['id'], 4);
+            $products = $em->getRepository('AppBundle:Category')->getRandomProductsUnderCategory($value['id'], 3);
             array_push($data, array(
                 'products' => $products,
                 'node' => $tree[$key]
@@ -57,7 +57,7 @@ class DefaultController extends Controller
     public function hotProAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $products = $em->getRepository('AppBundle:Product')->findRandomProducts(4);
+        $products = $em->getRepository('AppBundle:Product')->findRandomProducts(3);
         return $this->render('Widget/default/hotPro.html.twig', array(
             'data' => $products
             ));
