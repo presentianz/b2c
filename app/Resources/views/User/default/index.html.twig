@@ -17,10 +17,21 @@
                 </div>
                 <div class="nav-right">
                     <div class="navbar-search user-top-search">
-                            <form action="{{ path('search') }}" method="get"  onsubmit="">
-                                 <input type="text" id="keys" name="keys" lang="zh-CN" placeholder="搜索产品..." class="search-query" value="{{ app.request.get('keys') }}">
-                                 <input type="submit" value="搜索">
-                            </form>
+                             <form action="{{ path('search') }}" method="get"  onsubmit="">
+                                <select class="search-select">
+                                    <option><h6>蜂蜜</h6></option>
+                                    <option><h6>蜂胶</h6></option>
+                                    <option><h6>鱼油</h6></option>
+                                </select>
+                                <div class="search-input">
+                                    <input type="text" id="keys" name="keys" lang="zh-CN" placeholder="搜索产品..." class="search-query" value="{{ app.request.get('keys') }}">
+                                    <i class="fa fa-remove"></i>
+                                </div>
+                                <div class="search-button">
+                                    <input type="submit" value="">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                            </form> 
                     </div>
                 </div>
                 <div class="user-nav-right">

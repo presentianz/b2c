@@ -2,6 +2,7 @@
 #cart-page .cart-content {
     margin: 30px 0px;
     padding: 0;
+    background: white;
 }
 
 #cart-page .top-promo {
@@ -62,4 +63,6 @@
 #cart-page .cart-down {
     margin-bottom: 20px;
 }
+
+
 

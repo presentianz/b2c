@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     $('#myCarousel').carousel();
+    $('#brandslider').carousel();
     $('#gototop').click(function () { $('html, body').animate({
         scrollTop: 0
     }, 800); });

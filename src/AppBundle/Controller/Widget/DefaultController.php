@@ -57,9 +57,27 @@ class DefaultController extends Controller
     public function hotProAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $products = $em->getRepository('AppBundle:Product')->findRandomProducts(3);
+        $products = $em->getRepository('AppBundle:Product')->findRandomProducts(4);
         return $this->render('Widget/default/hotPro.html.twig', array(
             'data' => $products
+            ));
+    }
+
+    public function brandAction()
+    {
+      //  $em = $this->getDoctrine()->getManager();
+     //   $products = $em->getRepository('AppBundle:Product')->findRandomProducts(4);
+        return $this->render('Widget/default/brand.html.twig', array(
+       //     'data' => $products
+            ));
+    }
+
+    public function brandlistAction()
+    {
+      //  $em = $this->getDoctrine()->getManager();
+     //   $products = $em->getRepository('AppBundle:Product')->findRandomProducts(4);
+        return $this->render('Widget/default/brandList.html.twig', array(
+       //     'data' => $products
             ));
     }
 }

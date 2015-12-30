@@ -1,10 +1,13 @@
 .user-sub-nav {
     margin: 10px auto;
     background-color: #fff;
+    width: 1170px;
 }
 
+
+
 .user-top-search {
-    margin: 5px 0px 5px 30px;
+    margin: 13px 0px 0px 30px
 }
 
 .user-nav-right {  
@@ -14,11 +17,16 @@
 
 }
 
-.user-top-cart {
-    top: 45px;
+.user-nav-right .cart {
+    height: 55px;
 }
 
+.user-nav-right .cart-list {
+    top: 97px;
+    right: 77px;
+}
 
+    
 
 #user-page .user-left {
     margin-top: 10px;
@@ -28,6 +36,7 @@
 #user-page .user-left .nav-list {
     border: 1px solid #eee;
     margin-bottom: 30px;
+    background: white;
 }
 
 #user-page .user-left li {
@@ -318,10 +327,12 @@
 #user-page .order-info {
     padding: 10px;
     height: auto;
+    background: white;
 }
 
 #user-page table {
     padding: 0;
+    background: white;
 }
 
 #user-page thead th {
