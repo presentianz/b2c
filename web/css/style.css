@@ -442,11 +442,22 @@ select.delivery-options {
 
 }
 
+
+
+.search-button input[type="submit"]:before {
+    content:"\f002";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    color: #fff;
+
+}
+
 .search-button input[type="submit"] {
     background-color: #000;
     min-width: 30px;
     border: 0px;
-
 }
 
 .search-button i.fa-search {
@@ -687,6 +698,7 @@ ul.nav {
     -webkit-border-radius:0px;  
     -moz-border-radius:0px;
     width: 100%;
+    overflow: hidden;
      
 }
 
@@ -710,11 +722,11 @@ ul.nav {
 }
 
 .nav > li {
-    height:50px;
+    height:40px;
 }
 
 .nav .nav-item {
-    padding: 15px 25px;
+    padding: 10px 25px;
     width: 100%;
 }
 
@@ -730,6 +742,7 @@ ul.nav {
     -moz-border-radius:0px;
     top: -3px;
     width: 312px;
+    padding: 5px 10px;
 }
 
 .nav .dropdown-menu div {
@@ -885,8 +898,8 @@ ul.nav {
 
 .hotdeal .row {
     min-height: 300px;
-    width: 885px;
     max-height: 600px;
+    width: 100%;
 
 }
 
@@ -902,7 +915,7 @@ ul.nav {
     overflow: hidden;
     min-height:300px;
     padding: 0;
-    border-left: 2px solid #fff;
+    border: 1px solid #eee;
     max-width: 300px;
     position: relative;
     height: 300px;
@@ -919,7 +932,9 @@ ul.nav {
 
 
 .hotdeal .row > div img {
-    width: 100%;
+    width: 300px;
+    height: 220px;
+    overflow: hidden;
 
 }
 
@@ -987,6 +1002,11 @@ del {
     padding:0;
     margin:0;
     width:100%;
+}
+
+
+.siderbar .side-item {
+    border-bottom: 1px solid #ccc;
 }
 
 .siderbar .side-foot {

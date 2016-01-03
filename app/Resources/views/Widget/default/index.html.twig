@@ -40,7 +40,58 @@
 {% endfor %}
 #}
 
-{% for row in data %}
+{% for row in data|slice(1,1) %}
+    <div class="hotdeal">
+        <div class="row-up">
+            <div class="pull-left">
+                <h3>今日推介</h3>
+            </div>
+            <div class="pull-right">
+            <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-left"></i></a>
+            <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-right"></i></a>
+            </div>
+        </div>
+        <div class="row">
+            {% for product in row.products %}
+                <div class="col-xs-4">
+                <a href="{{ path('product', {id : product.id}) }}">
+                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                        <div class="pro-text">
+                            <div class="pull-left">
+                                <div class="pro-title">{{ product.name }}</div>
+                                <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
+                            </div>
+                            <div class="pull-right">
+                                <div class="price">${{ product.priceDiscounted }}</div>
+                                <del>${{ product.price }}</del>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-4">
+                <a href="{{ path('product', {id : product.id}) }}">
+                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                        <div class="pro-text">
+                            <div class="pull-left">
+                                <div class="pro-title">{{ product.name }}</div>
+                                <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
+                            </div>
+                            <div class="pull-right">
+                                <div class="price">${{ product.priceDiscounted }}</div>
+                                <del>${{ product.price }}</del>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>  
+    </div>
+{% endfor %}
+
+
+
+
+{% for row in data|slice(1,1) %}
     <div class="hotdeal">
         <div class="row-up">
             <div class="pull-left">
@@ -69,10 +120,57 @@
                     </a>
                 </div>
             {% endfor %}
+        </div>  
+    </div>
+{% endfor %} 
 
 
 
 
+{% for row in data|slice(1,1) %}
+    <div class="hotdeal">
+        <div class="row-up">
+            <div class="pull-left">
+                <h3>限时特卖</h3>
+            </div>
+            <div class="pull-right">
+            <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-left"></i></a>
+            <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-right"></i></a>
+            </div>
+        </div>
+        <div class="row">
+            {% for product in row.products %}
+                <div class="col-xs-4">
+                <a href="{{ path('product', {id : product.id}) }}">
+                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                        <div class="pro-text">
+                            <div class="pull-left">
+                                <div class="pro-title">{{ product.name }}</div>
+                                <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
+                            </div>
+                            <div class="pull-right">
+                                <div class="price">${{ product.priceDiscounted }}</div>
+                                <del>${{ product.price }}</del>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-4">
+                <a href="{{ path('product', {id : product.id}) }}">
+                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                        <div class="pro-text">
+                            <div class="pull-left">
+                                <div class="pro-title">{{ product.name }}</div>
+                                <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
+                            </div>
+                            <div class="pull-right">
+                                <div class="price">${{ product.priceDiscounted }}</div>
+                                <del>${{ product.price }}</del>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
         </div>  
     </div>
 {% endfor %}
