@@ -1074,7 +1074,7 @@ del {
 }
 
 .brand-list .side-content {
-    padding:10px;
+    padding:10px 25px;
     overflow: hidden;
     height: 250px;
     max-height: 325px;
