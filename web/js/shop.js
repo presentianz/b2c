@@ -2,11 +2,14 @@ $(document).ready(function () {
 
     $('#myCarousel').carousel();
     $('#brandslider').carousel();
+
     $('#gototop').click(function () { $('html, body').animate({
         scrollTop: 0
     }, 800); });
 
     $('.cropme').simpleCropper();
+
+
 
 
     var $pagination = $('.select-page-number');
@@ -60,6 +63,10 @@ $(function() {
         failure_limit : 99999, 
         effect : "fadeIn",
         threshold : 10
+    });
+
+    $("#more-brand").click( function(){
+        $(".brand-list .side-content").toggleClass("brand-height");
     });
 
     $("#bookmarkme").click(function(e) {
