@@ -65,6 +65,7 @@ input[type="submit"]:hover,
 input[type="submit"]:focus {
     cursor: pointer;
     background-color: #a8df4e;
+    color: #000;
 }
 
 textarea {

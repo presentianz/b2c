@@ -1,16 +1,15 @@
 #login-header {
-    border-bottom: 2px solid #ee1c24;
+    border-bottom: 2px solid #a8df4e;
     min-height: 100px;
     height: auto;
 }
 
 #login-header .logo > img {  
-    width: 70px !important;
     height: auto;
     margin: 0;
 }
 
-#login-header span{
+#login-header span {
     font-size: 25px;
     margin-left: 20px;
     position: absolute;
