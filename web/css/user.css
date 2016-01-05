@@ -1,35 +1,9 @@
-.user-sub-nav {
-    margin: 10px auto;
-    background-color: #fff;
-    width: 1170px;
-}
 
-
-
-.user-top-search {
-    margin: 13px 0px 0px 30px
-}
-
-.user-nav-right {  
-    float: right;
-    height: 45px;
-    width: 150px;
-
-}
-
-.user-nav-right .cart {
-    height: 55px;
-}
-
-.user-nav-right .cart-list {
-    top: 97px;
-    right: 77px;
-}
 
     
 
 #user-page .user-left {
-    margin-top: 10px;
+    margin-top: 30px;
 
 }
 
@@ -67,13 +41,12 @@
 
 #user-page .user-left li a:hover,
 #user-page .user-left li a:hover {
-    color: #ee1c24;
+    color:#a8df4e;
 }
 
 #user-page .user-content {
     min-height: 90px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #ee1c24;
+    padding: 0px;
     height: auto;
     overflow: auto;
 }
@@ -131,8 +104,8 @@
 
 #user-page .user-info-each > div {
     width: 70%;
-     display: inline-block;
-     vertical-align: top;
+    display: inline-block;
+    vertical-align: top;
 } 
 
 #user-page .user-info-each label {
@@ -144,7 +117,7 @@
 #user-page .status-each {
     display: inline-block;
     height: 80px;
-    width: 120px;
+    width: 117px;
     overflow: hidden;
     padding: 5px;
     margin: 0 10px;
@@ -161,7 +134,6 @@
 #user-page .order-search {
     position: relative;
     top: -8px;
-    right: -8px;
 }
 
 
@@ -298,12 +270,12 @@
 
 #user-page .address-each {
     padding: 15px;
-    margin: 10px 20px 10px 0px;
+    margin: 10px 15px 10px 0px;
     min-height: 100px;
     overflow: hidden;
     word-wrap: break-word;
     float: left;
-    width: 420px;
+    width: 400px;
     background-color: #eee;  
     border: 1px solid #ccc;
     height: 130px;
@@ -348,7 +320,7 @@
 /* id upload image */
 #user-page .idupload-image-each {
     padding: 15px;
-    margin: 10px 20px 10px 0px;
+    margin: 10px 15px 10px 0px;
     min-height: 100px;
     overflow: hidden;
     word-wrap: break-word;

@@ -12,7 +12,9 @@
                     {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
                 </div>
                 <div class="col-xs-9 page-right">
-                <div class="page-breadcrumb">
+                
+                    <div class="page-content"> 
+                    <div class="page-breadcrumb">
                     <ol>
                      <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
                      {% if data.path is defined %}      
@@ -25,7 +27,7 @@
                             {% endif %}
                       </ol>
                         {% if data.children|length > 0 %}
-                        <div class="toolbar">
+                        <div class="toolbarcate">
                         <div>可选分类</div>
                             {% for category in data.children %}
                             <a class="search-keys" href="{{ path('category', {id : category.id}) }}">{{ category.name }}</a>
@@ -35,7 +37,6 @@
                     </div>
                     <div class="page-title">
                     </div>
-                    <div class="page-content"> 
                         <div class="toolbar">
                             <div class="pull-left">
                                 <a href="{{ path('category', {

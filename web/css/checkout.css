@@ -2,7 +2,7 @@
 /*Cart Page*/
 
 #checkout-page .checkout-content {
-    margin: 10px 0px;
+    margin-top: 20px;
     padding:0;
     background: white;
 
@@ -105,18 +105,18 @@
 }
 
 #checkout-page .content-down {
-    margin:10px 0;
+    padding: 10px;
 }
 
 #checkout-page .content-down .address-left {
     display: inline-block;
-    width:57%;
+    width:56%;
 }
 
 #checkout-page .content-down .address-right {
     border:2px solid #ee1c24;
     display: inline-block;
-    margin-left: 30px;
+    margin-left: 40px;
     width: 40%;
     padding: 20px;
 }
@@ -128,7 +128,7 @@
 
 #checkout-page .btn-pay {
     padding: 5px 10px;
-    margin-right: 2px;
+    margin: 0px 10px 10px 0px;
     line-height: 30px;
     font-size: 25px;
     height: 40px;
@@ -136,15 +136,9 @@
 
 }
 
-#checkout-page .cart-down {
-    margin-bottom: 20px;
-    padding: 0 15px;
-}
-
-
 #checkout-page a.button-style {
     color: #ffffff;
-    background-color: #ee1c24;
+    background-color: #000;
     font-size: 15px;
     height: 50px;
     margin: 0;
@@ -155,6 +149,10 @@
     vertical-align: middle;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
-    border: 1px solid #ee1c24;
+}
+
+#checkout-page a.button-style:hover {
+    background-color: #a8df4e;
+    color: #000;
 }
 

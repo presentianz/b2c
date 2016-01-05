@@ -9,10 +9,11 @@
 {% block body %}
 
     <div id="cart-page" class="container-non-responsive">
-        <div class="page-title">
-            <h4>购物车</h4>
-        </div>
+    
         <div class="page-content">
+            <div class="page-title">
+                <h4>购物车</h4>
+            </div>
             <div class="col-xs-12 top-promo">
                 <span>如果您有优惠代码，请输入。
                     <input class="" value="">
@@ -20,7 +21,7 @@
                 </span>
             </div>
              <div class="cart-content col-xs-12">               
-                <table class="table">
+                <table class="table no-margin">
                 {% if data|length > 0 %}
                     <thead>
                         <tr>

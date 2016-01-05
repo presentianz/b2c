@@ -7,39 +7,7 @@
 {% endblock %}
 
  {% block header %} 
-        <div id="sub-navbar" class="sub-nav user-sub-nav">
-                <div class="nav-all">
-                    <a href="{{ path('category') }}">全部商品分类</a>
-                    <i class="fa fa-chevron-down"></i>
-                    <div id="siderbar">
-                        {{ render(controller('AppBundle:Widget/Menu:index')) }}
-                    </div>
-                </div>
-                <div class="nav-right">
-                    <div class="navbar-search user-top-search">
-                             <form action="{{ path('search') }}" method="get"  onsubmit="">
-                                <select class="search-select">
-                                    <option><h6>蜂蜜</h6></option>
-                                    <option><h6>蜂胶</h6></option>
-                                    <option><h6>鱼油</h6></option>
-                                </select>
-                                <div class="search-input">
-                                    <input type="text" id="keys" name="keys" lang="zh-CN" placeholder="搜索产品..." class="search-query" value="{{ app.request.get('keys') }}">
-                                    <i class="fa fa-remove"></i>
-                                </div>
-                                <div class="search-button">
-                                    <input type="submit" value="">
-                                    <i class="fa fa-search"></i>
-                                </div>
-                            </form> 
-                    </div>
-                </div>
-                <div class="user-nav-right">
-                    <div class="cart-wrapper user-top-cart" data-path="{{ path('cart_ajax_get') }}"> 
-                         {{ render(controller('AppBundle:Widget/Cart:index')) }}
-                    </div>
-                </div>
-            </div>
+        {{parent()}}
   {% endblock %}
 
 {% block body %}
@@ -77,11 +45,14 @@
                 <div class="user-content">
         	       {% block fos_user_content %}
                      {% include "FOSUserBundle:Profile:show_content.html.twig" %}
-        		       {#{{ dump(app.user) }}#}
                    {% endblock fos_user_content %}
                 </div>
         </div>
+        {#{{ render(controller('AppBundle:Widget/Default:index')) }}#}
+         
     </div>
+
+
  </div>
 
     {% endblock %}

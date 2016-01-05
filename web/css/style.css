@@ -52,7 +52,7 @@ input[type="submit"] {
     background-color: #000;
     font-size: 15px;
     height: 30px;
-    margin: 0;
+    margin: 0px;
     padding: 0 10px;
     vertical-align: middle;
     min-width: 80px;
@@ -960,6 +960,11 @@ ul.nav {
 
 }
 
+.cart-down {
+    margin-bottom: 20px;
+    padding: 0;
+}
+
 .pro-text {
     padding: 15px 20px;
     width: 100%;
@@ -1006,7 +1011,7 @@ del {
     width:253px;
     height:auto;
     padding:0;
-    margin-top:30px;
+    margin:30px 0;
     background-color: #fff;
 }
 
@@ -1044,6 +1049,15 @@ del {
     vertical-align: middle;
     width: 100%;
     position: relative;
+    height: 220px;
+}
+
+.post-fee {
+    margin:-30px 0 30px 0 !important;
+}
+
+.post-fee img {
+    height: 130px;
 }
 
 .siderbar .pro-title {
@@ -1051,11 +1065,11 @@ del {
 }
 
 .side.brand-list {
-    max-height: 405px;
+    max-height: 485px;
 }
 
 .siderbar .side-foot {
-    padding:10px 25px;
+    padding:20px 25px;
     cursor: pointer;
 }
 
@@ -1077,12 +1091,12 @@ del {
 .brand-list .side-content {
     padding:10px 25px;
     overflow: hidden;
-    height: 250px;
-    max-height: 325px;
+    height: 180px;
+    max-height: 385px;
 }
 
 .brand-height {
-    height: 325px !important;
+    height: 385px !important;
 }
 
 .brand-list .search-keys {
@@ -1128,13 +1142,13 @@ del {
 
   
 
-.page-breadcrumb .toolbar {
+.page-breadcrumb .toolbarcate {
     width: 100%;
     overflow: hidden;
     height: 30px;
 }
 
-.page-breadcrumb .toolbar > div {
+.page-breadcrumb .toolbarcate > div {
     background-color: #a8df4e;
     margin-right: 10px;
     color: #fff;
@@ -1145,7 +1159,7 @@ del {
     vertical-align: top;
 }
 
-.page-breadcrumb .toolbar .search-keys {
+.page-breadcrumb .toolbarcate .search-keys {
     width: auto;
     margin: 0px 5px;
     height: 30px;
@@ -1156,7 +1170,7 @@ del {
     line-height: 30px;
 }
 
-.page-breadcrumb .toolbar .search-keys:hover {
+.page-breadcrumb .toolbarcate .search-keys:hover {
     background: #a8df4e;
     color: #000; 
     font-weight: bolder;
@@ -1164,9 +1178,7 @@ del {
 
 .page-title { 
     /*border-bottom: 3px solid #a8df4e; /* for IE 8 */
-    margin-bottom: 20px;
-    padding-bottom: 5px;
-    padding-top: 10px;
+    padding: 10px 0px;
 }
 
 .page-title h4, 
@@ -1184,18 +1196,18 @@ del {
 
 .page-right {
     width: 885px;
-    margin-left: 30px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #fff;
+    margin: 0px 0px 20px 30px;
+    padding: 0px;
+    /*min-height: 1275px;*/
 }
 
 .page-content {
-    padding:0px;
+    padding:15px;
     width:100%;
     height:auto;
-    margin:0px;
+    margin-top: 30px;
+    background-color: #fff;
+    overflow: auto;
 }
 
 .number-group {

@@ -17,6 +17,8 @@
             {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
         </div>
         <div class="col-xs-9 page-right">
+            
+            <div class="page-content">
             <div class="page-breadcrumb">
                 <ol>
                     <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
@@ -28,7 +30,6 @@
             </div>
             <div class="page-title">
             </div>
-            <div class="page-content">
                 <div class="product-info clearfix" data-product-id="{{data.product.id}}">
                     <div class="col-xs-5"> 
                             {% for key,poster in data.poster %}
