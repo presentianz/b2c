@@ -1,8 +1,14 @@
-<ul class="nav nav-list">
-	{% for sub1 in data %}
-	    <li>
-	        <div class="nav-item">
-	            <a href="{{ path('category', { id : sub1.id }) }}" >{{ sub1.name }}</a>
+
+   
+	<div class="nav-all">
+		<a href="{{ path('category') }}">全部商品分类</a>
+		<i class="fa fa-chevron-down"></i> 
+	</div>           
+		<ul class="nav nav-list">
+			{% for sub1 in data %}
+			<li>
+				<div class="nav-item">
+					<a href="{{ path('category', { id : sub1.id }) }}" >{{ sub1.name }}</a>
 	           {# {% if sub1.__children|length > 0 %}
 	            <div>
 	                <a href="{{ path('category', { id : sub1.__children[0].id }) }}">{{ sub1.__children[0].name }}</a>&nbsp;&nbsp;&nbsp;
@@ -12,19 +18,22 @@
 	            {% endif %} #}
 	        </div>
 	        <div class="well dropdown-menu">
-	            {% for sub2 in sub1.__children %}
-	                <div>
-	                <a href="{{ path('category', { id : sub2.id }) }}">{{ sub2.name }}</a>
-	                {% if sub2.__children|length > 0 %}
-	                <div class="sub-menu">
-	                	{% for sub3 in sub2.__children %}
-                		<a href="{{ path('category', { id : sub3.id }) }}">{{ sub3.name }}</a>&nbsp;&nbsp;|&nbsp;
-                		{% endfor %}
-            		</div>
-            		{% endif %}
-	                </div>
-	            {% endfor %}
+	        	{% for sub2 in sub1.__children %}
+	        	<div>
+	        		<a href="{{ path('category', { id : sub2.id }) }}">{{ sub2.name }}</a>
+	        		{% if sub2.__children|length > 0 %}
+	        		<div class="sub-menu">
+	        			{% for sub3 in sub2.__children %}
+	        			<a href="{{ path('category', { id : sub3.id }) }}">{{ sub3.name }}</a>&nbsp;&nbsp;|&nbsp;
+	        			{% endfor %}
+	        		</div>
+	        		{% endif %}
+	        	</div>
+	        	{% endfor %}
 	        </div>
 	    </li>
-	{% endfor %}
-</ul>
+	    {% endfor %}
+	</ul>
+
+
+

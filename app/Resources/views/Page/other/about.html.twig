@@ -1,21 +1,24 @@
 {% extends 'layout_main.html.twig' %}
 
 {% block body %}
-    <div class="container-non-responsive">
         <div class="row no-border">
             <div class="col-xs-3 siderbar">
-                    {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
-                    {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
+                    {{ render(controller('AppBundle:Widget/Menu:index')) }}
+                {{ render(controller('AppBundle:Widget/Default:brandList')) }}
+                {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
+                 {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+                  {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
                 </div>
             <div class="col-xs-9 page-right">
                 
-                <div class="page-content">
+                
                 <div class="page-breadcrumb">
                     <ol>
                         <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
                         <li>&nbsp;>&nbsp;关于我们</li>
                      </ol>
                 </div>
+                <div class="page-content">
                 <div class="page-title">
                     <h4>关于我们</h4>
                 </div>
@@ -24,5 +27,4 @@
                 </div>	
             </div>	
         </div>
-    </div><!-- /container-non-responsive -->
 {% endblock %}

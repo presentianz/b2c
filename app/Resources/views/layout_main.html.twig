@@ -23,9 +23,13 @@
         <div id="header">
             <div class="navbar">
                 <div class="container-non-responsive">
+                <div class="pull-left">
+                        <a href="{{ path('homepage') }}"><h6>欢迎来到丰盛湾!</h6></a>
+                        <a id="bookmarkme" href="javascript:;"><h6 class="color-basis">收藏网站</h6></a>       
+                    </div>
                     <div class="pull-right">
-                        <a href="{{ path('homepage') }}"><h6>欢迎来到彩购!</h6></a>
-                        <a id="bookmarkme" href="javascript:;"><h6>收藏网站</h6></a>       
+                        <a href="{{ path('about') }}"><h6>关于Plenty Bay丰盛湾</h6></a>
+                        <a href="{{ path('contact') }}"><h6 class="color-basis">联系我们</h6></a>       
                     </div>  
                 </div>
             </div>
@@ -126,29 +130,31 @@
                 </div>
             </div>
 
-            <div id="sub-navbar" class="sub-nav">
-            <div class="container-non-responsive"> 
-                <div class="nav-all">
-                    <a href="{{ path('category') }}">全部商品分类</a>
-                    <i class="fa fa-chevron-down"></i>
-                    <div id="siderbar">
-                        {{ render(controller('AppBundle:Widget/Menu:index')) }}
-                    </div>
-                </div>
-                <div class="nav-right">
-                    <a href="{{path('homepage')}}" class="active">首页</a>
-                    <a href="{{ path('about') }}">关于彩购</a>
-                    <a href="{{ path('homepage') }}">物流中心</a>
-                    <a href="{{ path('contact') }}">联系我们</a>
-                </div>
-            </div>
-            </div>
             {% endblock %}
         </div>
 
         <!-- body -->
-        {% block body %}{% endblock %}
+        <div class="container-non-responsive">
+            {% block body %}{% endblock %} 
+        </div>
         <div id="footer">
+          <div class="container-non-responsive">
+            <div class="row no-border footer-desc">
+                    <div class="col-xs-6 footer-about">
+                        <h3>关于我们</h3>
+                        <div>采购网是一家专注纽澳特产品，护肤品，保健品为一体的大型连锁专营店。<br>
+                    我们代理的都是新西兰澳洲药房所认可的大品牌，绝对一手货源，百分百保真。产品种类繁多，有上千种网络热销产品，代购追捧单品，经济实惠，价格合理。</div>
+                    </div>
+                    <div class="col-xs-3 footer-feedback">
+                        <h3>客户反馈</h3>
+                        <div><img src="{{ asset('img/feedback.jpg') }}" alt=""></div>
+                    </div>
+                    <div class="col-xs-3 footer-guarantee">
+                        <h3>Plenty Bay 承诺</h3>
+                        <div><img src="{{ asset('img/guran.jpg') }}" alt=""></div>
+                    </div>
+                </div>
+        </div>
         <div class="container-non-responsive"> 
             <div class="footer-up">
             <div class="col-xs-2">

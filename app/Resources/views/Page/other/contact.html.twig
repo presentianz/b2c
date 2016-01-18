@@ -1,72 +1,74 @@
 {% extends 'layout_main.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/contact.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ asset('css/contact.css') }}" type="text/css">
 {% endblock %}
 
 {% block body %}
-    <div id="contact-page" class="container-non-responsive">
-        <div class="row no-border">
-            <div class="col-xs-3 siderbar">
-                    {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
-                    {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
-                </div>
-             <div class="col-xs-9 page-right">
-                	
-                <div class="page-content">
-                <div class="page-breadcrumb">
-                    <ol>
-                        <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
-                        <li>&nbsp;>&nbsp;联系我们</li>
-                    </ol>
-                </div>
-                <div class="page-title">
-                    <h4>联系我们</h4>
-                </div>
-                    <div class="contact-part">						
-                        <p>
-                            采购网是一家专注纽澳特产品，护肤品，保健品为一体的大型连锁专营店。<br>
-                        </p>
-                        <p>
-                            我们代理的都是新西兰澳洲药房所认可的大品牌，绝对一手货源，百分百保真。产品种类繁多，有上千种网络热销产品，代购追捧单品，经济实惠，价格合理。
-                        </p>
-                        <div class="contact-info">
-                            <div><i class="fa fa-phone"></i>电话: 12345678</div>
-                            <div><i class="fa fa-home"></i>地址: 12 dkdkslaj Rd, Auckland</div>
-                            <div><i class="fa fa-weixin"></i>微信: ssss33333</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="contact-part">
-
-                        <div class="col-xs-4 contact-des">
-                            <form class="controls-group">
-                                <div class="controls">
-                                    <label>名字：</label>
-                                    <input type="text">
-                                </div>
-                                <div class="controls">
-                                    <label>邮件：</label>
-                                    <input type="text">
-                                </div>
-                                <div class="controls">										
-                                    <label>电话：</label>
-                                    <input type="text">
-                                </div>
-                                <div class="controls">
-                                    <label>内容：</label>
-                                    <textarea></textarea>
-                                </div>
-                            </form>
-                            <input type="submit" value="提交" />
-                        </div>
-                        <div class="col-xs-7" id="location-map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16089.87999570747!2d174.7582855433286!3d-36.851179502730865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d47fb5a9ce6fb%3A0x500ef6143a29917!2z5aWl5YWL5YWw!5e0!3m2!1szh-CN!2snz!4v1441856340223" width="500" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>	
-            </div>
+<div class="row no-border" id="contact-page">
+    <div class="col-xs-3 siderbar">
+        {{ render(controller('AppBundle:Widget/Menu:index')) }}
+        {{ render(controller('AppBundle:Widget/Default:brandList')) }}
+        {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
+        {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+        {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
+    </div>
+    <div class="col-xs-9 page-right">
+       
+        
+        <div class="page-breadcrumb">
+            <ol>
+                <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
+                <li>&nbsp;>&nbsp;联系我们</li>
+            </ol>
         </div>
-    </div><!-- /container-non-responsive -->
+        <div class="page-content">
+            <div class="page-title">
+                <h4>联系我们</h4>
+            </div>
+            <div class="contact-part">						
+                <p>
+                    采购网是一家专注纽澳特产品，护肤品，保健品为一体的大型连锁专营店。<br>
+                </p>
+                <p>
+                    我们代理的都是新西兰澳洲药房所认可的大品牌，绝对一手货源，百分百保真。产品种类繁多，有上千种网络热销产品，代购追捧单品，经济实惠，价格合理。
+                </p>
+                <div class="contact-info">
+                    <div><i class="fa fa-phone"></i>电话: 12345678</div>
+                    <div><i class="fa fa-home"></i>地址: 12 dkdkslaj Rd, Auckland</div>
+                    <div><i class="fa fa-weixin"></i>微信: ssss33333</div>
+                </div>
+            </div>
+            <hr>
+            <div class="contact-part">
+
+                <div class="col-xs-4 contact-des">
+                    <form class="controls-group">
+                        <div class="controls">
+                            <label>名字：</label>
+                            <input type="text">
+                        </div>
+                        <div class="controls">
+                            <label>邮件：</label>
+                            <input type="text">
+                        </div>
+                        <div class="controls">										
+                            <label>电话：</label>
+                            <input type="text">
+                        </div>
+                        <div class="controls">
+                            <label>内容：</label>
+                            <textarea></textarea>
+                        </div>
+                    </form>
+                    <input type="submit" value="提交" />
+                </div>
+                <div class="col-xs-7" id="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16089.87999570747!2d174.7582855433286!3d-36.851179502730865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d47fb5a9ce6fb%3A0x500ef6143a29917!2z5aWl5YWL5YWw!5e0!3m2!1szh-CN!2snz!4v1441856340223" width="500" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>	
+    </div>
+</div>
 
 {% endblock %}

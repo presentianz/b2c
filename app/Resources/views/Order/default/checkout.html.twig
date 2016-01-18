@@ -7,10 +7,21 @@
 {% endblock %}
 
 {% block body %}
-
-    <div id="checkout-page" class="container-non-responsive">
-        
-        <div class="page-content">
+        <div class="col-xs-3 siderbar">
+                {{ render(controller('AppBundle:Widget/Menu:index')) }}
+                {{ render(controller('AppBundle:Widget/Default:brandList')) }}
+                {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
+                 {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+                  {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
+                </div>
+            <div class="col-xs-9 page-right">
+            <div class="page-breadcrumb">
+                    <ol>
+                        <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
+                        <li>&nbsp;>&nbsp;结算</li>
+                     </ol>
+                </div>
+        <div class="page-content" id="checkout-page">
         <div class="page-title">
             <h4>结算</h4>
         </div>  
@@ -132,13 +143,14 @@
 
                     </div>
                 </div>
-            <div class="cart-down col-xs-12">
+            </div>
+           {# <div class="cart-down col-xs-12">
                 {{ render(controller('AppBundle:Widget/Default:hotPro')) }}
-           </div>       
-        </div><!-- /container-non-responsive -->
+           </div>    #}   
 
     <div class="pop-cart">
-    <div><h3><i class="fa fa-info-circle"></i>
+        <div>
+        <h3><i class="fa fa-info-circle"></i>
             <span>确定提交订单？</span></h3>
             <span>
                 <input type="submit" title="确定提交" data-id="{{ ids }}" class="btn-confirm" value="确定提交" >

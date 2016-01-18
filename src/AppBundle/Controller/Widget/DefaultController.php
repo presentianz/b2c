@@ -80,4 +80,13 @@ class DefaultController extends Controller
        //     'data' => $products
             ));
     }
+
+    public function postfeeAction()
+    {
+      //  $em = $this->getDoctrine()->getManager();
+     //   $products = $em->getRepository('AppBundle:Product')->findRandomProducts(4);
+        return $this->render('Widget/default/postFee.html.twig', array(
+       //     'data' => $products
+            ));
+    }
 }

@@ -144,7 +144,12 @@ select.delivery-options {
 
 
 .color {
-    color: #ff0000;
+    color: #ff0000 !important;
+    font-weight: bold;
+}
+
+.color-basis {
+    color: #a8df4e !important;
     font-weight: bold;
 }
 
@@ -613,20 +618,25 @@ select.delivery-options {
 }
 
 
-/* Sub Navbar */
-.sub-nav .container-non-responsive {
-    background: #000;
-    height: 55px;
+
+/* Left Sider Navbar */
+.siderbar {
+    width:253px;
+    height:auto;
+    padding: 0;
+    display: block;
+    position: relative;
+    z-index: 2;
+    color: #fff;
 }
 
-.sub-nav .nav-all {
+.siderbar .nav-all {
     background:#fff;
     width:253px;
     height:55px; 
-    float: left;
 }
 
-.sub-nav .nav-all > a {
+.siderbar .nav-all > a {
     font-size:15px;
     line-height:55px;
     padding-left: 25px;
@@ -635,73 +645,31 @@ select.delivery-options {
     color: #000;
 }
 
-.sub-nav .nav-all > i.fa {
+.siderbar .nav-all > i.fa {
     color: #000;
 }
 
 
-.sub-nav .nav-right {
-    height: 55px;
-    display: inline-block;
-}
-
-.sub-nav .nav-right > a {
-    float: left;
-    display: inline-block;
-    color: #fff;
-    font-size: 15px;
-    line-height: 55px;
-    padding: 0px 25px;
-    font-weight: bold;
-}
-
-.sub-nav .nav-right a:hover,
-.sub-nav .nav-right a:focus{
-    color: #999 !important;
-}
-
-.sub-nav .nav-right a.active{
-    background: #1d212b;
-}
-
-/* Left Sider Navbar */
-#siderbar {
-    width:253px;
-    height:auto;
-    padding: 0;
-    display: none;
-    position: absolute;
-    z-index: 2;
-    background-color: #a8df4e;
-}
-
-#sub-navbar .nav-all:hover #siderbar {
-    display: block;
-}
-
-.siderbar.col-xs-3 {
-    padding:0;
-    width: 253px; 
-}
 
 
 ul.nav {
     margin: 0;
-    padding: 0;
+    padding: 20px 0px;
     border-radius: 0px;
     -webkit-border-radius:0px;  
     -moz-border-radius:0px;
     width: 100%;
+    height: auto;
+    min-height: 340px;
+    background-color: #000;
 }
 
-#siderbar-main ul.nav {
-    height: 415px;
-    background-color: #a8df4e;
+.nav > li {
+    height:40px;
 }
-
 
 .nav li:hover {
-    background-color: #000;
+    background-color: #a8df4e;
    
 } 
 
@@ -713,9 +681,7 @@ ul.nav {
      color: #fff;
 }
 
-.nav > li {
-    height:40px;
-}
+
 
 .nav .nav-item {
     padding: 10px 25px;
@@ -724,6 +690,7 @@ ul.nav {
 
 .nav .nav-item > a {
     font-weight: bold;
+    color: #a8df4e;
 }
 
 .nav .dropdown-menu {
@@ -755,13 +722,11 @@ ul.nav {
     color: #000;
     font-size: 12px;
 }
-
-
-
 /* Slider */
 .slider-part {
     width: 887px;
     margin: 20px 0px 0px 30px;
+    float: right;
 }
 
 #myCarousel { 
@@ -1075,6 +1040,7 @@ del {
 
 .siderbar .side-foot h6 {
     font-weight: bold;
+    color: #000;
 }
 
 .brand-list .side-title {
@@ -1132,10 +1098,6 @@ del {
     display: inline-block;
 }
 
-.page-breadcrumb ol li.active {
-    color: #a8df4e;
-}
-
 .page-breadcrumb ol li i.fa {
      font-size: 18px; 
 }
@@ -1145,7 +1107,7 @@ del {
 .page-breadcrumb .toolbarcate {
     width: 100%;
     overflow: hidden;
-    height: 30px;
+    height: 40px;
 }
 
 .page-breadcrumb .toolbarcate > div {
@@ -1177,14 +1139,14 @@ del {
 }
 
 .page-title { 
-    /*border-bottom: 3px solid #a8df4e; /* for IE 8 */
     padding: 10px 0px;
 }
 
 .page-title h4, 
 .page-title h4 a {
     font-size: 25px;
-    color: #d61920;
+    color: #0000;
+    font-weight: bolder;
 }
 
 .page-title span {
@@ -1198,6 +1160,7 @@ del {
     width: 885px;
     margin: 0px 0px 20px 30px;
     padding: 0px;
+    float: right;
     /*min-height: 1275px;*/
 }
 
@@ -1205,9 +1168,9 @@ del {
     padding:15px;
     width:100%;
     height:auto;
-    margin-top: 30px;
     background-color: #fff;
     overflow: auto;
+    min-height: 1030px;
 }
 
 .number-group {

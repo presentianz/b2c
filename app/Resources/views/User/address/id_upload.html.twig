@@ -1,8 +1,9 @@
 {% extends 'views/User/default/index.html.twig' %}
+{% block page_breadcrumb %}上传身份证{% endblock page_breadcrumb %}
 {% block page_title %}上传身份证{% endblock page_title %}
 {% block fos_user_content %}
 <div class="idupload-content">
-    {% for address in addresses %}
+  {% for address in addresses %}
   <div class="idupload-image-each"> 
     <label>
      订单号：9289742834 
@@ -11,7 +12,7 @@
     <div>
      身份证号码：{{address.idNo}}
    </div>
-    <div style="display:none">
+   <div style="display:none">
      身份证号码：{{address.idScans}}
    </div>
 
@@ -31,16 +32,16 @@
    </div>
  </div>
  <a href="{{ path('user_idupload_edit', { id: address.id }) }}">
-        <strong>编辑</strong></a>
-        <a href="{{ path('user_idupload_remove', { id: address.id }) }}">
-        <strong>删除</strong></a>
-</div>
- {% endfor %}
+  <strong>编辑</strong></a>
+  <a href="{{ path('user_idupload_remove', { id: address.id }) }}">
+    <strong>删除</strong></a>
+  </div>
+  {% endfor %}
 
-    <div>
-  <form action="{{path('user_idupload_create')}}" method="post" onsubmit="">
-    <input type="submit" value="添加" >
+  <div>
+    <form action="{{path('user_idupload_create')}}" method="post" onsubmit="">
+      <input type="submit" value="添加" >
     </form>
-</div>
+  </div>
 </div>
 {% endblock fos_user_content %}

@@ -6,11 +6,22 @@
     <link rel="stylesheet" href="{{ asset('css/cart.css') }}" type="text/css">
 {% endblock %}
 
-{% block body %}
-
-    <div id="cart-page" class="container-non-responsive">
-    
-        <div class="page-content">
+{% block body %}   
+        <div class="col-xs-3 siderbar">
+                {{ render(controller('AppBundle:Widget/Menu:index')) }}
+                {{ render(controller('AppBundle:Widget/Default:brandList')) }}
+                {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
+                 {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+                  {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
+        </div>
+        <div class="col-xs-9 page-right">
+            <div class="page-breadcrumb">
+                <ol>
+                    <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
+                    <li>&nbsp;>&nbsp;购物车</li>
+                </ol>
+            </div>
+            <div class="page-content" id="cart-page">
             <div class="page-title">
                 <h4>购物车</h4>
             </div>
@@ -93,10 +104,10 @@
             </div>
         </div>
 
-        <div class="cart-down col-xs-12">
+       {# <div class="cart-down col-xs-12">
             {{ render(controller('AppBundle:Widget/Default:hotPro')) }}
-        </div>
-    </div><!-- /container-non-responsive -->
+        </div> #}
+    </div>
 
 {% endblock %}
 

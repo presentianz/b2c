@@ -1,19 +1,20 @@
 
 
 /*product products*/
+#product-page .product-desc {
+    color: #a8df4e;
+}
+
 #product-page .product-pros {
     width:100%;
     height:auto;
 }
 
 #product-page .product-info {
-    border:1px solid #ccc;
-    margin:20px 0px;
+    margin-bottom:20px;
+    padding: 10px 50px;
 }
 
-#product-page .product-info > div {
-    margin: 20px auto;
-}
 
 #product-page .product-info img {
     width:100%;
@@ -41,70 +42,64 @@
 }	
 
 #product-page .product-info .col-xs-7 p {
-    color:#000;
-    font-size: 12px;
-    line-height:20px;
+    color: #000;
+    font-size: 16px;
+    line-height: 25px;
 }
 
 #product-page .product-info .col-xs-7 p label {
     margin: 0px 10px 0px 0px;
-    width: 75px;
+    width: auto;
     text-align: left;  
 }
 
-#product-page .product-info .col-xs-7 .product-title {
-    font-size: 18px;
-}
 
-#product-page .product-info .col-xs-7 .product-desc {
-    color: #ee1c24;
-}
 
 #product-page .product-info .col-xs-7 .product-promo {
-    font-size: 18px;
-    color: #ee1c24;
-    line-height:25px;
-    height:25px;
+    font-size: 20px;
+    color: #a8df4e;
+    font-weight: bold;
 }
 
-#product-page .add-to-box{
-    border:1px solid #ccc;
-    padding: 10px 20px 5px 20px;
-    margin: 10px 0;
+#product-page .add-to-box {
 }
 
 #product-page .add-to-cart .number-label {
     line-height: 35px;
-    margin-right: 10px;  
+    margin-right: 20px;  
 }
 
 #product-page .add-to-cart input[type="submit"] {
     margin-left: 10px;
     height: 35px;
+    background: transparent;
+    color: #a8df4e;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    padding: 0;
+} 
 
+#product-page .add-to-cart input[type="submit"]:hover {
+    border-bottom: 2px solid #a8df4e;
 }
 
-#product-page .product-tabs .product-tab {
-    padding:0px;
+#product-page .add-to-cart input[type="submit"].buy-now {
+     color: #ee1c24;
+}
+
+#product-page .add-to-cart input[type="submit"].buy-now:hover {
+    border-bottom: 2px solid #ee1c24;
+}
+
+
+
+#product-page .product-tab {
+    padding:10px 0px;
     width:100%;
-    border-bottom:1px solid #ccc;
+    background-color: #ccc;
 }
 
-#product-page .product-tabs .product-tab li{
-    color: #777;
-    height: 40px;
-    line-height:40px;
-    font-size:18px;
-    display: inline-block;
-    padding: 0px 20px;
-}
-
-#product-page .product-tab li:hover,
-#product-page .product-tabs .product-tab .active {
-    color: #ee1c24;
-    cursor:pointer;
-    border-bottom:2px solid #ee1c24;
-}
 
 #product-page .product-tabs .tab-content {
     margin-top:20px;

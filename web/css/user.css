@@ -1,16 +1,9 @@
 
-
-    
-
-#user-page .user-left {
-    margin-top: 30px;
-
-}
-
 #user-page .user-left .nav-list {
     border: 1px solid #eee;
     margin-bottom: 30px;
-    background: white;
+    min-height: auto !important;
+    padding: 0;
 }
 
 #user-page .user-left li {
@@ -31,7 +24,7 @@
 
 #user-page .user-left li a {
     padding:0;
-    color: #666;
+    color: #fff;
     font-weight: normal;
     background-color: transparent;
     display: inline-block;

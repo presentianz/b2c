@@ -12,7 +12,7 @@
 
 {% block body %}
 
-<div id="user-page" class="container-non-responsive">
+<div id="user-page">
 	<div class="user-left col-xs-3 siderbar">
 		<ul class="nav nav-list">
 			<li class="active">
@@ -35,9 +35,16 @@
 
             <!--best pros-->
             {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+             {{ render(controller('AppBundle:Widget/Default:postFee')) }}
 
         </div>
         <div class="col-xs-9 page-right">
+                <div class="page-breadcrumb">
+                    <ol>
+                        <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
+                        <li>&nbsp;>&nbsp;{% block page_breadcrumb %}用户信息{% endblock page_breadcrumb %}</li>
+                    </ol>
+                </div>
         	<div class="page-content">
                 <div class="page-title">
                     <h4>{% block page_title %}用户信息{% endblock page_title %}</h4>

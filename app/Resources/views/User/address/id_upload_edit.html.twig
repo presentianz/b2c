@@ -1,6 +1,7 @@
 
 
 {% extends 'views/User/default/index.html.twig' %}
+{% block page_breadcrumb %}新建身份证/修改身份证{% endblock page_breadcrumb %}
 {% block page_title %}新建身份证/修改身份证{% endblock page_title %}
 {% block fos_user_content %}
 
@@ -11,52 +12,52 @@
 
 
 
-  {% if address.id %}
-    {{ form_start(form, { method: 'POST', action: path('user_id_upload',{ 'id': address.id }) }) }}
-    {% else %}
-    {{ form_start(form, { method: 'POST', action: path('user_id_upload') }) }} 
-    {% endif %}
-    <div class="form">
-        <div><label>订单号：</label><input type="text"></div>
-         <div><label>身份证号码：</label>{{ form_widget(form.id_no) }}</div>
-         <div style="display:none">
-         <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
-         <div>{{ form_label(form.contact_no) }}{{ form_widget(form.contact_no) }}</div>
-         <div>{{ form_label(form.id_scans) }}{{ form_widget(form.id_scans) }}</div>
-          <div>{{ form_label(form.country) }}{{ form_widget(form.country) }}</div>
-         <div>{{ form_label(form.region) }}{{ form_widget(form.region) }}</div>
-         <div>{{ form_label(form.city) }}{{ form_widget(form.city) }}</div>
-        <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
-         <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
-       </div>
-    </div>
-    {{ form_end(form) }} 
+ {% if address.id %}
+ {{ form_start(form, { method: 'POST', action: path('user_id_upload',{ 'id': address.id }) }) }}
+ {% else %}
+ {{ form_start(form, { method: 'POST', action: path('user_id_upload') }) }} 
+ {% endif %}
+ <div class="form">
+  <div><label>订单号：</label><input type="text"></div>
+  <div><label>身份证号码：</label>{{ form_widget(form.id_no) }}</div>
+  <div style="display:none">
+   <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
+   <div>{{ form_label(form.contact_no) }}{{ form_widget(form.contact_no) }}</div>
+   <div>{{ form_label(form.id_scans) }}{{ form_widget(form.id_scans) }}</div>
+   <div>{{ form_label(form.country) }}{{ form_widget(form.country) }}</div>
+   <div>{{ form_label(form.region) }}{{ form_widget(form.region) }}</div>
+   <div>{{ form_label(form.city) }}{{ form_widget(form.city) }}</div>
+   <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
+   <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
+ </div>
+</div>
+{{ form_end(form) }} 
 
 
 
-        <div id="personal-front"> 
-       <label>身份证正面：</label>
-       <div class="cropme">
+<div id="personal-front"> 
+ <label>身份证正面：</label>
+ <div class="cropme">
 {#     <img src="{{ asset('img/sub1.jpg') }}" />
        <div class="idupload-image-remove">
          <i class="fa fa-remove"></i>
        </div> #}
-       </div>
-       </div>
+     </div>
+   </div>
 
-        <div id="personal-back"> 
-       <label>身份证反面：</label>
-       <div class="cropme">
-       </div>
-       </div>
-
-
-
-        <div>
-          <input type="submit" value="取消" onclick="window.history.back();">
-          <input id="iduploadBtn" type="submit" value="保存" />
-        </div>
-    
+   <div id="personal-back"> 
+     <label>身份证反面：</label>
+     <div class="cropme">
+     </div>
+   </div>
 
 
-{% endblock fos_user_content %}
+
+   <div>
+    <input type="submit" value="取消" onclick="window.history.back();">
+    <input id="iduploadBtn" type="submit" value="保存" />
+  </div>
+  
+
+
+  {% endblock fos_user_content %}
