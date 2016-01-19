@@ -1,35 +1,5 @@
 (function (){
 
-    $("input[class='qty']").blur(function (e) {
-        e.preventDefault();
-        $this = $(this);
-        var value = $("#"+ $this.attr("id")).val();
-        if (value !== "" || value !== null || value !== undefined) {
-           $.ajax({
-            //need to fix backend
-            url: $this.attr("data-path"),
-            method: "POST",
-            data: {
-                id : $this.attr("id"),
-                action : $this.attr("data-action"),
-                no : value
-            },
-            dataType: "json"
-        })
-           .done(function (rep) {
-               if (rep.granted) {
-                var price = $("#oneprice_" + $this.attr("id")).html();
-                var newPrice = Math.round(Number(price) * parseInt(value) * 100)/100;
-                $("#allprice_" + $this.attr("id")).html("<strong>" + newPrice + "</strong>");
-                
-            }
-        })
-
-       } else {
-        alert(": (");
-    }
-
-});
 
 $('.cart-action-button').click(function (e) {
     e.preventDefault();
@@ -63,7 +33,6 @@ $('.cart-action-button').click(function (e) {
     })
     .done(function (rep) {
         if (rep.granted) {
-            alert("hehe");
             $("#" + $this.attr("data-id")).val(newVal);
             var price = $("#oneprice_" + $this.attr("data-id")).html();
             var newPrice = Math.round(Number(price) * parseInt(newVal) * 100)/100;

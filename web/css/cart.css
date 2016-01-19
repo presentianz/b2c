@@ -1,40 +1,119 @@
 
-#cart-page .cart-content {
-    margin-top: 30px;
-    padding: 0;
+#cart-page-container .cart-tabs {
+    width: 100%;
+    height: 50px;
+    background-color: #000; 
+    text-align: left;
+    padding-left: 50px;
+    margin-bottom: 30px;
+}
+
+#cart-page-container .cart-tabs .cart-tab {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    line-height: 50px;
+}
+
+#cart-page-container .cart-tabs .cart-tab.active {
+    color: #a8df4e;
+}
+
+#cart-page-container .cart-tab-arrow {
+    display: inline-block;
+    position: relative;
+    vertical-align: bottom;
+}
+
+#cart-page-container .cart-tab-arrow:before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    position: relative;
+    top: 0;
+    left: 10px;
+    border: 25px solid transparent;
+    border-color: white;
+    border-left-color: transparent;
+    vertical-align: middle;
+}
+
+#cart-page-container .cart-tab-arrow:after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    position: relative;
+    top: 0;
+    left: 10px;
+    border: 25px solid transparent;
+    border-left-color: white;
+    vertical-align: middle;
+}
+
+#cart-page-container .cart-content {    
+    padding: 0 50px;
     background: white;
 }
 
-#cart-page .top-promo {
+#cart-page-container .table-header {
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+    margin:20px 0px 10px 0px;
+    padding:  5px 0px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align:left;    
+}
+
+/*#cart-page-container .top-promo {
     text-align: center;
     background-color: #eee;
     padding: 20px;
     border: 1px solid #ccc;
-}
+}*/
 
-#cart-page thead tr {
-    border-bottom:1px solid #eee;
-}
-
-#cart-page thead th {
+#cart-page-container thead th {
     text-align: center;
+    background-color: #eee;
+    border-left: 2px solid #fff;
+
+}
+#cart-page-container thead th:first-child {
+    border-left:none;
 }
 
-
-#cart-page table img {
+#cart-page-container table img {
     width:100px;
+    max-width:  100px;
 }
 
-#cart-page table td {
+#cart-page-container table td {
     vertical-align: middle;
     text-align: center;
+
 }
-#cart-page table .product-name {
+
+#cart-page-container tbody td {
+    border-left: 1px solid #aaa;
+    border-bottom: 2px solid #000;
+    border-top: 10px solid #fff;
+    padding:10px;
+}
+
+#cart-page-container tbody td:first-child {
+    border-left:none;
+}
+
+#cart-page-container table .product-name {
     width: 50%;
     text-align: left;
 }
 
-#cart-page table .name-limit {
+#cart-page-container table .name-limit {
     display: inline-block;
     max-width: 410px;
     word-wrap: break-word;
@@ -43,21 +122,87 @@
     width: auto;
 }
 
-#cart-page tfoot .tfoot-bottom {
+#cart-page-container .qty {
+    max-width: 20px;
+    display: inline-block;
+    vertical-align: super;
+}
+#cart-page-container .number-button hr {
+    margin: 2px auto;
+    width: 10px;
+}
+
+#cart-page-container .cart-remove-button {
+    text-decoration: none;
+}
+
+#cart-page-container .submit-pay {
+    background: #fff;
+    color: #ff0000;
+    border: none;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#cart-page-container .form > div {
+    margin-bottom: 5px;
+}
+#cart-page-container .form label {
+    max-width: 200px;
+    width: 25%;
+
+}
+
+#cart-page-container .form select {
+    display: inline-block;
     background-color: #eee;
+    width: 74%;
 }
-#cart-page tfoot .total-price {
-    text-align: right;
+
+#cart-page-container .form input {
+    background-color: #eee;
+    width: 74%;
+}
+
+#cart-page-container .form textarea {
+    display: inline-block;
+    background-color: #eee;
+    width: 74%;
 }
 
 
-#cart-page .cart-content .btn-offer {
-    margin: 10px 0px;
+#cart-page-container .btn-pay {
+    background-color: #ff0000 !important;
 }
 
-#cart-page .cart-content .btn-promotion {
-    float: right;
+
+
+
+
+
+
+
+
+
+
+
+
+
+#cart-page-container .order-confirm-content {
+    margin: 120px auto;
+    text-align: center;
 }
+
+#cart-page-container .order-confirm-id {
+    margin: 15px 0px 5px 0px;
+}
+
+#cart-page-container .back-link {
+    color: #000;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 
 
 

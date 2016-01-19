@@ -3,7 +3,7 @@
 {% block title %}结算{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/checkout.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/cart.css') }}" type="text/css">
 {% endblock %}
 
 {% block body %}
@@ -11,7 +11,7 @@
                 {{ render(controller('AppBundle:Widget/Menu:index')) }}
                 {{ render(controller('AppBundle:Widget/Default:brandList')) }}
                 {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
-                 {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+               
                   {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
                 </div>
             <div class="col-xs-9 page-right">
@@ -21,39 +21,61 @@
                         <li>&nbsp;>&nbsp;结算</li>
                      </ol>
                 </div>
-        <div class="page-content" id="checkout-page">
-        <div class="page-title">
-            <h4>结算</h4>
-        </div>  
-            <div class="col-xs-12 checkout-content top">
-                <h5><strong>邮寄地址</strong></h5>
-               {# <div class="address-content"> 
-                    <span class="first-address">邮寄至</span>
-                    <span class="address-detail">
-                      <input type="checkbox" />
-                        27 Beaudort Place, Papatoetoe, Auckland, New Zealand  1025
-                        <strong> (Charis Wan)  2132132131</strong>
-                    </span>
-                    <a href=""><span class="edit-address pull-right">修改地址</span></a>
-                </div> #}
-                <select class="control" id="select-location">
-                <option>
-                    湖北省武汉市江汉区三眼桥海红旗701 王刚 13582658451
-                </option>
-                <option>
-                    湖北省武汉市三眼桥408 小海 1039884938
-                    </option>
-                <option>
-                    湖北省江汉区三眼桥海红旗701 王红 133098495
-                </option>
-                <option>
-                    河南省合肥市市江汉区406 南京 122309833
-                </option>
+            <div class="page-content" id="cart-page-container">
+            <div class="page-title">
+                <h4>结算</h4>
+            </div>  
+            <div class="cart-tabs">
+                <div class="cart-tab">1.查看购物车</div> 
+                <div class="cart-tab-arrow"></div>
+                <div class="cart-tab active">2.填写购物信息</div>
+                <div class="cart-tab-arrow"></div>
+                <div class="cart-tab">3.完成订单</div>
+            </div>
+      <div class="col-xs-12 cart-content">
+
+          <div class="form">
+              <div>
+                <label>邮寄地址</label>
+                    <select id="select-location">
+                        <option>
+                            湖北省武汉市江汉区三眼桥海红旗701 王刚 13582658451
+                        </option>
+                        <option>
+                            湖北省武汉市三眼桥408 小海 1039884938
+                            </option>
+                        <option>
+                            湖北省江汉区三眼桥海红旗701 王红 133098495
+                        </option>
+                        <option>
+                            河南省合肥市市江汉区406 南京 122309833
+                        </option>
+                    </select>
+               
+              </div>
+              <div> <a href="{{path('user_address')}}" class="button-style">新建地址</a></div>
+            <div>
+              <label>*收货地区（国家）</label>
+                <select>
+                    <option>新西兰</option>
+                    <option>中国</option>
                 </select>
-                <a href="{{path('user_address')}}" class="button-style">新建地址</a>
-          </div> 
-      <div class="col-xs-12 checkout-content">
-       <div class="content-up"> 
+            </div>
+            <div><label>*收货地址：</label><input type="text" placeholder="可以直接填写"></div>
+            <div><label>地区：</label><input type="text" placeholder="可以直接填写"></div>
+            <div><label>邮编：</label><input type="text" placeholder="可以直接填写"></div>
+            <div><label>*收件人姓名：</label><input type="text" placeholder="可以直接填写"></div>
+            <div><label>*收件人身份证号码：</label><input type="text" placeholder="地区为中国需要填写"></div>
+            <div><label>*收件人手机号码：</label><input type="text" placeholder="可以直接填写"></div>
+            <div><label>*固定电话：</label><input type="text" placeholder="可以直接填写"></div>
+            <div><label>*订单附言：</label><textarea placeholder="可以直接填写"></textarea></div>
+            <div><label>*配送方式确认：</label><input type="text" placeholder="可以直接填写"></div>
+            <div><label>*支付方式确认：</label><input type="text" placeholder="可以直接填写"></div>
+           
+          </div>
+
+
+      {# <div class="content-up"> 
         <table>
             <thead>
                 <tr>
@@ -138,8 +160,77 @@
                                 </h3>
                             </div>
                         </div>
-                    </div>
-                        <input type="submit" title="提交订单" class="btn-pay" value="提交订单" >
+                    </div>#}
+                       
+
+
+                <div class="table-header">请在此确认你的订单产品</div>           
+                <table class="table no-margin">
+                    <thead>
+                        <tr>
+                            <th width="15%">产品</th>
+                            <th width="50%" class="product-name">产品名称</th>
+                            <th width="10%">价格$</th>
+                            <th width="10%">数量</th>
+                            <th width="10%">删除</th>
+                        </tr>
+                    </thead>
+                    <tbody>    
+                       
+                        {% set sum = 0 %}
+                         {% set ids = [] %}
+                            {% for cartproduct in data %}
+                                <tr>
+                                    <td class="product-img">
+                                        <img src="{{ asset('img/src') }}/{{cartproduct.product.imageLink}}/poster/{{cartproduct.product.poster}}"/>
+                                    </td>
+                                    <td class="product-name">  
+                                        <div class="name-limit">
+                                        <a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a>
+                                        </div>
+                                    </td>
+                                   {# <td id="oneprice_{{cartproduct.product.id }}">{{ cartproduct.product.priceDiscounted }}</td> #}
+                                    <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
+                                   
+                                    <td class="text-right">
+                                        <div class="number-group">
+                                            {#<input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">#}
+                                            <div maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">{{ cartproduct.count }}</div>
+
+                                            <div class="number-button" >  
+                                                <div class="number-input number-input-up cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="+" data-no="1"><i class="fa fa-caret-up"></i></div>
+                                                <hr>
+                                                <div class="number-input number-input-down cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="-" data-no="1"><i class="fa fa-caret-down"></i></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                     <td><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm">X</a></td>    
+                                </tr>
+                                {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted + 20 %}
+                                 {% set ids = ids|merge([cartproduct.product.id]) %}
+                            {% endfor %}
+                            {% set ids = ids|join(' ') %}
+                   </tbody>
+                    <tfoot>
+                        <tr class="tfoot-bottom"> 
+                            <td colspan="3" class="text-left"><strong>商品总额：</strong>
+                             {% if data|length > 0 %}
+                                <strong id="totalprice">NZ${{ sum }}</strong>
+                             {% else %}
+                                 <strong>$0.00</strong> 
+                                 {% endif %}
+                            <td colspan="3" class="text-right">
+                                <i class="fa fa-cart"></i>
+                             <input type="submit" title="提交订单" class="btn-pay" value="确认无误，马上下单" >
+                            </td>
+                        </tr>
+                       
+                    </tfoot>
+                </table>
+            </div>
+
+
+
 
                     </div>
                 </div>

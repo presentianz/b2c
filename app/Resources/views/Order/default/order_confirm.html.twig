@@ -3,7 +3,7 @@
 {% block title %}订单确认{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/order-confirm.css') }}" type="text/css">
+   <link rel="stylesheet" href="{{ asset('css/cart.css') }}" type="text/css">
 {% endblock %}
 
 {% block body %}
@@ -11,7 +11,7 @@
                 {{ render(controller('AppBundle:Widget/Menu:index')) }}
                 {{ render(controller('AppBundle:Widget/Default:brandList')) }}
                 {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
-                 {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+          
                   {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
                 </div>
             <div class="col-xs-9 page-right">
@@ -21,19 +21,26 @@
                         <li>&nbsp;>&nbsp;订单确认</li>
                      </ol>
                 </div>
-        <div class="page-content" id="checkout-page">
+        <div class="page-content" id="cart-page-container">
         <div class="page-title">
             <h4>订单确认</h4>
         </div>
+        <div class="cart-tabs">
+                <div class="cart-tab">1.查看购物车</div> 
+                <div class="cart-tab-arrow"></div>
+                <div class="cart-tab">2.填写购物信息</div>
+                <div class="cart-tab-arrow"></div>
+                <div class="cart-tab active">3.完成订单</div>
+            </div>
          <div class="order-confirm-content">
-         	<h4>您的订单提交成功，感谢您光临<a href="{{ path('homepage') }}">彩购网</a></h4>
+         	<h2>恭喜您，下单成功</h2>
          	<div class="order-confirm-id">
-         	<label>订单号:</label>
+         	<label>您的订单号为：</label>
          	<a href="{{ path('user_order') }}">
-         	<span class="color">{{ data.orderId }}</span></a>
-         <span>请您耐心等待， 我们会尽安排发货处理，感谢您的支持！</span>
+         	<span class="color">{{ data.orderId }}</span></a><br>
+         <span>请您耐心等待， 我们会尽安排发货，感谢您的支持！</span>
          	</div>
-         	<div>继续购物，<a href="{{ path('homepage') }}">请点这里</a></div>
+         	<div> <a href="{{ path('homepage') }}" class="back-link">返回主页</a></div>
 
          </div>
         </div>

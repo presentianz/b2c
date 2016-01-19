@@ -18,29 +18,38 @@
             <div class="page-breadcrumb">
                 <ol>
                     <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
-                    <li>&nbsp;>&nbsp;购物车</li>
+                    <li>&nbsp;>&nbsp;我的购物车</li>
                 </ol>
             </div>
-            <div class="page-content" id="cart-page">
+            <div class="page-content" id="cart-page-container">
             <div class="page-title">
-                <h4>购物车</h4>
+                <h4>我的购物车</h4>
             </div>
-            <div class="col-xs-12 top-promo">
+         {#   <div class="col-xs-12 top-promo">
                 <span>如果您有优惠代码，请输入。
                     <input class="" value="">
                     <input type="submit" title="应用优惠券" class="btn-promotion"  value="应用优惠券">
                 </span>
+            </div> #}
+            <div class="cart-tabs">
+                <div class="cart-tab active">1.查看购物车</div> 
+                <div class="cart-tab-arrow"></div>
+                <div class="cart-tab">2.填写购物信息</div>
+                <div class="cart-tab-arrow"></div>
+                <div class="cart-tab">3.完成订单</div>
             </div>
-             <div class="cart-content col-xs-12">               
+             <div class="cart-content col-xs-12">    
+               <div class="table-header">请在此确认你的订单产品</div>           
                 <table class="table no-margin">
                 {% if data|length > 0 %}
                     <thead>
                         <tr>
-                            <th width="50%">商品</th>
-                            <th width="10%">单价（纽币）</th>
-                            <th width="15%">数量</th>
-                            <th width="15%">价格（纽币）</th>
-                            <th width="10%">操作</th>
+                            <th width="5%"></th>
+                            <th width="15%">产品</th>
+                            <th width="50%" class="product-name">产品名称</th>
+                            <th width="10%">价格$</th>
+                            <th width="10%">数量</th>
+                            <th width="10%">删除</th>
                         </tr>
                     </thead>
                     <tbody>    
@@ -48,45 +57,54 @@
                         {% set sum = 0 %}
                             {% for cartproduct in data %}
                                 <tr>
-                                    <td class="product-name">
-                                        <input type="checkbox" name="product-id[]" value="{{ cartproduct.product.id }}" />
+                                    <td><input type="checkbox" name="product-id[]" value="{{ cartproduct.product.id }}" /></td>
+                                    <td class="product-img">
                                         <img src="{{ asset('img/src') }}/{{cartproduct.product.imageLink}}/poster/{{cartproduct.product.poster}}"/>
-                                        <div class="name-limit"><a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a></div>
                                     </td>
-                                    <td id="oneprice_{{cartproduct.product.id }}">{{ cartproduct.product.priceDiscounted }}</td>
-                                    <td class="clearfix text-right">
+                                    <td class="product-name">  
+                                        <div class="name-limit">
+                                        <a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a>
+                                        </div>
+                                    </td>
+                                   {# <td id="oneprice_{{cartproduct.product.id }}">{{ cartproduct.product.priceDiscounted }}</td> #}
+                                    <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
+                                   
+                                    <td class="text-right">
                                         <div class="number-group">
-                                            <input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">
-                                            <div class="number-button" >
+                                            {#<input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">#}
+                                            <div maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">{{ cartproduct.count }}</div>
+
+                                            <div class="number-button" >  
                                                 <div class="number-input number-input-up cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="+" data-no="1"><i class="fa fa-caret-up"></i></div>
+                                                <hr>
                                                 <div class="number-input number-input-down cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="-" data-no="1"><i class="fa fa-caret-down"></i></div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
-                                    <td><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm">删除</a></td>
+                                     <td><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm">X</a></td>    
                                 </tr>
                                 {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted %}
+
                             {% endfor %}
-                    </tbody>
+                   </tbody>
                     <tfoot>
                         <tr>
-                            <td class="text-left">
+                            <td colspan="3" class="text-left">
                                 <span>
-                                <input type="checkbox" onclick="selectAll(this)" />选择全部商品
+                                    <input type="checkbox" onclick="selectAll(this)" /><strong>选择全部商品</strong>
                                 </span> 
                             </td>
                         </tr>
                         <tr class="tfoot-bottom"> 
-                            <td class="text-left"><input type="submit"  value="清空购物车"></td>
-                            <td colspan="3" class="total-price">商品总价 （不含运费）：
+                            <td colspan="3" class="text-left"><strong>商品总额：</strong>
                              {% if data|length > 0 %}
-                                <strong id="totalprice">${{ sum }}</strong>
+                                <strong id="totalprice">NZ${{ sum }}</strong>
                              {% else %}
                                  <strong>$0.00</strong> 
-                              {% endif %}
-                            <td>
-                            <input type="submit" value="结算" disabled class="submit-pay disabled">
+                                 {% endif %}
+                            <td colspan="3" class="text-right">
+                                <i class="fa fa-cart"></i>
+                            <input type="submit" value="立刻结算" disabled class="submit-pay disabled">
                             </td>
                         </tr>
                         </form>

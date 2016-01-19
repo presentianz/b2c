@@ -154,7 +154,7 @@ select.delivery-options {
 }
 
 .disabled {
-    background-color: #e5e5e5 !important;
+    color: #e5e5e5 !important;
     border-color: #e5e5e5 !important;
     cursor: auto !important;
 }
@@ -1086,6 +1086,15 @@ del {
 
 /*each page style*/
 
+
+.page-right {
+    width: 885px;
+    margin: 0px 0px 20px 30px;
+    padding: 0px;
+    float: right;
+    /*min-height: 1275px;*/
+}
+
 .page-breadcrumb {
 }
 
@@ -1138,39 +1147,31 @@ del {
     font-weight: bolder;
 }
 
+.page-content {
+    padding:0;
+    width:100%;
+    height:auto;
+    background-color: #fff;
+    overflow: auto;
+    min-height: 1030px;
+}
+
 .page-title { 
-    padding: 10px 0px;
+    margin: 15px 50px;
 }
 
 .page-title h4, 
 .page-title h4 a {
-    font-size: 25px;
-    color: #0000;
+    color: #000;
     font-weight: bolder;
+    margin-bottom: 50px;
+    margin-left: 70px;
 }
 
 .page-title span {
     font-weight: bold;
     font-size: 19px;
     color: #444;
-}
-
-
-.page-right {
-    width: 885px;
-    margin: 0px 0px 20px 30px;
-    padding: 0px;
-    float: right;
-    /*min-height: 1275px;*/
-}
-
-.page-content {
-    padding:15px;
-    width:100%;
-    height:auto;
-    background-color: #fff;
-    overflow: auto;
-    min-height: 1030px;
 }
 
 .number-group {
@@ -1184,7 +1185,7 @@ input.qty {
 
 .number-button {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: sub;
 }
 
 .number-input {
@@ -1195,22 +1196,25 @@ input.qty {
     border-radius:0px;
     -webkit-border-radius:0px;  
     -moz-border-radius:0px;
-    border:1px solid #eee;
     cursor: pointer;
 }
-.number-input:hover {
-    background-color: #f5f5f5;
-}
 
-.number-input-down {
-    top:5px;
-}
+
+
 
 .number-input i {
-    font-size:14px;
-    top:-1px;
-    left:5px;
-    position:absolute;
+    font-size: 14px;
+    top: 2px;
+    left: 6px;
+    position: absolute;
+    color: #aaa;
+}
+
+.number-input-down i {
+    top:-2px;
+}
+
+.number-input i:hover {
     color: #000;
 }
 
