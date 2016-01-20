@@ -10,7 +10,6 @@
         <div class="col-xs-3 siderbar">
                 {{ render(controller('AppBundle:Widget/Menu:index')) }}
                 {{ render(controller('AppBundle:Widget/Default:brandList')) }}
-                {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
                  {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
                   {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
         </div>
@@ -66,7 +65,7 @@
                                         <a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a>
                                         </div>
                                     </td>
-                                   {# <td id="oneprice_{{cartproduct.product.id }}">{{ cartproduct.product.priceDiscounted }}</td> #}
+                                    <td id="oneprice_{{cartproduct.product.id }}" class="hide">{{ cartproduct.product.priceDiscounted }}</td> 
                                     <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
                                    
                                     <td class="text-right">

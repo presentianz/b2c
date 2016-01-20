@@ -35,9 +35,12 @@ $('.cart-action-button').click(function (e) {
         if (rep.granted) {
             $("#" + $this.attr("data-id")).val(newVal);
             var price = $("#oneprice_" + $this.attr("data-id")).html();
+            console.log(price + "price");
             var newPrice = Math.round(Number(price) * parseInt(newVal) * 100)/100;
+            console.log(newPrice + "newPrice");
             $("#allprice_" + $this.attr("data-id")).html("<strong>" + newPrice + "</strong>");
             var total = Number($("#totalprice").html().slice(1));
+            console.log(total + "total");
             if ($this.hasClass("number-input-up")) {
                var newtotal = Math.round((total + Number(price))*100)/100;
                console.log(newtotal);

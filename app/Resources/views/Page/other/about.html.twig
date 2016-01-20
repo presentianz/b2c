@@ -1,7 +1,11 @@
 {% extends 'layout_main.html.twig' %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/contact.css') }}" type="text/css">
+{% endblock %}
+
 {% block body %}
-        <div class="row no-border">
+        <div class="row no-border" id="contact-page">
             <div class="col-xs-3 siderbar">
                     {{ render(controller('AppBundle:Widget/Menu:index')) }}
                 {{ render(controller('AppBundle:Widget/Default:brandList')) }}
@@ -9,7 +13,7 @@
                  {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
                   {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
                 </div>
-            <div class="col-xs-9 page-right">
+            <div class="col-xs-9 page-right" >
                 
                 
                 <div class="page-breadcrumb">
@@ -22,8 +26,10 @@
                 <div class="page-title">
                     <h4>关于我们</h4>
                 </div>
+                <div class="contact-part">
                 采购网是一家专注纽澳特产品，护肤品，保健品为一体的大型连锁专营店。<br>
                     我们代理的都是新西兰澳洲药房所认可的大品牌，绝对一手货源，百分百保真。产品种类繁多，有上千种网络热销产品，代购追捧单品，经济实惠，价格合理。
+                </div>
                 </div>	
             </div>	
         </div>

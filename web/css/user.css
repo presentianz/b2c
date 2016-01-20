@@ -39,7 +39,7 @@
 
 #user-page .user-content {
     min-height: 90px;
-    padding: 0px;
+    padding: 0px 15px;
     height: auto;
     overflow: auto;
 }

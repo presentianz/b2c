@@ -1,5 +1,5 @@
 .search-page-container .page-content {
-    padding:   0px;
+    padding: 0px;
 }
 
 .search-page-container .page-content .toolbar {
@@ -82,14 +82,14 @@
 .search-page-container .hotdeal {
     margin-top:0px;
     background-color: #dce1e4;
+    padding: 0px;
 }
 
 .search-page-container .hotdeal .row {
-    margin-top:20px;
-    background-color: white;
+    margin-bottom: 30px;
 }
 
 .search-page-container .page-content .toolbar-bottom {
-    margin-top:20px;
+    
     border:1px solid #ccc;
 }

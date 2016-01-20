@@ -134,12 +134,11 @@
 
 
                         // Calculate selection rect
-                        var selection_width = 0;
-                        var selection_height = 0;
+                        var selection_width = 100;
+                        var selection_height = 100;
 
                         var max_x = Math.floor(scaled_height * aspX / aspY);
                         var max_y = Math.floor(scaled_width * aspY / aspX);
-
 
                         if (max_x > scaled_width) {
                             selection_width = scaled_width;
@@ -155,7 +154,7 @@
                             onChange: showCoords,
                             bgColor: '#747474',
                             bgOpacity: .4,
-                            aspectRatio: aspX / aspY,
+                         //   aspectRatio: aspX / aspY,   //free scale
                             setSelect: [0, 0, selection_width, selection_height]
                         }, function () {
                             jcrop_api = this;

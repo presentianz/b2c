@@ -36,6 +36,7 @@
                     {% for key,poster in data.poster %}
                     <img class="product-pictures {{( key == 0 ) ? '' : 'hide'}}" id="product-picture{{key}}" src="{{ asset('img/src') }}/{{data.product.imageLink}}/poster/{{poster}}" alt="" />
                     {% endfor %}
+                
                     <div class="col-xs-12 product-pictures-below">
                         {% for key,poster in data.poster %}
                         <div class="col-xs-4">
@@ -60,6 +61,7 @@
                             </div>
                             <div class="pull-left">
                                <div class="number-group">
+
                                 <input type="text" maxlength="99" class="qty" value="1" id="123">
                                 <div class="number-button">
                                     <div id="number-up" class="number-input number-input-up" data-id="123"><i class="fa fa-caret-up"></i></div>
@@ -75,35 +77,35 @@
                 </div>
             </div> 
         </div>
-         <div class="product-tab clearfix">商品详情</div> 
+        <div class="product-tab clearfix"><span>商品详情</span></div> 
         <div class="product-info clearfix">
+            <div class="tab-contents">
+                {% for imgDes in data.imgDes %}
+                <img src="{{ asset('img/src') }}/{{data.product.imageLink}}/imgDes/{{imgDes}}" alt="">
+                {% endfor %} 
+               
+            </div>
             
-            <div class="col-xs-12">
-                <div class="product-tabs">
-                   
-                    <div class="tab-content">
-                        <div id="tab-content1" class="tab-contents">
-                            {% for imgDes in data.imgDes %}
-                            <img src="{{ asset('img/src') }}/{{data.product.imageLink}}/imgDes/{{imgDes}}" alt="">
-                            {% endfor %}
-                        </div>
-                        
-                        <div id="tab-content3" class="tab-contents hide">
-                            <div class="tab-content-title">7天无理由退货</div>
-                            <div class="tab-content-desc">该商品支持7天无理由退货，自商品签收之日起7天内:<br>
-                            1、商品外包装完整，相关附（配）件齐全；（若有）要求吊牌完整；<br>
-                            2、商品无显著穿着、无洗涤、无沾染化妆品（如口红等）、无破损等痕迹<br>
-                            可申请无理由退货，包邮商品需要买家承担退货邮费，非包邮商品需要买家承担发货和退货邮费<br>
-                            <a href="#">查看相关定义和通用说明</a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="tab-contents">
+                <div class="tab-content-title">7天无理由退货</div>
+                <div class="tab-content-desc">
+                该商品支持7天无理由退货，自商品签收之日起7天内:<br>
+                1、商品外包装完整，相关附（配）件齐全；（若有）要求吊牌完整；<br>
+                2、商品无显著穿着、无洗涤、无沾染化妆品（如口红等）、无破损等痕迹<br>
+                可申请无理由退货，包邮商品需要买家承担退货邮费，非包邮商品需要买家承担发货和退货邮费<br>
+                <a href="#">查看相关定义和通用说明</a>
                 </div>
             </div>
         </div>
-         <div class="product-tab clearfix">商品评论({{ data.product.comments|length }})</div> 
+        <div class="product-tab product-tab-update clearfix"></div> 
         <div class="product-info clearfix">
-            <div id="tab-content2" class="tab-contents">
+            <div class="tab-contents">
+                <div class="tab-content-title">商品评论({{ data.product.comments|length }})</div>
+                <textarea class="tab-content-desc" placeholder="请填写你的评论"> </textarea>
+                <div class="tab-content-foot">*请登录后发表评论</div>
+            </div>
+
+            <!-- <div class="tab-contents">
                 <table id="comments-record-list" class="record-list">
                     <tbody>
                     <tr>
@@ -116,7 +118,7 @@
                     </tr>
                         </tbody>
                     </table>
-             </div>
+             </div> -->
         </div>
 
 

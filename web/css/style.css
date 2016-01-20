@@ -192,7 +192,7 @@ select.delivery-options {
 
 }
 
-.navbar h6:hover {
+.navbar a h6:hover {
     color: #a8df4e;
 }
 
@@ -217,11 +217,13 @@ select.delivery-options {
     width:190px;
 }
 
-#mid-header .logo > img {
-    margin-top: 15px;
+#mid-header .logo-width h4 {
+    margin-right: 30px;
+    position: relative;
+    top: -9px;
+    font-weight: bold;
+    color: #000;
 }
-
-
 
 #mid-header .a-login h6 {
     display: inline-block;
@@ -831,20 +833,22 @@ ul.nav {
 
 /*   Hot Staffs   */
 .hotdeal {
-    background-color: #fff;
-    margin: 30px auto;
+    background-color: #dce1e4;
+    margin: 0px auto;
     width: 100%;
-    padding: 0px;
+    padding: 20px 0px;
 }
 
 .hotdeal .row-up {
     height: 65px;
     padding: 20px;
     overflow: hidden;
+    background-color: #fff
 }
 
 .hotdeal .row-up h3 {
     font-weight: bold;
+    margin-left: 70px;
 }
 
 .hotdeal .row-up i.fa {
@@ -931,10 +935,11 @@ ul.nav {
 }
 
 .pro-text {
-    padding: 15px 20px;
+    padding: 15px 20px 20px 20px;
     width: 100%;
     position: relative;
     overflow: auto;
+    background: #fff;
 }
 
 .pro-title {
@@ -1108,10 +1113,8 @@ del {
 }
 
 .page-breadcrumb ol li i.fa {
-     font-size: 18px; 
+    font-size: 28px; 
 }
-
-  
 
 .page-breadcrumb .toolbarcate {
     width: 100%;
@@ -1153,19 +1156,17 @@ del {
     height:auto;
     background-color: #fff;
     overflow: auto;
-    min-height: 1030px;
+    min-height: 1050px;
 }
 
 .page-title { 
-    margin: 15px 50px;
+    margin: 20px 50px 20px 120px;
 }
 
 .page-title h4, 
 .page-title h4 a {
     color: #000;
     font-weight: bolder;
-    margin-bottom: 50px;
-    margin-left: 70px;
 }
 
 .page-title span {
@@ -1181,6 +1182,7 @@ del {
 input.qty {
     width: 40px;
     display: inline-block;
+    vertical-align: bottom;
 }
 
 .number-button {
