@@ -108,18 +108,22 @@
     border-left:none;
 }
 
-#cart-page-container table .product-name {
+#cart-page-container .product-name {
     width: 50%;
     text-align: left;
 }
 
-#cart-page-container table .name-limit {
+#cart-page-container .name-limit {
     display: inline-block;
     max-width: 410px;
     word-wrap: break-word;
     overflow: hidden;
     vertical-align: middle;
     width: auto;
+} 
+
+#cart-page-container tbody h3 {
+    padding:60px;
 }
 
 #cart-page-container .qty {
