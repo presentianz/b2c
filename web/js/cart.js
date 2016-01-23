@@ -4,7 +4,7 @@
 $('.cart-action-button').click(function (e) {
     e.preventDefault();
     $this = $(this);
-    var value =$("#" + $this.attr("data-id")).val();;
+    var value =$("#" + $this.attr("data-id")).text();
     if (value !== "" || value !== null || value !== undefined) {
         if ($this.hasClass("number-input-up")) {
             if ( value <= 99 ) {
@@ -33,22 +33,21 @@ $('.cart-action-button').click(function (e) {
     })
     .done(function (rep) {
         if (rep.granted) {
-            $("#" + $this.attr("data-id")).val(newVal);
+            $("#" + $this.attr("data-id")).text(newVal);
             var price = $("#oneprice_" + $this.attr("data-id")).html();
-            console.log(price + "price");
             var newPrice = Math.round(Number(price) * parseInt(newVal) * 100)/100;
-            console.log(newPrice + "newPrice");
             $("#allprice_" + $this.attr("data-id")).html("<strong>" + newPrice + "</strong>");
-            var total = Number($("#totalprice").html().slice(1));
-            console.log(total + "total");
+            var total = Number($("#totalprice").text());
+            if(total != NaN) {
             if ($this.hasClass("number-input-up")) {
                var newtotal = Math.round((total + Number(price))*100)/100;
-               console.log(newtotal);
             } else if ($this.hasClass("number-input-down")) {
               var newtotal =  Math.round((total - Number(price))*100)/100;
-            }
+              if (newtotal < 0 ) newtotal = 0.00;
+            } 
+          }
 
-            $("#totalprice").html("$" + newtotal);
+            $("#totalprice").html(newtotal);
         }
         else {
             location.reload(true);
@@ -60,6 +59,31 @@ $('.cart-action-button').click(function (e) {
     alert(": (");
 }
 })
+
+
+   $('.cart-remove-button').click(function (e) {
+        e.preventDefault();
+        $this = $(this);
+        var productId = $this.attr("data-id");
+        $.ajax({
+            url: $this.attr("data-path"),
+            method: "POST",
+            data: {
+                id : productId,
+                action : "rm"
+            },
+            dataType: "json"
+        })
+        .done(function (rep) {
+            if (rep.granted) {
+               location.reload(true);
+            }
+            else {
+                alert("添加失败！");
+            }
+        })
+
+    });
 
 
 

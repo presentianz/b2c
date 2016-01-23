@@ -70,7 +70,7 @@
                                    
                                     <td class="text-right">
                                         <div class="number-group">
-                                            {#<input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">#}
+                                          {#}  <input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}"> #}
                                             <div maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">{{ cartproduct.count }}</div>
 
                                             <div class="number-button" >  
@@ -83,7 +83,6 @@
                                      <td><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm">X</a></td>    
                                 </tr>
                                 {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted %}
-
                             {% endfor %}
                    </tbody>
                     <tfoot>
@@ -95,14 +94,14 @@
                             </td>
                         </tr>
                         <tr class="tfoot-bottom"> 
-                            <td colspan="3" class="text-left"><strong>商品总额：</strong>
+                            <td colspan="3" class="text-left"><strong>商品总额：NZ$</strong>
                              {% if data|length > 0 %}
-                                <strong id="totalprice">NZ${{ sum }}</strong>
+                                <strong id="totalprice">{{sum}}</strong>
                              {% else %}
                                  <strong>$0.00</strong> 
                                  {% endif %}
                             <td colspan="3" class="text-right">
-                                <i class="fa fa-cart"></i>
+                                <i class="fa fa-shopping-cart"></i>
                             <input type="submit" value="立刻结算" disabled class="submit-pay disabled">
                             </td>
                         </tr>
