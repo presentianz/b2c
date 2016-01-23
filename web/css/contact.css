@@ -3,7 +3,7 @@
     width: 100%;
     clear: both;
     padding: 0 50px;
-    background: white;
+    background: #fff;
     font-size: 16px;
     font-weight: bold;
     line-height: 25px;
@@ -33,4 +33,8 @@
     width: 702px;
     resize: none;
     outline: none;
+}
+
+#contact-page #location-map {
+    margin-bottom: 20px;
 }

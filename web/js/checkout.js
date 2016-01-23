@@ -2,6 +2,7 @@
 (function () {
 
         $('.btn-pay').click(function() {
+        $('.bg-mask').css('display','block');
         $('.pop-cart').css('display','block');
         });
 

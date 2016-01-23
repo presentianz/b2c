@@ -1,7 +1,18 @@
+body {
+    background-color: #fff;
+    height: 100%;
+    position: absolute;
+}
+
 #login-header {
     border-bottom: 2px solid #a8df4e;
     min-height: 100px;
     height: auto;
+}
+
+#login-header .logo-width {
+    width: 190px;
+    display: inline-block;
 }
 
 #login-header .logo > img {  
@@ -9,11 +20,20 @@
     margin: 0;
 }
 
-#login-header span {
+#login-header .logo > h4 {
+    margin-right: 30px;
+    position: relative;
+    top: -9px;
+    font-weight: bold;
+    color: #000;
+}
+
+#login-header .logo-title {
     font-size: 25px;
-    margin-left: 20px;
-    position: absolute;
-    bottom: 0px;
+    margin-left: 0px;
+    position: relative;
+    display: inline-block;
+    vertical-align: text-bottom;
 }
 
 .container-login-responsive {

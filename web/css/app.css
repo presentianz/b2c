@@ -1949,7 +1949,7 @@ fieldset[disabled] .btn-dark.active {
 }
 .list-icon div {
   line-height: 40px;
-  white-space: nowrap;
+  #fff-space: nowrap;
 }
 .list-icon div:hover i {
   font-size: 26px;
@@ -2918,7 +2918,7 @@ fieldset[disabled] .btn-dark.active {
 }
 .text-ellipsis {
   display: block;
-  white-space: nowrap;
+  #fff-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -3271,7 +3271,7 @@ fieldset[disabled] .btn-dark.active {
   position: relative;
   display: block;
   border-radius: 500px;
-  white-space: nowrap;
+  #fff-space: nowrap;
 }
 .avatar img {
   border-radius: 500px;

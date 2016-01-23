@@ -17,7 +17,7 @@
 	<div class="register-active col-xs-12">
 		<div>
 			<h3><i class="fa fa-info-circle"></i>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}  注册成功</h3>
-			<h6>3秒为您自动跳转至 <a href="{{path('homepage')}}">彩购网</a></h6>
+			<h6>3秒为您自动跳转至 <a href="{{path('homepage')}}">丰盛湾</a></h6>
 			{% if app.session is not empty %}
 				{% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
 				{% if targetUrl is not empty %}

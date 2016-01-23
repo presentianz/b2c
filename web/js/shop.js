@@ -7,10 +7,6 @@ $(document).ready(function () {
         scrollTop: 0
     }, 800); });
 
-    $('.cropme').simpleCropper();
-
-
-
 
     var $pagination = $('.select-page-number');
     var $lis = $pagination.find('a:not(#prev, #next, .i-next, .i-prev)');
@@ -111,6 +107,7 @@ $(function() {
     // });
 
      $('.continue-shop').click(function() {
+        $('.bg-mask').css('display','none');
         $('.pop-cart').css('display','none');
     });
 

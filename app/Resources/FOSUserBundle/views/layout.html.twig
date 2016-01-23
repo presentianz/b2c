@@ -16,18 +16,17 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
 </head>
-<body style="background-color: #fff">
+<body>
 
 <div id="login-header">
     <div class="container-login-responsive">
-        <div class="col-xs-12">
+        <div class="logo-width">
             <a class="logo" href="{{ path('homepage') }}">
-                <img src="{{ asset('img/logo-new.jpg') }}" alt="彩购网">
-            </a>
-            <span>
-                {% block subtitle %}{% endblock subtitle %}    
-             </span>          
-        </div>  
+                <img src="{{ asset('img/logo-new.jpg') }}" alt="丰盛湾">
+                <h4 class="text-right">丰盛湾</h4>
+            </a>      
+        </div> 
+        <div class="logo-title">{% block subtitle %}{% endblock subtitle %}</div>           
     </div>
 </div>
 
@@ -42,10 +41,10 @@
                 <h6><a href="{{ path('homepage') }}">常见问题</a></h6>
             </div>
             <div class="col-xs-2">
-                <h6><a href="{{ path('homepage') }}">加入彩购</a></h6>
+                <h6><a href="{{ path('contact') }}">加入彩购</a></h6>
             </div>
             <div class="col-xs-2">
-                <h6><a href="{{ path('homepage') }}">支付方式</a></h6>
+                <h6><a href="{{ path('contact') }}">支付方式</a></h6>
             </div>
             <div class="col-xs-2">
                 <h6><a href="{{ path('homepage') }}">彩购合作</a></h6>

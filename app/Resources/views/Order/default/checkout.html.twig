@@ -14,14 +14,14 @@
                
                   {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
                 </div>
-            <div class="col-xs-9 page-right">
+    <div class="col-xs-9 page-right">
             <div class="page-breadcrumb">
                     <ol>
                         <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
                         <li>&nbsp;>&nbsp;结算</li>
                      </ol>
                 </div>
-            <div class="page-content" id="cart-page-container">
+      <div class="page-content" id="cart-page-container">
             <div class="page-title">
                 <h4>结算</h4>
             </div>  
@@ -32,7 +32,7 @@
                 <div class="cart-tab-arrow"></div>
                 <div class="cart-tab">3.完成订单</div>
             </div>
-      <div class="col-xs-12 cart-content">
+            <div class="col-xs-12 cart-content">
 
           <div class="form">
               <div>
@@ -268,7 +268,7 @@
                        
                     </tfoot>
                 </table>
-            </div>
+                </div>
 
 
 
@@ -278,20 +278,19 @@
             </div>
            {# <div class="cart-down col-xs-12">
                 {{ render(controller('AppBundle:Widget/Default:hotPro')) }}
-           </div>    #}   
-
-    <div class="pop-cart">
-        <div>
+           </div>    #} 
+               <div class="bg-mask"></div>
+        <div class="pop-cart">
         <h3><i class="fa fa-info-circle"></i>
             <span>确定提交订单？</span></h3>
             <span>
                 <input type="submit" title="确定提交" data-id="{{ ids }}" class="btn-confirm" value="确定提交" >
             </span>
             <p class="continue-shop">继续购物</p>
-        </div>
-    </div>
-
+        </div>  
 {% endblock %}
+
+
 
 {% block javascripts %}
     <script src="{{ asset('js/checkout.js') }}"></script>
@@ -299,6 +298,7 @@
     (function () {
 
         $('.btn-pay').click(function() {
+        $('.bg-mask').css('display','block');
         $('.pop-cart').css('display','block');
         });
 

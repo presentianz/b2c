@@ -1,9 +1,4 @@
-function tabcontent(i) {
-    $(".tab-contents").addClass("hide");
-    $("#tab-content" + i).removeClass("hide");
-    $(".product-tabs").removeClass("active");
-    $("#product-tab" + i).addClass("active");
-}
+
 function productpic(i) {
     $(".product-pics").removeClass("active");
     $("#product-pic" + i).addClass("active");
@@ -60,7 +55,8 @@ function productpic(i) {
         .done(function (rep) {
             if (rep.granted) {
                 $('.cart-wrapper').attr('data-hovered','unhovered');
-                $('.pop-cart').css('display','block');
+                $('.bg-mask').css('display','block');
+                 $('.pop-cart').css('display','block');
 
             }
             else {

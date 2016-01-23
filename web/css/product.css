@@ -3,6 +3,7 @@
 /*product products*/
 #product-page .product-desc {
     color: #a8df4e;
+    margin-top: 10px;
 }
 
 #product-page .product-pros {
@@ -11,8 +12,7 @@
 }
 
 #product-page .product-info {
-    margin-bottom:50px;
-    padding: 20px 50px;
+    padding: 20px 50px 70px 20px;
 }
 
 
@@ -102,7 +102,7 @@
 
 #product-page .product-tab span {
     padding: 15px 30px;
-    background: white;
+    background: #fff;
     height: 30px;
     font-size: 20px;
     color: #a8df4e;
@@ -116,6 +116,7 @@
 
 #product-page .tab-contents {
     margin-bottom: 20px;
+    margin-left: 30px;
 }
 
 #product-page .tab-contents .tab-content-title {
@@ -129,13 +130,12 @@
 #product-page .tab-contents .tab-content-desc {
     font-size: 12px;
     line-height:20px;
-
+    margin-bottom: 10px;
 }
 
 #product-page .tab-contents .tab-content-foot {
     font-size: 12px;
     color: #a8df4e;
-    margin: 5px 0px;
 }
 
 #product-page .tab-contents img,

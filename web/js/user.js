@@ -2,6 +2,8 @@
 
 $(document).ready(function () {
 
+$('.cropme').simpleCropper();
+
 $(".user-order-hover").click(function() {
   //  alert($(this).attr('id'));
     var id = $(this).attr('id');

@@ -1,5 +1,5 @@
 
-#user-page .user-left .nav-list {
+/*#user-page .user-left .nav-list {
     border: 1px solid #eee;
     margin-bottom: 30px;
     min-height: auto !important;
@@ -35,11 +35,11 @@
 #user-page .user-left li a:hover,
 #user-page .user-left li a:hover {
     color:#a8df4e;
-}
+}*/
 
 #user-page .user-content {
     min-height: 90px;
-    padding: 0px 15px;
+    padding: 15px;
     height: auto;
     overflow: auto;
 }
@@ -126,7 +126,6 @@
 /* tab2 order statement*/
 #user-page .order-search {
     position: relative;
-    top: -8px;
 }
 
 
@@ -159,6 +158,14 @@
     word-wrap: break-word;
     vertical-align: top;
     width: auto;
+}
+
+#user-page .order-title-item input[type='submit'] {
+    background-color: #ee1c24;
+}
+
+#user-page .order-title-item input[type='submit']:hover {
+    background-color: #ee1c24;
 }
 
 #user-page i.fa-arrow-down.address-hover {
@@ -292,12 +299,12 @@
 #user-page .order-info {
     padding: 10px;
     height: auto;
-    background: white;
+    background: #fff;
 }
 
 #user-page table {
     padding: 0;
-    background: white;
+    background: #fff;
 }
 
 #user-page thead th {
