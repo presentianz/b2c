@@ -18,30 +18,30 @@
             </div>
         </div>
 
-      {#  {{dump(form_widget(form))}} #}
+       {# {{dump(form_widget(form))}} #}
 
      <form action="{{ path('fos_user_registration_check_email') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register" onSubmit="return reigster();">
             <div class="register-content col-xs-5">
                 <div class="controls">
                     {{form_label(form.email)}}
-                    {{form_widget(form.email, {'attr': {'placeholder': '请输入您的常用邮箱'}})}}
+                    {{form_widget(form.email, {'attr': {'placeholder': '*请输入您的常用邮箱'}})}}
                     <i class="fa check-icon"></i>
                     <div class="error">
                         <i class="fa fa-caret-left"></i>
                         <h6>邮箱不能为空</h6>
                     </div>
                 </div>					
-               {# <div class="controls">
-                    {{form_label(form.phonenumber)}}
-                    {{form_widget(form.username, {'attr': {'placeholder': '请输入您的用户名'}})}}
+                <div class="controls">
+                    {{form_label(form.username)}}
+                    {{form_widget(form.username, {'attr': {'placeholder': '*请输入您的用户名'}})}}
                     <i class="fa check-icon"></i>
                     <div class="error">
                         <i class="fa fa-caret-left"></i>
                         <h6>用户名不能为空</h6>
                     </div>
-                </div> #}
+                </div> 
 
-                <div class="controls">
+                {#<div class="controls">
                     {{form_label(form.username)}}
                     {{form_widget(form.username, {'attr': {'placeholder': '请输入您的联系电话'}})}}
                     <i class="fa check-icon"></i>
@@ -49,12 +49,12 @@
                         <i class="fa fa-caret-left"></i>
                         <h6>联系电话不能为空</h6>
                     </div>
-                </div>
+                </div>#}
 
 
                 <div class="controls">
                  {{form_label(form.plainPassword.first)}}
-                 {{form_widget(form.plainPassword.first, {'attr': {'placeholder': '请输入6到20位的数字，字母组合', 'maxlength': '20'}})}}
+                 {{form_widget(form.plainPassword.first, {'attr': {'placeholder': '*请输入6到20位的数字，字母组合', 'maxlength': '20'}})}}
                     <i class="fa check-icon"></i>
                     <div class="error">
                         <i class="fa fa-caret-left"></i>
@@ -71,13 +71,34 @@
                 </div>
                 <div class="controls">
                     {{form_label(form.plainPassword.second)}}
-                   {{form_widget(form.plainPassword.second, {'attr': {'placeholder': '请再次输入密码'}})}}
+                   {{form_widget(form.plainPassword.second, {'attr': {'placeholder': '*请再次输入密码'}})}}
                     <i class="fa check-icon"></i>
                     <div class="error">
                         <i class="fa fa-caret-left"></i>
                         <h6>密码不能为空</h6>
                     </div>
-                </div>
+                </div> 
+
+                <div class="controls">
+                    <label>联系电话</label>
+                   <input type="text" placeholder="请输入您的联系电话">
+                  <!--  <i class="fa check-icon"></i>
+                     <div class="error">
+                        <i class="fa fa-caret-left"></i>
+                       <h6>联系电话不能为空</h6>
+                    </div> -->
+                </div> 
+
+                <div class="controls">
+                   <label>联系地址</label>
+                   <input type="text" placeholder="请输入您的地址">
+                  <!--  <i class="fa check-icon"></i>
+                     <div class="error">
+                        <i class="fa fa-caret-left"></i>
+                        <h6>地址不能为空</h6>
+                    </div> -->
+                </div> 
+
                 <div class="controls last">
                     <input type="checkbox" id="checkinfo"><a href="">我已阅读并接受《彩购网用户协议》</a>
                     <i class="fa check-icon"></i>
