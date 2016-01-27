@@ -126,6 +126,10 @@
     padding:60px;
 }
 
+#cart-page-container tfoot {
+    min-height: 20px;
+}
+
 #cart-page-container .qty {
     max-width: 20px;
     display: inline-block;
@@ -203,18 +207,7 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+/* cart order comfirm */
 #cart-page-container .order-confirm-content {
     margin: 120px auto;
     text-align: center;

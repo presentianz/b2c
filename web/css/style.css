@@ -566,9 +566,9 @@ select.delivery-options {
     top: 50px;
     right: 0px;
     border: 1px solid #e5e5e5;
-    box-shadow: 0 0 2px #999;
-    -webkit-box-shadow: 0 0 2px #999;
-    -moz-box-shadow:0 0 2px #999;
+        box-shadow: 0px 3px 5px #999;
+    -webkit-box-shadow: 0 3px 5px #999;
+    -moz-box-shadow: 0 3px 5px #999;
 }
 
 
@@ -727,6 +727,9 @@ ul.nav {
     top: -3px;
     width: 312px;
     padding: 5px 10px;
+    box-shadow: 0px 3px 5px #999;
+    -webkit-box-shadow: 0 3px 5px #999;
+    -moz-box-shadow: 0 3px 5px #999;
 }
 
 .nav .dropdown-menu div {
@@ -884,8 +887,14 @@ ul.nav {
     min-height: 300px;
     max-height: 600px;
     width: 100%;
-
 }
+
+.row-nothing {
+    background: #fff;
+    text-align: center;
+    padding: 60px;
+}
+
 
 .hotdeal .row a {
     display: block;
@@ -915,14 +924,15 @@ ul.nav {
 }
 
 
-.hotdeal .row .tag {
+.tag {
     border-right: 60px solid transparent;
     border-top: 60px solid #000;
     position: absolute;
     top: 0px;
+    z-index: 1;
 }
 
-.hotdeal .row .tag p {
+.tag p {
     margin: 0;
     position: absolute;
     top: -52px;
@@ -931,15 +941,15 @@ ul.nav {
     color: #fff;
 }
 
-.hotdeal .row .tag-b {
+.tag-b {
     border-top-color: #17c5bb;
 }
 
-.hotdeal .row .tag-y {
+.tag-y {
     border-top-color: #faed01;
 }
 
-.hotdeal .row .tag-y p {
+.tag-y p {
     color: #000;
 }
 
@@ -1135,6 +1145,7 @@ del {
 
 .page-breadcrumb ol li i.fa {
     font-size: 28px; 
+    padding:0px 15px;
 }
 
 .page-breadcrumb .toolbarcate {
@@ -1163,8 +1174,45 @@ del {
     background-color: #fff;
 }
 
+
+
 .page-title { 
-    margin: 20px 40px 20px 120px;
+    margin: 0px;
+    padding: 0px;
+    height: 80px;
+}
+
+.page-sub-title {
+    color: #a8df4e;
+    font-weight: bolder;
+    margin: 20px 20px 20px 50px;
+    font-size: 19px;
+}
+
+
+
+.page-title > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.page-title .page-leaf { 
+    width: 90px;
+    height: 60px;
+    position: absolute;
+    left: 0px;
+    top: 55px;
+}
+
+.page-title .page-leaf-top {
+    border-right: 90px solid transparent;
+    border-top: 65px solid #dce1e4;
+}
+
+
+
+.page-title .page-leaf img {
+    width: 100%;
 }
 
 .page-title h4, 
@@ -1173,11 +1221,6 @@ del {
     font-weight: bolder;
 }
 
-.page-title span {
-    font-weight: bold;
-    font-size: 19px;
-    color: #444;
-}
 
 .number-group {
     text-align: center;  

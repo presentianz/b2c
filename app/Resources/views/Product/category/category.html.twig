@@ -124,10 +124,14 @@ item_no: 18
 </div>
 
 <div class="hotdeal clearfix">
+{% if data.products|length > 0%}
     {% for i in 1..(data.row_no) %}
     <div class="row">
         {% for product in data.products|slice(3*(i - 1), 3) %}
         <div class="col-xs-4">
+            <div class="tag tag-y">
+                <p>Hot</p>
+            </div>
             <a href="{{ path('product', {id : product.id}) }}">
                 <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
                 <div class="pro-text">
@@ -145,6 +149,11 @@ item_no: 18
         {% endfor %}
     </div>
     {% endfor %}
+    {% else %}  
+        <div class="row row-nothing">
+                <h3>您的商品找不到了<a href="{{path('homepage')}}">这里逛逛</a></h3>
+            </div>
+    {% endif %}
 
 </div> 
 <div class="toolbar toolbar-bottom">
