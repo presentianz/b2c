@@ -2,7 +2,7 @@
 
 /*product products*/
 #product-page .product-desc {
-    color: #a8df4e;
+    color: #a8df4e !important;
     margin-top: 10px;
 }
 
@@ -113,6 +113,16 @@
 #product-page .product-tab-update {
     background-color: #a8df4e;
 }
+
+#product-page .product-tab-update .leaf {
+    width: 120px;
+    position: relative;
+    bottom: 30px;
+    float: right;
+    right: -50px;
+}
+
+
 
 #product-page .tab-contents {
     margin-bottom: 20px;

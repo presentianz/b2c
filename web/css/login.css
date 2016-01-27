@@ -2,6 +2,7 @@ body {
     background-color: #fff;
     height: 100%;
     position: absolute;
+    min-height: 700px;
 }
 
 #login-header {
@@ -40,6 +41,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 1000px;
+    overflow: auto;
 }
 
 .login {

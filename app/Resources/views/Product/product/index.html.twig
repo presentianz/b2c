@@ -28,8 +28,12 @@
 
         <div class="page-content">
             <div class="page-title">
+            <div class="page-leaf-top"></div>
+                <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
+                <div>
                 <h4>{{ data.product.name }}</h4>
-                <p class="product-desc">{{ data.product.description }}</p>
+                 
+                </div>
             </div>
             <div class="product-info clearfix" data-product-id="{{data.product.id}}">
                 <div class="col-xs-5"> 
@@ -46,6 +50,7 @@
                     </div>
                 </div>    
                 <div class="col-xs-7">
+                    <p class="product-desc">{{ data.product.description }}</p>
                     <p><label>品牌:</label><span>{{ data.product.brand }}</span></p>
                     <p><label>商品重量:</label><span>{{ data.product.weight }}克</span></p>
                     <p><label>货号:</label><span>{{ data.product.productKey }}</span></p>           
@@ -97,7 +102,8 @@
                 </div>
             </div>
         </div>
-        <div class="product-tab product-tab-update clearfix"></div> 
+        <div class="product-tab product-tab-update clearfix">
+        <img src="{{ asset('img/leaf-green.jpg') }}" alt="" class="leaf"></div> 
         <div class="product-info clearfix">
             <div class="tab-contents">
                 <div class="tab-content-title">商品评论({{ data.product.comments|length }})</div>

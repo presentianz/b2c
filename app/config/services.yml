@@ -14,6 +14,12 @@ services:
         tags:
             - { name : form.type , alias : fos_user_profile }
 
+    # fos_user.registration.form.type:
+    #     class: AppBundle\Form\Type\RegistrationFormType
+    #     arguments: [%fos_user.model.user.class%]
+    #     tags:
+    #         - { name: form.type, alias: fos_user_registration }
+
     user.on.login:
         class: AppBundle\EventListener\OnLoginListener
         arguments: [@request, @doctrine.orm.entity_manager, @security.context]

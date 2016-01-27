@@ -43,14 +43,16 @@
                 </div>
         	<div class="page-content">
                 <div class="page-title">
-                    <h4>{% block page_title %}用户信息{% endblock page_title %}</h4>
+                    <div class="page-leaf-top"></div>
+                    <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
+                    <div><h4>{% block page_title %}用户信息{% endblock page_title %}</h4></div>     
                 </div>
                 <div class="user-content">
         	       {% block fos_user_content %}
                      {% include "FOSUserBundle:Profile:show_content.html.twig" %}
                    {% endblock fos_user_content %}
                 </div>
-        </div>
+            </div>
         {#{{ render(controller('AppBundle:Widget/Default:index')) }}#}
          
     </div>
