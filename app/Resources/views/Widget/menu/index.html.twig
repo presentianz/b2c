@@ -6,7 +6,7 @@
 	</div>           
 		<ul class="nav nav-list">
 			{% for sub1 in data %}
-			<li>
+			<li id="{{sub1.id}}">
 				<div class="nav-item">
 					<a href="{{ path('category', { id : sub1.id }) }}" >{{ sub1.name }}</a>
 	           {# {% if sub1.__children|length > 0 %}
