@@ -43,13 +43,16 @@
 {% for row in data|slice(1,1) %}
     <div class="hotdeal">
         <div class="row-up">
-            <div class="pull-left">
-                <h3>今日推介</h3>
+            <div class="page-title">
+            <div class="page-leaf-top"></div>
+                <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
+                    <div><h4>今日推介</h4></div>
+                 <div class="row-link">
+                    <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-left"></i></a>
+                    <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-right"></i></a>
+                </div>
             </div>
-            <div class="pull-right">
-            <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-left"></i></a>
-            <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-right"></i></a>
-            </div>
+           
         </div>
         <div class="row">
             {% for product in row.products %}
@@ -100,13 +103,16 @@
 {% for row in data|slice(1,1) %}
     <div class="hotdeal">
         <div class="row-up">
-            <div class="pull-left">
-                <h3>热卖畅销</h3>
+            <div class="page-title">
+            <div class="page-leaf-top"></div>
+                <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
+                    <div><h4>热卖畅销</h4></div>
+                 <div class="row-link">
+                    <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-left"></i></a>
+                    <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-right"></i></a>
+                </div>
             </div>
-            <div class="pull-right">
-            <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-left"></i></a>
-            <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-right"></i></a>
-            </div>
+            
         </div>
         <div class="row">
             {% for product in row.products %}
@@ -139,12 +145,14 @@
 {% for row in data|slice(1,1) %}
     <div class="hotdeal">
         <div class="row-up">
-            <div class="pull-left">
-                <h3>限时特卖</h3>
-            </div>
-            <div class="pull-right">
-            <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-left"></i></a>
-            <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-right"></i></a>
+              <div class="page-title">
+            <div class="page-leaf-top"></div>
+                <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
+                    <div><h4>限时特卖</h4></div>
+                 <div class="row-link">
+                    <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-left"></i></a>
+                    <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-right"></i></a>
+                </div>
             </div>
         </div>
         <div class="row">

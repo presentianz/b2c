@@ -159,7 +159,7 @@ select.delivery-options {
     cursor: auto !important;
     text-decoration: none !important;
 }
-
+/*   error */
 .bg-error {
     padding: 10px;
     text-align: center;
@@ -174,6 +174,35 @@ select.delivery-options {
     line-height: 30px;
     height: 50px;
 }
+
+.error {
+    margin: 16px 0px;
+    background-color: #ee1c24;
+    height: 35px;
+    width: 80%;
+    position: absolute;
+    left: 290px;
+    top: -20px;
+    display: none;
+}
+
+
+.error i {
+    display: inline-block;
+    position: absolute;
+    left: -7px;
+    font-size: 25px;
+    padding: 5px 0px;
+}
+
+.error h6 {
+    display: inline-block;
+    padding-left: 10px;
+    color: #fff;
+    margin: 11px 0;
+}
+
+
 
 /* top navbar */
 .navbar {
@@ -866,15 +895,13 @@ ul.nav {
 }
 
 .hotdeal .row-up {
-    height: 65px;
-    padding: 20px;
+    padding: 0px;
     overflow: hidden;
     background-color: #fff
 }
 
-.hotdeal .row-up h3 {
-    font-weight: bold;
-    margin-left: 70px;
+.hotdeal .row-up .row-link {
+    margin-left: 520px;
 }
 
 .hotdeal .row-up i.fa {
@@ -1122,16 +1149,11 @@ del {
 
 
 /*each page style*/
-
-
 .page-right {
     width: 885px;
     margin: 0px 0px 20px 30px;
     padding: 0px;
     float: right;
-}
-
-.page-breadcrumb {
 }
 
 .page-breadcrumb ol {
@@ -1174,22 +1196,11 @@ del {
     background-color: #fff;
 }
 
-
-
 .page-title { 
     margin: 0px;
     padding: 0px;
-    height: 80px;
+    height: 70px;
 }
-
-.page-sub-title {
-    color: #a8df4e;
-    font-weight: bolder;
-    margin: 20px 20px 20px 50px;
-    font-size: 19px;
-}
-
-
 
 .page-title > div {
     display: inline-block;
@@ -1199,17 +1210,14 @@ del {
 .page-title .page-leaf { 
     width: 90px;
     height: 60px;
-    position: absolute;
-    left: 0px;
-    top: 55px;
+    position: relative;
+    left: -100px;
 }
 
 .page-title .page-leaf-top {
     border-right: 90px solid transparent;
     border-top: 65px solid #dce1e4;
 }
-
-
 
 .page-title .page-leaf img {
     width: 100%;
@@ -1219,6 +1227,16 @@ del {
 .page-title h4 a {
     color: #000;
     font-weight: bolder;
+    position: relative;
+    left: -90px;
+}
+
+
+.page-sub-title {
+    color: #a8df4e;
+    font-weight: bolder;
+    margin: 20px 20px 20px 50px;
+    font-size: 19px;
 }
 
 
