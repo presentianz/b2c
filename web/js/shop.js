@@ -94,12 +94,12 @@ $(function() {
     display: block;
 }*/
 
-$('.nav li').hover(function() {
-    $('.dropdown-menu').css("display","none");
-    console.log($(this).attr("id"));
-    $("#" + $(this).attr("id") + ' .dropdown-menu').css("display","block");
+// $('.nav li').hover(function() {d
+//     $('.dropdown-menu').css("display","none");
+//     console.log($(this).attr("id"));
+//     $("#" + $(this).attr("id") + ' .dropdown-menu').css("display","block");
 
-});
+// });
 
     //    $('.add-review').click(function (e) {
     //     e.preventDefault();
