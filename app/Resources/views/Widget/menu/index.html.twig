@@ -1,5 +1,4 @@
 
-   
 	<div class="nav-all">
 		<a href="{{ path('category') }}">全部商品分类</a>
 		<i class="fa fa-chevron-down"></i> 
@@ -17,8 +16,9 @@
 	            </div>
 	            {% endif %} #}
 	        </div>
-	        <div class="well dropdown-menu">
-	        	{% for sub2 in sub1.__children %}
+	        {% if sub1.__children|length > 0 %}
+	         <div class="well dropdown-menu">
+	        {% for sub2 in sub1.__children %}     	
 	        	<div>
 	        		<a href="{{ path('category', { id : sub2.id }) }}">{{ sub2.name }}</a>
 	        		{% if sub2.__children|length > 0 %}
@@ -28,9 +28,10 @@
 	        			{% endfor %}
 	        		</div>
 	        		{% endif %}
-	        	</div>
-	        	{% endfor %}
+	        	</div>   
+	        	 {% endfor %}    	
 	        </div>
+	       {% endif %}
 	    </li>
 	    {% endfor %}
 	</ul>

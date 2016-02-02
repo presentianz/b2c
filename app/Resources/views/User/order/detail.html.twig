@@ -7,10 +7,11 @@
            <!--wait for second-->
        </div>
        <hr>
+       {{dump(order)}}
        <div class="order-info">
          <label>收件人信息</label>
-         <div><span>姓名：</span><span>万江</span></div>
-         <div><span>电话：</span><span>12341546213</span></div>
+         <div><span>姓名：</span><span>{{order.user.username}}</span></div>
+         <div><span>电话：</span><span>{{order.user.userInfo.contactNo}}</span></div>
          <div><span>地址：</span>
            <span>湖北省武汉市江汉区三眼桥北路海虹景7栋二单元701, 430020</span>
          </div>
@@ -34,7 +35,6 @@
                   <th width="50%">商品名称</th>
                   <th>数量</th>
                   <th>单价（纽币）</th>
-                  <!-- <th>操作</th> -->
               </tr>
           </thead>
           <tbody>
@@ -54,24 +54,8 @@
                               </h5>                                         
                           </div>
                       </td>
-                     {# 
-
-                      <td>
-                       <div class="number-group">
-                            <input type="text" value="{{ orderProduct.count }}" maxlength="99" class="qty" min="1" id="{{orderProduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">
-                            <div class="number-button" >
-                                <div class="number-input number-input-up cart-action-button" data-id="{{orderProduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="+" data-no="1"><i class="fa fa-caret-up"></i></div>
-                                <div class="number-input number-input-down cart-action-button" data-id="{{orderProduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="-" data-no="1"><i class="fa fa-caret-down"></i></div>
-                            </div>
-                        </div>
-                      </td>#}
                       <td>{{ orderProduct.count }}</td> 
-
                       <td>{{ orderProduct.price }}</td>
-                      <!-- <td class="operate">
-                         <input type="submit" value="付款"/>
-                         <div><a href="#">取消订单</a></div>
-                     </td> -->
                  </tr>
              {% endfor %}
       </tbody>
