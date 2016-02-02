@@ -89,18 +89,6 @@ $(function() {
 //hover cart
 $(function() {
 
-
-    /*.nav li:hover > .dropdown-menu {
-    display: block;
-}*/
-
-// $('.nav li').hover(function() {d
-//     $('.dropdown-menu').css("display","none");
-//     console.log($(this).attr("id"));
-//     $("#" + $(this).attr("id") + ' .dropdown-menu').css("display","block");
-
-// });
-
     //    $('.add-review').click(function (e) {
     //     e.preventDefault();
     //     $this = $(this);
