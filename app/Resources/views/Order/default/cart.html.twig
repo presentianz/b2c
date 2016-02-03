@@ -71,8 +71,7 @@
                                     <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
                                    
                                     <td class="text-right">
-                                        <div class="number-group">
-                                          {#}  <input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}"> #}
+                                        <div class="number-group">                       
                                             <div maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">{{ cartproduct.count }}</div>
 
                                             <div class="number-button" >  
@@ -122,10 +121,6 @@
                 </table>
             </div>
         </div>
-
-       {# <div class="cart-down col-xs-12">
-            {{ render(controller('AppBundle:Widget/Default:hotPro')) }}
-        </div> #}
     </div>
 
 {% endblock %}

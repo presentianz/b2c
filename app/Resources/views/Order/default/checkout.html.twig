@@ -37,6 +37,8 @@
             </div>
             <div class="col-xs-12 cart-content">
 
+
+           {{ form_start(form) }}      
           <div class="form">
               <div>
                 <label>邮寄地址</label>
@@ -62,10 +64,7 @@
              
             <div>
               <label>*收货地区（国家）</label>
-                <select class="select-country">
-                    <option>中国</option>
-                    <option>新西兰</option>  
-                </select>
+               {{ form_widget(form.country) }}
                 <select class="select-city">
                     <option>北京市</option>
                     <option>天津市</option>
@@ -105,16 +104,48 @@
 
                 </select>
             </div>
-            <div><label>地区：</label><input type="text" placeholder="可以直接填写"></div>
-            <div><label>*收货地址：</label><input type="text" placeholder="可以直接填写"></div>        
-            <div><label>邮编：</label><input type="text" placeholder="可以直接填写"></div>
-            <div><label>*收件人姓名：</label><input type="text" placeholder="必须是中文"></div>
-            <div><label>*收件人身份证号码：</label><input type="text" placeholder="地区为中国需要填写"></div>
+            <div><label>地区：</label>
+            {{ form_widget(form.region) }}
+            <!-- <input type="text" placeholder="可以直接填写" name="region"> -->
+            </div>
+            <div><label>*收货地址：</label>
+            {{ form_widget(form.address) }}
+            <!-- <input type="text" placeholder="可以直接填写"> -->
+            </div>        
+            <div><label>邮编：</label>
+            {{ form_widget(form.post_code) }}
+            <!-- <input type="text" placeholder="可以直接填写"> -->
+            </div>
+            <div><label>*收件人姓名：</label>
+            {{ form_widget(form.name) }}
+            <!-- <input type="text" placeholder="必须是中文"> -->
+            </div>
+            <div><label>*收件人身份证号码：</label>
+            {{ form_widget(form.id_no) }}
+            <!-- <input type="text" placeholder="地区为中国需要填写"> -->
+            </div>
             <div><label>*收件人手机号码：</label><input type="text" placeholder="可以直接填写"></div>
-            <div><label>*固定电话：</label><input type="text" placeholder="（区号）-电话号码" pattern="[\(]\d+[\)]\d+[\-]\d+"></div>
-            <div><label>*订单附言：</label><textarea placeholder="有什么需要请吩咐哦"></textarea></div>
-<!--             <div><label>*配送方式确认：</label><input type="text" placeholder="可以直接填写"></div>
-            <div><label>*支付方式确认：</label><input type="text" placeholder="可以直接填写"></div> -->
+            <div><label>*固定电话：</label> 
+            {{ form_widget(form.contact_no) }}
+           <!--  <input type="text" placeholder="（区号）-电话号码" pattern="[\(]\d+[\)]\d+[\-]\d+"> -->
+            </div>
+            <div><label>*订单附言：</label>
+            <textarea placeholder="有什么需要请吩咐哦"></textarea>
+            </div>
+             {{ form_end(form) }}   
+
+                {#   <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
+                   <div>{{ form_label(form.contact_no) }}{{ form_widget(form.contact_no) }}</div>
+                   <div>{{ form_label(form.id_no) }}{{ form_widget(form.id_no) }}</div>
+                   <div>{{ form_label(form.id_scans) }}{{ form_widget(form.id_scans) }}</div>
+                   <div>{{ form_label(form.country) }}{{ form_widget(form.country) }}</div>
+                   <div>{{ form_label(form.region) }}{{ form_widget(form.region) }}</div>
+                   <div>{{ form_label(form.city) }}{{ form_widget(form.city) }}</div>
+                   <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
+                   <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
+
+                   #}
+
           </div>
 
 
@@ -237,7 +268,7 @@
                                    
                                     <td class="text-right">
                                         <div class="number-group">
-                                            {#<input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">#}
+                                            
                                             <div maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">{{ cartproduct.count }}</div>
 
                                             <div class="number-button" >  
@@ -297,38 +328,4 @@
 
 {% block javascripts %}
     <script src="{{ asset('js/checkout.js') }}"></script>
-    <script type="text/javascript">
-    (function () {
-
-        $('.btn-pay').click(function() {
-        $('.bg-mask').css('display','block');
-        $('.pop-cart').css('display','block');
-        });
-
-
-        $('.btn-confirm').click(function () {
-            $this = $(this);
-        var productId = $this.attr("data-id");
-        $.ajax({
-            url: "{{ path('order_generation') }}",
-            method: "GET",
-            data: {
-                id : productId,
-            },
-            dataType: "json"
-        })
-        .done(function (rep) {
-            console.log(rep);
-            if (rep.granted) {
-                alert("成功！");
-                window.location.replace("{{ path('order_confirm') }}"+'?id='+rep.id);
-                
-            }
-            else {
-                alert("。。");
-            }
-        })
-        });
-    })();
-    </script>
 {% endblock %}

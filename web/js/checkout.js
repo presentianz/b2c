@@ -1,6 +1,4 @@
-
-(function () {
-
+ (function () {
         $('.btn-pay').click(function() {
         $('.bg-mask').css('display','block');
         $('.pop-cart').css('display','block');
@@ -32,17 +30,10 @@
         });
 
 
-        // $('#select-location').change(function() {
-        //    // $('.shipped-address').val(($(this).val());
-        //     var address =$("#select-location option:selected").val();
-        //     console.log(address);
-        //     var loc = address.replace(/ /g,"+").split("+");
-        //      $('.shipped-address').text(loc[0]);
-        //       $('.shipped-name').text(loc[1]);
-        //        $('.shipped-number').text(loc[2]);
-        //         console.log(loc[1]);
-        //         console.log(loc[2]);
-        // });
+         $("input[name='region']").blur(function (e) {
+            alert("hehe");
+
+         });
     })();
 
 
