@@ -31,3 +31,6 @@ services:
         class: AppBundle\Service\ProductClikcIncrement
         arguments: 
             entityManager: "@doctrine.orm.entity_manager"
+
+    fos_user.doctrine_registry:
+        alias: doctrine
