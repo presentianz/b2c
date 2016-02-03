@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * ShipmentAddress
@@ -78,11 +80,29 @@ class ShipmentAddress
     private $idNo;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="id_scans", type="array")
+     * @ORM\Column(name="id_front", type="string", length=255, nullable=true)
      */
-    private $idScans;
+    private $idFront;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_back", type="string", length=255, nullable=true)
+     */
+    private $idBack;
+
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    private $img1;
+
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    private $img2;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="shipmentAddresses")
@@ -328,5 +348,51 @@ class ShipmentAddress
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set idFront
+     *
+     * @param string $idFront
+     * @return ShipmentAddress
+     */
+    public function setIdFront($idFront)
+    {
+        $this->idFront = $idFront;
+
+        return $this;
+    }
+
+    /**
+     * Get idFront
+     *
+     * @return string 
+     */
+    public function getIdFront()
+    {
+        return $this->idFront;
+    }
+
+    /**
+     * Set idBack
+     *
+     * @param string $idBack
+     * @return ShipmentAddress
+     */
+    public function setIdBack($idBack)
+    {
+        $this->idBack = $idBack;
+
+        return $this;
+    }
+
+    /**
+     * Get idBack
+     *
+     * @return string 
+     */
+    public function getIdBack()
+    {
+        return $this->idBack;
     }
 }

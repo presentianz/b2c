@@ -15,7 +15,6 @@ class ShipmentAddressFormType extends AbstractType
         			->add('name','text',array('label'=>'联系人'))
 			    	->add('contact_no','text',array('label'=>'联系电话'))
 			    	->add('id_no','text',array('label'=>'证件号码'))
-			    	->add('id_scans','text',array('label'=>'证件扫描'))
 			    	->add('contact_no','text',array('label'=>'联系电话'))
 			    	->add('country', 'choice', array(
 	            		'label' => '国家', 
@@ -25,7 +24,9 @@ class ShipmentAddressFormType extends AbstractType
 			    	->add('region','text',array('label'=>'省份/地区'))
 			    	->add('city','text',array('label'=>'城市'))
 			    	->add('post_code','text',array('label'=>'邮编'))
-			    	->add('address','textarea',array('label'=>'详细地址'));
+			    	->add('address','textarea',array('label'=>'详细地址'))
+                    ->add('img1','file',array('label'=>'身份证正面', 'required' => false))
+                    ->add('img2','file',array('label'=>'身份证背面', 'required' => false));
     }
 
     public function configureOptions(OptionsResolver $resolver)
