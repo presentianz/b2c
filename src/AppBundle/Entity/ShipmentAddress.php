@@ -3,12 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * ShipmentAddress
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class ShipmentAddress
 {
@@ -78,11 +81,29 @@ class ShipmentAddress
     private $idNo;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="id_scans", type="array")
+     * @ORM\Column(name="id_front", type="string", length=255, nullable=true)
      */
-    private $idScans;
+    private $idFront;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_back", type="string", length=255, nullable=true)
+     */
+    private $idBack;
+
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    private $img1;
+
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    private $img2;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="shipmentAddresses")
@@ -284,28 +305,7 @@ class ShipmentAddress
         return $this->idNo;
     }
 
-    /**
-     * Set idScans
-     *
-     * @param array $idScans
-     * @return ShipmentAddress
-     */
-    public function setIdScans($idScans)
-    {
-        $this->idScans = $idScans;
 
-        return $this;
-    }
-
-    /**
-     * Get idScans
-     *
-     * @return array 
-     */
-    public function getIdScans()
-    {
-        return $this->idScans;
-    }
 
     /**
      * Set user
@@ -329,4 +329,223 @@ class ShipmentAddress
     {
         return $this->user;
     }
+
+    /**
+     * Set idFront
+     *
+     * @param string $idFront
+     * @return ShipmentAddress
+     */
+    public function setIdFront($idFront)
+    {
+        $this->idFront = $idFront;
+
+        return $this;
+    }
+
+    /**
+     * Get idFront
+     *
+     * @return string 
+     */
+    public function getIdFront()
+    {
+        return $this->idFront;
+    }
+
+    /**
+     * Set idBack
+     *
+     * @param string $idBack
+     * @return ShipmentAddress
+     */
+    public function setIdBack($idBack)
+    {
+        $this->idBack = $idBack;
+
+        return $this;
+    }
+
+    /**
+     * Get idBack
+     *
+     * @return string 
+     */
+    public function getIdBack()
+    {
+        return $this->idBack;
+    }
+
+
+    private $temp1;
+
+    private $temp2;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setImg1(UploadedFile $img1 = null)
+    {
+        $this->img1 = $img1;
+        // check if we have an old image path
+        if (isset($this->idFront)) {
+            // store the old name to delete after the update
+            $this->temp1 = $this->idFront;
+            $this->idFront = null;
+        } else {
+            $this->idFront = 'initial';
+        }
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getImg1()
+    {
+        return $this->img1;
+    }
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setImg2(UploadedFile $img2 = null)
+    {
+        $this->img2 = $img2;
+        // check if we have an old image path
+        if (isset($this->idFront)) {
+            // store the old name to delete after the update
+            $this->temp2 = $this->idBack;
+            $this->idBack = null;
+        } else {
+            $this->idBack = 'initial';
+        }
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getImg2()
+    {
+        return $this->img2;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if (null !== $this->getImg1()) {
+            // do whatever you want to generate a unique name
+            $filename = sha1(uniqid(mt_rand(), true));
+            $this->idFront = $filename.'.'.$this->getImg1()->guessExtension();
+        }
+
+        if (null !== $this->getImg2()) {
+            // do whatever you want to generate a unique name
+            $filename = sha1(uniqid(mt_rand(), true));
+            $this->idBack = $filename.'.'.$this->getImg2()->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        if (null != $this->getImg1()) {
+            // if there is an error when moving the file, an exception will
+            // be automatically thrown by move(). This will properly prevent
+            // the entity from being persisted to the database on error
+            $this->getImg1()->move($this->getUploadRootDir(), $this->idFront);
+
+            // check if we have an old image
+            if (isset($this->temp1)) {
+                // delete the old image
+                unlink($this->getUploadRootDir().'/'.$this->temp1);
+                // clear the temp image path
+                $this->temp1 = null;
+            }
+            $this->img1 = null;
+        }
+
+        if (null != $this->getImg2()) {
+            // if there is an error when moving the file, an exception will
+            // be automatically thrown by move(). This will properly prevent
+            // the entity from being persisted to the database on error
+            $this->getImg2()->move($this->getUploadRootDir(), $this->idBack);
+
+            // check if we have an old image
+            if (isset($this->temp2)) {
+                // delete the old image
+                unlink($this->getUploadRootDir().'/'.$this->temp2);
+                // clear the temp image path
+                $this->temp2 = null;
+            }
+            $this->img2 = null;
+        }
+    }
+
+
+    /**
+     * @ORM\PreRemove()
+     */
+    public function storeFilenameForRemove()
+    {
+        $this->temp1 = $this->getAbsolutePath()[0];
+        $this->temp2 = $this->getAbsolutePath()[1];
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        if (isset($this->temp1)) {
+            unlink($this->temp1);
+        }
+        if (isset($this->temp2)) {
+            unlink($this->temp2);
+        }
+    }
+
+    public function getAbsolutePath()
+    {
+        $path = array();
+        if (null === $this->idFront)
+            $path[0] = null;
+        else
+            $path[0] = $this->getUploadRootDir().'/'.$this->id.'.'.$this->idFront;
+
+        if (null === $this->idBack)
+            $path[1] = null;
+        else
+            $path[1] = $this->getUploadRootDir().'/'.$this->id.'.'.$this->idBack;
+
+        return $path;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'img/idScan';
+    }
+
 }
