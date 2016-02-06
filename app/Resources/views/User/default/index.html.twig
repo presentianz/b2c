@@ -17,12 +17,12 @@
 
     <div class="nav-all">
         <a href="{{ path('user_profile') }}">账户信息管理</a>
-    </div>           
+    </div>
 		<ul class="nav nav-list">
 			<li><div class="nav-item"><a href="{{path("user_profile")}}">账户管理</a></div></li>
             <li><div class="nav-item"><a href="{{path("user_order")}}">我的订单</a></div></li>
 			<li><div class="nav-item"><a href="{{path("user_address")}}">常用地址</a></div></li>
-            <li><div class="nav-item"><a href="{{path("user_id_upload")}}">上传身份证</a></div></li>
+            {#<li><div class="nav-item"><a href="{{path("user_id_upload")}}">上传身份证</a></div></li>#}
             <li><div class="nav-item"><a href="{{path("user_topup")}}">充值</a></div></li>
             <li><div class="nav-item"><a href="{{path("user_profile")}}">消费历史</a></div></li>
             <li><div class="nav-item"><a href="{{path("fos_user_change_password")}}">修改密码</a></div></li>
@@ -31,7 +31,7 @@
 
             <!--best pros-->
             {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
-             {{ render(controller('AppBundle:Widget/Default:postFee')) }}
+            {{ render(controller('AppBundle:Widget/Default:postFee')) }}
 
         </div>
         <div class="col-xs-9 page-right">

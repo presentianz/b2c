@@ -33,6 +33,7 @@ class UserOrder
      * @var integer
      *
      * @ORM\Column(name="status", type="smallint")
+     * 0 = unpaid, 1 = paid, 2 = delivered, 3 = received, 4 = canceled
      */
     private $status;
 
@@ -67,6 +68,12 @@ class UserOrder
      * @ORM\OneToMany(targetEntity="OrderProduct", mappedBy="userOrder")
      **/
     private $orderProducts;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ShipmentAddress", inversedBy="userOrders")
+     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
+     **/
+    private $shipmentAddress;
 
 
     /**
@@ -263,5 +270,28 @@ class UserOrder
     public function prePersist()
     {
         $this->createAt =  new \DateTime();
+    }
+
+    /**
+     * Set shipmentAddress
+     *
+     * @param \AppBundle\Entity\ShipmentAddress $shipmentAddress
+     * @return UserOrder
+     */
+    public function setShipmentAddress(\AppBundle\Entity\ShipmentAddress $shipmentAddress = null)
+    {
+        $this->shipmentAddress = $shipmentAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get shipmentAddress
+     *
+     * @return \AppBundle\Entity\ShipmentAddress 
+     */
+    public function getShipmentAddress()
+    {
+        return $this->shipmentAddress;
     }
 }

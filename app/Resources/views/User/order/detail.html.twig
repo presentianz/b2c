@@ -7,22 +7,24 @@
            <!--wait for second-->
        </div>
        <hr>
-       {{dump(order)}}
        <div class="order-info">
          <label>收件人信息</label>
-         <div><span>姓名：</span><span>{{order.user.username}}</span></div>
-         <div><span>电话：</span><span>{{order.user.userInfo.contactNo}}</span></div>
+         <div><span>姓名：</span><span>{{order.shipmentAddress.name}}</span></div>
+         <div><span>电话：</span><span>{{order.shipmentAddress.contactNo}}</span></div>
          <div><span>地址：</span>
-           <span>湖北省武汉市江汉区三眼桥北路海虹景7栋二单元701, 430020</span>
+           <span>{{order.shipmentAddress.region}} 
+           {{order.shipmentAddress.city}}
+            {{order.shipmentAddress.address}}</span>
          </div>
-         <div><span>国家：</span><span>中国</span></div>
+         <div><span>国家：</span>
+         <span>{{order.shipmentAddress.country}}</span></div>
        </div>
        <hr>
        <div class="order-info">
          <label>订单信息</label>
          <div><span>订单号：</span><span>{{order.orderId}}</span></div>
-          <div><span>提交时间：</span><span>{{order.createAt.date}}</span></div>
-           <div><span>订单总价：</span><span>NZD：{{order.totalPrice}}</span></div> 
+          <div><span>提交时间：</span><span>{{order.createAt|date('Y-m-d H:i:s')}}</span></div>
+          <div><span>订单总价：</span><span>NZD：{{order.totalPrice}}</span></div> 
       </div>
       <hr>
       <div class="order-info">

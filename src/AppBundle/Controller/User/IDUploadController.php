@@ -96,7 +96,8 @@ class IDUploadController extends Controller
     /**
      * @Route("/idupload/remove/{id}", name="user_idupload_remove")
      */
-    public function removeAction($id){
+    public function removeAction($id)
+    {
         
         $address = $this->Doctrine()->find($id);
         
@@ -111,9 +112,4 @@ class IDUploadController extends Controller
     public function Doctrine() {
         return $this->getDoctrine()->getRepository('AppBundle:ShipmentAddress');
     }
-
-
-    
-
-  
 }
