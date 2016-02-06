@@ -10,8 +10,7 @@
         <div class="col-xs-3 siderbar">
                 {{ render(controller('AppBundle:Widget/Menu:index')) }}
                 {{ render(controller('AppBundle:Widget/Default:brandList')) }}
-                {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
-               
+                {{ render(controller('AppBundle:Widget/Default:discountPro')) }}               
                   {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
                 </div>
     <div class="col-xs-9 page-right">
@@ -36,8 +35,6 @@
                 <div class="cart-tab">3.完成订单</div>
             </div>
             <div class="col-xs-12 cart-content">
-
-
            {{ form_start(form) }}      
           <div class="form">
               <div>
@@ -60,93 +57,21 @@
                         </option>
                     </select>
                
-              </div>
-             
-            <div>
-              <label>*收货地区（国家）</label>
-               {{ form_widget(form.country) }}
-                <select class="select-city">
-                    <option>北京市</option>
-                    <option>天津市</option>
-                    <option>上海市</option>
-                    <option>重庆市</option>
-                    <option>河北省</option>
-                    <option>山西省</option>
-                    <option>内蒙古省</option>
-                    <option>辽宁省</option>
-                    <option>吉林省</option>
-                    <option>黑龙江省</option>
-                    <option>江苏省</option>
-                    <option>浙江省</option>
-                    <option>安徽省</option>
-                    <option>福建省</option>
-                    <option>江西省</option>
-                    <option>山东省</option>
-                    <option>河南省</option>
-                    <option selected="selected">湖北省</option>
-                    <option>湖南省</option>
-                    <option>广东省</option>
-                    <option>广西省</option>
-                    <option>海南省</option>
-                    <option>四川省</option>
-                    <option>贵州省</option>
-                    <option>云南省</option>
-                    <option>西藏省</option>
-                    <option>陕西省</option>
-                    <option>甘肃省</option>
-                    <option>青海省</option>
-                    <option>宁夏省</option>
-                    <option>新疆省</option>
-                    <option>台湾</option>
-                    <option>香港</option>
-                    <option>澳门</option>
-                    <option>海外</option>
-
-                </select>
-            </div>
-            <div><label>地区：</label>
-            {{ form_widget(form.region) }}
-            <!-- <input type="text" placeholder="可以直接填写" name="region"> -->
-            </div>
-            <div><label>*收货地址：</label>
-            {{ form_widget(form.address) }}
-            <!-- <input type="text" placeholder="可以直接填写"> -->
-            </div>        
-            <div><label>邮编：</label>
-            {{ form_widget(form.post_code) }}
-            <!-- <input type="text" placeholder="可以直接填写"> -->
-            </div>
-            <div><label>*收件人姓名：</label>
-            {{ form_widget(form.name) }}
-            <!-- <input type="text" placeholder="必须是中文"> -->
-            </div>
-            <div><label>*收件人身份证号码：</label>
-            {{ form_widget(form.id_no) }}
-            <!-- <input type="text" placeholder="地区为中国需要填写"> -->
-            </div>
-            <div><label>*收件人手机号码：</label><input type="text" placeholder="可以直接填写"></div>
-            <div><label>*固定电话：</label> 
-            {{ form_widget(form.contact_no) }}
-           <!--  <input type="text" placeholder="（区号）-电话号码" pattern="[\(]\d+[\)]\d+[\-]\d+"> -->
-            </div>
-            <div><label>*订单附言：</label>
-            <textarea placeholder="有什么需要请吩咐哦"></textarea>
-            </div>
-             {{ form_end(form) }}   
-
-                {#   <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
-                   <div>{{ form_label(form.contact_no) }}{{ form_widget(form.contact_no) }}</div>
-                   <div>{{ form_label(form.id_no) }}{{ form_widget(form.id_no) }}</div>
-                   <div>{{ form_label(form.id_scans) }}{{ form_widget(form.id_scans) }}</div>
-                   <div>{{ form_label(form.country) }}{{ form_widget(form.country) }}</div>
+              </div>            
+                     <div>{{ form_label(form.country) }}{{ form_widget(form.country) }}
+                          {{ form_widget(form.city) }}</div>
                    <div>{{ form_label(form.region) }}{{ form_widget(form.region) }}</div>
-                   <div>{{ form_label(form.city) }}{{ form_widget(form.city) }}</div>
                    <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
                    <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
-
-                   #}
-
+                   <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
+                   <div>{{ form_label(form.phone_no) }}{{ form_widget(form.phone_no) }}</div>
+                   <div>{{ form_label(form.contact_no) }}{{ form_widget(form.contact_no) }}</div>
+                   <div>{{ form_label(form.id_no) }}{{ form_widget(form.id_no) }}</div>
+                   <div>{{ form_label(form.img1) }}{{ form_widget(form.img1) }}</div>
+                   <div>{{ form_label(form.img2) }}{{ form_widget(form.img2) }}</div>
+                   <div>{{ form_label(form.comment) }}{{ form_widget(form.comment) }}</div>
           </div>
+           {{ form_end(form) }} 
 
 
       {# <div class="content-up"> 
@@ -263,7 +188,6 @@
                                         <a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a>
                                         </div>
                                     </td>
-                                   {# <td id="oneprice_{{cartproduct.product.id }}">{{ cartproduct.product.priceDiscounted }}</td> #}
                                     <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
                                    
                                     <td class="text-right">
@@ -303,17 +227,13 @@
                     </tfoot>
                 </table>
                 </div>
-
-
-
-
                     </div>
                 </div>
             </div>
            {# <div class="cart-down col-xs-12">
                 {{ render(controller('AppBundle:Widget/Default:hotPro')) }}
            </div>    #} 
-               <div class="bg-mask"></div>
+<div class="bg-mask"></div>
         <div class="pop-cart">
         <h3><i class="fa fa-info-circle"></i>
             <span>确定提交订单？</span></h3>
@@ -328,4 +248,39 @@
 
 {% block javascripts %}
     <script src="{{ asset('js/checkout.js') }}"></script>
+
+<script>
+     (function () {
+        $('.btn-pay').click(function() {
+        $('.bg-mask').css('display','block');
+        $('.pop-cart').css('display','block');
+        });
+
+
+        $('.btn-confirm').click(function () {
+            $this = $(this);
+        var productId = $this.attr("data-id");
+        $.ajax({
+            url: "{{ path('order_generation') }}",
+            method: "GET",
+            data: {
+                id : productId,
+            },
+            dataType: "json"
+        })
+        .done(function (rep) {
+            console.log(rep);
+            if (rep.granted) {
+                alert("成功！");
+                window.location.replace("{{ path('order_confirm') }}"+'?id='+rep.id);
+                
+            }
+            else {
+                alert("。。");
+            }
+        })
+        });
+    })();
+    </script>
+
 {% endblock %}

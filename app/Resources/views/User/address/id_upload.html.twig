@@ -3,6 +3,7 @@
 {% block page_title %}上传身份证{% endblock page_title %}
 {% block fos_user_content %}
 <div class="idupload-content">
+{{dump(addresses)}}
   {% for address in addresses %}
   <div class="idupload-image-each"> 
     <label>

@@ -155,7 +155,7 @@
 }
 #cart-page-container .form label {
     max-width: 200px;
-    width: 25%;
+    width: 160px;
 
 } 
 
@@ -165,25 +165,27 @@
     padding: 8px 10px;
     border: 1px solid #eee;
     font-size: 14px;
-    margin-right: 5px;
 }
 
 #cart-page-container .form select.select-location { 
     width: 579px;
+    left: -4px;
+    margin: 0px;
+    position: relative;
 }
 
-#cart-page-container .form select.select-country {
-    width:280px;  
+#cart-page-container .form #shipment_address_country {
+    width:285px;  
 }
 
-#cart-page-container .form select.select-city {
+#cart-page-container .form #shipment_address_city {
     width: 290px;
 }
 
 #cart-page-container .form input {
     background-color: #eee;
     width: 579px;
-    margin-left: 4px;
+    display: inline-block;
 }
 
 #cart-page-container .form textarea {
@@ -192,7 +194,8 @@
     padding: 8px 10px;
     border: 1px solid #eee;
      font-size: 14px;
-    width: 583px;
+    width: 579px;
+    outline: none;
 }
 
 
