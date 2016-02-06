@@ -112,6 +112,11 @@ class ShipmentAddress
     private $user;
 
     /**
+     * @ORM\OneToMany(targetEntity="UserOrder", mappedBy="shipmentAddress")
+     **/
+    private $userOrders;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -524,12 +529,12 @@ class ShipmentAddress
         if (null === $this->idFront)
             $path[0] = null;
         else
-            $path[0] = $this->getUploadRootDir().'/'.$this->id.'.'.$this->idFront;
+            $path[0] = $this->getUploadRootDir().'/'.$this->idFront;
 
         if (null === $this->idBack)
             $path[1] = null;
         else
-            $path[1] = $this->getUploadRootDir().'/'.$this->id.'.'.$this->idBack;
+            $path[1] = $this->getUploadRootDir().'/'.$this->idBack;
 
         return $path;
     }
@@ -548,4 +553,44 @@ class ShipmentAddress
         return 'img/idScan';
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->userOrders = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add userOrders
+     *
+     * @param \AppBundle\Entity\UserOrder $userOrders
+     * @return ShipmentAddress
+     */
+    public function addUserOrder(\AppBundle\Entity\UserOrder $userOrders)
+    {
+        $this->userOrders[] = $userOrders;
+
+        return $this;
+    }
+
+    /**
+     * Remove userOrders
+     *
+     * @param \AppBundle\Entity\UserOrder $userOrders
+     */
+    public function removeUserOrder(\AppBundle\Entity\UserOrder $userOrders)
+    {
+        $this->userOrders->removeElement($userOrders);
+    }
+
+    /**
+     * Get userOrders
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUserOrders()
+    {
+        return $this->userOrders;
+    }
 }

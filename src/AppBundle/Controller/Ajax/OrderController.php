@@ -22,15 +22,19 @@ class OrderController extends Controller
     public function orderGenerationAction(Request $request)
     {
         $id = $request->query->get('id');
+        $address_id = $request->query->get('address');
         $id = explode(' ', $id);
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
+        $address = $em->getRepository('AppBundle:ShipmentAddress')->find($address_id);
         $cartProducts = $em->getRepository('AppBundle:CartProduct')->getItem($id, $user->getId());
         if ($cartProducts) {
             $order = new UserOrder();
             $order->setUser($user);
+            $order->setShipmentAddress($address);
             $order->setStatus(0);
             $order->setTotalPrice(0);
+
             //generate orderid
             $uid = $user->getId();
             $time_order=time();
