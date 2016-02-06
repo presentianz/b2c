@@ -68,6 +68,12 @@ class UserOrder
      **/
     private $orderProducts;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="ShipmentAddress", inversedBy="userOrders")
+     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
+     **/
+    private $shipmentAddress;
+
 
     /**
      * Get id

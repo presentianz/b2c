@@ -3,332 +3,320 @@
 {% block title %}结算{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/cart.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('css/cart.css') }}" type="text/css">
 {% endblock %}
 
 {% block body %}
-        <div class="col-xs-3 siderbar">
-                {{ render(controller('AppBundle:Widget/Menu:index')) }}
-                {{ render(controller('AppBundle:Widget/Default:brandList')) }}
-                {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
-               
-                  {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
-                </div>
-    <div class="col-xs-9 page-right">
-            <div class="page-breadcrumb">
-                    <ol>
-                        <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
-                        <li>&nbsp;>&nbsp;结算</li>
-                     </ol>
-                </div>
-      <div class="page-content" id="cart-page-container">
-            <div class="page-title">
-            <div class="page-leaf-top"></div>
-                <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
-                <div><h4>结算</h4></div>
-               
-            </div>  
-            <div class="cart-tabs">
-                <div class="cart-tab">1.查看购物车</div> 
-                <div class="cart-tab-arrow"></div>
-                <div class="cart-tab active">2.填写购物信息</div>
-                <div class="cart-tab-arrow"></div>
-                <div class="cart-tab">3.完成订单</div>
-            </div>
-            <div class="col-xs-12 cart-content">
+    <div class="col-xs-3 siderbar">
+        {{ render(controller('AppBundle:Widget/Menu:index')) }}
+        {{ render(controller('AppBundle:Widget/Default:brandList')) }}
+        {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
+        {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
+        </div>
+  <div class="col-xs-9 page-right">
+      <div class="page-breadcrumb">
+          <ol>
+            <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
+            <li>&nbsp;>&nbsp;结算</li>
+           </ol>
+        </div>
+    <div class="page-content" id="cart-page-container">
+      <div class="page-title">
+      <div class="page-leaf-top"></div>
+        <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
+        <div><h4>结算</h4></div>
+         
+      </div>  
+      <div class="cart-tabs">
+        <div class="cart-tab">1.查看购物车</div> 
+        <div class="cart-tab-arrow"></div>
+        <div class="cart-tab active">2.填写购物信息</div>
+        <div class="cart-tab-arrow"></div>
+        <div class="cart-tab">3.完成订单</div>
+      </div>
+      <div class="col-xs-12 cart-content">
 
-          <div class="form">
-              <div>
-                <label>邮寄地址</label>
-                    <select id="select-location" class="select-location">
-                        <option>
-                            湖北省武汉市江汉区三眼桥海红旗701 王刚 13582658451
-                        </option>
-                        <option>
-                            湖北省武汉市三眼桥408 小海 1039884938
-                            </option>
-                        <option>
-                            湖北省江汉区三眼桥海红旗701 王红 133098495
-                        </option>
-                        <option>
-                            河南省合肥市市江汉区406 南京 122309833
-                        </option>
-                        <option>
-                           <a href="{{path('user_address')}}">新建地址</a>
-                        </option>
-                    </select>
-               
-              </div>
-             
-            <div>
-              <label>*收货地区（国家）</label>
-                <select class="select-country">
-                    <option>中国</option>
-                    <option>新西兰</option>  
-                </select>
-                <select class="select-city">
-                    <option>北京市</option>
-                    <option>天津市</option>
-                    <option>上海市</option>
-                    <option>重庆市</option>
-                    <option>河北省</option>
-                    <option>山西省</option>
-                    <option>内蒙古省</option>
-                    <option>辽宁省</option>
-                    <option>吉林省</option>
-                    <option>黑龙江省</option>
-                    <option>江苏省</option>
-                    <option>浙江省</option>
-                    <option>安徽省</option>
-                    <option>福建省</option>
-                    <option>江西省</option>
-                    <option>山东省</option>
-                    <option>河南省</option>
-                    <option selected="selected">湖北省</option>
-                    <option>湖南省</option>
-                    <option>广东省</option>
-                    <option>广西省</option>
-                    <option>海南省</option>
-                    <option>四川省</option>
-                    <option>贵州省</option>
-                    <option>云南省</option>
-                    <option>西藏省</option>
-                    <option>陕西省</option>
-                    <option>甘肃省</option>
-                    <option>青海省</option>
-                    <option>宁夏省</option>
-                    <option>新疆省</option>
-                    <option>台湾</option>
-                    <option>香港</option>
-                    <option>澳门</option>
-                    <option>海外</option>
+      <div class="form">
+        <div>
+          <label>邮寄地址</label>
+          <select id="select-location" class="select-location">
+            {% for address in app.user.shipmentAddresses %}
+              <option value="{{address.id}}">{{address.name}} {{address.contactNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
+            {% endfor %}
+          </select>
+          <a href="{{path('user_address')}}">新建地址</a>
+        </div>
+       
+      <!--<div>
+        <label>*收货地区（国家）</label>
+        <select class="select-country">
+          <option>中国</option>
+          <option>新西兰</option>  
+        </select>
+        <select class="select-city">
+          <option>北京市</option>
+          <option>天津市</option>
+          <option>上海市</option>
+          <option>重庆市</option>
+          <option>河北省</option>
+          <option>山西省</option>
+          <option>内蒙古省</option>
+          <option>辽宁省</option>
+          <option>吉林省</option>
+          <option>黑龙江省</option>
+          <option>江苏省</option>
+          <option>浙江省</option>
+          <option>安徽省</option>
+          <option>福建省</option>
+          <option>江西省</option>
+          <option>山东省</option>
+          <option>河南省</option>
+          <option selected="selected">湖北省</option>
+          <option>湖南省</option>
+          <option>广东省</option>
+          <option>广西省</option>
+          <option>海南省</option>
+          <option>四川省</option>
+          <option>贵州省</option>
+          <option>云南省</option>
+          <option>西藏省</option>
+          <option>陕西省</option>
+          <option>甘肃省</option>
+          <option>青海省</option>
+          <option>宁夏省</option>
+          <option>新疆省</option>
+          <option>台湾</option>
+          <option>香港</option>
+          <option>澳门</option>
+          <option>海外</option>
 
-                </select>
-            </div>
-            <div><label>地区：</label><input type="text" placeholder="可以直接填写"></div>
-            <div><label>*收货地址：</label><input type="text" placeholder="可以直接填写"></div>        
-            <div><label>邮编：</label><input type="text" placeholder="可以直接填写"></div>
-            <div><label>*收件人姓名：</label><input type="text" placeholder="必须是中文"></div>
-            <div><label>*收件人身份证号码：</label><input type="text" placeholder="地区为中国需要填写"></div>
-            <div><label>*收件人手机号码：</label><input type="text" placeholder="可以直接填写"></div>
-            <div><label>*固定电话：</label><input type="text" placeholder="（区号）-电话号码" pattern="[\(]\d+[\)]\d+[\-]\d+"></div>
-            <div><label>*订单附言：</label><textarea placeholder="有什么需要请吩咐哦"></textarea></div>
+        </select>
+      </div>
+      <div><label>地区：</label><input type="text" placeholder="可以直接填写"></div>
+      <div><label>*收货地址：</label><input type="text" placeholder="可以直接填写"></div>        
+      <div><label>邮编：</label><input type="text" placeholder="可以直接填写"></div>
+      <div><label>*收件人姓名：</label><input type="text" placeholder="必须是中文"></div>
+      <div><label>*收件人身份证号码：</label><input type="text" placeholder="地区为中国需要填写"></div>
+      <div><label>*收件人手机号码：</label><input type="text" placeholder="可以直接填写"></div>
+      <div><label>*固定电话：</label><input type="text" placeholder="（区号）-电话号码" pattern="[\(]\d+[\)]\d+[\-]\d+"></div>
+      <div><label>*订单附言：</label><textarea placeholder="有什么需要请吩咐哦"></textarea></div>-->
 <!--             <div><label>*配送方式确认：</label><input type="text" placeholder="可以直接填写"></div>
-            <div><label>*支付方式确认：</label><input type="text" placeholder="可以直接填写"></div> -->
+      <div><label>*支付方式确认：</label><input type="text" placeholder="可以直接填写"></div> -->
+      </div>
+
+
+    {# <div class="content-up"> 
+    <table>
+      <thead>
+        <tr>
+          <th class="product-name">商品信息</th>
+          <th class="text-left">数量</th>
+          <th class="text-right">价格</th>
+        </tr>
+      </thead>
+      <tbody>
+       {% set sum = 0 %}
+       {% set ids = [] %}
+        {% for cartProduct in data %}
+          <tr>
+            <td class="product-name">
+              <img src="{{ asset('img/src') }}/{{cartProduct.product.imageLink}}/poster/{{cartProduct.product.poster}}"/>
+              <div class="name-limit"><a href="{{ path('product', { id : cartProduct.product.id }) }}">{{ cartProduct.product.name }}</a>
+              </div>
+            </td>
+            <td>{{ cartProduct.count }}</td>
+            <td class="text-right color">{{ cartProduct.count*cartProduct.product.priceDiscounted }}</td>
+          </tr>
+           {% set sum = sum + cartProduct.count*cartProduct.product.priceDiscounted + 20 %}
+           {% set ids = ids|merge([cartProduct.product.id]) %}
+        {% endfor %}
+        {% set ids = ids|join(' ') %}
+      </tbody>
+      <tfoot>
+        <tr><td class="text-right"><strong>运送方式:</strong></td>
+          <td>
+            <select class="delivery-options">
+            <option>快递</option>
+              <option><span>快递（3-5天）</span><span class="color">$20.00</span></option>
+              <option> <span>平递（7-10天）</span><span class="color">$0.00</span></option>
+              <option> <span>海运（10-15天）</span><span class="color">$0.00</span></option>
+            </select> 
+          </td>
+          <td class="text-right color">20.00</td> </tr>
+          <tr><td class="text-right"><strong>运送保险:</strong></td>
+            <td><input type="checkbox"> 购买保险</td>
+            <td class="text-right color">0.00</td></tr>
+            <tr><td class="text-right"><strong>优惠方式:</strong></td>
+              <td><input type="text" placeholder="使用优惠券"></td>
+              <td class="text-right color">-0.00</td> </tr>
+              <tr><td class="text-right"><strong>合计:</strong></td>
+                <td>（含运费和各项费用)</td>
+                <td class="text-right color"><h3>
+                {% if data|length > 0 %}
+                  {{ sum }}
+                {% else %}
+                   $0.00
+                {% endif %}
+                </h3></td> </tr>
+              </tfoot>
+            </table>
+            <hr>
           </div>
-
-
-      {# <div class="content-up"> 
-        <table>
-            <thead>
-                <tr>
-                    <th class="product-name">商品信息</th>
-                    <th class="text-left">数量</th>
-                    <th class="text-right">价格</th>
-                </tr>
-            </thead>
-            <tbody>
-             {% set sum = 0 %}
-             {% set ids = [] %}
-                {% for cartProduct in data %}
-                    <tr>
-                        <td class="product-name">
-                            <img src="{{ asset('img/src') }}/{{cartProduct.product.imageLink}}/poster/{{cartProduct.product.poster}}"/>
-                            <div class="name-limit"><a href="{{ path('product', { id : cartProduct.product.id }) }}">{{ cartProduct.product.name }}</a>
-                            </div>
-                        </td>
-                        <td>{{ cartProduct.count }}</td>
-                        <td class="text-right color">{{ cartProduct.count*cartProduct.product.priceDiscounted }}</td>
-                    </tr>
-                     {% set sum = sum + cartProduct.count*cartProduct.product.priceDiscounted + 20 %}
-                     {% set ids = ids|merge([cartProduct.product.id]) %}
-                {% endfor %}
-                {% set ids = ids|join(' ') %}
-            </tbody>
-            <tfoot>
-                <tr><td class="text-right"><strong>运送方式:</strong></td>
-                    <td>
-                        <select class="delivery-options">
-                        <option>快递</option>
-                            <option><span>快递（3-5天）</span><span class="color">$20.00</span></option>
-                            <option> <span>平递（7-10天）</span><span class="color">$0.00</span></option>
-                            <option> <span>海运（10-15天）</span><span class="color">$0.00</span></option>
-                        </select> 
-                    </td>
-                    <td class="text-right color">20.00</td> </tr>
-                    <tr><td class="text-right"><strong>运送保险:</strong></td>
-                        <td><input type="checkbox"> 购买保险</td>
-                        <td class="text-right color">0.00</td></tr>
-                        <tr><td class="text-right"><strong>优惠方式:</strong></td>
-                            <td><input type="text" placeholder="使用优惠券"></td>
-                            <td class="text-right color">-0.00</td> </tr>
-                            <tr><td class="text-right"><strong>合计:</strong></td>
-                                <td>（含运费和各项费用)</td>
-                                <td class="text-right color"><h3>
-                                {% if data|length > 0 %}
-                                  {{ sum }}
-                              {% else %}
-                                   $0.00
-                              {% endif %}
-                                </h3></td> </tr>
-                            </tfoot>
-                        </table>
-                        <hr>
-                    </div>
-                    <div class="content-down"> 
-                        <div class="address-left">
-                            <p><strong>快递要求：</strong></p>
-                            <p>1.保健品、食品包裹：总数不超过<strong>16个</strong>，且总重量不超过<strong>7公斤</strong>，含有蜂蜜的包裹总数不超过<strong>14个</strong>。</p>
-                            <p>2.含化妆品包裹：总数不超过<strong>12个</strong>，总重量不超过<strong>4公斤</strong>。</p>
-                            <p>3.奶粉类包裹：请务必提供收件人相对应的身份证信息。</p>
-                        </div>
-                        <div  class="address-right">
-                            <div class="text-right">
-                                <strong>寄送至：</strong> 
-                                <span class="shipped-address">湖北省武汉市江汉区三眼桥北路海红旗701</span>
-                            </div>
-                             <div class="text-right">
-                                <strong>收货人：</strong>
-                                <span class="shipped-name">万江</span>
-                                <span class="shipped-number">2132132131</span>
-                             </div>
-                             <div class="text-right">
-                                <h3 class="color"> 
-                                <strong>应付总额：</strong>
-                                  {% if data|length > 0 %}
-                                      <strong>{{ sum }}</strong>
-                                  {% else %}
-                                       <strong>$0.00</strong> 
-                                  {% endif %}
-                                </h3>
-                            </div>
-                        </div>
-                    </div>#}
-                       
-
-
-                <div class="table-header">请在此确认你的订单产品</div>           
-                <table class="table no-margin">
-                    <thead>
-                        <tr>
-                            <th width="15%">产品</th>
-                            <th width="50%" class="product-name">产品名称</th>
-                            <th width="10%">价格$</th>
-                            <th width="10%">数量</th>
-                            <th width="10%">删除</th>
-                        </tr>
-                    </thead>
-                    <tbody>    
-                       
-                        {% set sum = 0 %}
-                         {% set ids = [] %}
-                            {% for cartproduct in data %}
-                                <tr>
-                                    <td class="product-img">
-                                        <img src="{{ asset('img/src') }}/{{cartproduct.product.imageLink}}/poster/{{cartproduct.product.poster}}"/>
-                                    </td>
-                                    <td class="product-name">  
-                                        <div class="name-limit">
-                                        <a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a>
-                                        </div>
-                                    </td>
-                                   {# <td id="oneprice_{{cartproduct.product.id }}">{{ cartproduct.product.priceDiscounted }}</td> #}
-                                    <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
-                                   
-                                    <td class="text-right">
-                                        <div class="number-group">
-                                            {#<input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">#}
-                                            <div maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">{{ cartproduct.count }}</div>
-
-                                            <div class="number-button" >  
-                                                <div class="number-input number-input-up cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="+" data-no="1"><i class="fa fa-caret-up"></i></div>
-                                                <hr>
-                                                <div class="number-input number-input-down cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="-" data-no="1"><i class="fa fa-caret-down"></i></div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                     <td><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm">X</a></td>    
-                                </tr>
-                                {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted + 8 %}
-                                 {% set ids = ids|merge([cartproduct.product.id]) %}
-                            {% endfor %}
-                            {% set ids = ids|join(' ') %}
-                   </tbody>
-                    <tfoot>
-                        <tr class="tfoot-bottom"> 
-                            <td colspan="3" class="text-left"><strong>商品总额：</strong>
-                             {% if data|length > 0 %}
-                                <strong id="totalprice">NZ${{ sum }}</strong>
-                             {% else %}
-                                 <strong>$0.00</strong> 
-                                 {% endif %}
-                                 <strong>（邮费：$8 一公斤）</strong> 
-                            <td colspan="3" class="text-right">
-                                <i class="fa fa-cart"></i>
-                             <input type="submit" title="提交订单" class="btn-pay" value="确认无误，马上下单" >
-                            </td>
-                        </tr>
-                       
-                    </tfoot>
-                </table>
-                </div>
-
-
-
-
-                    </div>
-                </div>
+          <div class="content-down"> 
+            <div class="address-left">
+              <p><strong>快递要求：</strong></p>
+              <p>1.保健品、食品包裹：总数不超过<strong>16个</strong>，且总重量不超过<strong>7公斤</strong>，含有蜂蜜的包裹总数不超过<strong>14个</strong>。</p>
+              <p>2.含化妆品包裹：总数不超过<strong>12个</strong>，总重量不超过<strong>4公斤</strong>。</p>
+              <p>3.奶粉类包裹：请务必提供收件人相对应的身份证信息。</p>
             </div>
-           {# <div class="cart-down col-xs-12">
-                {{ render(controller('AppBundle:Widget/Default:hotPro')) }}
-           </div>    #} 
-               <div class="bg-mask"></div>
-        <div class="pop-cart">
-        <h3><i class="fa fa-info-circle"></i>
-            <span>确定提交订单？</span></h3>
-            <span>
-                <input type="submit" title="确定提交" data-id="{{ ids }}" class="btn-confirm" value="确定提交" >
-            </span>
-            <p class="continue-shop">继续购物</p>
-        </div>  
+            <div  class="address-right">
+              <div class="text-right">
+                <strong>寄送至：</strong> 
+                <span class="shipped-address">湖北省武汉市江汉区三眼桥北路海红旗701</span>
+              </div>
+               <div class="text-right">
+                <strong>收货人：</strong>
+                <span class="shipped-name">万江</span>
+                <span class="shipped-number">2132132131</span>
+               </div>
+               <div class="text-right">
+                <h3 class="color"> 
+                <strong>应付总额：</strong>
+                  {% if data|length > 0 %}
+                    <strong>{{ sum }}</strong>
+                  {% else %}
+                     <strong>$0.00</strong> 
+                  {% endif %}
+                </h3>
+              </div>
+            </div>
+          </div>#}
+             
+
+
+        <div class="table-header">请在此确认你的订单产品</div>           
+        <table class="table no-margin">
+          <thead>
+            <tr>
+              <th width="15%">产品</th>
+              <th width="50%" class="product-name">产品名称</th>
+              <th width="10%">价格$</th>
+              <th width="10%">数量</th>
+              <th width="10%">删除</th>
+            </tr>
+          </thead>
+          <tbody>    
+             
+            {% set sum = 0 %}
+             {% set ids = [] %}
+              {% for cartproduct in data %}
+                <tr>
+                  <td class="product-img">
+                    <img src="{{ asset('img/src') }}/{{cartproduct.product.imageLink}}/poster/{{cartproduct.product.poster}}"/>
+                  </td>
+                  <td class="product-name">  
+                    <div class="name-limit">
+                    <a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a>
+                    </div>
+                  </td>
+                   {# <td id="oneprice_{{cartproduct.product.id }}">{{ cartproduct.product.priceDiscounted }}</td> #}
+                  <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
+                   
+                  <td class="text-right">
+                    <div class="number-group">
+                      {#<input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">#}
+                      <div maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">{{ cartproduct.count }}</div>
+
+                      <div class="number-button" >  
+                        <div class="number-input number-input-up cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="+" data-no="1"><i class="fa fa-caret-up"></i></div>
+                        <hr>
+                        <div class="number-input number-input-down cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="-" data-no="1"><i class="fa fa-caret-down"></i></div>
+                      </div>
+                    </div>
+                  </td>
+                   <td><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm">X</a></td>    
+                </tr>
+                {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted + 8 %}
+                 {% set ids = ids|merge([cartproduct.product.id]) %}
+              {% endfor %}
+              {% set ids = ids|join(' ') %}
+           </tbody>
+          <tfoot>
+            <tr class="tfoot-bottom"> 
+              <td colspan="3" class="text-left"><strong>商品总额：</strong>
+               {% if data|length > 0 %}
+                <strong id="totalprice">NZ${{ sum }}</strong>
+               {% else %}
+                 <strong>$0.00</strong> 
+                 {% endif %}
+                 <strong>（邮费：$8 一公斤）</strong> 
+              <td colspan="3" class="text-right">
+                <i class="fa fa-cart"></i>
+               <input type="submit" title="提交订单" class="btn-pay" value="确认无误，马上下单" >
+              </td>
+            </tr>
+             
+          </tfoot>
+        </table>
+        </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+       {# <div class="cart-down col-xs-12">
+        {{ render(controller('AppBundle:Widget/Default:hotPro')) }}
+       </div>    #} 
+         <div class="bg-mask"></div>
+    <div class="pop-cart">
+    <h3><i class="fa fa-info-circle"></i>
+      <span>确定提交订单？</span></h3>
+      <span>
+        <input type="submit" title="确定提交" data-id="{{ ids }}" class="btn-confirm" value="确定提交" >
+      </span>
+      <p class="continue-shop">继续购物</p>
+    </div>  
 {% endblock %}
 
 
 
 {% block javascripts %}
-    <script src="{{ asset('js/checkout.js') }}"></script>
-    <script type="text/javascript">
-    (function () {
+  <script src="{{ asset('js/checkout.js') }}"></script>
+  <script type="text/javascript">
+  (function () {
 
-        $('.btn-pay').click(function() {
-        $('.bg-mask').css('display','block');
-        $('.pop-cart').css('display','block');
-        });
+    $('.btn-pay').click(function() {
+    $('.bg-mask').css('display','block');
+    $('.pop-cart').css('display','block');
+    });
 
 
-        $('.btn-confirm').click(function () {
-            $this = $(this);
-        var productId = $this.attr("data-id");
-        $.ajax({
-            url: "{{ path('order_generation') }}",
-            method: "GET",
-            data: {
-                id : productId,
-            },
-            dataType: "json"
-        })
-        .done(function (rep) {
-            console.log(rep);
-            if (rep.granted) {
-                alert("成功！");
-                window.location.replace("{{ path('order_confirm') }}"+'?id='+rep.id);
-                
-            }
-            else {
-                alert("。。");
-            }
-        })
-        });
-    })();
-    </script>
+    $('.btn-confirm').click(function () {
+      $this = $(this);
+    var productId = $this.attr("data-id");
+    $.ajax({
+      url: "{{ path('order_generation') }}",
+      method: "GET",
+      data: {
+        id : productId,
+        address : $( "#select-location" ).val(),
+      },
+      dataType: "json"
+    })
+    .done(function (rep) {
+      console.log(rep);
+      if (rep.granted) {
+        alert("成功！");
+        window.location.replace("{{ path('order_confirm') }}"+'?id='+rep.id);
+        
+      }
+      else {
+        alert("。。");
+      }
+    })
+    });
+  })();
+  </script>
 {% endblock %}

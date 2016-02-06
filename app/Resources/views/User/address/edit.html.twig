@@ -19,6 +19,7 @@
    <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
    <div>{{ form_label(form.img1) }}{{ form_widget(form.img1) }}</div>
    <div>{{ form_label(form.img2) }}{{ form_widget(form.img2) }}</div>
+   <!-- 这里需要判断下这两个字段idFront 和 back -->
    <img src="{{ asset('img/idScan') }}/{{address.idFront}}" style="width: 200px;">
    <img src="{{ asset('img/idScan') }}/{{address.idBack}}" style="width: 200px;">
 </div>
