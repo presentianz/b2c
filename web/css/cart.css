@@ -103,7 +103,6 @@
 }
 
 #cart-page-container .product-name {
-    width: 50%;
     text-align: left;
 }
 
@@ -155,7 +154,7 @@
 }
 #cart-page-container .form label {
     max-width: 200px;
-    width: 160px;
+    width: 200px;
 
 } 
 
@@ -218,6 +217,11 @@
     color: #000;
     text-decoration: underline;
     font-weight: bold;
+}
+
+
+#checkout-new-address {
+    display: none;
 }
 
 

@@ -50,7 +50,7 @@ $(document).ready(function () {
         $toHighlight.show().addClass('show')
     });
 
-    
+   
 }); // close jquery
 
 
@@ -106,6 +106,7 @@ $(function() {
 
     // });
 
+
      $('.continue-shop').click(function() {
         $('.bg-mask').css('display','none');
         $('.pop-cart').css('display','none');
@@ -115,6 +116,7 @@ $(function() {
         e.preventDefault();
         $this = $(this);
         console.log("try");
+        
         if($this.attr('data-hovered') == 'unhovered'){
             $this.attr('data-hovered','hovered');
             $.ajax({

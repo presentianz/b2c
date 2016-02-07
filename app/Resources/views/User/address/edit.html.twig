@@ -2,12 +2,16 @@
 {% block page_breadcrumb %}新建地址/修改地址{% endblock page_breadcrumb %}
 {% block page_title %}新建地址/修改地址{% endblock page_title %}
 {% block fos_user_content %}
-
 {% if address.id %}
 {{ form_start(form, { method: 'POST', action: path('user_address_edit',{ 'id': address.id }) }) }}
 {% else %}
 {{ form_start(form, { method: 'POST', action: path('user_address_create') }) }}	
 {% endif %}
+<div class="idupload-content-below">
+ <h5>直邮中国的快递必须提供收件人身份证才可以正常通关</h5>
+ <p>如果保存地址是没有上传收件人身份证信息，可以在 我的账户 下的 上传身份证 下上传，否者无法发货</p>
+
+
 <div class="form">
      <div>{{ form_label(form.country) }}
      {{ form_widget(form.country) }}{{ form_widget(form.city) }}</div>
@@ -20,14 +24,42 @@
      <div>{{ form_label(form.id_no) }}{{ form_widget(form.id_no) }}</div>
      <div>{{ form_label(form.img1) }}{{ form_widget(form.img1) }}</div>
      <div>{{ form_label(form.img2) }}{{ form_widget(form.img2) }}</div>
+     
+
+<!-- 这里需要判断下这两个字段idFront 和 back -->
+     {% if address.id %}
+     <div id="personal-front"> 
+     {{ form_label(form.img1) }}
+ <div class="cropme">
+        <img src="{{ asset('img/idScan') }}/{{address.idFront}}" style="width: 200px;">
+     </div>
+      <div class="idupload-image-remove hide">
+         <i class="fa fa-remove"></i>
+       </div>
+   </div>
+
+   <div id="personal-back"> 
+   {{ form_label(form.img2) }}
+     <div class="cropme">
+     <img src="{{ asset('img/idScan') }}/{{address.idBack}}" style="width: 200px;">
+     </div>
+      <div class="idupload-image-remove hide">
+         <i class="fa fa-remove"></i>
+       </div>
+   </div>
+</div>
+
+     {% endif %}
+
+
+
      <div style="display:none">
      <div>{{ form_label(form.comment) }}{{ form_widget(form.comment) }}</div>
- </div>
-   <!-- 这里需要判断下这两个字段idFront 和 back -->
-   <img src="{{ asset('img/idScan') }}/{{address.idFront}}" style="width: 200px;">
-   <img src="{{ asset('img/idScan') }}/{{address.idBack}}" style="width: 200px;">
+     </div> 
+   
+
 </div>
-<div>
+<div class='clear'>
   <input type="submit" value="取消" onclick="window.history.back();">
   <input type="submit" value="提交" />
 </div>

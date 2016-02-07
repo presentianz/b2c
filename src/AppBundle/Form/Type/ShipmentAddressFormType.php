@@ -17,8 +17,8 @@ class ShipmentAddressFormType extends AbstractType
 	            		'label' => '*收货地区', 
                         'attr' => array('placeholder' => '请选择收货地区'),
 	            		'choices' => array('中国' => '中国', 
-                                           '新西兰' => '新西兰'),
-                               
+                                           '新西兰' => '新西兰'),   
+                    'required' => true                                                  
             		))
 			    	->add('city','choice',array(
                         'attr' => array( 'placeholder' => '请选择收货省份'),
@@ -31,28 +31,40 @@ class ShipmentAddressFormType extends AbstractType
                                            '云南省' => '云南省', '西藏省' => '西藏省', '陕西省' => '陕西省', '甘肃省' => '甘肃省', 
                                            '青海省' => '青海省', '宁夏省' => '宁夏省', '新疆省' => '新疆省', '台湾' => '台湾', 
                                            '香港' => '香港', '澳门' => '澳门','海外' => '海外'),
-                        
+                        'required' => true
                     ))
-			    	->add('region','text',array('label'=>'地区：'))
-                    ->add('post_code','text',array('label'=>'邮编:'))
-                    ->add('address','textarea',array('label'=>'*收货地址：'))
+			    	->add('region','text',array('label'=>'地区：',
+                          'required' => false,
+                          'empty_data' => ' ',))
+                    ->add('post_code','text',array('label'=>'邮编:',
+                         'required' => false,
+                         'empty_data' => ' ',))
+                    ->add('address','textarea',array('label'=>'*收货地址：',
+                          'required' => true
+                      ))
 			    	
 
                     ->add('name','text',array(
                         'label'=>'*收件人姓名:',
                         'attr' => array('placeholder' => '必须是中文'),
+                       'required' => true
                         ))
                     ->add('phone_no','text',array(
                         'label'=>'*收件人手机号码：',
-                        'attr' => array('placeholder' => '可以直接填写'),
+                        'attr' => array('placeholder' => '可以直接填写',),
+                        'required' => false,
+                        'empty_data' => ' ',
                         ))
                     ->add('contact_no','text',array(
                         'label'=>'*固定电话：',
                        'attr' => array( 'placeholder' => '（区号）-电话号码',
-                        'pattern' => '[\(]\d+[\)]\d+[\-]\d+'),
+                        'pattern' => '[\(]?\d+[\)]?\s*\d+\s*[\-]?\d+'),
+                       'required' => true
                         ))
                     ->add('id_no','text',array(
-                        'label'=>'*收件人身份证号码：',
+                        'label'=>'收件人身份证号码：',
+                        'required' => false,
+                        'empty_data' => ' ',
                        'attr' => array( 'placeholder' => '收货地区为中国需要填写'),
                         ))
 
@@ -65,6 +77,8 @@ class ShipmentAddressFormType extends AbstractType
                     ->add('comment','textarea',array(
                         'label'=>'订单附言：',
                         'attr' => array('placeholder' => '有什么需要请吩咐哦'),
+                        'empty_data' => '没有留言',
+                        'required' => false
                         ));
 			    	
 

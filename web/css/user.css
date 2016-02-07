@@ -2,7 +2,7 @@
 
 #user-page .user-content {
     min-height: 90px;
-    padding: 15px;
+    padding: 15px 15px 15px 25px;
     height: auto;
     overflow: auto;
 }
@@ -33,10 +33,12 @@
 
 #user-page .user-content .form #shipment_address_country {
     width:285px;  
+        margin-left: -3px;
 }
 
 #user-page .user-content .form #shipment_address_city {
     width: 290px;
+        margin-left: 3px;
 }
 
 #user-page .user-content .form input {
@@ -116,6 +118,11 @@
 /* tab2 order statement*/
 #user-page .order-search {
     position: relative;
+    margin-bottom: 10px;
+}
+
+#user-page .order-cate {
+    min-height: 10px;
     margin-bottom: 10px;
 }
 
@@ -310,37 +317,7 @@
     vertical-align: middle;
 }
 
-/* id upload image */
-#user-page .idupload-image-each {
-    padding: 15px;
-    margin: 10px 15px 10px 0px;
-    min-height: 100px;
-    overflow: hidden;
-    word-wrap: break-word;
-    float: left;
-    width: 400px;
-    background-color: #eee;
-    border: 1px solid #ccc;
-}
 
-#user-page .idupload-image-detail {
-    overflow: auto;
-    padding: 5px;
-} 
-
-#user-page .idupload-image {
-    width: 140px;
-    height: 80px;
-    margin: 10px;
-    display: inline-block;
-    position: relative;
-}
-
-#user-page .idupload-image img {
-    width: 100%;
-}
-
-#user-page .idupload-content,
 #user-page .idupload-content-below {
     clear: both;
 }

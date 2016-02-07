@@ -138,7 +138,7 @@ select.delivery-options {
     border:0;
 }
 
-.clear{
+.clear {
     clear: both;
 }
 
@@ -274,7 +274,8 @@ select.delivery-options {
     -moz-border-radius:0px;
     position: absolute;
     z-index: 1;
-    right: 0px;
+    right: -50px;
+
     box-shadow: 0px 3px 5px #999;
     -webkit-box-shadow: 0 3px 5px #999;
     -moz-box-shadow:0 3px 5px #999;
@@ -292,7 +293,7 @@ select.delivery-options {
 
 #mid-header .nav-hover:hover .history-list {
     display: block;
-    top:29px;
+    top: 30px;
     width: 170px;
     text-align: center;
 }
@@ -303,6 +304,8 @@ select.delivery-options {
 
 #mid-header .history-list.history-view {
      min-width: 220px;
+     right: -80px;
+     top: 30px;
     
 }
 #mid-header .history-list .sub-list {
@@ -569,14 +572,22 @@ select.delivery-options {
 }
 
 .cart-spinner {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     position: relative;
-    margin: 20px auto;
+    margin: 30px auto;
 }
 
-.cart-spinner img {
-    width:  100%;
+.cart-top-spinner {
+     width: 30px;
+    height: 30px;
+    position: relative;
+     margin: 0px auto;
+}
+
+.cart-spinner img,
+.cart-top-spinner img {
+    width:  80%;
 }
 .cart-list {
     display: none;
@@ -698,9 +709,6 @@ select.delivery-options {
 .siderbar .nav-all > i.fa {
     color: #000;
 }
-
-
-
 
 ul.nav {
     margin: 0;
@@ -1262,24 +1270,18 @@ input.qty {
     cursor: pointer;
 }
 
-
-
-
 .number-input i {
     font-size: 14px;
     top: 2px;
     left: 6px;
     position: absolute;
-    color: #aaa;
+    color: #000;
 }
 
 .number-input-down i {
     top:-2px;
 }
 
-.number-input i:hover {
-    color: #000;
-}
 
 .footer-desc {
     height: 320px;

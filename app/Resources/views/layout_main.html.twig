@@ -240,7 +240,34 @@
 
         <!-- Custom JavaScript -->
         <script src="{{ asset('js/shop.js') }}"></script>
+        <script type="text/javascript">
+    (function () {
+        $.ajax({
+                url:  "{{ path('cart_ajax_get') }}",               
+                method: "GET",
+                dataType: "json"
+            })
+         .done(function (rep) {
+                var num = null;
+                var total = null;
+                if (rep !== 'none') {
+                    $.each(rep, function(index, value) {
+                        num += Number(value.count);
+                        total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
+                    });
+                        
+                    }
+                    else {
+                         num = 0;
+                        total = 0.00;
+                    }
+                    $('#cart').html("<i class='fa fa-circle'><h6>" + num + "</h6></i><span><i class='fa fa-shopping-cart'></i>&nbsp;$" + total +"&nbsp;</span>");
 
+                })
+
+        })();
+        </script>
+     
         {% block javascripts %}
         {% endblock %}
 
