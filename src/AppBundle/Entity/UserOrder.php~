@@ -33,6 +33,7 @@ class UserOrder
      * @var integer
      *
      * @ORM\Column(name="status", type="smallint")
+     * 0 = unpaid, 1 = paid, 2 = delivered, 3 = received, 4 = canceled
      */
     private $status;
 
@@ -42,6 +43,13 @@ class UserOrder
      * @ORM\Column(name="total_price", type="decimal", precision=8, scale=2)
      */
     private $totalPrice;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="post_fee", type="decimal", precision=8, scale=2)
+     */
+    private $postFee;
 
     /**
      * @var \DateTime
@@ -269,5 +277,28 @@ class UserOrder
     public function prePersist()
     {
         $this->createAt =  new \DateTime();
+    }
+
+    /**
+     * Set shipmentAddress
+     *
+     * @param \AppBundle\Entity\ShipmentAddress $shipmentAddress
+     * @return UserOrder
+     */
+    public function setShipmentAddress(\AppBundle\Entity\ShipmentAddress $shipmentAddress = null)
+    {
+        $this->shipmentAddress = $shipmentAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get shipmentAddress
+     *
+     * @return \AppBundle\Entity\ShipmentAddress 
+     */
+    public function getShipmentAddress()
+    {
+        return $this->shipmentAddress;
     }
 }

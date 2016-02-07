@@ -34,7 +34,7 @@ class OrderController extends Controller
             $order->setShipmentAddress($address);
             $order->setStatus(0);
             $order->setTotalPrice(0);
-
+            $total_weight = 0;
             //generate orderid
             $uid = $user->getId();
             $time_order=time();
@@ -45,6 +45,7 @@ class OrderController extends Controller
                 $orderProduct = new OrderProduct();
                 $orderProduct->setCount($value->getCount());
                 $product = $value->getProduct();
+                $total_weight += $value->getCount()*$product->getWeight()/1000;
                 $orderProduct->setPrice($product->getPriceDiscounted());
                 $orderProduct->setProduct($product);
                 $orderProduct->setUserOrder($order);
@@ -52,6 +53,8 @@ class OrderController extends Controller
                 $order->addOrderProduct($orderProduct);
                 $order->setTotalPrice($order->getTotalPrice()+$value->getCount()*$product->getPriceDiscounted());
             }
+            $total_weight += 0.2*(ceil($total_weight/5));
+            $order->setPostFee(8*$total_weight);
             $em->persist($order);
             foreach ($cartProducts as $cartProduct) {
                 $em->remove($cartProduct);

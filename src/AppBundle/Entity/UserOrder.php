@@ -45,6 +45,13 @@ class UserOrder
     private $totalPrice;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="post_fee", type="decimal", precision=8, scale=2)
+     */
+    private $postFee;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="create_at", type="datetime")
@@ -293,5 +300,28 @@ class UserOrder
     public function getShipmentAddress()
     {
         return $this->shipmentAddress;
+    }
+
+    /**
+     * Set postFee
+     *
+     * @param string $postFee
+     * @return UserOrder
+     */
+    public function setPostFee($postFee)
+    {
+        $this->postFee = $postFee;
+
+        return $this;
+    }
+
+    /**
+     * Get postFee
+     *
+     * @return string 
+     */
+    public function getPostFee()
+    {
+        return $this->postFee;
     }
 }
