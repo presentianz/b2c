@@ -207,8 +207,7 @@
           </thead>
           <tbody>    
              
-            {% set sum = 0 %}
-             {% set ids = [] %}
+            {% set sum, weight, ids = 0, 0, [] %}
               {% for cartproduct in data %}
                 <tr>
                   <td class="product-img">
@@ -236,8 +235,9 @@
                   </td>
                    <td><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm">X</a></td>    
                 </tr>
-                {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted + 8 %}
-                 {% set ids = ids|merge([cartproduct.product.id]) %}
+                {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted %}
+                {% set ids = ids|merge([cartproduct.product.id]) %}
+                {% set weight = weight + cartproduct.count*cartproduct.product.weight %}
               {% endfor %}
               {% set ids = ids|join(' ') %}
            </tbody>
@@ -245,11 +245,12 @@
             <tr class="tfoot-bottom"> 
               <td colspan="3" class="text-left"><strong>商品总额：</strong>
                {% if data|length > 0 %}
-                <strong id="totalprice">NZ${{ sum }}</strong>
+                <strong id="totalprice">NZ${{ sum }}</strong>总重：{% set weight = (weight/1000)|round(2, 'ceil') %}{{weight}} kg
+                邮费： {% set post = ( ( ((weight/5)|round(0, 'ceil')) * 0.2 + weight) * 8)|round(2, 'ceil') %} {{ post }}, 总价：{{ sum + post }}
                {% else %}
                  <strong>$0.00</strong> 
                  {% endif %}
-                 <strong>（邮费：$8 一公斤）</strong> 
+                 <strong>（邮费：$8 一公斤, ）</strong> 
               <td colspan="3" class="text-right">
                 <i class="fa fa-cart"></i>
                <input type="submit" title="提交订单" class="btn-pay" value="确认无误，马上下单" >

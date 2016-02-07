@@ -21,7 +21,9 @@
          <label>订单信息</label>
          <div><span>订单号：</span><span>{{order.orderId}}</span></div>
           <div><span>提交时间：</span><span>{{order.createAt|date('Y-m-d H:i:s')}}</span></div>
-          <div><span>订单总价：</span><span>NZD：{{order.totalPrice}}</span></div> 
+          <div><span>商品价格：</span><span>NZD：{{order.totalPrice}}</span></div> 
+          <div><span>邮费：</span><span>NZD：{{order.postFee}}</span></div>
+          <div><span>订单总价：</span><span>NZD：{{order.totalPrice + order.postFee}}</span></div> 
       </div>
       <hr>
       <div class="order-info">
