@@ -1,0 +1,167 @@
+{% extends 'layout_main.html.twig' %}
+
+{% block title %}结算{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('css/cart.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+    <div class="col-xs-3 siderbar">
+        {{ render(controller('AppBundle:Widget/Menu:index')) }}
+        {{ render(controller('AppBundle:Widget/Default:brandList')) }}
+        {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
+        {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
+        </div>
+  <div class="col-xs-9 page-right">
+      <div class="page-breadcrumb">
+          <ol>
+            <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
+            <li>&nbsp;>&nbsp;结算</li>
+           </ol>
+        </div>
+    <div class="page-content" id="cart-page-container">
+      <div class="page-title">
+      <div class="page-leaf-top"></div>
+        <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
+        <div><h4>结算</h4></div>
+         
+      </div>  
+      <div class="cart-tabs">
+        <div class="cart-tab">1.查看购物车</div> 
+        <div class="cart-tab-arrow"></div>
+        <div class="cart-tab active">2.填写购物信息</div>
+        <div class="cart-tab-arrow"></div>
+        <div class="cart-tab">3.完成订单</div>
+      </div>
+      <div class="col-xs-12 cart-content">
+
+      <div class="form">
+        <div>
+          <label>邮寄地址</label>
+          <select id="select-location" class="select-location">
+            {% for address in app.user.shipmentAddresses %}
+              <option value="{{address.id}}">{{address.name}} {{address.contactNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
+            {% endfor %}
+          </select>
+          <a href="{{path('user_address')}}">新建地址</a>
+        </div>
+      </div>
+
+        <div class="table-header">请在此确认你的订单产品</div>           
+        <table class="table no-margin">
+          <thead>
+            <tr>
+              <th width="15%">产品</th>
+              <th width="50%" class="product-name">产品名称</th>
+              <th width="10%">单价</th>
+              <th width="10%">价格$</th>
+              <th width="10%">数量</th>
+            </tr>
+          </thead>
+          <tbody>    
+             
+            {% set sum, weight, ids = 0, 0, [] %}
+              {% for cartproduct in data %}
+                <tr>
+                  <td class="product-img">
+                    <img src="{{ asset('img/src') }}/{{cartproduct.product.imageLink}}/poster/{{cartproduct.product.poster}}"/>
+                  </td>
+                  <td class="product-name">  
+                    <div class="name-limit">
+                    <a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a>
+                    </div>
+                  </td>
+                  <td id="oneprice_{{cartproduct.product.id }}"><strong>{{ cartproduct.product.priceDiscounted }}</strong></td> 
+                  <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
+                   
+                  <td class="text-right">
+                    <div class="number-group">
+                      <div maxlength="2" class="qty" min="1" max="99" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">{{ cartproduct.count }}</div>
+                    </div>
+                  </td>  
+                </tr>
+                {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted %}
+                {% set ids = ids|merge([cartproduct.product.id]) %}
+                {% set weight = weight + cartproduct.count*cartproduct.product.weight %}
+              {% endfor %}
+              {% set ids = ids|join(' ') %}
+           </tbody>
+          <tfoot>
+            <tr class="tfoot-bottom"> 
+              <td colspan="3" class="text-left">
+               {% if data|length > 0 %}
+               {% set weight = (weight/1000)|round(2, 'ceil') %}
+               {% set post = ( ( ((weight/5)|round(0, 'ceil')) * 0.2 + weight) * 8)|round(2, 'ceil') %}
+                <strong>总价：</strong><strong id="totalprice">NZ${{ sum + post }}（邮费：$8 一公斤）</strong><br>
+                商品价格：NZ${{ sum }}
+                总重：{{weight}} kg
+                邮费：  NZ${{ post }}
+               {% else %}
+                 <strong>$0.00</strong> 
+                 {% endif %}<br>
+                 <td  class="text-right">
+                 <input type="submit" value="返回购物车" onclick="window.history.back();">
+              </td>
+              <td  class="text-right">              
+               <input type="submit" title="提交订单" class="btn-pay" value="确认无误，马上下单" >
+              </td>
+            </tr>
+             
+          </tfoot>
+        </table>
+        </div>
+          </div>
+        </div>
+      </div> 
+         <div class="bg-mask"></div>
+    <div class="pop-cart">
+    <h3><i class="fa fa-info-circle"></i>
+      <span>确定提交订单？</span></h3>
+      <span>
+        <input type="submit" title="确定提交" data-id="{{ ids }}" class="btn-confirm" value="确定提交" >
+      </span>
+      <p class="continue-shop">继续购物</p>
+    </div>  
+{% endblock %}
+
+
+
+{% block javascripts %}
+  <script src="{{ asset('js/checkout.js') }}"></script>
+  <script type="text/javascript">
+  (function () {
+
+    $('.btn-pay').click(function() {
+    $('.bg-mask').css('display','block');
+    $('.pop-cart').css('display','block');
+    });
+
+
+    $('.btn-confirm').click(function () {
+      $this = $(this);
+    var productId = $this.attr("data-id");
+    $.ajax({
+      url: "{{ path('order_generation') }}",
+      method: "GET",
+      data: {
+        id : productId,
+        address : $( "#select-location" ).val(),
+      },
+      dataType: "json"
+    })
+    .done(function (rep) {
+      console.log(rep);
+      if (rep.granted) {
+        alert("成功！");
+        window.location.replace("{{ path('order_confirm') }}"+'?id='+rep.id);
+        
+      }
+      else {
+        alert("。。");
+      }
+    })
+    });
+  })();
+  </script>
+{% endblock %}

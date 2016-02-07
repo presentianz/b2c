@@ -1,11 +1,5 @@
 (function (){
 
-
-    $('.btn-pay').click(function() {
-    $('.bg-mask').css('display','block');
-    $('.pop-cart').css('display','block');
-    });
-
 // $("#select-location").change(function() {
 // 	//console.log($("#select-location option:selected").attr("value"));
 
