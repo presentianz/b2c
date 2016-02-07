@@ -65,6 +65,12 @@ $(function() {
         $(".brand-list .side-content").toggleClass("brand-height");
     });
 
+    $(".search-select").change(function(){
+       var key = $(this).children(":selected").attr("value");
+       console.log(key);
+       $(".search-query").val(key);
+    });
+
     $("#bookmarkme").click(function(e) {
         e.preventDefault();
         try

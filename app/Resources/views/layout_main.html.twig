@@ -71,11 +71,11 @@
                         <div class="navbar-below">
                             <div class="col-xs-6 no-padding">
                             <div class="navbar-search pull-left">
-                            <form action="{{ path('search') }}" method="get"  onsubmit="">
+                            <form action="{{ path('search', {keys : app.request.get('keys') }) }}" method="get"  onsubmit="">
                                 <select class="search-select">
-                                    <option><h6>蜂蜜</h6></option>
-                                    <option><h6>蜂胶</h6></option>
-                                    <option><h6>鱼油</h6></option>
+                                    <option value="蜂蜜" ><h6>蜂蜜</h6></option>
+                                    <option value="蜂胶"  selected><h6>蜂胶</h6></option>
+                                    <option value="鱼油"><h6>鱼油</h6></option>
                                 </select>
                                 <div class="search-input">
                                     <input type="text" id="keys" name="keys" lang="zh-CN" placeholder="搜索产品..." class="search-query" value="{{ app.request.get('keys') }}">

@@ -165,7 +165,7 @@ item_no: 18
             page : page + 1,
             sort : sort,
             item_no: item_no
-        }) }}" {% if page == data.total_page %} class="hide" {% endif %} class="i-next" title="下一个">
+        }) }}" class="i-next hide"  {% if page < data.total_page %} class="show"  {% endif %}  title="下一个">
         <i class="fa fa-caret-right"></i></a>
         <a id="next" href="{{ path('category', {
         id : id,
@@ -194,7 +194,7 @@ id : id,
 page : page - 1,
 sort : sort,
 item_no: item_no
-}) }}" {% if page - 1 == 0 %} class="hide" {% endif %}
+}) }}" {% if page - 1 == 0 %} class="hide" {% endif %} {% if page == 0 %} class="hide" {% endif %}
 {% if page == 1 %} class="hide" {% endif %} class="i-next"  title="上一个">
 <i class="fa fa-caret-left"></i></a>
 </span>
