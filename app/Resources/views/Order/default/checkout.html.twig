@@ -46,153 +46,7 @@
           </select>
           <a href="{{path('user_address')}}">新建地址</a>
         </div>
-       
-      <!--<div>
-        <label>*收货地区（国家）</label>
-        <select class="select-country">
-          <option>中国</option>
-          <option>新西兰</option>  
-        </select>
-        <select class="select-city">
-          <option>北京市</option>
-          <option>天津市</option>
-          <option>上海市</option>
-          <option>重庆市</option>
-          <option>河北省</option>
-          <option>山西省</option>
-          <option>内蒙古省</option>
-          <option>辽宁省</option>
-          <option>吉林省</option>
-          <option>黑龙江省</option>
-          <option>江苏省</option>
-          <option>浙江省</option>
-          <option>安徽省</option>
-          <option>福建省</option>
-          <option>江西省</option>
-          <option>山东省</option>
-          <option>河南省</option>
-          <option selected="selected">湖北省</option>
-          <option>湖南省</option>
-          <option>广东省</option>
-          <option>广西省</option>
-          <option>海南省</option>
-          <option>四川省</option>
-          <option>贵州省</option>
-          <option>云南省</option>
-          <option>西藏省</option>
-          <option>陕西省</option>
-          <option>甘肃省</option>
-          <option>青海省</option>
-          <option>宁夏省</option>
-          <option>新疆省</option>
-          <option>台湾</option>
-          <option>香港</option>
-          <option>澳门</option>
-          <option>海外</option>
-
-        </select>
       </div>
-      <div><label>地区：</label><input type="text" placeholder="可以直接填写"></div>
-      <div><label>*收货地址：</label><input type="text" placeholder="可以直接填写"></div>        
-      <div><label>邮编：</label><input type="text" placeholder="可以直接填写"></div>
-      <div><label>*收件人姓名：</label><input type="text" placeholder="必须是中文"></div>
-      <div><label>*收件人身份证号码：</label><input type="text" placeholder="地区为中国需要填写"></div>
-      <div><label>*收件人手机号码：</label><input type="text" placeholder="可以直接填写"></div>
-      <div><label>*固定电话：</label><input type="text" placeholder="（区号）-电话号码" pattern="[\(]\d+[\)]\d+[\-]\d+"></div>
-      <div><label>*订单附言：</label><textarea placeholder="有什么需要请吩咐哦"></textarea></div>-->
-<!--             <div><label>*配送方式确认：</label><input type="text" placeholder="可以直接填写"></div>
-      <div><label>*支付方式确认：</label><input type="text" placeholder="可以直接填写"></div> -->
-      </div>
-
-
-    {# <div class="content-up"> 
-    <table>
-      <thead>
-        <tr>
-          <th class="product-name">商品信息</th>
-          <th class="text-left">数量</th>
-          <th class="text-right">价格</th>
-        </tr>
-      </thead>
-      <tbody>
-       {% set sum = 0 %}
-       {% set ids = [] %}
-        {% for cartProduct in data %}
-          <tr>
-            <td class="product-name">
-              <img src="{{ asset('img/src') }}/{{cartProduct.product.imageLink}}/poster/{{cartProduct.product.poster}}"/>
-              <div class="name-limit"><a href="{{ path('product', { id : cartProduct.product.id }) }}">{{ cartProduct.product.name }}</a>
-              </div>
-            </td>
-            <td>{{ cartProduct.count }}</td>
-            <td class="text-right color">{{ cartProduct.count*cartProduct.product.priceDiscounted }}</td>
-          </tr>
-           {% set sum = sum + cartProduct.count*cartProduct.product.priceDiscounted + 20 %}
-           {% set ids = ids|merge([cartProduct.product.id]) %}
-        {% endfor %}
-        {% set ids = ids|join(' ') %}
-      </tbody>
-      <tfoot>
-        <tr><td class="text-right"><strong>运送方式:</strong></td>
-          <td>
-            <select class="delivery-options">
-            <option>快递</option>
-              <option><span>快递（3-5天）</span><span class="color">$20.00</span></option>
-              <option> <span>平递（7-10天）</span><span class="color">$0.00</span></option>
-              <option> <span>海运（10-15天）</span><span class="color">$0.00</span></option>
-            </select> 
-          </td>
-          <td class="text-right color">20.00</td> </tr>
-          <tr><td class="text-right"><strong>运送保险:</strong></td>
-            <td><input type="checkbox"> 购买保险</td>
-            <td class="text-right color">0.00</td></tr>
-            <tr><td class="text-right"><strong>优惠方式:</strong></td>
-              <td><input type="text" placeholder="使用优惠券"></td>
-              <td class="text-right color">-0.00</td> </tr>
-              <tr><td class="text-right"><strong>合计:</strong></td>
-                <td>（含运费和各项费用)</td>
-                <td class="text-right color"><h3>
-                {% if data|length > 0 %}
-                  {{ sum }}
-                {% else %}
-                   $0.00
-                {% endif %}
-                </h3></td> </tr>
-              </tfoot>
-            </table>
-            <hr>
-          </div>
-          <div class="content-down"> 
-            <div class="address-left">
-              <p><strong>快递要求：</strong></p>
-              <p>1.保健品、食品包裹：总数不超过<strong>16个</strong>，且总重量不超过<strong>7公斤</strong>，含有蜂蜜的包裹总数不超过<strong>14个</strong>。</p>
-              <p>2.含化妆品包裹：总数不超过<strong>12个</strong>，总重量不超过<strong>4公斤</strong>。</p>
-              <p>3.奶粉类包裹：请务必提供收件人相对应的身份证信息。</p>
-            </div>
-            <div  class="address-right">
-              <div class="text-right">
-                <strong>寄送至：</strong> 
-                <span class="shipped-address">湖北省武汉市江汉区三眼桥北路海红旗701</span>
-              </div>
-               <div class="text-right">
-                <strong>收货人：</strong>
-                <span class="shipped-name">万江</span>
-                <span class="shipped-number">2132132131</span>
-               </div>
-               <div class="text-right">
-                <h3 class="color"> 
-                <strong>应付总额：</strong>
-                  {% if data|length > 0 %}
-                    <strong>{{ sum }}</strong>
-                  {% else %}
-                     <strong>$0.00</strong> 
-                  {% endif %}
-                </h3>
-              </div>
-            </div>
-          </div>#}
-             
-
 
         <div class="table-header">请在此确认你的订单产品</div>           
         <table class="table no-margin">
@@ -218,22 +72,14 @@
                     <a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a>
                     </div>
                   </td>
-                   {# <td id="oneprice_{{cartproduct.product.id }}">{{ cartproduct.product.priceDiscounted }}</td> #}
+                    <td id="oneprice_{{cartproduct.product.id }}">{{ cartproduct.product.priceDiscounted }}</td> 
                   <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
                    
                   <td class="text-right">
                     <div class="number-group">
-                      {#<input type="text" value="{{ cartproduct.count }}" maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">#}
-                      <div maxlength="99" class="qty" min="1" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">{{ cartproduct.count }}</div>
-
-                      <div class="number-button" >  
-                        <div class="number-input number-input-up cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="+" data-no="1"><i class="fa fa-caret-up"></i></div>
-                        <hr>
-                        <div class="number-input number-input-down cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="-" data-no="1"><i class="fa fa-caret-down"></i></div>
-                      </div>
+                      <div maxlength="2" class="qty" min="1" max="99" id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">{{ cartproduct.count }}</div>
                     </div>
-                  </td>
-                   <td><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm">X</a></td>    
+                  </td>  
                 </tr>
                 {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted %}
                 {% set ids = ids|merge([cartproduct.product.id]) %}
@@ -266,10 +112,7 @@
 
           </div>
         </div>
-      </div>
-       {# <div class="cart-down col-xs-12">
-        {{ render(controller('AppBundle:Widget/Default:hotPro')) }}
-       </div>    #} 
+      </div> 
          <div class="bg-mask"></div>
     <div class="pop-cart">
     <h3><i class="fa fa-info-circle"></i>
