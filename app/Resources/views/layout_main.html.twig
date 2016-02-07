@@ -57,14 +57,14 @@
                             <div class="curreny pull-right">
                                 <select class="dollar-select">
                                 <option><h6>$ NZ Dollar</h6></option>
-                                <option><h6>$ AU Dollar</h6></option>
+                                <!-- <option><h6>$ AU Dollar</h6></option>
                                 <option><h6>$ UK EURO</h6></option>
-                                <option><h6>$ US Dollar</h6></option>
+                                <option><h6>$ US Dollar</h6></option> -->
                                 </select>
                                 <select class="lang-select">
                                     <option><h6>CN</h6></option>
-                                    <option><h6>EN</h6></option>
-                                    <option><h6>FR</h6></option>
+                                    <!-- <option><h6>EN</h6></option>
+                                    <option><h6>FR</h6></option> -->
                                 </select>    
                             </div> 
                         </div>
@@ -98,7 +98,7 @@
                                     <a class="a-login" href="{{path('fos_user_security_logout')}}"><h6 class="no-padding">(退出)</h6></a>
                                 </div>
                                  <div id="user-home" class="history nav-hover a-login">
-                                    <a href="{{ path('user_profile') }}"><h6>我的彩购</h6></a> 
+                                    <a href="{{ path('user_profile') }}"><h6>我的丰盛湾</h6></a> 
                                     <div class="history-list">
                                         <div><a href="{{path('user_profile')}}"><h6>我的账户</h6></a></div>
                                         <div><a href="{{path('user_profile')}}"><h6>我的积分</h6></a></div>
@@ -241,7 +241,8 @@
         <!-- Custom JavaScript -->
         <script src="{{ asset('js/shop.js') }}"></script>
         <script type="text/javascript">
-    (function () {
+    $(document).ready(function() {
+        
         $.ajax({
                 url:  "{{ path('cart_ajax_get') }}",               
                 method: "GET",
@@ -264,8 +265,7 @@
                     $('#cart').html("<i class='fa fa-circle'><h6>" + num + "</h6></i><span><i class='fa fa-shopping-cart'></i>&nbsp;$" + total +"&nbsp;</span>");
 
                 })
-
-        })();
+          });
         </script>
      
         {% block javascripts %}
