@@ -34,15 +34,5 @@ class OrderController extends Controller
             ));
     }
 
-    /**
-     * @Route("/order/detail/{id}", name="user_order_detail")
-     */
-    // public function detailAction($id)
-    // {
-    //     $em = $this->getDoctrine()->getManager();
-    //     $order = $em->getRepository('AppBundle:UserOrder')->findOneById($id);
-    //     return $this->render('User/order/detail.html.twig', array(
-    //         "data" => $order
-    //         ));
-    // }
+
 }

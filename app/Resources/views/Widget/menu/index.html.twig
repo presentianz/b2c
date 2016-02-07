@@ -8,13 +8,6 @@
 			<li id="{{sub1.id}}">
 				<div class="nav-item">
 					<a href="{{ path('category', { id : sub1.id }) }}" >{{ sub1.name }}</a>
-	           {# {% if sub1.__children|length > 0 %}
-	            <div>
-	                <a href="{{ path('category', { id : sub1.__children[0].id }) }}">{{ sub1.__children[0].name }}</a>&nbsp;&nbsp;&nbsp;
-	                {% if sub1.__children[1] is defined %}<a href="{{ path('category', { id : sub1.__children[1].id }) }}">{{ sub1.__children[1].name }}</a>{% endif %}
-	                
-	            </div>
-	            {% endif %} #}
 	        </div>
 	        {% if sub1.__children|length > 0 %}
 	         <div class="well dropdown-menu">

@@ -54,9 +54,9 @@
             <tr>
               <th width="15%">产品</th>
               <th width="50%" class="product-name">产品名称</th>
+              <th width="10%">单价</th>
               <th width="10%">价格$</th>
               <th width="10%">数量</th>
-              <th width="10%">删除</th>
             </tr>
           </thead>
           <tbody>    
@@ -72,7 +72,7 @@
                     <a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a>
                     </div>
                   </td>
-                    <td id="oneprice_{{cartproduct.product.id }}">{{ cartproduct.product.priceDiscounted }}</td> 
+                  <td id="oneprice_{{cartproduct.product.id }}"><strong>{{ cartproduct.product.priceDiscounted }}</strong></td> 
                   <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
                    
                   <td class="text-right">
@@ -89,16 +89,21 @@
            </tbody>
           <tfoot>
             <tr class="tfoot-bottom"> 
-              <td colspan="3" class="text-left"><strong>商品总额：</strong>
+              <td colspan="3" class="text-left">
                {% if data|length > 0 %}
-                <strong id="totalprice">NZ${{ sum }}</strong>总重：{% set weight = (weight/1000)|round(2, 'ceil') %}{{weight}} kg
-                邮费： {% set post = ( ( ((weight/5)|round(0, 'ceil')) * 0.2 + weight) * 8)|round(2, 'ceil') %} {{ post }}, 总价：{{ sum + post }}
+               {% set weight = (weight/1000)|round(2, 'ceil') %}
+               {% set post = ( ( ((weight/5)|round(0, 'ceil')) * 0.2 + weight) * 8)|round(2, 'ceil') %}
+                <strong>总价：</strong><strong id="totalprice">NZ${{ sum + post }}（邮费：$8 一公斤）</strong><br>
+                商品价格：NZ${{ sum }}
+                总重：{{weight}} kg
+                邮费：  NZ${{ post }}
                {% else %}
                  <strong>$0.00</strong> 
-                 {% endif %}
-                 <strong>（邮费：$8 一公斤, ）</strong> 
-              <td colspan="3" class="text-right">
-                <i class="fa fa-cart"></i>
+                 {% endif %}<br>
+                 <td  class="text-right">
+                 <input type="submit" value="返回购物车" onclick="window.history.back();">
+              </td>
+              <td  class="text-right">              
                <input type="submit" title="提交订单" class="btn-pay" value="确认无误，马上下单" >
               </td>
             </tr>
@@ -106,10 +111,6 @@
           </tfoot>
         </table>
         </div>
-
-
-
-
           </div>
         </div>
       </div> 

@@ -6,11 +6,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Cookie;
 
+use Symfony\Component\Form\FormBuilder;
+use AppBundle\Entity\ShipmentAddress;
+use AppBundle\Form\Type\ShipmentAddressFormType;
 use AppBundle\Entity\CartProduct;
 
 class DefaultController extends Controller
@@ -75,8 +79,30 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $cartArray = $request->request->get('product-id');
         $products = $em->getRepository('AppBundle:CartProduct')->getItem($cartArray, $this->getUser()->getId());
+
+
+        $form = $this->createForm(new ShipmentAddressFormType());
+         
+        $form->handleRequest($request);
+         
+        $address = new ShipmentAddress();
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+    
+            $address = $form->getData();
+            //$address = new ShipmentAddress();
+            $address->setUser($this->getUser());
+    
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($address);
+            $em->flush();
+             
+            return $this->redirectToRoute('order_confirm');
+        }
+         
         return $this->render('Order/default/checkout.html.twig', array(
-            'data' => $products
+            'data' => $products,
+            'form' => $form->createView(),
             ));
     }
 }

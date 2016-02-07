@@ -2,6 +2,13 @@
 <div class="pull-left order-search">
     <input type="text" placeholder="搜索单号..."/>
 </div>
+<div class="order-cate pull-right">      
+            <a class="search-keys" href="">未付款</a>
+            <a class="search-keys" href="">准备发货</a>
+            <a class="search-keys" href="">已发货</a>
+            <a class="search-keys" href="">已收货</a>
+            <a class="search-keys" href="">订单失效</a>
+        </div>
 {% for order in data %}
     <div id="{{ order.orderId }}" class="order-detail">
             <div class="order-title">
@@ -21,7 +28,7 @@
                     <div class="order-title-item">
                         <label>订单状态：</label>
                         <h5>{% if order.status == 0 %}未付款{% elseif order.status == 1 %}准备发货{% elseif order.status == 2 %}已发货{% elseif order.status == 3 %}已收货{% else %}订单失效{% endif %}
-                        <span><a class="color user-order-hover" id="{{ order.orderId }}">(订单详情)</a></i></h5>
+                        <span><a class="color user-order-hover" id="{{ order.orderId }}">(订单详请)</a></i></h5>
                     </div>
                 </div>
                     <div class="order-title-each pull-right">
