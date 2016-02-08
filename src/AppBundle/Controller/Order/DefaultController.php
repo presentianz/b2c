@@ -76,18 +76,23 @@ class DefaultController extends Controller
         }
         elseif ($type == 'online') {
             $amount = $order->getTotalPrice()+$order->getPostFee();
+            //var_dump(number_format($amount, 2));
             $xml = '<GenerateRequest>
-<PxPayUserId>SamplePXPayUser</PxPayUserId>
-<PxPayKey>cff9bd6b6c7614bec6872182e5f1f5bcc531f1afb744f0bcaa00e82ad3b37f6d</PxPayKey>
-<MerchantReference>'.$id.'</MerchantReference>
+<PxPayUserId>CAIGOU_Dev</PxPayUserId>
+<PxPayKey>0ef0c283693b5968e0b7ff9aec5a72a1755cbd5a16bd8a4b5a1044049c26ea95</PxPayKey>
+<MerchantReference>My Reference</MerchantReference>
 <TxnType>Purchase</TxnType>
 <AmountInput>'.number_format($amount, 2).'</AmountInput>
 <CurrencyInput>NZD</CurrencyInput>
-<TxnData1>'.$this->getUser()->getUsername().'</TxnData1>
-<UrlSuccess>http://localhost/b2c/web/app_dev.php/</UrlSuccess>
-<UrlFail>http://localhost/b2c/web/app_dev.php/</UrlFail>
+<TxnData1>Data 1</TxnData1>
+<TxnData2>Data 2</TxnData2>
+<TxnData3></TxnData3>
+<EmailAddress></EmailAddress>
+<TxnId></TxnId>
+<UrlSuccess>https://www.dpsdemo.com/SandboxSuccess.aspx</UrlSuccess>
+<UrlFail>https://www.dpsdemo.com/SandboxSuccess.aspx</UrlFail>
 </GenerateRequest>';
-            $ch = curl_init("https://sec.paymentexpress.com/pxaccess/pxpay.aspx");
+            $ch = curl_init("https://uat.paymentexpress.com/pxaccess/pxpay.aspx");
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
@@ -97,7 +102,7 @@ class DefaultController extends Controller
             $json = json_encode($temp);
             $array = json_decode($json,TRUE);
 
-            //exit(\Doctrine\Common\Util\Debug::dump($array['URI']));
+            //exit(\Doctrine\Common\Util\Debug::dump($array));
             return $this->redirect($array['URI']);
         }
     }
