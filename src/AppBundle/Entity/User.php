@@ -42,6 +42,7 @@ class User extends BaseUser
 
     /**
      * @ORM\OneToMany(targetEntity="UserOrder", mappedBy="user")
+     * @ORM\OrderBy({"create_at" = "ASC"})
      **/
     private $userOrders;
 

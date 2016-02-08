@@ -20,7 +20,7 @@ class ShipmentAddressFormType extends AbstractType
                                            '新西兰' => '新西兰'),   
                     'required' => true                                                  
             		))
-			    	->add('city','choice',array(
+			    	->add('region','choice',array(
                         'attr' => array( 'placeholder' => '请选择收货省份'),
                         'choices' => array('北京市' => '北京市', '天津市' => '天津市', '上海市' => '上海市', '重庆市' => '重庆市', 
                                            '河北省' => '河北省', '山西省' => '山西省', '内蒙古省' => '内蒙古省', '辽宁省' => '辽宁省', 
@@ -33,7 +33,7 @@ class ShipmentAddressFormType extends AbstractType
                                            '香港' => '香港', '澳门' => '澳门','海外' => '海外'),
                         'required' => true
                     ))
-			    	->add('region','text',array('label'=>'地区：',
+			    	->add('city','text',array('label'=>'城市',
                           'required' => false,
                           'empty_data' => ' ',))
                     ->add('post_code','text',array('label'=>'邮编:',

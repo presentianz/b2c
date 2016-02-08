@@ -41,7 +41,7 @@
           <label>邮寄地址</label>
           <select id="select-location" class="select-location">
             {% for address in app.user.shipmentAddresses %}
-              <option value="{{address.id}}">{{address.name}} {{address.contactNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
+              <option value="{{address.id}}">{{address.name}}  {{address.phoneNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
             {% endfor %}
           </select>
           <a href="{{path('user_address')}}">新建地址</a>
@@ -119,8 +119,10 @@
     <h3><i class="fa fa-info-circle"></i>
       <span>确定提交订单？</span></h3>
       <span>
-        <input type="submit" title="确定提交" data-id="{{ ids }}" class="btn-confirm" value="确定提交" >
+        <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="trans" class="btn-confirm" value="银行转帐" >
+        <input type="submit" title="在线支付" data-id="{{ ids }}" data-type="online" class="btn-confirm" value="在线支付" >
       </span>
+      <p>选择银行转帐将会生成订单，在跳转后请尽快转帐保证按时出货，转帐时请付言账单号后六位。</p>
       <p class="continue-shop">继续购物</p>
     </div>  
 {% endblock %}
@@ -140,27 +142,28 @@
 
     $('.btn-confirm').click(function () {
       $this = $(this);
-    var productId = $this.attr("data-id");
-    $.ajax({
-      url: "{{ path('order_generation') }}",
-      method: "GET",
-      data: {
-        id : productId,
-        address : $( "#select-location" ).val(),
-      },
-      dataType: "json"
-    })
-    .done(function (rep) {
-      console.log(rep);
-      if (rep.granted) {
-        alert("成功！");
-        window.location.replace("{{ path('order_confirm') }}"+'?id='+rep.id);
-        
-      }
-      else {
-        alert("。。");
-      }
-    })
+      var productId = $this.attr("data-id");
+      var type = $this.attr("data-type");
+      $.ajax({
+        url: "{{ path('order_generation') }}",
+        method: "GET",
+        data: {
+          id : productId,
+          address : $( "#select-location" ).val(),
+        },
+        dataType: "json"
+      })
+      .done(function (rep) {
+        console.log(rep);
+        if (rep.granted) {
+          alert("成功！");
+          window.location.replace("{{ path('order_confirm') }}"+'?id='+rep.id+'&type='+type);
+          
+        }
+        else {
+          alert("。。");
+        }
+      })
     });
   })();
   </script>

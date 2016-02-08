@@ -9,14 +9,14 @@
 {% endif %}
 <div class="idupload-content-below">
  <h5>直邮中国的快递必须提供收件人身份证才可以正常通关</h5>
- <p>如果保存地址是没有上传收件人身份证信息，可以在 我的账户 下的 上传身份证 下上传，否者无法发货</p>
+ <p>二代身份证需要同时提交证件的正反面内容，请分别扫描正反面图片后分别上传。身份证需确保照片、文字信息都清晰可见，如需加水印请在空白处填写“仅供清关使用”字样，否则无效！文件类型：*.gif/*.jpg/*.png 尺寸像素宽600X高800，大小不超过100KB。</p>
   </div>
 <div class="form">
      <div>{{ form_label(form.country) }}
-     {{ form_widget(form.country) }}{{ form_widget(form.city) }}</div>
-     <div>{{ form_label(form.region) }}{{ form_widget(form.region) }}</div>
-     <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
+     {{ form_widget(form.country) }} {{ form_widget(form.region) }}</div>
+     <div>{{ form_label(form.city) }}{{ form_widget(form.city) }}</div>
      <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
+     <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
      <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
      <div>{{ form_label(form.phone_no) }}{{ form_widget(form.phone_no) }}</div>
      <div>{{ form_label(form.contact_no) }}{{ form_widget(form.contact_no) }}</div>
@@ -25,20 +25,12 @@
      <div>{{ form_label(form.img2) }}{{ form_widget(form.img2) }}</div>
      
 
-<!-- 这里需要判断下这两个字段idFront 和 back -->
+<!-- 这里需要判断下这两个字段idFront 和 back 
      <div id="personal-front"> 
-     {{ form_label(form.img1) }}
       <div class="cropme">
-        <img src="{{ asset('img/idScan') }}/{{address.idFront}}" style="width: 200px;">
-     </div>
-   </div>
-   <div id="personal-back"> 
-   {{ form_label(form.img2) }}
-     <div class="cropme">
-     <img src="{{ asset('img/idScan') }}/{{address.idBack}}" style="width: 200px;">
-     </div>
-   </div>
 
+     </div>
+   </div>-->
 
      <div style="display:none">
      <div>{{ form_label(form.comment) }}{{ form_widget(form.comment) }}</div>

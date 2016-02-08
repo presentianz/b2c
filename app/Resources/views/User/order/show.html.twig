@@ -3,11 +3,11 @@
     <input type="text" placeholder="搜索单号..."/>
 </div>
 <div class="order-cate pull-right">      
-            <a class="search-keys" href="">未付款</a>
-            <a class="search-keys" href="">准备发货</a>
-            <a class="search-keys" href="">已发货</a>
-            <a class="search-keys" href="">已收货</a>
-            <a class="search-keys" href="">订单失效</a>
+            <a class="search-keys {% if type == 0 %}active{% endif %}" href="{{path('user_order', {'type':0})}}">未付款</a>
+            <a class="search-keys {% if type == 1 %}active{% endif %}" href="{{path('user_order', {'type':1})}}">准备发货</a>
+            <a class="search-keys {% if type == 2 %}active{% endif %}" href="{{path('user_order', {'type':2})}}">已发货</a>
+            <a class="search-keys {% if type == 3 %}active{% endif %}" href="{{path('user_order', {'type':3})}}">已收货</a>
+            <a class="search-keys {% if type == 4 %}active{% endif %}" href="{{path('user_order', {'type':4})}}">订单失效</a>
         </div>
 {% for order in data %}
     <div id="{{ order.orderId }}" class="order-detail">

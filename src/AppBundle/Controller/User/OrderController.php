@@ -23,14 +23,15 @@ use AppBundle\Entity\UserOrder;
 class OrderController extends Controller
 {
     /**
-     * @Route("/order", name="user_order")
+     * @Route("/order/{type}", name="user_order", defaults={"type":0})
      */
-    public function indexAction()
+    public function indexAction($type)
     {
         $em = $this->getDoctrine()->getManager();
-        $orders = $em->getRepository('AppBundle:UserOrder')->findByUser($this->getUser()->getId());
+        $orders = $em->getRepository('AppBundle:UserOrder')->findByType($this->getUser()->getId(), $type);
         return $this->render('User/order/index.html.twig', array(
-            'data' => $orders
+            'data' => $orders,
+            'type' => $type
             ));
     }
 

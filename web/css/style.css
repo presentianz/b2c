@@ -1145,6 +1145,11 @@ del {
     line-height: 30px;
 }
 
+.search-keys.active {
+    background: #a8df4e;
+    color: #000; 
+}
+
 .search-keys:hover {
     background: #a8df4e;
     color: #000; 

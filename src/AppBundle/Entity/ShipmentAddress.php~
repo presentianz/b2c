@@ -76,9 +76,23 @@ class ShipmentAddress
     /**
      * @var string
      *
+     * @ORM\Column(name="phone_no", type="string", length=255)
+     */
+    private $phoneNo;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="id_no", type="string", length=255)
      */
     private $idNo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comment", type="string", length=255)
+     */
+    private $comment;
 
     /**
      * @var string
@@ -287,6 +301,29 @@ class ShipmentAddress
         return $this->contactNo;
     }
 
+     /**
+     * Set phoneNo
+     *
+     * @param string $phoneNo
+     * @return ShipmentAddress
+     */
+    public function setPhoneNo($phoneNo)
+    {
+        $this->phoneNo = $phoneNo;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneNo
+     *
+     * @return string 
+     */
+    public function getPhoneNo()
+    {
+        return $this->phoneNo;
+    }
+
     /**
      * Set idNo
      *
@@ -308,6 +345,29 @@ class ShipmentAddress
     public function getIdNo()
     {
         return $this->idNo;
+    }
+
+     /**
+     * Set commet
+     *
+     * @param string $comment
+     * @return ShipmentAddress
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string 
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 
 

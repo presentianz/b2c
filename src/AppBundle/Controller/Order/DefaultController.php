@@ -5,6 +5,9 @@ namespace AppBundle\Controller\Order;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 
 use Symfony\Component\HttpFoundation\Request;
@@ -60,12 +63,57 @@ class DefaultController extends Controller
     public function orderConfirmAction(Request $request)
     {
         $id = $request->query->get('id');
+        $type = $request->query->get('type');
         $em = $this->getDoctrine()->getManager();
-        $order = $em->getRepository('AppBundle:UserOrder')->findOneById($id);
-        
-        return $this->render('Order/default/order_confirm.html.twig', array(
-            'data' => $order
-            ));
+        $order = $em->getRepository('AppBundle:UserOrder')->findOneByOrderId($id);
+        if ($type == 'trans') {
+            if ($order->getUser() != $this->getUser()) {
+                return new Response('Not your thing!');
+            }
+            return $this->render('Order/default/order_confirm.html.twig', array(
+                'data' => $order
+                ));
+        }
+        elseif ($type == 'online') {
+            $amount = $order->getTotalPrice()+$order->getPostFee();
+//             $xml = '<GenerateRequest>
+// <PxPayUserId>SamplePXPayUser</PxPayUserId>
+// <PxPayKey>cff9bd6b6c7614bec6872182e5f1f5bcc531f1afb744f0bcaa00e82ad3b37f6d</PxPayKey>
+// <MerchantReference>Purchase Example</MerchantReference>
+// <TxnType>Purchase</TxnType>
+// <AmountInput>1.00</AmountInput>
+// <CurrencyInput>NZD</CurrencyInput>
+// <TxnData1>John Doe</TxnData1>
+// <TxnData2>0211111111</TxnData2>
+// <TxnData3>98 Anzac Ave, Auckland 1010</TxnData3>
+// <EmailAddress>samplepxpayuser@paymentexpress.com</EmailAddress>
+// <UrlSuccess>https://www.dpsdemo.com/SandboxSuccess.aspx</UrlSuccess>
+// <UrlFail>https://www.dpsdemo.com/SandboxSuccess.aspx</UrlFail>
+// </GenerateRequest>';
+            $xml = '<GenerateRequest>
+<PxPayUserId>SamplePXPayUser</PxPayUserId>
+<PxPayKey>cff9bd6b6c7614bec6872182e5f1f5bcc531f1afb744f0bcaa00e82ad3b37f6d</PxPayKey>
+<MerchantReference>'.$id.'</MerchantReference>
+<TxnType>Purchase</TxnType>
+<AmountInput>'.number_format($amount, 2).'</AmountInput>
+<CurrencyInput>NZD</CurrencyInput>
+<TxnData1>'.$this->getUser()->getUsername().'</TxnData1>
+<UrlSuccess>http://localhost/b2c/web/app_dev.php/</UrlSuccess>
+<UrlFail>http://localhost/b2c/web/app_dev.php/</UrlFail>
+</GenerateRequest>';
+            $ch = curl_init("https://sec.paymentexpress.com/pxaccess/pxpay.aspx");
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
+            $response = curl_exec($ch);
+            curl_close ($ch);
+            $temp = simplexml_load_string($response);
+            $json = json_encode($temp);
+            $array = json_decode($json,TRUE);
+
+            //exit(\Doctrine\Common\Util\Debug::dump($array['URI']));
+            return $this->redirect($array['URI']);
+        }
     }
 
 

@@ -301,4 +301,27 @@ class UserOrder
     {
         return $this->shipmentAddress;
     }
+
+    /**
+     * Set postFee
+     *
+     * @param string $postFee
+     * @return UserOrder
+     */
+    public function setPostFee($postFee)
+    {
+        $this->postFee = $postFee;
+
+        return $this;
+    }
+
+    /**
+     * Get postFee
+     *
+     * @return string 
+     */
+    public function getPostFee()
+    {
+        return $this->postFee;
+    }
 }

@@ -13,4 +13,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserOrderRepository extends EntityRepository
 {
+	public function findByType($id, $type)
+	{
+		$query = $this->getEntityManager()->createQuery(
+                'SELECT O FROM AppBundle:UserOrder O WHERE O.user = :id AND O.status = :type 
+                ORDER BY O.createAt DESC'
+            );
+        $query->setParameter('id', $id);
+        $query->setParameter('type', $type);
+        return $query->getResult();
+	}
 }

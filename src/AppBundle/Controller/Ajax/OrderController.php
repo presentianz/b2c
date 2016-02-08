@@ -45,7 +45,7 @@ class OrderController extends Controller
                 $orderProduct = new OrderProduct();
                 $orderProduct->setCount($value->getCount());
                 $product = $value->getProduct();
-                $total_weight += $value->getCount()*$product->getWeight()/1000;
+                $total_weight += $value->getCount()*$product->getWeight();
                 $orderProduct->setPrice($product->getPriceDiscounted());
                 $orderProduct->setProduct($product);
                 $orderProduct->setUserOrder($order);
@@ -53,18 +53,24 @@ class OrderController extends Controller
                 $order->addOrderProduct($orderProduct);
                 $order->setTotalPrice($order->getTotalPrice()+$value->getCount()*$product->getPriceDiscounted());
             }
-            $total_weight += 0.2*(ceil($total_weight/5));
+            $total_weight = $this->ceiling($total_weight/1000, 0.01);
+            $total_weight += $this->ceiling(0.2*($this->ceiling($total_weight/5, 1)), 0.01);
             $order->setPostFee(8*$total_weight);
             $em->persist($order);
             foreach ($cartProducts as $cartProduct) {
                 $em->remove($cartProduct);
             }
             $em->flush();
-            $return = array('granted' => true, 'id' => $order->getId());
+            $return = array('granted' => true, 'id' => $order->getOrderId());
         }
         else {
             $return = array('granted' => false);
         }
         return new Response(json_encode($return));
+    }
+
+    private function ceiling($number, $significance)
+    {
+        return ( is_numeric($number) && is_numeric($significance) ) ? (ceil($number/$significance)*$significance) : false;
     }
 }
