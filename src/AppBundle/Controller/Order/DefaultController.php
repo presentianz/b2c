@@ -95,6 +95,7 @@ class DefaultController extends Controller
             $ch = curl_init("https://uat.paymentexpress.com/pxaccess/pxpay.aspx");
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
             $response = curl_exec($ch);
             curl_close ($ch);
@@ -103,7 +104,11 @@ class DefaultController extends Controller
             $array = json_decode($json,TRUE);
 
             //exit(\Doctrine\Common\Util\Debug::dump($array));
-            return $this->redirect($array['URI']);
+            if ($array['URI']) {
+                return $this->redirect($array['URI']);
+            }
+            else
+                return $this->redirectToRoute('user_order');
         }
     }
 
