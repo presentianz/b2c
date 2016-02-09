@@ -39,13 +39,14 @@
       <div class="form">
         <div>
           <label>邮寄地址</label>
-          {% if app.user.shipmentAddresses|length > 0 %}
-            <select id="select-location" class="select-location">
-              {% for address in app.user.shipmentAddresses %}
-                <option value="{{address.id}}">{{address.name}}  {{address.phoneNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
-              {% endfor %}
-            </select>
-          {% endif %}
+
+          <select id="select-location" class="select-location">
+            <option value=''>请选择邮寄地址</option>
+            {% for address in app.user.shipmentAddresses %}
+              <option value="{{address.id}}">{{address.name}}  {{address.phoneNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
+            {% endfor %}
+          </select>
+
           <a href="{{path('user_address')}}">新建地址</a>
         </div>
       </div>
@@ -143,29 +144,35 @@
 
 
     $('.btn-confirm').click(function () {
-      $this = $(this);
-      var productId = $this.attr("data-id");
-      var type = $this.attr("data-type");
-      $.ajax({
-        url: "{{ path('order_generation') }}",
-        method: "GET",
-        data: {
-          id : productId,
-          address : $( "#select-location" ).val(),
-        },
-        dataType: "json"
-      })
-      .done(function (rep) {
-        console.log(rep);
-        if (rep.granted) {
-          alert("成功！");
-          window.location.replace("{{ path('order_confirm') }}"+'?id='+rep.id+'&type='+type);
-          
-        }
-        else {
-          alert("。。");
-        }
-      })
+      if ($( "#select-location" ).val() != '') {
+        $this = $(this);
+        var productId = $this.attr("data-id");
+        var type = $this.attr("data-type");
+        $.ajax({
+          url: "{{ path('order_generation') }}",
+          method: "GET",
+          data: {
+            id : productId,
+            address : $( "#select-location" ).val(),
+          },
+          dataType: "json"
+        })
+        .done(function (rep) {
+          console.log(rep);
+          if (rep.granted) {
+            
+            window.location.replace("{{ path('order_confirm') }}"+'?id='+rep.id+'&type='+type);
+          }
+          else {
+            alert("。。");
+          }
+        })
+      }
+      else {
+        alert('请选择地址！');
+        $('.bg-mask').css('display','none');
+        $('.pop-cart').css('display','none');
+      }
     });
   })();
   </script>

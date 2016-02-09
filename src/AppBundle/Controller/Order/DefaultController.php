@@ -57,7 +57,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/orderConfirm", name="order_confirm", options={"expose"=true}))
+     * @Route("/orderConfirm", name="order_confirm"))
      * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      */
     public function orderConfirmAction(Request $request)
@@ -102,8 +102,6 @@ class DefaultController extends Controller
             $temp = simplexml_load_string($response);
             $json = json_encode($temp);
             $array = json_decode($json,TRUE);
-
-            //exit(\Doctrine\Common\Util\Debug::dump($array));
             if ($array['URI']) {
                 return $this->redirect($array['URI']);
             }
@@ -128,24 +126,23 @@ class DefaultController extends Controller
 
 
         $form = $this->createForm(new ShipmentAddressFormType());
-         
+
         $form->handleRequest($request);
-         
+
         $address = new ShipmentAddress();
-        
+
         if ($form->isSubmitted() && $form->isValid()) {
-    
+
             $address = $form->getData();
-            //$address = new ShipmentAddress();
             $address->setUser($this->getUser());
-    
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($address);
             $em->flush();
-             
+
             return $this->redirectToRoute('order_confirm');
         }
-         
+
         return $this->render('Order/default/checkout.html.twig', array(
             'data' => $products,
             'form' => $form->createView(),

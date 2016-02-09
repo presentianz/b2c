@@ -95,24 +95,6 @@ $(function() {
 //hover cart
 $(function() {
 
-    //    $('.add-review').click(function (e) {
-    //     e.preventDefault();
-    //     $this = $(this);
-    //     var productId = $this.attr("id");
-    //     console.log("+++++");
-    //     $.ajax({
-    //         url: $this.attr("data-path"),
-    //         method: "POST",
-    //         dataType: "json"
-    //     })
-    //     .done(function (rep) {
-    //        // window.location.href=Routing.generate('product') + "/" + $this.attr("data-id");
-           
-    //     })
-
-    // });
-
-
      $('.continue-shop').click(function() {
         $('.bg-mask').css('display','none');
         $('.pop-cart').css('display','none');
@@ -122,7 +104,6 @@ $(function() {
         e.preventDefault();
         $this = $(this);
         console.log("try");
-        
         if($this.attr('data-hovered') == 'unhovered'){
             $this.attr('data-hovered','hovered');
             $.ajax({
