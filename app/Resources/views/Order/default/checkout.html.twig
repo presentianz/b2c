@@ -39,11 +39,13 @@
       <div class="form">
         <div>
           <label>邮寄地址</label>
-          <select id="select-location" class="select-location">
-            {% for address in app.user.shipmentAddresses %}
-              <option value="{{address.id}}">{{address.name}}  {{address.phoneNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
-            {% endfor %}
-          </select>
+          {% if app.user.shipmentAddresses|length > 0 %}
+            <select id="select-location" class="select-location">
+              {% for address in app.user.shipmentAddresses %}
+                <option value="{{address.id}}">{{address.name}}  {{address.phoneNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
+              {% endfor %}
+            </select>
+          {% endif %}
           <a href="{{path('user_address')}}">新建地址</a>
         </div>
       </div>

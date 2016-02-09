@@ -17,7 +17,7 @@
  </div>
  <div class="col-xs-6 user-info">
     <div class="status-each">
-        <h2>1</h2>
+        <h2>{{ user.userOrders|length }}</h2>
         <div><a href="{{path('user_order')}}">(查看所有订单)</a></div>
     </div>
     <div class="status-each">
