@@ -110,6 +110,8 @@ class DefaultController extends Controller
             else
                 return $this->redirectToRoute('user_order');
         }
+        else
+            return $this->redirectToRoute('user_order');
     }
 
 
