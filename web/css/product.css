@@ -47,6 +47,7 @@
     color: #000;
     font-size: 16px;
     line-height: 25px;
+    word-break: break-all;
 }
 
 #product-page .product-info .col-xs-7 p label {

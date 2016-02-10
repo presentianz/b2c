@@ -164,7 +164,7 @@
                                         page : (app.request.get('page')) ? app.request.get('page')+5 : 10,
                                         sort : app.request.get('sort'),
                                         item_no: app.request.get('item_no')
-                                    }) }}" {% if app.request.get('page') + 5 >= data.total_page %} class="hide" {% endif %} class="next">
+                                    }) }}" class="next hide" {% if app.request.get('page') + 5 >= data.total_page %} class="show" {% endif %} >
                                     <i class="fa fa-angle-double-right"></i></a>
                                     {% for i in data.total_page..1 %}
                                     <a href="{{ path('search', {
@@ -172,21 +172,21 @@
                                             page : i,
                                             sort : app.request.get('sort'),
                                             item_no: app.request.get('item_no')
-                                        }) }}" {% if not app.request.get('page') and i == 1 %} class="page active" {% elseif i == app.request.get('page') %} class="page active" {% endif %} class="page"> {{ i }}</a>
+                                        }) }}" class="page" {% if i == 0 %} class="hide" {% endif %} {% if i == app.request.get('page') %} class="page active" {% endif %}  > {{ i }}</a>
                                     {% endfor %}
                                     <a id="prev" href="{{ path('search', {
                                         keys : app.request.get('keys'),
                                         page : (app.request.get('page')) ? app.request.get('page')-5 : 10,
                                         sort : app.request.get('sort'),
                                         item_no: app.request.get('item_no')
-                                    }) }}" {% if app.request.get('page') - 5 <= 0 %} class="hide" {% endif %} class="prev">
+                                    }) }}" class="prev hide" {% if app.request.get('page') - 5 >= 0 %} class="show" {% endif %} >
                                     <i class="fa fa-angle-double-left"></i></a>  
                                     <a href="{{ path('search', {
                                         keys : app.request.get('keys'),
                                         page : (app.request.get('page')) ? app.request.get('page')-1 : 2,
                                         sort : app.request.get('sort'),
                                         item_no: app.request.get('item_no')
-                                    }) }}" {% if app.request.get('page') - 1 == 0  %} class="hide" {% endif %} {% if app.request.get('page') == 0  %} class="hide" {% endif %} {% if app.request.get('page') == data.total_page %} class="hide" {% endif %} class="i-prev" title="上一个">
+                                    }) }}" class="i-prev hide" {% if app.request.get('page') > 1  %} class="show" {% endif %}  title="上一个">
                                     <i class="fa fa-caret-left"></i></a>
                                
                             </div>
