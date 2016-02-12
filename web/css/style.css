@@ -28,6 +28,20 @@ a:focus {
     outline: none;
 }
 
+a.button {
+    color: #ffffff;
+    background-color: #ee1c24;
+    font-size: 15px;
+    height: 30px;
+    margin: 0px;
+    padding: 5px 20px;
+    vertical-align: middle;
+    min-width: 80px;
+    border-radius:0px;
+    -webkit-border-radius:0px;  
+    -moz-border-radius:0px;
+}
+
 ul,li{
     list-style:none;
 }
@@ -1576,6 +1590,10 @@ input.qty {
 .pop-address p {
     cursor: pointer;
     text-decoration: underline;
+}
+
+#need-address {
+    position: fixed;
 }
 
 

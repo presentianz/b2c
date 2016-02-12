@@ -81,8 +81,9 @@
 }
 
 #cart-page-container table img {
-    width:100px;
-    max-width:  100px;
+    width: 100px;
+    height: 80px;
+    max-width: 100px;
 }
 
 #cart-page-container table td {

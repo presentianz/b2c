@@ -39,14 +39,12 @@
       <div class="form">
         <div>
           <label>邮寄地址</label>
-
           <select id="select-location" class="select-location">
             <option value=''>请选择邮寄地址</option>
             {% for address in app.user.shipmentAddresses %}
               <option value="{{address.id}}">{{address.name}}  {{address.phoneNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
             {% endfor %}
           </select>
-
           <a class="new-address">新建地址</a>
         </div>
       </div>
@@ -117,7 +115,7 @@
           </div>
         </div>
       </div> 
-<div class="bg-mask"></div>
+<div class="bg-mask continue-shop"></div>
     <div id="pop-cart" class="pop-cart">
     <h3><i class="fa fa-info-circle"></i>
       <span>确定提交订单？</span></h3>
@@ -125,29 +123,14 @@
         <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="trans" class="btn-confirm" value="银行转帐" >
         <input type="submit" title="在线支付" data-id="{{ ids }}" data-type="online" class="btn-confirm" value="在线支付" >
       </span>
-      <p>选择银行转帐将会生成订单，在跳转后请尽快转帐保证按时出货，转帐时请付言账单号后六位。</p>
+      <h6>选择银行转帐将会生成订单，在跳转后请尽快转帐保证按时出货，转帐时请付言账单号后六位。</h6>
       <p class="continue-shop">继续购物</p>
     </div>
 
     <div id="need-address" class="pop-address">
-    <h3><i class="fa fa-info-circle"></i>
-      <span>请选择地址</span></h3>
-      <div class="form">
-          <select id="select-location" class="select-location">
-            <option value=''>请选择邮寄地址</option>
-            {% for address in app.user.shipmentAddresses %}
-              <option value="{{address.id}}">{{address.name}}  {{address.phoneNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
-            {% endfor %}
-          </select>  
-          <a class="new-address">新建地址</a>  
-        </div>
-        
-        <span>
-        <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="trans" class="btn-confirm" value="银行转帐" >
-        <input type="submit" title="在线支付" data-id="{{ ids }}" data-type="online" class="btn-confirm" value="在线支付" >
-      </span>
-      <p>选择银行转帐将会生成订单，在跳转后请尽快转帐保证按时出货，转帐时请付言账单号后六位。</p>
-      <p class="continue-shop">继续购物</p>
+    <h3><i class="fa fa-info-circle color"></i>
+      <span>请选择地址</span></h3> 
+      <p class="continue-shop">返回</p>
     </div>
 
 
@@ -158,8 +141,8 @@
 
       {{ form_start(form) }} 
  <h5>直邮中国的快递必须提供收件人身份证才可以正常通关</h5>
- <p>二代身份证需要同时提交证件的正反面内容，请分别扫描正反面图片后分别上传。身份证需确保照片、文字信息都清晰可见，如需加水印请在空白处填写“仅供清关使用”字样，否则无效！文件类型：*.gif/*.jpg/*.png 尺寸像素宽600X高800，大小不超过100KB。</p>
-
+ <h6>二代身份证需要同时提交证件的正反面内容，请分别扫描正反面图片后分别上传。身份证需确保照片、文字信息都清晰可见，如需加水印请在空白处填写“仅供清关使用”字样，否则无效！文件类型：*.gif/*.jpg/*.png 尺寸像素宽600X高800，大小不超过100KB。</h6>
+W
 <div class="form">
      <div>{{ form_label(form.country) }}
      {{ form_widget(form.country) }} {{ form_widget(form.region) }}</div>
