@@ -52,6 +52,7 @@ class Config
     {
         return $this->id;
     }
+<<<<<<< HEAD
     
         /**
      * Set id
@@ -71,6 +72,14 @@ class Config
      *
      * @param \string $title
      * @return string
+=======
+
+    /**
+     * Set commentAt
+     *
+     * @param \DateTime $commentAt
+     * @return Comment
+>>>>>>> remotes/b2c/master
      */
     public function setTitle($title)
     {
@@ -80,9 +89,15 @@ class Config
     }
 
     /**
+<<<<<<< HEAD
      * Get title
      *
      * @return string 
+=======
+     * Get commentAt
+     *
+     * @return \DateTime 
+>>>>>>> remotes/b2c/master
      */
     public function getTitle()
     {
@@ -90,10 +105,17 @@ class Config
     }
 
     /**
+<<<<<<< HEAD
      * Set cfgvalue
      *
      * @param string $cfgvalue
      * @return string
+=======
+     * Set star
+     *
+     * @param integer $star
+     * @return Comment
+>>>>>>> remotes/b2c/master
      */
     public function setCfgvalue($cfgvalue)
     {
@@ -103,9 +125,15 @@ class Config
     }
 
     /**
+<<<<<<< HEAD
      * Get cfgvalue
      *
      * @return string 
+=======
+     * Get star
+     *
+     * @return integer 
+>>>>>>> remotes/b2c/master
      */
     public function getCfgvalue()
     {
@@ -113,10 +141,17 @@ class Config
     }
 
     /**
+<<<<<<< HEAD
      * Set remark
      *
      * @param string $remark
      * @return string
+=======
+     * Set text
+     *
+     * @param string $text
+     * @return Comment
+>>>>>>> remotes/b2c/master
      */
     public function setRemark($remark)
     {
@@ -126,7 +161,11 @@ class Config
     }
 
     /**
+<<<<<<< HEAD
      * Get remark
+=======
+     * Get text
+>>>>>>> remotes/b2c/master
      *
      * @return string 
      */
