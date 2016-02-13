@@ -40,6 +40,7 @@ class ShipmentAddressFormType extends AbstractType
                          'required' => false,
                          'empty_data' => ' ',))
                     ->add('address','textarea',array('label'=>'*收货地址：',
+                          'attr' => array('placeholder' => '必须是中文'),
                           'required' => true
                       ))
 			    	
@@ -51,13 +52,13 @@ class ShipmentAddressFormType extends AbstractType
                         ))
                     ->add('phone_no','text',array(
                         'label'=>'*收件人手机号码：',
-                        'attr' => array('placeholder' => '可以直接填写',),
+                        'attr' => array('placeholder' => '请填写11位收件人手机号码以便联系，例如：13088888888',),
                         'required' => false,
                         'empty_data' => ' ',
                         ))
                     ->add('contact_no','text',array(
                         'label'=>'*固定电话：',
-                       'attr' => array( 'placeholder' => '（区号）-电话号码',
+                       'attr' => array( 'placeholder' => '（区号）-电话号码，例如：(027) 88888888',
                         'pattern' => '[\(]?\d+[\)]?\s*\d+\s*[\-]?\d+'),
                        'required' => true
                         ))

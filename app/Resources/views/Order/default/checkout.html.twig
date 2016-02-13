@@ -39,15 +39,13 @@
       <div class="form">
         <div>
           <label>邮寄地址</label>
-
           <select id="select-location" class="select-location">
             <option value=''>请选择邮寄地址</option>
             {% for address in app.user.shipmentAddresses %}
               <option value="{{address.id}}">{{address.name}}  {{address.phoneNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
             {% endfor %}
           </select>
-
-          <a href="{{path('user_address')}}">新建地址</a>
+          <a class="new-address">新建地址</a>
         </div>
       </div>
 
@@ -117,17 +115,55 @@
           </div>
         </div>
       </div> 
-         <div class="bg-mask"></div>
-    <div class="pop-cart">
+<div class="bg-mask continue-shop"></div>
+    <div id="pop-cart" class="pop-cart">
     <h3><i class="fa fa-info-circle"></i>
       <span>确定提交订单？</span></h3>
       <span>
         <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="trans" class="btn-confirm" value="银行转帐" >
         <input type="submit" title="在线支付" data-id="{{ ids }}" data-type="online" class="btn-confirm" value="在线支付" >
       </span>
-      <p>选择银行转帐将会生成订单，在跳转后请尽快转帐保证按时出货，转帐时请付言账单号后六位。</p>
+      <h6>选择银行转帐将会生成订单，在跳转后请尽快转帐保证按时出货，转帐时请付言账单号后六位。</h6>
       <p class="continue-shop">继续购物</p>
-    </div>  
+    </div>
+
+    <div id="need-address" class="pop-address">
+    <h3><i class="fa fa-info-circle color"></i>
+      <span>请选择地址</span></h3> 
+      <p class="continue-shop">返回</p>
+    </div>
+
+
+
+     <div id="create-address" class="pop-address">
+      <h3><i class="fa fa-info-circle"></i>
+      <span>新建地址</span></h3>
+
+      {{ form_start(form) }} 
+ <h5>直邮中国的快递必须提供收件人身份证才可以正常通关</h5>
+ <h6>二代身份证需要同时提交证件的正反面内容，请分别扫描正反面图片后分别上传。身份证需确保照片、文字信息都清晰可见，如需加水印请在空白处填写“仅供清关使用”字样，否则无效！文件类型：*.gif/*.jpg/*.png 尺寸像素宽600X高800，大小不超过100KB。</h6>
+W
+<div class="form">
+     <div>{{ form_label(form.country) }}
+     {{ form_widget(form.country) }} {{ form_widget(form.region) }}</div>
+     <div>{{ form_label(form.city) }}{{ form_widget(form.city) }}</div>
+     <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
+     <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
+     <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
+     <div>{{ form_label(form.phone_no) }}{{ form_widget(form.phone_no) }}</div>
+     <div>{{ form_label(form.contact_no) }}{{ form_widget(form.contact_no) }}</div>
+     <div>{{ form_label(form.id_no) }}{{ form_widget(form.id_no) }}</div>
+     <div>{{ form_label(form.img1) }}{{ form_widget(form.img1) }}</div>
+     <div>{{ form_label(form.img2) }}{{ form_widget(form.img2) }}</div>
+     <div>{{ form_label(form.comment) }}{{ form_widget(form.comment) }}</div>
+</div>
+<div class='clear'>
+  <input type="submit" value="取消" class="close-address">
+  <!-- 这里提交直接存入用户地址并添加到选择地址下拉菜单里 -->
+  <!-- <input type="submit" value="提交" /> -->
+</div>
+{{ form_end(form) }}
+
 {% endblock %}
 
 
@@ -139,12 +175,23 @@
 
     $('.btn-pay').click(function() {
     $('.bg-mask').css('display','block');
-    $('.pop-cart').css('display','block');
+    $('#pop-cart').css('display','block');
+    });
+
+     $('.new-address').click(function() {
+    $('.bg-mask').css('display','block');
+    $('#create-address').css('display','block');
+    $('#need-address').css('display','none');
+    });
+
+      $('.close-address').click(function() {
+     $('.bg-mask').css('display','none');
+     $('#create-address').css('display','none');
     });
 
 
     $('.btn-confirm').click(function () {
-      if ($( "#select-location" ).val() != '') {
+      if ($( ".select-location" ).val() != '') {
         $this = $(this);
         var productId = $this.attr("data-id");
         var type = $this.attr("data-type");
@@ -153,7 +200,7 @@
           method: "GET",
           data: {
             id : productId,
-            address : $( "#select-location" ).val(),
+            address : $( ".select-location" ).val(),
           },
           dataType: "json"
         })
@@ -169,9 +216,11 @@
         })
       }
       else {
-        alert('请选择地址！');
-        $('.bg-mask').css('display','none');
-        $('.pop-cart').css('display','none');
+       
+        $('.bg-mask').css('display','block');
+        $('#pop-cart').css('display','none');
+        $('#create-address').css('display','none');
+        $('#need-address').css('display','block');
       }
     });
   })();

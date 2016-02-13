@@ -19,7 +19,7 @@
                     </div>
                     <div class="order-title-item">
                         <label>收件人：</label>
-                        <h5>{{order.shipmentAddress.name}}<a href="{{ path('user_address')}}" class="fa fa-edit add-address"></a></h5>
+                        <h5>{{order.shipmentAddress.name}}&nbsp;&nbsp;<a href="{{ path('user_address')}}" class="fa fa-edit add-address"></a></h5>
                     </div>
                     <div class="order-title-item">
                         <label>总价：</label>
@@ -35,7 +35,7 @@
                         <div class="order-title-item">
                          <label>订单号：{{ order.orderId }}</label>
                          <h5>
-                         {% if order.status == 0 %}<a href="{{path('order_confirm', {'id':order.orderId,'type':'online'})}}" >付款</a>
+                         {% if order.status == 0 %}<a href="{{path('order_confirm', {'id':order.orderId,'type':'online'})}}" class="button">付款</a>
                             <span><a href="#">取消订单</a></span>{% endif %}
                         </h5>
                     </div>
