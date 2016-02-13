@@ -1,0 +1,48 @@
+{% extends 'views/User/default/index.html.twig' %}
+{% block page_breadcrumb %}新建地址/修改地址{% endblock page_breadcrumb %}
+{% block page_title %}新建地址/修改地址{% endblock page_title %}
+{% block fos_user_content %}
+{% if address.id %}
+{{ form_start(form, { method: 'POST', action: path('user_address_edit',{ 'id': address.id }) }) }}
+{% else %}
+{{ form_start(form, { method: 'POST', action: path('user_address_create') }) }}	
+{% endif %}
+<div class="idupload-content-below">
+ <h5>直邮中国的快递必须提供收件人身份证才可以正常通关</h5>
+ <p>二代身份证需要同时提交证件的正反面内容，请分别扫描正反面图片后分别上传。身份证需确保照片、文字信息都清晰可见，如需加水印请在空白处填写“仅供清关使用”字样，否则无效！文件类型：*.gif/*.jpg/*.png 尺寸像素宽600X高800，大小不超过100KB。</p>
+  </div>
+<div class="form">
+     <div>{{ form_label(form.country) }}
+     {{ form_widget(form.country) }} {{ form_widget(form.region) }}</div>
+     <div>{{ form_label(form.city) }}{{ form_widget(form.city) }}</div>
+     <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
+     <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
+     <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
+     <div>{{ form_label(form.phone_no) }}{{ form_widget(form.phone_no) }}</div>
+     <div>{{ form_label(form.contact_no) }}{{ form_widget(form.contact_no) }}</div>
+     <div>{{ form_label(form.id_no) }}{{ form_widget(form.id_no) }}</div>
+     <div>{{ form_label(form.img1) }}{{ form_widget(form.img1) }}</div>
+     <div>{{ form_label(form.img2) }}{{ form_widget(form.img2) }}</div>
+     
+
+<!-- 这里需要判断下这两个字段idFront 和 back 
+     <div id="personal-front"> 
+      <div class="cropme">
+
+     </div>
+   </div>-->
+
+     <div style="display:none">
+     <div>{{ form_label(form.comment) }}{{ form_widget(form.comment) }}</div>
+     </div> 
+   
+
+</div>
+<div class='clear'>
+  <input type="submit" value="取消" onclick="window.history.back();">
+  <input type="submit" value="提交" />
+</div>
+{{ form_end(form) }}
+{% endblock fos_user_content %}
+
+

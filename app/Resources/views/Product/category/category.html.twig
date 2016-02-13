@@ -1,0 +1,207 @@
+{% extends 'layout_main.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/search.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+<div class="row search-page-container">
+    <div class="col-xs-3 siderbar">
+        {{ render(controller('AppBundle:Widget/Menu:index')) }}
+        {{ render(controller('AppBundle:Widget/Default:brandList')) }}
+        {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
+        {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+        {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
+    </div>
+    <div class="col-xs-9 page-right">
+        <div class="page-breadcrumb">
+            <ol>
+               <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
+               {% if data.path is defined %}      
+               {% for category in data.path %}
+               <li>&nbsp;>&nbsp;<a href="{{ path('category', { id : category.id }) }}">{{ category.name }} </a></li>
+               {% endfor %}
+               <li>(共{{ data.total_no }}件商品)</li>
+               {% else %}
+               <li> &nbsp;>&nbsp;全部分类 (共{{ data.total_no }}件商品) </li>
+               {% endif %}
+           </ol>
+           {% if data.children|length > 0 %}
+           <div class="toolbarcate">
+            <div>可选分类</div>
+            {% for category in data.children %}
+            <a class="search-keys" href="{{ path('category', {id : category.id}) }}">{{ category.name }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}                      
+    </div>
+    <div class="page-content"> 
+        
+        <div class="toolbar">
+            <div class="pull-left">
+                <a href="{{ path('category', {
+                id : id,
+                sort : 1,
+                item_no : item_no
+            }) }}">
+            <div class="select-box-order {% if sort == 1 %} active {% endif %}">
+                <i>默认排序</i>  
+            </div>
+        </a>
+        {% if sort == 2 %}
+        <a href="{{ path('category', {
+        id : id,
+        page : 1,
+        item_no : item_no,
+        sort : 3 }) }}">
+        <div class="select-box-order active">
+            <i>价格</i>
+            <i class="fa fa-long-arrow-up"></i>
+        </div>
+    </a>
+    {% else %}
+    <a href="{{ path('category', {
+    id : id,
+    page : 1,
+    item_no : item_no,
+    sort : 2 }) }}">
+    <div class="select-box-order {% if sort == 3 %} active {% endif %}">
+        <i>价格</i>
+        <i class="fa fa-long-arrow-down"></i>
+    </div>
+    {% endif %}
+
+    <a href="{{ path('category', {
+    id : id,
+    item_no: item_no,
+    sort : 4 }) }}">
+    <div class="select-box-order {% if sort == 4 %} active {% endif %}">
+        <i>销量</i>
+        <i class="fa fa-long-arrow-down"></i>
+    </div>
+</a>
+<a href="{{ path('category', {
+id : id,
+item_no: item_no,
+sort : 5}) }}">
+<div class="select-box-order {% if sort == 5 %} active {% endif %}">
+    <i>发布时间</i>
+    <i class="fa fa-long-arrow-down"></i>
+</div>
+</a>
+<a href="{{ path('category', {
+id : id,
+item_no: item_no,
+sort : 6}) }}">
+<div class="select-box-order {% if sort == 6 %} active {% endif %}" id="select-box5">
+    <i>浏览次数</i>
+    <i class="fa fa-long-arrow-down"></i>
+</div>
+</a>
+</div>
+
+<div class="pull-right">
+    <label>每页显示：</label>
+    <span class="select-box-num">
+        <a href="{{ path('category', {
+        id : id,
+        sort : sort,
+        item_no: 36
+    }) }}" {% if item_no == 36 %} class="active" {% endif %}>36</a>
+    <a href="{{ path('category', {
+    id : id,
+    sort : sort,
+    item_no: 24
+}) }}" {% if item_no == 24 %} class="active" {% endif %}>24</a>
+<a href="{{ path('category', {
+id : id,
+sort : sort,
+item_no: 18
+}) }}" {% if item_no == 18 %} class="active" {% endif %}>18</a>
+</span>
+</div>
+
+</div>
+
+<div class="hotdeal clearfix">
+{% if data.products|length > 0%}
+    {% for i in 1..(data.row_no) %}
+    <div class="row">
+        {% for product in data.products|slice(3*(i - 1), 3) %}
+        <div class="col-xs-4">
+            <div class="tag tag-y">
+                <p>Hot</p>
+            </div>
+            <a href="{{ path('product', {id : product.id}) }}">
+                <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                <div class="pro-text">
+                    <div class="pull-left">
+                        <div class="pro-title">{{ product.name }}</div>
+                        <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
+                    </div>
+                    <div class="pull-right">
+                        <div class="price">${{ product.priceDiscounted }}</div>
+                        <del>${{ product.price }}</del>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    {% else %}  
+        <div class="row row-nothing">
+                <h3>您的商品找不到了<a href="{{path('homepage')}}">这里逛逛</a></h3>
+            </div>
+    {% endif %}
+
+</div> 
+<div class="toolbar toolbar-bottom">
+    <div class="pull-right">
+        <label>页面：</label>
+        <span class="select-box-num select-page-number">                            
+            <a href="{{ path('category', {
+            id : id,
+            page : page + 1,
+            sort : sort,
+            item_no: item_no
+        }) }}" class="i-next hide"  {% if page < data.total_page %} class="show"  {% endif %}  title="下一个">
+        <i class="fa fa-caret-right"></i></a>
+        <a id="next" href="{{ path('category', {
+        id : id,
+        page : page + 5,
+        sort : sort,
+        item_no: item_no
+    }) }}" {% if page + 5 >= data.total_page %} class="hide" {% endif %} class="next">
+    <i class="fa fa-angle-double-right"></i></a>
+    {% for i in data.total_page..1 %}
+    <a href="{{ path('category', {
+    id : id,
+    page : i,
+    sort : sort,
+    item_no: item_no
+}) }}" {% if i == page %} class="page active" {% endif %} class="page"> {{ i }}</a>
+{% endfor %}
+<a id="prev" href="{{ path('category', {
+id : id,
+page : page - 5,
+sort : sort,
+item_no: item_no
+}) }}" {% if page - 5 <= 0 %} class="hide" {% endif %} class="prev">
+<i class="fa fa-angle-double-left"></i></a>
+<a href="{{ path('category', {
+id : id,
+page : page - 1,
+sort : sort,
+item_no: item_no
+}) }}" {% if page - 1 == 0 %} class="hide" {% endif %} {% if page == 0 %} class="hide" {% endif %}
+{% if page == 1 %} class="hide" {% endif %} class="i-next"  title="上一个">
+<i class="fa fa-caret-left"></i></a>
+</span>
+</div>
+</div> 
+</div>
+</div>  
+</div>
+{% endblock %}
+

@@ -1,0 +1,40 @@
+
+#contact-page .contact-part {
+    width: 100%;
+    clear: both;
+    padding: 0 50px;
+    background: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+#contact-page .form > div {
+    margin-bottom: 5px;
+}
+#contact-page .form label {
+    max-width: 200px;
+    width: 10%;
+
+}
+
+#contact-page .form input {
+    background-color: #eee;
+    width: 702px;
+    margin: 0px;
+}
+
+#contact-page .form textarea {
+    display: inline-block;
+    background-color: #eee;
+    padding: 8px 10px;
+    border: 1px solid #eee;
+    font-size: 14px;
+    width: 702px;
+    resize: none;
+    outline: none;
+}
+
+#contact-page #location-map {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,43 @@
+{% extends 'views/User/default/index.html.twig' %}
+{% block page_breadcrumb %}用户充值{% endblock page_breadcrumb %}
+{% block page_title %}用户充值{% endblock page_title %}
+{% block fos_user_content %}
+
+<div class="topup-title">
+    <img src="{{ asset('img/payment/paymentexpress.png') }}">
+    <h5>充值页面</h5> 
+</div>
+<div class="topup-content">
+    <label>充值金额：</label>
+    <input type="text">
+    <input type="submit" value="充值">
+</div>
+<div class="topup-rate">
+    <h6>当前汇率(纽币/人民币):
+        <span class="color">1:4.50</span></h6>
+    </div>
+
+    <hr>
+    <div class="topup-statement">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>充值时间</th>
+                    <th>充值金额</th>
+                    <th>充值方式</th>
+                    <th>可退金额</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2015-08-07</td>
+                    <td>$20.00</td>
+                    <td>信用卡</td>
+                    <td>$0.00</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock fos_user_content %}

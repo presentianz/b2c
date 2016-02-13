@@ -1,0 +1,86 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+
+
+{% block adminProduct %}
+<li class="active">
+  <a href="#" class="auto">
+    <span class="pull-right text-muted">
+      <i class="i i-circle-sm-o text"></i>
+      <i class="i i-circle-sm text-active"></i>
+    </span>
+    <i class="i i-t-shirt icon">
+    </i>
+    <span class="font-bold">商品管理</span>
+  </a>
+  <ul class="nav dk">
+   <li >
+     <a href="{{ path('admin_product') }}" class="auto">  
+       <i class="i i-dot"></i>
+       <span>商品列表</span>
+     </a>
+   </li>
+   <li  class="active">
+    <a href="{{ path('admin_product_new') }}" class="auto">
+      <span class="pull-right text-muted">
+        <i class="i i-circle-sm-o text"></i>
+        <i class="i i-circle-sm text-active"></i>
+      </span>
+      <i class="i i-dot"></i>
+      <span>添加商品</span>
+    </a>
+  </li>
+  </ul>
+  </li>
+
+
+  {% endblock %}
+
+  {% block body -%}
+  <section id="content">
+    <section class="vbox">
+      <header class="header bg-light b-b">
+        <p><strong>添加商品</strong></p>
+      </header>
+     <section class="scrollable padder">
+      
+     <div class="form">
+        {{ form_start(form) }}
+       <div> <label>商品名称：</label> {{form_widget(form.name)}}</div>
+       <div> <label>原价：</label> {{form_widget(form.price)}}</div>
+       <div> <label>促销价：</label> {{form_widget(form.price_discounted)}}</div>
+       <div> <label>浏览次数：</label> {{form_widget(form.viewed_count)}}</div>
+       <div> <label>售出数量：</label> {{form_widget(form.soldNo)}}</div>
+       <div> <label>库存：</label> {{form_widget(form.inventory)}}</div>
+       <div> <label>点击次数：</label> {{form_widget(form.click)}}</div>
+       <div> <label>商品描述：</label> {{form_widget(form.description)}}</div>
+       <div> <label>商品状态：</label> {{form_widget(form.status)}}</div>
+       <div> <label>分类：</label> {{form_widget(form.category)}}</div>
+       <div> <label>品牌：</label> {{form_widget(form.brand)}}</div>
+       <div> <label>重量：</label> {{form_widget(form.weight)}}</div>
+       <div> <label>商品编号：</label> {{form_widget(form.productKey)}}</div>
+       <div style="display: none;">{{form_widget(form.imageLink)}}</div>
+      <div style="display: none;">{{form_widget(form.poster)}}</div>
+
+       <div id="progressBox1"> <label>上传产品封面图片</label><span class="btn btn-primary btn-sm" id="uploadBtn1">选择图片</span></div>
+        <div class="info" id="info1"></div><div style="clear: both;"></div>
+       <div id="progressBox2"> <label>上传产品描述图片</label><span class="btn btn-primary btn-sm" id="uploadBtn2">选择图片</span></div>
+       <div class="info" id="info2"></div><div style="clear: both;"></div>
+      
+       <div class="admin-buttons">
+        {{form_widget(form.submit, { 'label': '创建' })}}
+        <a href="{{ path('admin_product') }}">返回
+        </a>
+      </div>
+      {{ form_end(form) }}
+    </div>
+
+  </section>
+
+</section>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{asset('js/SimpleAjaxUploader.js')}}"></script>
+    <script src="{{asset('js/admin-product.js')}}"></script>
+{% endblock %}

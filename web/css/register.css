@@ -1,0 +1,166 @@
+
+.breadcrumb {
+    background-color: transparent;
+    border: none;
+    margin-top: 20px;
+    padding: 0;
+    border-bottom: 2px solid #f2f2f2;
+}
+
+.register-tab {
+    display: inline-block;
+    height: 40px;
+    width: 150px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    color:#aaa;
+    top: 3px;
+    position: relative;
+}
+
+.register-content .error {
+    width: 55%;
+    left: 380px;
+    top: -17px;
+}
+
+.register-tab i.fa {
+    font-size: 23px;
+    margin-right: 5px;
+    vertical-align: text-bottom;
+}
+
+.register-tab.active {
+    border-bottom: 3px solid #ee1c24;
+    color:#ee1c24;
+    outline: none;
+}
+
+.login-link {
+    float: right;
+    margin-top: 17px;
+}
+
+.login-link a {
+    color: #506eaa;
+}
+
+
+.register-content {
+    margin: 10px 30px 30px 30px;
+    position: relative;
+}
+
+.register-content .controls {
+    margin: 15px 0px;
+    position: relative;
+}
+
+
+.register-content .controls.last {
+    padding-left: 63px;
+    line-height: 35px;
+}
+
+.register-content .controls.last a {
+    margin-right: 5px;
+}
+
+.register-content .controls label {
+    width: 80px;
+    text-align: right;
+    margin-right: 10px;
+    font-weight: 300;
+}
+
+.register-content .controls > input {
+    border: 1px solid #999;
+    padding: 8px 10px;
+    font-size: 12px;
+    width: 240px;
+}
+
+.register-content .security-level {
+    width: 243px;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    cursor: default;
+    display: inline-block;
+}
+
+.register-content .security-level span {
+    display: block;
+    float: left;
+    text-align: center;
+    font-size: 12px;
+    color: #000;
+    background-color: #f2f2f2;
+    margin-right: 1px;
+    width: 79px;
+    height: 20px;
+}
+
+.register-content .security-level .red {
+    color:#fff;
+    background-color:#ee1c24;
+}
+
+.register-content .security-level .orange {
+    color:#fff;
+    background-color:orange;
+}
+.register-content .security-level .green {
+    color:#fff;
+    background-color:#38F116;
+}
+
+
+.register-content .controls > input[type="checkbox"] {
+    width: auto;
+    border:none;
+    outline:none;
+
+}
+
+.register-content input[type="submit"] {
+    width: 243px;
+    margin-left: 90px;
+}
+
+
+.register-email h3,
+.register-active h3, 
+.register-email h6, 
+.register-active h6 {
+    margin: 20px 0;
+}
+
+
+
+.register-email, 
+.register-active {
+    min-height: 350px;
+    text-align: center;
+}
+
+.register-email > div, 
+.register-active > div {
+    margin:60px;
+}
+
+.register-email strong,
+.register-email i.fa-info-circle, 
+.register-active i.fa-info-circle {
+    margin-right: 5px;
+    color: #ee1c24;
+    font-size: 40px;
+    vertical-align:sub;
+}
+
+.register-active h6 a {
+    color: #ee1c24;
+}
+
+

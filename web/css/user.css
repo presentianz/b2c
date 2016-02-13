@@ -1,0 +1,344 @@
+
+
+#user-page .user-content {
+    min-height: 90px;
+    padding: 15px 15px 15px 25px;
+    height: auto;
+    overflow: auto;
+}
+
+#user-page .user-content .form div {
+     margin-bottom: 10px;
+     text-align: left;
+}
+#user-page .user-content .form label {
+    max-width: 200px;
+    width: 160px;
+} 
+
+#user-page .user-content .form select {
+    display: inline-block;
+    background-color: #eee;
+    padding: 8px 10px;
+    border: 1px solid #eee;
+    font-size: 14px;
+}
+
+#user-page .user-content .form select.select-location { 
+    width: 579px;
+    left: -4px;
+    margin: 0px;
+    position: relative;
+}
+
+#user-page .user-content .form #shipment_address_country {
+    width:285px;  
+        margin-left: -3px;
+}
+
+#user-page .user-content .form #shipment_address_city {
+    width: 290px;
+        margin-left: 3px;
+}
+
+#user-page .user-content .form input {
+    background-color: #eee;
+    width: 579px;
+    display: inline-block;
+}
+
+#user-page .user-content .form textarea {
+    display: inline-block;
+    background-color: #eee;
+    padding: 8px 10px;
+    border: 1px solid #eee;
+     font-size: 14px;
+    width: 579px;
+    outline: none;
+}
+
+#user-page hr {
+    margin: 5px auto;
+}
+
+
+/* tab1 user info */
+#user-page .user-info {
+    padding:0;
+    height: 80px;
+}
+
+#user-page .user-info > label {
+    font-size: 18px;
+}
+
+#user-page .user-info-each {
+    margin: 5px 0;
+    font-size: 15px;
+    overflow: hidden;
+
+}
+
+#user-page .user-info-each span {
+    padding-right:10px;
+}
+
+#user-page .user-info-each a.fa {
+    margin-top: 5px;
+}
+
+#user-page .user-info-each > div {
+    width: 70%;
+    display: inline-block;
+    vertical-align: top;
+} 
+
+#user-page .user-info-each label {
+    width: 100px;
+    text-align: left;
+    display: inline-block;
+}
+
+#user-page .status-each {
+    display: inline-block;
+    height: 80px;
+    width: 117px;
+    overflow: hidden;
+    padding: 5px;
+    margin: 0 10px;
+    text-align: center;
+
+}
+
+#user-page .status-each h2 {
+    color: #ee1c24;
+    margin-bottom: 5px;
+}
+
+/* tab2 order statement*/
+#user-page .order-search {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+#user-page .order-cate {
+    min-height: 10px;
+    margin-bottom: 10px;
+}
+
+
+#user-page .order-detail {
+    position: relative;
+    margin-bottom: 20px;
+    clear: both;
+    overflow: auto;
+    height: auto;
+    border: 2px solid #ccc;
+
+}
+
+#user-page .order-title {
+    min-height: 70px;
+    width: 100%;
+    padding: 0px;
+    background-color: #eee;
+
+}
+
+#user-page .order-title span {
+    padding-left: 5px;
+}
+
+#user-page .order-title-item {
+    display: inline-block;
+    padding: 5px 15px;
+    overflow: hidden;
+    word-wrap: break-word;
+    vertical-align: top;
+    width: auto;
+}
+
+#user-page .order-title-item input[type='submit'] {
+    background-color: #ee1c24;
+}
+
+#user-page .order-title-item input[type='submit']:hover {
+    background-color: #ee1c24;
+}
+
+#user-page i.fa-arrow-down.address-hover {
+    cursor: pointer;
+}
+
+#user-page .order-title-item .hover-address {
+    position: absolute;
+    background-color: #fff;
+    z-index: 1;
+    padding: 15px 10px;
+    width: 260px;
+    height: 110px;
+    top: 30px;
+    left: 190px;
+    box-shadow: 1px 1px 10px #999;
+    -webkit-box-shadow:1px 1px 10px #999;
+    -moz-box-shadow:1px 1px 10px #999;
+    display: none;
+}
+
+#user-page i.fa-arrow-down.address-hover:hover + .hover-address {
+    display: block;
+}
+
+#user-page .order-title label {
+    font-size: 12px;
+    font-weight: normal;
+    color: #aaa;
+}
+
+#user-page .order-title .pull-right {
+    text-align: right;
+}
+
+#user-page .order-title .pull-left label {
+    margin-bottom: 10px;
+}
+
+#user-page .order-content {
+    padding:0;
+}
+
+#user-page .order-product {
+    padding:0;
+    margin:5px;
+    height: 90px;
+    width: 430px;
+    border: 1px solid #eee;
+}
+
+#user-page .img {
+    width: 100px;
+    padding: 0;
+}
+
+#user-page .img img {
+    width: 100%;
+}
+
+#user-page .order-product-name {
+    overflow: hidden;
+    word-wrap: break-word; 
+    padding: 7px;  
+}
+
+#user-page .order-product-name h5 {
+    margin-bottom: 5px;
+}
+
+#user-page .order-product-name h6 {
+    color:#ccc;
+}
+
+
+
+/* tab3 topup*/
+#user-page .topup-title h5 {
+    margin-top: 10px;
+}
+
+
+#user-page .topup-content {
+    margin: 10px 0px;
+}
+
+#user-page .topup-rate {
+    color: #777;
+}
+
+/* tab5 address */
+
+#user-page .address-detail {
+    overflow: auto;
+}
+
+#user-page .address-detail .title {
+    font-weight: bold;
+    margin-top: 10px;
+
+}
+
+#user-page .address-each {
+    padding: 15px;
+    margin: 10px 15px 10px 0px;
+    min-height: 100px;
+    overflow: hidden;
+    word-wrap: break-word;
+    float: left;
+    width: 400px;
+    background-color: #eee;  
+    border: 1px solid #ccc;
+    height: 130px;
+}
+
+#user-page .address-each h5 {
+    width:260px;
+}
+
+#user-page .address-each h5 > div {
+    margin-bottom: 5px;
+}
+
+#user-page .address-each h5 .address-detail {
+    min-height: 30px;
+    word-wrap: break-word;
+}
+
+
+
+
+/*tab10 order detail*/
+#user-page .order-info {
+    padding: 10px;
+    height: auto;
+    background: #fff;
+}
+
+#user-page table {
+    padding: 0;
+    background: #fff;
+}
+
+#user-page thead th {
+    background-color: #eee;
+    text-align: center;
+}
+
+#user-page table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+#user-page .idupload-content-below {
+    clear: both;
+}
+
+#user-page .idupload-image-remove {
+    position: absolute;
+    width: 100%;
+    height: 82px;
+    top: 0px;
+    background: black;
+    opacity: 0.8;
+}
+#user-page .idupload-image-remove i {
+    font-size: 40px;
+    color: #fff;
+    position: relative;
+    width: 30px;
+    left: 40%;
+    top: 20px;
+}
+
+
+
+
