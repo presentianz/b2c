@@ -12,4 +12,53 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserInfoRepository extends EntityRepository
 {
+	public function searchUserInfo($keys, $sort, $page, $item_no)
+    {
+    	$data=Array();
+        return $data;
+        if ($keys) {
+            $keys = preg_replace("/(\s+)|(¡¡+)+/", " ", $keys);
+            $keys = preg_replace( "/(^\s*)|(\s*$)/ ", "",$keys);
+            $keys = preg_replace("/(\s+)/", " ", $keys);
+            $keys = explode(" ",$keys);
+        }
+        else {
+            $keys = array();
+        }
+
+        $products = $this->createQueryBuilder('p');
+        //add weight
+        
+        //add left columns
+        $products->addSelect('p.id AS id');
+        foreach ($keys as $i => $key) {
+            // $products->orWhere('p.name LIKE ?'.$i)->setParameter($i, '%'.$key.'%');
+            // $products_no->orWhere('p.name LIKE ?'.$i)->setParameter($i, '%'.$key.'%');
+            $products->orWhere('LOCATE(:key'.$i.', p.name) > 0')->setParameter('key'.$i, $key);
+            $products_no->orWhere('LOCATE(:key'.$i.', p.name) > 0')->setParameter('key'.$i, $key);
+        }
+        //1 = update(default), 2 = price+, 3 = price-, 4 = soldNo-, 5 = date-, 6 = click-, 7 = id+
+        //8 = id-, 9 = name+, 10 = name-, 11 = disprice+, 12 = disprice-, 13 = click+, 14 = soldNo+
+        switch ($sort) {
+            
+            default:
+                //$products->addOrderBy('p.updateAt', 'DESC');
+                break;
+        }
+        if (!(is_numeric($page) && $page > 1)) {
+            $page = 1;
+        }
+        if (!(is_numeric($item_no) && $item_no > 1)) {
+            $item_no = 18;
+        }
+        //$item_no = $item_no <= 18 ? 18 : ($item_no <= 24 ? 24 : 36);
+        //$products->setFirstResult(($page-1)*$item_no)->setMaxResults($item_no);
+        //$data['products'] = $products->getQuery()->getResult();
+        //$total_no = $products_no->getQuery()->getSingleScalarResult();
+        //$data['total_page'] = ceil($total_no/$item_no);
+        //$data['total_no'] = $total_no;
+        //$data['row_no'] = ceil(count($data['products'])/3);
+        $data=Array();
+        return $data;
+    }
 }

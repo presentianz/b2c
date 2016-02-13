@@ -5,13 +5,13 @@ namespace AppBundle\Controller\Order;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Cookie;
 
 use AppBundle\Entity\CartProduct;
+use AppBundle\Entity\UserInfo;
 
 class DefaultController extends Controller
 {
@@ -72,13 +72,22 @@ class DefaultController extends Controller
      */
     public function checkoutAction(Request $request)
     {
-    	$user = $this->getUser();
-        $em = $this->getDoctrine()->getManager();
+    	 $points="0";
+    	 $em = $this->getDoctrine()->getManager();
+    	 if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            
+            $user = $this->getUser(); 
+       			$member=$user->getUserInfo();
+       			$points=$this->getUser()->getUserInfo()->getPoints();
+        }
+        
+    		
+        
         $cartArray = $request->request->get('product-id');
         $products = $em->getRepository('AppBundle:CartProduct')->getItem($cartArray, $this->getUser()->getId());
         return $this->render('Order/default/checkout.html.twig', array(
             'data' => $products,
-            'points'=>$user["points"]
+            'points'=> $points
             ));
     }
 }

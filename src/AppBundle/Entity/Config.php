@@ -52,12 +52,25 @@ class Config
     {
         return $this->id;
     }
+    
+        /**
+     * Set id
+     *
+     * @param \string $id
+     * @return string
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     /**
-     * Set commentAt
+     * Set title
      *
-     * @param \DateTime $commentAt
-     * @return Comment
+     * @param \string $title
+     * @return string
      */
     public function setTitle($title)
     {
@@ -67,9 +80,9 @@ class Config
     }
 
     /**
-     * Get commentAt
+     * Get title
      *
-     * @return \DateTime 
+     * @return string 
      */
     public function getTitle()
     {
@@ -77,10 +90,10 @@ class Config
     }
 
     /**
-     * Set star
+     * Set cfgvalue
      *
-     * @param integer $star
-     * @return Comment
+     * @param string $cfgvalue
+     * @return string
      */
     public function setCfgvalue($cfgvalue)
     {
@@ -90,9 +103,9 @@ class Config
     }
 
     /**
-     * Get star
+     * Get cfgvalue
      *
-     * @return integer 
+     * @return string 
      */
     public function getCfgvalue()
     {
@@ -100,10 +113,10 @@ class Config
     }
 
     /**
-     * Set text
+     * Set remark
      *
-     * @param string $text
-     * @return Comment
+     * @param string $remark
+     * @return string
      */
     public function setRemark($remark)
     {
@@ -113,7 +126,7 @@ class Config
     }
 
     /**
-     * Get text
+     * Get remark
      *
      * @return string 
      */

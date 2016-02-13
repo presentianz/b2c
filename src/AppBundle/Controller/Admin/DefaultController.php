@@ -2,14 +2,14 @@
 
 namespace AppBundle\Controller\Admin;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Doctrine\ORM\Query\ResultSetMapping;
-use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Config;
-
+use Symfony\Component\HttpFoundation\Response;
 /**
  * @Route("/admin")
  * @Security("is_granted('ROLE_ADMIN')")
@@ -131,6 +131,32 @@ class DefaultController extends Controller
         	));
     	}
     	
+    	/**
+     * @Route("/listuserinfo", name="admin_listuserinfo")
+     */
+    public function listuserinfoAction(Request $request)
+    {
+    	$keys = $request->query->get('keys');
+        $sort = $request->query->get('sort');
+        $page = $request->query->get('page');
+        $item_no = $request->query->get('item_no');
+        if (!(is_numeric($item_no) && $item_no > 1)) {
+            $item_no = 20;
+        }
+        if(!$sort)
+            $sort = 0;
+        $em = $this->getDoctrine()->getManager();
+        $sql="select p from AppBundle:UserInfo p";
+    $query=$em->createQuery($sql);
+    $data["members"]=$query->getResult();
+    $data["total_page"]=1;
+    $data["total_no"]=1;
+        return $this->render('Admin/Default/listuserinfo.html.twig', array(
+            'data' => $data,
+            ));
+    	
+    	}
+    	
     	
     	 /**
      * @Route("/submitwebconfig", name="admin_submitwebconfig")
@@ -177,8 +203,7 @@ class DefaultController extends Controller
         	$em->flush();
         }
        	}    		
-       $response = new Response();
-			$response->headers->set('Content-Type', 'application/json');	
+       
 			$ret='';
     	return new Response($ret);
     	

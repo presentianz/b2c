@@ -61,17 +61,23 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
         //add config
         $Config1 = new Config();        
         $Config1->setId(1);
-        $Config1->getCfgvalue("1");       
+        $Config1->setTitle("");
+        $Config1->setRemark("");
+        $Config1->setCfgvalue("1");       
         $manager->persist($Config1);
         
         $Config2 = new Config();        
         $Config2->setId(2);
-        $Config2->getCfgvalue("0");       
+        $Config2->setTitle("");
+        $Config2->setRemark("");
+        $Config2->setCfgvalue("0");       
         $manager->persist($Config2);
         
         $Config3 = new Config();        
         $Config3->setId(3);
-        $Config3->getCfgvalue("0");       
+        $Config3->setTitle("");
+        $Config3->setRemark("");
+        $Config3->setCfgvalue("0");       
         $manager->persist($Config3);
 
         //update
