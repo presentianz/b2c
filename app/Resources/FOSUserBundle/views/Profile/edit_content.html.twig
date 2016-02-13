@@ -1,0 +1,46 @@
+{% trans_default_domain 'FOSUserBundle' %}
+    <script type="text/javascript" src="/web/js/My97DatePicker/WdatePicker.js"></script>
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+	<div class="form">
+		<div>
+			{{ form_label(form.username) }}
+			{{ form_widget(form.username) }}
+		</div>
+		<div>
+			{{ form_label(form.email) }}
+			{{ form_widget(form.email) }}
+		</div>
+		<div>
+			{{ form_label(form.current_password) }}
+			{{ form_widget(form.current_password) }}
+		</div>
+	</div>
+	<div class="form">
+		<div>
+			{{ form_label(form.userInfo.fullname) }}
+			{{ form_widget(form.userInfo.fullname) }}
+		</div>
+		<div>
+			{{ form_label(form.userInfo.wechatno) }}
+			{{ form_widget(form.userInfo.wechatno) }}
+		</div>
+		<div>
+			{{ form_label(form.userInfo.qqno) }}
+			{{ form_widget(form.userInfo.qqno) }}
+		</div>
+		<div>
+			{{ form_label(form.userInfo.contactno) }}
+			{{ form_widget(form.userInfo.contactno) }}
+		</div>
+		<div>
+			{{ form_label(form.userInfo.brithday) }}
+			{{ form_widget(form.userInfo.brithday) }}
+		</div>
+		
+	</div>
+	<div>
+		<input type="submit" value="取消" onclick="window.history.back();">
+		<input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+	</div>
+</form>
+

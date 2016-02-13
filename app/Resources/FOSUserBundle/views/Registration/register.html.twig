@@ -1,0 +1,30 @@
+ {% extends 'FOSUserBundle::layout.html.twig' %}
+
+ {% block title %}注册{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/login.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}" type="text/css">
+{% endblock %}
+
+{% block subtitle %}账户注册{% endblock subtitle %}
+
+{% block body %}
+    <div class="container-login-responsive">
+    	{% block fos_user_content %}
+			{% include "FOSUserBundle:Registration:register_content.html.twig" %}
+		{% endblock fos_user_content %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('js/register.js') }}"></script>
+{% endblock %}
+
+
+    
+
+
+
+
+

@@ -1,0 +1,52 @@
+
+<div class="pull-left order-search">
+    <input type="text" placeholder="搜索单号..."/>
+</div>
+<div class="order-cate pull-right">      
+            <a class="search-keys {% if type == 0 %}active{% endif %}" href="{{path('user_order', {'type':0})}}">未付款</a>
+            <a class="search-keys {% if type == 1 %}active{% endif %}" href="{{path('user_order', {'type':1})}}">准备发货</a>
+            <a class="search-keys {% if type == 2 %}active{% endif %}" href="{{path('user_order', {'type':2})}}">已发货</a>
+            <a class="search-keys {% if type == 3 %}active{% endif %}" href="{{path('user_order', {'type':3})}}">已收货</a>
+            <a class="search-keys {% if type == 4 %}active{% endif %}" href="{{path('user_order', {'type':4})}}">订单失效</a>
+        </div>
+{% for order in data %}
+    <div id="{{ order.orderId }}" class="order-detail">
+            <div class="order-title">
+                <div class="order-title-each pull-left">
+                    <div class="order-title-item">
+                        <label>提交时间：</label>
+                        <h5>{{ order.createAt|date('Y-m-d') }}</h5>
+                    </div>
+                    <div class="order-title-item">
+                        <label>收件人：</label>
+                        <h5>{{order.shipmentAddress.name}}<a href="{{ path('user_address')}}" class="fa fa-edit add-address"></a></h5>
+                    </div>
+                    <div class="order-title-item">
+                        <label>总价：</label>
+                        <h5>NZD:<span class="color">${{ order.totalPrice + order.postFee }}</span></h5>
+                    </div>
+                    <div class="order-title-item">
+                        <label>订单状态：</label>
+                        <h5>{% if order.status == 0 %}未付款{% elseif order.status == 1 %}准备发货{% elseif order.status == 2 %}已发货{% elseif order.status == 3 %}已收货{% else %}订单失效{% endif %}
+                        <span><a class="color user-order-hover" id="{{ order.orderId }}">(订单详请)</a></i></h5>
+                    </div>
+                </div>
+                    <div class="order-title-each pull-right">
+                        <div class="order-title-item">
+                         <label>订单号：{{ order.orderId }}</label>
+                         <h5>
+                         {% if order.status == 0 %}<a href="{{path('order_confirm', {'id':order.orderId,'type':'online'})}}" >付款</a>
+                            <span><a href="#">取消订单</a></span>{% endif %}
+                        </h5>
+                    </div>
+                </div>
+        </div>
+
+        <div id="order_content_{{ order.orderId }}" class="order-content hide">
+        {% include "views/User/order/detail.html.twig" %}
+        </div>
+        
+    </div>
+{% endfor %}
+
+       

@@ -1,0 +1,36 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    fos_user.profile.form.type:
+        class: AppBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name : form.type , alias : fos_user_profile }
+
+    # fos_user.registration.form.type:
+    #     class: AppBundle\Form\Type\RegistrationFormType
+    #     arguments: [%fos_user.model.user.class%]
+    #     tags:
+    #         - { name: form.type, alias: fos_user_registration }
+
+    user.on.login:
+        class: AppBundle\EventListener\OnLoginListener
+        arguments: [@request, @doctrine.orm.entity_manager, @security.context]
+        scope: request
+        tags:
+            - { name: kernel.event_subscriber }
+
+    product.click.increment:
+        class: AppBundle\Service\ProductClikcIncrement
+        arguments: 
+            entityManager: "@doctrine.orm.entity_manager"
+
+    fos_user.doctrine_registry:
+        alias: doctrine

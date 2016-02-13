@@ -1,0 +1,5 @@
+{% extends 'views/User/default/index.html.twig' %}
+{% block page_title %}用户信息{% endblock page_title %}
+{% block fos_user_content %}
+{% include "FOSUserBundle:Profile:show_content.html.twig" %}
+{% endblock fos_user_content %}

@@ -1,0 +1,33 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="col-xs-6 user-info">
+        <div class="user-info-each">
+            <label>{{ 'profile.show.username'|trans }}:</label>
+            <div>
+                <span class="edit-name">{{ user.username }}</span>
+                <a href="{{path('user_profile_edit')}}" class="fa fa-edit pull-right">{{ 'button.edit'|trans }}</a> 
+            </div>
+        </div>
+        <div class="user-info-each">
+            <label>{{ 'profile.show.email'|trans }}:</label>
+            <div>
+                <span class="edit-email"> {{ user.email }}</span>
+            </div>
+        </div>  
+ </div>
+ <div class="col-xs-6 user-info">
+    <div class="status-each">
+        <h2>{{ user.userOrders|length }}</h2>
+        <div><a href="{{path('user_order')}}">(查看所有订单)</a></div>
+    </div>
+    <div class="status-each">
+        <h2>${{user.userInfo.balance}}</h2>
+        <div><a href="{{path('user_topup')}}">账户余额 (<span class="color">充值</span>)</a></div>
+
+    </div>
+    <div class="status-each">
+        <h2>{{user.userInfo.points}}</h2>
+        <div><a href="{{path('user_topup')}}">我的积分</a></div>
+    </div>
+</div>
+

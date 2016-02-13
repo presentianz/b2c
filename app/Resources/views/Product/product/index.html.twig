@@ -1,0 +1,151 @@
+{% extends 'layout_main.html.twig' %}
+
+{% block title %}商品{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/product.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+<div class="row" id="product-page">
+    <div class="col-xs-3 siderbar">
+        {{ render(controller('AppBundle:Widget/Menu:index')) }}
+        {{ render(controller('AppBundle:Widget/Default:brandList')) }}
+        {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
+       
+        {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
+    </div>
+    <div class="col-xs-9 page-right">   
+        <div class="page-breadcrumb">
+            <ol>
+                <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
+                {% for category in data.path %}
+                <li>&nbsp;>&nbsp;<a href="{{ path('category', { id : category.id }) }}">{{ category.name }}</a></li>
+                {% endfor %}
+                <li>&nbsp;>&nbsp;{{ data.product.name }}</li>
+            </ol>
+        </div>
+
+        <div class="page-content">
+            <div class="page-title">
+            <div class="page-leaf-top"></div>
+                <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
+                <div>
+                <h4>{{ data.product.name }}</h4>
+                 
+                </div>
+            </div>
+            <div class="product-info clearfix" data-product-id="{{data.product.id}}">
+                <div class="col-xs-5"> 
+                    {% for key,poster in data.poster %}
+                    <img class="product-pictures {{( key == 0 ) ? '' : 'hide'}}" id="product-picture{{key}}" src="{{ asset('img/src') }}/{{data.product.imageLink}}/poster/{{poster}}" alt="" />
+                    {% endfor %}
+                
+                    <div class="col-xs-12 product-pictures-below">
+                        {% for key,poster in data.poster %}
+                        <div class="col-xs-4">
+                            <img src="{{ asset('img/src') }}/{{data.product.imageLink}}/poster/{{poster}}" onClick="productpic({{key}})" class="{{( key == 0 ) ? 'active' : ''}} product-pics" id="product-pic{{key}}" alt="" / >
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>    
+                <div class="col-xs-7">
+                    <p class="product-desc">{{ data.product.description }}</p>
+                    <p><label>品牌:</label><span>{{ data.product.brand }}</span></p>
+                    <p><label>商品重量:</label><span>{{ data.product.weight }}克</span></p>
+                    <p><label>货号:</label><span>{{ data.product.productKey }}</span></p>           
+                    <p><label>原价:</label><span><del>NZ${{ data.product.price }}</del></span></p>
+                    <p class="product-promo"><label>促销价:</label><span>NZ${{ data.product.priceDiscounted }}</span></p>
+                    <p class="product-promo"><label>约合人民币:</label><span>￥{{ data.product.priceDiscounted * 4.5 }}</span></p>
+                    <p><label>当前汇率:</label><span>1新西兰元=4.50人民币</span></p>
+                    <p>该商品已被浏览<span class="product-desc"> {{ data.product.click }} </span>次，已经被购买<span class="product-desc"> {{ data.product.soldNo }} </span>件（库存 {{ data.product.inventory }}）</p>
+                    <div class="add-to-box">
+                        <div class="add-to-cart clearfix">
+                            <div class="pull-left number-label">
+                                <label for="qty">数量：</label> 
+                            </div>
+                            <div class="pull-left">
+                               <div class="number-group">
+
+                                <input type="text" min="1" max="98" maxlength = "2" class="qty" value="1" id="123">
+                                <div class="number-button">
+                                    <div id="number-up" class="number-input number-input-up" data-id="123"><i class="fa fa-caret-up"></i></div>
+                                    <div id="number-down" class="number-input number-input-down" data-id="123"><i class="fa fa-caret-down"></i></div>
+                                </div>
+                            </div>
+                        </div> 
+                        <form method="get" action="{{ path('checkout') }}">
+                            <input type="submit" value="立即购买" class="pull-right buy-now" data-id="{{ data.product.id }}">
+                        </form>
+                        <input type="submit" data-id="{{ data.product.id }}" data-path="{{ path('cart_ajax_action') }}" value="加入购物车" class="pull-right add-cart-button"> 
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="product-tab clearfix"><span>商品详情</span></div> 
+        <div class="product-info clearfix">
+            <div class="tab-contents">
+                {% for imgDes in data.imgDes %}
+                <img src="{{ asset('img/src') }}/{{data.product.imageLink}}/imgDes/{{imgDes}}" alt="">
+                {% endfor %} 
+               
+            </div>
+            
+            <div class="tab-contents">
+                <div class="tab-content-title">7天无理由退货</div>
+                <div class="tab-content-desc">
+                该商品支持7天无理由退货，自商品签收之日起7天内:<br>
+                1、商品外包装完整，相关附（配）件齐全；（若有）要求吊牌完整；<br>
+                2、商品无显著穿着、无洗涤、无沾染化妆品（如口红等）、无破损等痕迹<br>
+                可申请无理由退货，包邮商品需要买家承担退货邮费，非包邮商品需要买家承担发货和退货邮费<br>
+                <a href="#">查看相关定义和通用说明</a>
+                </div>
+            </div>
+        </div>
+        <div class="product-tab product-tab-update clearfix">
+        <img src="{{ asset('img/leaf-green.jpg') }}" alt="" class="leaf"></div> 
+        <div class="product-info clearfix">
+            <div class="tab-contents">
+                <div class="tab-content-title">商品评论({{ data.product.comments|length }})</div>
+                <textarea class="tab-content-desc" placeholder="请填写你的评论"> </textarea> 
+                 <input type="submit" value="发送" class="pull-right" />
+                  <div class="tab-content-foot">*请登录后发表评论</div>
+            </div>
+
+            <!-- <div class="tab-contents">
+                <table id="comments-record-list" class="record-list">
+                    <tbody>
+                    <tr>
+                        <th width="40%">买家</th>
+                        <th width="60%">评论内容</th>
+                    </tr>
+                    <tr class="comments-record-item">
+                        <td>* 张 </td>
+                        <td class="comments">挺好的</td>
+                    </tr>
+                        </tbody>
+                    </table>
+             </div> -->
+        </div>
+
+
+</div>
+</div>   
+</div>
+<div class="bg-mask"></div>
+    <div class="pop-cart">
+        <h3><i class="fa fa-info-circle"></i>
+            <span>你的商品添加成功！</span></h3>
+            <span>
+                <form method="get" action="{{ path('cart') }}">
+                    <input type="submit" value="去购物车结算" data-id="{{ data.product.id }}" class="buy-now">
+                </form>
+            </span>
+            <p class="continue-shop">继续购物</p>
+        </div>
+   
+    {% endblock %}
+
+    {% block javascripts %}
+    <script src="{{ asset('js/product.js') }}"></script>
+    {% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'layout_main.html.twig' %}
+
+{% block title %}用户{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/user.css') }}" type="text/css">
+{% endblock %}
+
+ {% block header %} 
+        {{parent()}}
+  {% endblock %}
+
+{% block body %}
+
+<div id="user-page">
+	<div class="col-xs-3 siderbar">
+
+    <div class="nav-all">
+        <a href="{{ path('user_profile') }}">账户信息管理</a>
+    </div>
+		<ul class="nav nav-list">
+			<li><div class="nav-item"><a href="{{path("user_profile")}}">账户管理</a></div></li>
+            <li><div class="nav-item"><a href="{{path("user_order")}}">我的订单</a></div></li>
+			<li><div class="nav-item"><a href="{{path("user_address")}}">常用地址</a></div></li>
+            <li><div class="nav-item"><a href="{{path("user_topup")}}">充值</a></div></li>
+            {#<li><div class="nav-item"><a href="{{path("user_profile")}}">消费历史</a></div></li> #}
+            <li><div class="nav-item"><a href="{{path("fos_user_change_password")}}">修改密码</a></div></li>
+            <li><div class="nav-item"><a href="{{path("user_email")}}">邮件选择</a></div> </li>
+            </ul>
+
+            <!--best pros-->
+            {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+            {{ render(controller('AppBundle:Widget/Default:postFee')) }}
+
+        </div>
+        <div class="col-xs-9 page-right">
+                <div class="page-breadcrumb">
+                    <ol>
+                        <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
+                        <li>&nbsp;>&nbsp;{% block page_breadcrumb %}用户信息{% endblock page_breadcrumb %}</li>
+                    </ol>
+                </div>
+        	<div class="page-content">
+                <div class="page-title">
+                    <div class="page-leaf-top"></div>
+                    <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
+                    <div><h4>{% block page_title %}用户信息{% endblock page_title %}</h4></div>     
+                </div>
+                <div class="user-content">
+        	       {% block fos_user_content %}
+                     {% include "FOSUserBundle:Profile:show_content.html.twig" %}
+                   {% endblock fos_user_content %}
+                </div>
+            </div>
+        {#{{ render(controller('AppBundle:Widget/Default:index')) }}#}
+         
+    </div>
+
+
+ </div>
+
+    {% endblock %}
+
+
+{% block javascripts %}
+    <script src="{{ asset('js/user.js') }}"></script>
+    {#<script src="{{asset('js/SimpleAjaxUploader.js')}}"></script>
+    <script src="{{ asset('js/id-upload.js') }}"></script>#}
+{% endblock %}
+
+
+
+

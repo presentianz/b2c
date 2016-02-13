@@ -1,0 +1,67 @@
+
+      <div class="order-info">
+           <label>物流信息</label>
+           <div><span>发货时间：</span><span>暂未发货</span></div>
+           <div><span>配送方式：</span><span>快递</span></div>
+           <div><span>快递单号：</span><span>暂无</span></div>
+           <!--wait for second-->
+       </div>
+       <hr>
+       <div class="order-info">
+         <label>收件人信息</label>
+         <div><span>姓名：</span><span>{{order.shipmentAddress.name}}</span></div>
+         <div><span>电话：</span><span>{{order.shipmentAddress.contactNo}}</span></div>
+         <div><span>地址：</span>
+           <span>{{order.shipmentAddress.region}} 
+           {{order.shipmentAddress.city}}
+            {{order.shipmentAddress.address}}</span>
+         </div>
+         <div><span>国家：</span>
+         <span>{{order.shipmentAddress.country}}</span></div>
+       </div>
+       <hr>
+       <div class="order-info">
+         <label>订单信息</label>
+         <div><span>订单号：</span><span>{{order.orderId}}</span></div>
+          <div><span>提交时间：</span><span>{{order.createAt|date('Y-m-d H:i:s')}}</span></div>
+          <div><span>商品价格：</span><span>NZD：{{order.totalPrice}}</span></div> 
+          <div><span>邮费：</span><span>NZD：{{order.postFee}}</span></div>
+          <div><span>订单总价：</span><span>NZD：{{order.totalPrice + order.postFee}}</span></div> 
+      </div>
+      <hr>
+      <div class="order-info">
+         <label>商品信息</label>
+      </div>
+      <table class="table">
+          <thead>
+              <tr>
+                  <th></th>
+                  <th width="50%">商品名称</th>
+                  <th>数量</th>
+                  <th>单价（纽币）</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for orderProduct in order.orderProducts %}
+                  <tr>
+                      <td class="text-left">
+                          <div class="col-xs-3 img">
+                              <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{orderProduct.product.imageLink}}/poster/{{orderProduct.product.poster}}" alt="">
+                          </div>
+                          </td>
+                          <td class="text-left">
+                          <div class="col-xs-12 order-product-name">
+                              <h5>
+                              <a href="{{ path('product', { id : orderProduct.product.id }) }}">
+                                  {{ orderProduct.product.name }}
+                              </a>
+                              </h5>                                         
+                          </div>
+                      </td>
+                      <td>{{ orderProduct.count }}</td> 
+                      <td>{{ orderProduct.price }}</td>
+                 </tr>
+             {% endfor %}
+      </tbody>
+      </table>
+       

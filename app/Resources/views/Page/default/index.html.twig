@@ -1,0 +1,47 @@
+{% extends 'layout_main.html.twig' %}
+
+{% block body %}
+        <div class="row no-border">
+            <div class="col-xs-3 siderbar">
+                {{ render(controller('AppBundle:Widget/Menu:index')) }}
+                {{ render(controller('AppBundle:Widget/Default:brandList')) }}
+                {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
+                 {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+                  {{ render(controller('AppBundle:Widget/Default:postFee')) }}    
+            </div>
+            <div class="col-xs-9 no-padding slider-part page-right">
+                <div id="myCarousel" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item">
+                            <img src="{{ asset('img/slider1.jpg') }}" alt="">
+
+                        </div>
+                        <div class="item">
+                            <img src="{{ asset('img/slider2.jpg') }}" alt="">
+
+                        </div>
+                        <div class="item active">
+                            <img src="{{ asset('img/slider3.jpg') }}" alt="">
+
+                        </div>
+
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <i class="fa fa-chevron-left"></i>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+                 {{ render(controller('AppBundle:Widget/Default:index')) }}
+                  {{ render(controller('AppBundle:Widget/Default:brand')) }}
+                </div>
+            </div>
+                
+                
+{% endblock %}

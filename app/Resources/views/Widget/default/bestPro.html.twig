@@ -1,0 +1,37 @@
+<!--best pros-->
+<div class="side">
+    <div class="side-title">
+        <h4>人气商品</h4>
+        <h6>&nbsp;> &nbsp;<a href="">好健康系列</a></h6>
+    </div>
+    <div class="side-content">
+        {% for product in data|slice(1,1) %}
+            <div class="side-item">
+            <a href="{{ path('product', {id : product.id}) }}">
+                    <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div> 
+
+
+
+
+
+<div class="side">
+    <div class="side-title">
+        <h4>人气商品</h4>
+        <h6>&nbsp;> &nbsp;<a href="">好健康系列</a></h6>
+    </div>
+    <div class="side-content">
+        {% for product in data|slice(1,1) %}
+            <div class="side-item">
+            <a href="{{ path('product', {id : product.id}) }}">
+                    <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div> 
