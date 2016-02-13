@@ -12,7 +12,6 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserInfoRepository extends EntityRepository
 {
-<<<<<<< HEAD
 	public function searchUserInfo($keys, $sort, $page, $item_no)
     {
     	$data=Array();
@@ -62,6 +61,4 @@ class UserInfoRepository extends EntityRepository
         $data=Array();
         return $data;
     }
-=======
->>>>>>> remotes/b2c/master
 }

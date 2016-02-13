@@ -5,20 +5,13 @@ namespace AppBundle\Controller\Order;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-<<<<<<< HEAD
-=======
-
->>>>>>> remotes/b2c/master
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Cookie;
 
 use AppBundle\Entity\CartProduct;
-<<<<<<< HEAD
 use AppBundle\Entity\UserInfo;
-=======
->>>>>>> remotes/b2c/master
 
 class DefaultController extends Controller
 {
@@ -79,7 +72,6 @@ class DefaultController extends Controller
      */
     public function checkoutAction(Request $request)
     {
-<<<<<<< HEAD
     	 $points="0";
     	 $em = $this->getDoctrine()->getManager();
     	 if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
@@ -91,19 +83,11 @@ class DefaultController extends Controller
         
     		
         
-=======
-    	$user = $this->getUser();
-        $em = $this->getDoctrine()->getManager();
->>>>>>> remotes/b2c/master
         $cartArray = $request->request->get('product-id');
         $products = $em->getRepository('AppBundle:CartProduct')->getItem($cartArray, $this->getUser()->getId());
         return $this->render('Order/default/checkout.html.twig', array(
             'data' => $products,
-<<<<<<< HEAD
             'points'=> $points
-=======
-            'points'=>$user["points"]
->>>>>>> remotes/b2c/master
             ));
     }
 }

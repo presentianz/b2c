@@ -2,23 +2,14 @@
 
 namespace AppBundle\Controller\Admin;
 
-<<<<<<< HEAD
 use Symfony\Component\HttpFoundation\Request;
-=======
->>>>>>> remotes/b2c/master
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Doctrine\ORM\Query\ResultSetMapping;
-<<<<<<< HEAD
 use AppBundle\Entity\Config;
 use Symfony\Component\HttpFoundation\Response;
-=======
-use Symfony\Component\HttpFoundation\Response;
-use AppBundle\Entity\Config;
-
->>>>>>> remotes/b2c/master
 /**
  * @Route("/admin")
  * @Security("is_granted('ROLE_ADMIN')")
@@ -140,7 +131,6 @@ class DefaultController extends Controller
         	));
     	}
     	
-<<<<<<< HEAD
     	/**
      * @Route("/listuserinfo", name="admin_listuserinfo")
      */
@@ -167,8 +157,6 @@ class DefaultController extends Controller
     	
     	}
     	
-=======
->>>>>>> remotes/b2c/master
     	
     	 /**
      * @Route("/submitwebconfig", name="admin_submitwebconfig")
@@ -215,12 +203,7 @@ class DefaultController extends Controller
         	$em->flush();
         }
        	}    		
-<<<<<<< HEAD
        
-=======
-       $response = new Response();
-			$response->headers->set('Content-Type', 'application/json');	
->>>>>>> remotes/b2c/master
 			$ret='';
     	return new Response($ret);
     	
