@@ -93,6 +93,13 @@ class UserInfo
     private $city;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="points", type="string", length=255, nullable=true)
+     */
+    private $points = "0";
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="create_at", type="datetime")
@@ -430,5 +437,28 @@ class UserInfo
     public function getCreateAt()
     {
         return $this->createAt;
+    }
+
+    /**
+     * Set points
+     *
+     * @param string $points
+     * @return UserInfo
+     */
+    public function setPoints($points)
+    {
+        $this->points = $points;
+
+        return $this;
+    }
+
+    /**
+     * Get points
+     *
+     * @return string 
+     */
+    public function getPoints()
+    {
+        return $this->points;
     }
 }

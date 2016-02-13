@@ -45,6 +45,11 @@ class DefaultController extends Controller
     		$data[$key] = $query->getSingleScalarResult();
     	}
 
+		$sql = "SELECT p FROM AppBundle:UserInfo p";
+		$query = $em->createQuery($sql);
+		$member = $query->getResult();
+		exit(\Doctrine\Common\Util\Debug::dump($member));
+
     	//exit(\Doctrine\Common\Util\Debug::dump($data));
         return $this->render('Admin/Default/index.html.twig', array(
         	'data' => $data,
