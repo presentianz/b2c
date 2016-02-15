@@ -93,6 +93,13 @@ class UserInfo
     private $city;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="points", type="string", length=255, nullable=true)
+     */
+    private $points = "0";
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="create_at", type="datetime")
@@ -104,14 +111,8 @@ class UserInfo
      *
      * @ORM\Column(name="update_at", type="datetime")
      */
-    private $updateAt;
-    
-     /**
-     * @var string
-     *
-     * @ORM\Column(name="points", type="string", length=255, nullable=false)
-     */
-    private $points="0";
+    private $updateAt;   
+
     
     /**
      * @var string
@@ -493,4 +494,6 @@ class UserInfo
     {
         return $this->brithday;
     }
+
+
 }

@@ -25,12 +25,14 @@ class OrderController extends Controller
     /**
      * @Route("/order", name="user_order")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+    	  $type=$request->query->get('type',"1");
         $em = $this->getDoctrine()->getManager();
-        $orders = $em->getRepository('AppBundle:UserOrder')->findByUser($this->getUser()->getId());
+        $orders = $em->getRepository('AppBundle:UserOrder')->findByType($this->getUser()->getId(),$type);
         return $this->render('User/order/index.html.twig', array(
-            'data' => $orders
+            'data' => $orders,
+            "type" => $type
             ));
     }
 

@@ -93,6 +93,13 @@ class UserInfo
     private $city;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="points", type="string", length=255, nullable=true)
+     */
+    private $points;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="create_at", type="datetime")
