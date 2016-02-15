@@ -54,7 +54,8 @@
         <div>
           <label>积分支付</label>
           <input type="text" name="points" style="width:150px;">
-          可用积分总数：{{points}}
+          可用积分总数：<span id="sumpoints" class="red">{{points}}</span>
+          
         </div>
       </div>
       
@@ -72,7 +73,7 @@
           </thead>
           <tbody>    
              
-            {% set sum, weight, ids = 0, 0, [] %}
+            {% set post,sum, weight, ids = 0,0, 0, [] %}
               {% for cartproduct in data %}
                 <tr>
                   <td class="product-img">
@@ -116,6 +117,7 @@
               </td>
               <td  class="text-right">              
                <input type="submit" title="提交订单" class="btn-pay" value="确认无误，马上下单" >
+               <input type="hidden" id="totalmoney" value="{{ sum + post }}">
               </td>
             </tr>
              
@@ -143,24 +145,76 @@
 {% block javascripts %}
   <script src="{{ asset('js/checkout.js') }}"></script>
   <script type="text/javascript">
+  var orderid="";
   (function () {
 
     $('.btn-pay').click(function() {
-    $('.bg-mask').css('display','block');
+    $('.bg-mask').css('display','none');
+    $('.pop-cart').css('display','none');
+    if ($( "#select-location" ).val() == '') {
+    alert('请选择地址！');
+        
+        return false;
+    }           
+    
+    var points=$("input[name='points']").val();
+        if(points=="")
+        {
+        	points=0;
+        }
+        if(isNaN(parseInt(points)))
+        {
+        alert("请录入积分金额");
+        return false;
+        }
+        $.ajax({
+          url: "{{path('order_generationpointspay')}}",
+          method: "POST",
+          data: {            
+            address : $( "#select-location" ).val(),
+            points:points
+          },
+          dataType: "json"
+        })
+        .done(function (rep) {
+         
+          if (rep.granted) {
+            alert(rep.msg); 
+            window.location.href="{{path('user_order')}}";           
+            
+          }
+          else {
+            $('.bg-mask').css('display','block');
     $('.pop-cart').css('display','block');
+          }
+        })
     });
 
 
     $('.btn-confirm').click(function () {
       if ($( "#select-location" ).val() != '') {
+      
+      var points=$("input[name='points']").val();
+        if(points=="")
+        {
+        	points=0;
+        }
+        if(isNaN(parseInt(points)))
+        {
+        alert("请录入积分金额");
+        return false;
+        }
+        
+        
         $this = $(this);
         var productId = $this.attr("data-id");
         var type = $this.attr("data-type");
         $.ajax({
           url: "{{ path('order_generation') }}",
-          method: "GET",
+          method: "get",
           data: {
             id : productId,
+            points:points,
             address : $( "#select-location" ).val(),
           },
           dataType: "json"

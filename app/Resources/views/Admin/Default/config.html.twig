@@ -60,7 +60,7 @@
   }
   $.ajax({
                 type: "POST",
-                url: "/web/admin/submitwebconfig",
+                url: "{{ path('admin_submitwebconfig') }}",               
                 dataType: "html",
                 data: { cfg1: $("#cfgvalue1").val(),"cfg2":cfg2,"cfg3":$("#cfgvalue3").val()},
                 success: function (data) {
