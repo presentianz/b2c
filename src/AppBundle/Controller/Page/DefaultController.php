@@ -10,6 +10,7 @@ use AppBundle\Entity\Category;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+
 class DefaultController extends Controller
 {
     /**
@@ -22,7 +23,7 @@ class DefaultController extends Controller
             'data' => $data));
     }
 
-      /**
+    /**
      * @Route("/404", name="404")
      */
     public function fourOfourAction()
@@ -46,47 +47,24 @@ class DefaultController extends Controller
         return $this->render('Page/other/contact.html.twig');
     }
 
-    // /**
-    //  * @Route("/test")
-    //  */
-    // public function testAction()
-    // {
-    //     $em = $this->getDoctrine()->getManager();
-    //     $repo = $em->getRepository('AppBundle:Category');
-    //     // $food = new Category();
-    //     // $food->setName('Food');
-    //     $food = $repo->findOneByName('Food');
-    //     $meat = new Category();
-    //     $meat->setName('Meat');
-    //     $meat->setParent($food);
+    /**
+     * @Route("/checkoutTest")
+     */
+    public function test()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $userOrder = $em->getRepository('AppBundle:UserOrder')->find(25); //找一个order
 
-    //     // $fruits = new Category();
-    //     // $fruits->setName('Fruits');
-    //     // $fruits->setParent($food);
+        $check = $this->get('app.skip.checkout');
+        $url = $check->checkout($userOrder, 0.01); //接受一个userOrder对象和总额
 
-    //     // $vegetables = new Category();
-    //     // $vegetables->setName('Vegetables');
-    //     // $vegetables->setParent($food);
-
-    //     // $carrots = new Category();
-    //     // $carrots->setName('Carrots');
-    //     // $carrots->setParent($vegetables);
-
-    //     //$em->persist($meat);
-    //     // $em->persist($fruits);
-    //     // $em->persist($vegetables);
-    //     // $em->persist($carrots);
-    //     // $meat = $repo->findOneByName('Meat');
-    //     // $repo->removeFromTree($meat);
-    //     // $em->clear();
-    //     // $data = $repo->childrenHierarchy();
-    //     //$carrots = $repo->findOneByName('Carrots');
-    //     $food = $repo->findOneByName('Food');
-    //     $children = $repo->children($food);
-    //     //$path = $repo->getPath($carrots);
-    //     return $this->render('Page/default/test.html.twig', array(
-    //         'data' => $children,
-    //         ));
-
-    // }
+        if($url) {
+            //跳转支付
+            return $this->redirect($url);
+        }
+        else {
+            //出错了do something
+            return new Response('Error');
+        }
+    }
 }

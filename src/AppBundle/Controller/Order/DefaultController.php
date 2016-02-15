@@ -57,8 +57,7 @@ class DefaultController extends Controller
     {
         $id = $request->query->get('id');
         $em = $this->getDoctrine()->getManager();
-        $order = $em->getRepository('AppBundle:UserOrder')->findOneById($id);
-        
+        $order = $em->getRepository('AppBundle:UserOrder')->findOneByOrderId($id);
         return $this->render('Order/default/order_confirm.html.twig', array(
             'data' => $order
             ));
@@ -77,8 +76,8 @@ class DefaultController extends Controller
     	 if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             
             $user = $this->getUser(); 
-       			$member=$user->getUserInfo();
-       			$points=$this->getUser()->getUserInfo()->getPoints();
+            $member=$user->getUserInfo();
+            $points=$this->getUser()->getUserInfo()->getPoints();
         }
         
     		
