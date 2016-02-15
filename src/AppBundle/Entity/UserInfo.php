@@ -501,26 +501,5 @@ class UserInfo
         return $this->brithday;
     }
 
-    /**
-     * Set points
-     *
-     * @param string $points
-     * @return UserInfo
-     */
-    public function setPoints($points)
-    {
-        $this->points = $points;
 
-        return $this;
-    }
-
-    /**
-     * Get points
-     *
-     * @return string 
-     */
-    public function getPoints()
-    {
-        return $this->points;
-    }
 }
