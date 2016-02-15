@@ -111,14 +111,8 @@ class UserInfo
      *
      * @ORM\Column(name="update_at", type="datetime")
      */
-    private $updateAt;
-    
-     /**
-     * @var string
-     *
-     * @ORM\Column(name="points", type="string", length=255, nullable=false)
-     */
-    private $points="0";
+    private $updateAt;   
+
     
     /**
      * @var string
