@@ -96,6 +96,30 @@ class OrderController extends Controller
         return new Response(json_encode($return));
     }
     
+     /**
+     * @Route("/delorder", name="order_delorder", condition="request.isXmlHttpRequest()")
+     * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
+     */
+    public function deleteorder(Request $request)
+    {
+    		$em = $this->getDoctrine()->getManager();  
+    	 	$id=$_REQUEST["id"];    	
+    	  $pointsprice = $em->getRepository('AppBundle:UserOrder')->deleteorder($id);
+    	  return new Response(json_encode(""));
+    	}
+    	
+    	/**
+     * @Route("/realdelorder", name="order_realdelorder", condition="request.isXmlHttpRequest()")
+     * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
+     */
+    	public function realdeleteorder(Request $request)
+    {
+    	$em = $this->getDoctrine()->getManager();  
+    	 	$id=$_REQUEST["id"];    	
+    	  $pointsprice = $em->getRepository('AppBundle:UserOrder')->realdeleteorder($id);
+    	  return new Response(json_encode(""));
+    	}
+    
     /**
      * @Route("/orderGenerationPointsPayAjax", name="order_generationpointspay", condition="request.isXmlHttpRequest()")
      * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")

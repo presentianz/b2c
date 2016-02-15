@@ -54,23 +54,21 @@ class DefaultController extends Controller
         );
     }
     	$cfgvalue=$Config->getCfgvalue();
-    	$rsm = new ResultSetMapping();
-    	$sql="SELECT p FROM AppBundle:UserInfo p where datediff(d,p.brithday,getdate())=0";
-    	
+    	//$rsm = new ResultSetMapping();
+    	$sql="SELECT p FROM AppBundle:UserInfo p where datediff(d,p.brithday,getdate())=0";    	
     	$sql="SELECT p FROM AppBundle:UserInfo p";
     	$query = $em->createQuery(
                 $sql
             );
        $member=$query->getResult();
        //echo(exit(\Doctrine\Common\Util\Debug::dump($member)));
-       $count=count($member);       
+       //$count=count($member);       
        while(list($k,$v)=each($member))      
        {       	  
        		//$id=$v->getId(); 	
        		//$entity = $em->getRepository('AppBundle:UserInfo')->find($id);
        		//echo($v->getPoints());
-       		$v->setPoints($v->getPoints()+$cfgvalue);
-       		
+       		$v->setPoints($v->getPoints()+$cfgvalue);       		
        		$em->persist($v);
         	$em->flush();
        	}
@@ -98,14 +96,7 @@ class DefaultController extends Controller
 
     	foreach ($queries as $key => $query) {
     		$data[$key] = $query->getSingleScalarResult();
-    	}
-
-		$sql = "SELECT p FROM AppBundle:UserInfo p";
-		$query = $em->createQuery($sql);
-		$member = $query->getResult();
-		exit(\Doctrine\Common\Util\Debug::dump($member));
-
-    	//exit(\Doctrine\Common\Util\Debug::dump($data));
+    	}		
         return $this->render('Admin/Default/index.html.twig', array(
         	'data' => $data,
         	));
