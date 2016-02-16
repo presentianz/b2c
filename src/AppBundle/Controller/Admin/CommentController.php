@@ -216,6 +216,7 @@
          */
         public function deleteAction(Request $request, $id)
         {
+            die(Debug::dump($id));
             $form = $this->createDeleteForm($id);
             $form->handleRequest($request);
 
