@@ -83,51 +83,51 @@
                                 <thead>
                                 <tr role="row">
                                     {% if not app.request.get('sort') or app.request.get('sort') == 7 %}
-                                        <th class="sorting_asc"><a
-                                                    href="{{ path('admin_comment',{sort:8, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
+                                        <th class="sorting_asc">
+                                            <a href="{{ path('admin_comment',{sort:8, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
                                         </th>
                                     {% elseif app.request.get('sort') == 8 %}
-                                        <th class="sorting_desc"><a
-                                                    href="{{ path('admin_comment',{sort:7, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
+                                        <th class="sorting_desc">
+                                            <a href="{{ path('admin_comment',{sort:7, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
                                         </th>
                                     {% else %}
-                                        <th class="sorting"><a
-                                                    href="{{ path('admin_comment',{sort:7, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
+                                        <th class="sorting">
+                                            <a href="{{ path('admin_comment',{sort:7, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
                                         </th>
                                     {% endif %}
 
-                                    <th><a
-                                                href="{{ path('admin_comment',{sort:9, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">评论内容</a>
+                                    <th>
+                                        <a href="{{ path('admin_comment',{sort:9, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">评论内容</a>
                                     </th>
 
-                                    <th><a
-                                                href="{{ path('admin_comment',{sort:9, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">回复</a>
+                                    <th>
+                                        <a href="{{ path('admin_comment',{sort:9, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">回复</a>
                                     </th>
 
                                     {% if app.request.get('sort') == 2 %}
-                                        <th class="sorting_asc"><a
-                                                    href="{{ path('admin_comment',{sort:3, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">评论时间</a>
+                                        <th class="sorting_asc">
+                                            <a href="{{ path('admin_comment',{sort:3, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">评论时间</a>
                                         </th>
                                     {% elseif app.request.get('sort') == 3 %}
-                                        <th class="sorting_desc"><a
-                                                    href="{{ path('admin_comment',{sort:4, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">评论时间</a>
+                                        <th class="sorting_desc">
+                                            <a href="{{ path('admin_comment',{sort:4, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">评论时间</a>
                                         </th>
                                     {% else %}
-                                        <th class="sorting"><a
-                                                    href="{{ path('admin_comment',{sort:2, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">评论时间</a>
+                                        <th class="sorting">
+                                            <a href="{{ path('admin_comment',{sort:2, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">评论时间</a>
                                         </th>
                                     {% endif %}
                                     {% if app.request.get('sort') == 4 %}
-                                        <th class="sorting_asc"><a
-                                                    href="{{ path('admin_comment',{sort:5, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">星级</a>
+                                        <th class="sorting_asc">
+                                            <a href="{{ path('admin_comment',{sort:5, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">星级</a>
                                         </th>
                                     {% elseif app.request.get('sort') == 5 %}
-                                        <th class="sorting_desc"><a
-                                                    href="{{ path('admin_comment',{sort:4, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">星级</a>
+                                        <th class="sorting_desc">
+                                            <a href="{{ path('admin_comment',{sort:4, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">星级</a>
                                         </th>
                                     {% else %}
-                                        <th class="sorting"><a
-                                                    href="{{ path('admin_comment',{sort:4, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">星级</a>
+                                        <th class="sorting">
+                                            <a href="{{ path('admin_comment',{sort:4, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">星级</a>
                                         </th>
                                     {% endif %}
                                     <th>编辑</th>
@@ -142,11 +142,13 @@
 
                                         <td>
                                             {% if entity.text|length > 20 %}
-                                                <span title="{{ entity.text }}">{{ entity.text|slice(0, 20) }}...</span>
+                                                <a href="{{ path('admin_comment_show', { 'id': entity.id }) }}"><span
+                                                            title="{{ entity.text }}">{{ entity.text|slice(0, 20) }}
+                                                        ...</span></a>
                                             {% else %}
-                                                <span title="{{ entity.text }}">{{ entity.text }}</span>
+                                                <a href="{{ path('admin_comment_show', { 'id': entity.id }) }}"><span
+                                                            title="{{ entity.text }}">{{ entity.text }}</span></a>
                                             {% endif %}</td>
-
 
                                         <td>{{ entity.reply }}</td>
 
@@ -177,16 +179,16 @@
                                         <a tabindex="0" class="previous paginate_button paginate_button_disabled"
                                            id="DataTables_Table_0_previous"
                                            href="{{ path('admin_comment',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:(app.request.get('page')) ? app.request.get('page')-1 : 2,keys:app.request.get('keys')}) }}">上一页</a>
-                    <span>
-                      {% for i in 1..data.total_page %}
-                          <a tabindex="0" href="{{ path('admin_comment', {
-                              keys : app.request.get('keys'),
-                              page : i,
-                              sort : app.request.get('sort'),
-                              item_no: app.request.get('item_no')
-                          }) }}" {% if not app.request.get('page') and i == 1 %} class="paginate_active paginate_button" {% elseif i == app.request.get('page') %} class="paginate_active paginate_button" {% else %} class="paginate_button" {% endif %}> {{ i }}</a>
-                      {% endfor %}
-                    </span>
+                                        <span>
+                                          {% for i in 1..data.total_page %}
+                                              <a tabindex="0" href="{{ path('admin_comment', {
+                                                  keys : app.request.get('keys'),
+                                                  page : i,
+                                                  sort : app.request.get('sort'),
+                                                  item_no: app.request.get('item_no')
+                                              }) }}" {% if not app.request.get('page') and i == 1 %} class="paginate_active paginate_button" {% elseif i == app.request.get('page') %} class="paginate_active paginate_button" {% else %} class="paginate_button" {% endif %}> {{ i }}</a>
+                                          {% endfor %}
+                                        </span>
                                         <a tabindex="0" class="next paginate_button" id="DataTables_Table_0_next"
                                            href="{{ path('admin_comment',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:(app.request.get('page')) ? app.request.get('page')+1 : 2,keys:app.request.get('keys')}) }}">下一页</a>
                                         <a tabindex="0" class="last paginate_button" id="DataTables_Table_0_last"
