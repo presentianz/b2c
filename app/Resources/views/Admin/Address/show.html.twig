@@ -1,33 +1,31 @@
 {% extends 'Admin/admin_layout.html.twig' %}
 
 
-
 {% block body %}
     <section id="content">
-  <section class="vbox">
-    <header class="header bg-light b-b">
-        <p><strong>评论</strong></p>
-    </header>
-   <section class="scrollable padder">
+        <section class="vbox">
+            <header class="header bg-light b-b">
+                <p><strong>评论</strong></p>
+            </header>
+            <section class="scrollable padder">
 
-   <div class="form">
+                <div class="form">
+                    <div><label>评论ID：</label> {{ entity.id }}</div>
+                    <div><label>国家：</label> {{ entity.country }}</div>
+                    <div><label>省份：</label> {{ entity.region }}</div>
+                    <div><label>城市：</label> {{ entity.city }}</div>
+                    <div><label>详细地址：</label> {{ entity.address }}</div>
+                    <div><label>收货人：</label> {{ entity.name }}</div>
+                    <div><label>邮编：</label> {{ entity.postCode }}</div>
 
-         <div> <label>评论ID：</label> {{ entity.id }}</div>
-        <div> <label>评论内容：</label> {{ entity.text}}</div>
-       <div> <label>回复内容：</label> {{ entity.reply}}</div>
-       <div> <label>评论时间：</label> {{ entity.commentAt|date("Y/m/d H:i:s")}}</div>
-       <div> <label>评论星级：</label> {{ entity.star}}</div>
+                    <div class="admin-buttons">
+                        <a href="{{ path('admin_address') }}">返回</a>
+                        <a href="{{ path('admin_address_edit', { 'id': entity.id }) }}">编辑</a>
+                    </div>
 
-
-
-     <div class="admin-buttons">
-        <a href="{{ path('admin_comment') }}">返回</a>
-        <a href="{{ path('admin_comment_edit', { 'id': entity.id }) }}">编辑</a>
-      </div>
-
- </section>
-</section>
-</section>
+            </section>
+        </section>
+    </section>
 
 
 

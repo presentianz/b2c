@@ -8,7 +8,7 @@
     use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
     use Doctrine\Common\Util\Debug;
     use AppBundle\Entity\ShipmentAddress;
-    use AppBundle\Form\AddressType;
+    use AppBundle\Form\Type\ShipmentAddressFormType;
     use Symfony\Component\HttpFoundation\Response;
 
     /**
@@ -30,10 +30,10 @@
             $sort = $request->query->get('sort');
             $page = $request->query->get('page');
             $item_no = $request->query->get('item_no');
-            if (!(is_numeric($item_no) && $item_no > 1)) {
+            if (! (is_numeric($item_no) && $item_no > 1)) {
                 $item_no = 20;
             }
-            if(!$sort)
+            if (! $sort)
                 $sort = 7;
 
             $em = $this->getDoctrine()->getManager();
@@ -45,6 +45,7 @@
             ));
 
         }
+
         /**
          * Creates a new Address entity.
          *
@@ -53,7 +54,7 @@
          */
         public function createAction(Request $request)
         {
-            $entity = new Address();
+            $entity = new ShipmentAddress();
             $form = $this->createCreateForm($entity);
             $form->handleRequest($request);
 
@@ -66,7 +67,7 @@
             }
             return $this->render('Admin/Address/new.html.twig', array(
                 'entity' => $entity,
-                'form'   => $form->createView(),
+                'form' => $form->createView(),
             ));
         }
 
@@ -77,9 +78,9 @@
          *
          * @return \Symfony\Component\Form\Form The form
          */
-        private function createCreateForm(Address $entity)
+        private function createCreateForm(ShipmentAddress $entity)
         {
-            $form = $this->createForm(new AddressType(), $entity, array(
+            $form = $this->createForm(new ShipmentAddressFormType(), $entity, array(
                 'action' => $this->generateUrl('admin_address_create'),
                 'method' => 'POST',
             ));
@@ -97,12 +98,12 @@
          */
         public function newAction()
         {
-            $entity = new Address();
-            $form   = $this->createCreateForm($entity);
+            $entity = new ShipmentAddress();
+            $form = $this->createCreateForm($entity);
 
             return $this->render('Admin/Address/new.html.twig', array(
                 'entity' => $entity,
-                'form'   => $form->createView(),
+                'form' => $form->createView(),
             ));
         }
 
@@ -116,9 +117,9 @@
         {
             $em = $this->getDoctrine()->getManager();
 
-            $entity = $em->getRepository('AppBundle:Address')->find($id);
+            $entity = $em->getRepository('AppBundle:ShipmentAddress')->find($id);
 
-            if (!$entity) {
+            if (! $entity) {
                 throw $this->createNotFoundException('Unable to find Address entity.');
             }
 
@@ -141,9 +142,9 @@
         {
             $em = $this->getDoctrine()->getManager();
 
-            $entity = $em->getRepository('AppBundle:Address')->find($id);
+            $entity = $em->getRepository('AppBundle:ShipmentAddress')->find($id);
 
-            if (!$entity) {
+            if (! $entity) {
                 throw $this->createNotFoundException('Unable to find Address entity.');
             }
 
@@ -151,8 +152,8 @@
             $deleteForm = $this->createDeleteForm($id);
 
             return $this->render('Admin/Address/edit.html.twig', array(
-                'entity'      => $entity,
-                'edit_form'   => $editForm->createView(),
+                'entity' => $entity,
+                'edit_form' => $editForm->createView(),
                 'delete_form' => $deleteForm->createView(),
             ));
         }
@@ -164,9 +165,9 @@
          *
          * @return \Symfony\Component\Form\Form The form
          */
-        private function createEditForm(Address $entity)
+        private function createEditForm(ShipmentAddress $entity)
         {
-            $form = $this->createForm(new AddressType(), $entity, array(
+            $form = $this->createForm(new ShipmentAddressFormType(), $entity, array(
                 'action' => $this->generateUrl('admin_address_update', array('id' => $entity->getId())),
                 'method' => 'PUT',
             ));
@@ -175,6 +176,7 @@
 
             return $form;
         }
+
         /**
          * Edits an existing Address entity.
          *
@@ -187,7 +189,7 @@
 
             $entity = $em->getRepository('AppBundle:Address')->find($id);
 
-            if (!$entity) {
+            if (! $entity) {
                 throw $this->createNotFoundException('Unable to find Address entity.');
             }
 
@@ -202,11 +204,12 @@
             }
 
             return $this->render('Admin/Address/edit.html.twig', array(
-                'entity'      => $entity,
-                'edit_form'   => $editForm->createView(),
+                'entity' => $entity,
+                'edit_form' => $editForm->createView(),
                 'delete_form' => $deleteForm->createView(),
             ));
         }
+
         /**
          * Deletes a Address entity.
          *
@@ -222,7 +225,7 @@
                 $em = $this->getDoctrine()->getManager();
                 $entity = $em->getRepository('AppBundle:Address')->find($id);
 
-                if (!$entity) {
+                if (! $entity) {
                     throw $this->createNotFoundException('Unable to find Address entity.');
                 }
 
@@ -242,11 +245,6 @@
          */
         private function createDeleteForm($id)
         {
-            return $this->createFormBuilder()
-                ->setAction($this->generateUrl('admin_address_delete', array('id' => $id)))
-                ->setMethod('DELETE')
-                ->add('submit', 'submit', array('label' => 'Delete'))
-                ->getForm()
-                ;
+            return $this->createFormBuilder()->setAction($this->generateUrl('admin_address_delete', array('id' => $id)))->setMethod('DELETE')->add('submit', 'submit', array('label' => 'Delete'))->getForm();
         }
     }
