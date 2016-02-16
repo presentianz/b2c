@@ -40,16 +40,14 @@
                     <h6>密码不能为空</h6>
                 </div>
             </div>
-            <div class="controls-link">
-                <!-- <div class="pull-left">
-                 <input type="checkbox" id="remember_me" name="_remember_me" value="on" />自动登录
-                 </div> -->
+            <div class="controls-link login-button">
+                <input type="submit" id="_submit" name="_submit" value="登录" />
                 <div class="pull-right">
-                 <input type="submit" id="_submit" name="_submit" value="登录" />
+               <!--  <input type="checkbox" id="remember_me" name="_remember_me" value="on" />自动登录</div> -->
             </div>
-             </div>
-            <hr>
-        <div class="controls-link">
+        </form>
+        <hr>
+        <div class="controls-link register">
             <div class="pull-right"><a href="{{path('fos_user_registration_register')}}">注册新帐号</a></div>
             <div class="pull-left"><a href="{{path("fos_user_resetting_request")}}">找回密码</a></div>
         </div>
@@ -61,7 +59,6 @@
         </div>
         
     </div>
-     </form>
 </div>
 
 

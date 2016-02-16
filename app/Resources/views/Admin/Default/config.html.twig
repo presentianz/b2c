@@ -1,0 +1,85 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+
+{% block body -%}
+
+<section id="content">
+    <section class="vbox">
+        <header class="header bg-light b-b">
+            <p>系统配置</p>
+        </header>
+
+        <section class="scrollable wrapper">
+            <div class="form">
+                <form action="/web/admin/default/Submitwebconfig">
+                    <div>
+                        <label>1积分</label>
+                        <input type="textbox" id="cfgvalue1"  value="{{cfg.cfgvalue1}}">
+                    </div>
+                    <div style="width:auto;">
+                        <label>启用发积分</label>
+                        <input type="checkbox" id="cfgvalue2">启用
+                    </div>
+                    <div>
+                        <label>送积分数量</label>
+                        <input type="textbox" id="cfgvalue3" value="{{cfg.cfgvalue3}}">
+                    </div>
+
+                    
+                <div class="admin-buttons">
+                <input type="button" value="提交" onclick="submitconfig()">
+                </div>
+                    </form>
+                </div>           
+        </section>
+</section>
+
+{% endblock %}
+{% block javascripts %}
+      <script src="{{asset('js/charts/easypiechart/jquery.easy-pie-chart.js')}}"></script>
+  <script src="{{asset('js/charts/sparkline/jquery.sparkline.min.js')}}"></script>
+  <script src="{{asset('js/charts/flot/jquery.flot.min.js')}}"></script>
+  <script src="{{asset('js/charts/flot/jquery.flot.tooltip.min.js')}}"></script>
+  <script src="{{asset('js/charts/flot/jquery.flot.spline.js')}}"></script>
+  <script src="{{asset('js/charts/flot/jquery.flot.pie.min.js')}}"></script>
+  <script src="{{asset('js/charts/flot/jquery.flot.resize.js')}}"></script>
+  <script src="{{asset('js/charts/flot/jquery.flot.grow.js')}}"></script>
+  <script src="{{asset('js/charts/flot/demo.js')}}"></script>
+  <script type="text/javascript">
+  function submitconfig()
+  {
+  if($("#cfgvalue1").val()=="")
+  {
+  alert("请录入积分价格");
+  return false;
+  
+  }
+  var cfg2=0;
+  if($("#cfgvalue2").is(":checked"))
+  {
+  	cfg2=1;
+  }
+  $.ajax({
+                type: "POST",
+                url: "{{ path('admin_submitwebconfig') }}",               
+                dataType: "html",
+                data: { cfg1: $("#cfgvalue1").val(),"cfg2":cfg2,"cfg3":$("#cfgvalue3").val()},
+                success: function (data) {
+                    if (data == "") {
+                        alert("提交成功");                        
+                    }
+                    else {
+                        alert(data);
+                    }
+
+
+                },
+                error: function (data) {
+
+                    alert(data.responseText);
+
+                }
+            });
+  
+  }
+  </script>
+{% endblock %}

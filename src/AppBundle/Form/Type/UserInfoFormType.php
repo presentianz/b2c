@@ -16,6 +16,7 @@ class UserInfoFormType extends AbstractType
             ->add('wechatno', 'text', array('label' => 'profile.wechatno', 'translation_domain' => 'FOSUserBundle'))
             ->add('qqno', 'text', array('label' => 'profile.qqno', 'translation_domain' => 'FOSUserBundle'))
             ->add('contactno', 'text', array('label' => 'profile.contactno', 'translation_domain' => 'FOSUserBundle','required' => true))
+            ->add('brithday', 'text', array('label' => '出生日期', 'translation_domain' => 'FOSUserBundle'))
             ->add('country', 'choice', array(
             		'label' => 'profile.country', 
             		'translation_domain' => 'FOSUserBundle',

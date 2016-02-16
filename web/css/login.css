@@ -77,7 +77,7 @@ body {
     border-bottom-color: #ccc;
     padding: 4px 10px;
     font-size: 15px;
-    width: 75%;
+    width: 70%;
     margin-right: 8px;
 }
 
@@ -96,15 +96,9 @@ body {
 }
 
 .login-content .controls-link {
-    height: auto;
+    height: 25px;
+    margin-top: 25px;
     font-size: 13px;
-    clear: both;
-    overflow: auto;
-
-}
-
-.login-content .controls-link > div {
-    line-height: 30px;
 }
 
 .login-content .controls-link input[type="checkbox"] {
@@ -178,4 +172,14 @@ body {
 }
 
 
+.login-button > .pull-right{
+    line-height: 30px;
+}
 
+.login-content .login-button{
+    margin-bottom: 35px;
+}
+
+.login-content .register {
+    margin-top: 0px;
+}

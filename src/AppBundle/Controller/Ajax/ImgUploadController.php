@@ -20,7 +20,6 @@ class ImgUploadController extends Controller
      */
     public function indexAction(Request $request)
     {
-        
         if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             $imgLink = $this->container->get('request')->get('imgLink');
             $type = $this->container->get('request')->get('type');

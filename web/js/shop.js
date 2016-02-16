@@ -66,7 +66,6 @@ $(function() {
     });
 
     $(".search-select").change(function(){
-        $(".search-query").val("");
        var key = $(this).children(":selected").attr("value");
        console.log(key);
        $(".search-query").val(key);
@@ -99,8 +98,6 @@ $(function() {
      $('.continue-shop').click(function() {
         $('.bg-mask').css('display','none');
         $('.pop-cart').css('display','none');
-        $('#create-address').css('display','none');
-        $('#need-address').css('display','none');
     });
 
     $(".cart-wrapper").hover(function(e) {

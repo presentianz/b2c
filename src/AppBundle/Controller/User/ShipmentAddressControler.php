@@ -56,8 +56,8 @@ class ShipmentAddressControler extends Controller
     	
     	$form = $this->createForm(new ShipmentAddressFormType());
     	$form->setData($address);
+    	
     	$form->handleRequest($request);
-
     	
     	if ($form->isSubmitted() && $form->isValid()) {
     		

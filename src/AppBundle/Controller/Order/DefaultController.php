@@ -5,20 +5,13 @@ namespace AppBundle\Controller\Order;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Cookie;
 
-use Symfony\Component\Form\FormBuilder;
-use AppBundle\Entity\ShipmentAddress;
-use AppBundle\Form\Type\ShipmentAddressFormType;
 use AppBundle\Entity\CartProduct;
+use AppBundle\Entity\UserInfo;
 
 class DefaultController extends Controller
 {
@@ -57,59 +50,17 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/orderConfirm", name="order_confirm"))
+     * @Route("/orderConfirm", name="order_confirm", options={"expose"=true}))
      * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      */
     public function orderConfirmAction(Request $request)
     {
         $id = $request->query->get('id');
-        $type = $request->query->get('type');
         $em = $this->getDoctrine()->getManager();
         $order = $em->getRepository('AppBundle:UserOrder')->findOneByOrderId($id);
-        if ($type == 'trans') {
-            if ($order->getUser() != $this->getUser()) {
-                return new Response('Not your thing!');
-            }
-            return $this->render('Order/default/order_confirm.html.twig', array(
-                'data' => $order
-                ));
-        }
-        elseif ($type == 'online') {
-            $amount = $order->getTotalPrice()+$order->getPostFee();
-            //var_dump(number_format($amount, 2));
-            $xml = '<GenerateRequest>
-<PxPayUserId>CAIGOU_Dev</PxPayUserId>
-<PxPayKey>0ef0c283693b5968e0b7ff9aec5a72a1755cbd5a16bd8a4b5a1044049c26ea95</PxPayKey>
-<MerchantReference>My Reference</MerchantReference>
-<TxnType>Purchase</TxnType>
-<AmountInput>'.number_format($amount, 2).'</AmountInput>
-<CurrencyInput>NZD</CurrencyInput>
-<TxnData1>Data 1</TxnData1>
-<TxnData2>Data 2</TxnData2>
-<TxnData3></TxnData3>
-<EmailAddress></EmailAddress>
-<TxnId></TxnId>
-<UrlSuccess>https://www.dpsdemo.com/SandboxSuccess.aspx</UrlSuccess>
-<UrlFail>https://www.dpsdemo.com/SandboxSuccess.aspx</UrlFail>
-</GenerateRequest>';
-            $ch = curl_init("https://uat.paymentexpress.com/pxaccess/pxpay.aspx");
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
-            $response = curl_exec($ch);
-            curl_close ($ch);
-            $temp = simplexml_load_string($response);
-            $json = json_encode($temp);
-            $array = json_decode($json,TRUE);
-            if ($array['URI']) {
-                return $this->redirect($array['URI']);
-            }
-            else
-                return $this->redirectToRoute('user_order');
-        }
-        else
-            return $this->redirectToRoute('user_order');
+        return $this->render('Order/default/order_confirm.html.twig', array(
+            'data' => $order
+            ));
     }
 
 
@@ -120,32 +71,22 @@ class DefaultController extends Controller
      */
     public function checkoutAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
+    	 $points="0";
+    	 $em = $this->getDoctrine()->getManager();
+    	 if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            
+            $user = $this->getUser(); 
+            $member=$user->getUserInfo();
+            $points=$this->getUser()->getUserInfo()->getPoints();
+        }
+        
+    		
+        
         $cartArray = $request->request->get('product-id');
         $products = $em->getRepository('AppBundle:CartProduct')->getItem($cartArray, $this->getUser()->getId());
-
-
-        $form = $this->createForm(new ShipmentAddressFormType());
-
-        $form->handleRequest($request);
-
-        $address = new ShipmentAddress();
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $address = $form->getData();
-            $address->setUser($this->getUser());
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($address);
-            $em->flush();
-
-            return $this->redirectToRoute('order_confirm');
-        }
-
         return $this->render('Order/default/checkout.html.twig', array(
             'data' => $products,
-            'form' => $form->createView(),
+            'points'=> $points
             ));
     }
 }

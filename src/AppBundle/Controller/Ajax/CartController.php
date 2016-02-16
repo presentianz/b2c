@@ -27,13 +27,24 @@ class CartController extends Controller
         $return = array('granted' => true);
         //check if user logged in
         if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            //entity manager
             $em = $this->getDoctrine()->getManager();
+            //user
             $user = $this->getUser();
+            //request
+            //$get_request = $this->container->get('request');
+            //product
+            //$product_id = $get_request('id');
             $product = $em->getRepository('AppBundle:Product')->find($id);
+            //product count
+            //$product_no = $get_request('no');
+            //action
+            //$action = $get_request('action');
             $cartProduct = $em->getRepository('AppBundle:CartProduct')->hasItem($id, $user->getId());
 
             if ($product) {
                 switch ($action) {
+                    //add one
                     case '+':
                         if ($cartProduct == false) {
                             $cartProduct = new CartProduct();
@@ -68,6 +79,11 @@ class CartController extends Controller
                             $em->persist($cartProduct);
                             $em->flush();
                         }
+                        // elseif ($cartProduct && $cartProduct->getCount() < 1) {
+                        //     $cartProduct->setCount(0);
+                        //     $em->persist($cartProduct);
+                        //     $em->flush();
+                        // }
                         elseif ($cartProduct) {
                              $return['granted'] = false;
                         }
@@ -199,7 +215,7 @@ class CartController extends Controller
     }
 
     /**
-     * @Route("/cartAjaxGet", name="cart_ajax_get", options={"expose"=true})
+     * @Route("/cartAjaxGet", name="cart_ajax_get")
      */
     public function getCartAction(Request $request)
     {
@@ -243,7 +259,7 @@ class CartController extends Controller
                         'name' => $value->getName(),
                         'count' => $cart[$value->getId()]['count'],
                         'poster' => $value->getPoster(),
-                        'imageLink' => $value->getImageLink(),
+                        'imageLink' => $product->getImageLink(),
                         'price' => $value->getPrice(),
                         'price_discounted' => $value->getPriceDiscounted()
                         );

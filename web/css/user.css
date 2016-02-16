@@ -32,12 +32,13 @@
 }
 
 #user-page .user-content .form #shipment_address_country {
-        width:285px;  
+    width:285px;  
         margin-left: -3px;
 }
 
-#user-page .user-content .form #shipment_address_region {
-        width: 289px;
+#user-page .user-content .form #shipment_address_city {
+    width: 290px;
+        margin-left: 3px;
 }
 
 #user-page .user-content .form input {
@@ -150,7 +151,7 @@
 
 #user-page .order-title-item {
     display: inline-block;
-    padding: 8px 15px;
+    padding: 5px 15px;
     overflow: hidden;
     word-wrap: break-word;
     vertical-align: top;
@@ -192,11 +193,14 @@
     font-size: 12px;
     font-weight: normal;
     color: #aaa;
-    margin-bottom: 8px;
 }
 
 #user-page .order-title .pull-right {
     text-align: right;
+}
+
+#user-page .order-title .pull-left label {
+    margin-bottom: 10px;
 }
 
 #user-page .order-content {

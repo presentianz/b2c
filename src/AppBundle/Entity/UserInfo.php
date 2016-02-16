@@ -93,6 +93,13 @@ class UserInfo
     private $city;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="points", type="string", length=255, nullable=true)
+     */
+    private $points = "0";
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="create_at", type="datetime")
@@ -104,7 +111,17 @@ class UserInfo
      *
      * @ORM\Column(name="update_at", type="datetime")
      */
-    private $updateAt;
+    private $updateAt;   
+
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="brithday", type="string", length=255, nullable=true)
+     */
+    private $brithday;
+    
+    
 
     /**
      * Get id
@@ -431,4 +448,52 @@ class UserInfo
     {
         return $this->createAt;
     }
+    
+    /**
+     * Set points
+     *
+     * @param \string $points
+     * @return UserInfo
+     */
+    public function setPoints($points)
+    {
+        $this->points = $points;
+
+        return $this;
+    }
+
+    /**
+     * Get points
+     *
+     * @return \string 
+     */
+    public function getPoints()
+    {
+        return $this->points;
+    }
+    
+        /**
+     * Set birthday
+     *
+     * @param \string $points
+     * @return UserInfo
+     */
+    public function setBrithday($brithday)
+    {
+        $this->brithday = $brithday;
+
+        return $this;
+    }
+
+    /**
+     * Get birthday
+     *
+     * @return \string 
+     */
+    public function getBrithday()
+    {
+        return $this->brithday;
+    }
+
+
 }

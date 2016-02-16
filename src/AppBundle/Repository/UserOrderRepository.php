@@ -23,4 +23,22 @@ class UserOrderRepository extends EntityRepository
         $query->setParameter('type', $type);
         return $query->getResult();
 	}
+	
+  public function deleteorder($id)
+	{
+		$query = $this->getEntityManager()->createQuery(
+                'update AppBundle:UserOrder O set O.status=4 WHERE O.id = :id'
+            );
+        $query->setParameter('id', $id);         
+        return $query->execute();
+	}
+	
+	public function realdeleteorder($id)
+	{
+		$query = $this->getEntityManager()->createQuery(
+                'delete from AppBundle:UserOrder O WHERE O.id = :id'
+            );
+        $query->setParameter('id', $id);       
+        return $query->execute();
+	}
 }
