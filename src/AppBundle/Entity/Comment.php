@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CommentRepository")
  */
 class Comment
@@ -89,7 +90,7 @@ class Comment
     /**
      * Get commentAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCommentAt()
     {
@@ -210,4 +211,14 @@ class Comment
     {
         return $this->product;
     }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function prePersist()
+    {
+        $this->commentAt =  new \DateTime();
+    }
+
 }

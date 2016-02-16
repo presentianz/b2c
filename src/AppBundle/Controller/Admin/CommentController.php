@@ -99,7 +99,6 @@
         public function newAction()
         {
             $entity = new Comment();
-            $entity->SetImageLink(uniqid());
             $form   = $this->createCreateForm($entity);
 
             return $this->render('Admin/Comment/new.html.twig', array(
