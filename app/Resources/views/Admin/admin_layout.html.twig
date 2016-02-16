@@ -172,13 +172,36 @@
                                             <span class="font-bold">付款明细</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="#" class="auto">
-                                            <i class="i i-book icon">
-                                            </i>
-                                            <span class="font-bold">地址管理</span>
-                                        </a>
-                                    </li>
+                                    {% block adminAddress %}
+                                        <li>
+                                            <a href="#" class="auto">
+                                                <span class="pull-right text-muted">
+													<i class="i i-circle-sm-o text"></i>
+													<i class="i i-circle-sm text-active"></i>
+												</span>
+                                                <i class="i i-book icon">
+                                                </i>
+                                                <span class="font-bold">评论管理</span>
+                                            </a>
+                                            <ul class="nav dk">
+                                                <li>
+                                                    <a href="{{ path('admin_address') }}" class="auto">
+                                                        <i class="i i-dot"></i>
+
+                                                        <span>评论列表</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('admin_address_new') }}" class="auto">
+                                                        <i class="i i-dot"></i>
+
+                                                        <span>添加评论</span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                    {% endblock %}
                                     {% block adminComment %}
                                         <li>
                                             <a href="#" class="auto">
