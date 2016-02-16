@@ -187,7 +187,7 @@
         {
             $em = $this->getDoctrine()->getManager();
 
-            $entity = $em->getRepository('AppBundle:Address')->find($id);
+            $entity = $em->getRepository('AppBundle:ShipmentAddress')->find($id);
 
             if (! $entity) {
                 throw $this->createNotFoundException('Unable to find Address entity.');

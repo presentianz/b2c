@@ -10,14 +10,6 @@
 
                 <div class="form">
                     {{ form_start(edit_form) }}
-                    <div><label>用户：</label> {{ form_widget(edit_form.user) }}</div>
-                    <div><label>商品：</label> {{ form_widget(edit_form.product) }}</div>
-                    <div><label>地址内容：</label> {{ form_widget(edit_form.text) }}</div>
-                    <div><label>回复内容：</label> {{ form_widget(edit_form.reply) }}</div>
-                    <div><label>地址星级：</label> {{ form_widget(edit_form.star) }}</div>
-
-                    <div class="info" id="info2"></div>
-                    <div style="clear: both;"></div>
 
                     <div class="admin-buttons">
                         <a href="{{ path('admin_comment') }}">返回</a>
