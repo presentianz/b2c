@@ -566,4 +566,9 @@ class Product
     {
         return $this->poster;
     }
+
+
+    public function __toString(){
+        return $this->name;
+    }
 }

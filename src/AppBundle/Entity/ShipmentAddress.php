@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  * @ORM\Table()
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserShipmentAddressRepository")
  */
 class ShipmentAddress
 {
