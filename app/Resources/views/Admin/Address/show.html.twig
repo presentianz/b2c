@@ -35,19 +35,18 @@
     <section id="content">
         <section class="vbox">
             <header class="header bg-light b-b">
-                <p><strong>评论</strong></p>
+                <p><strong>地址</strong></p>
             </header>
             <section class="scrollable padder">
 
                 <div class="form">
-                    <div><label>评论ID：</label> {{ entity.id }}</div>
+                    <div><label>地址ID：</label> {{ entity.id }}</div>
                     <div><label>国家：</label> {{ entity.country }}</div>
                     <div><label>省份：</label> {{ entity.region }}</div>
                     <div><label>城市：</label> {{ entity.city }}</div>
                     <div><label>详细地址：</label> {{ entity.address }}</div>
                     <div><label>收货人：</label> {{ entity.name }}</div>
                     <div><label>邮编：</label> {{ entity.postCode }}</div>
-
                     <div class="admin-buttons">
                         <a href="{{ path('admin_address') }}">返回</a>
                         <a href="{{ path('admin_address_edit', { 'id': entity.id }) }}">编辑</a>
