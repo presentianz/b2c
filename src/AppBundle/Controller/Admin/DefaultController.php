@@ -20,61 +20,7 @@ class DefaultController extends Controller
      * @Route("", name="admin_index")
      */
     public function indexAction()
-    {   
-    	
-    	$id=2; 	
-    	$em = $this->getDoctrine()->getManager();
-    	
-    	$Config = $this->getDoctrine()
-        ->getRepository('AppBundle:Config')
-        ->find($id);
-        if (!$Config) {
-        throw $this->createNotFoundException(
-            'No product found for id '.$id
-        );
-    }
-    $sql="select p from AppBundle:Config p where p.id=2";
-    $query=$em->createQuery($sql);
-    $data=$query->getSingleResult();
-    $cfgvalue=$data->getCfgvalue();
-    	//$cfgvalue=$Config->getCfgvalue();
-    	if($cfgvalue==1)
-    	{
-    		$sql="select p from AppBundle:Config p where p.id=3";
-    		$query=$em->createQuery($sql);
-    		$data=$query->getSingleResult();
-    		$cfgvalue=$data->getCfgvalue();
-    		$id=3;
-    		$Config = $this->getDoctrine()
-        ->getRepository('AppBundle:Config')
-        ->find($id);
-        if (!$Config) {
-        throw $this->createNotFoundException(
-            'No product found for id '.$id
-        );
-    }
-    	$cfgvalue=$Config->getCfgvalue();
-    	//$rsm = new ResultSetMapping();
-    	$sql="SELECT p FROM AppBundle:UserInfo p where datediff(d,p.brithday,getdate())=0";    	
-    	$sql="SELECT p FROM AppBundle:UserInfo p";
-    	$query = $em->createQuery(
-                $sql
-            );
-       $member=$query->getResult();
-       //echo(exit(\Doctrine\Common\Util\Debug::dump($member)));
-       //$count=count($member);       
-       while(list($k,$v)=each($member))      
-       {       	  
-       		//$id=$v->getId(); 	
-       		//$entity = $em->getRepository('AppBundle:UserInfo')->find($id);
-       		//echo($v->getPoints());
-       		$v->setPoints($v->getPoints()+$cfgvalue);       		
-       		$em->persist($v);
-        	$em->flush();
-       	}
-      }    		
-    
-
+    {
     	$data = [];
     	$queries = [];
 

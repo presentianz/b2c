@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 
 use AppBundle\Entity\CartProduct;
 use AppBundle\Entity\UserInfo;
+use AppBundle\Form\Type\ShipmentAddressFormType;
 
 class DefaultController extends Controller
 {
@@ -56,11 +57,32 @@ class DefaultController extends Controller
     public function orderConfirmAction(Request $request)
     {
         $id = $request->query->get('id');
+        $type = $request->query->get('type');
         $em = $this->getDoctrine()->getManager();
         $order = $em->getRepository('AppBundle:UserOrder')->findOneByOrderId($id);
-        return $this->render('Order/default/order_confirm.html.twig', array(
-            'data' => $order
-            ));
+        if ($order->getStatus() != 0) {
+            $this->redirectToRoute('user_order');
+        }
+        else {
+            if ($type == 'online') {
+                $check = $this->get('app.skip.checkout');
+                $url = $check->checkout($order, $order->getTotalPrice() + $order->getPostFee());
+
+                if($url) {
+                    //跳转支付
+                    return $this->redirect($url);
+                }
+                else {
+                    //出错了do something
+                    return new Response('Error');
+                }
+            }
+            else {
+                return $this->render('Order/default/order_confirm.html.twig', array(
+                    'data' => $order
+                ));
+            }
+        }
     }
 
 
@@ -71,22 +93,17 @@ class DefaultController extends Controller
      */
     public function checkoutAction(Request $request)
     {
-    	 $points="0";
-    	 $em = $this->getDoctrine()->getManager();
-    	 if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            
-            $user = $this->getUser(); 
-            $member=$user->getUserInfo();
-            $points=$this->getUser()->getUserInfo()->getPoints();
-        }
-        
-    		
-        
+        $em = $this->getDoctrine()->getManager();
+
+        $points=$this->getUser()->getUserInfo()->getPoints();
         $cartArray = $request->request->get('product-id');
+
         $products = $em->getRepository('AppBundle:CartProduct')->getItem($cartArray, $this->getUser()->getId());
+        $form = $this->createForm(new ShipmentAddressFormType());
         return $this->render('Order/default/checkout.html.twig', array(
             'data' => $products,
-            'points'=> $points
+            'points' => $points,
+            'form' => $form->createView(),
             ));
     }
 }
