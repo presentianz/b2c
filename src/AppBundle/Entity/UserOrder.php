@@ -53,6 +53,13 @@ class UserOrder
     private $postFee;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="points", type="integer")
+     */
+    private $points = 0;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="create_at", type="datetime")

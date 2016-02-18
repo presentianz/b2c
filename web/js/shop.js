@@ -89,6 +89,27 @@ $(function() {
             }
         }
     });
+
+
+$('#email-send').click(function() {
+    var email = $('#email-to').val();
+    var body_name = $('#email-name').val();
+    var body_message ="Hi " + body_name + "/n" +  $('#email-text').val();
+    var subject = $('#email-subject').val();
+   
+    if(email != "" && subject != "" && body_message != "") {
+    
+    var mailto_link = 'mailto:' + email + '&subject=' + subject + '&body=' + body_message;
+    console.log(mailto_link);
+    window.location.href = mailto_link;
+    window.open(mailto_link);
+    alert("Thank you!");
+    } else {
+        alert("不能为空!");
+    }
+});
+
+
 });
 
 

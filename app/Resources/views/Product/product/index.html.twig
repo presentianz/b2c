@@ -74,9 +74,9 @@
                                 </div>
                             </div>
                         </div> 
-                        <form method="get" action="{{ path('checkout') }}">
+                        {# <form method="get" action="{{ path('checkout') }}">
                             <input type="submit" value="立即购买" class="pull-right buy-now" data-id="{{ data.product.id }}">
-                        </form>
+                        </form> #}
                         <input type="submit" data-id="{{ data.product.id }}" data-path="{{ path('cart_ajax_action') }}" value="加入购物车" class="pull-right add-cart-button"> 
                     </div>
                 </div>
@@ -111,8 +111,9 @@
                  <input type="submit" value="发送" class="pull-right" />
                   <div class="tab-content-foot">*请登录后发表评论</div>
             </div>
+            {% for comment in data.product.comments %}
 
-            <!-- <div class="tab-contents">
+            <div class="tab-contents">
                 <table id="comments-record-list" class="record-list">
                     <tbody>
                     <tr>
@@ -120,12 +121,13 @@
                         <th width="60%">评论内容</th>
                     </tr>
                     <tr class="comments-record-item">
-                        <td>* 张 </td>
-                        <td class="comments">挺好的</td>
+                        <td class="comments-name">{{comment.user.username}}</td>
+                        <td class="comments">{{comment.text}}</td>
                     </tr>
                         </tbody>
                     </table>
-             </div> -->
+             </div>
+             {% endfor%}
         </div>
 
 
