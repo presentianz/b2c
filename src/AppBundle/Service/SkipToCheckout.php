@@ -9,18 +9,23 @@
 namespace AppBundle\Service;
 
 use AppBundle\Entity\UserOrder;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
 
 class SkipToCheckout
 {
     private $userId;
     private $key;
+    private $url;
+    private $router;
 
-    function __construct($userId, $key, $url)
+
+    function __construct($userId, $key, $url, Router $router)
     {
         $this->userId = $userId;
         $this->key = $key;
         $this->url = $url;
+        $this->router = $router;
     }
 
     public function checkout(UserOrder $userOrder, $sum)
@@ -37,8 +42,8 @@ class SkipToCheckout
 <TxnData3></TxnData3>
 <EmailAddress>'.$userOrder->getUser()->getEmail().'</EmailAddress>
 <TxnId></TxnId>
-<UrlSuccess>https://www.dpsdemo.com/SandboxSuccess.aspx</UrlSuccess>
-<UrlFail>https://www.dpsdemo.com/SandboxSuccess.aspx</UrlFail>
+<UrlSuccess>'.$this->router->generate('pay_process', array(), true).'</UrlSuccess>
+<UrlFail>'.$this->router->generate('pay_process', array(), true).'</UrlFail>
 </GenerateRequest>';
         $ch = curl_init($this->url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -53,5 +58,37 @@ class SkipToCheckout
         $array = json_decode($json, TRUE);
 
         return isset($array['URI']) ? $array['URI'] : false;
+    }
+
+    public function processResponse($result)
+    {
+        $request = '<ProcessResponse>
+<PxPayUserId>'.$this->userId.'</PxPayUserId>
+<PxPayKey>'.$this->key.'</PxPayKey>
+<Response>'.$result.'</Response>
+</ProcessResponse>';
+        $ch = curl_init($this->url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
+        $response = curl_exec($ch);
+        curl_close ($ch);
+
+        $temp = simplexml_load_string($response);
+        $json = json_encode($temp);
+        $array = json_decode($json, TRUE);
+        if ($array) {
+            return array(
+                'success' => $array['Success'],
+                'id' => $array['MerchantReference'],
+                'username' => $array['TxnData1']
+                );
+        }
+        else {
+            return array(
+                'success' => 0,
+                );
+        }
     }
 }

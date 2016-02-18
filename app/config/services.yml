@@ -42,4 +42,4 @@ services:
 
     app.skip.checkout:
         class: AppBundle\Service\SkipToCheckout
-        arguments: ['%checkout_user_id%', '%checkout_key%', '%curl_url%']
+        arguments: ['%checkout_user_id%', '%checkout_key%', '%curl_url%', @router]
