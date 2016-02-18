@@ -21,6 +21,7 @@ class ShipmentAddressFormType extends AbstractType
                     'required' => true                                                  
             		))
 			    	->add('region','choice',array(
+                        'label' => '省份',
                         'attr' => array( 'placeholder' => '请选择收货省份'),
                         'choices' => array('北京市' => '北京市', '天津市' => '天津市', '上海市' => '上海市', '重庆市' => '重庆市', 
                                            '河北省' => '河北省', '山西省' => '山西省', '内蒙古省' => '内蒙古省', '辽宁省' => '辽宁省', 
