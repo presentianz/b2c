@@ -1,0 +1,55 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+
+{% block adminOrder %}
+    <li class="active">
+        <a href="#" class="auto">
+            <span class="pull-right text-muted">
+                <i class="i i-circle-sm-o text"></i>
+                <i class="i i-circle-sm text-active"></i>
+            </span>
+            <i class="i i-stack icon">
+            </i>
+            <span class="font-bold">订单管理</span>
+        </a>
+        <ul class="nav dk">
+            <li>
+                <a href="{{ path('admin_order') }}" class="auto">
+                    <i class="i i-dot"></i>
+
+                    <span>订单列表</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+{% endblock %}
+
+{% block body %}
+    <section id="content">
+  <section class="vbox">
+    <header class="header bg-light b-b">
+        <p><strong>评论</strong></p>
+    </header>
+   <section class="scrollable padder">
+
+   <div class="form">
+
+         <div> <label>评论ID：</label> {{ entity.id }}</div>
+        <div> <label>评论内容：</label> {{ entity.text}}</div>
+       <div> <label>回复内容：</label> {{ entity.reply}}</div>
+       <div> <label>评论时间：</label> {{ entity.orderAt|date("Y/m/d H:i:s")}}</div>
+       <div> <label>评论星级：</label> {{ entity.star}}</div>
+
+
+
+     <div class="admin-buttons">
+        <a href="{{ path('admin_order') }}">返回</a>
+        <a href="{{ path('admin_order_edit', { 'id': entity.id }) }}">编辑</a>
+      </div>
+
+ </section>
+</section>
+</section>
+
+
+
+{% endblock %}

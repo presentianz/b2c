@@ -1,0 +1,59 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+{% block adminOrder %}
+    <li class="active">
+        <a href="#" class="auto">
+            <span class="pull-right text-muted">
+                <i class="i i-circle-sm-o text"></i>
+                <i class="i i-circle-sm text-active"></i>
+            </span>
+            <i class="i i-stack icon">
+            </i>
+            <span class="font-bold">订单管理</span>
+        </a>
+        <ul class="nav dk">
+            <li>
+                <a href="{{ path('admin_order') }}" class="auto">
+                    <i class="i i-dot"></i>
+
+                    <span>订单列表</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+{% endblock %}
+{% block body %}
+    <section id="content">
+        <section class="vbox">
+            <header class="header bg-light b-b">
+                <p><strong>修改评论</strong></p>
+            </header>
+            <section class="scrollable padder">
+
+                <div class="form">
+                    {{ form_start(edit_form) }}
+                    <div><label>用户：</label> {{ form_widget(edit_form.user) }}</div>
+                    <div><label>商品：</label> {{ form_widget(edit_form.product) }}</div>
+                    <div><label>评论内容：</label> {{ form_widget(edit_form.text) }}</div>
+                    <div><label>回复内容：</label> {{ form_widget(edit_form.reply) }}</div>
+                    <div><label>评论星级：</label> {{ form_widget(edit_form.star) }}</div>
+
+                    <div style="clear: both;"></div>
+
+                    <div class="admin-buttons">
+                        <a href="{{ path('admin_order') }}">返回</a>
+                        {{ form_widget(delete_form.submit, { 'label': '删除' }) }}
+                        {{ form_widget(edit_form.submit, { 'label': '更新' }) }}
+                    </div>
+                    {{ form_end(edit_form) }}
+
+                </div>
+
+            </section>
+        </section>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/SimpleAjaxUploader.js') }}"></script>
+    <script src="{{ asset('js/admin-order.js') }}"></script>
+{% endblock %}
