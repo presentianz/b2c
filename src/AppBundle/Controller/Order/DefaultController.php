@@ -85,8 +85,6 @@ class DefaultController extends Controller
         }
     }
 
-
-
     /**
      * @Route("/checkout", name="checkout")
      * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
@@ -105,5 +103,14 @@ class DefaultController extends Controller
             'points' => $points,
             'form' => $form->createView(),
             ));
+    }
+
+    /**
+     * @Route("/payfail", name="pay_fail")
+     * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
+     */
+    public function payfailAction()
+    {
+        return $this->render('Order/default/payfail.html.twig');
     }
 }
