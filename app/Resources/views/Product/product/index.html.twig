@@ -74,9 +74,9 @@
                                 </div>
                             </div>
                         </div> 
-                        <form method="get" action="{{ path('checkout') }}">
+                        <!-- <form method="get" action="{{ path('checkout') }}">
                             <input type="submit" value="立即购买" class="pull-right buy-now" data-id="{{ data.product.id }}">
-                        </form>
+                        </form> -->
                         <input type="submit" data-id="{{ data.product.id }}" data-path="{{ path('cart_ajax_action') }}" value="加入购物车" class="pull-right add-cart-button"> 
                     </div>
                 </div>
