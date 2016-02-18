@@ -7,19 +7,19 @@
     use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
     use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
     use Doctrine\Common\Util\Debug;
-    use AppBundle\Entity\Order;
-    use AppBundle\Form\OrderType;
+    use AppBundle\Entity\UserOrder;
+    use AppBundle\Form\UserOrderType;
     use Symfony\Component\HttpFoundation\Response;
 
     /**
-     * Order controller.
+     * UserOrder controller.
      *
      * @Route("/admin/order")
      */
     class OrderController extends Controller
     {
         /**
-         * Lists all Order entities.
+         * Lists all UserOrder entities.
          *
          * @Route("", name="admin_order")
          * @Method("GET")
@@ -38,23 +38,23 @@
                 $sort = 7;
 
             $em = $this->getDoctrine()->getManager();
-            $data = $em->getRepository('AppBundle:Order')->searchOrder($keys, $sort, $page, $item_no);
+            $data = $em->getRepository('AppBundle:UserOrder')->searchUserOrder($keys, $sort, $page, $item_no);
 
 
-            return $this->render('Admin/Order/index.html.twig', array(
+            return $this->render('Admin/UserOrder/index.html.twig', array(
                 'data' => $data,
             ));
 
         }
         /**
-         * Creates a new Order entity.
+         * Creates a new UserOrder entity.
          *
          * @Route("/", name="admin_order_create")
          * @Method("POST")
          */
         public function createAction(Request $request)
         {
-            $entity = new Order();
+            $entity = new UserOrder();
             $form = $this->createCreateForm($entity);
             $form->handleRequest($request);
 
@@ -65,22 +65,22 @@
 
                 return $this->redirect($this->generateUrl('admin_order_show', array('id' => $entity->getId())));
             }
-            return $this->render('Admin/Order/new.html.twig', array(
+            return $this->render('Admin/UserOrder/new.html.twig', array(
                 'entity' => $entity,
                 'form'   => $form->createView(),
             ));
         }
 
         /**
-         * Creates a form to create a Order entity.
+         * Creates a form to create a UserOrder entity.
          *
-         * @param Order $entity The entity
+         * @param UserOrder $entity The entity
          *
          * @return \Symfony\Component\Form\Form The form
          */
-        private function createCreateForm(Order $entity)
+        private function createCreateForm(UserOrder $entity)
         {
-            $form = $this->createForm(new OrderType(), $entity, array(
+            $form = $this->createForm(new UserOrderType(), $entity, array(
                 'action' => $this->generateUrl('admin_order_create'),
                 'method' => 'POST',
             ));
@@ -91,24 +91,24 @@
         }
 
         /**
-         * Displays a form to create a new Order entity.
+         * Displays a form to create a new UserOrder entity.
          *
          * @Route("/new", name="admin_order_new")
          * @Method("GET")
          */
         public function newAction()
         {
-            $entity = new Order();
+            $entity = new UserOrder();
             $form   = $this->createCreateForm($entity);
 
-            return $this->render('Admin/Order/new.html.twig', array(
+            return $this->render('Admin/UserOrder/new.html.twig', array(
                 'entity' => $entity,
                 'form'   => $form->createView(),
             ));
         }
 
         /**
-         * Finds and displays a Order entity.
+         * Finds and displays a UserOrder entity.
          *
          * @Route("/{id}", name="admin_order_show")
          * @Method("GET")
@@ -117,15 +117,15 @@
         {
             $em = $this->getDoctrine()->getManager();
 
-            $entity = $em->getRepository('AppBundle:Order')->find($id);
+            $entity = $em->getRepository('AppBundle:UserOrder')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Order entity.');
+                throw $this->createNotFoundException('Unable to find UserOrder entity.');
             }
 
             $deleteForm = $this->createDeleteForm($id);
 
-            return $this->render('Admin/Order/show.html.twig', array(
+            return $this->render('Admin/UserOrder/show.html.twig', array(
                 'entity' => $entity,
                 'delete_form' => $deleteForm->createView(),
             ));
@@ -133,7 +133,7 @@
         }
 
         /**
-         * Displays a form to edit an existing Order entity.
+         * Displays a form to edit an existing UserOrder entity.
          *
          * @Route("/{id}/edit", name="admin_order_edit")
          * @Method("GET")
@@ -142,16 +142,16 @@
         {
             $em = $this->getDoctrine()->getManager();
 
-            $entity = $em->getRepository('AppBundle:Order')->find($id);
+            $entity = $em->getRepository('AppBundle:UserOrder')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Order entity.');
+                throw $this->createNotFoundException('Unable to find UserOrder entity.');
             }
 
             $editForm = $this->createEditForm($entity);
             $deleteForm = $this->createDeleteForm($id);
 
-            return $this->render('Admin/Order/edit.html.twig', array(
+            return $this->render('Admin/UserOrder/edit.html.twig', array(
                 'entity'      => $entity,
                 'edit_form'   => $editForm->createView(),
                 'delete_form' => $deleteForm->createView(),
@@ -159,15 +159,15 @@
         }
 
         /**
-         * Creates a form to edit a Order entity.
+         * Creates a form to edit a UserOrder entity.
          *
-         * @param Order $entity The entity
+         * @param UserOrder $entity The entity
          *
          * @return \Symfony\Component\Form\Form The form
          */
-        private function createEditForm(Order $entity)
+        private function createEditForm(UserOrder $entity)
         {
-            $form = $this->createForm(new OrderType(), $entity, array(
+            $form = $this->createForm(new UserOrderType(), $entity, array(
                 'action' => $this->generateUrl('admin_order_update', array('id' => $entity->getId())),
                 'method' => 'PUT',
             ));
@@ -177,7 +177,7 @@
             return $form;
         }
         /**
-         * Edits an existing Order entity.
+         * Edits an existing UserOrder entity.
          *
          * @Route("/{id}", name="admin_order_update")
          * @Method("PUT")
@@ -186,10 +186,10 @@
         {
             $em = $this->getDoctrine()->getManager();
 
-            $entity = $em->getRepository('AppBundle:Order')->find($id);
+            $entity = $em->getRepository('AppBundle:UserOrder')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Order entity.');
+                throw $this->createNotFoundException('Unable to find UserOrder entity.');
             }
 
             $deleteForm = $this->createDeleteForm($id);
@@ -202,14 +202,14 @@
                 return $this->redirectToRoute('admin_order_show', array('id' => $id));
             }
 
-            return $this->render('Admin/Order/edit.html.twig', array(
+            return $this->render('Admin/UserOrder/edit.html.twig', array(
                 'entity'      => $entity,
                 'edit_form'   => $editForm->createView(),
                 'delete_form' => $deleteForm->createView(),
             ));
         }
         /**
-         * Deletes a Order entity.
+         * Deletes a UserOrder entity.
          *
          * @Route("/{id}", name="admin_order_delete")
          * @Method("DELETE")
@@ -221,10 +221,10 @@
 
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $entity = $em->getRepository('AppBundle:Order')->find($id);
+                $entity = $em->getRepository('AppBundle:UserOrder')->find($id);
 
                 if (!$entity) {
-                    throw $this->createNotFoundException('Unable to find Order entity.');
+                    throw $this->createNotFoundException('Unable to find UserOrder entity.');
                 }
 
                 $em->remove($entity);
@@ -235,7 +235,7 @@
         }
 
         /**
-         * Creates a form to delete a Order entity by id.
+         * Creates a form to delete a UserOrder entity by id.
          *
          * @param mixed $id The entity id
          *
