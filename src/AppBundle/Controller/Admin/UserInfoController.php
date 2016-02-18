@@ -118,7 +118,7 @@
             $em = $this->getDoctrine()->getManager();
 
             $entity = $em->getRepository('AppBundle:UserInfo')->find($id);
-
+            //die(Debug::dump($entity));
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find UserInfo entity.');
             }

@@ -108,4 +108,20 @@
             return $data;
         }
 
+
+        public function getUserInfo($id)
+        {
+            $query = $this->getEntityManager()->createQuery(
+                'SELECT p FROM AppBundle:UserInfo p WHERE p.id = :id'
+            );
+            $query->setParameter('id', $id);
+            $user_info = $query->getResult();
+
+            $data = array();
+            $data['user_info'] = $user_info[0];
+            $data['user_infos'] = $user_info[0]->getUserInfos();
+            $data['category'] = $user_info[0]->getCategory();
+
+            return $data;
+        }
     }
