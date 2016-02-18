@@ -43,9 +43,22 @@
                     {{ form_start(edit_form) }}
 
                     <div class="admin-buttons">
-                        <a href="{{ path('admin_comment') }}">返回</a>
+
+                        <div><label>*收货地区</label> {{ form_widget(edit_form.country) }}</div>
+                        <div><label>身份</label> {{ form_widget(edit_form.region) }}</div>
+                        <div><label>城市</label> {{ form_widget(edit_form.city) }}</div>
+                        <div><label>邮编</label> {{ form_widget(edit_form.post_code) }}</div>
+                        <div><label>*收货地址</label> {{ form_widget(edit_form.address) }}</div>
+                        <div><label>*收件人姓名</label> {{ form_widget(edit_form.name) }}</div>
+                        <div><label>*收件人手机号</label> {{ form_widget(edit_form.phone_no) }}</div>
+                        <div><label>*固定电话></label> {{ form_widget(edit_form.contact_no) }}</div>
+                        <div><label>*收件人身份证号</label> {{ form_widget(edit_form.id_no) }}</div>
+                        <div><label>*订单附言</label> {{ form_widget(edit_form.comment) }}</div>
+                        <div class="display: none"> {{ form_widget(edit_form.img1) }}</div>
+                        <div class="display: none"> {{ form_widget(edit_form.img2) }}</div>
                         {{ form_widget(delete_form.submit, { 'label': '删除' }) }}
                         {{ form_widget(edit_form.submit, { 'label': '更新' }) }}
+                        <a href="{{ path('admin_comment') }}">返回</a>
                     </div>
                     {{ form_end(edit_form) }}
 

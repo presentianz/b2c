@@ -47,6 +47,18 @@
                       {{ form_start(form) }}
 
                       <div class="admin-buttons">
+                          <div><label>*收货地区</label> {{ form_widget(form.country) }}</div>
+                          <div><label>身份</label> {{ form_widget(form.region) }}</div>
+                          <div><label>城市</label> {{ form_widget(form.city) }}</div>
+                          <div><label>邮编</label> {{ form_widget(form.post_code) }}</div>
+                          <div><label>*收货地址</label> {{ form_widget(form.address) }}</div>
+                          <div><label>*收件人姓名</label> {{ form_widget(form.name) }}</div>
+                          <div><label>*收件人手机号</label> {{ form_widget(form.phone_no) }}</div>
+                          <div><label>*固定电话></label> {{ form_widget(form.contact_no) }}</div>
+                          <div><label>*收件人身份证号</label> {{ form_widget(form.id_no) }}</div>
+                          <div><label>*订单附言</label> {{ form_widget(form.comment) }}</div>
+                          <div class="display: none"> {{ form_widget(form.img1) }}</div>
+                          <div class="display: none"> {{ form_widget(form.img2) }}</div>
                           {{ form_widget(form.submit, { 'label': '添加' }) }}
                           <a href="{{ path('admin_address') }}">返回
                           </a>
