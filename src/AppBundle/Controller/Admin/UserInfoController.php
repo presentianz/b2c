@@ -2,13 +2,13 @@
 
     namespace AppBundle\Controller\Admin;
 
+    use AppBundle\Form\Type\UserInfoFormType;
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
     use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
     use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
     use Doctrine\Common\Util\Debug;
     use AppBundle\Entity\UserInfo;
-    use AppBundle\Form\UserInfoType;
     use Symfony\Component\HttpFoundation\Response;
 
     /**
@@ -80,7 +80,7 @@
          */
         private function createCreateForm(UserInfo $entity)
         {
-            $form = $this->createForm(new UserInfoType(), $entity, array(
+            $form = $this->createForm(new UserInfoFormType(), $entity, array(
                 'action' => $this->generateUrl('admin_user_info_create'),
                 'method' => 'POST',
             ));
@@ -167,7 +167,7 @@
          */
         private function createEditForm(UserInfo $entity)
         {
-            $form = $this->createForm(new UserInfoType(), $entity, array(
+            $form = $this->createForm(new UserInfoFormType(), $entity, array(
                 'action' => $this->generateUrl('admin_user_info_update', array('id' => $entity->getId())),
                 'method' => 'PUT',
             ));

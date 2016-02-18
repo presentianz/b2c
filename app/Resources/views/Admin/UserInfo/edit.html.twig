@@ -1,6 +1,6 @@
 {% extends 'Admin/admin_layout.html.twig' %}
 {% block adminUserInfo %}
-    <li>
+    <li class="active">
         <a href="#" class="auto">
             <span class="pull-right text-muted">
                 <i class="i i-circle-sm-o text"></i>
@@ -31,11 +31,16 @@
 
                 <div class="form">
                     {{ form_start(edit_form) }}
-                    <div><label>用户：</label> {{ form_widget(edit_form.user) }}</div>
-                    <div><label>商品：</label> {{ form_widget(edit_form.product) }}</div>
-                    <div><label>评论内容：</label> {{ form_widget(edit_form.text) }}</div>
-                    <div><label>回复内容：</label> {{ form_widget(edit_form.reply) }}</div>
-                    <div><label>评论星级：</label> {{ form_widget(edit_form.star) }}</div>
+                    <div><label>姓名：</label> {{ form_widget(edit_form.fullname) }}</div>
+                    <div><label>国家：</label> {{ form_widget(edit_form.country) }}</div>
+                    <div><label>地区：</label> {{ form_widget(edit_form.region) }}</div>
+                    <div><label>城市：</label> {{ form_widget(edit_form.city) }}</div>
+                    <div><label>生日：</label> {{ form_widget(edit_form.birthday) }}</div>
+                    <div><label>经验：</label> {{ form_widget(edit_form.exp) }}</div>
+                    <div><label>积分：</label> {{ form_widget(edit_form.points) }}</div>
+                    <div><label>QQ：</label> {{ form_widget(edit_form.qqno) }}</div>
+                    <div><label>微信：</label> {{ form_widget(edit_form.wechatno) }}</div>
+                    <div><label>电话：</label> {{ form_widget(edit_form.contactno) }}</div>
 
                     <div class="info" id="info2"></div>
                     <div style="clear: both;"></div>

@@ -479,9 +479,9 @@ class UserInfo
      * @param \string $points
      * @return UserInfo
      */
-    public function setBrithday($brithday)
+    public function setBirthday($birthday)
     {
-        $this->brithday = $brithday;
+        $this->birthday = $birthday;
 
         return $this;
     }
@@ -491,9 +491,9 @@ class UserInfo
      *
      * @return \string 
      */
-    public function getBrithday()
+    public function getBirthday()
     {
-        return $this->brithday;
+        return $this->birthday;
     }
 
 
