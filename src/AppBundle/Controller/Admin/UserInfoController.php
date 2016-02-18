@@ -14,14 +14,14 @@
     /**
      * UserInfo controller.
      *
-     * @Route("/admin/user")
+     * @Route("/admin/user_info")
      */
     class UserInfoController extends Controller
     {
         /**
          * Lists all UserInfo entities.
          *
-         * @Route("", name="admin_user")
+         * @Route("", name="admin_user_info")
          * @Method("GET")
          */
         public function indexAction(Request $request)
@@ -49,7 +49,7 @@
         /**
          * Creates a new UserInfo entity.
          *
-         * @Route("/", name="admin_user_create")
+         * @Route("/", name="admin_user_info_create")
          * @Method("POST")
          */
         public function createAction(Request $request)
@@ -63,7 +63,7 @@
                 $em->persist($entity);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('admin_user_show', array('id' => $entity->getId())));
+                return $this->redirect($this->generateUrl('admin_user_info_show', array('id' => $entity->getId())));
             }
             return $this->render('Admin/UserInfo/new.html.twig', array(
                 'entity' => $entity,
@@ -81,7 +81,7 @@
         private function createCreateForm(UserInfo $entity)
         {
             $form = $this->createForm(new UserInfoType(), $entity, array(
-                'action' => $this->generateUrl('admin_user_create'),
+                'action' => $this->generateUrl('admin_user_info_create'),
                 'method' => 'POST',
             ));
 
@@ -93,7 +93,7 @@
         /**
          * Displays a form to create a new UserInfo entity.
          *
-         * @Route("/new", name="admin_user_new")
+         * @Route("/new", name="admin_user_info_new")
          * @Method("GET")
          */
         public function newAction()
@@ -110,7 +110,7 @@
         /**
          * Finds and displays a UserInfo entity.
          *
-         * @Route("/{id}", name="admin_user_show")
+         * @Route("/{id}", name="admin_user_info_show")
          * @Method("GET")
          */
         public function showAction($id)
@@ -135,7 +135,7 @@
         /**
          * Displays a form to edit an existing UserInfo entity.
          *
-         * @Route("/{id}/edit", name="admin_user_edit")
+         * @Route("/{id}/edit", name="admin_user_info_edit")
          * @Method("GET")
          */
         public function editAction($id)
@@ -168,7 +168,7 @@
         private function createEditForm(UserInfo $entity)
         {
             $form = $this->createForm(new UserInfoType(), $entity, array(
-                'action' => $this->generateUrl('admin_user_update', array('id' => $entity->getId())),
+                'action' => $this->generateUrl('admin_user_info_update', array('id' => $entity->getId())),
                 'method' => 'PUT',
             ));
 
@@ -179,7 +179,7 @@
         /**
          * Edits an existing UserInfo entity.
          *
-         * @Route("/{id}", name="admin_user_update")
+         * @Route("/{id}", name="admin_user_info_update")
          * @Method("PUT")
          */
         public function updateAction(Request $request, $id)
@@ -199,7 +199,7 @@
             if ($editForm->isValid()) {
                 $em->flush();
 
-                return $this->redirectToRoute('admin_user_show', array('id' => $id));
+                return $this->redirectToRoute('admin_user_info_show', array('id' => $id));
             }
 
             return $this->render('Admin/UserInfo/edit.html.twig', array(
@@ -211,7 +211,7 @@
         /**
          * Deletes a UserInfo entity.
          *
-         * @Route("/{id}", name="admin_user_delete")
+         * @Route("/{id}", name="admin_user_info_delete")
          * @Method("DELETE")
          */
         public function deleteAction(Request $request, $id)
@@ -231,7 +231,7 @@
                 $em->flush();
             }
 
-            return $this->redirect($this->generateUrl('admin_user'));
+            return $this->redirect($this->generateUrl('admin_user_info'));
         }
 
         /**
@@ -244,7 +244,7 @@
         private function createDeleteForm($id)
         {
             return $this->createFormBuilder()
-                ->setAction($this->generateUrl('admin_user_delete', array('id' => $id)))
+                ->setAction($this->generateUrl('admin_user_info_delete', array('id' => $id)))
                 ->setMethod('DELETE')
                 ->add('submit', 'submit', array('label' => 'Delete'))
                 ->getForm()

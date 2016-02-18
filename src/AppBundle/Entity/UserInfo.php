@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserInfoRepository")
  */
 class UserInfo
 {
@@ -117,9 +118,9 @@ class UserInfo
     /**
      * @var string
      *
-     * @ORM\Column(name="brithday", type="string", length=255, nullable=true)
+     * @ORM\Column(name="birthday", type="string", length=255, nullable=true)
      */
-    private $brithday;
+    private $birthday;
     
     
 

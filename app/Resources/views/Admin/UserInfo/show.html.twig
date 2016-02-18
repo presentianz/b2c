@@ -1,6 +1,28 @@
 {% extends 'Admin/admin_layout.html.twig' %}
 
 
+{% block adminUserInfo %}
+    <li>
+        <a href="#" class="auto">
+            <span class="pull-right text-muted">
+                <i class="i i-circle-sm-o text"></i>
+                <i class="i i-circle-sm text-active"></i>
+            </span>
+            <i class="i i-users3 icon">
+            </i>
+            <span class="font-bold">用户管理</span>
+        </a>
+        <ul class="nav dk">
+            <li>
+                <a href="{{ path('admin_user_info') }}" class="auto">
+                    <i class="i i-dot"></i>
+
+                    <span>用户列表</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+{% endblock %}
 
 {% block body %}
     <section id="content">
