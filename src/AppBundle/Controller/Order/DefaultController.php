@@ -152,13 +152,18 @@ class DefaultController extends Controller
     public function paysuccessAction(Request $request)
     {
         $orderId = $request->query->get('orderId');
-         if (!$orderId) {
+        if (!$orderId) {
+            return $this->redirectToRoute('user_order');
+        }
+        else {
+            $em = $this->getDoctrine()->getManager();
+            $order = $em->getRepository('AppBundle:UserOrder')->findOneByOrderId($orderId);
+            if (!$order || $order->getStatus() == 0 || $order->getStatus() == 4)
                 return $this->redirectToRoute('user_order');
-            }
+        }
         return $this->render('Order/default/paysuccess.html.twig', array(
             'orderId' => $orderId,
+            'status' => $order->getStatus()
             ));
-        }
-        
-    
+    }
 }

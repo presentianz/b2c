@@ -30,7 +30,7 @@
          <div class="order-confirm-content">
          	<h3 class="color">恭喜亲，支付成功</h3><br>
             <span>请返回亲的订单：<span class="color">{{orderId}}</span>，可以查看订单详情</span>   	
-         	<div> <a href="{{ path('user_order') }}" class="back-link">返回</a></div>
+         	<div> <a href="{{ path('user_order', {'type': status}) }}" class="back-link">返回</a></div>
         </div>
          </div>
         </div>
