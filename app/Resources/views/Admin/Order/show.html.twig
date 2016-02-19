@@ -25,30 +25,44 @@
 
 {% block body %}
     <section id="content">
-  <section class="vbox">
-    <header class="header bg-light b-b">
-        <p><strong>评论</strong></p>
-    </header>
-   <section class="scrollable padder">
+        <section class="vbox">
+            <header class="header bg-light b-b">
+                <p><strong>评论</strong></p>
+            </header>
+            <section class="scrollable padder">
 
-   <div class="form">
+                <div class="form">
 
-         <div> <label>评论ID：</label> {{ entity.id }}</div>
-        <div> <label>评论内容：</label> {{ entity.text}}</div>
-       <div> <label>回复内容：</label> {{ entity.reply}}</div>
-       <div> <label>评论时间：</label> {{ entity.orderAt|date("Y/m/d H:i:s")}}</div>
-       <div> <label>评论星级：</label> {{ entity.star}}</div>
+                    <div><label>订单ID：</label> {{ entity.id }}</div>
+                    <div><label>收货地址：</label> {{ entity.shipmentAddress }}</div>
+                    <div><label>订单状态：</label>
+                        {% if entity.status == 0 %}
+                            未付款
+                        {% elseif entity.status == 1 %}
+                            待发货
+                        {% elseif entity.status == 2 %}
+                            已发货
+                        {% elseif entity.status == 3 %}
+                            已收货
+                        {% elseif entity.status == 4 %}
+                            已取消
+                        {% endif %}
+                    </div>
+                    <div><label>购买用户：</label> {{ entity.user }}</div>
+                    <div><label>总价格：</label> {{ entity.totalPrice }}</div>
+                    <div><label>运费：</label> {{ entity.postFee }}</div>
+                    <div><label>创建时间：</label> {{ entity.createAt|date("Y/m/d H:i:s") }}</div>
+                    <div><label>支付时间：</label> {{ entity.paidAt|date("Y/m/d H:i:s") }}</div>
 
 
+                    <div class="admin-buttons">
+                        <a href="{{ path('admin_order') }}">返回</a>
+                        <a href="{{ path('admin_order_edit', { 'id': entity.id }) }}">编辑</a>
+                    </div>
 
-     <div class="admin-buttons">
-        <a href="{{ path('admin_order') }}">返回</a>
-        <a href="{{ path('admin_order_edit', { 'id': entity.id }) }}">编辑</a>
-      </div>
-
- </section>
-</section>
-</section>
+            </section>
+        </section>
+    </section>
 
 
 

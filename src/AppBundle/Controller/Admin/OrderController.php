@@ -64,7 +64,7 @@
 
                 return $this->redirect($this->generateUrl('admin_order_show', array('id' => $entity->getId())));
             }
-            return $this->render('Admin/UserOrder/new.html.twig', array(
+            return $this->render('Admin/Order/new.html.twig', array(
                 'entity' => $entity,
                 'form'   => $form->createView(),
             ));
@@ -100,7 +100,7 @@
             $entity = new UserOrder();
             $form   = $this->createCreateForm($entity);
 
-            return $this->render('Admin/UserOrder/new.html.twig', array(
+            return $this->render('Admin/Order/new.html.twig', array(
                 'entity' => $entity,
                 'form'   => $form->createView(),
             ));
@@ -124,7 +124,7 @@
 
             $deleteForm = $this->createDeleteForm($id);
 
-            return $this->render('Admin/UserOrder/show.html.twig', array(
+            return $this->render('Admin/Order/show.html.twig', array(
                 'entity' => $entity,
                 'delete_form' => $deleteForm->createView(),
             ));
@@ -201,7 +201,7 @@
                 return $this->redirectToRoute('admin_order_show', array('id' => $id));
             }
 
-            return $this->render('Admin/UserOrder/edit.html.twig', array(
+            return $this->render('Admin/Order/edit.html.twig', array(
                 'entity'      => $entity,
                 'edit_form'   => $editForm->createView(),
                 'delete_form' => $deleteForm->createView(),
