@@ -36,7 +36,7 @@
             return $query->execute();
         }
 
-        public function searchUserOrder($keys, $sort, $page, $item_no)
+        public function searchUserOrder($user_id, $keys, $status, $sort, $page, $item_no)
         {
             if ($keys) {
                 $keys = preg_replace("/(\s+)|(　+)+/", " ", $keys);
@@ -63,6 +63,12 @@
             foreach ($keys as $i => $key) {
                 $orders->orWhere('LOCATE(:key' . $i . ', p.orderId) > 0')->setParameter('key' . $i, $key);
                 $orders_no->orWhere('LOCATE(:key' . $i . ', p.orderId) > 0')->setParameter('key' . $i, $key);
+            }
+            if (is_numeric($status)) {
+                $orders->andWhere('p.status = '. $status);
+            }
+            if (is_numeric($user_id)) {
+                $orders->andWhere('p.user = '. $user_id);
             }
             switch ($sort) {
                 case '2':

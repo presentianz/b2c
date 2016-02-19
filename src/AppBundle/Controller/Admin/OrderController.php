@@ -30,6 +30,8 @@
             $keys = $request->query->get('keys');
             $sort = $request->query->get('sort');
             $page = $request->query->get('page');
+            $status = $request->query->get('status');
+            $user_id = $request->query->get('user_id');
             $item_no = $request->query->get('item_no');
             if (!(is_numeric($item_no) && $item_no > 1)) {
                 $item_no = 20;
@@ -38,7 +40,7 @@
                 $sort = 7;
 
             $em = $this->getDoctrine()->getManager();
-            $data = $em->getRepository('AppBundle:UserOrder')->searchUserOrder($keys, $sort, $page, $item_no);
+            $data = $em->getRepository('AppBundle:UserOrder')->searchUserOrder($user_id, $keys, $status, $sort, $page, $item_no);
 
             return $this->render('Admin/Order/index.html.twig', array(
                 'data' => $data,

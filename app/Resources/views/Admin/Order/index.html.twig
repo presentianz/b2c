@@ -75,8 +75,23 @@
                                                         type="text" aria-controls="example" name="keys"
                                                         value="{{ app.request.get('keys') }}">
                                             </label></form>
+
                                     </div>
                                 </div>
+                            </div>
+                            <div class="panel-body">
+                                <a class="btn btn-success btn-sm"
+                                   href="{{ path('admin_order', {'user_id':app.request.get('user_id')}) }}">全部订单</a>
+                                <a class="btn btn-success btn-sm"
+                                   href="{{ path('admin_order',{'status': 0, 'user_id':app.request.get('user_id')}) }}">未付款</a>
+                                <a class="btn btn-success btn-sm"
+                                   href="{{ path('admin_order',{'status': 1, 'user_id':app.request.get('user_id')}) }}">待发货</a>
+                                <a class="btn btn-success btn-sm"
+                                   href="{{ path('admin_order',{'status': 2, 'user_id':app.request.get('user_id')}) }}">已发货</a>
+                                <a class="btn btn-success btn-sm"
+                                   href="{{ path('admin_order',{'status': 3, 'user_id':app.request.get('user_id')}) }}">已收货</a>
+                                <a class="btn btn-success btn-sm"
+                                   href="{{ path('admin_order',{'status': 4, 'user_id':app.request.get('user_id')}) }}">已取消</a>
                             </div>
                             <table class="table table-striped m-b-none dataTable">
                                 <thead>

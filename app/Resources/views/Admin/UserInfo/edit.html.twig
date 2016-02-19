@@ -46,6 +46,7 @@
                     <div style="clear: both;"></div>
 
                     <div class="admin-buttons">
+                        <a href="{{ path('admin_order', {'user_id': entity.id }) }}">查看订单</a>
                         <a href="{{ path('admin_comment') }}">返回</a>
                         {{ form_widget(delete_form.submit, { 'label': '删除' }) }}
                         {{ form_widget(edit_form.submit, { 'label': '更新' }) }}
