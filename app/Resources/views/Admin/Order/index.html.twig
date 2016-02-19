@@ -161,7 +161,17 @@
                                             {{ entity.order_id }}
                                         </td>
                                         <td>
-                                            {{ entity.status }}
+                                            {% if entity.status == 0 %}
+                                                未付款
+                                            {% elseif entity.status == 1 %}
+                                                待发货
+                                            {% elseif entity.status == 2 %}
+                                                已发货
+                                            {% elseif entity.status == 3 %}
+                                                已收货
+                                            {% elseif entity.status == 4 %}
+                                                已取消
+                                            {% endif %}
                                         </td>
 
                                         <td>{{ entity.total_price }}</td>
@@ -221,8 +231,8 @@
 
 {% endblock %}
 
-{% block javascripts %}
-    <script src="{{ asset('js/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/datatables/jquery.csv-0.71.min.js') }}"></script>
-    <script src="{{ asset('js/pagination.js') }}"></script>
-{% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('js/datatables/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('js/datatables/jquery.csv-0.71.min.js') }}"></script>
+        <script src="{{ asset('js/pagination.js') }}"></script>
+    {% endblock %}
