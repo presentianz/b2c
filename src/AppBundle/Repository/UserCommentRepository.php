@@ -38,16 +38,7 @@
             }
 
             $comments = $this->createQueryBuilder('p');
-            //add weight
-            if (count($keys) > 0) {
-                $weight = array();
-                foreach ($keys as $key) {
-                    array_push($weight, 'SIGN(LOCATE(\''.$key.'\', p.text))');
-                }
-                $weight = implode(' + ', $weight);
-                $comments->select($weight.' as weight');
-                $comments->addOrderBy('weight', 'DESC');
-            }
+
             //add left columns
             $comments->addSelect('
                         p.id AS id,

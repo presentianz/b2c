@@ -48,16 +48,7 @@
             }
 
             $orders = $this->createQueryBuilder('p');
-            //add weight
-            if (count($keys) > 0) {
-                $weight = array();
-                foreach ($keys as $key) {
-                    array_push($weight, 'SIGN(LOCATE(\'' . $key . '\', p.orderId))');
-                }
-                $weight = implode(' + ', $weight);
-                $orders->select($weight . ' as weight');
-                $orders->addOrderBy('weight', 'DESC');
-            }
+
             //add left columns
             $orders->addSelect('
                         p.id AS id,
@@ -87,16 +78,22 @@
                     $orders->orderBy('p.status', 'DESC');
                     break;
                 case '7':
-                    $orders->orderBy('p.createAt', 'ASC');
-                    break;
-                case '8':
-                    $orders->orderBy('p.createAt', 'DESC');
-                    break;
-                case '7':
                     $orders->orderBy('p.totalPrice', 'ASC');
                     break;
                 case '8':
                     $orders->orderBy('p.totalPrice', 'DESC');
+                    break;
+                case '9':
+                    $orders->orderBy('p.id', 'ASC');
+                    break;
+                case '10':
+                    $orders->orderBy('p.id', 'DESC');
+                    break;
+                case '11':
+                    $orders->orderBy('p.createAt', 'ASC');
+                    break;
+                case '12':
+                    $orders->orderBy('p.createAt', 'DESC');
                     break;
             }
             if (! (is_numeric($page) && $page > 1)) {

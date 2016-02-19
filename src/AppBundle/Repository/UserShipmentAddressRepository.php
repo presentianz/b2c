@@ -38,16 +38,7 @@
             }
 
             $addresses = $this->createQueryBuilder('p');
-            //add weight
-            if (count($keys) > 0) {
-                $weight = array();
-                foreach ($keys as $key) {
-                    array_push($weight, 'SIGN(LOCATE(\''.$key.'\', p.address))');
-                }
-                $weight = implode(' + ', $weight);
-                $addresses->select($weight.' as weight');
-                $addresses->addOrderBy('weight', 'DESC');
-            }
+
             //add left columns
             $addresses->addSelect('
                         p.id AS id,

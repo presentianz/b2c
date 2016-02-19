@@ -31,16 +31,6 @@
             }
 
             $user_infos = $this->createQueryBuilder('p');
-            //add weight
-            if (count($keys) > 0) {
-                $weight = array();
-                foreach ($keys as $key) {
-                    array_push($weight, 'SIGN(LOCATE(\'' . $key . '\', p.full_name))');
-                }
-                $weight = implode(' + ', $weight);
-                $user_infos->select($weight . ' as weight');
-                $user_infos->addOrderBy('weight', 'DESC');
-            }
             //add left columns
             $user_infos->addSelect('
                         p.id AS id,

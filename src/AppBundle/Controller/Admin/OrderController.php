@@ -40,8 +40,7 @@
             $em = $this->getDoctrine()->getManager();
             $data = $em->getRepository('AppBundle:UserOrder')->searchUserOrder($keys, $sort, $page, $item_no);
 
-
-            return $this->render('Admin/UserOrder/index.html.twig', array(
+            return $this->render('Admin/Order/index.html.twig', array(
                 'data' => $data,
             ));
 
