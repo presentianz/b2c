@@ -19,6 +19,13 @@
                     <span>订单列表</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ path('admin_order_new') }}" class="auto">
+                    <i class="i i-dot"></i>
+
+                    <span>添加订单</span>
+                </a>
+            </li>
         </ul>
     </li>
 {% endblock %}
@@ -33,11 +40,14 @@
 
                   <div class="form">
                       {{ form_start(form) }}
-                      <div><label>评论内容：</label> {{ form_widget(form.text) }}</div>
-                      <div><label>用户：</label> {{ form_widget(form.user) }}</div>
-                      <div><label>商品：</label> {{ form_widget(form.product) }}</div>
-                      <div><label>星级：</label> {{ form_widget(form.star) }}</div>
-                      <div><label>回复：</label> {{ form_widget(form.reply) }}</div>
+                      <div><label>订单号：</label> {{ form_widget(form.orderId) }}</div>
+                      <div><label>订单状态：</label> {{ form_widget(form.status) }}</div>
+                      <div><label>下单用户：</label> {{ form_widget(form.user) }}</div>
+                      <div><label>总价：</label> {{ form_widget(form.total_price) }}</div>
+                      <div><label>运费：</label> {{ form_widget(form.post_fee) }}</div>
+                      <div><label>创建时间：</label> {{ form_widget(form.create_at) }}</div>
+                      <div><label>支付时间：</label> {{ form_widget(form.paid_at) }}</div>
+                      <div><label>收货地址：</label> {{ form_widget(form.shipmentAddress) }}</div>
                       <div class="admin-buttons">
                           {{ form_widget(form.submit, { 'label': '添加' }) }}
                           <a href="{{ path('admin_order') }}">返回

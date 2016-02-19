@@ -25,7 +25,7 @@
                     '4' => '已取消',
                 ),
                 'required' => true
-            ))->add('total_price')->add('post_fee')->add('create_at', 'datetime')->add('paid_at', 'datetime')->add('user')->add('shipmentAddress');
+            ))->add('total_price', 'number')->add('post_fee', 'number')->add('create_at', 'datetime')->add('paid_at', 'datetime')->add('user')->add('shipmentAddress');
         }
 
         /**
