@@ -5,6 +5,7 @@ namespace AppBundle\Controller\Page;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpFoundation\Request;
 
 use AppBundle\Entity\Category;
 use Symfony\Component\HttpFoundation\Response;

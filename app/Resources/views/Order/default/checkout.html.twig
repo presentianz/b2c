@@ -156,7 +156,7 @@
       <h3><i class="fa fa-info-circle"></i>
       <span>新建地址</span></h3>
 
-      {{ form_start(form) }} 
+      {{ form_start(form, {'attr': {'id':'add-address'}}) }} 
        <h5>直邮中国的快递必须提供收件人身份证才可以正常通关</h5>
        <p>二代身份证需要同时提交证件的正反面内容，请分别扫描正反面图片后分别上传。身份证需确保照片、文字信息都清晰可见，如需加水印请在空白处填写“仅供清关使用”字样，否则无效！文件类型：*.gif/*.jpg/*.png 尺寸像素宽600X高800，大小不超过100KB。</p>
 
@@ -169,14 +169,15 @@
         <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
         <div>{{ form_label(form.phone_no) }}{{ form_widget(form.phone_no) }}</div>
         <div>{{ form_label(form.id_no) }}{{ form_widget(form.id_no) }}</div>
-        <div>{{ form_label(form.img1) }}{{ form_widget(form.img1) }}</div>
-        <div>{{ form_label(form.img2) }}{{ form_widget(form.img2) }}</div>
-        <div>{{ form_label(form.comment) }}{{ form_widget(form.comment) }}</div>
+        
+        <div style="display:none">
+          <div>{{ form_rest(form) }}</div>
+        </div>
       </div>
       <div class='clear'>
         <input type="submit" value="取消" class="close-address">
         <!-- 这里提交直接存入用户地址并添加到选择地址下拉菜单里 -->
-        <!-- <input type="submit" value="提交" /> -->
+        <input type="submit" value="提交" />
       </div>
       {{ form_end(form) }}
 
@@ -234,6 +235,25 @@
         })
       }
     });
+
+    $('#add-address').submit(function(e) {
+      e.preventDefault();
+      var $this = $(this).serialize();
+      $.ajax({
+          url: "{{path('add_address_ajax')}}",
+          method: "POST",
+          data:  $('#add-address').serialize(),
+          dataType: "json"
+        })
+        .done(function (rep) {
+          if(rep.success) {
+            $('.bg-mask').css('display','none');
+            $('#create-address').css('display','none');
+            var html = '<option value="'+rep.id+'" selected>'+rep.name+' '+rep.phoneNo+', '+rep.country+' '+rep.region+' '+rep.city+' '+rep.address+'</option>';
+            $('#select-location').append(html);
+          }
+        })
+    })
   })();
   </script>
 {% endblock %}

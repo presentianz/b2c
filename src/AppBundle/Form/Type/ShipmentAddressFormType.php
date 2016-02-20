@@ -53,14 +53,14 @@ class ShipmentAddressFormType extends AbstractType
                     ->add('phone_no','text',array(
                         'label'=>'*收件人手机号码：',
                         'attr' => array('placeholder' => '可以直接填写',),
-                        'required' => false,
+                        'required' => true,
                         'empty_data' => ' ',
                         ))
                     ->add('contact_no','text',array(
-                        'label'=>'*固定电话：',
+                        'label'=>'固定电话：',
                        'attr' => array( 'placeholder' => '（区号）-电话号码',
                         'pattern' => '[\(]?\d+[\)]?\s*\d+\s*[\-]?\d+'),
-                       'required' => true
+                       'required' => false
                         ))
                     ->add('id_no','text',array(
                         'label'=>'收件人身份证号码：',
