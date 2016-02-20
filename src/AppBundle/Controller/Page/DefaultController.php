@@ -46,25 +46,4 @@ class DefaultController extends Controller
     {
         return $this->render('Page/other/contact.html.twig');
     }
-
-    /**
-     * @Route("/checkoutTest")
-     */
-    public function test()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $userOrder = $em->getRepository('AppBundle:UserOrder')->find(25); //找一个order
-
-        $check = $this->get('app.skip.checkout');
-        $url = $check->checkout($userOrder, 0.01); //接受一个userOrder对象和总额
-
-        if($url) {
-            //跳转支付
-            return $this->redirect($url);
-        }
-        else {
-            //出错了do something
-            return new Response('Error');
-        }
-    }
 }

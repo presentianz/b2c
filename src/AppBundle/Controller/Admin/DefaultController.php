@@ -28,6 +28,11 @@
             $queries = [];
 
             $queries['productNo'] = $em->createQuery('SELECT COUNT(p.id) FROM AppBundle:Product p');
+            $queries['userNoThisWeek'] = $em->createQuery(
+                'SELECT COUNT(u.id) FROM AppBundle:User u 
+                JOIN u.userInfo uin 
+                WHERE uin.createAt >= :weekBefore')
+                ->setParameter('weekBefore', new \DateTime('-7 DAYS'));
             $queries['userNo'] = $em->createQuery('SELECT COUNT(u.id) FROM AppBundle:User u');
             $queries['categoryNo'] = $em->createQuery('SELECT COUNT(c.id) FROM AppBundle:Category c');
             $queries['orderNo'] = $em->createQuery('SELECT COUNT(o.id) FROM AppBundle:UserOrder o');
@@ -41,100 +46,5 @@
             return $this->render('Admin/Default/index.html.twig', array(
                 'data' => $data,
             ));
-        }
-
-        /**
-         * @Route("/webconfig", name="admin_webconfig")
-         */
-        public function webconfigAction()
-        {
-            $cfg = [];
-            $em = $this->getDoctrine()->getEntityManager();
-            $sql = "select p from AppBundle:Config p where p.id=1";
-            $query = $em->createQuery($sql);
-            $data = $query->getSingleResult();
-            $cfg["cfgvalue1"] = $data->getCfgvalue();
-            $sql = "select p from AppBundle:Config p where p.id=2";
-            $query = $em->createQuery($sql);
-            $data = $query->getSingleResult();
-            $cfg["cfgvalue2"] = $data->getCfgvalue();
-
-            $sql = "select p from AppBundle:Config p where p.id=3";
-            $query = $em->createQuery($sql);
-            $data = $query->getSingleResult();
-            $cfg["cfgvalue3"] = $data->getCfgvalue();
-            return $this->render('Admin/Default/config.html.twig', array(
-                'cfg' => $cfg
-            ));
-        }
-
-        /**
-         * @Route("/listuserinfo", name="admin_listuserinfo")
-         */
-        public function listuserinfoAction(Request $request)
-        {
-            $keys = $request->query->get('keys');
-            $sort = $request->query->get('sort');
-            $page = $request->query->get('page');
-            $item_no = $request->query->get('item_no');
-            if (! (is_numeric($item_no) && $item_no > 1)) {
-                $item_no = 20;
-            }
-            if (! $sort)
-                $sort = 0;
-            $em = $this->getDoctrine()->getManager();
-            $sql = "select p from AppBundle:UserInfo p";
-            $query = $em->createQuery($sql);
-            $data["members"] = $query->getResult();
-            $data["total_page"] = 1;
-            $data["total_no"] = 1;
-            return $this->render('Admin/Default/listuserinfo.html.twig', array(
-                'data' => $data,
-            ));
-
-        }
-
-
-        /**
-         * @Route("/submitwebconfig", name="admin_submitwebconfig")
-         */
-        public function submitwebconfigAction()
-        {
-            $em = $this->getDoctrine()->getManager();
-            $sql = "select p from AppBundle:Config p";
-
-            $cfg1 = $_REQUEST["cfg1"];
-            $cfg2 = $_REQUEST["cfg2"];
-            $cfg3 = $_REQUEST["cfg3"];
-
-            $query = $em->createQuery($sql);
-            $member = $query->getResult();
-            //echo(exit(\Doctrine\Common\Util\Debug::dump($member)));
-
-            while (list($k, $v) = each($member)) {
-                $id = $v->getId();
-
-                //$entity = $em->getRepository('AppBundle:UserInfo')->find($id);
-                if ($id == 1) {
-                    $v->setCfgvalue($cfg1);
-                    $em->persist($v);
-                    $em->flush();
-
-                }
-
-                if ($id == 2) {
-                    $v->setCfgvalue($cfg2);
-                    $em->persist($v);
-                    $em->flush();
-                }
-
-                if ($id == 3) {
-                    $v->setCfgvalue($cfg3);
-                    $em->persist($v);
-                    $em->flush();
-                }
-            }
-            $ret = '';
-            return new Response($ret);
         }
     }
