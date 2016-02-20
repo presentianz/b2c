@@ -238,6 +238,7 @@
 
     $('#add-address').submit(function(e) {
       e.preventDefault();
+      //pop一个等待框
       var $this = $(this).serialize();
       $.ajax({
           url: "{{path('add_address_ajax')}}",
@@ -247,10 +248,14 @@
         })
         .done(function (rep) {
           if(rep.success) {
+            //关闭等待框
             $('.bg-mask').css('display','none');
             $('#create-address').css('display','none');
             var html = '<option value="'+rep.id+'" selected>'+rep.name+' '+rep.phoneNo+', '+rep.country+' '+rep.region+' '+rep.city+' '+rep.address+'</option>';
             $('#select-location').append(html);
+          }
+          else{
+            alert('服务器宕机了，请稍后重试');
           }
         })
     })
