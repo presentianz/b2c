@@ -56,6 +56,7 @@ class ProductRepository extends EntityRepository
                         p.price_discounted AS priceDiscounted,
                         p.soldNo AS soldNo,
                         p.click AS click,
+                        p.inventory as inventory,
                         p.poster AS poster,
                         p.imageLink AS imageLink');
         $products_no = $this->createQueryBuilder('p');
@@ -66,8 +67,9 @@ class ProductRepository extends EntityRepository
             $products->orWhere('LOCATE(:key'.$i.', p.name) > 0')->setParameter('key'.$i, $key);
             $products_no->orWhere('LOCATE(:key'.$i.', p.name) > 0')->setParameter('key'.$i, $key);
         }
-        //1 = update(default), 2 = price+, 3 = price-, 4 = soldNo-, 5 = date-, 6 = click-, 7 = id+
-        //8 = id-, 9 = name+, 10 = name-, 11 = disprice+, 12 = disprice-, 13 = click+, 14 = soldNo+
+        //1 = update(default), 2 = price+, 3 = price-, 4 = soldNo-, 5 = date-, 6 = click-, 7 = id+,
+        //8 = id-, 9 = name+, 10 = name-, 11 = disprice+, 12 = disprice-, 13 = click+, 14 = soldNo+,
+        //15 = inventory+， 16 = invertory-
         switch ($sort) {
             case '2':
                 $products->orderBy('p.price', 'ASC');
@@ -113,6 +115,13 @@ class ProductRepository extends EntityRepository
                 break;
             case '4':
                 $products->orderBy('p.soldNo', 'DESC');
+                break;
+            case '15':
+                $products->orderBy('p.inventory', 'ASC');
+                break;
+
+            case '16':
+                $products->orderBy('p.inventory', 'DESC');
                 break;
             default:
                 $products->addOrderBy('p.updateAt', 'DESC');

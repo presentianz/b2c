@@ -79,7 +79,7 @@ class OrderController extends Controller
     public function deleteorder(Request $request)
     {
 		$em = $this->getDoctrine()->getManager();  
-	 	$id=$_REQUEST["id"];    	
+	 	$id=$_REQUEST["id"];
         $pointsprice = $em->getRepository('AppBundle:UserOrder')->deleteorder($id);
         return new Response(json_encode(""));
 	}

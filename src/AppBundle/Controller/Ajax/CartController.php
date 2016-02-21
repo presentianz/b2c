@@ -31,15 +31,9 @@ class CartController extends Controller
             $em = $this->getDoctrine()->getManager();
             //user
             $user = $this->getUser();
-            //request
-            //$get_request = $this->container->get('request');
-            //product
-            //$product_id = $get_request('id');
+
             $product = $em->getRepository('AppBundle:Product')->find($id);
-            //product count
-            //$product_no = $get_request('no');
-            //action
-            //$action = $get_request('action');
+
             $cartProduct = $em->getRepository('AppBundle:CartProduct')->hasItem($id, $user->getId());
 
             if ($product) {

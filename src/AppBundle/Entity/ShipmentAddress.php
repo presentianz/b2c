@@ -49,7 +49,7 @@
         /**
          * @var string
          *
-         * @ORM\Column(name="address", type="text")
+         * @ORM\Column(name="address", type="text", nullable=true)
          */
         private $address;
 
@@ -70,28 +70,28 @@
         /**
          * @var string
          *
-         * @ORM\Column(name="contact_no", type="string", length=255)
+         * @ORM\Column(name="contact_no", type="string", length=255, nullable=true)
          */
         private $contactNo;
 
         /**
          * @var string
          *
-         * @ORM\Column(name="phone_no", type="string", length=255)
+         * @ORM\Column(name="phone_no", type="string", length=255, nullable=true)
          */
         private $phoneNo;
 
         /**
          * @var string
          *
-         * @ORM\Column(name="id_no", type="string", length=255)
+         * @ORM\Column(name="id_no", type="string", length=255, nullable=true)
          */
         private $idNo;
 
         /**
          * @var string
          *
-         * @ORM\Column(name="comment", type="string", length=255)
+         * @ORM\Column(name="comment", type="string", length=255, nullable=true)
          */
         private $comment;
 

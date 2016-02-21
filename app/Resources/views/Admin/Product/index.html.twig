@@ -110,6 +110,13 @@
                   {% else %}
                   <th class="sorting"><a href="{{ path('admin_product',{sort:13, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">浏览次数</a></th>
                   {% endif %}
+                  {% if app.request.get('sort') == 15 %}
+                  <th class="sorting_asc"><a href="{{ path('admin_product',{sort:16, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">库存</a></th>
+                  {% elseif app.request.get('sort') == 16 %}
+                  <th class="sorting_desc"><a href="{{ path('admin_product',{sort:15, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">库存</a></th>
+                  {% else %}
+                  <th class="sorting"><a href="{{ path('admin_product',{sort:15, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">库存</a></th>
+                  {% endif %}
                   {% if app.request.get('sort') == 14 %}
                   <th class="sorting_asc"><a href="{{ path('admin_product',{sort:4, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">销售</a></th>
                   {% elseif app.request.get('sort') == 4 %}
@@ -137,6 +144,8 @@
                     <td>{{ entity.priceDiscounted }}</td>
 
                     <td>{{ entity.click }}</td>
+
+                    <td>{{ entity.inventory }}</td>
 
                     <td>{{ entity.soldNo }}</td>
 
