@@ -135,8 +135,8 @@
                     $result['N'] = '未知状态';
                     break;
             }
-            $result['O'] = $address->getImg1();
-            $result['P'] = $address->getImg2();
+            $result['O'] = $address->getIdBack();
+            $result['P'] = $address->getIdFront();
             return $result;
         }
 
