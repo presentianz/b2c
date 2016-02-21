@@ -41,7 +41,7 @@
                 <p><strong>评论列表</strong></p>
             </header>
             <section class="scrollable padder">
-                <form action="/admin/excel" method="post" onsubmit="return export_check()">
+                <form action="{{ path('admin_excel') }}" method="post" onsubmit="return export_check()">
 
                     <section class="panel panel-default">
                         <div class="table-responsive">
