@@ -15,9 +15,17 @@
         public function buildForm(FormBuilderInterface $builder, array $options)
         {
             $builder
-                ->add('text')
-                ->add('reply')
-                ->add('star')
+                ->add('text','textarea',array(
+                        'attr' => array('placeholder' => '请填写你的评论'),
+                        'required' => false
+                        ))
+                ->add('reply','text',array(
+                    'required' => false
+                ))
+                ->add('star','text',array(
+                    'required' => false
+                ))
+                ->add('commentAt')
                 ->add('product')
                 ->add('user')
             ;

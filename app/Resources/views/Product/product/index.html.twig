@@ -106,10 +106,14 @@
         <img src="{{ asset('img/leaf-green.jpg') }}" alt="" class="leaf"></div> 
         <div class="product-info clearfix">
             <div class="tab-contents">
-                <div class="tab-content-title">商品评论({{ data.product.comments|length }})</div>
-                <textarea class="tab-content-desc" placeholder="请填写你的评论"> </textarea> 
-                 <input type="submit" value="发送" class="pull-right" />
-                  <div class="tab-content-foot">*请登录后发表评论</div>
+            <div class="tab-content-title">商品评论({{ data.product.comments|length }})</div>
+            {{ form_start(form, {'attr': {'id':'add-comment'}}) }}
+               <!--  <textarea class="tab-content-desc" placeholder="请填写你的评论"> </textarea> -->
+               {{ form_widget(form.text,{'attr':{'class':'tab-content-desc'}}) }}
+                <div style="display:none"><div>{{ form_rest(form) }}</div></div>
+                <input type="submit" value="发送" class="pull-right"/>
+                <div class="tab-content-foot">*请登录后发表评论</div>
+            {{ form_end(form) }}
             </div>
             {% for comment in data.product.comments %}
 
@@ -117,12 +121,16 @@
                 <table id="comments-record-list" class="record-list">
                     <tbody>
                     <tr>
-                        <th width="40%">买家</th>
-                        <th width="60%">评论内容</th>
+                        <th width="10%">时间</th>
+                        <th width="25%">买家</th>
+                        <th width="50%">评论内容</th>
+                        <th width="15%">等级</th>
                     </tr>
                     <tr class="comments-record-item">
+                        <td class="comments-date">{{comment.commentAt}}</td>
                         <td class="comments-name">{{comment.user.username}}</td>
-                        <td class="comments">{{comment.text}}</td>
+                        <td class="comments">{{comment.text}}</td> 
+                        <td class="comments-star">{{comment.star}}</td>
                     </tr>
                         </tbody>
                     </table>
@@ -150,4 +158,33 @@
 
     {% block javascripts %}
     <script src="{{ asset('js/product.js') }}"></script>
+    <script type="text/javascript">
+        $('#add-comment').submit(function(e) {
+      e.preventDefault();
+      $('#loading').css('display','block');
+      var $this = $(this).serialize();
+      $.ajax({
+          url: "{{path('add_comment_ajax')}}",
+          method: "POST",
+          data:  $('#add-comment').serialize(),
+          dataType: "json"
+        })
+        .done(function (rep) {
+            console.log(rep);
+          if(rep.success) {
+            $('#loading').css('display','none');
+         var html = '<tr class="comments-record-item"><td class="comments-date">'+ rep.comments-date + 
+                    '</td><td class="comments-name">'+rep.user.username + 
+                    '</td><td class="comments">' + rep.text + 
+                    '</td><td class="comments-star">'+ rep.star + 
+                    '</td></tr>';
+
+            $('#comments-record-list').append(html);
+          }
+          else{
+            alert('用户请登入才可以评论');
+          }
+        })
+    })
+    </script>
     {% endblock %}

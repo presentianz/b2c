@@ -6,7 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AppBundle\Entity\Product;
-
+use AppBundle\Form\CommentType;
 
 class ProductController extends Controller
 {
@@ -35,9 +35,10 @@ class ProductController extends Controller
             $data['path'] = $em->getRepository('AppBundle:Category')->getPath($data['product']->getCategory());
 
         $this->get('product.click.increment')->clickIncrement($data['product']);
-        
+         $form = $this->createForm(new CommentType());
         return $this->render('Product/product/index.html.twig', array(
             'data' => $data,
+            'form' => $form->createView(),
             ));
     }
 }
