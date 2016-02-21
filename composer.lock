@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8fdd93fdc17bd0e748a694c31523fe39",
-    "content-hash": "64ba11d91e6e041d289b233c4d9c1025",
+    "hash": "eb9ae93e8a8bc4211b80e1591f699321",
+    "content-hash": "ed144581139e23792a0c767cf2324d6c",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -17,7 +17,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Transliterator/zipball/868e05be3a9f25ba6424c2dd4849567f50715003",
+                "url": "http://packagist.phpcomposer.com/files/Behat/Transliterator/868e05be3a9f25ba6424c2dd4849567f50715003.zip",
                 "reference": "868e05be3a9f25ba6424c2dd4849567f50715003",
                 "shasum": ""
             },
@@ -57,7 +57,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/annotations/f25c8aab83e0c3e976fd7d19875f198ccf2f7535.zip",
                 "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
                 "shasum": ""
             },
@@ -125,7 +125,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/f8af318d14bdb0eff0336795b428b547bd39ccb6",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/cache/f8af318d14bdb0eff0336795b428b547bd39ccb6.zip",
                 "reference": "f8af318d14bdb0eff0336795b428b547bd39ccb6",
                 "shasum": ""
             },
@@ -195,7 +195,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/6c1e4eef75f310ea1b3e30945e9f06e652128b8a",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/collections/6c1e4eef75f310ea1b3e30945e9f06e652128b8a.zip",
                 "reference": "6c1e4eef75f310ea1b3e30945e9f06e652128b8a",
                 "shasum": ""
             },
@@ -261,7 +261,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/a579557bc689580c19fee4e27487a67fe60defc0",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/common/a579557bc689580c19fee4e27487a67fe60defc0.zip",
                 "reference": "a579557bc689580c19fee4e27487a67fe60defc0",
                 "shasum": ""
             },
@@ -334,7 +334,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/bd44f6b6e40247b6530bc8abe802e4e4d914976a",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/data-fixtures/bd44f6b6e40247b6530bc8abe802e4e4d914976a.zip",
                 "reference": "bd44f6b6e40247b6530bc8abe802e4e4d914976a",
                 "shasum": ""
             },
@@ -391,7 +391,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/5a1f4bf34d61d997ccd9f0539fbc14c7a772aa16",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/dbal/5a1f4bf34d61d997ccd9f0539fbc14c7a772aa16.zip",
                 "reference": "5a1f4bf34d61d997ccd9f0539fbc14c7a772aa16",
                 "shasum": ""
             },
@@ -454,7 +454,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/e9c2ccf573b59b7cea566390f34254fed3c20ed9",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/DoctrineBundle/e9c2ccf573b59b7cea566390f34254fed3c20ed9.zip",
                 "reference": "e9c2ccf573b59b7cea566390f34254fed3c20ed9",
                 "shasum": ""
             },
@@ -533,7 +533,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/18c600a9b82f6454d2e81ca4957cdd56a1cf3504",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/DoctrineCacheBundle/18c600a9b82f6454d2e81ca4957cdd56a1cf3504.zip",
                 "reference": "18c600a9b82f6454d2e81ca4957cdd56a1cf3504",
                 "shasum": ""
             },
@@ -621,7 +621,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/0f1a2f91b349e10f5c343f75ab71d23aace5b029",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/DoctrineFixturesBundle/0f1a2f91b349e10f5c343f75ab71d23aace5b029.zip",
                 "reference": "0f1a2f91b349e10f5c343f75ab71d23aace5b029",
                 "shasum": ""
             },
@@ -678,7 +678,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/90b2128806bfde671b6952ab8bea493942c1fdae",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/inflector/90b2128806bfde671b6952ab8bea493942c1fdae.zip",
                 "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
                 "shasum": ""
             },
@@ -745,7 +745,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/lexer/83893c552fd2045dd78aef794c31e694c37c0b8c.zip",
                 "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
                 "shasum": ""
             },
@@ -799,7 +799,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/5aedac1e5c5caaeac14798822c70325dc242d467",
+                "url": "http://packagist.phpcomposer.com/files/doctrine/doctrine2/5aedac1e5c5caaeac14798822c70325dc242d467.zip",
                 "reference": "5aedac1e5c5caaeac14798822c70325dc242d467",
                 "shasum": ""
             },
@@ -872,7 +872,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/2f52d924692647db02bbcb27c159fef03bf000c9",
+                "url": "http://packagist.phpcomposer.com/files/FriendsOfSymfony/FOSJsRoutingBundle/2f52d924692647db02bbcb27c159fef03bf000c9.zip",
                 "reference": "2f52d924692647db02bbcb27c159fef03bf000c9",
                 "shasum": ""
             },
@@ -930,7 +930,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/e770bfa2fd0fc665f55cd7cfeb34bddeffb892f4",
+                "url": "http://packagist.phpcomposer.com/files/FriendsOfSymfony/FOSUserBundle/e770bfa2fd0fc665f55cd7cfeb34bddeffb892f4.zip",
                 "reference": "e770bfa2fd0fc665f55cd7cfeb34bddeffb892f4",
                 "shasum": ""
             },
@@ -999,7 +999,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/08be3017f45cea64d6f10ec1c67c39c96f1e8ac3",
+                "url": "http://packagist.phpcomposer.com/files/Atlantic18/DoctrineExtensions/08be3017f45cea64d6f10ec1c67c39c96f1e8ac3.zip",
                 "reference": "08be3017f45cea64d6f10ec1c67c39c96f1e8ac3",
                 "shasum": ""
             },
@@ -1078,7 +1078,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/d7ce7f06136109e81d1cb9d57066c4d4a99cf1cc",
+                "url": "http://packagist.phpcomposer.com/files/Incenteev/ParameterHandler/d7ce7f06136109e81d1cb9d57066c4d4a99cf1cc.zip",
                 "reference": "d7ce7f06136109e81d1cb9d57066c4d4a99cf1cc",
                 "shasum": ""
             },
@@ -1129,7 +1129,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/5c5cde8822a69545767f7c7f3058cb15ff84614c",
+                "url": "http://packagist.phpcomposer.com/files/ircmaxell/password_compat/5c5cde8822a69545767f7c7f3058cb15ff84614c.zip",
                 "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c",
                 "shasum": ""
             },
@@ -1171,7 +1171,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/64990d96e0959dff8e059dfcdc1af130728d92bc",
+                "url": "http://packagist.phpcomposer.com/files/jdorn/sql-formatter/64990d96e0959dff8e059dfcdc1af130728d92bc.zip",
                 "reference": "64990d96e0959dff8e059dfcdc1af130728d92bc",
                 "shasum": ""
             },
@@ -1221,7 +1221,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/9928f7c4ad98b234e3559d1049abd13387f86db5",
+                "url": "http://packagist.phpcomposer.com/files/kriswallsmith/assetic/9928f7c4ad98b234e3559d1049abd13387f86db5.zip",
                 "reference": "9928f7c4ad98b234e3559d1049abd13387f86db5",
                 "shasum": ""
             },
@@ -1289,6 +1289,69 @@
             "time": "2015-11-12 13:51:40"
         },
         {
+            "name": "liuggio/ExcelBundle",
+            "version": "v2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liuggio/ExcelBundle.git",
+                "reference": "a6424eef60d5a9201146d6820de7d75bb2be79bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/liuggio/ExcelBundle/a6424eef60d5a9201146d6820de7d75bb2be79bc.zip",
+                "reference": "a6424eef60d5a9201146d6820de7d75bb2be79bc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "phpoffice/phpexcel": "~1.8.0",
+                "symfony/framework-bundle": "~2.6|~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.6",
+                "sensio/framework-extra-bundle": "~2.3|~3.0",
+                "symfony/browser-kit": "~2.6|~3.0",
+                "symfony/class-loader": "~2.6|~3.0",
+                "symfony/finder": "~2.6|~3.0",
+                "symfony/form": "~2.6|~3.0",
+                "symfony/validator": "~2.6|~3.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liuggio\\ExcelBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ExcelBundle Contributors",
+                    "homepage": "https://github.com/liuggio/ExcelBundle#contributors"
+                },
+                {
+                    "name": "Giulio De Donato",
+                    "email": "liuggio@gmail.com"
+                }
+            ],
+            "description": "This is a Symfony2 Bundle helps you to read and write Excel files (including pdf, xlsx, odt), thanks to the PHPExcel library",
+            "homepage": "http://www.welcometothebundle.com",
+            "keywords": [
+                "Symfony2",
+                "bundle",
+                "excel",
+                "xls"
+            ],
+            "time": "2015-12-22 11:22:03"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.17.2",
             "source": {
@@ -1298,7 +1361,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bee7f0dc9c3e0b69a6039697533dca1e845c8c24",
+                "url": "http://packagist.phpcomposer.com/files/Seldaek/monolog/bee7f0dc9c3e0b69a6039697533dca1e845c8c24.zip",
                 "reference": "bee7f0dc9c3e0b69a6039697533dca1e845c8c24",
                 "shasum": ""
             },
@@ -1375,7 +1438,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orocrm/doctrine-extensions/zipball/068102e896c8739355b99b794d59d321dff655d7",
+                "url": "http://packagist.phpcomposer.com/files/orocrm/doctrine-extensions/068102e896c8739355b99b794d59d321dff655d7.zip",
                 "reference": "068102e896c8739355b99b794d59d321dff655d7",
                 "shasum": ""
             },
@@ -1429,7 +1492,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/b0e69d10852716b2ccbdff69c75c477637220790",
+                "url": "http://packagist.phpcomposer.com/files/paragonie/random_compat/b0e69d10852716b2ccbdff69c75c477637220790.zip",
                 "reference": "b0e69d10852716b2ccbdff69c75c477637220790",
                 "shasum": ""
             },
@@ -1468,6 +1531,63 @@
             "time": "2016-02-06 03:52:05"
         },
         {
+            "name": "phpoffice/phpexcel",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PHPExcel.git",
+                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/PHPOffice/PHPExcel/372c7cbb695a6f6f1e62649381aeaa37e7e70b32.zip",
+                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
+                "shasum": ""
+            },
+            "require": {
+                "ext-xml": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPExcel": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Maarten Balliauw",
+                    "homepage": "http://blog.maartenballiauw.be"
+                },
+                {
+                    "name": "Mark Baker"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "http://blog.rootslabs.net"
+                },
+                {
+                    "name": "Erik Tilt"
+                }
+            ],
+            "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+            "homepage": "http://phpexcel.codeplex.com",
+            "keywords": [
+                "OpenXML",
+                "excel",
+                "php",
+                "spreadsheet",
+                "xls",
+                "xlsx"
+            ],
+            "time": "2015-05-01 07:00:55"
+        },
+        {
             "name": "psr/log",
             "version": "1.0.0",
             "source": {
@@ -1477,7 +1597,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "http://packagist.phpcomposer.com/files/php-fig/log/fe0936ee26643249e916849d48e3a51d5f5e278b.zip",
                 "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
                 "shasum": ""
             },
@@ -1516,7 +1636,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/c89375c9d95fc5afaeb99e7a49b428b6e3beb9d3",
+                "url": "http://packagist.phpcomposer.com/files/sensiolabs/SensioDistributionBundle/c89375c9d95fc5afaeb99e7a49b428b6e3beb9d3.zip",
                 "reference": "c89375c9d95fc5afaeb99e7a49b428b6e3beb9d3",
                 "shasum": ""
             },
@@ -1575,7 +1695,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/3e8936fe13aa4086644977d334d8fcd275f50357",
+                "url": "http://packagist.phpcomposer.com/files/sensiolabs/SensioFrameworkExtraBundle/3e8936fe13aa4086644977d334d8fcd275f50357.zip",
                 "reference": "3e8936fe13aa4086644977d334d8fcd275f50357",
                 "shasum": ""
             },
@@ -1630,7 +1750,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/21696b0daa731064c23cfb694c60a2584a7b6e93",
+                "url": "http://packagist.phpcomposer.com/files/sensiolabs/security-checker/21696b0daa731064c23cfb694c60a2584a7b6e93.zip",
                 "reference": "21696b0daa731064c23cfb694c60a2584a7b6e93",
                 "shasum": ""
             },
@@ -1674,7 +1794,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/0697e6aa65c83edf97bb0f23d8763f94e3f11421",
+                "url": "http://packagist.phpcomposer.com/files/swiftmailer/swiftmailer/0697e6aa65c83edf97bb0f23d8763f94e3f11421.zip",
                 "reference": "0697e6aa65c83edf97bb0f23d8763f94e3f11421",
                 "shasum": ""
             },
@@ -1727,7 +1847,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/assetic-bundle/zipball/d885ec8451d5a7b077bda81bb19ac9fbff9cdc76",
+                "url": "http://packagist.phpcomposer.com/files/symfony/assetic-bundle/d885ec8451d5a7b077bda81bb19ac9fbff9cdc76.zip",
                 "reference": "d885ec8451d5a7b077bda81bb19ac9fbff9cdc76",
                 "shasum": ""
             },
@@ -1797,7 +1917,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/84785c4d44801c4dd82829fa2e1820cacfe2c46f",
+                "url": "http://packagist.phpcomposer.com/files/symfony/monolog-bundle/84785c4d44801c4dd82829fa2e1820cacfe2c46f.zip",
                 "reference": "84785c4d44801c4dd82829fa2e1820cacfe2c46f",
                 "shasum": ""
             },
@@ -1856,7 +1976,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/5e1a90f28213231ceee19c953bbebc5b5b95c690",
+                "url": "http://packagist.phpcomposer.com/files/symfony/swiftmailer-bundle/5e1a90f28213231ceee19c953bbebc5b5b95c690.zip",
                 "reference": "5e1a90f28213231ceee19c953bbebc5b5b95c690",
                 "shasum": ""
             },
@@ -1913,7 +2033,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/d3646cc6875c214d211001e0673ec9e91b5f2da7",
+                "url": "http://packagist.phpcomposer.com/files/symfony/symfony/d3646cc6875c214d211001e0673ec9e91b5f2da7.zip",
                 "reference": "d3646cc6875c214d211001e0673ec9e91b5f2da7",
                 "shasum": ""
             },
@@ -2038,7 +2158,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
+                "url": "http://packagist.phpcomposer.com/files/twigphp/Twig/3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8.zip",
                 "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
                 "shasum": ""
             },
@@ -2099,7 +2219,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/JsonpCallbackValidator/zipball/1a7d388bb521959e612ef50c5c7b1691b097e909",
+                "url": "http://packagist.phpcomposer.com/files/willdurand/JsonpCallbackValidator/1a7d388bb521959e612ef50c5c7b1691b097e909.zip",
                 "reference": "1a7d388bb521959e612ef50c5c7b1691b097e909",
                 "shasum": ""
             },
@@ -2142,7 +2262,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/e50108c2133ee5c9c484555faed50c17a61221d3",
+                "url": "http://packagist.phpcomposer.com/files/sensiolabs/SensioGeneratorBundle/e50108c2133ee5c9c484555faed50c17a61221d3.zip",
                 "reference": "e50108c2133ee5c9c484555faed50c17a61221d3",
                 "shasum": ""
             },

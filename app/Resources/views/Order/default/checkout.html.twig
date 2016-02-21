@@ -118,6 +118,9 @@
         </div>
       </div> 
 <div class="bg-mask"></div>
+<div id="loading" class="loading">
+  <div><img src="{{ asset('img/spinner.gif')}}"></div>
+</div>
     <div id="pop-cart" class="pop-cart">
     <h3><i class="fa fa-info-circle"></i>
       <span>确定提交订单？</span></h3>
@@ -180,7 +183,7 @@
         <input type="submit" value="提交" />
       </div>
       {{ form_end(form) }}
-
+    </div>
 {% endblock %}
 
 
@@ -239,6 +242,7 @@
     $('#add-address').submit(function(e) {
       e.preventDefault();
       //pop一个等待框
+      $('#loading').css('display','block');
       var $this = $(this).serialize();
       $.ajax({
           url: "{{path('add_address_ajax')}}",
@@ -249,6 +253,7 @@
         .done(function (rep) {
           if(rep.success) {
             //关闭等待框
+            $('#loading').css('display','none');
             $('.bg-mask').css('display','none');
             $('#create-address').css('display','none');
             var html = '<option value="'+rep.id+'" selected>'+rep.name+' '+rep.phoneNo+', '+rep.country+' '+rep.region+' '+rep.city+' '+rep.address+'</option>';
