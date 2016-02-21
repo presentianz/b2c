@@ -54,8 +54,8 @@
                         <div><label>*固定电话></label> {{ form_widget(edit_form.contact_no) }}</div>
                         <div><label>*收件人身份证号</label> {{ form_widget(edit_form.id_no) }}</div>
                         <div><label>*订单附言</label> {{ form_widget(edit_form.comment) }}</div>
-                        <div> {{ form_widget(edit_form.img1) }}</div>
-                        <div> {{ form_widget(edit_form.img2) }}</div>
+                        <div><label>身份证正面</label> {{ form_widget(edit_form.img1) }}</div>
+                        <div><label>身份证反面</label> {{ form_widget(edit_form.img2) }}</div>
                         {{ form_widget(delete_form.submit, { 'label': '删除' }) }}
                         {{ form_widget(edit_form.submit, { 'label': '更新' }) }}
                         <a href="{{ path('admin_comment') }}">返回</a>
