@@ -251,12 +251,11 @@
          .done(function (rep) {
                 var num = null;
                 var total = null;
-                if (rep !== 'none') {
+                if (rep !== 'none' || rep !='' || rep != null) {
                     $.each(rep, function(index, value) {
                         num += Number(value.count);
                         total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
-                    });
-                        
+                    });              
                     }
                     else {
                          num = 0;

@@ -228,7 +228,7 @@ class CartController extends Controller
                         'name' => $product->getName(),
                         'count' => $value->getCount(),
                         'poster' => $product->getPoster(),
-                        'imageLink' => $product->getImageLink(),
+                        'imageLink' => $value->getImageLink(),
                         'price' => $product->getPrice(),
                         'price_discounted' => $product->getPriceDiscounted()
                         );
