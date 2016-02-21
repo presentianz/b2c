@@ -42,6 +42,8 @@
 
                     <div><label>订单ID：</label> {{ entity.id }}</div>
                     <div><label>收货地址：</label> {{ entity.shipmentAddress }}</div>
+                    <div><label>联系人：</label> {{ entity.shipmentAddress.getName }}</div>
+                    <div><label>联系电话：</label> {{ entity.shipmentAddress.getContactNo }}</div>
                     <div><label>订单状态：</label>
                         {% if entity.status == 0 %}
                             未付款
@@ -55,10 +57,18 @@
                             已取消
                         {% endif %}
                     </div>
-                    <div><label>购买用户：</label> {{ entity.user }}</div>
+                    <div><label>购买账户：</label> {{ entity.user }}</div>
+                    <div><label>用户姓名：</label> {{ entity.user.userInfo.getFullName }}</div>
+                    <div><label>订单详情：</label>
+                    {% for product in entity.getOrderProducts %}
+                            {{ product.getProduct.getName }}x
+                            {{ product.getCount }}
+                        {% endfor %}
+                    </div>
+
                     <div><label>总价格：</label> {{ entity.totalPrice }}</div>
                     <div><label>运费：</label> {{ entity.postFee }}</div>
-                    <div><label>创建时间：</label> {{ entity.createAt|date("Y/m/d H:i:s") }}</div>
+                    <div><label>下单时间：</label> {{ entity.createAt|date("Y/m/d H:i:s") }}</div>
                     <div><label>支付时间：</label> {{ entity.paidAt|date("Y/m/d H:i:s") }}</div>
 
 
