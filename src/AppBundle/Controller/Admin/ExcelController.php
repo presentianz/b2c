@@ -2,6 +2,7 @@
     namespace AppBundle\Controller\Admin;
 
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+    use Symfony\Bundle\SecurityBundle\Tests\Functional\app\AppKernel;
     use Symfony\Component\HttpFoundation\Request;
     use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
     use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -135,9 +136,15 @@
                     $result['N'] = '未知状态';
                     break;
             }
-            $result['O'] = $address->getIdBack();
-            $result['P'] = $address->getIdFront();
+            $result['O'] = $this->getIdScanPath() . $address->getIdBack();
+            $result['P'] = $this->getIdScanPath() . $address->getIdFront();
             return $result;
+        }
+
+
+        private function getIdScanPath()
+        {
+            return $this->generateUrl('homepage', array(), true) . $this->get('kernel')->getIdScanDir();
         }
 
         /**
