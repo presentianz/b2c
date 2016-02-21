@@ -144,7 +144,10 @@
 
         private function getIdScanPath()
         {
-            return $this->generateUrl('homepage', array(), true) . $this->get('kernel')->getIdScanDir();
+            $path = $this->generateUrl('homepage', array(), true) . $this->get('kernel')->getIdScanDir();
+            $path = str_replace("/app.php", "", $path);
+            $path = str_replace("/app_dev.php", "", $path);
+            return $path;
         }
 
         /**
