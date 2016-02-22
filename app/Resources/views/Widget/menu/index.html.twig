@@ -13,11 +13,11 @@
 	         <div class="well dropdown-menu">
 	        {% for sub2 in sub1.__children %}     	
 	        	<div>
-	        		<a href="{{ path('category', { id : sub2.id }) }}">{{ sub2.name }}</a>
+	        		<a href="{{ path('category', { id : sub2.id }) }}" class="search-keys">{{ sub2.name }}</a>
 	        		{% if sub2.__children|length > 0 %}
 	        		<div class="sub-menu">
 	        			{% for sub3 in sub2.__children %}
-	        			<a href="{{ path('category', { id : sub3.id }) }}">{{ sub3.name }}</a>&nbsp;&nbsp;|&nbsp;
+	        			<a href="{{ path('category', { id : sub3.id }) }}" class="search-keys">{{ sub3.name }}</a>&nbsp;&nbsp;|&nbsp;
 	        			{% endfor %}
 	        		</div>
 	        		{% endif %}
