@@ -48,18 +48,20 @@
         public function bestProAction()
         {
             $em = $this->getDoctrine()->getManager();
-            $products = $em->getRepository('AppBundle:Product')->findRandomProducts(3);
+            $products = $em->getRepository('AppBundle:Product')->findIndexWidgetProducts(5, 2);
+
             return $this->render('Widget/default/bestPro.html.twig', array(
-                'data' => $products
+                'products' => $products
             ));
         }
 
         public function discountProAction()
         {
             $em = $this->getDoctrine()->getManager();
-            $products = $em->getRepository('AppBundle:Product')->findRandomProducts(3);
+            $products = $em->getRepository('AppBundle:Product')->findIndexWidgetProducts(4, 2);
+
             return $this->render('Widget/default/discountPro.html.twig', array(
-                'data' => $products
+                'products' => $products
             ));
         }
 
