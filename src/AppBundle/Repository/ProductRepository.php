@@ -55,6 +55,7 @@
                         p.click AS click,
                         p.inventory as inventory,
                         p.poster AS poster,
+                        p.widget_weight AS widget_weight,
                         p.imageLink AS imageLink');
             $products_no = $this->createQueryBuilder('p');
             $products_no->select('COUNT(p.id) AS total_no');
@@ -123,6 +124,12 @@
                     break;
                 case '16':
                     $products->orderBy('p.inventory', 'DESC');
+                    break;
+                case '17':
+                    $products->orderBy('p.widget_weight', 'ASC');
+                    break;
+                case '18':
+                    $products->orderBy('p.widget_weight', 'DESC');
                     break;
                 default:
                     $products->addOrderBy('p.updateAt', 'DESC');

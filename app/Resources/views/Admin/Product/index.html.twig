@@ -89,6 +89,10 @@
                                    href="{{ path('admin_product',{'widget': 2}) }}">热卖畅销</a>
                                 <a class="btn btn-success btn-sm {{ app.request.get('widget') == 3?'active':'' }}"
                                    href="{{ path('admin_product',{'widget': 3}) }}">限时特卖</a>
+                                <a class="btn btn-success btn-sm {{ app.request.get('widget') == 4?'active':'' }}"
+                                   href="{{ path('admin_product',{'widget': 4}) }}">折扣商品</a>
+                                <a class="btn btn-success btn-sm {{ app.request.get('widget') == 5?'active':'' }}"
+                                   href="{{ path('admin_product',{'widget': 5}) }}">人气商品</a>
                             </div>
                             <table class="table table-striped m-b-none dataTable">
                                 <thead>
@@ -184,6 +188,19 @@
                                                     href="{{ path('admin_product',{sort:14, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">销售</a>
                                         </th>
                                     {% endif %}
+                                    {% if app.request.get('sort') == 17 %}
+                                        <th class="sorting_asc"><a
+                                                    href="{{ path('admin_product',{sort:18, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">权重</a>
+                                        </th>
+                                    {% elseif app.request.get('sort') == 18 %}
+                                        <th class="sorting_desc"><a
+                                                    href="{{ path('admin_product',{sort:17, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">权重</a>
+                                        </th>
+                                    {% else %}
+                                        <th class="sorting"><a
+                                                    href="{{ path('admin_product',{sort:17, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">权重</a>
+                                        </th>
+                                    {% endif %}
                                     <th>编辑</th>
                                 </tr>
                                 </thead>
@@ -211,6 +228,13 @@
 
                                         <td>{{ entity.soldNo }}</td>
 
+                                        <td>
+                                            {% if entity.widget_weight %}
+                                                {{ entity.widget_weight }}
+                                            {% else %}
+                                                0
+                                            {% endif %}
+                                        </td>
                                         <td>
                                             <a href="{{ path('admin_product_edit', { 'id': entity.id }) }}">编辑</a>
                                         </td>

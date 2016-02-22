@@ -36,9 +36,19 @@
                             热卖畅销
                         {% elseif entity.getIndexWidget == 3 %}
                             限时特卖
+                        {% elseif entity.getIndexWidget == 4 %}
+                            折扣商品
+                        {% elseif entity.getIndexWidget == 5 %}
+                            人气商品
                         {% endif %}
                     </div>
-                    <div><label>橱窗权重：</label> {{ entity.getWidgetWeight }}</div>
+                    <div><label>橱窗权重：</label>
+                        {% if entity.getWidgetWeight %}
+                            {{ entity.getWidgetWeight }}
+                        {% else %}
+                            0
+                        {% endif %}
+                    </div>
 
 
                     <div class="admin-buttons">

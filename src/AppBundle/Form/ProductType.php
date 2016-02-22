@@ -43,6 +43,8 @@ class ProductType extends AbstractType
                     '1' => '今日推介',
                     '2' => '热卖畅销',
                     '3' => '限时特卖',
+                    '4' => '折扣商品',
+                    '5' => '人气商品',
                 )
             ))
             ->add('widget_weight')
