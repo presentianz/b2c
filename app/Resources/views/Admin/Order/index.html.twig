@@ -102,67 +102,67 @@
 
                                         {% if not app.request.get('sort') or app.request.get('sort') == 9 %}
                                             <th class="sorting_asc">
-                                                <a href="{{ path('admin_order',{sort:10, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'), sort:10, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
                                             </th>
                                         {% elseif app.request.get('sort') == 10 %}
                                             <th class="sorting_desc">
-                                                <a href="{{ path('admin_order',{sort:9, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:9, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
                                             </th>
                                         {% else %}
                                             <th class="sorting">
-                                                <a href="{{ path('admin_order',{sort:9, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:9, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
                                             </th>
                                         {% endif %}
                                         {% if not app.request.get('sort') or app.request.get('sort') == 2 %}
                                             <th class="sorting_asc">
-                                                <a href="{{ path('admin_order',{sort:3, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">订单号</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:3, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">订单号</a>
                                             </th>
                                         {% elseif app.request.get('sort') == 3 %}
                                             <th class="sorting_desc">
-                                                <a href="{{ path('admin_order',{sort:2, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">订单号</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:2, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">订单号</a>
                                             </th>
                                         {% else %}
                                             <th class="sorting">
-                                                <a href="{{ path('admin_order',{sort:2, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">订单号</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:2, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">订单号</a>
                                             </th>
                                         {% endif %}
                                         {% if not app.request.get('sort') or app.request.get('sort') == 4 %}
                                             <th class="sorting_asc">
-                                                <a href="{{ path('admin_order',{sort:5, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">订单状态</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:5, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">订单状态</a>
                                             </th>
                                         {% elseif app.request.get('sort') == 5 %}
                                             <th class="sorting_desc">
-                                                <a href="{{ path('admin_order',{sort:4, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">订单状态</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:4, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">订单状态</a>
                                             </th>
                                         {% else %}
                                             <th class="sorting">
-                                                <a href="{{ path('admin_order',{sort:4, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">订单状态</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:4, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">订单状态</a>
                                             </th>
                                         {% endif %}
                                         {% if not app.request.get('sort') or app.request.get('sort') == 7 %}
                                             <th class="sorting_asc">
-                                                <a href="{{ path('admin_order',{sort:8, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">总价</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:8, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">总价</a>
                                             </th>
                                         {% elseif app.request.get('sort') == 8 %}
                                             <th class="sorting_desc">
-                                                <a href="{{ path('admin_order',{sort:7, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">总价</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:7, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">总价</a>
                                             </th>
                                         {% else %}
                                             <th class="sorting">
-                                                <a href="{{ path('admin_order',{sort:7, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">总价</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:7, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">总价</a>
                                             </th>
                                         {% endif %}
                                         {% if not app.request.get('sort') or app.request.get('sort') == 11 %}
                                             <th class="sorting_asc">
-                                                <a href="{{ path('admin_order',{sort:12, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">下单时间</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:12, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">下单时间</a>
                                             </th>
                                         {% elseif app.request.get('sort') == 12 %}
                                             <th class="sorting_desc">
-                                                <a href="{{ path('admin_order',{sort:11, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">下单时间</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:11, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">下单时间</a>
                                             </th>
                                         {% else %}
                                             <th class="sorting">
-                                                <a href="{{ path('admin_order',{sort:11, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">下单时间</a>
+                                                <a href="{{ path('admin_order',{'status': app.request.get('status'), 'user_id':app.request.get('user_id'),sort:11, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">下单时间</a>
                                             </th>
                                         {% endif %}
 
