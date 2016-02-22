@@ -37,6 +37,15 @@ class ProductType extends AbstractType
                         ->addOrderBy('p.lft', 'ASC');
                 },
             ))
+            ->add('index_widget', 'choice', array(
+                'choices' => array(
+                    '0' => '无',
+                    '1' => '今日推介',
+                    '2' => '热卖畅销',
+                    '3' => '限时特卖',
+                )
+            ))
+            ->add('widget_weight')
         ;
     }
     

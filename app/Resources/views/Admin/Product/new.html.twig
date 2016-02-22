@@ -58,6 +58,8 @@
 					  <div><label>品牌：</label> {{ form_widget(form.brand) }}</div>
 					  <div><label>重量：</label> {{ form_widget(form.weight) }}</div>
 					  <div><label>商品编号：</label> {{ form_widget(form.productKey) }}</div>
+                      <div> <label>首页橱窗推荐：</label> {{form_widget(form.index_widget)}}</div>
+                      <div> <label>橱窗权重：</label> {{form_widget(form.widget_weight)}}</div>
 					  <div style="display: none;">{{ form_widget(form.imageLink) }}</div>
 					  <div style="display: none;">{{ form_widget(form.poster) }}</div>
 
