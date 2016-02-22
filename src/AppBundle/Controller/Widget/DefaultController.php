@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller\Widget;
 
+use Doctrine\Common\Util\Debug;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -23,6 +24,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $tree = $em->getRepository('AppBundle:Category')->get2LevelCategory();
+
         $data = array();
         foreach ($tree as $key => $value) {
             $products = $em->getRepository('AppBundle:Category')->getRandomProductsUnderCategory($value['id'], 3);

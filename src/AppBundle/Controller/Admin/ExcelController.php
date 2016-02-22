@@ -142,6 +142,9 @@
         }
 
 
+        /**
+         * @return mixed|string
+         */
         private function getIdScanPath()
         {
             $path = $this->generateUrl('homepage', array(), true) . $this->get('kernel')->getIdScanDir();
