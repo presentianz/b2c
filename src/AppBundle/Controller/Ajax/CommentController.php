@@ -26,7 +26,9 @@ class CommentController extends Controller
             if ($form->isValid()) {
                 $commet = $form->getData();
                 $commet->setUser($this->getUser());
-
+                //如何传人商品名字和用户名字
+              //  $commet->setProduct($this->getProduct());
+                $commet->setCommentAt(time());
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($commet);
                 $em->flush();
@@ -34,10 +36,11 @@ class CommentController extends Controller
                     'success' => true,
                     'id' => $commet->getId(),
                     'text' => $commet->getText(),
-                    'reply' => $commet->getReply(),
+                    // 'reply' => $commet->getReply(),
                     'star' => $commet->getStar(),
-                    'commentAt' => $commet->getCommentAt(),
+                    'commentAt' =>$commet->getCommentAt(),
                     'user' => $commet->getUser(),
+                    'product' => $commet->getProduct(),
                     ));
             }
             else

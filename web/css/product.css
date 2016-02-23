@@ -190,7 +190,9 @@
     word-break: break-all;
 }
 
-#product-page .tab-contents .record-list .comments-name {
+#product-page .tab-contents .record-list .comments-name,
+#product-page .tab-contents .record-list .comments-date,
+#product-page .tab-contents .record-list .comments-star {
     text-align: center;
 }
 
@@ -198,6 +200,10 @@
     padding: 0px 20px; 
 }
 
+#appbundle_comment_star {
+    margin-bottom: 15px;
+    padding: 5px 10px;
+}
 
 
 
