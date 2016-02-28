@@ -1,4 +1,4 @@
-{% extends 'FOSUserBundle:Registeration:register.html.twig' %}
+{% extends 'FOSUserBundle:Registration:register.html.twig' %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
@@ -16,12 +16,17 @@
         </div>
         <div class="register-email col-xs-12">
 			<div>
-				<h3>
-                    <i class="fa fa-info-circle"></i>已发送验证邮箱到
-					 {{ 'registration.check_email'|trans({'%email%': user.email}) }}
-                </h3>
-				<h6>请您进入邮箱中点击验证按钮完成注册</h6>
-				<a class="button add-pop-address" href="{{path("fos_user_registration_check_email")}}">去邮箱验证</a>
+                {% if user is not null %}
+                    <h3>
+                        <i class="fa fa-info-circle"></i>已发送验证邮箱到
+                         {{ 'registration.check_email'|trans({'%email%': user.email}) }}
+                    </h3>
+                    <h6>请您进入邮箱中点击验证按钮完成注册</h6>
+                {% else %}
+                    <h3>
+                        <i class="fa fa-info-circle"></i>验证邮件已经发送到您的邮箱，请耐心等待
+                    </h3>
+                {% endif %}
 			</div>
 		</div>
 {% endblock fos_user_content %}

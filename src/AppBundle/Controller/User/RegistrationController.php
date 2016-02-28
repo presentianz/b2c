@@ -33,13 +33,16 @@
          */
         public function registerAction(Request $request)
         {
+            /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
             $formFactory = $this->get('fos_user.registration.form.factory');
+            /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
             $userManager = $this->get('fos_user.user_manager');
+            /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
             $dispatcher = $this->get('event_dispatcher');
+
 
             $user = $userManager->createUser();
             $user->setEnabled(true);
-            $user->setRoles(array(User::ROLE_DEFAULT));
 
             $event = new GetResponseUserEvent($user, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
@@ -56,36 +59,38 @@
             if ($form->isValid()) {
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
-
-                $user->setUserInfo(new UserInfo());//relate user & user_info
+                $user->setUserInfo(new UserInfo());
                 $userManager->updateUser($user);
 
                 if (null === $response = $event->getResponse()) {
                     $url = $this->generateUrl('fos_user_registration_confirmed');
                     $response = new RedirectResponse($url);
                 }
-                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED,
+                    new FilterUserResponseEvent($user, $request, $response));
 
                 return $response;
             }
-
-            //echo "已覆盖FOSUser注册Controller";
 
             return $this->render('FOSUserBundle:Registration:register.html.twig', array(
                 'form' => $form->createView(),
             ));
         }
 
-        //create user info record with default value in entity
-        /*function createUserInfo(){
-            $user_info = new UserInfo();
-            //exit(\Doctrine\Common\Util\Debug::dump($user_info));
+        /**
+         * Tell the user to check his email provider
+         *
+         * @Route("/check-email", name="user_register_check")
+         */
+        public function checkEmailAction()
+        {
+            $email = $this->get('session')->get('fos_user_send_confirmation_email/email');
+            $this->get('session')->remove('fos_user_send_confirmation_email/email');
+            $user = $this->get('fos_user.user_manager')->findUserByEmail($email);
 
-            //set default in the entity
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user_info);
-            $em->flush();
-
-            return $user_info;
-        }*/
+            return $this->render('FOSUserBundle:Registration:checkEmail.html.twig', array(
+                'user' => $user,
+            ));
+        }
     }

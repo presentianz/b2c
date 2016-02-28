@@ -94,7 +94,7 @@
                             <div class="pull-right my-detail">             
                                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                                 <div id="after-login">
-                                    <a class="a-login" href="{{ path('user_profile') }}"><h6>{{ app.user.email }}</h6></a>
+                                    <a class="a-login" href="{{ path('user_profile') }}"><h6>{{ app.user.username }}</h6></a>
                                     <a class="a-login" href="{{path('fos_user_security_logout')}}"><h6 class="no-padding">(退出)</h6></a>
                                 </div>
                                  <div id="user-home" class="history nav-hover a-login">

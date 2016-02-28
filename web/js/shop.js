@@ -162,9 +162,9 @@ $(function() {
 						innerHtml += "<\/form>";
 					}
 					else {
-					innerHtml += "<div class=\"total\">";
-					innerHtml += "您的购物车为空！";
-					innerHtml += "<\/div>";
+						innerHtml += "<div class=\"total\">";
+						innerHtml += "您的购物车为空！";
+						innerHtml += "<\/div>";
 					}
 
 					$('.cart-list').html(innerHtml);
