@@ -23,7 +23,7 @@
             return $data;
         }
 
-        public function searchProduct($keys, $sort, $page, $item_no, $widget)
+        public function searchProduct($keys, $sort, $page, $item_no, $widget = null)
         {
             if ($keys) {
                 $keys = preg_replace("/(\s+)|(　+)+/", " ", $keys);

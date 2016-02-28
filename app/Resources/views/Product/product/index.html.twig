@@ -108,34 +108,37 @@
             <div class="tab-contents">
             <div class="tab-content-title">商品评论({{ data.product.comments|length }})</div>
             {{ form_start(form, {'attr': {'id':'add-comment'}}) }}
-               <!--  <textarea class="tab-content-desc" placeholder="请填写你的评论"> </textarea> -->
+                {{ form_label(form.star) }}&nbsp;&nbsp;&nbsp;{{ form_widget(form.star) }}
                {{ form_widget(form.text,{'attr':{'class':'tab-content-desc'}}) }}
-                <div style="display:none"><div>{{ form_rest(form) }}</div></div>
+                <div style="display:none;"><div>
+                {{ form_rest(form) }}</div></div>
                 <input type="submit" value="发送" class="pull-right"/>
                 <div class="tab-content-foot">*请登录后发表评论</div>
             {{ form_end(form) }}
             </div>
-            {% for comment in data.product.comments %}
-
+           {% if data.product.comments|length > 0 %}
             <div class="tab-contents">
                 <table id="comments-record-list" class="record-list">
                     <tbody>
                     <tr>
-                        <th width="10%">时间</th>
+                        <th width="15%">时间</th>
                         <th width="25%">买家</th>
                         <th width="50%">评论内容</th>
-                        <th width="15%">等级</th>
+                        <th width="20%">等级</th>
                     </tr>
+                     {% for comment in data.product.comments %}
                     <tr class="comments-record-item">
-                        <td class="comments-date">{{comment.commentAt}}</td>
+                        <td class="comments-date">{{comment.commentAt|date("m/d/Y")}}</td>
                         <td class="comments-name">{{comment.user.username}}</td>
                         <td class="comments">{{comment.text}}</td> 
                         <td class="comments-star">{{comment.star}}</td>
                     </tr>
+                    {% endfor%}
                         </tbody>
                     </table>
              </div>
-             {% endfor%}
+             {% endif %}
+             
         </div>
 
 
@@ -173,13 +176,13 @@
             console.log(rep);
           if(rep.success) {
             $('#loading').css('display','none');
-         var html = '<tr class="comments-record-item"><td class="comments-date">'+ rep.comments-date + 
+         var html = '<tr class="comments-record-item"><td class="comments-date">'+ rep.commentAt+ 
                     '</td><td class="comments-name">'+rep.user.username + 
                     '</td><td class="comments">' + rep.text + 
                     '</td><td class="comments-star">'+ rep.star + 
                     '</td></tr>';
 
-            $('#comments-record-list').append(html);
+            $('#comments-record-list tbody').append(html);
           }
           else{
             alert('用户请登入才可以评论');

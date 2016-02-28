@@ -251,15 +251,16 @@
          .done(function (rep) {
                 var num = null;
                 var total = null;
-                if (rep != 'none' || rep !='' || rep != null) {
-                    $.each(rep, function(index, value) {
-                        num += Number(value.count);
-                        total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
-                    });              
+                if (rep == "none" || rep == "" || rep == null) {
+                        num = 0;
+                        total = 0.00;           
                     }
                     else {
-                         num = 0;
-                        total = 0.00;
+                        $.each(rep, function(index, value) {
+                        num += Number(value.count);
+                        total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
+                        }); 
+                  
                     }
                     $('#cart').html("<i class='fa fa-circle'><h6>" + num + "</h6></i><span><i class='fa fa-shopping-cart'></i>&nbsp;$" + total +"&nbsp;</span>");
 

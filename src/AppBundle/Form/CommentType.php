@@ -20,10 +20,14 @@
                         'required' => false
                         ))
                 ->add('reply','text',array(
-                    'required' => false
+                    'required' => false,
+                    'empty_data' => ' ',
                 ))
-                ->add('star','text',array(
-                    'required' => false
+                ->add('star','choice',array(
+                    'required' => false,
+                    'label' => '请选择商品等级',
+                    'attr' => array( 'placeholder' => '请选择商品等级'),
+                    'choices' => array('1' => '1','2' => '2','3' => '3','4' => '4','5' => '5',),
                 ))
                 ->add('commentAt')
                 ->add('product')
