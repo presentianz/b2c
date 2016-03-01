@@ -161,9 +161,13 @@ function wrong(checking) {
 
 $("#register-form").submit(function (e) {
     console.log("register");
+    if (flag1 && flag2 && flag3 && flag4){
         $("#bg-mask").css("display", "block");
         $("#loading").css("display", "block");
         window.location.href = Routing.generate("user_register_check");
+    } else if (flag1 || flag2 || flag3 || flag4 || flag5) {
+         alert("register fail");
+    }
 });
 
 function login() {

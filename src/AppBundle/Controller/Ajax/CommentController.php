@@ -29,8 +29,8 @@ class CommentController extends Controller
              $product =  $em->getRepository('AppBundle:Product')->findOneById($this->$getProduct);
             if ($form->isValid()) {
                 $commet = $form->getData();
-                $commet->setUser($user);
-                $commet->setProduct($product);
+                $commet->setUser($user->getName());
+                $commet->setProduct($product->getName());
 
                 $commet->setCommentAt(time());
                 $em = $this->getDoctrine()->getManager();
