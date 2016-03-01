@@ -159,46 +159,21 @@ function wrong(checking) {
 }
 
 
-function reigster() {
-    $("#loading").css("display", "block");
-    if (flag1 && flag2 && flag3 && flag4 && flag5) {
-        $("#loading").css("display", "none");
-        alert("reigster success");
-        return true;
-
-    }     
-    else if($("input[name='fos_user_registration_form[email]']").val()==""){
-        wrong("input[name='fos_user_registration_form[email]']");
-        return false;
-    }
-    else if($("input[name='fos_user_registration_form[username]']").val()==""){
-       wrong("input[name='fos_user_registration_form[username]']");
-       return false;
-   }
-   else if($("input[name='fos_user_registration_form[plainPassword][first]']").val()==""){
-       wrong("input[name='fos_user_registration_form[plainPassword][first]']");
-       return false;
-   }
-   else if($("input[name='fos_user_registration_form[plainPassword][second]']").val()==""){
-       wrong("input[name='fos_user_registration_form[plainPassword][second]']");
-       return false;
-   }
-   else if(!checkinfo.checked){
-       wrong("input[id=checkinfo]");
-       return false;
-   }
-   else {
-        return false;
-}
-
-
-}
+$("#register-form").submit(function (e) {
+    console.log("register");
+        $("#bg-mask").css("display", "block");
+        $("#loading").css("display", "block");
+        window.location.href = Routing.generate("user_register_check");
+});
 
 function login() {
-    $("#loading").css("display", "block");
+     $("#bg-mask").css("display", "none");
+    $("#loading").css("display", "none");
+    
     if (flag1 && flag3){
-        $("#loading").css("display", "none");
         alert("login success");
+        $("#bg-mask").css("display", "block");
+        $("#loading").css("display", "block");
         return true;
     } 
     else if($("input[name='fos_user_registration_form[email]']").val()==""){
@@ -210,6 +185,7 @@ function login() {
        return false;
    }      
    else{
+   
     return false;
 }
 

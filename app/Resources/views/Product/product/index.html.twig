@@ -110,9 +110,10 @@
             {{ form_start(form, {'attr': {'id':'add-comment'}}) }}
                 {{ form_label(form.star) }}&nbsp;&nbsp;&nbsp;{{ form_widget(form.star) }}
                {{ form_widget(form.text,{'attr':{'class':'tab-content-desc'}}) }}
-                <div style="display:none;"><div>
+                <div style="display:none;">
+                <div>
                 {{ form_rest(form) }}</div></div>
-                <input type="submit" value="发送" class="pull-right"/>
+                <input type="submit" value="发送" class="pull-right" data-id="{{ data.product.id }}"/>
                 <div class="tab-content-foot">*请登录后发表评论</div>
             {{ form_end(form) }}
             </div>
@@ -164,12 +165,13 @@
     <script type="text/javascript">
         $('#add-comment').submit(function(e) {
       e.preventDefault();
+      var productId = $('input[type=submit]').attr("data-id");
       $('#loading').css('display','block');
       var $this = $(this).serialize();
       $.ajax({
           url: "{{path('add_comment_ajax')}}",
           method: "POST",
-          data:  $('#add-comment').serialize(),
+          data: $('#add-comment').serialize(),
           dataType: "json"
         })
         .done(function (rep) {

@@ -21,7 +21,7 @@
                         ))
                 ->add('reply','text',array(
                     'required' => false,
-                    'empty_data' => ' ',
+                    'empty_data' => 'Thanks',
                 ))
                 ->add('star','choice',array(
                     'required' => false,
@@ -29,7 +29,8 @@
                     'attr' => array( 'placeholder' => '请选择商品等级'),
                     'choices' => array('1' => '1','2' => '2','3' => '3','4' => '4','5' => '5',),
                 ))
-                ->add('commentAt')
+                ->add('commentAt','text',array(
+                    'value' => time())),
                 ->add('product')
                 ->add('user')
             ;

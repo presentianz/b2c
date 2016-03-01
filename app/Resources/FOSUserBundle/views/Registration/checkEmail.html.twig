@@ -30,3 +30,12 @@
 			</div>
 		</div>
 {% endblock fos_user_content %}
+{% block javascripts %}
+<script type="text/javascript">
+    (function () {
+        $(".bg-mask").css("display", "none");
+        $("#loading").css("display", "none");
+
+    })();
+</script>
+{% endblock %}

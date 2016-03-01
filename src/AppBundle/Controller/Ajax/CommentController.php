@@ -19,15 +19,19 @@ class CommentController extends Controller
      */
     public function addCommentIndex(Request $request)
     {
+        
         if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $commet = new Comment();
             $form = $this->createForm(new CommentType(), $commet);
             $form->handleRequest($request);
+            $em = $this->getDoctrine()->getManager();
+             $user= $em->getRepository('AppBundle:User')->findOneById($this->getUser());
+             $product =  $em->getRepository('AppBundle:Product')->findOneById($this->$getProduct);
             if ($form->isValid()) {
                 $commet = $form->getData();
-                $commet->setUser($this->getUser());
-                //如何传人商品名字和用户名字
-              //  $commet->setProduct($this->getProduct());
+                $commet->setUser($user);
+                $commet->setProduct($product);
+
                 $commet->setCommentAt(time());
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($commet);
@@ -65,7 +69,7 @@ class CommentController extends Controller
 
         foreach ($form->all() as $child) {
             if (!$child->isValid()) {
-                $errors[$child->getText()] = $this->getErrorMessages($child);
+                $errors[$child->getName()] = $this->getErrorMessages($child);
             }
         }
 

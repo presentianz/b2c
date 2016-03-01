@@ -20,7 +20,7 @@
 
        {# {{dump(form_widget(form))}} #}
 
-    {{ form_start(form) }}
+    {{ form_start(form, {'attr': {'id':'register-form'}}) }}
 
             <div class="register-content col-xs-5">
                 <div class="controls">
@@ -92,12 +92,13 @@
                         <h6>请请勾选并阅读协议</h6>
                     </div>	
                 </div>	
-               <input type="submit" value="{{ 'registration.submit'|trans }}" />
+              <input type="submit" value="{{ 'registration.submit'|trans }}" onsubmit="return reigster();" /> 
+              
             </div>
         {{ form_rest(form) }}
         {{ form_end(form) }}
-{% endblock %}
 
+{% endblock %}
 
 
 
