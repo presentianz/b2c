@@ -27,10 +27,10 @@
                     'required' => false,
                     'label' => '请选择商品等级',
                     'attr' => array( 'placeholder' => '请选择商品等级'),
-                    'choices' => array('1' => '1','2' => '2','3' => '3','4' => '4','5' => '5',),
+                    'choices' => array('1' => '1','2' => '2','3' => '3','4' => '4','5' => '5'),
                 ))
                 ->add('commentAt','text',array(
-                    'value' => time())),
+                    'empty_data' => time()))
                 ->add('product')
                 ->add('user')
             ;

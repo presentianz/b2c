@@ -113,7 +113,8 @@
                 <div style="display:none;">
                 <div>
                 {{ form_rest(form) }}</div></div>
-                <input type="submit" value="发送" class="pull-right" data-id="{{ data.product.id }}"/>
+                <!-- disable comment function need to be fixed later -->
+                <input type="submit" value="发送" class="pull-right disabled" data-id="{{ data.product.id }}" disabled="disabled" style="background: #ccc" />
                 <div class="tab-content-foot">*请登录后发表评论</div>
             {{ form_end(form) }}
             </div>

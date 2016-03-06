@@ -1,46 +1,6 @@
-<!-- Hot Staffs -->
-
-{# 
-{% for row in data %}
-    <div class="hotdeal">
-        <div class="row-up">
-            <div class="col-xs-11">
-                <h3>{{ row.node.name }}</h3>
-                {% if row.node.__children|length > 0 %}
-                <h5>
-                    <a href="{{ path('category', { id : row.node.__children|first.id }) }}">{{ row.node.__children|first.name }}</a>
-                    {% for child in row.node.__children|slice(1,4) %}
-                    <span>&nbsp;| &nbsp;</span>
-                        <a href="{{ path('category', { id : child.id }) }}">{{ child.name }}</a>
-                    {% endfor %}
-                </h5>
-                {% endif %}
-            </div>
-            <div class="col-xs-1">
-                <a href="{{ path('category', { id : row.node.id }) }}">更多</a>
-            </div>
-        </div>
-        <div class="row">
-            {% for product in row.products %}
-                <div class="col-xs-3">
-                <a href="{{ path('product', {id : product.id}) }}">
-                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
-                        <div class="pro-text">
-                            <div class="pro-title">{{ product.name }}<br></div>
-                            <div class="price">${{ product.priceDiscounted }}</div>
-                            <del>${{ product.price }}</del>
-                            <br>
-                            <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
-                        </div>
-                    </a>
-                </div>
-            {% endfor %}
-        </div>	
-    </div>
-{% endfor %}
-#}
 
 
+{% if data.widget[0]|length > 0 %}
 <div class="hotdeal">
     <div class="row-up">
         <div class="page-title">
@@ -76,8 +36,8 @@
         {% endfor %}
     </div>
 </div>
-
-
+{% endif %}
+{% if data.widget[1]|length > 0 %}
 <div class="hotdeal">
     <div class="row-up">
         <div class="page-title">
@@ -112,7 +72,8 @@
         {% endfor %}
     </div>
 </div>
-
+{% endif %}
+{% if data.widget[2]|length > 0 %}
 <div class="hotdeal">
     <div class="row-up">
         <div class="page-title">
@@ -147,3 +108,4 @@
         {% endfor %}
     </div>
 </div>
+{% endif %}

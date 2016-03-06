@@ -1,5 +1,5 @@
 <!--best pros-->
-
+{% if products|length > 0 %}
 {% for product in products %}
     <div class="side">
         <div class="side-title">
@@ -28,3 +28,4 @@
         </div>
     </div>
 {% endfor %}
+{% endif %}
