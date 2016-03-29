@@ -2,6 +2,11 @@
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
 #    parameter_name: value
+    checkout_user_id: CAIGOU_Dev
+    checkout_key: 0ef0c283693b5968e0b7ff9aec5a72a1755cbd5a16bd8a4b5a1044049c26ea95
+    curl_url: https://uat.paymentexpress.com/pxaccess/pxpay.aspx
+
+
 
 services:
 #    service_name:
@@ -14,11 +19,10 @@ services:
         tags:
             - { name : form.type , alias : fos_user_profile }
 
-    # fos_user.registration.form.type:
-    #     class: AppBundle\Form\Type\RegistrationFormType
-    #     arguments: [%fos_user.model.user.class%]
-    #     tags:
-    #         - { name: form.type, alias: fos_user_registration }
+    app.form.registration:
+        class: AppBundle\Form\Type\RegistrationType
+        tags:
+            - { name: form.type, alias: app_user_registration }
 
     user.on.login:
         class: AppBundle\EventListener\OnLoginListener
@@ -34,3 +38,7 @@ services:
 
     fos_user.doctrine_registry:
         alias: doctrine
+
+    app.skip.checkout:
+        class: AppBundle\Service\SkipToCheckout
+        arguments: ['%checkout_user_id%', '%checkout_key%', '%curl_url%', @router]

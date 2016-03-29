@@ -154,20 +154,6 @@
     width:100%;
 }
 
-
-#product-page .tab-contents .record-list th,
-#product-page .tab-contents .record-list td {
-    border:1px solid #ccc;
-    height: 25px;
-    line-height:25px;
-    font-size:12px;
-    padding: 5px 10px;
-}
-
-#product-page .product-tabs .tab-contents .record-list th {
-    border-bottom:0px;
-}
-
 #product-page .product-info .col-xs-7,
 #product-page .tab-contents textarea {
     padding: 10px;
@@ -177,6 +163,48 @@
     min-height: 150px;
     outline: none;
 }
+#product-page .tab-contents .record-list {
+    margin-top: 40px;
+}
+
+#product-page .tab-contents .record-list th {
+    text-align: center;
+    background-color: #eee;
+    border-left: 2px solid #fff;
+     font-size:14px;
+     line-height:25px;
+     padding: 5px 10px;
+      height: 25px;
+
+}
+#product-page .tab-contents .record-list th:first-child {
+    border-left:none;
+}
+
+#product-page .tab-contents .record-list td {
+    min-height: 25px;
+    line-height:25px;
+    font-size:12px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #eee;
+    word-break: break-all;
+}
+
+#product-page .tab-contents .record-list .comments-name,
+#product-page .tab-contents .record-list .comments-date,
+#product-page .tab-contents .record-list .comments-star {
+    text-align: center;
+}
+
+#product-page .tab-contents .record-list .comments {
+    padding: 0px 20px; 
+}
+
+#appbundle_comment_star {
+    margin-bottom: 15px;
+    padding: 5px 10px;
+}
+
 
 
 

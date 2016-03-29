@@ -120,13 +120,9 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
-
-# app/config/config.yml
+    transport: gmail
+    username:  '%mailer_user%'
+    password:  '%mailer_password%'
 
 #fos user 
 fos_user:
@@ -135,10 +131,13 @@ fos_user:
     user_class: AppBundle\Entity\User
     service:
         mailer: fos_user.mailer.twig_swift
+    from_email:
+        address:        lyan776.test@gmail.com
+        sender_name:    丰盛湾
     registration:
         confirmation:
             enabled: true
         form:
-            type: fos_user_registration
-            # type: AppBundle\Form\Type\RegistrationFormType
+            #type: fos_user_registration
+            type: AppBundle\Form\Type\RegistrationType
 

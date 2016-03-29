@@ -1,51 +1,56 @@
 {% extends 'Admin/admin_layout.html.twig' %}
 
 {% block body -%}
-<section id="content">
-  <section class="vbox">
-    <header class="header bg-light b-b">
-        <p><strong>修改商品</strong></p>
-    </header>
-   <section class="scrollable padder">
+    <section id="content">
+        <section class="vbox">
+            <header class="header bg-light b-b">
+                <p><strong>修改商品</strong></p>
+            </header>
+            <section class="scrollable padder">
 
-   <div class="form">
-   {{ form_start(edit_form) }}
-      <div> <label>商品名称：</label> {{form_widget(edit_form.name)}}</div>
-       <div> <label>原价：</label> {{form_widget(edit_form.price)}}</div>
-       <div> <label>促销价：</label> {{form_widget(edit_form.price_discounted)}}</div>
-       <div> <label>浏览次数：</label> {{form_widget(edit_form.viewed_count)}}</div>
-       <div> <label>售出数量：</label> {{form_widget(edit_form.soldNo)}}</div>
-       <div> <label>库存：</label> {{form_widget(edit_form.inventory)}}</div>
-       <div> <label>点击次数：</label> {{form_widget(edit_form.click)}}</div>
-       <div> <label>商品描述：</label> {{form_widget(edit_form.description)}}</div>
-       <div> <label>商品状态：</label> {{form_widget(edit_form.status)}}</div>
-       <div> <label>分类：</label> {{form_widget(edit_form.category)}}</div>
-       <div> <label>品牌：</label> {{form_widget(edit_form.brand)}}</div>
-       <div> <label>重量：</label> {{form_widget(edit_form.weight)}}</div>
-       <div> <label>商品编号：</label> {{form_widget(edit_form.productKey)}}</div>
-       <div style="display: none;">{{form_widget(edit_form.imageLink)}}</div>
-     <div style="display: none;">{{form_widget(edit_form.poster)}}</div>
+                <div class="form">
+                    {{ form_start(edit_form) }}
+                    <div><label>商品名称：</label> {{ form_widget(edit_form.name) }}</div>
+                    <div><label>原价：</label> {{ form_widget(edit_form.price) }}</div>
+                    <div><label>促销价：</label> {{ form_widget(edit_form.price_discounted) }}</div>
+                    <div><label>浏览次数：</label> {{ form_widget(edit_form.viewed_count) }}</div>
+                    <div><label>售出数量：</label> {{ form_widget(edit_form.soldNo) }}</div>
+                    <div><label>库存：</label> {{ form_widget(edit_form.inventory) }}</div>
+                    <div><label>点击次数：</label> {{ form_widget(edit_form.click) }}</div>
+                    <div><label>商品描述：</label> {{ form_widget(edit_form.description) }}</div>
+                    <div><label>商品状态：</label> {{ form_widget(edit_form.status) }}</div>
+                    <div><label>分类：</label> {{ form_widget(edit_form.category) }}</div>
+                    <div><label>品牌：</label> {{ form_widget(edit_form.brand) }}</div>
+                    <div><label>重量：</label> {{ form_widget(edit_form.weight) }}</div>
+                    <div><label>商品编号：</label> {{ form_widget(edit_form.productKey) }}</div>
+                    <div><label>首页橱窗推荐：</label> {{ form_widget(edit_form.index_widget) }}</div>
+                    <div><label>橱窗权重：</label> {{ form_widget(edit_form.widget_weight) }}</div>
+                    <div style="display: none;">{{ form_widget(edit_form.imageLink) }}</div>
+                    <div style="display: none;">{{ form_widget(edit_form.poster) }}</div>
 
-     <div id="progressBox1"> <label>上传产品封面图片</label><span class="btn btn-primary btn-sm" id="uploadBtn1">选择图片</span></div>
-        <div class="info" id="info1"></div><div style="clear: both;"></div>
-       <div id="progressBox2"> <label>上传产品描述图片</label><span class="btn btn-primary btn-sm" id="uploadBtn2">选择图片</span></div>
-       <div class="info" id="info2"></div><div style="clear: both;"></div>
-     
-     <div class="admin-buttons">
-     <a href="{{ path('admin_product') }}">返回</a>
-          {{form_widget(delete_form.submit, { 'label': '删除' }) }}
-     {{form_widget(edit_form.submit, { 'label': '更新' }) }}
-     </div>
-      {{ form_end(edit_form) }}
+                    <div id="progressBox1"><label>上传产品封面图片</label><span class="btn btn-primary btn-sm" id="uploadBtn1">选择图片</span>
+                    </div>
+                    <div class="info" id="info1"></div>
+                    <div style="clear: both;"></div>
+                    <div id="progressBox2"><label>上传产品描述图片</label><span class="btn btn-primary btn-sm" id="uploadBtn2">选择图片</span>
+                    </div>
+                    <div class="info" id="info2"></div>
+                    <div style="clear: both;"></div>
+                    <div class="admin-buttons">
+                        <a href="{{ path('admin_product') }}">返回</a>
+                        {{ form_widget(delete_form.submit, { 'label': '删除' }) }}
+                        {{ form_widget(edit_form.submit, { 'label': '更新' }) }}
+                    </div>
+                    {{ form_end(edit_form) }}
+                    <div style="display: none;" id="imgSrc" data-imgSrc="{{ asset('img/src') }}"></div>
+                </div>
 
-   </div>
-
- </section>
-</section>
-</section>
+            </section>
+        </section>
+    </section>
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{asset('js/SimpleAjaxUploader.js')}}"></script>
-    <script src="{{asset('js/admin-product.js')}}"></script>
+    <script src="{{ asset('js/SimpleAjaxUploader.js') }}"></script>
+    <script src="{{ asset('js/admin-product.js') }}"></script>
 {% endblock %}

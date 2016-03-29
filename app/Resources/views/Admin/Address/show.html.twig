@@ -1,0 +1,61 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+
+{% block adminAddress %}
+    <li class="active">
+        <a href="#" class="auto">
+            <span class="pull-right text-muted">
+                <i class="i i-circle-sm-o text"></i>
+                <i class="i i-circle-sm text-active"></i>
+            </span>
+            <i class="i i-book icon">
+            </i>
+            <span class="font-bold">地址管理</span>
+        </a>
+        <ul class="nav dk">
+            <li>
+                <a href="{{ path('admin_address') }}" class="auto">
+                    <i class="i i-dot"></i>
+
+                    <span>地址列表</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('admin_address_new') }}" class="auto">
+                    <i class="i i-dot"></i>
+
+                    <span>添加地址</span>
+                </a>
+            </li>
+
+        </ul>
+    </li>
+{% endblock %}
+
+{% block body %}
+    <section id="content">
+        <section class="vbox">
+            <header class="header bg-light b-b">
+                <p><strong>地址</strong></p>
+            </header>
+            <section class="scrollable padder">
+
+                <div class="form">
+                    <div><label>地址ID：</label> {{ entity.id }}</div>
+                    <div><label>国家：</label> {{ entity.country }}</div>
+                    <div><label>省份：</label> {{ entity.region }}</div>
+                    <div><label>城市：</label> {{ entity.city }}</div>
+                    <div><label>详细地址：</label> {{ entity.address }}</div>
+                    <div><label>收货人：</label> {{ entity.name }}</div>
+                    <div><label>邮编：</label> {{ entity.postCode }}</div>
+                    <div class="admin-buttons">
+                        <a href="{{ path('admin_address') }}">返回</a>
+                        <a href="{{ path('admin_address_edit', { 'id': entity.id }) }}">编辑</a>
+                    </div>
+
+            </section>
+        </section>
+    </section>
+
+
+
+{% endblock %}

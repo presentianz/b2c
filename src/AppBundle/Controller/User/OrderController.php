@@ -27,7 +27,7 @@ class OrderController extends Controller
      */
     public function indexAction(Request $request)
     {
-    	  $type=$request->query->get('type',"1");
+    	$type=$request->query->get('type', 0);
         $em = $this->getDoctrine()->getManager();
         $orders = $em->getRepository('AppBundle:UserOrder')->findByType($this->getUser()->getId(),$type);
         return $this->render('User/order/index.html.twig', array(
@@ -35,16 +35,4 @@ class OrderController extends Controller
             "type" => $type
             ));
     }
-
-    /**
-     * @Route("/order/detail/{id}", name="user_order_detail")
-     */
-    // public function detailAction($id)
-    // {
-    //     $em = $this->getDoctrine()->getManager();
-    //     $order = $em->getRepository('AppBundle:UserOrder')->findOneById($id);
-    //     return $this->render('User/order/detail.html.twig', array(
-    //         "data" => $order
-    //         ));
-    // }
 }

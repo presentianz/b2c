@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 
 use AppBundle\Entity\CartProduct;
 use AppBundle\Entity\UserInfo;
+use AppBundle\Form\Type\ShipmentAddressFormType;
 
 class DefaultController extends Controller
 {
@@ -51,43 +52,118 @@ class DefaultController extends Controller
 
     /**
      * @Route("/orderConfirm", name="order_confirm", options={"expose"=true}))
-     * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
+     * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
      */
     public function orderConfirmAction(Request $request)
     {
         $id = $request->query->get('id');
+        $type = $request->query->get('type');
         $em = $this->getDoctrine()->getManager();
-        $order = $em->getRepository('AppBundle:UserOrder')->findOneById($id);
-        
-        return $this->render('Order/default/order_confirm.html.twig', array(
-            'data' => $order
-            ));
+        $order = $em->getRepository('AppBundle:UserOrder')->findOneByOrderId($id);
+        if (!$order) {
+            return $this->redirectToRoute('user_order');
+        }
+        if ($order->getStatus() != 0) {
+            $this->redirectToRoute('user_order');
+        }
+        else {
+            if ($type == 'online') {
+                $check = $this->get('app.skip.checkout');
+                $url = $check->checkout($order, $order->getTotalPrice()/* + $order->getPostFee()*/);
+
+                if($url) {
+                    //跳转支付
+                    return $this->redirect($url);
+                }
+                else {
+                    //出错了do something
+                    return new Response('Error');
+                }
+            }
+            else {
+                return $this->render('Order/default/order_confirm.html.twig', array(
+                    'data' => $order
+                ));
+            }
+        }
     }
-
-
 
     /**
      * @Route("/checkout", name="checkout")
-     * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
+     * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
      */
     public function checkoutAction(Request $request)
     {
-    	 $points="0";
-    	 $em = $this->getDoctrine()->getManager();
-    	 if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            
-            $user = $this->getUser(); 
-       			$member=$user->getUserInfo();
-       			$points=$this->getUser()->getUserInfo()->getPoints();
-        }
-        
-    		
-        
+        $em = $this->getDoctrine()->getManager();
+
+        $points=$this->getUser()->getUserInfo()->getPoints();
         $cartArray = $request->request->get('product-id');
+
         $products = $em->getRepository('AppBundle:CartProduct')->getItem($cartArray, $this->getUser()->getId());
+        $form = $this->createForm(new ShipmentAddressFormType());
         return $this->render('Order/default/checkout.html.twig', array(
             'data' => $products,
-            'points'=> $points
+            'points' => $points,
+            'form' => $form->createView(),
+            ));
+    }
+
+    /**
+     * @Route("/payprocess", name="pay_process")
+     * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
+     */
+    public function payprocessAction(Request $request)
+    {
+        $result = $request->query->get('result');
+        $check = $this->get('app.skip.checkout');
+        $result = $check->processResponse($result);
+        if ($result['success'] == 0) {
+            return $this->redirectToRoute('pay_fail');
+        }
+        else {
+            $em = $this->getDoctrine()->getManager();
+            $order = $em->getRepository('AppBundle:UserOrder')->findOneByOrderId($result['id']);
+            if (!$order) {
+                return $this->redirectToRoute('user_order');
+            }
+            $order->setStatus(1);
+            $order->setPaidAt(new \DateTime());
+            $em->persist($order);
+            $em->flush();
+            return $this->redirectToRoute('pay_success', array(
+                'orderId' => $result['id'],
+                ));
+        }
+    }
+
+    /**
+     * @Route("/payfail", name="pay_fail")
+     * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
+     */
+    public function payfailAction(Request $request)
+    {
+        return $this->render('Order/default/payfail.html.twig');
+    }
+
+    /**
+     * @Route("/paysuccess", name="pay_success")
+     * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
+     */
+    public function paysuccessAction(Request $request)
+    {
+        $orderId = $request->query->get('orderId');
+        if (!$orderId) {
+            return $this->redirectToRoute('user_order');
+        }
+        else {
+            $em = $this->getDoctrine()->getManager();
+            $order = $em->getRepository('AppBundle:UserOrder')->findOneByOrderId($orderId);
+            if (!$order || $order->getStatus() == 0 || $order->getStatus() == 4)
+                return $this->redirectToRoute('user_order');
+        }
+        return $this->render('Order/default/paysuccess.html.twig', array(
+            'orderId' => $orderId,
+            'status' => $order->getStatus()
             ));
     }
 }

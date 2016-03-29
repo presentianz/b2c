@@ -180,7 +180,7 @@ item_no: 18
     page : i,
     sort : sort,
     item_no: item_no
-}) }}" {% if i == page %} class="page active" {% endif %} class="page"> {{ i }}</a>
+}) }}" class="page" {% if page and i == 0 %} class="hide" {% elseif page and i == 1 %} class="page active" {% elseif not page and i == 1 %} class="page active" {% elseif i == page %} class="page active" {% endif %} > {{ i }}</a>
 {% endfor %}
 <a id="prev" href="{{ path('category', {
 id : id,
@@ -194,8 +194,7 @@ id : id,
 page : page - 1,
 sort : sort,
 item_no: item_no
-}) }}" {% if page - 1 == 0 %} class="hide" {% endif %} {% if page == 0 %} class="hide" {% endif %}
-{% if page == 1 %} class="hide" {% endif %} class="i-next"  title="上一个">
+}) }}" class="i-next hide" {% if page > 0 %} class="show" {% endif %}   title="上一个">
 <i class="fa fa-caret-left"></i></a>
 </span>
 </div>

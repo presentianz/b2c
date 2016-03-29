@@ -1,0 +1,66 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+{% block adminUserInfo %}
+    <li class="active">
+        <a href="#" class="auto">
+            <span class="pull-right text-muted">
+                <i class="i i-circle-sm-o text"></i>
+                <i class="i i-circle-sm text-active"></i>
+            </span>
+            <i class="i i-users3 icon">
+            </i>
+            <span class="font-bold">用户管理</span>
+        </a>
+        <ul class="nav dk">
+            <li>
+                <a href="{{ path('admin_user_info') }}" class="auto">
+                    <i class="i i-dot"></i>
+
+                    <span>用户列表</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+{% endblock %}
+{% block body %}
+    <section id="content">
+        <section class="vbox">
+            <header class="header bg-light b-b">
+                <p><strong>修改评论</strong></p>
+            </header>
+            <section class="scrollable padder">
+
+                <div class="form">
+                    {{ form_start(edit_form) }}
+                    <div><label>姓名：</label> {{ form_widget(edit_form.fullname) }}</div>
+                    <div><label>国家：</label> {{ form_widget(edit_form.country) }}</div>
+                    <div><label>地区：</label> {{ form_widget(edit_form.region) }}</div>
+                    <div><label>城市：</label> {{ form_widget(edit_form.city) }}</div>
+                    <div><label>生日：</label> {{ form_widget(edit_form.birthday) }}</div>
+                    <div><label>经验：</label> {{ form_widget(edit_form.exp) }}</div>
+                    <div><label>积分：</label> {{ form_widget(edit_form.points) }}</div>
+                    <div><label>QQ：</label> {{ form_widget(edit_form.qqno) }}</div>
+                    <div><label>微信：</label> {{ form_widget(edit_form.wechatno) }}</div>
+                    <div><label>电话：</label> {{ form_widget(edit_form.contactno) }}</div>
+
+                    <div class="info" id="info2"></div>
+                    <div style="clear: both;"></div>
+
+                    <div class="admin-buttons">
+                        <a href="{{ path('admin_order', {'user_id': entity.id }) }}">查看订单</a>
+                        <a href="{{ path('admin_comment') }}">返回</a>
+                        {{ form_widget(delete_form.submit, { 'label': '删除' }) }}
+                        {{ form_widget(edit_form.submit, { 'label': '更新' }) }}
+                    </div>
+                    {{ form_end(edit_form) }}
+
+                </div>
+
+            </section>
+        </section>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/SimpleAjaxUploader.js') }}"></script>
+    <script src="{{ asset('js/admin-comment.js') }}"></script>
+{% endblock %}

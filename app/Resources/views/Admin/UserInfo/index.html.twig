@@ -1,0 +1,243 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('js/datatables/datatables.css') }}" type="text/css"/>
+{% endblock %}
+
+{% block adminUserInfo %}
+    <li class="active">
+        <a href="#" class="auto">
+            <span class="pull-right text-muted">
+                <i class="i i-circle-sm-o text"></i>
+                <i class="i i-circle-sm text-active"></i>
+            </span>
+            <i class="i i-users3 icon">
+            </i>
+            <span class="font-bold">用户管理</span>
+        </a>
+        <ul class="nav dk">
+            <li>
+                <a href="{{ path('admin_user_info') }}" class="auto">
+                    <i class="i i-dot"></i>
+
+                    <span>用户列表</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+{% endblock %}
+
+{% block body %}
+
+    <section id="content">
+        <section class="vbox">
+            <header class="header bg-light b-b">
+                <p><strong>用户列表</strong></p>
+            </header>
+            <section class="scrollable padder">
+
+                <section class="panel panel-default">
+                    <div class="table-responsive">
+                        <div class="dataTables_wrapper" role="grid">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="dataTables_length">
+                                        <a class="dropdown open">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                               aria-expanded="true">
+                                                每页显示 <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu animated fadeInRight">
+                                                <li>
+                                                    <span class="arrow top"></span>
+                                                    <a href="{{ path('admin_user_info',{item_no : 20}) }}">20行</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('admin_user_info',{item_no : 40}) }}">40行</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="{{ path('admin_user_info',{item_no : 60}) }}">60行</a>
+                                                </li>
+                                            </ul>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="dataTables_filter" id="example_filter">
+                                        <form action="{{ path('admin_user_info') }}" method="get"><label>搜索 <input
+                                                        type="text" aria-controls="example" name="keys"
+                                                        value="{{ app.request.get('keys') }}">
+                                            </label></form>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped m-b-none dataTable">
+                                <thead>
+                                <tr role="row">
+                                    {% if not app.request.get('sort') or app.request.get('sort') == 12 %}
+                                        <th class="sorting_asc">
+                                            <a href="{{ path('admin_user_info',{sort:13, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
+                                        </th>
+                                    {% elseif app.request.get('sort') == 13 %}
+                                        <th class="sorting_desc">
+                                            <a href="{{ path('admin_user_info',{sort:12, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
+                                        </th>
+                                    {% else %}
+                                        <th class="sorting">
+                                            <a href="{{ path('admin_user_info',{sort:12, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
+                                        </th>
+                                    {% endif %}
+                                    {% if not app.request.get('sort') or app.request.get('sort') == 2 %}
+                                        <th class="sorting_asc">
+                                            <a href="{{ path('admin_user_info',{sort:3, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">姓名</a>
+                                        </th>
+                                    {% elseif app.request.get('sort') == 3 %}
+                                        <th class="sorting_desc">
+                                            <a href="{{ path('admin_user_info',{sort:2, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">姓名</a>
+                                        </th>
+                                    {% else %}
+                                        <th class="sorting">
+                                            <a href="{{ path('admin_user_info',{sort:2, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">姓名</a>
+                                        </th>
+                                    {% endif %}
+                                    {% if not app.request.get('sort') or app.request.get('sort') == 6 %}
+                                        <th class="sorting_asc">
+                                            <a href="{{ path('admin_user_info',{sort:7, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">国家</a>
+                                        </th>
+                                    {% elseif app.request.get('sort') == 7 %}
+                                        <th class="sorting_desc">
+                                            <a href="{{ path('admin_user_info',{sort:6, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">国家</a>
+                                        </th>
+                                    {% else %}
+                                        <th class="sorting">
+                                            <a href="{{ path('admin_user_info',{sort:6, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">国家</a>
+                                        </th>
+                                    {% endif %}
+                                    {% if not app.request.get('sort') or app.request.get('sort') == 8 %}
+                                        <th class="sorting_asc">
+                                            <a href="{{ path('admin_user_info',{sort:9, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">省份</a>
+                                        </th>
+                                    {% elseif app.request.get('sort') == 9 %}
+                                        <th class="sorting_desc">
+                                            <a href="{{ path('admin_user_info',{sort:8, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">省份</a>
+                                        </th>
+                                    {% else %}
+                                        <th class="sorting">
+                                            <a href="{{ path('admin_user_info',{sort:8, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">省份</a>
+                                        </th>
+                                    {% endif %}
+                                    {% if not app.request.get('sort') or app.request.get('sort') == 10 %}
+                                        <th class="sorting_asc">
+                                            <a href="{{ path('admin_user_info',{sort:11, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">城市</a>
+                                        </th>
+                                    {% elseif app.request.get('sort') == 11 %}
+                                        <th class="sorting_desc">
+                                            <a href="{{ path('admin_user_info',{sort:10, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">城市</a>
+                                        </th>
+                                    {% else %}
+                                        <th class="sorting">
+                                            <a href="{{ path('admin_user_info',{sort:10, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">城市</a>
+                                        </th>
+                                    {% endif %}
+
+                                    <th>
+                                        生日
+                                    </th>
+
+                                    <th>
+                                        联系电话
+                                    </th>
+                                    <th>
+                                        QQ
+                                    </th>
+                                    <th>
+                                        微信
+                                    </th>
+                                    <th>
+                                        积分
+                                    </th>
+                                    <th>
+                                        经验
+                                    </th>
+
+
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody role="alert" aria-live="polite" aria-relevant="all">
+                                {% for entity in data.user_infos %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ path('admin_user_info_show', { 'id': entity.id }) }}">{{ entity.id }}</a>
+                                        </td>
+
+                                        <td>
+                                            {{ entity.full_name }}
+
+                                        </td>
+
+                                        <td>{{ entity.country }}</td>
+                                        <td>{{ entity.region }}</td>
+                                        <td>{{ entity.city }}</td>
+                                        <td>{{ entity.birthday }}</td>
+                                        <td>{{ entity.contact_no }}</td>
+                                        <td>{{ entity.qq_no }}</td>
+                                        <td>{{ entity.wechat_no }}</td>
+                                        <td>{{ entity.points }}</td>
+                                        <td>{{ entity.exp }}</td>
+
+                                        <td>
+                                            <a href="{{ path('admin_user_info_edit', { 'id': entity.id }) }}">编辑</a>
+                                        </td>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="dataTables_info" id="DataTables_Table_0_info">Showing 1
+                                        to {{ data.total_page }} of {{ data.total_no }} entries
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="dataTables_paginate paging_full_numbers select-page-number"
+                                         id="DataTables_Table_0_paginate">
+                                        <a tabindex="0" class="first paginate_button paginate_button_disabled"
+                                           id="DataTables_Table_0_first"
+                                           href="{{ path('admin_user_info',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:1,keys:app.request.get('keys')}) }}">首页</a>
+                                        <a tabindex="0" class="previous paginate_button paginate_button_disabled"
+                                           id="DataTables_Table_0_previous"
+                                           href="{{ path('admin_user_info',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:(app.request.get('page')) ? app.request.get('page')-1 : 2,keys:app.request.get('keys')}) }}">上一页</a>
+                                        <span>
+                                          {% for i in 1..data.total_page %}
+                                              <a tabindex="0" href="{{ path('admin_user_info', {
+                                                  keys : app.request.get('keys'),
+                                                  page : i,
+                                                  sort : app.request.get('sort'),
+                                                  item_no: app.request.get('item_no')
+                                              }) }}" {% if not app.request.get('page') and i == 1 %} class="paginate_active paginate_button" {% elseif i == app.request.get('page') %} class="paginate_active paginate_button" {% else %} class="paginate_button" {% endif %}> {{ i }}</a>
+                                          {% endfor %}
+                                        </span>
+                                        <a tabindex="0" class="next paginate_button" id="DataTables_Table_0_next"
+                                           href="{{ path('admin_user_info',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:(app.request.get('page')) ? app.request.get('page')+1 : 2,keys:app.request.get('keys')}) }}">下一页</a>
+                                        <a tabindex="0" class="last paginate_button" id="DataTables_Table_0_last"
+                                           href="{{ path('admin_user_info',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:data.total_page,keys:app.request.get('keys')}) }}">末页</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </section>
+        <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/datatables/jquery.csv-0.71.min.js') }}"></script>
+    <script src="{{ asset('js/pagination.js') }}"></script>
+{% endblock %}

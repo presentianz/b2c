@@ -1,0 +1,86 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+
+{% block adminOrder %}
+    <li class="active">
+        <a href="#" class="auto">
+            <span class="pull-right text-muted">
+                <i class="i i-circle-sm-o text"></i>
+                <i class="i i-circle-sm text-active"></i>
+            </span>
+            <i class="i i-stack icon">
+            </i>
+            <span class="font-bold">订单管理</span>
+        </a>
+        <ul class="nav dk">
+            <li>
+                <a href="{{ path('admin_order') }}" class="auto">
+                    <i class="i i-dot"></i>
+
+                    <span>订单列表</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('admin_order_new') }}" class="auto">
+                    <i class="i i-dot"></i>
+
+                    <span>添加订单</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+{% endblock %}
+
+{% block body %}
+    <section id="content">
+        <section class="vbox">
+            <header class="header bg-light b-b">
+                <p><strong>评论</strong></p>
+            </header>
+            <section class="scrollable padder">
+
+                <div class="form">
+
+                    <div><label>订单ID：</label> {{ entity.id }}</div>
+                    <div><label>收货地址：</label> {{ entity.shipmentAddress }}</div>
+                    <div><label>联系人：</label> {{ entity.shipmentAddress.getName }}</div>
+                    <div><label>联系电话：</label> {{ entity.shipmentAddress.getContactNo }}</div>
+                    <div><label>订单状态：</label>
+                        {% if entity.status == 0 %}
+                            未付款
+                        {% elseif entity.status == 1 %}
+                            待发货
+                        {% elseif entity.status == 2 %}
+                            已发货
+                        {% elseif entity.status == 3 %}
+                            已收货
+                        {% elseif entity.status == 4 %}
+                            已取消
+                        {% endif %}
+                    </div>
+                    <div><label>购买账户：</label> {{ entity.user }}</div>
+                    <div><label>用户姓名：</label> {{ entity.user.userInfo.getFullName }}</div>
+                    <div><label>订单详情：</label>
+                    {% for product in entity.getOrderProducts %}
+                            {{ product.getProduct.getName }}x
+                            {{ product.getCount }}
+                        {% endfor %}
+                    </div>
+
+                    <div><label>总价格：</label> {{ entity.totalPrice }}</div>
+                    <div><label>运费：</label> {{ entity.postFee }}</div>
+                    <div><label>下单时间：</label> {{ entity.createAt|date("Y/m/d H:i:s") }}</div>
+                    <div><label>支付时间：</label> {{ entity.paidAt|date("Y/m/d H:i:s") }}</div>
+
+
+                    <div class="admin-buttons">
+                        <a href="{{ path('admin_order') }}">返回</a>
+                        <a href="{{ path('admin_order_edit', { 'id': entity.id }) }}">编辑</a>
+                    </div>
+
+            </section>
+        </section>
+    </section>
+
+
+
+{% endblock %}

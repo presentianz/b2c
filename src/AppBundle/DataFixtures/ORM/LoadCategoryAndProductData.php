@@ -77,7 +77,7 @@ class LoadCategoryAndProductData implements FixtureInterface
         $product->setBrand($this->genstr(rand(3,8)));
         $product->setInventory(rand(0, 200));
         $product->setDescription($this->genstr(rand(3,8)).' '.$this->genstr(rand(3,8)).' '.$this->genstr(rand(3,8)));
-        $product->setProductKey(substr(uniqid(),0,10));
+        $product->setProductKey(uniqid());
         $product->setWeight(rand(0, 1200));
         $product->setClick(rand(0, 1000));
         $product->setImageLink(uniqid());

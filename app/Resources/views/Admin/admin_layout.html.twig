@@ -1,84 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" class="app">
-<head>  
-	<meta charset="utf-8" />
-	<title>{% block title %}彩购网---控制面板{% endblock %}</title>
-	<meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css" />
-	<link rel="stylesheet" href="{{asset('css/animate.css')}}" type="text/css" />
-	<link rel="stylesheet" href="{{asset('css/font-awesome.css')}}" type="text/css" />
-	<link rel="stylesheet" href="{{asset('css/icon.css')}}" type="text/css" />
-	<link rel="stylesheet" href="{{asset('css/font.css')}}" type="text/css" />
-	<link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css" />
+<head>
+	<meta charset="utf-8"/>
+	<title>{% block title %}丰盛湾---控制面板{% endblock %}</title>
+	<meta name="description"
+		  content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css"/>
+	<link rel="stylesheet" href="{{ asset('css/animate.css') }}" type="text/css"/>
+	<link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" type="text/css"/>
+	<link rel="stylesheet" href="{{ asset('css/icon.css') }}" type="text/css"/>
+	<link rel="stylesheet" href="{{ asset('css/font.css') }}" type="text/css"/>
+	<link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css"/>
 	{% block stylesheets %}
 
 	{% endblock %}
-  <!--[if lt IE 9]>
+	<!--[if lt IE 9]>
 	<script src="js/ie/html5shiv.js"></script>
 	<script src="js/ie/respond.min.js"></script>
 	<script src="js/ie/excanvas.js"></script>
 	<![endif]-->
 </head>
 <body class="">
-	<section class="vbox">
-		<header class="bg-white header header-md navbar navbar-fixed-top-xs box-shadow">
-			<div class="navbar-header aside-md dk">
-				<a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
-					<i class="fa fa-bars"></i>
-				</a>
-				<a href="{{ path('admin_index') }}" class="navbar-brand">
-					<img src="{{asset('img/logo.jpg')}}" class="m-r-sm" alt="scale">
-					<span class="hidden-nav-xs">控制面板</span>
-				</a>
-				<a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
-					<i class="fa fa-cog"></i>
-				</a>
-			</div>
+<section class="vbox">
+	<header class="bg-white header header-md navbar navbar-fixed-top-xs box-shadow">
+		<div class="navbar-header aside-md dk">
+			<a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
+				<i class="fa fa-bars"></i>
+			</a>
+			<a href="{{ path('admin_index') }}" class="navbar-brand">
+				<img src="{{ asset('img/logo-new.jpg') }}" class="m-r-sm" alt="scale">
+				<span class="hidden-nav-xs">控制面板</span>
+			</a>
+			<a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
+				<i class="fa fa-cog"></i>
+			</a>
+		</div>
 
 
-			<ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user user">
+		<ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user user">
 
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<span class="thumb-sm avatar pull-left">
-							<img src="{{asset('img/admin/a0.png')}}" alt="...">
+							<img src="{{ asset('img/admin/a0.png') }}" alt="...">
 						</span>
-						{{ app.user.username }} <b class="caret"></b>
-					</a>
-					<ul class="dropdown-menu animated fadeInRight">            
-						<li>
-							<span class="arrow top"></span>
-							<a href="#">账户设置</a>
-						</li>
-						<li>
-							<a href="{{path('homepage')}}">返回网站</a>
-						</li>
+					{{ app.user.username }} <b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu animated fadeInRight">
+					<li>
+						<span class="arrow top"></span>
+						<a href="#">账户设置</a>
+					</li>
+					<li>
+						<a href="{{ path('homepage') }}">返回网站</a>
+					</li>
 
-						<li>
-							<a href="docs.html">帮助</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="{{path('fos_user_security_logout')}}">登出</a>
-						</li>
-					</ul>
-				</li>
-			</ul>      
-		</header>
-		<section>
-			<section class="hbox stretch">
-				<!-- .aside -->
-				<aside class="bg-black aside-md hidden-print" id="nav">          
-					<section class="vbox">
-						<section class="w-f scrollable">
-							<div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+					<li>
+						<a href="docs.html">帮助</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="{{ path('fos_user_security_logout') }}">登出</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</header>
+	<section>
+		<section class="hbox stretch">
+			<!-- .aside -->
+			<aside class="bg-black aside-md hidden-print" id="nav">
+				<section class="vbox">
+					<section class="w-f scrollable">
+						<div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0"
+							 data-size="10px" data-railOpacity="0.2">
 
 
-								<!-- nav -->
-								<nav class="nav-primary hidden-xs">
-									<div class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">数据库</div>
-									<ul class="nav nav-main" data-ride="collapse">
+							<!-- nav -->
+							<nav class="nav-primary hidden-xs">
+								<div class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">数据库</div>
+								<ul class="nav nav-main" data-ride="collapse">
 									{% block adminIndex %}
 										<li>
 											<a href="{{ path('admin_index') }}" class="auto">
@@ -87,9 +89,9 @@
 												<span class="font-bold">数据总览</span>
 											</a>
 										</li>
-										{% endblock %}
-										{% block adminProduct %}
-										<li >
+									{% endblock %}
+									{% block adminProduct %}
+										<li>
 											<a href="#" class="auto">
 												<span class="pull-right text-muted">
 													<i class="i i-circle-sm-o text"></i>
@@ -100,27 +102,27 @@
 												<span class="font-bold">商品管理</span>
 											</a>
 											<ul class="nav dk">
-											
-												<li >
-													<a href="{{ path('admin_product') }}" class="auto">                                                        
+
+												<li>
+													<a href="{{ path('admin_product') }}" class="auto">
 														<i class="i i-dot"></i>
 
 														<span>商品列表</span>
 													</a>
 												</li>
-												<li >
-													<a href="{{ path('admin_product_new') }}" class="auto">                                                        
+												<li>
+													<a href="{{ path('admin_product_new') }}" class="auto">
 														<i class="i i-dot"></i>
 
 														<span>添加商品</span>
 													</a>
 												</li>
-												
+
 											</ul>
 										</li>
-										{% endblock %}
-										{% block adminCategory %}
-										<li >
+									{% endblock %}
+									{% block adminCategory %}
+										<li>
 											<a href="#" class="auto">
 												<span class="pull-right text-muted">
 													<i class="i i-circle-sm-o text"></i>
@@ -131,15 +133,15 @@
 												<span class="font-bold">分类管理</span>
 											</a>
 											<ul class="nav dk">
-												<li >
-													<a href="{{path('admin_category')}}" class="auto">                                                        
+												<li>
+													<a href="{{ path('admin_category') }}" class="auto">
 														<i class="i i-dot"></i>
 
 														<span>分类列表</span>
 													</a>
 												</li>
-												<li >
-												<a href="{{path('admin_category_new')}}" class="auto">
+												<li>
+													<a href="{{ path('admin_category_new') }}" class="auto">
 														<i class="i i-dot"></i>
 
 														<span>添加分类</span>
@@ -148,110 +150,187 @@
 
 											</ul>
 										</li>
-										{% endblock %}
-										<li >
-											<a href="/web/admin/listuserinfo" class="auto">
-												<i class="i  i-users3 icon">
+									{% endblock %}
+									{% block adminUserInfo %}
+										<li>
+											<a href="#" class="auto">
+												<span class="pull-right text-muted">
+													<i class="i i-circle-sm-o text"></i>
+													<i class="i i-circle-sm text-active"></i>
+												</span>
+												<i class="i i-users3 icon">
 												</i>
 												<span class="font-bold">用户管理</span>
 											</a>
+											<ul class="nav dk">
+												<li>
+													<a href="{{ path('admin_user_info') }}" class="auto">
+														<i class="i i-dot"></i>
+
+														<span>用户列表</span>
+													</a>
+												</li>
+											</ul>
 										</li>
-										<li >
+									{% endblock %}
+									{% block adminOrder %}
+										<li>
 											<a href="#" class="auto">
+												<span class="pull-right text-muted">
+													<i class="i i-circle-sm-o text"></i>
+													<i class="i i-circle-sm text-active"></i>
+												</span>
 												<i class="i i-stack icon">
 												</i>
 												<span class="font-bold">订单管理</span>
 											</a>
+											<ul class="nav dk">
+												<li>
+													<a href="{{ path('admin_order') }}" class="auto">
+														<i class="i i-dot"></i>
+
+														<span>订单列表</span>
+													</a>
+												</li>
+												<li>
+													<a href="{{ path('admin_order_new') }}" class="auto">
+														<i class="i i-dot"></i>
+
+														<span>添加订单</span>
+													</a>
+												</li>
+											</ul>
 										</li>
-										<li >
+									{% endblock %}
+									<li>
+										<a href="#" class="auto">
+											<i class="fa fa-dollar">
+											</i>
+											<span class="font-bold">付款明细</span>
+										</a>
+									</li>
+									{% block adminAddress %}
+										<li>
 											<a href="#" class="auto">
-												<i class="fa fa-dollar">
-												</i>
-												<span class="font-bold">付款明细</span>
-											</a>
-										</li>
-										<li >
-											<a href="#" class="auto">
+												<span class="pull-right text-muted">
+													<i class="i i-circle-sm-o text"></i>
+													<i class="i i-circle-sm text-active"></i>
+												</span>
 												<i class="i i-book icon">
 												</i>
 												<span class="font-bold">地址管理</span>
 											</a>
+											<ul class="nav dk">
+												<li>
+													<a href="{{ path('admin_address') }}" class="auto">
+														<i class="i i-dot"></i>
+
+														<span>地址列表</span>
+													</a>
+												</li>
+												<li>
+													<a href="{{ path('admin_address_new') }}" class="auto">
+														<i class="i i-dot"></i>
+
+														<span>添加地址</span>
+													</a>
+												</li>
+
+											</ul>
 										</li>
-										<li >
+									{% endblock %}
+									{% block adminComment %}
+										<li>
 											<a href="#" class="auto">
-												<i class="fa fa-comment-o icon">
+												<span class="pull-right text-muted">
+													<i class="i i-circle-sm-o text"></i>
+													<i class="i i-circle-sm text-active"></i>
+												</span>
+												<i class="i i-flow-tree icon">
 												</i>
 												<span class="font-bold">评论管理</span>
 											</a>
-										</li>
-									</ul>
-									<div class="line dk hidden-nav-xs"></div>
-									<div class="text-muted text-xs hidden-nav-xs padder m-t-sm m-b-sm">网站资源</div>
-									<ul class="nav">
-										<li >
-											<a href="#" class="auto">
-												<i class="fa fa-file-image-o">
-												</i>
-												<span class="font-bold">图片管理</span>
-											</a>
-										</li>
-										<li >
-											<a href="#" class="auto">
-												<i class="i i-vcard icon">
-												</i>
-												<span class="font-bold">身份证管理</span>
-											</a>
-										</li>
-										<li >
-											<a href="{{path('admin_webconfig')}}" class="auto">
-												<i class="i i-vcard icon">
-												</i>
-												<span class="font-bold">系统配置</span>
-											</a>
-										</li>
-									</ul>
+											<ul class="nav dk">
+												<li>
+													<a href="{{ path('admin_comment') }}" class="auto">
+														<i class="i i-dot"></i>
 
-								</nav>
+														<span>评论列表</span>
+													</a>
+												</li>
+												<li>
+													<a href="{{ path('admin_comment_new') }}" class="auto">
+														<i class="i i-dot"></i>
 
-								<!-- / nav -->
-							</div>
-						</section>
+														<span>添加评论</span>
+													</a>
+												</li>
 
-						<footer class="footer hidden-xs no-padder text-center-nav-xs">
-							<a href="{{path('fos_user_security_logout')}}" class="btn btn-icon icon-muted btn-inactive pull-right m-l-xs m-r-xs hidden-nav-xs">
-								<i class="i i-logout"></i>
-							</a>
-							<a href="#nav" data-toggle="class:nav-xs" class="btn btn-icon icon-muted btn-inactive m-l-xs m-r-xs">
-								<i class="i i-circleleft text"></i>
-								<i class="i i-circleright text-active"></i>
-							</a>
-						</footer>
+											</ul>
+										</li>
+									{% endblock %}
+								</ul>
+								<div class="line dk hidden-nav-xs"></div>
+								<div class="text-muted text-xs hidden-nav-xs padder m-t-sm m-b-sm">网站资源</div>
+								<ul class="nav">
+									<li>
+										<a href="#" class="auto">
+											<i class="fa fa-file-image-o">
+											</i>
+											<span class="font-bold">图片管理</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="auto">
+											<i class="i i-vcard icon">
+											</i>
+											<span class="font-bold">身份证管理</span>
+										</a>
+									</li>
+								</ul>
+
+							</nav>
+
+							<!-- / nav -->
+						</div>
 					</section>
-				</aside>
-				<!-- /.aside -->
 
-				{% block body %}{% endblock %}
+					<footer class="footer hidden-xs no-padder text-center-nav-xs">
+						<a href="{{ path('fos_user_security_logout') }}"
+						   class="btn btn-icon icon-muted btn-inactive pull-right m-l-xs m-r-xs hidden-nav-xs">
+							<i class="i i-logout"></i>
+						</a>
+						<a href="#nav" data-toggle="class:nav-xs"
+						   class="btn btn-icon icon-muted btn-inactive m-l-xs m-r-xs">
+							<i class="i i-circleleft text"></i>
+							<i class="i i-circleright text-active"></i>
+						</a>
+					</footer>
+				</section>
+			</aside>
+			<!-- /.aside -->
 
-			</section>
+			{% block body %}{% endblock %}
+
 		</section>
 	</section>
+</section>
 
-	<script src="{{asset('js/jquery.min.js')}}"></script>
-	<!-- Bootstrap -->
-	<script src="{{asset('js/bootstrap.min.js')}}"></script>
-	<!-- App -->
-	<script src="{{asset('js/app.js')}}"></script>  
-	<script src="{{asset('js/slimscroll/jquery.slimscroll.min.js')}}"></script>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<!-- Bootstrap -->
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<!-- App -->
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/slimscroll/jquery.slimscroll.min.js') }}"></script>
 
-	<!-- Js Routing -->
-    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-    <script src="{{asset('js/app.plugin.js')}}"></script>
-	{% block javascripts %}
+<!-- Js Routing -->
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+<script src="{{ asset('js/app.plugin.js') }}"></script>
+{% block javascripts %}
 
-	{% endblock %}
+{% endblock %}
 
 
-	
 </body>
 </html>

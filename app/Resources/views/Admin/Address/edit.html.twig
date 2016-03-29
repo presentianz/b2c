@@ -1,0 +1,75 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+
+{% block adminAddress %}
+    <li class="active">
+        <a href="#" class="auto">
+            <span class="pull-right text-muted">
+                <i class="i i-circle-sm-o text"></i>
+                <i class="i i-circle-sm text-active"></i>
+            </span>
+            <i class="i i-book icon">
+            </i>
+            <span class="font-bold">地址管理</span>
+        </a>
+        <ul class="nav dk">
+            <li>
+                <a href="{{ path('admin_address') }}" class="auto">
+                    <i class="i i-dot"></i>
+
+                    <span>地址列表</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('admin_address_new') }}" class="auto">
+                    <i class="i i-dot"></i>
+
+                    <span>添加地址</span>
+                </a>
+            </li>
+
+        </ul>
+    </li>
+{% endblock %}
+
+{% block body %}
+    <section id="content">
+        <section class="vbox">
+            <header class="header bg-light b-b">
+                <p><strong>修改地址</strong></p>
+            </header>
+            <section class="scrollable padder">
+
+                <div class="form">
+                    {{ form_start(edit_form) }}
+
+                    <div class="admin-buttons">
+
+                        <div><label>*收货地区</label> {{ form_widget(edit_form.country) }}</div>
+                        <div><label>身份</label> {{ form_widget(edit_form.region) }}</div>
+                        <div><label>城市</label> {{ form_widget(edit_form.city) }}</div>
+                        <div><label>邮编</label> {{ form_widget(edit_form.post_code) }}</div>
+                        <div><label>*收货地址</label> {{ form_widget(edit_form.address) }}</div>
+                        <div><label>*收件人姓名</label> {{ form_widget(edit_form.name) }}</div>
+                        <div><label>*收件人手机号</label> {{ form_widget(edit_form.phone_no) }}</div>
+                        <div><label>*固定电话></label> {{ form_widget(edit_form.contact_no) }}</div>
+                        <div><label>*收件人身份证号</label> {{ form_widget(edit_form.id_no) }}</div>
+                        <div><label>*订单附言</label> {{ form_widget(edit_form.comment) }}</div>
+                        <div><label>身份证正面</label> {{ form_widget(edit_form.img1) }}</div>
+                        <div><label>身份证反面</label> {{ form_widget(edit_form.img2) }}</div>
+                        {{ form_widget(delete_form.submit, { 'label': '删除' }) }}
+                        {{ form_widget(edit_form.submit, { 'label': '更新' }) }}
+                        <a href="{{ path('admin_comment') }}">返回</a>
+                    </div>
+                    {{ form_end(edit_form) }}
+
+                </div>
+
+            </section>
+        </section>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/SimpleAjaxUploader.js') }}"></script>
+    <script src="{{ asset('js/admin-comment.js') }}"></script>
+{% endblock %}
