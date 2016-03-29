@@ -46,7 +46,7 @@
                             </a>
                           </div>
                           <div class="col-md-6 b-b">
-                            <a href="{{path('admin_user_info')}}" class="block padder-v hover">
+                            <a href="#" class="block padder-v hover">
                               <span class="i-s i-s-2x pull-left m-r-sm">
                                 <i class="i i-hexagon2 i-s-base text-success-lt hover-rotate"></i>
                                 <i class="i i-users2 i-sm text-white"></i>
@@ -70,7 +70,7 @@
                             </a>
                           </div>
                           <div class="col-md-6 b-b">
-                            <a href="{{path('admin_order')}}" class="block padder-v hover">
+                            <a href="#" class="block padder-v hover">
                               <span class="i-s i-s-2x pull-left m-r-sm">
                                 <i class="i i-hexagon2 i-s-base text-primary hover-rotate"></i>
                                 <i class="i i-stack i-sm text-white"></i>
@@ -87,20 +87,18 @@
                     <div class="col-md-3 col-sm-6">
                       <div class="panel b-a">
                         <div class="panel-heading no-border bg-success lt text-center">
-                          <span class="block fa-2x m-t m-b text-white">未处理订单</span>
+                          <a href="#">
+                            <span class="block fa-2x m-t m-b text-white">未处理订单</span>
+                          </a>
                         </div>
-                        <div class="padder-v text-center clearfix">
+                        <div class="padder-v text-center clearfix">                            
                           <div class="col-xs-6 b-r">
-                            <a href="{{path('admin_order', {'status':1})}}">
-                              <div class="h3 font-bold">{{data.paid}}</div>
-                              <small class="text-muted">已付款</small>
-                            </a>
+                            <div class="h3 font-bold">0</div>
+                            <small class="text-muted">已付款</small>
                           </div>
                           <div class="col-xs-6">
-                            <a href="{{path('admin_order', {'status':0})}}">
-                              <div class="h3 font-bold">{{data.unpaid}}</div>
-                              <small class="text-muted">未付款</small>
-                            </a>
+                            <div class="h3 font-bold">1</div>
+                            <small class="text-muted">未付款</small>
                           </div>
                         </div>
                       </div>
@@ -108,11 +106,11 @@
                     <div class="col-md-2 col-sm-3">
                       <div class="panel b-a">
                         <div class="panel-heading no-border bg-danger lter text-center">
-                          <a href="{{path('admin_product', {'sort':15})}}">
+                          <a href="#">
                             <span class="block fa-2x m-t m-b text-white">库存</span>
                           </a>
                         </div>
-                        <div class="padder-v text-center clearfix">
+                        <div class="padder-v text-center clearfix">                            
                           <div class="col-xs-12">
                             <div class="h3 font-bold">{{data.soldOutpPoductNo}}</div>
                             <small class="text-muted">售罄</small>
@@ -123,14 +121,14 @@
                     <div class="col-md-2 col-sm-3">
                       <div class="panel b-a">
                         <div class="panel-heading no-border bg-info lter text-center">
-                          <a href="{{path('admin_user_info')}}">
+                          <a href="#">
                             <span class="block fa-2x m-t m-b text-white">用户</span>
                           </a>
                         </div>
-                        <div class="padder-v text-center clearfix">
+                        <div class="padder-v text-center clearfix">                            
                           <div class="col-xs-12">
-                            <div class="h3 font-bold">{{data.userNoThisWeek}}/{{data.userNo}}</div>
-                            <small class="text-muted">本周注册/总数</small>
+                            <div class="h3 font-bold">{{data.userNo}}</div>
+                            <small class="text-muted">本周注册</small>
                           </div>
                         </div>
                       </div>

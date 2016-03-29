@@ -1,111 +1,181 @@
+<!-- Hot Staffs -->
 
-
-{% if data.widget[0]|length > 0 %}
-<div class="hotdeal">
-    <div class="row-up">
-        <div class="page-title">
-            <div class="page-leaf-top"></div>
-            <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
-            <div><h4>今日推介</h4></div>
+{# 
+{% for row in data %}
+    <div class="hotdeal">
+        <div class="row-up">
+            <div class="col-xs-11">
+                <h3>{{ row.node.name }}</h3>
+                {% if row.node.__children|length > 0 %}
+                <h5>
+                    <a href="{{ path('category', { id : row.node.__children|first.id }) }}">{{ row.node.__children|first.name }}</a>
+                    {% for child in row.node.__children|slice(1,4) %}
+                    <span>&nbsp;| &nbsp;</span>
+                        <a href="{{ path('category', { id : child.id }) }}">{{ child.name }}</a>
+                    {% endfor %}
+                </h5>
+                {% endif %}
+            </div>
+            <div class="col-xs-1">
+                <a href="{{ path('category', { id : row.node.id }) }}">更多</a>
+            </div>
         </div>
-
-    </div>
-    <div class="row">
-        {% for product in data.widget[0] %}
-            <div class="col-xs-4">
+        <div class="row">
+            {% for product in row.products %}
+                <div class="col-xs-3">
                 <a href="{{ path('product', {id : product.id}) }}">
-                    <div class="tag tag-b">
-                        <p>Now</p>
-                    </div>
-                    <img class="lazy" src="{{ asset('img/src') }}/{{ product.imageLink }}"
-                         data-original="{{ asset('img/src') }}/{{ product.imageLink }}/poster/{{ product.poster }}"
-                         alt="">
-
-                    <div class="pro-text">
-                        <div class="pull-left">
-                            <div class="pro-title">{{ product.name }}</div>
-                            <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
-                        </div>
-                        <div class="pull-right">
+                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                        <div class="pro-text">
+                            <div class="pro-title">{{ product.name }}<br></div>
                             <div class="price">${{ product.priceDiscounted }}</div>
                             <del>${{ product.price }}</del>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        {% endfor %}
-    </div>
-</div>
-{% endif %}
-{% if data.widget[1]|length > 0 %}
-<div class="hotdeal">
-    <div class="row-up">
-        <div class="page-title">
-            <div class="page-leaf-top"></div>
-            <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
-            <div><h4>热卖畅销</h4></div>
-        </div>
-    </div>
-    <div class="row">
-        {% for product in data.widget[1] %}
-            <div class="col-xs-4">
-                <a href="{{ path('product', {id : product.id}) }}">
-                    <div class="tag tag-y">
-                        <p>Hot</p>
-                    </div>
-                    <img class="lazy" src="{{ asset('img/src') }}/{{ product.imageLink }}"
-                         data-original="{{ asset('img/src') }}/{{ product.imageLink }}/poster/{{ product.poster }}"
-                         alt="">
-
-                    <div class="pro-text">
-                        <div class="pull-left">
-                            <div class="pro-title">{{ product.name }}</div>
+                            <br>
                             <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
                         </div>
-                        <div class="pull-right">
-                            <div class="price">${{ product.priceDiscounted }}</div>
-                            <del>${{ product.price }}</del>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        {% endfor %}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>	
     </div>
-</div>
-{% endif %}
-{% if data.widget[2]|length > 0 %}
-<div class="hotdeal">
-    <div class="row-up">
-        <div class="page-title">
-            <div class="page-leaf-top"></div>
-            <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
-            <div><h4>限时特卖</h4></div>
-        </div>
-    </div>
-    <div class="row">
-        {% for product in data.widget[2] %}
-            <div class="col-xs-4">
-                <a href="{{ path('product', {id : product.id}) }}">
-                    <div class="tag tag-b">
-                        <p>New</p>
-                    </div>
-                    <img class="lazy" src="{{ asset('img/src') }}/{{ product.imageLink }}"
-                         data-original="{{ asset('img/src') }}/{{ product.imageLink }}/poster/{{ product.poster }}"
-                         alt="">
+{% endfor %}
+#}
 
-                    <div class="pro-text">
-                        <div class="pull-left">
-                            <div class="pro-title">{{ product.name }}</div>
-                            <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
-                        </div>
-                        <div class="pull-right">
-                            <div class="price">${{ product.priceDiscounted }}</div>
-                            <del>${{ product.price }}</del>
-                        </div>
-                    </div>
-                </a>
+{% for row in data|slice(1,1) %}
+    <div class="hotdeal">
+        <div class="row-up">
+            <div class="page-title">
+            <div class="page-leaf-top"></div>
+                <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
+                    <div><h4>今日推介</h4></div>
+                 <div class="row-link">
+                    <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-left"></i></a>
+                    <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-right"></i></a>
+                </div>
             </div>
-        {% endfor %}
+           
+        </div>
+        <div class="row">
+            {% for product in row.products %}
+                <div class="col-xs-4">
+                    <a href="{{ path('product', {id : product.id}) }}">
+                        <div class="tag tag-b">
+                            <p>New</p>
+                        </div>
+                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                        <div class="pro-text">
+                            <div class="pull-left">
+                                <div class="pro-title">{{ product.name }}</div>
+                                <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
+                            </div>
+                            <div class="pull-right">
+                                <div class="price">${{ product.priceDiscounted }}</div>
+                                <del>${{ product.price }}</del>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-4">
+                    <a href="{{ path('product', {id : product.id}) }}">
+                        <div class="tag tag-y">
+                            <p>Hot</p>
+                        </div>
+                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                        <div class="pro-text">
+                            <div class="pull-left">
+                                <div class="pro-title">{{ product.name }}</div>
+                                <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
+                            </div>
+                            <div class="pull-right">
+                                <div class="price">${{ product.priceDiscounted }}</div>
+                                <del>${{ product.price }}</del>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>  
     </div>
-</div>
-{% endif %}
+{% endfor %}
+
+
+
+
+{% for row in data|slice(1,1) %}
+    <div class="hotdeal">
+        <div class="row-up">
+            <div class="page-title">
+            <div class="page-leaf-top"></div>
+                <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
+                    <div><h4>热卖畅销</h4></div>
+                 <div class="row-link">
+                    <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-left"></i></a>
+                    <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-right"></i></a>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            {% for product in row.products %}
+                <div class="col-xs-4">
+                    <a href="{{ path('product', {id : product.id}) }}">
+                        <div class="tag tag-y">
+                            <p>Hot</p>
+                        </div>
+                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                        <div class="pro-text">
+                            <div class="pull-left">
+                                <div class="pro-title">{{ product.name }}</div>
+                                <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
+                            </div>
+                            <div class="pull-right">
+                                <div class="price">${{ product.priceDiscounted }}</div>
+                                <del>${{ product.price }}</del>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>  
+    </div>
+{% endfor %} 
+
+
+
+
+{% for row in data|slice(1,1) %}
+    <div class="hotdeal">
+        <div class="row-up">
+              <div class="page-title">
+            <div class="page-leaf-top"></div>
+                <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
+                    <div><h4>限时特卖</h4></div>
+                 <div class="row-link">
+                    <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-left"></i></a>
+                    <a href="{{ path('category', { id : row.node.id }) }}"><i class="fa fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for product in row.products %}
+                <div class="col-xs-4">
+                    <a href="{{ path('product', {id : product.id}) }}">
+                        <div class="tag tag-b">
+                            <p>New</p>
+                        </div>
+                        <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                        <div class="pro-text">
+                            <div class="pull-left">
+                                <div class="pro-title">{{ product.name }}</div>
+                                <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
+                            </div>
+                            <div class="pull-right">
+                                <div class="price">${{ product.priceDiscounted }}</div>
+                                <del>${{ product.price }}</del>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>  
+    </div>
+{% endfor %}

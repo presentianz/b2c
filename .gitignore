@@ -10,8 +10,6 @@
 /web/bundles/
 /web/img/src/*
 !web/img/src/.gitkeep
-/web/img/idScan/*
-!web/img/idScan/.gitkeep
 /frontend/nbproject/private/
 /app/config/parameters.yml
 /meta/nbproject/private/

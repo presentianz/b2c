@@ -23,30 +23,6 @@
     width: 55%;
     left: 380px;
     top: -17px;
-
-}
-
-/*error*/
-.register-content .controls ul {
-    width: 55%;
-    left: 380px;
-    top: -17px;
-    display: inline-block;
-    position: absolute;
-    padding: 5px 0px;
-    margin: 16px 0px;
-    background-color: #ee1c24;
-    height: 35px;  
-    position: absolute;
-}
-
-
-.register-content .controls ul li {
-    display: inline-block;
-    padding-left: 10px;
-    color: #fff;
-    margin: 3px 0;
-    font-size: 15px;
 }
 
 .register-tab i.fa {

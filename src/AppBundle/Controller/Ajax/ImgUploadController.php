@@ -24,8 +24,8 @@ class ImgUploadController extends Controller
             $imgLink = $this->container->get('request')->get('imgLink');
             $type = $this->container->get('request')->get('type');
             $upload_dir = $this->get('kernel')->getImgSrcDir().'/'.$imgLink.'/'.$type;
-            if(!is_writable ($this->get('kernel')->getImgSrcDir()))
-                return new Response(json_encode(array('success' => false, 'msg' => 'Floder not writable')));
+            /*if(!is_writable ($upload_dir))
+                return new Response(json_encode(array('success' => false, 'msg' => 'not writable')));*/
             if(!file_exists($upload_dir))
                 mkdir($upload_dir, 0755, true);
             $uploader = new ImgUploader('uploadfile');
@@ -42,7 +42,31 @@ class ImgUploadController extends Controller
                 'success' => true,
                 'file' => $uploader->getFileName()
             )));
-        }
+        } 
+        // else if ($this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
+        //     $imgLink1 = $this->container->get('request')->get('imgLink1');
+        //     $imgLink2 = $this->container->get('request')->get('imgLink2');
+        //     $type = $this->container->get('request')->get('type');
+        //     $upload_dir = $this->get('kernel')->getImgSrcDir().'/'.$imgLink.'/'.$type;
+        //     /*if(!is_writable ($upload_dir))
+        //         return new Response(json_encode(array('success' => false, 'msg' => 'not writable')));*/
+        //     if(!file_exists($upload_dir))
+        //         mkdir($upload_dir, 0755, true);
+        //     $uploader = new ImgUploader('uploadfile');
+        //     // Handle the upload
+        //     $result = $uploader->handleUpload($upload_dir);
+        //     if (!$result) {
+        //         return new Response(json_encode(array(
+        //             'success' => false,
+        //             'msg' => $uploader->getErrorMsg()
+        //         )));
+        //     }
+
+        //     return new Response(json_encode(array(
+        //         'success' => true,
+        //         'file' => $uploader->getFileName()
+        //     )));
+        // }
         else
             return new Response(json_encode(array('success' => false, 'msg' => 'Permission denied')));
     }
@@ -67,24 +91,19 @@ class ImgUploadController extends Controller
      */
     public function deleteImage(Request $request)
     {
-        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-            $imgLink = $this->container->get('request')->get('imgLink');
-            $type = $this->container->get('request')->get('type');
-            $fileName = $this->container->get('request')->get('fileName');
-            $dir = $this->get('kernel')->getImgSrcDir().'/'.$imgLink.'/'.$type.'/'.$fileName;
-            if(file_exists($dir)) {
-                unlink($dir);
-                return new Response(json_encode(array(
-                    'success' => true,
-                )));
-            }
-            else
-                return new Response(json_encode(array(
-                    'success' => false,
-                )));
+        $imgLink = $this->container->get('request')->get('imgLink');
+        $type = $this->container->get('request')->get('type');
+        $fileName = $this->container->get('request')->get('fileName');
+        $dir = $this->get('kernel')->getImgSrcDir().'/'.$imgLink.'/'.$type.'/'.$fileName;
+        if(file_exists($dir)) {
+            unlink($dir);
+            return new Response(json_encode(array(
+                'success' => true,
+            )));
         }
-        else {
-            return new Response(json_encode(array('success' => false, 'msg' => 'Permission denied')));
-        }
+        else
+            return new Response(json_encode(array(
+                'success' => false,
+            )));
     }
 }

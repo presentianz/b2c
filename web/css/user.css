@@ -33,11 +33,12 @@
 
 #user-page .user-content .form #shipment_address_country {
     width:285px;  
-        margin-left: -4px;
+        margin-left: -3px;
 }
 
-#user-page .user-content .form #shipment_address_region {
+#user-page .user-content .form #shipment_address_city {
     width: 290px;
+        margin-left: 3px;
 }
 
 #user-page .user-content .form input {

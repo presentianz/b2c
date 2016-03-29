@@ -172,7 +172,7 @@
                                             page : i,
                                             sort : app.request.get('sort'),
                                             item_no: app.request.get('item_no')
-                                        }) }}" class="page" {% if app.request.get('page') and i == 0 %} class="hide" {% elseif app.request.get('page') and i == 1 %} class="page active" {% elseif not app.request.get('page') and i == 1 %} class="page active" {% elseif i == app.request.get('page') %} class="page active"  {% endif %}  > {{ i }}</a>
+                                        }) }}" {% if not app.request.get('page') and i == 1 %} class="page active" {% elseif i == app.request.get('page') %} class="page active" {% endif %} class="page"> {{ i }}</a>
                                     {% endfor %}
                                     <a id="prev" href="{{ path('search', {
                                         keys : app.request.get('keys'),
@@ -186,7 +186,7 @@
                                         page : (app.request.get('page')) ? app.request.get('page')-1 : 2,
                                         sort : app.request.get('sort'),
                                         item_no: app.request.get('item_no')
-                                    }) }}" class="i-prev hide" {% if app.request.get('page') > 0  %} class="show" {% endif %}   title="上一个">
+                                    }) }}" {% if app.request.get('page') - 1 == 0  %} class="hide" {% endif %} {% if app.request.get('page') == 0  %} class="hide" {% endif %} {% if app.request.get('page') == data.total_page %} class="hide" {% endif %} class="i-prev" title="上一个">
                                     <i class="fa fa-caret-left"></i></a>
                                
                             </div>

@@ -47,9 +47,18 @@
             {% endfor %}
           </select>
 
-          <a class="new-address">新建地址</a>
+          <a href="{{path('user_address')}}">新建地址</a>
         </div>
       </div>
+      <div class="form">
+        <div>
+          <label>积分支付</label>
+          <input type="text" name="points" style="width:150px;">
+          可用积分总数：<span id="sumpoints" class="red">{{points}}</span>
+          
+        </div>
+      </div>
+      
 
         <div class="table-header">请在此确认你的订单产品</div>           
         <table class="table no-margin">
@@ -64,7 +73,7 @@
           </thead>
           <tbody>    
              
-            {% set sum, weight, ids = 0, 0, [] %}
+            {% set post,sum, weight, ids = 0,0, 0, [] %}
               {% for cartproduct in data %}
                 <tr>
                   <td class="product-img">
@@ -108,6 +117,7 @@
               </td>
               <td  class="text-right">              
                <input type="submit" title="提交订单" class="btn-pay" value="确认无误，马上下单" >
+               <input type="hidden" id="totalmoney" value="{{ sum + post }}">
               </td>
             </tr>
              
@@ -117,11 +127,8 @@
           </div>
         </div>
       </div> 
-<div class="bg-mask"></div>
-<div id="loading" class="loading">
-  <div><img src="{{ asset('img/spinner.gif')}}"></div>
-</div>
-    <div id="pop-cart" class="pop-cart">
+         <div class="bg-mask"></div>
+    <div class="pop-cart">
     <h3><i class="fa fa-info-circle"></i>
       <span>确定提交订单？</span></h3>
       <span>
@@ -130,60 +137,7 @@
       </span>
       <p>选择银行转帐将会生成订单，在跳转后请尽快转帐保证按时出货，转帐时请付言账单号后六位。</p>
       <p class="continue-shop">继续购物</p>
-    </div>
-
-    {# <div id="need-address" class="pop-address">
-    <h3><i class="fa fa-info-circle"></i>
-      <span>请选择地址</span></h3>
-      <div class="form">
-          <select id="select-location" class="select-location">
-            <option value=''>请选择邮寄地址</option>
-            {% for address in app.user.shipmentAddresses %}
-              <option value="{{address.id}}">{{address.name}}  {{address.phoneNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
-            {% endfor %}
-          </select>  
-          <a class="new-address">新建地址</a>  
-        </div>
-        
-        <span>
-        <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="trans" class="btn-confirm" value="银行转帐" >
-        <input type="submit" title="在线支付" data-id="{{ ids }}" data-type="online" class="btn-confirm" value="在线支付" >
-      </span>
-      <p>选择银行转帐将会生成订单，在跳转后请尽快转帐保证按时出货，转帐时请付言账单号后六位。</p>
-      <p class="continue-shop">继续购物</p>
-    </div> #}
-
-
-
-     <div id="create-address" class="pop-address">
-      <h3><i class="fa fa-info-circle"></i>
-      <span>新建地址</span></h3>
-
-      {{ form_start(form, {'attr': {'id':'add-address'}}) }} 
-       <h5>直邮中国的快递必须提供收件人身份证才可以正常通关</h5>
-       <p>二代身份证需要同时提交证件的正反面内容，请分别扫描正反面图片后分别上传。身份证需确保照片、文字信息都清晰可见，如需加水印请在空白处填写“仅供清关使用”字样，否则无效！文件类型：*.gif/*.jpg/*.png 尺寸像素宽600X高800，大小不超过100KB。</p>
-
-      <div class="form">
-        <div>{{ form_label(form.country) }}
-        {{ form_widget(form.country) }} {{ form_widget(form.region) }}</div>
-        <div>{{ form_label(form.city) }}{{ form_widget(form.city) }}</div>
-        <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
-        <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
-        <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
-        <div>{{ form_label(form.phone_no) }}{{ form_widget(form.phone_no) }}</div>
-        <div>{{ form_label(form.id_no) }}{{ form_widget(form.id_no) }}</div>
-        
-        <div style="display:none">
-          <div>{{ form_rest(form) }}</div>
-        </div>
-      </div> 
-      <div class='clear'>
-        <input type="submit" value="取消" class="close-address">
-        <!-- 这里提交直接存入用户地址并添加到选择地址下拉菜单里 -->
-        <input type="submit" value="提交" />
-      </div>
-      {{ form_end(form) }}
-    </div>
+    </div>  
 {% endblock %}
 
 
@@ -191,79 +145,97 @@
 {% block javascripts %}
   <script src="{{ asset('js/checkout.js') }}"></script>
   <script type="text/javascript">
+  var orderid="";
   (function () {
+
     $('.btn-pay').click(function() {
-      if ($( ".select-location" ).val() == '') {
-        alert('请选择或新建一个地址！');
-      }
-      else {
-        $('.bg-mask').css('display','block');
-        $('#pop-cart').css('display','block');
-      }
+    $('.bg-mask').css('display','none');
+    $('.pop-cart').css('display','none');
+    if ($( "#select-location" ).val() == '') {
+    alert('请选择地址！');
+        
+        return false;
+    }           
+    
+    var points=$("input[name='points']").val();
+        if(points=="")
+        {
+        	points=0;
+        }
+        if(isNaN(parseInt(points)))
+        {
+        alert("请录入积分金额");
+        return false;
+        }
+        $.ajax({
+          url: "{{path('order_generationpointspay')}}",
+          method: "POST",
+          data: {            
+            address : $( "#select-location" ).val(),
+            points:points
+          },
+          dataType: "json"
+        })
+        .done(function (rep) {
+         
+          if (rep.granted) {
+            alert(rep.msg); 
+            window.location.href="{{path('user_order')}}";           
+            
+          }
+          else {
+            $('.bg-mask').css('display','block');
+    $('.pop-cart').css('display','block');
+          }
+        })
     });
 
-    $('.new-address').click(function() {
-      $('.bg-mask').css('display','block');
-      $('#create-address').css('display','block');
-      $('#need-address').css('display','none');
-    });
-
-    $('.close-address').click(function() {
-      $('.bg-mask').css('display','none');
-      $('#create-address').css('display','none');
-    });
 
     $('.btn-confirm').click(function () {
-      if ($( ".select-location" ).val() != '') {
+      if ($( "#select-location" ).val() != '') {
+      
+      var points=$("input[name='points']").val();
+        if(points=="")
+        {
+        	points=0;
+        }
+        if(isNaN(parseInt(points)))
+        {
+        alert("请录入积分金额");
+        return false;
+        }
+        
+        
         $this = $(this);
         var productId = $this.attr("data-id");
         var type = $this.attr("data-type");
         $.ajax({
           url: "{{ path('order_generation') }}",
-          method: "GET",
+          method: "get",
           data: {
             id : productId,
-            address : $( ".select-location" ).val(),
+            points:points,
+            address : $( "#select-location" ).val(),
           },
           dataType: "json"
         })
         .done(function (rep) {
           console.log(rep);
           if (rep.granted) {
+            
             window.location.replace("{{ path('order_confirm') }}"+'?id='+rep.id+'&type='+type);
           }
           else {
-            alert("系统忙，请稍后下单");
+            alert("。。");
           }
         })
       }
+      else {
+        alert('请选择地址！');
+        $('.bg-mask').css('display','none');
+        $('.pop-cart').css('display','none');
+      }
     });
-
-    $('#add-address').submit(function(e) {
-      e.preventDefault();
-      //pop一个等待框
-      $('#loading').css('display','block');
-      var $this = $(this).serialize();
-      $.ajax({
-          url: "{{path('add_address_ajax')}}",
-          method: "POST",
-          data:  $('#add-address').serialize(),
-          dataType: "json"
-        })
-        .done(function (rep) {
-          if(rep.success) {
-            //关闭等待框
-            $('#loading').css('display','none');
-            $('.bg-mask').css('display','none');
-            $('#create-address').css('display','none');
-            var html = '<option value="'+rep.id+'" selected>'+rep.name+' '+rep.phoneNo+', '+rep.country+' '+rep.region+' '+rep.city+' '+rep.address+'</option>';
-            $('#select-location').append(html);
-          }
-          else{
-            alert('服务器宕机了，请稍后重试');
-          }
-        })
-    })
   })();
   </script>
 {% endblock %}

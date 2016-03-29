@@ -10,7 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
- * @ORM\Entity(repositoryClass="AppBundle\Repository\UserInfoRepository")
  */
 class UserInfo
 {
@@ -118,9 +117,9 @@ class UserInfo
     /**
      * @var string
      *
-     * @ORM\Column(name="birthday", type="string", length=255, nullable=true)
+     * @ORM\Column(name="brithday", type="string", length=255, nullable=true)
      */
-    private $birthday;
+    private $brithday;
     
     
 
@@ -479,9 +478,9 @@ class UserInfo
      * @param \string $points
      * @return UserInfo
      */
-    public function setBirthday($birthday)
+    public function setBrithday($brithday)
     {
-        $this->birthday = $birthday;
+        $this->brithday = $brithday;
 
         return $this;
     }
@@ -491,9 +490,9 @@ class UserInfo
      *
      * @return \string 
      */
-    public function getBirthday()
+    public function getBrithday()
     {
-        return $this->birthday;
+        return $this->brithday;
     }
 
 

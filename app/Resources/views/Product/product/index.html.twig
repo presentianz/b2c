@@ -74,9 +74,9 @@
                                 </div>
                             </div>
                         </div> 
-                        {# <form method="get" action="{{ path('checkout') }}">
+                        <form method="get" action="{{ path('checkout') }}">
                             <input type="submit" value="立即购买" class="pull-right buy-now" data-id="{{ data.product.id }}">
-                        </form> #}
+                        </form>
                         <input type="submit" data-id="{{ data.product.id }}" data-path="{{ path('cart_ajax_action') }}" value="加入购物车" class="pull-right add-cart-button"> 
                     </div>
                 </div>
@@ -106,41 +106,26 @@
         <img src="{{ asset('img/leaf-green.jpg') }}" alt="" class="leaf"></div> 
         <div class="product-info clearfix">
             <div class="tab-contents">
-            <div class="tab-content-title">商品评论({{ data.product.comments|length }})</div>
-            {{ form_start(form, {'attr': {'id':'add-comment'}}) }}
-                {{ form_label(form.star) }}&nbsp;&nbsp;&nbsp;{{ form_widget(form.star) }}
-               {{ form_widget(form.text,{'attr':{'class':'tab-content-desc'}}) }}
-                <div style="display:none;">
-                <div>
-                {{ form_rest(form) }}</div></div>
-                <!-- disable comment function need to be fixed later -->
-                <input type="submit" value="发送" class="pull-right disabled" data-id="{{ data.product.id }}" disabled="disabled" style="background: #ccc" />
-                <div class="tab-content-foot">*请登录后发表评论</div>
-            {{ form_end(form) }}
+                <div class="tab-content-title">商品评论({{ data.product.comments|length }})</div>
+                <textarea class="tab-content-desc" placeholder="请填写你的评论"> </textarea> 
+                 <input type="submit" value="发送" class="pull-right" />
+                  <div class="tab-content-foot">*请登录后发表评论</div>
             </div>
-           {% if data.product.comments|length > 0 %}
-            <div class="tab-contents">
+
+            <!-- <div class="tab-contents">
                 <table id="comments-record-list" class="record-list">
                     <tbody>
                     <tr>
-                        <th width="15%">时间</th>
-                        <th width="25%">买家</th>
-                        <th width="50%">评论内容</th>
-                        <th width="20%">等级</th>
+                        <th width="40%">买家</th>
+                        <th width="60%">评论内容</th>
                     </tr>
-                     {% for comment in data.product.comments %}
                     <tr class="comments-record-item">
-                        <td class="comments-date">{{comment.commentAt|date("m/d/Y")}}</td>
-                        <td class="comments-name">{{comment.user.username}}</td>
-                        <td class="comments">{{comment.text}}</td> 
-                        <td class="comments-star">{{comment.star}}</td>
+                        <td>* 张 </td>
+                        <td class="comments">挺好的</td>
                     </tr>
-                    {% endfor%}
                         </tbody>
                     </table>
-             </div>
-             {% endif %}
-             
+             </div> -->
         </div>
 
 
@@ -163,34 +148,4 @@
 
     {% block javascripts %}
     <script src="{{ asset('js/product.js') }}"></script>
-    <script type="text/javascript">
-        $('#add-comment').submit(function(e) {
-      e.preventDefault();
-      var productId = $('input[type=submit]').attr("data-id");
-      $('#loading').css('display','block');
-      var $this = $(this).serialize();
-      $.ajax({
-          url: "{{path('add_comment_ajax')}}",
-          method: "POST",
-          data: $('#add-comment').serialize(),
-          dataType: "json"
-        })
-        .done(function (rep) {
-            console.log(rep);
-          if(rep.success) {
-            $('#loading').css('display','none');
-         var html = '<tr class="comments-record-item"><td class="comments-date">'+ rep.commentAt+ 
-                    '</td><td class="comments-name">'+rep.user.username + 
-                    '</td><td class="comments">' + rep.text + 
-                    '</td><td class="comments-star">'+ rep.star + 
-                    '</td></tr>';
-
-            $('#comments-record-list tbody').append(html);
-          }
-          else{
-            alert('用户请登入才可以评论');
-          }
-        })
-    })
-    </script>
     {% endblock %}

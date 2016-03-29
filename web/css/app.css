@@ -3572,13 +3572,10 @@ fieldset[disabled] .i-checks input + i:before {
 
  .form div select {
     margin-right: 4px;
-    width: 250px;
-    padding:2px 5px;
  }
  
  .admin-buttons {
   margin-bottom: 20px;
-  text-align: right;
  }
 
  .admin-buttons a {
@@ -3623,13 +3620,7 @@ fieldset[disabled] .i-checks input + i:before {
 
 
 /* customized css */
-.dd-handle a {
+.dd-handle a{
   color: #1a0dab;
   text-decoration: underline;
 }
-
-#shipment_address_country, 
-#shipment_address_region {
-  width: 122px;
-}
-

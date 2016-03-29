@@ -1,3 +1,5 @@
+var imgScr = "{{asset('img/src')}}";
+
 function escapeTags( str ) {
     return String( str )
         .replace( /&/g, '&amp;' )
@@ -19,7 +21,6 @@ function retriveImg (imgLink, type, obj) {
         dataType: "json"
     })
     .done(function (rep) {
-        var imgScr = $('#imgSrc').attr('data-imgSrc');
         var innerHtml = "";
         $.each(rep, function(index, value) {
           innerHtml +="<u class='pull-left' style='padding-right:10px;'><a target='_blank' href='"+ imgScr + "\/" + imgLink + "\/" + type + "\/" + value +"'>"+ value +"</a> <i class='fa fa-remove' class='remove'></i></u>";
@@ -47,7 +48,6 @@ function deleteImg (imgLink, type, obj) {
     .done(function (rep) {
       if(rep.success) {
         obj.parent().remove();
-        $('#appbundle_product_poster').val($('#info1').find('a').first().html());
       }
     })
 }
@@ -186,8 +186,7 @@ window.onload = function() {
                     alert('An error occurred and the upload failed.');
                 }
             }
-          retriveImg (imgLink, 'imgDes', $('#info2'));
-
+          retriveImg (imgLink, 'imgDes', $('#info2'));// Stuff to do after finishing an upload...
         },
     });
 

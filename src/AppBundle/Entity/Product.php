@@ -141,54 +141,6 @@ class Product
 
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="index_widget", type="integer", nullable=true)
-     */
-    private $index_widget;
-
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="widget_weight", type="integer", nullable=true)
-     */
-    private $widget_weight;
-
-    /**
-     * @return int
-     */
-    public function getWidgetWeight()
-    {
-        return $this->widget_weight;
-    }
-
-    /**
-     * @param int $widget_weight
-     */
-    public function setWidgetWeight($widget_weight)
-    {
-        $this->widget_weight = $widget_weight;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIndexWidget()
-    {
-        return $this->index_widget;
-    }
-
-    /**
-     * @param int $index_widget
-     */
-    public function setIndexWidget($index_widget)
-    {
-        $this->index_widget = $index_widget;
-    }
-
-
-    /**
      * Get id
      *
      * @return integer 
@@ -613,10 +565,5 @@ class Product
     public function getPoster()
     {
         return $this->poster;
-    }
-
-
-    public function __toString(){
-        return $this->name;
     }
 }

@@ -94,7 +94,7 @@
                             <div class="pull-right my-detail">             
                                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                                 <div id="after-login">
-                                    <a class="a-login" href="{{ path('user_profile') }}"><h6>{{ app.user.username }}</h6></a>
+                                    <a class="a-login" href="{{ path('user_profile') }}"><h6>{{ app.user.email }}</h6></a>
                                     <a class="a-login" href="{{path('fos_user_security_logout')}}"><h6 class="no-padding">(退出)</h6></a>
                                 </div>
                                  <div id="user-home" class="history nav-hover a-login">
@@ -251,18 +251,18 @@
          .done(function (rep) {
                 var num = null;
                 var total = null;
-                if (rep == "none" || rep == "" || rep == null) {
-                        num = 0;
-                        total = 0.00;           
-                    }
-                    else {
-                        $.each(rep, function(index, value) {
+                if (rep !== 'none') {
+                    $.each(rep, function(index, value) {
                         num += Number(value.count);
                         total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
-                        }); 
-                  
+                    });
+                        
                     }
-                    $('#cart').html("<div class='cart-show'><i class='fa fa-shopping-cart'><i class='fa fa-circle'><h6>" + num + "</h6></i></i>&nbsp;$" + total +"&nbsp;</div>");
+                    else {
+                         num = 0;
+                        total = 0.00;
+                    }
+                    $('#cart').html("<i class='fa fa-circle'><h6>" + num + "</h6></i><span><i class='fa fa-shopping-cart'></i>&nbsp;$" + total +"&nbsp;</span>");
 
                 })
           });

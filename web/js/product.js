@@ -40,6 +40,8 @@ function productpic(i) {
 
 })
 
+
+
     $('.add-cart-button').click(function (e) {
         e.preventDefault();
         $this = $(this);
@@ -67,7 +69,6 @@ function productpic(i) {
         })
 
     });
-
 
     $( document ).ready(function() {
         $.ajax({

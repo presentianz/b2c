@@ -61,7 +61,7 @@ registration:
             要启用你的用户帐号，请访问：%confirmationUrl%
 
             祝好
-            丰盛湾
+            网站团队
 
 # Password resetting
 resetting:
@@ -83,7 +83,7 @@ resetting:
             请访问 %confirmationUrl% 以重置你的帐户密码。
 
             祝好
-            丰盛湾
+            网站团队
 
 # Global strings
 layout:
