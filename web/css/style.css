@@ -28,6 +28,12 @@ a:focus {
     outline: none;
 }
 
+.disable-a {
+    text-decoration:none !important;
+    outline: none;
+    cursor: default;
+}
+
 ul,li{
     list-style:none;
 }
@@ -43,7 +49,6 @@ input {
 
 input:hover,
 input:focus {
-    cursor: pointer;
     outline: none;
 }
 
@@ -727,29 +732,27 @@ ul.nav {
     height:40px;
 }
 
-.nav li:hover {
-    background-color: #a8df4e;
+.nav li a {
+    padding: 0;
+}
+.nav li a:hover {
+    background-color: #a8df4e !important;
    
 } 
 
-.nav li:hover > .dropdown-menu {
+.nav li a:hover > .dropdown-menu {
     display: block;
 }
 
-.nav li:hover .nav-item a {
+.nav li a:hover .nav-item {
      color: #fff;
 }
 
-
-
-.nav .nav-item {
-    padding: 10px 25px;
-    width: 100%;
-}
-
-.nav .nav-item > a {
+.nav a .nav-item {
     font-weight: bold;
     color: #a8df4e;
+    padding: 10px 25px;
+    width: 100%;
 }
 
 .nav .dropdown-menu {
@@ -1302,13 +1305,20 @@ input.qty {
     height: 100%;
 }
 
-.footer-desc  h3 {
+.footer-desc h3 {
     margin-bottom: 15px; 
+    font-weight: bolder;
 }
 
 .footer-about {
     background-color: #fff;
     color: #000;
+}
+
+.footer-about > div {
+    font-size: 14px;
+    line-height: 25px;
+    color: #2c3e50;
 }
 
 .footer-feedback {

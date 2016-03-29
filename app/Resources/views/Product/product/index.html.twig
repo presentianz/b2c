@@ -55,10 +55,12 @@
                     <p><label>商品重量:</label><span>{{ data.product.weight }}克</span></p>
                     <p><label>货号:</label><span>{{ data.product.productKey }}</span></p>           
                     <p><label>原价:</label><span><del>NZ${{ data.product.price }}</del></span></p>
-                    <p class="product-promo"><label>促销价:</label><span>NZ${{ data.product.priceDiscounted }}</span></p>
-                    <p class="product-promo"><label>约合人民币:</label><span>￥{{ data.product.priceDiscounted * 4.5 }}</span></p>
-                    <p><label>当前汇率:</label><span>1新西兰元=4.50人民币</span></p>
-                    <p>该商品已被浏览<span class="product-desc"> {{ data.product.click }} </span>次，已经被购买<span class="product-desc"> {{ data.product.soldNo }} </span>件（库存 {{ data.product.inventory }}）</p>
+                    <p><label>促销价:</label><span class="product-promo">NZ${{ data.product.priceDiscounted }}</span></p>
+                    <p><label>约合人民币:</label><span class="product-promo">￥{{ data.product.priceDiscounted * 4.5 }}</span></p>
+                    <!-- <p><label>当前汇率:</label><span>1新西兰元=4.50人民币</span></p> -->
+                    <p>该商品已被浏览<span class="product-desc"> {{ data.product.click }} </span>次，已经被购买<span class="product-desc"> {{ data.product.soldNo }} </span>件
+                    {% if data.product.inventory|length > 0 %} 现货 {% else %} 无货 {% endif %}
+                    </p>
                     <div class="add-to-box">
                         <div class="add-to-cart clearfix">
                             <div class="pull-left number-label">
@@ -104,7 +106,7 @@
         </div>
         <div class="product-tab product-tab-update clearfix">
         <img src="{{ asset('img/leaf-green.jpg') }}" alt="" class="leaf"></div> 
-        <div class="product-info clearfix">
+       {# <div class="product-info clearfix">
             <div class="tab-contents">
             <div class="tab-content-title">商品评论({{ data.product.comments|length }})</div>
             {{ form_start(form, {'attr': {'id':'add-comment'}}) }}
@@ -141,7 +143,7 @@
              </div>
              {% endif %}
              
-        </div>
+        </div> #}
 
 
 </div>

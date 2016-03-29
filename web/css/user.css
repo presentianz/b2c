@@ -137,12 +137,13 @@
 }
 
 #user-page .order-title {
-    min-height: 70px;
+    min-height: 75px;
     width: 100%;
     padding: 0px;
     background-color: #eee;
 
 }
+
 
 #user-page .order-title span {
     padding-left: 5px;
@@ -155,6 +156,11 @@
     word-wrap: break-word;
     vertical-align: top;
     width: auto;
+    min-height: 75px;
+}
+
+#user-page .order-title-item h5 {
+    max-width: 200px;
 }
 
 #user-page .order-title-item input[type='submit'] {
@@ -165,9 +171,15 @@
     background-color: #ee1c24;
 }
 
+#user-page .user-order-hover {
+    cursor: pointer;
+}
+
 #user-page i.fa-arrow-down.address-hover {
     cursor: pointer;
 }
+
+
 
 #user-page .order-title-item .hover-address {
     position: absolute;
@@ -278,21 +290,15 @@
     height: 130px;
 }
 
-#user-page .address-each h5 {
-    width:260px;
-}
 
 #user-page .address-each h5 > div {
     margin-bottom: 5px;
 }
 
 #user-page .address-each h5 .address-detail {
-    min-height: 30px;
+    min-height: 20px;
     word-wrap: break-word;
 }
-
-
-
 
 /*tab10 order detail*/
 #user-page .order-info {
@@ -336,6 +342,12 @@
     width: 30px;
     left: 40%;
     top: 20px;
+}
+
+
+
+#fos_user_change_password_form input {
+    width: 300px !important;
 }
 
 

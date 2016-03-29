@@ -10,7 +10,7 @@
             <a class="search-keys {% if type == 4 %}active{% endif %}" href="{{path('user_order', {'type':4})}}">订单失效</a>
         </div>
 {% for order in data %}
-    <div id="{{ order.orderId }}" class="order-detail">
+    <div id="{{ order.orderId }}" class="order-detail user-order-hover">
             <div class="order-title">
                 <div class="order-title-each pull-left">
                     <div class="order-title-item">
@@ -28,28 +28,40 @@
                     <div class="order-title-item">
                         <label>订单状态：</label>
                         <h5>{% if order.status == 0 %}未付款{% elseif order.status == 1 %}准备发货{% elseif order.status == 2 %}已发货{% elseif order.status == 3 %}已收货{% else %}订单失效{% endif %}
-                        <span><a class="color user-order-hover" id="{{ order.orderId }}">(订单详请)</a></i></h5>
+                        <span><a class="color" id="{{ order.orderId }}">(订单详请)</a></i></h5>
                     </div>
                 </div>
                     <div class="order-title-each pull-right">
                         <div class="order-title-item">
                          <label>订单号：{{ order.orderId }}</label>
                          <h5>
-                         {% if order.status == 0 %}<a href="{{path('order_confirm', {'id':order.orderId,'type':'online'})}}" >付款</a>
-                            <span><a href="javascript:;" onclick="del('{{order.id}}')">取消订单</a></span>{% endif %}
+                         {% if order.status == 0 %}
+                         <a href="{{path('order_confirm', {'id':order.orderId,'type':'online'})}}" >付款</a>
+                            <span class="order-cancel">取消订单</span>
+                            {% endif %}
                             {% if order.status == 4 %}
                             <span><a href="javascript:;" onclick="realdel('{{order.id}}')">删除订单</a></span>{% endif %}
                         </h5>
+                        </div>
                     </div>
                 </div>
-        </div>
 
         <div id="order_content_{{ order.orderId }}" class="order-content hide">
         {% include "views/User/order/detail.html.twig" %}
         </div>
         
     </div>
+    <div class="bg-mask"></div>
+    <div class="pop-cart">
+        <h3><i class="fa fa-info-circle"></i>
+            <span>您确定取消订单吗？</span></h3>
+            <span><a href="javascript:;" onclick="del('{{order.id}}')">确定取消</a></span>
+            <p class="continue-shop">返回</p>
+        </div>
 {% endfor %}
+
+
+
 <script type="text/javascript">
   function del(id)
   {

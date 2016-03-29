@@ -62,7 +62,12 @@ $(function() {
 	});
 
 	$("#more-brand").click( function(){
-		$(".brand-list .side-content").toggleClass("brand-height");
+		$(".brand-list .side-content").toggleClass("brand-height","1000");
+		if($("#more-brand h6").html() == '更多热门品牌&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-down"></i>'){
+           $("#more-brand h6").html('收起&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-up"></i>');
+       } else {
+           $("#more-brand h6").html("更多热门品牌&nbsp;&nbsp;&nbsp;<i class='fa fa-chevron-down'></i>");
+       }
 	});
 
 	$(".search-select").change(function(){
@@ -70,6 +75,17 @@ $(function() {
 	   console.log(key);
 	   $(".search-query").val(key);
 	});
+
+	$(".search-query").focus(function(){
+		$("#search-remove").removeClass("hide");
+		console.log("Add X");
+	});
+
+	$("#search-remove").click(function(){
+		$(".search-query").val("");
+	});
+
+
 
 	$("#bookmarkme").click(function(e) {
 		e.preventDefault();
@@ -117,9 +133,18 @@ $('#email-send').click(function() {
 $(function() {
 
 	 $('.continue-shop').click(function() {
-		$('.bg-mask').css('display','none');
-		$('.pop-cart').css('display','none');
-	});
+		
+		//need to fix the route jumper
+	//	$("#loading").css("display","block");
+		setTimeout(function(){
+		//	$("#loading").css("display","none");
+    		$('.bg-mask').css('display','none');
+			$('.pop-cart').css('display','none');
+		},3000);
+			location.reload();
+          });
+
+
 
 	$(".cart-wrapper").hover(function(e) {
 		e.preventDefault();

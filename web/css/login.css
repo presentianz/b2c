@@ -73,8 +73,8 @@ body {
 }
 
 .login-content .controls > input {
-    border: 1px solid #fff;
-    border-bottom-color: #ccc;
+    border: 1px solid #ccc;
+    /*border-bottom-color: #ccc;*/
     padding: 4px 10px;
     font-size: 15px;
     width: 70%;

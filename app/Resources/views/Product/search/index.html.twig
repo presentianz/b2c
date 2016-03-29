@@ -114,9 +114,10 @@
                         </div>
                         <!--//toolbar-->  
                         <!--search products--> 
-                        <div class="hotdeal clearfix">
+                        
 
                     {% if data.products|length > 0 %}
+                    <div class="hotdeal clearfix">
                         {% for i in 1..(data.row_no) %}
                             <div class="row">
                                 {% for product in data.products|slice(3*(i - 1), 3) %}
@@ -140,14 +141,18 @@
                                     </div>
                                 {% endfor %}
                             </div>
+
                         {% endfor %}
+                        </div> 
                         {% else %}  
                             <div class="row row-nothing">
-                                 <h3>您的商品找不到了<a href="{{path('homepage')}}">这里逛逛</a></h3>
+                                 <h3>未找到与您搜索相关的商品</h3>
+                                
                             </div>
+                             {{ render(controller('AppBundle:Widget/Default:hotPro')) }}
                         {% endif %}
 
-                        </div> 
+                        
 
                         <div class="toolbar toolbar-bottom">
                             <div class="pull-right">

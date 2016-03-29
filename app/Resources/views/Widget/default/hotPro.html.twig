@@ -2,7 +2,7 @@
 <!-- Hot Staffs -->
 {% if data|length > 0 %}
 <div class="hotdeal">
-    <div class="row-up">
+  <!--   <div class="row-up">
         <div class="col-xs-11">
             <h3>可能喜欢</h3>
         </div>
@@ -10,10 +10,10 @@
             <a href="">更多
             </a> 
         </div>
-    </div>
+    </div> -->
     <div class="row">
     {% for product in data %}
-        <div class="col-xs-3">
+        <div class="col-xs-4">
             <a href="{{ path('product', {id : product.id}) }}">
                 <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
                  <div class="pro-text">

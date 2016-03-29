@@ -68,7 +68,7 @@
         public function hotProAction()
         {
             $em = $this->getDoctrine()->getManager();
-            $products = $em->getRepository('AppBundle:Product')->findRandomProducts(4);
+            $products = $em->getRepository('AppBundle:Product')->findRandomProducts(3);
             return $this->render('Widget/default/hotPro.html.twig', array(
                 'data' => $products
             ));
