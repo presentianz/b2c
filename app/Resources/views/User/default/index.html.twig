@@ -19,13 +19,14 @@
         <a href="{{ path('user_profile') }}">账户信息管理</a>
     </div>
 		<ul class="nav nav-list">
-			<li><div class="nav-item"><a href="{{path("user_profile")}}">账户管理</a></div></li>
-            <li><div class="nav-item"><a href="{{path("user_order")}}">我的订单</a></div></li>
-			<li><div class="nav-item"><a href="{{path("user_address")}}">常用地址</a></div></li>
-            <li><div class="nav-item"><a href="{{path("user_topup")}}">充值</a></div></li>
+			<li><a href="{{path("user_profile")}}"><div class="nav-item">账户管理</div></a></li>
+            <li><a href="{{path("fos_user_change_password")}}"><div class="nav-item">修改密码</div></a></li>
+            <li><a href="{{path("user_order")}}"><div class="nav-item">我的订单</div></a></li>
+			<li><a href="{{path("user_address")}}"><div class="nav-item">常用地址</div></a></li>
+            <li><a href="{{path("user_topup")}}"><div class="nav-item">充值</div></a></li>
             {#<li><div class="nav-item"><a href="{{path("user_profile")}}">消费历史</a></div></li> #}
-            <li><div class="nav-item"><a href="{{path("fos_user_change_password")}}">修改密码</a></div></li>
-            <li><div class="nav-item"><a href="{{path("user_email")}}">邮件选择</a></div> </li>
+            
+            {#<li><a href="{{path("user_email")}}"><div class="nav-item">邮件选择</div></a></li>#}
             </ul>
 
             <!--best pros-->

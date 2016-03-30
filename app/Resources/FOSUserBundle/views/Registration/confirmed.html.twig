@@ -27,3 +27,14 @@
 		</div>
 	</div>
 {% endblock fos_user_content %}
+
+{% block javascripts %}
+<script type="text/javascript">
+$(document).ready(function(){
+	console.log("confirmed");
+	setTimeout(function(){
+    location.href = "{{path('homepage')}}";
+},3000);
+});
+	</script>
+    {% endblock %}

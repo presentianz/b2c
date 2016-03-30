@@ -4,12 +4,17 @@
         <!-- <a href="#" class="pull-right">设为默认地址</a> -->
         <h5>
             <label>{{ address.name }}
+                 {% if address.contactNo|length > 0 %}
                  <span>&nbsp;&nbsp;({{ address.contactNo }})</span>
+                 {% endif %}
             </label>
                  <div class="address-detail">
-                 {{ address.address }}, 
-                 {{ address.region }},
-                 {{ address.city }}, 
+                 {{ address.address }}
+                 {% if address.region|length > 0 %},{% endif %} 
+                 {{ address.region }}
+                  {% if address.city|length > 0 %},{% endif %} 
+                 {{ address.city }}
+                  {% if address.postCode|length > 0 %},{% endif %} 
                  {{ address.postCode }}
                  </div>
             <div>{{ address.country }}</div>  

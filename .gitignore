@@ -17,3 +17,4 @@
 /.idea/*
 /phpMyadmin/
 
+src/AppBundle/Controller/Widget/DefaultController.php

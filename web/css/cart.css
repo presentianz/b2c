@@ -113,7 +113,12 @@
     overflow: hidden;
     vertical-align: middle;
     width: auto;
+    
 } 
+
+#cart-page-container .name-limit a {
+    text-decoration: none !important;
+}
 
 #cart-page-container tbody h3 {
     padding:60px;

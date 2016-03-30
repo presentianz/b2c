@@ -71,25 +71,21 @@
 #product-page .add-to-cart input[type="submit"] {
     margin-right: 30px;
     height: 35px;
-    background: transparent;
-    color: #a8df4e;
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    padding: 0;
+    background: #a8df4e !important;
+    color: #000;
 } 
 
 #product-page .add-to-cart input[type="submit"]:hover {
-    border-bottom: 2px solid #a8df4e;
+     color: #fff;
 }
 
-#product-page .add-to-cart input[type="submit"].buy-now {
+/*#product-page .add-to-cart input[type="submit"].buy-now {
      color: #ee1c24;
 }
 
 #product-page .add-to-cart input[type="submit"].buy-now:hover {
     border-bottom: 2px solid #ee1c24;
-}
+}*/
 
 
 
