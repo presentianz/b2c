@@ -1,7 +1,17 @@
 {% extends 'layout_main.html.twig' %}
 
-{% block stylesheets %}
+{% block stylesheets %}  
 <link rel="stylesheet" href="{{ asset('css/contact.css') }}" type="text/css">
+<style>
+  #map {
+    width: 380px;
+    height: 585px;
+    background-color: #CCC;
+  }
+</style>
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel='stylesheet prefetch' href="{{ asset('js/img_popup/magnific-popup.css') }}">
+<link rel="stylesheet" href="{{ asset('js/ima_popup/img_popup_style.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -9,30 +19,55 @@
             <div class="col-xs-3 siderbar">
                     {{ render(controller('AppBundle:Widget/Menu:index')) }}
                 {{ render(controller('AppBundle:Widget/Default:brandList')) }}
-                {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
-                 {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
                   {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
                 </div>
             <div class="col-xs-9 page-right" >
-                
-                
-                <div class="page-breadcrumb">
-                    <ol>
-                        <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
-                        <li>&nbsp;>&nbsp;关于我们</li>
-                     </ol>
-                </div>
                 <div class="page-content">
-                <div class="page-title">
-                <div class="page-leaf-top"></div>
-                <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
-                <div><h4>关于我们</h4></div>
-                    
-                </div>
-                <div class="contact-part">
-                丰盛湾是一家专注纽澳特产品，护肤品，保健品为一体的大型连锁专营店。<br>
-                    我们代理的都是新西兰澳洲药房所认可的大品牌，绝对一手货源，百分百保真。产品种类繁多，有上千种网络热销产品，代购追捧单品，经济实惠，价格合理。
-                </div>
+                    <div class="contact-part">
+                        <br>
+                        <br>
+                        <h3>
+                            <b>关于我们</b>
+                        </h3> 
+                        <div align="right"><a href="img/silver.jpg" class="with-caption image-link" title="a New Zealand vintage silver coin" ><img src="img/silver.jpg" width="25" height="25" /></a></div> 
+                    </div>
+                    <div class="contact-part">
+                    "PLENTY BAY ECOMMERCE LTD" 是一家位于奥克兰，且在新西兰商务部合法注册并运营的公司，是 "<b>丰盛湾集团</b>" 旗下专注于提供一站式服务的电子商务平台。
+                    致力于把纽澳地区优质的乳制品、护肤品、保健品快捷方便的销售给新西兰、澳洲与中国的消费者。我们的工作是为您提供最经济实惠的价格，绝无虚假的产品品质，充足的品牌选择。
+                    我们所销售的产品与运输过程都符合西兰<a href="https://www.mpi.govt.nz/">第一产业部(MPI)</a>所制定的严格标准并接受定期检测。
+                    </div>
+                    <br>
+                    <div class="contact-part">
+                        <table>
+                            <tr>
+                                <td> 
+
+                                    <a href="img/cert_of_incorporation.png" class="with-caption image-link" title="Certificate of Incorporation" >
+                                        <img src="img/cert_of_incorporation.png" width="380" height="585" />  
+                                    </a>
+                                    <script src="{{ asset('js/jquery.min.js') }}"></script>
+                                    <script src="{{ asset('js/img_popup/jquery.magnific-popup.min.js') }}"></script>
+                                    <script src="{{ asset('js/img_popup/img_popup_index.js') }}"></script>
+                                </td>
+                                <td>&nbsp; &nbsp;</td>
+                                <td>
+                                    <div id="map"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <script>
+                        function initMap() {
+                            var mapDiv = document.getElementById('map');
+                            var myGPS = {lat: -36.7404609, lng: 174.7281301};
+                            var map = new google.maps.Map(mapDiv, {center: myGPS, zoom: 15 });
+                            var marker = new google.maps.Marker({position: myGPS, map: map, title: 'Unit 4, 9 Orbit Drive' });
+                        }
+                    </script>
+                    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+                    <br>
+                    <br>
+                    <br>        
                 </div>	
             </div>	
         </div>
