@@ -2,7 +2,7 @@
 .mfp-bg {
   top: 0;
   left: 0;
-  width: 100%;
+  width: 2000;
   height: 100%;
   z-index: 1042;
   overflow: hidden;
@@ -92,9 +92,11 @@
   left: 8px;
   right: 8px;
   z-index: 1044; }
-  .mfp-preloader a {
+  
+.mfp-preloader a {
     color: #cccccc; }
-    .mfp-preloader a:hover {
+
+.mfp-preloader a:hover {
       color: white; }
 
 .mfp-s-ready .mfp-preloader {
@@ -248,25 +250,14 @@ img.mfp-img {
 /* The shadow behind the image */
 .mfp-figure {
   line-height: 0; }
-  .mfp-figure:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 40px;
-    bottom: 40px;
-    display: block;
-    right: 0;
-    width: auto;
-    height: auto;
-    z-index: -1;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    background: #444444; }
-  .mfp-figure small {
+.mfp-figure:after {
+}
+.mfp-figure small {
     color: #bdbdbd;
     display: block;
     font-size: 12px;
     line-height: 14px; }
-  .mfp-figure figure {
+.mfp-figure figure {
     margin: 0; }
 
 .mfp-bottom-bar {
