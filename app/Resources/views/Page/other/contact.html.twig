@@ -9,64 +9,59 @@
     <div class="col-xs-3 siderbar">
         {{ render(controller('AppBundle:Widget/Menu:index')) }}
         {{ render(controller('AppBundle:Widget/Default:brandList')) }}
-        {{ render(controller('AppBundle:Widget/Default:discountPro')) }}
-        {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
         {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
     </div>
     <div class="col-xs-9 page-right">
-       
-        
-        <div class="page-breadcrumb">
-            <ol>
-                <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
-                <li>&nbsp;>&nbsp;联系我们</li>
-            </ol>
-        </div>
         <div class="page-content">
-            <div class="page-title">
-                <div class="page-leaf-top"></div>
-                <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
-                <div><h4>联系我们</h4></div>
-                    
-            </div>
-            <div class="contact-part">						
-                     丰盛湾是一家专注纽澳特产品，护肤品，保健品为一体的大型连锁专营店。<br>
-                        我们代理的都是新西兰澳洲药房所认可的大品牌，绝对一手货源，百分百保真。产品种类繁多，有上千种网络热销产品，代购追捧单品，经济实惠，价格合理 <br><br>
+            <div class="contact-part">  
+                <table width="100%">
+                    <tr width="100%">
+                        <td width="30%"><h3><b>联系我们</b></h3>
+                        <td width="70%" align="right">
+                            <img src="img/contactus.png" height="90px">
+                        </td>     
+                    </tr>
+                </table>		
+                     丰盛湾是一家专注纽澳特产品、护肤品、保健品的电子商务平台。您所购买的产品都是在新西兰本地打包，直接邮寄至您家的。我们希望以实惠的价格，优质的服务，一站式配送方式，让您方便的享受新西兰澳洲纯天然无毒害的高品质产品。<br><br>
                 <div class="contact-info">
-                    <div><i class="fa fa-phone"></i>电话:</div>
-                    <div><i class="fa fa-home"></i>地址: Unit4, 9 Orbit Dr, Rosedale, Auckland 0632</div>
+                    <div><i class="fa fa-phone"></i>电话: (+64) 09 281 9384 </div>
+                    <div><i class="fa fa-home"></i>地址: Unit4, 9 Orbit Dr, Rosedale, Auckland, New Zealand</div>
+                    <br>
+                    <div id="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10754.06955014146!2d174.72324756017866!3d-36.74167084974075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d3bcd5d971c9f%3A0x35f79df3beba01cc!2s9+Orbit+Dr%2C+Rosedale%2C+Auckland+0632!5e0!3m2!1sen!2snz!4v1454839173531" width="785" height="270" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
             <hr>
-             <div class="page-sub-title">给我们留言</div>
+             <div class="page-sub-title"><strong>给我们留言</strong> <input type="submit" style="margin-right: 35px" value="提交" class="pull-right" id="email-send"/></div>
             <div class="contact-part">
-                    <div class="form">
-                        <div>
-                            <label>名字：</label>
-                            <input type="text" id="email-name">
-                        </div>
-                        <div>
-                            <label>邮件：</label>
-                            <input type="text" id="email-to">
-                        </div>
-                        <div>
-                            <label>主题：</label>
-                            <input type="text" id="email-subject">
-                        </div>
-                        <div>
-                            <label>内容：</label>
-                            <textarea id="email-text"></textarea>
-                        </div>
+                <div class="form">
+                    <div>
+                        <label>如何称呼您</label>
+                        <input type="text" id="email-name">
                     </div>
-                    <input type="submit" value="提交" class="pull-right" id="email-send"/>
+                    <div>
+                        <label>您的邮件地址</label>
+                        <input type="text" id="email-to">
+                    </div>
+                    <div>
+                        <label>联系原因：</label>
+                        <select type="text" id="email-subject" width="100%">
+                            <option value="想要了解购物流程。">想要咨询产品信息。</option>
+                            <option value="想要咨询商品信息。">想要咨询产品信息。</option>
+                            <option value="想要了解近期优惠。">想要了解近期优惠。</option>
+                            <option value="对于服务不满意，想要投诉。">对于服务不满意，我想要投诉。</option>
+                            <option value="想要组团一起挣钱养家。">想要组团一起挣钱养家，不知如何开始。</option>
+                            <option value="只是想你们了，思念并不需要理由。">只是想你们了，思念没有理由。</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="margin-top: 60px">留言正文：</label>
+                        <textarea id="email-text"></textarea>
+                    </div>
+                </div> 
             </div>
-                <div class="page-sub-title">找到我们</div>
-            <div class="contact-part">
-                <div id="location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10754.06955014146!2d174.72324756017866!3d-36.74167084974075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d3bcd5d971c9f%3A0x35f79df3beba01cc!2s9+Orbit+Dr%2C+Rosedale%2C+Auckland+0632!5e0!3m2!1sen!2snz!4v1454839173531" width="785" height="360" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-            </div>
-            </div>
+            <hr>
         </div>	
     </div>
 </div>

@@ -14,14 +14,22 @@
 }
 #contact-page .form label {
     max-width: 200px;
-    width: 10%;
+    width: 15%;
 
 }
 
 #contact-page .form input {
     background-color: #eee;
-    width: 702px;
+    width: 84%;
     margin: 0px;
+
+}
+
+#contact-page .form select {
+    background-color: #eee;
+    width: 84%;
+    margin: 0px;
+    
 }
 
 #contact-page .form textarea {
@@ -30,7 +38,7 @@
     padding: 8px 10px;
     border: 1px solid #eee;
     font-size: 14px;
-    width: 702px;
+    width: 84%;
     resize: none;
     outline: none;
 }
