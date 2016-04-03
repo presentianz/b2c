@@ -66,7 +66,15 @@
                             var mapDiv = document.getElementById('map');
                             var myGPS = {lat: -36.7404609, lng: 174.7281301};
                             var map = new google.maps.Map(mapDiv, {center: myGPS, zoom: 15 });
-                            var marker = new google.maps.Marker({position: myGPS, map: map, title: 'Unit 4, 9 Orbit Drive' });
+                            var url = "https://www.google.co.nz/maps/place/4%2F9+Orbit+Dr,+Rosedale,+Auckland+0632/@-36.7404609,174.7281301,17z/";
+                            var marker = new google.maps.Marker({
+                                position: myGPS, 
+                                url:url, 
+                                map: map, 
+                                title: 'Unit 4, 9 Orbit Drive',
+                                animation: google.maps.Animation.DROP,
+                            });
+                            google.maps.event.addListener(marker, 'dblclick', function() {window.open(marker.url);});
                         }
                     </script>
                     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
