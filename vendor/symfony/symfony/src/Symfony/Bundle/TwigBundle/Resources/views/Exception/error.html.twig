@@ -1,0 +1,39 @@
+{% extends 'layout_main.html.twig' %}
+
+{% block stylesheets %}  
+<link rel="stylesheet" href="{{ asset('css/contact.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+        <div class="row no-border" id="contact-page">
+            <div class="col-xs-3 siderbar">
+                {{ render(controller('AppBundle:Widget/Menu:index')) }}
+                {{ render(controller('AppBundle:Widget/Default:brandList')) }}
+                {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
+            </div>
+            <div class="col-xs-9 page-right" >
+                <div class="page-content">
+                <a href="{{path('homepage')}}">
+                    <br><br><br>
+                    <div class="no-page">
+                        <!-- <h1 class="color">404</h1> -->
+                        <h1><img src="/img/404girl.jpg" height="462px"></h1>
+                        <br>
+                        <br>
+                        <h4>十分抱歉...您要访问的页面我们找不到了...</h4><br>
+                        <h4>请点击我跳转，继续开启愉快的购物旅程吧!</h4>
+                    </div>
+                    <br><br><br>
+                </a>
+                    <br>              
+                    <div align="right">
+                        <br>
+                        <a href="{{ path('contact') }}"><h4>倾诉请点这里 <img src="/img/contact_email.jpg" height="40px"></h4></a>
+                        <br>
+                    </div>
+                </div>  
+            </div>
+        </div>
+{% endblock %}
+
