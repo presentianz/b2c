@@ -3,11 +3,11 @@
 {% block stylesheets %}  
 <link rel="stylesheet" href="{{ asset('css/contact.css') }}" type="text/css">
 <style>
-  #map {
-    width: 380px;
-    height: 580px;
-    background-color: #CCC;
-  }
+    #map {
+        width: 380px;
+        height: 583px;
+        background-color: #CCC;
+    }
 </style>
 </style>
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -18,22 +18,27 @@
 {% block body %}
         <div class="row no-border" id="contact-page">
             <div class="col-xs-3 siderbar">
-                    {{ render(controller('AppBundle:Widget/Menu:index')) }}
+                {{ render(controller('AppBundle:Widget/Menu:index')) }}
                 {{ render(controller('AppBundle:Widget/Default:brandList')) }}
-                  {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
-                </div>
+                {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
+            </div>
             <div class="col-xs-9 page-right" >
                 <div class="page-content">
                     <div class="contact-part">
-                        <br>
-                        <br>
-                        <h3>
-                            <b>关于我们</b>
-                        </h3> 
-                        <div align="right"><a href="img/silver.png" class="with-caption image-link" title="a New Zealand vintage silver coin" style="cursor: -webkit-zoom-in; cursor: -moz-zoom-in;"><img src="img/silver.png" width="25" height="25" /></a></div> 
+                        <table width="100%">
+                            <tr width="100%">
+                                <td width="30%"><h3><b>关于我们</b></h3>
+                                <td width="70%" align="right">
+                                    <img src="img/aboutus.jpg" height="100px">
+                                </td>    
+                            </tr>
+                        </table>
+                        <div align="right">
+                            <a href="img/silver.png" class="with-caption image-link" title="a New Zealand vintage silver coin" style="cursor: -webkit-zoom-in; cursor: -moz-zoom-in;"><img src="img/silver.png" width="25" height="25" /></a>
+                        </div>
                     </div>
                     <div class="contact-part">
-                    "PLENTY BAY ECOMMERCE LTD" 是一家位于奥克兰，且在新西兰商务部合法注册并运营的公司，是 "<b>丰盛湾集团</b>" 旗下专注于提供一站式服务的电子商务平台。
+                    "PLENTY BAY ECOMMERCE LTD" 位于奥克兰，且在新西兰商务部合法注册并运营的公司，是 "<b>丰盛湾集团</b>" 旗下专注于提供一站式服务的电子商务平台。
                     致力于把纽澳地区优质的乳制品、护肤品、保健品快捷方便的销售给新西兰、澳洲与中国的消费者。我们的工作是为您提供最经济实惠的价格，绝无虚假的产品品质，充足的品牌选择。
                     我们所销售的产品与运输过程都符合西兰<a href="https://www.mpi.govt.nz/">第一产业部(MPI)</a>所制定的严格标准并接受定期检测。
                     </div>
