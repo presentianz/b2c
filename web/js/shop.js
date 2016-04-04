@@ -121,7 +121,7 @@ $('#email-send').click(function() {
 	window.open(mailto_link);
 	alert("Thank you!");
 	} else {
-		alert("不能为空!");
+		//alert("不能为空!");
 	}
 });
 
