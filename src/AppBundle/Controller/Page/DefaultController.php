@@ -25,6 +25,22 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/refundpolicy", name="refundpolicy")
+     */
+    public function refundpolicyAction()
+    {
+        return $this->render('Page/other/refundpolicy.html.twig');
+    }
+
+    /**
+     * @Route("/refundprocess", name="refundprocess")
+     */
+    public function refundprocessAction()
+    {
+        return $this->render('Page/other/refundprocess.html.twig');
+    }
+
+    /**
      * @Route("/404", name="404")
      */
     public function fourOfourAction()
