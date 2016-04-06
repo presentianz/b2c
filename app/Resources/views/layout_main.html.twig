@@ -74,13 +74,13 @@
                             <div class="navbar-search pull-left">
                             <form action="{{ path('search', {keys : app.request.get('keys') }) }}" method="get"  onsubmit="">
                                 <select class="search-select">
-                                    <option value="快捷关键词" selected><h6>快捷关键词</h6></option>
-                                    <option value="奶粉"><h6>蜂蜜</h6></option>
-                                    <option value="爱他美"><h6>鱼油</h6></option>
+                                    <option value="搜索关键词" selected><h6>搜索关键词</h6></option>
+                                    <option value="奶粉"><h6>奶粉</h6></option>
+                                    <option value="爱他美"><h6>爱他美</h6></option>
                                     <option value="蜂蜜"><h6>蜂蜜</h6></option>
                                     <option value="蜂胶"><h6>蜂胶</h6></option>
                                     <option value="鱼油"><h6>鱼油</h6></option>
-                                    <option value="鱼油"><h6>鱼油</h6></option>
+                                    <option value="面膜"><h6>面膜</h6></option>
                                 </select>
                                 <div class="search-input">
                                     <input type="text" id="keys" name="keys" lang="zh-CN" placeholder="搜索产品..." class="search-query" value="{{ app.request.get('keys') }}">
