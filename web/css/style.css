@@ -1345,10 +1345,10 @@ input.qty {
 
 #footer .container-non-responsive {
     background-color:#000;
-    height: 280px;
+    height: 180px;
 }
 #footer .footer-up {
-    padding: 60px;
+    padding: 30px;
     height: 155px;
 }
 
@@ -1361,7 +1361,7 @@ input.qty {
 #footer .col-xs-2 {
     border-left: 1px solid #ccc;
     text-align: left;
-    height: 130px;
+    height: 100px;
     padding-left: 52px;
 }
 
