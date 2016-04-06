@@ -10,6 +10,8 @@
 {% block subtitle %}账户注册{% endblock subtitle %}
 
 {% block body %}
+<script src="{{ asset('js/analyticstracking.js') }}"></script>
+
     <div class="container-login-responsive">
     	{% block fos_user_content %}
 			{% include "FOSUserBundle:Registration:register_content.html.twig" %}
