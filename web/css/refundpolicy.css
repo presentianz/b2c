@@ -1,15 +1,7 @@
  img.absolute_badge {
     position: absolute;
-    top: 525px;
-    right: 75px;
-    width: 103.5px;
-    height: 77.58px;
-  }
-
- img.absolute_badge2 {
-    position: absolute;
-    top: 1135px;
-    right: 75px;
+    top: 0px;
+    right: 180px;
     width: 103.5px;
     height: 77.58px;
   }

@@ -211,7 +211,6 @@ select.delivery-options {
 
 /* top navbar */
 .navbar {
-    
     min-height: 20px !important;
     height: 30px;
     margin: 0;
@@ -234,6 +233,8 @@ select.delivery-options {
 
 /*mid-header */
 #mid-header {
+    position: static;
+    max-width: 1170px;
     min-width: 1170px;
     clear: both;
     margin-bottom: 30px;

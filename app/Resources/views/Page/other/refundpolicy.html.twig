@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block body %}
+<div class="container-non-responsive">
         <div class="row no-border" id="contact-page">
             <div class="col-xs-3 siderbar">
                 {{ render(controller('AppBundle:Widget/Menu:index')) }}
@@ -24,7 +25,7 @@
                       <img src="{{ asset('/img/refund_policy_title.png') }}" width="100%">
                     </div>
                     <div class="contact-part">
-<br>
+                    <br>
                       <div id="refundpolicy_3612" align=center x:publishsource="Excel">
 
                       <table border=0 cellpadding=0 cellspacing=0 width=611 style='border-collapse:
@@ -201,12 +202,12 @@
                       </table>
                         
                           <img  class="absolute_badge"  src="{{ asset('/img/return-policy.png') }}">
-                          <img  class="absolute_badge2"  src="{{ asset('/img/return-policy.png') }}">
                         
                       </div>
-<hr>
+                    <hr>
                     </div>
                 </div>  
             </div>  
         </div>
+</div>
 {% endblock %}
