@@ -132,7 +132,7 @@ fos_user:
     service:
         mailer: fos_user.mailer.twig_swift
     from_email:
-        address:        lyan776.test@gmail.com
+        address:        support@plentybay.co.nz
         sender_name:    丰盛湾
     registration:
         confirmation:

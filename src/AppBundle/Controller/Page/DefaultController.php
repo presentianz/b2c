@@ -11,6 +11,8 @@ use AppBundle\Entity\Category;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+use Symfony\Bundle\TwigBundle\Resource\views\Exception;
+
 
 class DefaultController extends Controller
 {
@@ -22,6 +24,14 @@ class DefaultController extends Controller
         $data = array();
         return $this->render('Page/default/index.html.twig',array(
             'data' => $data));
+    }
+
+    /**
+     * @Route("/error", name="error")
+     */
+    public function errorAction()
+    {
+        return $this->render('Exception/error.html.twig');
     }
 
     /**
@@ -71,7 +81,7 @@ class DefaultController extends Controller
     {
         $message = \Swift_Message::newInstance()
             ->setSubject('Hello Email')
-            ->setFrom('lyan776.test@gmail.com')
+            ->setFrom('support@plentybay.co.nz')
             ->setTo('support@plentybay.co.nz')
             ->setBody('123')
             /*
