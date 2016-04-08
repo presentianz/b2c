@@ -1,0 +1,49 @@
+{% extends 'layout_main.html.twig' %}
+
+ {% block title %}服务条款{% endblock %}
+
+{% block stylesheets %}  
+<link rel="stylesheet" href="{{ asset('css/contact.css') }}" type="text/css">
+<style>
+    #map {
+        width: 380px;
+        height: 587px;
+        background-color: #CCC;
+    }
+</style>
+</style>
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<script src="{{ asset('js/analyticstracking.js') }}"></script>
+
+        <div class="row no-border" id="contact-page">
+            <div class="col-xs-3 siderbar">
+                {{ render(controller('AppBundle:Widget/Menu:index')) }}
+                {{ render(controller('AppBundle:Widget/Default:brandList')) }}
+                {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
+            </div>
+            <div class="col-xs-9 page-right" >
+                <div class="page-content">
+                    <img src="{{ asset('img/terms-and-conditions.jpg')  }}" width="100%">
+                    <div align="center">
+                    <hr>
+                    <h3><b>丰盛湾在线购物 服务条款</b></h3>
+                    <hr>
+                    </div>
+
+                    <div class="contact-part">
+                        <p><h3><b>欢迎使用 丰盛湾 在线购物平台!<b></h3><p>
+                        <p>感谢您使用以及购买我们的在线购物平台所提供的产品和服务（下称“服务”）。服务由 PLENTY BAY ECOMMERCE LIMITED （丰盛湾电子商务）（下称“丰盛湾”）提供，总部所在地址为：Unit 4, 9 Orbit Drive, Rosedale, Auckland, New Zealand。
+                        <p>您使用我们的服务即表示您已同意本条款。请仔细阅读。
+                        <p>附加条款将会与相关服务一同提供，并且在您使用这些服务后，成为您与我们所达成的协议的一部分。</p>
+                    </div>
+                    <br><br>
+                    <div class="contact-part" align="center">
+                       
+                    </div>
+                </div>  
+            </div>  
+        </div>
+{% endblock %}

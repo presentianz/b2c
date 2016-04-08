@@ -32,6 +32,24 @@ class DefaultController extends Controller
         return $this->render('Page/other/404.html.twig');
     }
 
+
+    /**
+     * @Route("/terms", name="terms")
+     */
+    public function termsAndConditionsAction()
+    {
+        return $this->render('Page/other/termsandconditions.html.twig');
+    }
+
+    /**
+     * @Route("/terms_en", name="terms_en")
+     */
+    public function termsAndConditionsEnAction()
+    {
+        return $this->render('Page/other/termsandconditions_en.html.twig');
+    }
+
+
     /**
      * @Route("/refundpolicy", name="refundpolicy")
      */
