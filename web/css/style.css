@@ -20,6 +20,16 @@ a {
     outline: none;
 }
 
+.btn-primary
+{
+    width: 120px;
+    top: -5px;
+}
+
+.dropdown-menu{
+    top: 36px;
+}
+
 a:hover,
 a:focus {
     color: #a8df4e;
@@ -267,6 +277,14 @@ select.delivery-options {
     color: #6c6c6c;
 }
 
+.bg_hover_mainheader{
+    padding: 12px 1px;
+    background: #ffffff;
+}
+
+.bg_hover_mainheader:hover{
+    background:  #e6e6fa;
+}
 
 #mid-header .history-list {
     display: none;
@@ -294,6 +312,7 @@ select.delivery-options {
     z-index: 5;
     position: relative;
     line-height:30px;
+    left: 50px;
 }
 
 

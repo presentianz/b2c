@@ -21,7 +21,8 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-    <script src="{{ asset('js/analyticstracking.js') }}"></script>
+        <!-- Google Analytics -->
+        <script src="{{ asset('js/analyticstracking.js') }}"></script>
         
         <div id="header">
             <div class="navbar">
@@ -100,27 +101,57 @@
                             </div>
                         </div>
                         <div class="col-xs-4 no-padding">  
-                            <div class="pull-right my-detail">             
+                            <div class="my-detail">             
                                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                                 <div id="after-login">
-                                    <a class="a-login" href="{{ path('user_profile') }}"><h6>{{ app.user.username }}</h6></a>
-                                    <a class="a-login" href="{{path('fos_user_security_logout')}}"><h6 class="no-padding">(登出)</h6></a>
-                                </div>
-                                 <div id="user-home" class="history nav-hover a-login">
-                                    <a href="{{ path('user_profile') }}"><h6>账号管理</h6></a> 
-                                    {# <div class="history-list">
-                                        <div><a href="{{path('user_profile')}}"><h6>我的账户</h6></a></div>
-                                        <div><a href="{{path('user_profile')}}"><h6>我的积分</h6></a></div>
-                                        <div><a href="{{path('user_profile')}}"><h6>充值</h6></a></div>
-                                    </div> -#}
+                                    <!-- <a class="a-login bg_hover_mainheader" href="{{path('fos_user_security_logout')}}">
+                                    <h6> |注销登录|</h6>
+                                    </a> -->
+                                    <!-- <a class="btn btn-default btn-sm" href="{{ path('user_profile') }}">
+                                      <i class="fa fa-cog"></i> 设置账户</a> -->
+                                    
+                                    <div class="btn-group open">
+                                        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i> {{ app.user.username }}  <i class="fa fa-caret-down"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="{{ path('user_profile') }}">
+                                                    <i class="fa fa-cog fa-spin"></i> 个人资料
+                                                </a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-truck"></i> 订单查询
+                                                </a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="{{ path('cart') }}">
+                                                    <i class="fa fa-shopping-cart"></i> 购物结算
+                                                </a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="{{path('fos_user_security_logout')}}">
+                                                    <i class="fa fa-power-off"></i> 注销账户
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                                  {% else %}
                                 <div id="before-login">
-                                    <a class="a-login" href="{{path('fos_user_security_login')}}"><h6>登录</h6></a>
-                                    <a class="a-login" href="{{path('fos_user_registration_register')}}"><h6>注册</h6></a>
+                                    <a class="btn btn-default btn-sm" href="{{path('fos_user_security_login')}}">
+                                      <i class="fa fa-sign-in"></i> 登录</a>
+
+                                   <a class="btn btn-default btn-sm" href="{{path('fos_user_registration_register')}}">
+                                      <i class="fa fa-user-plus"></i> 注册</a>
+
+                                    <!-- <a class="a-login bg_hover_mainheader" href="{{path('fos_user_security_login')}}"><h6>登录</h6></a>
+                                    <a class="a-login bg_hover_mainheader" href="{{path('fos_user_registration_register')}}"><h6>注册</h6></a> -->
                                 </div>
                                  {% endif %}            
-                                <div id="history-view" class="history a-login" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}">
+                                <div id="history-view" class="history a-login" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}" style="padding-left: 50px;">
                                     <h6>最近浏览</h6>
                                     <div class="history-list history-view">
                                         <div class="cart-spinner">
@@ -130,7 +161,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-2 no-padding">
+                        <div class="pull-right col-xs-2 no-padding">
                             <div class="cart-wrapper" data-hovered="unhovered" data-path="{{ path('cart_ajax_get') }}">
                             {{ render(controller('AppBundle:Widget/Cart:index')) }}
                             </div>
@@ -243,31 +274,26 @@
         <!-- Custom JavaScript -->
         <script src="{{ asset('js/shop.js') }}"></script>
         <script type="text/javascript">
-    $(document).ready(function() {
-        
-        $.ajax({
-                url:  "{{ path('cart_ajax_get') }}",               
-                method: "GET",
-                dataType: "json"
-            })
-         .done(function (rep) {
-                var num = null;
-                var total = null;
-                if (rep == "none" || rep == "" || rep == null) {
+            $(document).ready(function() { 
+                $.ajax({
+                        url:  "{{ path('cart_ajax_get') }}",               
+                        method: "GET",
+                        dataType: "json"
+                }).done(function (rep) {
+                    var num = null;
+                    var total = null;
+                    if (rep == "none" || rep == "" || rep == null) {
                         num = 0;
                         total = 0.00;           
-                    }
-                    else {
+                    } else {
                         $.each(rep, function(index, value) {
-                        num += Number(value.count);
-                        total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
-                        }); 
-                  
+                            num += Number(value.count);
+                            total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
+                        });   
                     }
                     $('#cart').html("<div class='cart-show'><i class='fa fa-shopping-cart'><i class='fa fa-circle'><h6>" + num + "</h6></i></i>&nbsp;$" + total +"&nbsp;</div>");
-
                 })
-          });
+            });
         </script>
      
         {% block javascripts %}

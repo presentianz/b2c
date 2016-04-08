@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>丰盛湾电子商务 - PLENTY BAY eCommerce Ltd (新西兰一站式在线购物平台) {% block title %}{% endblock %}</title>
+    <title>新西兰丰盛湾电子商务 - {% block title %}您的一站式跨境购物平台{% endblock %}</title>
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
@@ -19,12 +19,15 @@
 </head>
 <body>
 
+<!-- Google Analytics -->
+<script src="{{ asset('js/analyticstracking.js') }}"></script>
+
 <div id="login-header">
     <div class="container-login-responsive">
         <div class="logo-width">
             <a class="logo" href="{{ path('homepage') }}">
                 <img src="{{ asset('img/logo-new.jpg') }}" alt="丰盛湾">
-                <h4 class="text-right">丰盛湾</h4>
+                <h4 class="text-right">丰盛湾在线购物&reg;</h4>
             </a>      
         </div> 
         <div class="logo-title">{% block subtitle %}{% endblock subtitle %}</div>           
@@ -34,24 +37,24 @@
 {% block body %}{% endblock %}
 
      <!-- Footer -->
-    <div id="login-footer">
+    <div id="login-footer"> 
             <div class="col-xs-2">
-                <h6><a href="{{ path('about') }}">关于我们</a></h6>
+                <h6><a class="bg_hover" href="{{ path('about') }}">关于我们</a></h6>
             </div>
             <div class="col-xs-2">
-                <h6><a href="{{ path('homepage') }}">常见问题</a></h6>
+                <h6><a class="bg_hover" href="{{ path('homepage') }}">丰盛湾合作</a></h6>
             </div>
             <div class="col-xs-2">
-                <h6><a href="{{ path('terms') }}">服务条款</a></h6>
+                <h6><a class="bg_hover" href="{{ path('terms') }}">服务条款</a></h6>
             </div>
             <div class="col-xs-2">
-                <h6><a href="{{ path('contact') }}">支付方式</a></h6>
+                <h6><a class="bg_hover" href="{{ path('contact') }}">支付方式</a></h6>
             </div>
             <div class="col-xs-2">
-                <h6><a href="{{ path('homepage') }}">丰盛湾合作</a></h6>
+                <h6><a class="bg_hover" href="{{ path('refundpolicy') }}">遇到问题</a></h6>
             </div>
             <div class="col-xs-2">
-                <h6><a href="{{ path('contact') }}">联系我们</a></h6>
+                <h6><a class="bg_hover" href="{{ path('contact') }}">联系我们</a></h6>
             </div>
         <div class="copyright">         
             <span>&copy;Copyright 2008-2016 PLENTY BAY ECOMMERCE LTD (丰盛湾电子商务) All Rights Reserved</span>

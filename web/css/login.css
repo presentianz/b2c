@@ -5,6 +5,15 @@ body {
     min-height: 800px;
 }
 
+.bg_hover{
+    padding: 12px 10px;
+    background: #ffffff;
+}
+
+.bg_hover:hover{
+    background:  #f5f5f5;
+}
+
 #login-header {
     border-bottom: 2px solid #a8df4e;
     min-height: 100px;
@@ -182,4 +191,9 @@ body {
 
 .login-content .register {
     margin-top: 0px;
+}
+
+#_submit {
+    width: 70%;
+    margin: 0px 0px 0px 55px;
 }
