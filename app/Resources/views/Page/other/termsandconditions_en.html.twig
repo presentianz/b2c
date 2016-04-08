@@ -19,13 +19,6 @@
 <script src="{{ asset('js/analyticstracking.js') }}"></script>
 
         <div class="row no-border" id="contact-page">
-            <div class="col-xs-3 siderbar">
-                {{ render(controller('AppBundle:Widget/Menu:index')) }}
-                {{ render(controller('AppBundle:Widget/Default:brandList')) }}
-                {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
-            </div>
-            <div class="col-xs-9 page-right" >
-                <div class="page-content">
                     <img src="{{ asset('img/terms-and-conditions.jpg')  }}" width="100%">
                     <div align="center">
                     <hr>
@@ -39,7 +32,7 @@
                         </p>
                         <p>
                             <strong>
-                                By using PlentyBay Services, you agree to these conditions. Please read them carefully. <a href="/terms">(中文版)</a>
+                                By using PlentyBay Services, you agree to these conditions. Please read them carefully. <a href="/terms">(中文版)</a>ss
                             </strong>
                         </p>
                         <p>
@@ -149,8 +142,6 @@
                             <LI><b>No Reverse Engineering.</b> You may not, and you will not encourage, assist or authorize any other person to copy, modify, reverse engineer, decompile or disassemble, or otherwise tamper with, the PlentyBay Software, whether in whole or in part, or create any derivative works from or of the PlentyBay Software.</LI>
                             <LI><b>Updates.</b> In order to keep the PlentyBay Software up-to-date, we may offer automatic or manual updates at any time and without notice to you.</LI>                         
                         </OL>
-                    </div>
-                </div>  
             </div>  
         </div>
 {% endblock %}
