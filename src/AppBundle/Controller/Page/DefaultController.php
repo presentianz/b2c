@@ -11,8 +11,6 @@ use AppBundle\Entity\Category;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-use Symfony\Bundle\TwigBundle\Resource\views\Exception;
-
 
 class DefaultController extends Controller
 {
@@ -31,7 +29,7 @@ class DefaultController extends Controller
      */
     public function errorAction()
     {
-        return $this->render('Exception/error.html.twig');
+        return $this->render('Page/other/404.html.twig');
     }
 
     /**
