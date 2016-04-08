@@ -1,0 +1,66 @@
+{% extends 'layout_main.html.twig' %}
+
+ {% block title %}退换货品{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/contact.css') }}" type="text/css">
+{% endblock %}
+
+{% block body %}
+<div class="row no-border" id="contact-page">
+    <div class="col-xs-3 siderbar">
+        {{ render(controller('AppBundle:Widget/Menu:index')) }}
+        {{ render(controller('AppBundle:Widget/Default:brandList')) }}
+        {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
+    </div>
+    <div class="col-xs-9 page-right">
+        <div class="page-content">
+            <div class="contact-part">  
+                <table width="100%">
+                    <tr width="100%">
+                        <td width="30%"><h3><b>退换货品</b></h3>
+                        <td width="70%" align="right">
+                            <img src="img/refund_banner.png" height="66px">
+                        </td>     
+                    </tr>
+                </table>       
+                     丰盛湾是一家专注纽澳特产品、护肤品、保健品的电子商务平台。您所购买的产品都是在新西兰本地打包，直接邮寄至您家的。我们希望以实惠的价格，优质的服务，一站式配送方式，让您方便的享受新西兰澳洲纯天然无毒害的高品质产品。您也可以查看我们的<a href="{{ path('refundpolicy') }}">“退换货流程”</a>了解更多相关信息。<br><br>
+                <div class="contact-info">
+                    <div><i class="fa fa-phone"></i>电话: (+64) 09 281 9384 </div>
+                    <div><i class="fa fa-home"></i>地址: Unit4, 9 Orbit Dr, Rosedale, Auckland, New Zealand</div>
+                    <br>
+                    <div id="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10754.06955014146!2d174.72324756017866!3d-36.74167084974075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d3bcd5d971c9f%3A0x35f79df3beba01cc!2s9+Orbit+Dr%2C+Rosedale%2C+Auckland+0632!5e0!3m2!1sen!2snz!4v1454839173531" width="785" height="291" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <hr>
+             <div class="page-sub-title"><strong>给我们留言</strong> <input type="submit" style="margin-right: 35px" value="提交" class="pull-right" id="email-send"/></div>
+            <div class="contact-part">
+                <div class="form">
+                    <div>
+                        <label>如何称呼您</label>
+                        <input type="text" id="email-name">
+                    </div>
+                    <div>
+                        <label>您的邮件地址</label>
+                        <input type="text" id="email-to">
+                    </div>
+                    <div>
+                        <label>联系原因：</label>
+                        <select type="text" id="email-subject" width="100%">
+                            <option value="------------------------------联系原因：货物出现问题，咨询如何退赔。------------------------------" selected="">------------------------------联系原因：货物出现问题，咨询如何退赔。------------------------------</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="margin-top: 60px">留言正文：</label>
+                        <textarea id="email-text"></textarea>
+                    </div>
+                </div> 
+            </div>
+            <hr>
+        </div>  
+    </div>
+</div>
+
+{% endblock %}

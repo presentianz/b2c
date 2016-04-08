@@ -1,0 +1,147 @@
+{% extends 'layout_main.html.twig' %}
+
+ {% block title %}Terms and Conditions{% endblock %}
+
+{% block stylesheets %}  
+<link rel="stylesheet" href="{{ asset('css/contact.css') }}" type="text/css">
+<style>
+    #map {
+        width: 380px;
+        height: 587px;
+        background-color: #CCC;
+    }
+</style>
+</style>
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div oncopy="return false" oncut="return false" onpaste="return false">
+        <div class="row no-border" id="contact-page">
+            <img src="{{ asset('img/terms-and-conditions.jpg')  }}" width="100%">
+            <div class="contact-part" style="padding-top: 2px">    
+                        <hr>                
+                        <div align="center">
+                        <h3><b>Terms and Conditions</b></h3>
+                        <hr>
+                        </div>
+                        <p>
+                            Welcome to PlentyBay.co.nz. Plenty Bay Ecommerce Limited and/or its affiliates ("PlentyBay") provide website features and other products and services to you when you visit or shop at PlentyBay.co.nz, use PlentyBay products or services, use PlentyBay applications for mobile, or use software provided by PlentyBay in connection with any of the foregoing (collectively, " PlentyBay Services"). PlentyBay provides the PlentyBay Services subject to the following conditions.
+                        </p>
+                        <p>
+                            <strong>
+                                By using PlentyBay Services, you agree to these conditions. Please read them carefully. <a href="/terms">(中文版)</a>
+                            </strong>
+                        </p>
+                        <p>
+                            We offer a wide range of PlentyBay Services, and sometimes additional terms may apply. When you use an PlentyBay Service you also will be subject to the guidelines, terms and agreements applicable to that PlentyBay Service ("Service Terms"). If these Conditions of Use are inconsistent with the Service Terms, those Service Terms will control.
+                        </p>
+
+                        <p>    
+                            <h3>ELECTRONIC COMMUNICATIONS</h3>
+                        </p>
+                        <p>
+                            When you use any PlentyBay Service, or send e-mails, text messages, and other communications from your desktop or mobile device to us, you are communicating with us electronically. You consent to receive communications from us electronically. We will communicate with you in a variety of ways, such as by e-mail, text, in-app push notices, or by posting notices and messages on this site or through the other PlentyBay Services, such as our Message Center. You agree that all agreements, notices, disclosures, and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing.
+                        </p>
+                        <p>    
+                            <h3>COPYRIGHT</h3>
+                        </p>
+                        <p>
+                            All content included in or made available through any PlentyBay Service, such as text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, and software is the property of PlentyBay or its content suppliers and protected by New Zealand and international copyright laws. The compilation of all content included in or made available through any PlentyBay Service is the exclusive property of PlentyBay and protected by New Zealand and international copyright laws.
+                        </p>
+                        <p>    
+                            <h3>TRADEMARKS</h3>
+                        </p>
+                        <p>
+                            In addition, graphics, logos, page headers, button icons, scripts, and service names included in or made available through any PlentyBay Service are trademarks or trade dress of PlentyBay in New Zealand and other countries. PlentyBay's trademarks and trade dress may not be used in connection with any product or service that is not PlentyBay’s, in any manner that is likely to cause confusion among customers, or in any manner that disparages or discredits PlentyBay. All other trademarks not owned by PlentyBay that appear in any PlentyBay Service are the property of their respective owners, who may or may not be affiliated with, connected to, or sponsored by PlentyBay.
+                        </p>
+                        <p>    
+                            <h3>LICENSE AND ACCESS</h3>
+                        </p>
+                        <p>
+                            Subject to your compliance with these Conditions of Use and your payment of any applicable fees, PlentyBay or its content providers grant you a limited, non-exclusive, non-transferable, non-sublicensable license to access and make personal and non-commercial use of the PlentyBay Services. This license does not include any resale or commercial use of any PlentyBay Service, or its contents; any collection and use of any product listings, descriptions, or prices; any derivative use of any PlentyBay Service or its contents; any downloading, copying, or other use of account information for the benefit of any third party; or any use of data mining, robots, or similar data gathering and extraction tools. 
+                        </p>
+                        <p>
+                            All rights not expressly granted to you in these Conditions of Use or any Service Terms are reserved and retained by PlentyBay or its licensors, suppliers, publishers, rightsholders, or other content providers. No PlentyBay Service, nor any part of any PlentyBay Service, may be reproduced, duplicated, copied, sold, resold, visited, or otherwise exploited for any commercial purpose without express written consent of PlentyBay. 
+                        </p>
+                        <p>
+                            You may not frame or utilize framing techniques to enclose any trademark, logo, or other proprietary information (including images, text, page layout, or form) of PlentyBay without express written consent. You may not use any meta tags or any other "hidden text" utilizing PlentyBay's name or trademarks without the express written consent of PlentyBay. You may not misuse the PlentyBay Services. You may use the PlentyBay Services only as permitted by law. The licenses granted by PlentyBay terminate if you do not comply with these Conditions of Use or any Service Terms.
+                        </p>
+                        <p>    
+                            <h3>YOUR ACCOUNT</h3>
+                        </p>
+                        <p>
+                            If you use any PlentyBay Service, you are responsible for maintaining the confidentiality of your account and password and for restricting access to your computer, and you agree to accept responsibility for all activities that occur under your account or password. PlentyBay does sell products for children, but it sells them to adults, who can purchase with a credit card or other permitted payment method. If you are under 18, you may use the PlentyBay Services only with involvement of a parent or guardian. Alcohol listings on PlentyBay are intended for adults. You must be at least 21 years of age to purchase alcohol, or use any site functionality related to alcohol. PlentyBay reserves the right to refuse service, terminate accounts, remove or edit content, or cancel orders in its sole discretion.
+                        </p>
+                        <p>    
+                            <h3>COMMUNICATIONS, AND OTHER CONTENT</h3>
+                        </p>
+                        <p>
+                            Visitors may post reviews, comments, photos, videos, and other content; send e-cards and other communications; and submit suggestions, ideas, comments, questions, or other information, so long as the content is not illegal, obscene, threatening, defamatory, invasive of privacy, infringing of intellectual property rights (including publicity rights), or otherwise injurious to third parties or objectionable, and does not consist of or contain software viruses, political campaigning, commercial solicitation, chain letters, mass mailings, or any form of "spam" or unsolicited commercial electronic messages. You may not use a false e-mail address, impersonate any person or entity, or otherwise mislead as to the origin of a card or other content. PlentyBay reserves the right (but not the obligation) to remove or edit such content, but does not regularly review posted content.
+                        </p>
+                        <p>
+                            If you do post content or submit material, and unless we indicate otherwise, you grant PlentyBay a nonexclusive, royalty-free, perpetual, irrevocable, and fully sublicensable right to use, reproduce, modify, adapt, publish, perform, translate, create derivative works from, distribute, and display such content throughout the world in any media. You grant PlentyBay and sublicensees the right to use the name that you submit in connection with such content, if they choose. You represent and warrant that you own or otherwise control all of the rights to the content that you post; that the content is accurate; that use of the content you supply does not violate this policy and will not cause injury to any person or entity; and that you will indemnify PlentyBay for all claims resulting from content you supply. PlentyBay has the right but not the obligation to monitor and edit or remove any activity or content. PlentyBay takes no responsibility and assumes no liability for any content posted by you or any third party.
+                        </p>
+                        <p><h3>COPYRIGHT COMPLAINTS</h3></p>
+                        <p>
+                            PlentyBay respects the intellectual property of others. If you believe that your work has been copied in a way that constitutes copyright infringement, please contact us by email, see our ‘Contact Us’.
+                        </p>
+                        <p><h3>RISK OF LOSS</h3></p>
+                        <p>
+                            All items purchased from PlentyBay are made pursuant to a shipment contract. This means that the risk of loss and title for such items pass to you upon our delivery to the carrier.
+                        </p>
+                        <p><h3>RETURNS, REFUNDS AND TITLE</h3></p>
+                        <p>
+                            At our discretion, a refund may be issued without requiring a return. For more information about our returns and refunds policy, please see our <a href="/refundpolicy">Refund Policy</a> or visit our <a href="/refundprocess">Refund Center</a>.
+                        </p>
+                        <p><h3>PRICING</h3></p>
+                        <p>
+                            Except where noted otherwise, the List Price or Suggested Price displayed for products on any PlentyBay Service represents the full retail price listed on the product itself, suggested by the manufacturer or supplier, or estimated in accordance with standard industry practice; or the estimated retail value for a comparably featured item offered elsewhere. The List Price or Suggested Price is a comparative price estimate and may or may not represent the prevailing price in every area on any particular day. 
+                        </p>
+                        <p>
+                            For certain items that are offered as a set, the List Price or Suggested Price may represent "open-stock" prices, which means the aggregate of the manufacturer's estimated or suggested retail price for each of the items included in the set. Where an item is offered for sale by one of our merchants, the List Price or Suggested Price may be provided by the merchant.
+                        </p>
+                        <p>
+                            With respect to items sold by PlentyBay, we cannot confirm the price of an item until you order. Despite our best efforts, a small number of the items in our catalog may be mispriced. If the correct price of an item sold by PlentyBay is higher than our stated price, we will, at our discretion, either contact you for instructions before shipping or cancel your order and notify you of such cancellation. Other merchants may follow different policies in the event of a mispriced item.
+
+                        </p>
+                        <p><h3>OTHER BUSINESSES</h3></p>
+                        <p>
+                            Parties other than PlentyBay operate stores, provide services, or sell product lines through the PlentyBay Services. In addition, we provide links to the sites of affiliated companies and certain other businesses. We are not responsible for examining or evaluating, and we do not warrant the offerings of, any of these businesses or individuals or the content of their Web sites. PlentyBay does not assume any responsibility or liability for the actions, product, and content of all these and any other third parties. You should carefully review their privacy statements and other conditions of use.
+                        </p>
+                        <p><h3>DISCLAIMER OF WARRANTIES AND LIMITATION OF LIABILITY</h3></p>
+                        <p><strong>
+                            THE PLENTYBAY SERVICES AND ALL INFORMATION, CONTENT, MATERIALS, PRODUCTS (INCLUDING SOFTWARE) AND OTHER SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE PLENTYBAY SERVICES ARE PROVIDED BY PLENTYBAY ON AN "AS IS" AND "AS AVAILABLE" BASIS, UNLESS OTHERWISE SPECIFIED IN WRITING. PLENTYBAY MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, AS TO THE OPERATION OF THE PLENTYBAY SERVICES, OR THE INFORMATION, CONTENT, MATERIALS, PRODUCTS (INCLUDING SOFTWARE) OR OTHER SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE PLENTYBAY SERVICES, UNLESS OTHERWISE SPECIFIED IN WRITING. YOU EXPRESSLY AGREE THAT YOUR USE OF THE PLENTYBAY SERVICES IS AT YOUR SOLE RISK
+                        </strong></p>
+                        <p><strong>
+                            TO THE FULL EXTENT PERMISSIBLE BY APPLICABLE LAW, PLENTYBAY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. PLENTYBAY DOES NOT WARRANT THAT THE PLENTYBAY SERVICES, INFORMATION, CONTENT, MATERIALS, PRODUCTS (INCLUDING SOFTWARE) OR OTHER SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE PLENTYBAY SERVICES, PLENTYBAY'S SERVERS OR ELECTRONIC COMMUNICATIONS SENT FROM PLENTYBAY ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS. PLENTYBAY WILL NOT BE LIABLE FOR ANY DAMAGES OF ANY KIND ARISING FROM THE USE OF ANY PLENTYBAY SERVICE, OR FROM ANY INFORMATION, CONTENT, MATERIALS, PRODUCTS (INCLUDING SOFTWARE) OR OTHER SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH ANY PLENTYBAY SERVICE, INCLUDING, BUT NOT LIMITED TO DIRECT, INDIRECT, INCIDENTAL, PUNITIVE, AND CONSEQUENTIAL DAMAGES, UNLESS OTHERWISE SPECIFIED IN WRITING.
+                        </strong></p>
+                        <p><h3>OUR ADDRESS</h3></p>
+                        <p>
+                            Plenty Bay Ecommerce Ltd. Unit 4, 9 Orbit Drive, Rosdale, Auckland, 0632, New Zealand
+                        </p>
+                        </strong></p>
+                        <p><h3>Notice and Procedure for Making Claims of Copyright Infringement</h3></p>
+                        <p>
+                            If you believe that your work has been copied in a way that constitutes copyright infringement, please contact us via email. We respond quickly to the concerns of rights owners about any alleged infringement.If you prefer to submit a report in writing, please provide us with this information:
+                            <UL>
+                                <LI>A physical signature of the person authorized to act on behalf of the owner of the copyright interest;</LI>
+                                <LI>A description of the copyrighted work that you claim has been infringed upon;</LI>
+                                <LI>A description of where the material that you claim is infringing is located on the site;
+                                <LI>Your address, telephone number, and e-mail address;</LI>
+                                <LI>A statement by you that you have a good-faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law;</LI>
+                                <LI>A statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner's behalf.</LI>
+                            </UL>
+                        </p>
+                        <p><h3>Additional PlentyBay Terms</h3></p>
+                        <OL>
+                            <LI><b>Use of the PlentyBay Software.</b> You may use PlentyBay Software solely for purposes of enabling you to use and enjoy the PlentyBay Services as provided by PlentyBay, and as permitted by the Conditions of Use, these Software Terms and any Service Terms. You may not incorporate any portion of the PlentyBay Software into your own programs or compile any portion of it in combination with your own programs, transfer it for use with another service, or sell, rent, lease, lend, loan, distribute or sub-license the PlentyBay Software or otherwise assign any rights to the PlentyBay Software in whole or in part. You may not use the PlentyBay Software for any illegal purpose. We may cease providing any PlentyBay Software and we may terminate your right to use any PlentyBay Software at any time. Your rights to use the PlentyBay Software will automatically terminate without notice from us if you fail to comply with any of these Software Terms, the Conditions of Use or any other Service Terms. Additional third party terms contained within or distributed with certain PlentyBay Software that are specifically identified in related documentation may apply to that PlentyBay Software (or software incorporated with the PlentyBay Software) and will govern the use of such software in the event of a conflict with these Conditions of Use. All software used in any PlentyBay Service is the property of PlentyBay or its software suppliers and protected by New Zealand and international copyright laws.</LI>
+                            <LI><b>Use of Third Party Services.</b> When you use the PlentyBay Software, you may also be using the services of one or more third parties, such as a wireless carrier or a mobile platform provider. Your use of these third party services may be subject to the separate policies, terms of use, and fees of these third parties.</LI>
+                            <LI><b>No Reverse Engineering.</b> You may not, and you will not encourage, assist or authorize any other person to copy, modify, reverse engineer, decompile or disassemble, or otherwise tamper with, the PlentyBay Software, whether in whole or in part, or create any derivative works from or of the PlentyBay Software.</LI>
+                            <LI><b>Updates.</b> In order to keep the PlentyBay Software up-to-date, we may offer automatic or manual updates at any time and without notice to you.</LI>                         
+                        </OL>
+                        <hr>
+            </div>  
+        </div>
+    </div>
+{% endblock %}

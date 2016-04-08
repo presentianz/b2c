@@ -155,9 +155,9 @@ $('#email-send').click(function() {
 	console.log(mailto_link);
 	window.location.href = mailto_link;
 	window.open(mailto_link);
-	alert("Thank you!");
+	//alert("Thank you!");
 	} else {
-		alert("不能为空!");
+		//alert("不能为空!");
 	}
 });
 

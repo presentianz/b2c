@@ -20,12 +20,25 @@ a {
     outline: none;
 }
 
+.btn-primary
+{
+    width: 120px;
+    top: -5px;
+}
+
+.dropdown-menu{
+    top: 36px;
+}
+
 a:hover,
 a:focus {
     color: #a8df4e;
     text-decoration:none !important;
     cursor: pointer;
     outline: none;
+}
+ul,li{
+    /* list-style:none; */
 }
 
 .disable-a {
@@ -34,9 +47,6 @@ a:focus {
     cursor: default;
 }
 
-ul,li{
-    list-style:none;
-}
 
 input {
     padding: 8px 10px;
@@ -211,7 +221,6 @@ select.delivery-options {
 
 /* top navbar */
 .navbar {
-    
     min-height: 20px !important;
     height: 30px;
     margin: 0;
@@ -234,6 +243,8 @@ select.delivery-options {
 
 /*mid-header */
 #mid-header {
+    position: static;
+    max-width: 1170px;
     min-width: 1170px;
     clear: both;
     margin-bottom: 30px;
@@ -266,6 +277,14 @@ select.delivery-options {
     color: #6c6c6c;
 }
 
+.bg_hover_mainheader{
+    padding: 12px 1px;
+    background: #ffffff;
+}
+
+.bg_hover_mainheader:hover{
+    background:  #e6e6fa;
+}
 
 #mid-header .history-list {
     display: none;
@@ -293,6 +312,7 @@ select.delivery-options {
     z-index: 5;
     position: relative;
     line-height:30px;
+    left: 50px;
 }
 
 
@@ -441,7 +461,7 @@ select.delivery-options {
 
 .search-select {
     min-width: 50px;
-    width: 110px;
+    width: 130px;
     margin: 0;
     border-radius:0px;
     -webkit-border-radius:0px;  
@@ -468,7 +488,7 @@ select.delivery-options {
 .search-input .search-query {
     padding: 4px 14px;
     line-height: 20px;
-    min-width: 310px;
+    min-width: 450px;
     min-height: 30px;
     outline: none;
     margin: 0;
@@ -512,7 +532,7 @@ select.delivery-options {
 .cart-wrapper {
     height: 50px;
     position: relative;
-    background-color: #a8df4e;
+    background-color: #9bbb59;
     width: 163px;
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
@@ -1340,11 +1360,11 @@ input.qty {
 
 #footer .container-non-responsive {
     background-color:#000;
-    height: 280px;
+    height: 180px;
 }
 #footer .footer-up {
-    padding: 60px;
-    height: 240px;
+    padding: 30px;
+    height: 155px;
 }
 
 #footer h5 {
@@ -1356,7 +1376,7 @@ input.qty {
 #footer .col-xs-2 {
     border-left: 1px solid #ccc;
     text-align: left;
-    height: 130px;
+    height: 100px;
     padding-left: 52px;
 }
 
