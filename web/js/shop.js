@@ -312,7 +312,7 @@ $('.cart-list').on('click', '.cart-remove-button', function (e) {
 		})
 		.done(function (rep) {
 			if(rep == 'cleared') {
-				var innerHtml = "<div class=\"cart-spinner\"><img src=\"/b2c/web/img/spinner.gif\"></div>";
+				var innerHtml = "<div class=\"cart-spinner\"><i class=\"fa fa-spinner fa-pulse\"></i></div>";
 				$('.history-view').html(innerHtml);
 				$('#history-view').attr('data-hovered', 'unhovered');
 				$("#history-view").css("background","transparent");

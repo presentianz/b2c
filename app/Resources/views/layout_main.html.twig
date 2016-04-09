@@ -78,15 +78,6 @@
                             <div class="col-xs-6 no-padding">
                             <div class="navbar-search pull-left">
                             <form action="{{ path('search', {keys : app.request.get('keys') }) }}" method="get"  onsubmit="">
-                                <!-- <select class="search-select">
-                                    <option value="搜索关键词" selected><h6>搜索关键词</h6></option>
-                                    <option value="奶粉"><h6>奶粉</h6></option>
-                                    <option value="爱他美"><h6>爱他美</h6></option>
-                                    <option value="蜂蜜"><h6>蜂蜜</h6></option>
-                                    <option value="蜂胶"><h6>蜂胶</h6></option>
-                                    <option value="鱼油"><h6>鱼油</h6></option>
-                                    <option value="面膜"><h6>面膜</h6></option>
-                                </select> -->
                                 <div class="search-input">
                                     <input type="text" id="keys" name="keys" lang="zh-CN" placeholder="搜索产品..." class="search-query" value="{{ app.request.get('keys') }}">
                                     <i id="search-remove" class="fa fa-remove hide"></i>
@@ -104,12 +95,7 @@
                             <div class="my-detail">             
                                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                                 <div id="after-login">
-                                    <!-- <a class="a-login bg_hover_mainheader" href="{{path('fos_user_security_logout')}}">
-                                    <h6> |注销登录|</h6>
-                                    </a> -->
-                                    <!-- <a class="btn btn-default btn-sm" href="{{ path('user_profile') }}">
-                                      <i class="fa fa-cog"></i> 设置账户</a> -->
-                                    
+                                   
                                     <div class="btn-group">
                                         <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i> {{ app.user.username }}  <i class="fa fa-caret-down"></i></a>
                                         <ul class="dropdown-menu">
@@ -146,16 +132,13 @@
 
                                    <a class="btn btn-default btn-sm" href="{{path('fos_user_registration_register')}}">
                                       <i class="fa fa-user-plus"></i> 注册</a>
-
-                                    <!-- <a class="a-login bg_hover_mainheader" href="{{path('fos_user_security_login')}}"><h6>登录</h6></a>
-                                    <a class="a-login bg_hover_mainheader" href="{{path('fos_user_registration_register')}}"><h6>注册</h6></a> -->
                                 </div>
                                  {% endif %}            
                                 <div id="history-view" class="history a-login" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}" style="padding-left: 50px;">
                                     <h6>最近浏览</h6>
                                     <div class="history-list history-view">
                                         <div class="cart-spinner">
-                                            <img src="{{ asset('img/spinner.gif')}}">
+                                            <i class="fa fa-spinner fa-pulse"></i>
                                         </div>
                                     </div>
                                 </div>
