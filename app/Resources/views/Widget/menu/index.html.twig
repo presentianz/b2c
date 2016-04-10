@@ -1,12 +1,12 @@
 
-	<div class="nav-all">
+	<div class="nav-all-leftmenu">
 		<a href="{{ path('category') }}">全部商品分类</a>
 		<!-- <i class="fa fa-chevron-down"></i> --> 
 	</div>           
 		<ul class="nav nav-list">
 			{% for sub1 in data %}
 			<a href="{{ path('category', { id : sub1.id }) }}" ><li id="{{sub1.id}}">
-				<div class="nav-item">{{ sub1.name }}</div>
+				<div class="nav-item-leftmenu">{{ sub1.name }}</div>
 	        </a>
 	        {% if sub1.__children|length > 0 %}
 	         <div class="well dropdown-menu">

@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
         <!-- Custom CSS -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/left-menu.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/top-navigation-bar.css') }}" type="text/css">
         <!-- Custom upload image CSS -->
         <link rel="stylesheet" href="{{ asset('css/uploadimage.css') }}" type="text/css"/>
         <link rel="stylesheet" href="{{ asset('css/jquery.Jcrop.css') }}"  type="text/css"/>
@@ -45,8 +47,8 @@
             <div id="mid-header">
                 <div class="container-non-responsive">
                     <div class="col-xs-2 logo-width">
-                        <a class="logo" href="{{ path('homepage') }}">
-                            <img src="{{ asset('img/logo-new.jpg') }}" alt="丰盛湾">
+                        <a href="{{ path('homepage') }}">
+                            <img class=".logo-img" src="{{ asset('img/logo/logo_mainpage.jpg') }}" alt="丰盛湾">
                         </a>
                         <!-- <h4 class="text-right">丰盛湾</h4> -->
                     </div>
@@ -60,19 +62,6 @@
                                 <a href="/s?keys=纽乐鱼油"><h6>纽乐鱼油</h6></a>
                                 <a href="/s?keys=护手霜"><h6>护手霜</h6></a>
                             </div>
-                            <div class="curreny pull-right">
-                                <!-- <select class="dollar-select">
-                                <option><h6>$ NZ Dollar</h6></option> -->
-                                <!-- <option><h6>$ AU Dollar</h6></option>
-                                <option><h6>$ UK EURO</h6></option>
-                                <option><h6>$ US Dollar</h6></option> -->
-                                <!-- </select> -->
-                                <!-- <select class="lang-select">
-                                    <option><h6>CN</h6></option> -->
-                                    <!-- <option><h6>EN</h6></option>
-                                    <option><h6>FR</h6></option> -->
-                                <!-- </select>     -->
-                            </div> 
                         </div>
                         <div class="navbar-below">
                             <div class="col-xs-6 no-padding">
@@ -130,7 +119,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div id="history-view" class="history a-login" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}" style="padding-left: 50px;">
+                                <div id="history-view" class="history a-login" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}" style="padding-left: 30px;">
                                     <i class="fa fa-history"></i>&nbsp;&nbsp;最近浏览 
                                     <div class="history-list history-view">
                                         <div class="cart-spinner">
@@ -141,7 +130,7 @@
                                  {% else %}
                                 <div id="before-login">
                                     <a class="btn btn-default btn-sm" href="{{path('fos_user_security_login')}}">
-                                      <i class="fa fa-sign-in"></i>&nbsp;&nbsp;登录</a>
+                                      <i class="fa fa-sign-in"></i>&nbsp;&nbsp;登入</a>
 
                                    <a class="btn btn-default btn-sm" href="{{path('fos_user_registration_register')}}">
                                       <i class="fa fa-user-plus"></i>&nbsp;&nbsp;注册</a>
@@ -149,7 +138,7 @@
                                  {% endif %}            
                             </div>
                         </div>
-                        <div class="pull-right col-xs-2 no-padding">
+                        <div class="pull-right col-xs-2">
                             <div class="cart-wrapper" data-hovered="unhovered" data-path="{{ path('cart_ajax_get') }}">
                             {{ render(controller('AppBundle:Widget/Cart:index')) }}
                             </div>
@@ -287,6 +276,19 @@
                     }
                     
                 })
+            });
+
+            $(document).ready(function(){
+                $(".dropdown").hover(            
+                    function() {
+                        $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+                        $(this).toggleClass('open');        
+                    },
+                    function() {
+                        $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+                        $(this).toggleClass('open');       
+                    }
+                );
             });
         </script>
      

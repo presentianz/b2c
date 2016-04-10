@@ -229,8 +229,6 @@ select.delivery-options {
     margin: 11px 0;
 }
 
-
-
 /* top navbar */
 .navbar {
     min-height: 20px !important;
@@ -272,7 +270,14 @@ select.delivery-options {
 }
 
 #mid-header .logo-width {
-    width:190px;
+    width: 177px;
+    height: 98px;
+}
+}
+
+#mid-header .logo-width img {
+    width: 177px;
+    height: 98px;
 }
 
 #mid-header .logo-width h4 {
@@ -343,7 +348,6 @@ select.delivery-options {
      min-width: 220px;
      right: -80px;
      top: 30px;
-    
 }
 #mid-header .history-list .sub-list {
     max-height: 350px;
@@ -416,12 +420,15 @@ select.delivery-options {
     height: 30px;
     position: relative; 
     border-bottom: 1px solid #ccc;  
-   
+    width: 828px;
 }
 
 .navbar-below {
     
 }
+
+
+
 
 #mid-header .search-keys {
     height: 30px;
@@ -488,6 +495,7 @@ select.delivery-options {
     margin-right:-1px;
 }
 
+
 .search-input,
 .search-button {
     position: relative;
@@ -536,9 +544,8 @@ select.delivery-options {
 }
 
 .my-detail {
-    margin-top: 10px;
-    margin-right: 10px;
-    
+    margin-left: 50px;
+    margin-top: 12px;    
 }
 
 .cart-wrapper {
@@ -548,7 +555,7 @@ select.delivery-options {
     width: 163px;
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
-    padding: 15px 25px;
+    padding: 15px 20px;
 }
 
 
@@ -729,13 +736,13 @@ select.delivery-options {
     color: #fff;
 }
 
-.siderbar .nav-all {
+.siderbar .nav-all-leftmenu {
     background:#fff;
     width:253px;
     height:55px; 
 }
 
-.siderbar .nav-all > a {
+.siderbar .nav-all-leftmenu > a {
     font-size:15px;
     line-height:55px;
     padding-left: 25px;
@@ -744,7 +751,7 @@ select.delivery-options {
     color: #000;
 }
 
-.siderbar .nav-all > i.fa {
+.siderbar .nav-all-leftmenu > i.fa {
     color: #000;
 }
 
@@ -776,11 +783,11 @@ ul.nav {
     display: block;
 }
 
-.nav li a:hover .nav-item {
+.nav li a:hover .nav-item-leftmenu {
      color: #fff;
 }
 
-.nav a .nav-item {
+.nav a .nav-item-leftmenu {
     font-weight: bold;
     color: #a8df4e;
     padding: 10px 25px;
@@ -1632,28 +1639,4 @@ input.qty {
     cursor: pointer;
     text-decoration: underline;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
