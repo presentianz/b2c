@@ -132,8 +132,7 @@ $('#email-send').click(function() {
 //hover cart
 $(function() {
 
-	 $('.continue-shop').click(function() {
-		
+	 $('.continue-shop').click(function() {	
 		//need to fix the route jumper
 	//	$("#loading").css("display","block");
 		setTimeout(function(){
@@ -143,8 +142,6 @@ $(function() {
 		},3000);
 			location.reload();
           });
-
-
 
 	$(".cart-wrapper").hover(function(e) {
 		e.preventDefault();
@@ -320,26 +317,4 @@ $('.cart-list').on('click', '.cart-remove-button', function (e) {
 			}
 		})
 	})
-
-
-
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

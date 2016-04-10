@@ -95,60 +95,65 @@
                             <div class="my-detail">             
                                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                                 <div id="after-login">
-                                   
                                     <div class="btn-group">
-                                        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i> {{ app.user.username }}  <i class="fa fa-caret-down"></i></a>
+                                      <a class="btn btn-default btn-sm dropdown-toggle" href="#" data-toggle="dropdown">
+                                      <i class="fa fa-user fa-fw"></i> {{ app.user.username }} &nbsp;&nbsp;&nbsp;<span class="caret"></span></a>  
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <a href="{{ path('user_profile') }}">
-                                                    <i class="fa fa-cog fa-spin"></i> 个人资料
+                                                    <i class="fa fa-cog fa-spin"></i>&nbsp;用户后台
                                                 </a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
                                                 <a href="#">
-                                                    <i class="fa fa-truck"></i> 订单查询
+                                                    <i class="fa fa-truck"></i>&nbsp;快递查询
                                                 </a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
                                                 <a href="{{ path('cart') }}">
-                                                    <i class="fa fa-shopping-cart"></i> 购物结算
+                                                    <i class="fa fa-shopping-cart"></i>&nbsp;购物结算
+                                                     <span class="badge">
+                                                        <div id="number_in_cart">
+                                                            <i class="fa fa-spinner fa-pulse"></i>
+                                                        </div> 
+                                                     </span>
                                                 </a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
                                                 <a href="{{path('fos_user_security_logout')}}">
-                                                    <i class="fa fa-power-off"></i> 注销账户
+                                                    <i class="fa fa-power-off"></i>&nbsp;登出账户
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                 {% else %}
-                                <div id="before-login">
-                                    <a class="btn btn-default btn-sm" href="{{path('fos_user_security_login')}}">
-                                      <i class="fa fa-sign-in"></i> 登录</a>
-
-                                   <a class="btn btn-default btn-sm" href="{{path('fos_user_registration_register')}}">
-                                      <i class="fa fa-user-plus"></i> 注册</a>
-                                </div>
-                                 {% endif %}            
                                 <div id="history-view" class="history a-login" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}" style="padding-left: 50px;">
-                                    <h6>最近浏览</h6>
+                                    <i class="fa fa-history"></i>&nbsp;&nbsp;最近浏览 
                                     <div class="history-list history-view">
                                         <div class="cart-spinner">
                                             <i class="fa fa-spinner fa-pulse"></i>
                                         </div>
                                     </div>
                                 </div>
+                                 {% else %}
+                                <div id="before-login">
+                                    <a class="btn btn-default btn-sm" href="{{path('fos_user_security_login')}}">
+                                      <i class="fa fa-sign-in"></i>&nbsp;&nbsp;登录</a>
+
+                                   <a class="btn btn-default btn-sm" href="{{path('fos_user_registration_register')}}">
+                                      <i class="fa fa-user-plus"></i>&nbsp;&nbsp;注册</a>
+                                </div>
+                                 {% endif %}            
                             </div>
                         </div>
                         <div class="pull-right col-xs-2 no-padding">
                             <div class="cart-wrapper" data-hovered="unhovered" data-path="{{ path('cart_ajax_get') }}">
                             {{ render(controller('AppBundle:Widget/Cart:index')) }}
                             </div>
-                        </div>
+                        </div> 
                     </div>
                 </div>
                 </div>
@@ -179,8 +184,8 @@
                         <h3>Plenty Bay 承诺</h3>
                         <div><img src="{{ asset('img/guran.jpg') }}" alt=""></div>
                     </div>
-                </div> 
-            </div> -->
+                </div>
+            </div>  -->
             <div class="container-non-responsive"> 
                 <div class="footer-up">
                     <div class="col-xs-2">
@@ -275,6 +280,12 @@
                         });   
                     }
                     $('#cart').html("<div class='cart-show'><i class='fa fa-shopping-cart'><i class='fa fa-circle'><h6>" + num + "</h6></i></i>&nbsp;$" + total +"&nbsp;</div>");
+                    if(num <= 99){
+                        $('#number_in_cart').html(num);
+                    } else {
+                        $('#number_in_cart').html("99+");
+                    }
+                    
                 })
             });
         </script>

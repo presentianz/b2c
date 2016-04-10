@@ -1,0 +1,93 @@
+{% extends 'layout_main.html.twig' %}
+
+{% block title %}用户{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/user.css') }}" type="text/css">
+{% endblock %}
+
+{% block header %} 
+        {{parent()}}
+{% endblock %}
+
+{% block body %}
+<div id="user-page">
+    <div class="nav-side-menu">  <!-- start of 'nav-side-menu' div -->
+        <div class="brand">丰盛湾 账户设置与管理</div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li>
+                    <a href="{{ path('user_profile') }}">
+                        <i class="fa fa-dashboard fa-lg"></i>&nbsp;账户状态总览
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('user_profile') }}">
+                        <i class="fa fa-user"></i>&nbsp;完善个人资料
+                    </a>
+                </li>
+                <li>
+                          <a href="{{path('user_address')}}">
+                          <i class="fa fa-map-marker"></i>&nbsp;常用地址管理
+                          </a>
+                </li>
+                <li>
+                          <a href="{{ path('user_profile') }}">
+                          <i class="fa fa-shopping-cart"></i>&nbsp;我的购物车
+                          </a>
+                </li>
+                <li>
+                          <a href="{{path('user_order')}}">
+                          <i class="fa fa-credit-card"></i>&nbsp;查询消费记录
+                          </a>
+                </li>
+                <li>
+                          <a href="{{path('fos_user_change_password')}}">
+                          <i class="fa fa-key"></i>&nbsp;更改密码
+                          </a>
+                </li>
+                <li>
+                          <a href="{{ path('user_profile') }}">
+                          <i class="fa fa-power-off"></i>&nbsp;登出账户
+                          </a>
+                </li>
+            </ul>
+        </div>
+    </div> <!-- end of 'nav-side-menu' div -->
+    {# {{ render(controller('AppBundle:Widget/Default:postFee')) }} #}
+    <div class="col-xs-9 page-right">
+        <div class="page-breadcrumb">
+                    <ol>
+                        <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
+                        <li>&nbsp;>&nbsp;{% block page_breadcrumb %}用户信息{% endblock page_breadcrumb %}</li>
+                    </ol>
+        </div>
+        <div class="page-content">
+            <div class="page-title">
+                    <div class="page-leaf-top"></div>
+                    <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
+                    <div><h4>{% block page_title %}用户信息{% endblock page_title %}</h4></div>     
+            </div>
+            <div class="user-content">
+        	       {% block fos_user_content %}
+                     {% include "FOSUserBundle:Profile:show_content.html.twig" %}
+                   {% endblock fos_user_content %}
+            </div>
+        </div>
+        {#{{ render(controller('AppBundle:Widget/Default:index')) }}#}  
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src="{{ asset('js/user.js') }}"></script>
+    {#<script src="{{asset('js/SimpleAjaxUploader.js')}}"></script>
+    <script src="{{ asset('js/id-upload.js') }}"></script>#}
+{% endblock %}
+
+
+
+

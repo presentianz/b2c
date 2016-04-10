@@ -20,14 +20,14 @@ a {
     outline: none;
 }
 
-.btn-primary
+.btn-default
 {
-    width: 120px;
+    width: 88px;
     top: -5px;
 }
 
 .dropdown-menu{
-    top: 36px;
+    top: 26px;
 }
 
 .caret-up {
