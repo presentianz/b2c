@@ -21,17 +21,17 @@ a {
 }
 
 .right_a_bit{
-    left: 50px;
+    left: 100px;
 }
 
 .btn-default
 {
     width: 92px;
-    top: -5px;
+    top: -3px;
 }
 
 .dropdown-menu{
-    top: 26px;
+    top: 30px;
 }
 
 .caret-up {
