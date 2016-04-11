@@ -20,6 +20,10 @@ a {
     outline: none;
 }
 
+.right_a_bit{
+    left: 50px;
+}
+
 .btn-default
 {
     width: 92px;

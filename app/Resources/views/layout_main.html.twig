@@ -84,7 +84,7 @@
                             <div class="my-detail">             
                                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                                 <div id="after-login">
-                                    <div class="btn-group">
+                                    <div class="btn-group right_a_bit">
                                       <a class="btn btn-default btn-sm dropdown-toggle" href="#" data-toggle="dropdown">
                                       <i class="fa fa-user fa-fw"></i> 您好！ <span class="caret"></span></a>  
                                         <ul class="dropdown-menu">
@@ -119,14 +119,14 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div id="history-view" class="history a-login" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}" style="padding-left: 30px;">
+                                <!-- <div id="history-view" class="history a-login" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}" style="padding-left: 30px;">
                                     <i class="fa fa-history"></i>&nbsp;&nbsp;最近浏览 
                                     <div class="history-list history-view">
                                         <div class="cart-spinner">
                                             <i class="fa fa-spinner fa-pulse"></i>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                  {% else %}
                                 <div id="before-login">
                                     <a class="btn btn-default btn-sm" href="{{path('fos_user_security_login')}}">
