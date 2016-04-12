@@ -8,9 +8,11 @@
         <div class="side-content">
             <div class="side-item">
                 <a href="{{ path('product', {id : product.id}) }}">
-                    <img class="lazy" src="{{ asset('img/src') }}/{{ product.imageLink }}"
+                    <div class="not-tagged-side-image">
+                        <img class="lazy" src="{{ asset('img/src') }}/{{ product.imageLink }}"
                          data-original="{{ asset('img/src') }}/{{ product.imageLink }}/poster/{{ product.poster }}"
                          alt="">
+                    </div>
 
                     <div class="pro-text">
                         <div class="pull-left">
