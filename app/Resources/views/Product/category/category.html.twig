@@ -134,7 +134,9 @@ item_no: 18
                 <p>Hot</p>
             </div>
             <a href="{{ path('product', {id : product.id}) }}">
-                <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                <div class="tagged-image">
+                    <img class="lazy" src="{{ asset('img/default.jpg') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                </div>    
                 <div class="pro-text">
                     <div class="pull-left">
                         <div class="pro-title">{{ product.name }}</div>
@@ -153,9 +155,14 @@ item_no: 18
     </div> 
     {% else %}  
         <div class="row row-nothing">
-                <h3>未找到与您搜索相关的商品</h3>
-                
-            </div>
+            <hr>
+            <h3>很抱歉，未找到您所搜索的商品</h3>
+            <hr>
+            <img src="{{ asset('/img/sorry_search_notfound.jpg') }}" width="30%" height="30%" >
+            <hr>
+            <h3>下边的推荐也许有您喜欢的商品</h3>
+            <hr>
+        </div>
             {{ render(controller('AppBundle:Widget/Default:hotPro')) }}
     {% endif %}
 
