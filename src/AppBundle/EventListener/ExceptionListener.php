@@ -10,8 +10,8 @@ class ExceptionListener
 {
     public function onKernelException(GetResponseForExceptionEvent $event)
     {
-        header('Location: /404', true, true ? 301 : 302);
-        exit();
+        //header('Location: /404', true, true ? 301 : 302);
+        //exit();
         // You get the exception object from the received event
         $exception = $event->getException();
         $message = sprintf(
