@@ -83,7 +83,8 @@
                                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                                 <div id="after-login">
                                     <div class="btn-group right_a_bit">
-                                      <a class="btn btn-default btn-sm dropdown-toggle" href="#" data-toggle="dropdown">
+                                      <a class="btn btn-default btn-sm dropdown-toggle" href="#" data-toggle="dropdown" 
+                                      data-toggle-title="tooltip" title="尊敬的用户:[{{ app.user.username }}]">
                                       <i class="fa fa-user fa-fw"></i> 您好！ <span class="caret"></span></a>  
                                         <ul class="dropdown-menu">
                                             <li>
@@ -289,6 +290,11 @@
                     }
                 );
             });
+
+                                                 
+            $(document).ready(function(){
+                $('[data-toggle-title="tooltip"]').tooltip();   
+            });                      
         </script>
      
         {% block javascripts %}
