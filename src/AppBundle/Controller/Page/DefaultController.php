@@ -97,8 +97,8 @@ class DefaultController extends Controller
     {
         $message = \Swift_Message::newInstance()
             ->setSubject('Hello Email')
-            ->setFrom('support@plentybay.co.nz')
-            ->setTo('support@plentybay.co.nz')
+            ->setFrom('support@pbay.co.nz')
+            ->setTo('support@pbay.co.nz')
             ->setBody('123')
             /*
              * If you also want to include a plaintext version of the message
