@@ -133,9 +133,10 @@
 }
 
 #product-page .tab-contents .tab-content-desc {
-    font-size: 12px;
+    font-size: 15px;
     line-height:20px;
     margin-bottom: 10px;
+    padding-top: 10px;
 }
 
 #product-page .tab-contents .tab-content-foot {

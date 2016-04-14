@@ -24,39 +24,33 @@
             <li><a href="{{path("user_order")}}"><div class="nav-item-leftmenu">我的订单</div></a></li>
 			<li><a href="{{path("user_address")}}"><div class="nav-item-leftmenu">常用地址</div></a></li>
             <li><a href="{{path("user_topup")}}"><div class="nav-item-leftmenu">充值</div></a></li>
-            {<li><div class="nav-item-leftmenu"><a href="{{path("user_profile")}}">消费历史</a></div></li> }
-            {<li><a href="{{path("user_email")}}"><div class="nav-item-leftmenu">邮件选择</div></a></li>}
-            </ul>
+            <!-- <li><div class="nav-item-leftmenu"><a href="{{path("user_profile")}}">消费历史</a></div></li> -->
+            <li><a href="{{path("user_email")}}"><div class="nav-item-leftmenu">邮件选择</div></a></li>
+        </ul>
 
             <!--best pros-->
-            {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+            {# {{ render(controller('AppBundle:Widget/Default:bestPro')) }} #}
             {{ render(controller('AppBundle:Widget/Default:postFee')) }}
 
     </div>
     <div class="col-xs-9 page-right">
-                <div class="page-breadcrumb">
-                    <ol>
-                        <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
-                        <li>&nbsp;>&nbsp;{% block page_breadcrumb %}用户信息{% endblock page_breadcrumb %}</li>
-                    </ol>
+        <div class="page-content">
+            <div class="page-title">
+                <div class="panel-primary" style="width: 100%">
+                    <div class="panel-heading" style="background-color: #95B56F; font-size:25px;">  
+                        <i class="fa fa-user" aria-hidden="true"></i>&nbsp; {% block page_title %}用户信息{% endblock page_title %}
+                    </div>
                 </div>
-        	<div class="page-content">
-                <div class="page-title">
-                    <div class="page-leaf-top"></div>
-                    <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
-                    <div><h4>{% block page_title %}用户信息{% endblock page_title %}</h4></div>     
-                </div>
-                <div class="user-content">
+            </div>
+            <div class="user-content">
         	       {% block fos_user_content %}
                      {% include "FOSUserBundle:Profile:show_content.html.twig" %}
                    {% endblock fos_user_content %}
-                </div>
             </div>
+        </div>
         {#{{ render(controller('AppBundle:Widget/Default:index')) }}#}
          
     </div>
-
-
  </div>
 
     {% endblock %}

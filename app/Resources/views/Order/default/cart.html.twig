@@ -8,113 +8,120 @@
 
 {% block body %}   
         <div class="col-xs-3 siderbar">
-                {{ render(controller('AppBundle:Widget/Menu:index')) }}
-                {{ render(controller('AppBundle:Widget/Default:brandList')) }}
-                 {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
-                  {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
+            {{ render(controller('AppBundle:Widget/Menu:index')) }}
+            {{ render(controller('AppBundle:Widget/Default:brandList')) }}
+            {# 
+                {{ render(controller('AppBundle:Widget/Default:bestPro')) }} 
+            #} 
+            {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
         </div>
         <div class="col-xs-9 page-right">
-            <div class="page-breadcrumb">
-                <ol>
-                    <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
-                    <li>&nbsp;>&nbsp;我的购物车</li>
-                </ol>
-            </div>
-            <div class="page-content" id="cart-page-container">
-            <div class="page-title">
-            <div class="page-leaf-top"></div>
-                <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
-                <div><h4>我的购物车</h4></div>
-            </div>
-            <div class="cart-tabs">
-                <div class="cart-tab active">1.查看购物车</div> 
-                <div class="cart-tab-arrow"></div>
-                <div class="cart-tab">2.填写购物信息</div>
-                <div class="cart-tab-arrow"></div>
-                <div class="cart-tab">3.完成订单</div>
-            </div>
-            {% if data|length > 0 %}
-             <div class="cart-content col-xs-12">    
-               <div class="table-header">请在此确认你的订单产品</div>           
-                
-                
-                <table class="table no-margin">
-                    <thead>
-                        <tr>
-                            <th width="5%"></th>
-                            <th width="15%">产品</th>
-                            <th width="40%" class="product-name">产品名称</th>
-                            <th width="10%">单价</th>
-                            <th width="10%">价格$</th>
-                            <th width="10%">数量</th>
-                            <th width="10%">操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>    
-                        <form action="{{path('checkout')}}" method="post" onsubmit="">
-                        {% set sum = 0 %}
-                            {% for cartproduct in data %}
-                                <tr>
-                                    <td><input type="checkbox" name="product-id[]" value="{{ cartproduct.product.id }}" checked/></td>
-                                    <td class="product-img">
-                                        <img src="{{ asset('img/src') }}/{{cartproduct.product.imageLink}}/poster/{{cartproduct.product.poster}}"/>
-                                    </td>
-                                    <td class="product-name">  
-                                        <div class="name-limit">
-                                        <a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a>
-                                        </div>
-                                    </td>
-                                    <td id="oneprice_{{cartproduct.product.id }}"><strong>{{ cartproduct.product.priceDiscounted }}</strong></td> 
-                                    <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
-                                   
-                                    <td class="text-right">
-                                        <div class="number-group">                       
-                                            <div max="99" min="1" maxlength ="2" class="qty"  id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">{{ cartproduct.count }}</div>
 
-                                            <div class="number-button" >  
-                                                <div class="number-input number-input-up cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="+" data-no="1"><i class="fa fa-caret-up"></i></div>
-                                                <hr>
-                                                <div class="number-input number-input-down cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="-" data-no="1"><i class="fa fa-caret-down"></i></div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                     <td><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm">删除</a></td>    
-                                </tr>
-                                {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted %}
-                            {% endfor %}
-                   </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="3" class="text-left">
-                                <span>
-                                    <input type="checkbox" onclick="selectAll(this)" checked/><strong>选择全部商品</strong>
-                                </span> 
-                            </td>
-                        </tr>
-                        <tr class="tfoot-bottom"> 
-                            <td colspan="3" class="text-left"><strong>商品总额：NZ$</strong>
-                             {% if data|length > 0 %}
-                                <strong id="totalprice">{{sum}}</strong>
-                             {% else %}
-                                 <strong>$0.00</strong> 
-                                 {% endif %}
-                            <td colspan="4" class="text-right">
-                                
-                            <input type="submit" value="立刻结算" class="btn-pay">
-                            </td>
-                        </tr>
-                        </form>
-                    </tfoot>
-                    </table>
-                    </div>
-                    {% else %}
-                        <div class="row row-nothing">
-                            <h3>您的购物车是空的，来这里<a href="{{ path('homepage')}}">逛逛</a></h3>
+
+            <div class="page-content" id="cart-page-container">
+                <div class="page-title">
+                    <div class="panel-primary" style="width: 100%">
+                        <div class="panel-heading" style="background-color:#95B570; font-size:25px;">  
+                            <a href="{{ path('homepage')}}"><i class="fa fa-home" style="font-size: 30px"></i></a>
+                            &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp; 
+                            我的购物车
                         </div>
-                        {{ render(controller('AppBundle:Widget/Default:hotPro')) }}       
-                    {% endif %}
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="cart-tabs">
+                    <div class="cart-tab active">1.查看购物车</div> 
+                    <div class="cart-tab-arrow"></div>
+                    <div class="cart-tab">2.填写购物信息</div>
+                    <div class="cart-tab-arrow"></div>
+                    <div class="cart-tab">3.完成订单</div>
+                </div>
                 
-            
+                <hr>
+
+                {% if data|length > 0 %}
+                <div class="cart-content col-xs-12">    
+                    <div class="table-header">请在此确认你的订单产品</div>           
+                
+                
+                    <table class="table no-margin">
+                        <thead>
+                            <tr>
+                                <th width="5%"></th>
+                                <th width="15%">产品</th>
+                                <th width="40%" class="product-name">产品名称</th>
+                                <th width="10%">单价</th>
+                                <th width="10%">价格$</th>
+                                <th width="10%">数量</th>
+                                <th width="10%">操作</th>
+                            </tr>
+                        </thead>
+                        <form action="{{path('checkout')}}" method="post" onsubmit="">
+                            <tbody>   
+                            {% set sum = 0 %}
+                                {% for cartproduct in data %}
+                                    <tr>
+                                        <td><input type="checkbox" name="product-id[]" value="{{ cartproduct.product.id }}" checked/></td>
+                                        <td class="product-img">
+                                            <img src="{{ asset('img/src') }}/{{cartproduct.product.imageLink}}/poster/{{cartproduct.product.poster}}"/>
+                                        </td>
+                                        <td class="product-name">  
+                                            <div class="name-limit">
+                                            <a href="{{ path('product', { id : cartproduct.product.id }) }}">{{ cartproduct.product.name }}</a>
+                                            </div>
+                                        </td>
+                                        <td id="oneprice_{{cartproduct.product.id }}"><strong>{{ cartproduct.product.priceDiscounted }}</strong></td> 
+                                        <td id="allprice_{{cartproduct.product.id}}" ><strong class="allprice">{{ cartproduct.count*cartproduct.product.priceDiscounted }}</strong></td>
+                                       
+                                        <td class="text-right">
+                                            <div class="number-group">                       
+                                                <div max="99" min="1" maxlength ="2" class="qty"  id="{{cartproduct.product.id }}" data-action="number" data-path="{{ path('cart_ajax_action') }}">{{ cartproduct.count }}</div>
+
+                                                <div class="number-button" >  
+                                                    <div class="number-input number-input-up cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="+" data-no="1"><i class="fa fa-caret-up"></i></div>
+                                                    <hr>
+                                                    <div class="number-input number-input-down cart-action-button" data-id="{{cartproduct.product.id }}" data-path="{{ path('cart_ajax_action') }}" data-action="-" data-no="1"><i class="fa fa-caret-down"></i></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                         <td><a class="cart-remove-button" data-path="{{ path('cart_ajax_action') }}" data-id="{{ cartproduct.product.id }}" data-action="rm">删除</a></td>    
+                                    </tr>
+                                    {% set sum = sum + cartproduct.count*cartproduct.product.priceDiscounted %}
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" class="text-left">
+                                        <span>
+                                            <input type="checkbox" onclick="selectAll(this)" checked/><strong>选择全部商品</strong>
+                                        </span> 
+                                    </td>
+                                </tr>
+                                <tr class="tfoot-bottom"> 
+                                    <td colspan="3" class="text-left"><strong>商品总额：NZ$</strong>
+                                     {% if data|length > 0 %}
+                                        <strong id="totalprice">{{sum}}</strong>
+                                     {% else %}
+                                         <strong>$0.00</strong> 
+                                         {% endif %}
+                                    <td colspan="4" class="text-right">
+                                        
+                                    <input type="submit" value="立刻结算" class="btn-pay">
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </form>
+                    </table>
+                </div>
+                {% else %}
+                <div class="row row-nothing">
+                    <h3>您的购物车是空的，来<a href="{{ path('homepage')}}" style="color: pink">这里逛逛</a>吧。</h3>
+                </div>
+                    {{ render(controller('AppBundle:Widget/Default:hotPro')) }} 
+                {% endif %}
+            </div>
         </div>
     </div>
 

@@ -327,13 +327,21 @@ select.delivery-options {
 }
 
 #mid-header .history,
-#after-login,
 #before-login {
     display: inline-block;
     z-index: 5;
     position: relative;
     line-height:30px;
     left: 50px;
+}
+
+#after-login{
+    display: inline-block;
+    z-index: 5;
+    position: relative;
+    line-height:30px;
+    left: 50px;   
+    width: 100%; 
 }
 
 
@@ -747,12 +755,13 @@ select.delivery-options {
 }
 
 .siderbar .nav-all-leftmenu > a {
-    font-size:15px;
+    font-size:25px;
     line-height:55px;
     padding-left: 25px;
     font-weight: bold;
     margin-right: 5px;
     color: #000;
+
 }
 
 .siderbar .nav-all-leftmenu > i.fa {
@@ -768,7 +777,7 @@ ul.nav {
     width: 100%;
     height: auto;
     min-height: 340px;
-    background-color: #000;
+    background-color: #95B56F;
 }
 
 .nav > li {
@@ -779,7 +788,7 @@ ul.nav {
     padding: 0;
 }
 .nav li a:hover {
-    background-color: #95B570 !important;
+    background-color: #85a55F !important;
    
 } 
 
@@ -788,12 +797,13 @@ ul.nav {
 }
 
 .nav li a:hover .nav-item-leftmenu {
-     color: #fff;
+     color: antiquewhite;
 }
 
 .nav a .nav-item-leftmenu {
+    font-size: 20px;
     font-weight: bold;
-    color: #95B570;
+    color: ghostwhite;;
     padding: 10px 25px;
     width: 100%;
 }
@@ -1024,27 +1034,31 @@ ul.nav {
     color: #fff;
 }
 
-.tag-b {
+.tag-now {
     border-top-color: #17c5bb;
 }
 
-.tag-y {
-    border-top-color: #faed01;
+.tag-new{
+    border-top-color: palevioletred;
 }
 
-.tag-y p {
+.tag-hot {
+    border-top-color: orange;
+}
+
+.tag-hot p {
     color: #000;
 }
 
 
 .hotdeal .row > div img {
     width: 100%;
-    height: 100%
     overflow: hidden;
 }
 
 .tagged-image{
     background: #ffffff;
+    top: 5px;
     width: 75%;
     height: 75%;
     position: relative;
@@ -1116,7 +1130,7 @@ del {
 }
 
 .siderbar .side-title {
-    background:#000;
+    background:#95B56F;
     width:100%;
     height:75px;
     line-height:45px;
@@ -1274,7 +1288,6 @@ del {
 .page-title { 
     margin: 0px;
     padding: 0px;
-    height: 70px;
 }
 
 .page-title > div {

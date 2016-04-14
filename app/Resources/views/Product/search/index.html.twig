@@ -122,8 +122,8 @@
                             <div class="row">
                                 {% for product in data.products|slice(3*(i - 1), 3) %}
                                     <div class="col-xs-4">
-                                    <div class="tag tag-b">
-                                    <p>New</p>
+                                    <div class="tag tag-hot">
+                                    <p>Hot</p>
                                     </div>
                                         <a href="{{ path('product', {id : product.id}) }}">
                                             <div class="tagged-image">
