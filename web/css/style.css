@@ -48,7 +48,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #a8df4e;
+    color: #95B570;
     text-decoration:none !important;
     cursor: pointer;
     outline: none;
@@ -95,7 +95,7 @@ input[type="submit"] {
 input[type="submit"]:hover, 
 input[type="submit"]:focus {
     cursor: pointer;
-    background-color: #a8df4e;
+    background-color: #95B570;
     color: #000;
 }
 
@@ -180,7 +180,7 @@ select.delivery-options {
 }
 
 .color-basis {
-    color: #a8df4e !important;
+    color: #95B570 !important;
     font-weight: bold;
 }
 
@@ -251,7 +251,7 @@ select.delivery-options {
 }
 
 .navbar a h6:hover {
-    color: #a8df4e;
+    color: #95B570;
 }
 
 
@@ -364,7 +364,7 @@ select.delivery-options {
 
 
 #mid-header .history-list a h6:hover {
-    color: #a8df4e;
+    color: #95B570;
 }
 
 #mid-header .history .item {
@@ -453,7 +453,7 @@ select.delivery-options {
 }
 
 #mid-header .search-keys a:hover {
-     border-bottom: 3px solid #a8df4e;
+     border-bottom: 3px solid #95B570;
 }
 
 .dollar-select,
@@ -714,7 +714,7 @@ select.delivery-options {
 }
 
 .cart-list strong {
-    color: #a8df4e;
+    color: #95B570;
     margin: 0 2px;
 }
 
@@ -779,7 +779,7 @@ ul.nav {
     padding: 0;
 }
 .nav li a:hover {
-    background-color: #a8df4e !important;
+    background-color: #95B570 !important;
    
 } 
 
@@ -793,7 +793,7 @@ ul.nav {
 
 .nav a .nav-item-leftmenu {
     font-weight: bold;
-    color: #a8df4e;
+    color: #95B570;
     padding: 10px 25px;
     width: 100%;
 }
@@ -826,7 +826,7 @@ ul.nav {
 }
 
 .nav .dropdown-menu div a:hover {
-     border-bottom: 3px solid #a8df4e;
+     border-bottom: 3px solid #95B570;
      color: #000;
 }
 
@@ -1212,12 +1212,12 @@ del {
 }
 
 .search-keys.active {
-    background: #a8df4e;
+    background: #95B570;
     color: #000; 
 }
 
 .search-keys:hover {
-    background: #a8df4e;
+    background: #95B570;
     color: #000; 
     font-weight: bolder;
 }
@@ -1252,7 +1252,7 @@ del {
 }
 
 .page-breadcrumb .toolbarcate > div {
-    background-color: #a8df4e;
+    background-color: #95B570;
     margin-right: 10px;
     color: #fff;
     padding: 0px 10px 0px 10px;
@@ -1308,7 +1308,7 @@ del {
 
 
 .page-sub-title {
-    color: #a8df4e;
+    color: #95B570;
     font-weight: bolder;
     margin: 20px 20px 20px 50px;
     font-size: 19px;
@@ -1385,7 +1385,7 @@ input.qty {
 }
 
 .footer-guarantee {
-    background-color: #a8df4e;
+    background-color: #95B570;
     color: #fff;
 }
 
@@ -1488,11 +1488,11 @@ input.qty {
 
 .no-page h1 {
     font-size: 150px;
-    color: #a8df4e;
+    color: #95B570;
 }
 
 .no-page strong {
-    color: #a8df4e;
+    color: #95B570;
 }
 
 
@@ -1524,7 +1524,7 @@ input.qty {
 }
 
 /*#loading > div h4 {
-    color: #a8df4e;
+    color: #95B570;
     margin-bottom: 10px;
     text-align: center;
     font-weight: bold;
