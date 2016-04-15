@@ -33,7 +33,7 @@
                     'node' => $tree[$key]
                 ));
             }
-            /* 今日推介,热卖畅销,限时特卖 */
+            /* 今日推荐,热卖畅销,限时特卖 */
             for ($i = 0; $i < 3; $i ++) {
                 $widget[$i] = $em->getRepository('AppBundle:Product')->findIndexWidgetProducts($i + 1, 3);
             }

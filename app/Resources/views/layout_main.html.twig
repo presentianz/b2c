@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('css/left-menu.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('css/top-navigation-bar.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/floating-button.css') }}" type="text/css">
         <!-- Custom upload image CSS -->
         <link rel="stylesheet" href="{{ asset('css/uploadimage.css') }}" type="text/css"/>
         <link rel="stylesheet" href="{{ asset('css/jquery.Jcrop.css') }}"  type="text/css"/>
@@ -174,10 +175,11 @@
             </div>
             {% endblock %}
         </div>
-
         <!-- body -->
         <div class="container-non-responsive">
-            {% block body %}{% endblock %} 
+            {% block body %}
+
+            {% endblock %} 
         </div>
         <div id="footer">
             <!-- <div class="container-non-responsive">
@@ -249,10 +251,12 @@
             </div>
         </div>
        
-    <!-- No Javascript warnings -->
-    <noscript>
-        <div>You browser doesn't support JavaScript or has it turned off. This website requires JavaScript to working propertly.</div>
-    </noscript>
+        <!-- No Javascript warnings -->
+        <noscript>
+            <div>
+                You browser doesn't support JavaScript or has it turned off. This website requires JavaScript to working propertly.
+            </div>
+        </noscript>
     
         <!-- global asset var -->
         <script type="text/javascript">
@@ -299,10 +303,61 @@
                     }
                 );
             });       
+
+            /* Floating-button JS */
+            $(document).ready(function () {
+                $('.material-button-toggle').click(function () {
+                    $(this).toggleClass('open');
+                    $('.option').toggleClass('scale-on');
+                });
+            });
+
+            $(function(){
+                $('.popover-test').popover();       
+                $('[ data-toggle-title="popover" ]').popover({ 
+                    html : true, 
+                    content: function() {
+                      return $('#popover_content_wrapper').html();
+                    }
+                });
+            });
         </script>
-     
         {% block javascripts %}
         {% endblock %}
-
     </body>
+                <!-- Floating Button -->
+                <div class="container">
+                <div class="row">
+                  <div class="col-md-4 col-md-offset-4">
+                    <div class="material-button-anim">
+                      <ul class="list-inline" id="options">
+                        <li class="option">
+                          <button class="material-button option1" type="button" data-placement="left" data-trigger="focus" data-toggle-title="popover" 
+                          title="关注官方微信，让咨询无时差"
+                          data-content="<img src='{{ asset('/img/wechat_qr_code.gif') }}' width='200px' height='200px'> ">
+                            <i class="fa fa-weixin" aria-hidden="true"></i>
+                          </button>
+                        </li>
+                        <li class="option">
+                            <a href="http://weibo.com/plentybay">
+                              <button class="material-button option2" type="button">
+                               <i class="fa fa-weibo" aria-hidden="true"></i>
+                              </button>
+                            </a>
+                        </li>
+                        <li class="option">
+                            <a href="https://www.facebook.com/Plentybay-480054388853425/">
+                              <button class="material-button option3" type="button">
+                                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                              </button>
+                            </a>
+                        </li>
+                      </ul>
+                      <button class="material-button material-button-toggle" type="button">
+                        <span class="fa fa-plus" aria-hidden="true"></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            </div> 
 </html>

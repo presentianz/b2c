@@ -21,15 +21,15 @@
             <div class="page-content" id="cart-page-container">
                 <div class="page-title">
                     <div class="panel-primary" style="width: 100%">
-                        <div class="panel-heading" style="background-color:#95B570; font-size:25px;">  
-                            <a href="{{ path('homepage')}}"><i class="fa fa-home" style="font-size: 30px"></i></a>
+                        <div class="panel-heading panel-heading-no-bottom-border" style="background-color:#95B570; font-size:18px;">  
+                            <a href="{{ path('homepage')}}"><i class="fa fa-home" style="font-size: 25px"></i></a>
                             &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp; 
                             我的购物车
                         </div>
                     </div>
                 </div>
 
-                <hr>
+                <br><hr>
 
                 <div class="cart-tabs">
                     <div class="cart-tab active">1.查看购物车</div> 
@@ -117,7 +117,7 @@
                 </div>
                 {% else %}
                 <div class="row row-nothing">
-                    <h3>您的购物车是空的，来<a href="{{ path('homepage')}}" style="color: pink">这里逛逛</a>吧。</h3>
+                    <a href="{{ path('homepage')}}"><div width="100%"><h3>您的购物车是空的，点击返回主页继续开心购物吧</h3></div></a>
                 </div>
                     {{ render(controller('AppBundle:Widget/Default:hotPro')) }} 
                 {% endif %}

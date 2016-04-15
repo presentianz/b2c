@@ -18,8 +18,8 @@
         <div class="page-content">
             <div class="page-title">
                 <div class="panel-primary" style="width: 100%">
-                    <div class="panel-heading" style="background-color:#95B570; font-size:25px;">  
-                        <a href="{{ path('homepage')}}"><i class="fa fa-home" style="font-size: 30px"></i></a>
+                    <div class="panel-heading panel-heading-no-bottom-border" style="background-color:#95B570; font-size:18px;">  
+                        <a href="{{ path('homepage')}}"><i class="fa fa-home" style="font-size: 25px"></i></a>
                             &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;
                         {% for category in data.path %}
                         <a href="{{ path('category', { id : category.id }) }}">{{ category.name }}</a> 

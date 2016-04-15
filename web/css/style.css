@@ -735,6 +735,10 @@ select.delivery-options {
     width: 100%;
 }
 
+.panel-heading-no-bottom-border{
+    border-bottom: none;
+}
+
 
 
 /* Left Sider Navbar */
@@ -751,11 +755,11 @@ select.delivery-options {
 .siderbar .nav-all-leftmenu {
     background:#fff;
     width:253px;
-    height:55px; 
+    height:48px; 
 }
 
 .siderbar .nav-all-leftmenu > a {
-    font-size:25px;
+    font-size:20px;
     line-height:55px;
     padding-left: 25px;
     font-weight: bold;
@@ -949,8 +953,6 @@ ul.nav {
 }
 
 
-
-
 /*   Hot Staffs   */
 .hotdeal {
     background-color: #dce1e4;
@@ -1132,8 +1134,8 @@ del {
 .siderbar .side-title {
     background:#95B56F;
     width:100%;
-    height:75px;
-    line-height:45px;
+    height:55px;
+    line-height:1px;
     padding:20px 25px;   
 } 
 

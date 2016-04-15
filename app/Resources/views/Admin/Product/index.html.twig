@@ -84,7 +84,7 @@
                                 <a class="btn btn-success btn-sm {{ not app.request.get('widget')?'active':'' }}"
                                    href="{{ path('admin_product', {'widget': 0}) }}">全部商品</a>
                                 <a class="btn btn-success btn-sm {{ app.request.get('widget') == 1?'active':'' }}"
-                                   href="{{ path('admin_product',{'widget': 1}) }}">今日推介</a>
+                                   href="{{ path('admin_product',{'widget': 1}) }}">今日推荐</a>
                                 <a class="btn btn-success btn-sm {{ app.request.get('widget') == 2?'active':'' }}"
                                    href="{{ path('admin_product',{'widget': 2}) }}">热卖畅销</a>
                                 <a class="btn btn-success btn-sm {{ app.request.get('widget') == 3?'active':'' }}"

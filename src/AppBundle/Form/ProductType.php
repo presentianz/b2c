@@ -40,7 +40,7 @@ class ProductType extends AbstractType
             ->add('index_widget', 'choice', array(
                 'choices' => array(
                     '0' => '无',
-                    '1' => '今日推介',
+                    '1' => '今日推荐',
                     '2' => '热卖畅销',
                     '3' => '限时特卖',
                     '4' => '折扣商品',
