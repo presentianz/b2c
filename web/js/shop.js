@@ -163,7 +163,7 @@ $(function() {
 					$.each(rep, function(index, value) {
 						innerHtml += "<div class=\"item\">";
 						innerHtml += "<div class=\"cart-image\">";
-						innerHtml += "<img class=\"lazy\" src=\""+ assetsBaseDir + "\/img\/src\/" + value.imageLink + "\/poster\/" + value.poster +"\" alt=\"\">";
+						innerHtml += "<img class=\"lazy\"  src=\"\/img\/default.jpg\"  data-original=\"\/img\/src\/" + value.imageLink + "\/poster\/" + value.poster +"\" alt=\"\">";
 						innerHtml += "<\/div>";
 						innerHtml += "<div class=\"nav-cart-content\">";
 						innerHtml += "<h5 id=\"name_"+index+"\">"+value.name+"<\/h5>";
@@ -190,6 +190,8 @@ $(function() {
 					}
 
 					$('.cart-list').html(innerHtml);
+
+					$('.lazy').lazyload();
 				})
 			}
 			$(".cart-list").show();
