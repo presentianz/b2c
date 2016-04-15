@@ -67,6 +67,25 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/privacy", name="privacy")
+     */
+    public function privacyAction()
+    {
+        return $this->render('Page/other/privacy.html.twig');
+    }
+
+    /**
+     * @Route("/privacy_en", name="privacy_en")
+     */
+    public function privacy_enAction()
+    {
+        return $this->render('Page/other/privacy_en.html.twig');
+    }
+
+  
+
+
+    /**
      * @Route("/404", name="404")
      */
     public function fourOfourAction()

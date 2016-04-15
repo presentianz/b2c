@@ -4,14 +4,6 @@
 
 {% block stylesheets %}  
 <link rel="stylesheet" href="{{ asset('css/contact.css') }}" type="text/css">
-<style>
-    #map {
-        width: 380px;
-        height: 587px;
-        background-color: #CCC;
-    }
-</style>
-</style>
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {% endblock %}
 
@@ -22,6 +14,12 @@
             <div class="contact-part" style="padding-top: 2px">    
                         <hr>                
                         <div align="center">
+                        <a href="/terms" class="pull-right" data-toggle-title="tooltip" title="用户服务条款" data-placement="right"  style="color: #95B56F"><i class="fa fa-language" aria-hidden="true"></i> 中文版</a>
+                        <script type="text/javascript">
+                            $(document).ready(function(){
+                                $('[data-toggle-title="tooltip"]').tooltip();   
+                            });    
+                        </script>    
                         <h3><b>Terms and Conditions</b></h3>
                         <hr>
                         </div>
@@ -31,12 +29,6 @@
                         <p>
                             <strong>
                                 By using PlentyBay Services, you agree to these conditions. Please read them carefully. 
-                                <a href="/terms" data-toggle-title="tooltip" title="用户服务条款" data-placement="right"  style="color: blue"><i class="fa fa-language" aria-hidden="true"></i> 中文版</a>
-                                <script type="text/javascript">
-                                        $(document).ready(function(){
-                                            $('[data-toggle-title="tooltip"]').tooltip();   
-                                        });    
-                                </script>
                             </strong>
                         </p>
                         <p>

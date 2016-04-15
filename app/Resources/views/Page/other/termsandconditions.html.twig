@@ -4,14 +4,6 @@
 
 {% block stylesheets %}  
 <link rel="stylesheet" href="{{ asset('css/contact.css') }}" type="text/css">
-<style>
-    #map {
-        width: 380px;
-        height: 587px;
-        background-color: #CCC;
-    }
-</style>
-</style>
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {% endblock %}
 
@@ -22,6 +14,12 @@
             <div class="contact-part" style="padding-top: 2spx">   
                         <hr>                 
                         <div align="center">
+                        <a href="/terms_en" class="pull-right" data-toggle-title="tooltip" title="Terms and Conditions" data-placement="right" style="color: #95B56F"><i class="fa fa-language" aria-hidden="true"></i> English Version</a>
+                        <script type="text/javascript">
+                            $(document).ready(function(){
+                                 $('[data-toggle-title="tooltip"]').tooltip();   
+                            });    
+                        </script>                        
                         <h3><b>丰盛湾在线购物 服务条款</b></h3>
                         <hr>
                         </div>
@@ -31,12 +29,6 @@
                         <p>
                             <strong>
                                 您使用我们的服务即表示您已同意本条款。请仔细阅读。
-                                <a href="/terms_en" data-toggle-title="tooltip" title="Terms and Conditions" data-placement="right" style="color: blue"><i class="fa fa-language" aria-hidden="true"></i> English Version</a>
-                                <script type="text/javascript">
-                                        $(document).ready(function(){
-                                            $('[data-toggle-title="tooltip"]').tooltip();   
-                                        });    
-                                </script>
                             </strong>
                         </p>
                         <p>    
