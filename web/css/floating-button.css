@@ -30,8 +30,8 @@ body .material-button-anim {
 }
 .material-button-toggle { 
     z-index: 3;
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     margin: 0 auto;
 }
 .material-button-toggle span {
@@ -68,16 +68,16 @@ body .material-button-anim {
     transition:         all .175s;
 }
 .option .option1 {
-    -webkit-transform: translate3d(90px,90px,0) scale(.8,.8);
-    transform:         translate3d(90px,90px,0) scale(.8,.8);
+    -webkit-transform: translate3d(80px,80px,0) scale(.8,.8);
+    transform:         translate3d(80px,80px,0) scale(.8,.8);
 }
 .option .option2 {
-    -webkit-transform: translate3d(0,90px,0) scale(.8,.8);
-    transform:         translate3d(0,90px,0) scale(.8,.8);
+    -webkit-transform: translate3d(0,80px,0) scale(.8,.8);
+    transform:         translate3d(0,80px,0) scale(.8,.8);
 }
 .option .option3 {
-    -webkit-transform: translate3d(-90px,90px,0) scale(.8,.8);
-    transform:         translate3d(-90px,90px,0) scale(.8,.8);
+    -webkit-transform: translate3d(-80px,80px,0) scale(.8,.8);
+    transform:         translate3d(-80px,80px,0) scale(.8,.8);
 }
 .option.scale-on .option1, 
 .option.scale-on .option2,

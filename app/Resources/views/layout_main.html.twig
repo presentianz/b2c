@@ -41,11 +41,9 @@
         <div id="header">
             <div class="navbar">
                 <div class="container-non-responsive">
-                <div class="pull-left">
-                        <h6>欢迎来到丰盛湾在线购物平台!</h6>
-                    </div>
+                <div class="pull-left">欢迎来到丰盛湾在线购物平台！</div>
                     <div class="pull-right">
-                        <a href="{{ path('about') }}"><h6>关于Plenty Bay丰盛湾</h6></a>
+                        <a href="{{ path('about') }}">关于Plenty Bay丰盛湾</a>
                        {# <a href="{{ path('contact') }}"><h6 class="color-basis">联系我们</h6></a> #}
                     </div>  
                 </div>
@@ -182,25 +180,43 @@
             {% endblock %} 
         </div>
         <div id="footer">
-            <!-- <div class="container-non-responsive">
-                <div class="row no-border footer-desc">
-                    <div class="col-xs-6 footer-about">
-                    <a href="{{ path('about') }}">
-                        <h3>关于我们</h3>
-                        <div>丰盛湾是一家专注纽澳特产品，护肤品，保健品为一体的大型连锁专营店。<br>
-                    我们代理的都是新西兰澳洲药房所认可的大品牌，绝对一手货源，百分百保真。产品种类繁多，有上千种网络热销产品，代购追捧单品，经济实惠，价格合理。</div>
-                     </a>
+            <!-- Floating Button -->
+            <div class="container">
+                <div class="row">
+                  <div class="col-md-4 col-md-offset-4">
+                    <div class="material-button-anim">
+                      <ul class="list-inline" id="options">
+                        <li class="option">
+                          <button class="material-button option1" type="button" data-placement="left" data-trigger="hover" data-toggle-title="popover" 
+                          title="关注官方微信，让资讯无时差"
+                          data-content="<img src='{{ asset('/img/wechat_qr_code.gif') }}' width='200px' height='200px'> ">
+                            <i class="fa fa-weixin fa-lg" aria-hidden="true"></i>
+                          </button>
+                        </li>
+                        <li class="option">
+                            <a href="http://weibo.com/plentybay"  target="_blank">
+                              <button class="material-button option2" type="button"  data-placement="top" data-toggle-title="tooltip" 
+                          title="关注官方微博">
+                               <i class="fa fa-weibo fa-lg" aria-hidden="true"></i>
+                              </button>
+                            </a>
+                        </li>
+                        <li class="option">
+                            <a href="https://www.facebook.com/Plentybay-480054388853425/"  target="_blank" >
+                              <button class="material-button option3" type="button"  data-placement="top" data-toggle-title="tooltip" title="Facebook主页">
+                                <i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
+                              </button>
+                            </a>
+                        </li>
+                      </ul>
+                      <button class="material-button material-button-toggle" type="button">
+                        <span class="fa fa-plus" aria-hidden="true"></span>
+                      </button>
                     </div>
-                    <div class="col-xs-3 footer-feedback">
-                        <h3>客户反馈</h3>
-                        <div><img src="{{ asset('img/feedback.jpg') }}" alt=""></div>
-                    </div>
-                    <div class="col-xs-3 footer-guarantee">
-                        <h3>Plenty Bay 承诺</h3>
-                        <div><img src="{{ asset('img/guran.jpg') }}" alt=""></div>
-                    </div>
+                  </div>
                 </div>
-            </div>  -->
+            </div> 
+
             <div class="container-non-responsive"> 
                 <div class="footer-up">
                     <div class="col-xs-2">
@@ -325,39 +341,4 @@
         {% block javascripts %}
         {% endblock %}
     </body>
-                <!-- Floating Button -->
-                <div class="container">
-                <div class="row">
-                  <div class="col-md-4 col-md-offset-4">
-                    <div class="material-button-anim">
-                      <ul class="list-inline" id="options">
-                        <li class="option">
-                          <button class="material-button option1" type="button" data-placement="left" data-trigger="hover" data-toggle-title="popover" 
-                          title="关注官方微信，让资讯无时差"
-                          data-content="<img src='{{ asset('/img/wechat_qr_code.gif') }}' width='200px' height='200px'> ">
-                            <i class="fa fa-weixin" aria-hidden="true"></i>
-                          </button>
-                        </li>
-                        <li class="option">
-                            <a href="http://weibo.com/plentybay"  target="_blank">
-                              <button class="material-button option2" type="button">
-                               <i class="fa fa-weibo" aria-hidden="true"></i>
-                              </button>
-                            </a>
-                        </li>
-                        <li class="option">
-                            <a href="https://www.facebook.com/Plentybay-480054388853425/"  target="_blank">
-                              <button class="material-button option3" type="button">
-                                <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                              </button>
-                            </a>
-                        </li>
-                      </ul>
-                      <button class="material-button material-button-toggle" type="button">
-                        <span class="fa fa-plus" aria-hidden="true"></span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-            </div> 
 </html>
