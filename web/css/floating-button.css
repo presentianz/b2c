@@ -1,15 +1,19 @@
 body .material-button-anim {
-    position:fixed !important;
-    position: absolute; /*ie6 */
-    bottom: 0px;
-    right: 0px;
+   position: relative;
+   padding: 127px 15px 27px;
+   text-align: center;
+-  min-width: 320px;
+-  max-width: 650;
+-  width: 650px;
+-  height:800px;
+   margin: 0 auto 20px;
+   z-index:9;
 }
 
 .material-button-anim {
   position: relative;
   padding: 127px 15px 27px;
   text-align: center;
-  max-width: 320px;
   margin: 0 auto 20px;
   z-index:9;
 }
@@ -17,7 +21,7 @@ body .material-button-anim {
 .material-button {
     position: relative;
     top: 0;
-    z-index: 1;
+    z-index: 8;
     width: 70px;
     height: 70px;
     font-size: 1.5em;
@@ -29,7 +33,7 @@ body .material-button-anim {
     outline: none;
 }
 .material-button-toggle { 
-    z-index: 3;
+    z-index: 8;
     width: 70px;
     height: 70px;
     margin: 0 auto;
@@ -40,13 +44,13 @@ body .material-button-anim {
     -webkit-transition: -webkit-transform .175s cubic-bazier(.175,.67,.83,.67);
     transition:         transform .175s cubic-bazier(.175,.67,.83,.67);
 }
-.material-button-toggle.open {
+.material-button-toggle.open {  
     -webkit-transform: scale(1.3,1.3);
     transform:         scale(1.3,1.3);
     -webkit-animation: toggleBtnAnim .175s;
     animation:         toggleBtnAnim .175s;
 }
-.material-button-toggle.open span {
+.material-button-toggle.open span { /* Control + -> X */
     -webkit-transform: rotate(45deg);
     transform:         rotate(45deg);
     -webkit-transition: -webkit-transform .175s cubic-bazier(.175,.67,.83,.67);

@@ -183,37 +183,37 @@
             <!-- Floating Button -->
             <div class="container">
                 <div class="row">
-                  <div class="col-md-4 col-md-offset-4">
-                    <div class="material-button-anim">
-                      <ul class="list-inline" id="options">
-                        <li class="option">
-                          <button class="material-button option1" type="button" data-placement="left" data-trigger="hover" data-toggle-title="popover" 
-                          title="关注官方微信，让资讯无时差"
-                          data-content="<img src='{{ asset('/img/wechat_qr_code.gif') }}' width='200px' height='200px'> ">
-                            <i class="fa fa-weixin fa-lg" aria-hidden="true"></i>
-                          </button>
-                        </li>
-                        <li class="option">
-                            <a href="http://weibo.com/plentybay"  target="_blank">
-                              <button class="material-button option2" type="button"  data-placement="top" data-toggle-title="tooltip" 
-                          title="关注官方微博">
-                               <i class="fa fa-weibo fa-lg" aria-hidden="true"></i>
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="material-button-anim">
+                              <ul class="list-inline" id="options">
+                                <li class="option">
+                                  <button class="material-button option1" type="button" data-placement="left" data-trigger="focus" data-toggle-title="popover" 
+                                  title="扫一下关注丰盛湾官方微信"
+                                  data-content="<img src='{{ asset('/img/wechat_qr_code.gif') }}' width='168px' height='168px' > ">
+                                    <i class="fa fa-weixin fa-lg" aria-hidden="true"></i>
+                                  </button>
+                                </li>
+                                <li class="option">
+                                    <a href="http://weibo.com/plentybay"  target="_blank">
+                                      <button class="material-button option2" type="button"  data-placement="top" data-toggle-title="tooltip" 
+                                  title="关注官方微博">
+                                       <i class="fa fa-weibo fa-lg" aria-hidden="true"></i>
+                                      </button>
+                                    </a>
+                                </li>
+                                <li class="option">
+                                    <a href="https://www.facebook.com/Plentybay-480054388853425/"  target="_blank" >
+                                      <button class="material-button option3" type="button"  data-placement="top" data-toggle-title="tooltip" title="Facebook主页">
+                                        <i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
+                                      </button>
+                                    </a>
+                                </li>
+                              </ul>
+                              <button class="material-button material-button-toggle" type="button">
+                                <span class="fa fa-plus" aria-hidden="true"></span>
                               </button>
-                            </a>
-                        </li>
-                        <li class="option">
-                            <a href="https://www.facebook.com/Plentybay-480054388853425/"  target="_blank" >
-                              <button class="material-button option3" type="button"  data-placement="top" data-toggle-title="tooltip" title="Facebook主页">
-                                <i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
-                              </button>
-                            </a>
-                        </li>
-                      </ul>
-                      <button class="material-button material-button-toggle" type="button">
-                        <span class="fa fa-plus" aria-hidden="true"></span>
-                      </button>
+                        </div>
                     </div>
-                  </div>
                 </div>
             </div> 
 
@@ -255,7 +255,6 @@
                 <div class="copyright"> 
                     <span><a href="https://paymentexpress.co.nz/security" target="_blank"><img src="{{ asset('img/payment/paymentexpress.png') }}" alt="payment"></a></span>    
                     <span><img src="{{ asset('img/payment/mc.png') }}" alt="mastercard"></span>
-                    <!-- <span><img src="{{ asset('img/payment/pp.png') }}" alt="paypal"></span>  -->
                     <span><img src="{{ asset('img/payment/visa.png') }}" alt="visa"></span>
                     <span><img src="{{ asset('img/payment/visa-debit.png') }}" alt="visa-debit"></span>
                     <span>&copy;Copyright 2008-2016 PLENTY BAY ECOMMERCE LTD (丰盛湾电子商务) All Rights Reserved</span>
@@ -324,17 +323,14 @@
             $(document).ready(function () {
                 $('.material-button-toggle').click(function () {
                     $(this).toggleClass('open');
-                    $('.option').toggleClass('scale-on');
+                    $('.option').toggleClass('scale-on');                      
                 });
             });
+           
 
-            $(function(){
-                $('.popover-test').popover();       
+            $(function(){      
                 $('[ data-toggle-title="popover" ]').popover({ 
-                    html : true, 
-                    content: function() {
-                      return $('#popover_content_wrapper').html();
-                    }
+                    html : true
                 });
             });
 
