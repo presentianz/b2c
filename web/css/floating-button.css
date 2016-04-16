@@ -1,15 +1,16 @@
 body .material-button-anim {
     position: fixed !important;
     position: absolute; 
-    bottom: 30px;
-    right: 30px;
+    bottom: 60px;
+    right: 60px;
+    width: 450px;
     z-index: 9;
 }
 
 .material-button-anim {
-  padding: 127px 15px 27px;
+  /* padding: 127px 15px 27px; */
   text-align: center;
-  margin: 0 auto 20px;
+  /*margin: 0 auto 20px;*/
   z-index:9;
 }
 
@@ -79,6 +80,7 @@ body .material-button-anim {
     -webkit-transition: all .175s;
     transition:         all .175s;
 }
+
 .option .option1 {
     -webkit-transform: translate3d(80px,80px,0) scale(.8,.8);
     transform:         translate3d(80px,80px,0) scale(.8,.8);
@@ -91,9 +93,9 @@ body .material-button-anim {
     -webkit-transform: translate3d(-80px,80px,0) scale(.8,.8);
     transform:         translate3d(-80px,80px,0) scale(.8,.8);
 }
+
 .option.scale-on .option1, 
-.option.scale-on .option2,
-.option.scale-on .option3 {
+.option.scale-on .option2{
     filter: blur(0);
     -webkit-filter: blur(0);
     -webkit-transform: none;
@@ -104,6 +106,14 @@ body .material-button-anim {
 .option.scale-on .option2 {
     -webkit-transform: translateY(-28px) translateZ(0);
     transform:         translateY(-28px) translateZ(0);
+    -webkit-transition: all .175s;
+    transition:         all .175s;
+}
+.option.scale-on .option3 {
+    filter: blur(0);
+    -webkit-filter: blur(0);
+    -webkit-transform: translateX(-188px) translateY(80px) translateZ(0);
+    transform:         translateX(-188px) translateY(80px) translateZ(0);
     -webkit-transition: all .175s;
     transition:         all .175s;
 }
