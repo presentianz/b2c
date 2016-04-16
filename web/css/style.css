@@ -567,7 +567,7 @@ select.delivery-options {
     width: 163px;
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
-    padding: 15px 20px;
+    padding: 15px 15px;
 }
 
 
@@ -614,8 +614,6 @@ select.delivery-options {
     font-weight: bold;
     width: 19px; 
 }
-
-
 
 .cart i.fa-shopping-cart {
     margin-right: 3px;
