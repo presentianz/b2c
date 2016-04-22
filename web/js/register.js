@@ -22,14 +22,15 @@ var flag1 = flag2 = flag3 = flag4 = flag5 = false;
 
 $(document).ready(function () {
     $("input[name='fos_user_registration_form[email]']").blur(function (e) {
-        //var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
-        var reg = /[a-z0-9!#$%&'*+/=?^_\`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_\`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b/;
-        var result = reg.test(email);
-        var isemail_fomart_ok = false;
+        var regular_expression = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        
+        var email_address = $("input[name='fos_user_registration_form[email]']").val();
 
-        if (result == false) {
+        var regexp_result = regular_expression.test(email_address);
+
+        if (regexp_result == false) {
             flag1 = false;
-            $("input[name='fos_user_registration_form[email]']").parent().find(".error").find("h6").html("邮箱格式不正确");
+            $("input[name='fos_user_registration_form[email]']").parent().find(".error").find("h6").html(email_address);
             wrong("input[name='fos_user_registration_form[email]']");
             isemail_fomart_ok = false;
         } else {
@@ -37,57 +38,40 @@ $(document).ready(function () {
             flag1 = true;
             correct("input[name='fos_user_registration_form[email]']");
         }
-
-        if(isemail_fomart_ok == true){
-            var email = $("input[name='fos_user_registration_form[email]']").val();
-            if (email == null) {
-                isemail_fomart_ok = false;
-                flag1 = false;
-                wrong("input[name='fos_user_registration_form[email]']");
-            } else {
-                flag1 = true;
-                correct("input[name='fos_user_registration_form[email]']");
-            }
-        } else {
-            isemail_fomart_ok = false;
-        }
-        isemail_fomart_ok = false;
-        //$("input[name='fos_user_registration_form[email]']").parent().find(".error").find("h6").html("邮箱已经注册过");	
+        $("input[name='fos_user_registration_form[email]']").parent().find(".error").find("h6").html(email_address);	
     });
 
     $("input[name='fos_user_registration_form[username]']").blur(function (e) {
-       var username = $("input[name='fos_user_registration_form[username]']").val();
-       if (username == "") {
-        flag2 = false;
-        wrong("input[name='fos_user_registration_form[username]']");
-    }
-    else {
-        flag2 = true;
-        correct("input[name='fos_user_registration_form[username]']");
-    }
+        var username = $("input[name='fos_user_registration_form[username]']").val();
+        if (username == "") {
+            flag2 = false;
+            wrong("input[name='fos_user_registration_form[username]']");
+        } else {
+            flag2 = true;
+            correct("input[name='fos_user_registration_form[username]']");
+        }
         //$("input[name='fos_user_registration_form[username]']").parent().find(".error").find("h6").html("用户名已经注册过");
     });
 
     $("input[name='fos_user_registration_form[plainPassword][first]']").blur(function (e) { 
-       var psd1 = $("input[name='fos_user_registration_form[plainPassword][first]']").val();  
-       //var reg = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8})$/ /* /^[\w]{6,20}$/ */;
-       var reg = /[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\-\+\={6,20}]/;
-       var result = reg.test(psd1);
-       if (psd1 == "") {
-        flag3 = false;
-        wrong("input[name='fos_user_registration_form[plainPassword][first]']");
-        $(".security-level").find("span").removeClass("orange red green");
-    }
-    else if (result == false) {
-        flag3 = false;
-        $("input[name='fos_user_registration_form[plainPassword][first]']").parent().find(".error").find("h6").html("密码需要至少6个字节");
-        wrong("input[name='fos_user_registration_form[plainPassword][first]']");
-    }
-    else {
-        flag3 = true;
-        correct("input[name='fos_user_registration_form[plainPassword][first]']");
-        Modes = 0;
-        for (i = 0; i < psd1.length; i++) {
+        var psd1 = $("input[name='fos_user_registration_form[plainPassword][first]']").val();  
+        var reg = /^\S{6,20}$/;
+        var result = reg.test(psd1);
+        if (psd1 == "") {
+            flag3 = false;
+            wrong("input[name='fos_user_registration_form[plainPassword][first]']");
+            $(".security-level").find("span").removeClass("orange red green");
+        } 
+
+        if (result == false) {
+            flag3 = false;
+            $("input[name='fos_user_registration_form[plainPassword][first]']").parent().find(".error").find("h6").html("密码需要至少6个字节");
+            wrong("input[name='fos_user_registration_form[plainPassword][first]']");
+        } else {
+            flag3 = true;
+            correct("input[name='fos_user_registration_form[plainPassword][first]']");
+            Modes = 0;
+            for (i = 0; i < psd1.length; i++) {
                 //测试每一个字符的类别并统计一共有多少种模式.    
                 Modes |= CharMode(psd1.charCodeAt(i));
             }

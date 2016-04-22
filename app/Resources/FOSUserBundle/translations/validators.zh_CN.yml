@@ -9,7 +9,7 @@ fos_user:
         blank: 请输入邮箱
         short: "[-Inf,Inf]邮箱字数不够"
         long: "[-Inf,Inf]邮箱字数超出限制"
-        invalid: 邮箱格式不正确
+        invalid: 邮箱已被使用
     password:
         blank: 请输入密码
         short: "[-Inf,Inf]密码字数不够"
