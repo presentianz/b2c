@@ -30,7 +30,7 @@ $(document).ready(function () {
 
         if (regexp_result == false) {
             flag1 = false;
-            $("input[name='fos_user_registration_form[email]']").parent().find(".error").find("h6").html(email_address);
+            $("input[name='fos_user_registration_form[email]']").parent().find(".error").find("h6").html("邮箱格式不正确");
             wrong("input[name='fos_user_registration_form[email]']");
             isemail_fomart_ok = false;
         } else {
@@ -38,7 +38,8 @@ $(document).ready(function () {
             flag1 = true;
             correct("input[name='fos_user_registration_form[email]']");
         }
-        $("input[name='fos_user_registration_form[email]']").parent().find(".error").find("h6").html(email_address);	
+        window.location.href = Routing.generate("user_register_check");
+        //$("input[name='fos_user_registration_form[email]']").parent().find(".error").find("h6").html(email_address);	
     });
 
     $("input[name='fos_user_registration_form[username]']").blur(function (e) {
@@ -62,6 +63,7 @@ $(document).ready(function () {
             wrong("input[name='fos_user_registration_form[plainPassword][first]']");
             $(".security-level").find("span").removeClass("orange red green");
         } 
+
 
         if (result == false) {
             flag3 = false;
@@ -160,6 +162,7 @@ $("#register-form").submit(function (e) {
         $("#loading").css("display", "block");
         window.location.href = Routing.generate("user_register_check");
     } else if (flag1 || flag2 || flag3 || flag4 || flag5) {
+
          //alert("register fail");
     }
 });
