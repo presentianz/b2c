@@ -14,7 +14,6 @@
             <li>
                 <a href="{{ path('admin_user_info') }}" class="auto">
                     <i class="i i-dot"></i>
-
                     <span>用户列表</span>
                 </a>
             </li>
@@ -25,13 +24,13 @@
     <section id="content">
         <section class="vbox">
             <header class="header bg-light b-b">
-                <p><strong>修改评论</strong></p>
+                <p><strong>管理用户信息</strong></p>
             </header>
             <section class="scrollable padder">
 
                 <div class="form">
                     {{ form_start(edit_form) }}
-                    <div><label>姓名：</label> {{ form_widget(edit_form.fullname) }}</div>
+                    <div><label>姓名：</label> {{ form_widget(edit_form.fullname) }}</div>      
                     <div><label>国家：</label> {{ form_widget(edit_form.country) }}</div>
                     <div><label>地区：</label> {{ form_widget(edit_form.region) }}</div>
                     <div><label>城市：</label> {{ form_widget(edit_form.city) }}</div>
