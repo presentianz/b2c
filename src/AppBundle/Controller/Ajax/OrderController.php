@@ -84,7 +84,6 @@ class OrderController extends Controller
         return new Response(json_encode(""));
 	}
 
-
     private function ceiling($number, $significance)
     {
         return ( is_numeric($number) && is_numeric($significance) ) ? (ceil($number/$significance)*$significance) : false;

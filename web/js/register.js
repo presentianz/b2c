@@ -38,7 +38,6 @@ $(document).ready(function () {
             flag1 = true;
             correct("input[name='fos_user_registration_form[email]']");
         }
-        window.location.href = Routing.generate("user_register_check");
         //$("input[name='fos_user_registration_form[email]']").parent().find(".error").find("h6").html(email_address);	
     });
 

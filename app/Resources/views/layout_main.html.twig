@@ -118,13 +118,8 @@
                                             </li>
                                             <li class="divider"></li>
                                             <li>
-                                                <a href="{{ path('cart') }}">
-                                                    <i class="fa fa-shopping-cart"></i>&nbsp;购物结算
-                                                     <span class="badge">
-                                                        <div id="number_in_cart">
-                                                            <i class="fa fa-spinner fa-pulse"></i>
-                                                        </div> 
-                                                     </span>
+                                                <a href="{{ path('user_order') }}">
+                                                    <i class="fa fa-credit-card"></i>&nbsp;我的订单
                                                 </a>
                                             </li>
                                             <li class="divider"></li>
@@ -162,7 +157,8 @@
                             </div>
                         </div>
                         <div class="pull-right col-xs-2">
-                            <div class="cart-wrapper" data-hovered="unhovered" data-path="{{ path('cart_ajax_get') }}">
+                            <div class="cart-wrapper" data-hovered="unhovered" data-path="{{ path('cart_ajax_get') }}"> 
+                            
                                 <div class='cart-show'>
                                     <a href="{{ path('cart') }}">
                                       <div class="icon-cart" style="clear: left; float: left">
@@ -173,7 +169,7 @@
                                       </div>
                                         -&nbsp;
                                         <span class="badge">
-                                            <div id="number_in_cart2">
+                                            <div id="number_in_cart">
                                                 <i class="fa fa-spinner fa-pulse"></i>
                                             </div> 
                                         </span>
@@ -198,7 +194,7 @@
         </div>
         <div id="footer">
             <!-- Floating Button -->
-            <div class="container">
+    <!--        <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-md-offset-4">
                         <div class="material-button-anim">
@@ -233,6 +229,7 @@
                     </div>
                 </div>
             </div> 
+      -->      
 
             <div class="container-non-responsive"> 
                 <div class="footer-up">
@@ -306,22 +303,17 @@
                         dataType: "json"
                 }).done(function (rep) {
                     var num = null;
-                    var total = null;
                     if (rep == "none" || rep == "" || rep == null) {
-                        num = 0;
-                        //total = 0.00;           
+                        num = 0;      
                     } else {
                         $.each(rep, function(index, value) {
                             num += Number(value.count);
-                            //total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
                         });   
                     }
                     if(num <= 99){
                         $('#number_in_cart').html(num);
-                        $('#number_in_cart2').html(num);
                     } else {
                         $('#number_in_cart').html("99+");
-                        $('#number_in_cart2').html("99+");
                     }
                 })
             });
@@ -366,8 +358,7 @@
                         $(this).popover('hide');
                     }
                 });
-            });
-                                 
+            });              
         </script>
         {% block javascripts %}
         {% endblock %}
