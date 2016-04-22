@@ -71,7 +71,7 @@ class DefaultController extends Controller
                 $check = $this->get('app.skip.checkout');
                 $url = $check->checkout($order, $order->getTotalPrice()/* + $order->getPostFee()*/);
 
-                if($url) {
+                if($url != null) { //fixing now.
                     //跳转支付
                     return $this->redirect($url);
                 }
