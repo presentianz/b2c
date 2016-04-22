@@ -59,7 +59,8 @@ $(document).ready(function () {
 
     $("input[name='fos_user_registration_form[plainPassword][first]']").blur(function (e) { 
        var psd1 = $("input[name='fos_user_registration_form[plainPassword][first]']").val();  
-       var reg = /^[\w]{6,20}$/;
+       //var reg = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8})$/ /* /^[\w]{6,20}$/ */;
+       var reg = /[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\-\+\={6,20}]/;
        var result = reg.test(psd1);
        if (psd1 == "") {
         flag3 = false;
