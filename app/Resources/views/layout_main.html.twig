@@ -137,14 +137,6 @@
                                         });    
                                     </script>
                                 </div>
-                                <!-- <div id="history-view" class="history a-login" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}" style="padding-left: 30px;">
-                                    <i class="fa fa-history"></i>&nbsp;&nbsp;最近浏览 
-                                    <div class="history-list history-view">
-                                        <div class="cart-spinner">
-                                            <i class="fa fa-spinner fa-pulse"></i>
-                                        </div>
-                                    </div>
-                                </div> -->
                                  {% else %}
                                 <div id="before-login">
                                     <a class="btn btn-default btn-sm" href="{{path('fos_user_security_login')}}">
@@ -157,9 +149,8 @@
                             </div>
                         </div>
                         <div class="pull-right col-xs-2">
-                            <div class="cart-wrapper" data-hovered="unhovered" data-path="{{ path('cart_ajax_get') }}"> 
-                            
-                                <div class='cart-show'>
+                            <div class="cart-wrapper" data-hovered="unhovered" data-path="{{ path('cart_ajax_get') }}">       
+                               <div class='cart-show'>
                                     <a href="{{ path('cart') }}">
                                       <div class="icon-cart" style="clear: left; float: left">
                                         <div class="cart-line-1" style="background-color: #2c3e50"></div>
@@ -167,7 +158,6 @@
                                         <div class="cart-line-3" style="background-color: #2c3e50"></div>
                                         <div class="cart-wheel" style="background-color: #2c3e50"></div>
                                       </div>
-                                        -&nbsp;
                                         <span class="badge">
                                             <div id="number_in_cart">
                                                 <i class="fa fa-spinner fa-pulse"></i>
