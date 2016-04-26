@@ -19,18 +19,18 @@
 					<span>商品列表</span>
 				</a>
 			</li>
-			<li class="active">
+			<li>
 				<a href="{{ path('admin_product_new') }}" class="auto">
-					  <span class="pull-right text-muted">
-						<i class="i i-circle-sm-o text"></i>
-						<i class="i i-circle-sm text-active"></i>
-					  </span>
 					<i class="i i-dot"></i>
 					<span>添加商品</span>
 				</a>
 			</li>
-			<li>
+			<li class="active">
 				<a href="{{ path('admin_product_manage_by_excel') }}" class="auto">
+					  <span class="pull-right text-muted">
+						<i class="i i-circle-sm-o text"></i>
+						<i class="i i-circle-sm text-active"></i>
+					  </span>
 					<i class="i i-dot"></i>
 					<span>批量管理</span>
 				</a>
@@ -45,16 +45,16 @@
 	  <section id="content">
 		  <section class="vbox">
 			  <header class="header bg-light b-b">
-				  <p><strong>添加商品</strong></p>
+				  <p><strong>批量管理</strong></p>
 			  </header>
 			  <section class="scrollable padder">
 
 				  <div class="form">
 					  {{ form_start(form) }}
-					  <div><label>商品名称：</label> {{ form_widget(form.name) }}</div>
-					  <div><label>原价：</label> {{ form_widget(form.price) }}</div>
-					  <div><label>促销价：</label> {{ form_widget(form.price_discounted) }}</div>
-					  <div><label>浏览次数：</label> {{ form_widget(form.viewed_count) }}</div>
+					  <div><label>批量管理</label> {{ form_widget(form.name) }}</div>
+					  <div><label>批量管理</label> {{ form_widget(form.price) }}</div>
+					  <div><label>批量管理</label> {{ form_widget(form.price_discounted) }}</div>
+					  <div><label>批量管理</label> {{ form_widget(form.viewed_count) }}</div>
 					  <div><label>售出数量：</label> {{ form_widget(form.soldNo) }}</div>
 					  <div><label>库存：</label> {{ form_widget(form.inventory) }}</div>
 					  <div><label>点击次数：</label> {{ form_widget(form.click) }}</div>

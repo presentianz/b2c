@@ -17,18 +17,24 @@
         <ul class="nav dk">
             <li class="active">
                 <a href="{{ path('admin_product') }}" class="auto">
-      <span class="pull-right text-muted">
-        <i class="i i-circle-sm-o text"></i>
-        <i class="i i-circle-sm text-active"></i>
-      </span>
-                    <i class="i i-dot"></i>
-                    <span>商品列表</span>
+                  <span class="pull-right text-muted">
+                    <i class="i i-circle-sm-o text"></i>
+                    <i class="i i-circle-sm text-active"></i>
+                  </span>
+                <i class="i i-dot"></i>
+                <span>商品列表</span>
                 </a>
             </li>
             <li>
                 <a href="{{ path('admin_product_new') }}" class="auto">
                     <i class="i i-dot"></i>
                     <span>添加商品</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('admin_product_manage_by_excel') }}" class="auto">
+                    <i class="i i-dot"></i>
+                    <span>批量管理</span>
                 </a>
             </li>
         </ul>

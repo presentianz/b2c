@@ -105,6 +105,27 @@
             ));
         }
 
+
+        /**
+         * Displays a form to create a new Product entity.
+         *
+         * @Route("/excel", name="admin_product_manage_by_excel")
+         * @Method("GET")
+         */
+        public function excelAction()
+        {
+            $entity = new Product();
+            $entity->SetImageLink(uniqid());
+            $form = $this->createCreateForm($entity);
+
+            return $this->render('Admin/Product/manage_by_excel.html.twig', array(
+                'entity' => $entity,
+                'form' => $form->createView(),
+            ));
+        }
+
+
+
         /**
          * Finds and displays a Product entity.
          *
