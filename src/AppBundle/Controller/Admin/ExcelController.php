@@ -113,14 +113,14 @@
                 $product_name = $product->getProduct()->getName();
                 $product_count = $product->getCount();
                 $result['M'] .= ($product_name . 'x' . $product_count);
-                $totalWeight += $product->getProduct()->getWeight();
+                $totalWeight += $product->getProduct()->getWeight() * $product_count;
             }
             $result['N'] = '1';
             $result['O'] = $totalWeight;
             $result['P'] = $order->getTotalPrice();
             $result['Q'] = '';
             $result['R'] = $address->getComment();
-            $result['S'] = $local_counter; //kjhkjkjhlj
+            $result['S'] = $local_counter;
             $result['T'] = $this->getIdScanPath() . $address->getIdBack();
             $result['U'] = $this->getIdScanPath() . $address->getIdFront();
             return $result;
