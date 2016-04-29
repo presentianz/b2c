@@ -7,47 +7,54 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CartProduct
  *
- * @ORM\Table()
+ * @ORM\Table(name="cart_product", indexes={@ORM\Index(name="IDX_2890CCAA4584665A", columns={"product_id"}), @ORM\Index(name="IDX_2890CCAAA76ED395", columns={"user_id"})})
  * @ORM\Entity
- * @ORM\HasLifecycleCallbacks()
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CartProductRepository")
  */
 class CartProduct
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="count", type="integer")
+     * @ORM\Column(name="count", type="integer", nullable=false)
      */
     private $count;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="add_at", type="datetime")
+     * @ORM\Column(name="add_at", type="datetime", nullable=false)
      */
     private $addAt;
 
     /**
+     * @var \Product
+     *
      * @ORM\ManyToOne(targetEntity="Product")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     **/
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * })
+     */
     private $product;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="cartProducts")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     **/
+     * @var \FosUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
     private $user;
+
 
 
     /**
@@ -132,10 +139,10 @@ class CartProduct
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param \AppBundle\Entity\FosUser $user
      * @return CartProduct
      */
-    public function setUser(\AppBundle\Entity\User $user = null)
+    public function setUser(\AppBundle\Entity\FosUser $user = null)
     {
         $this->user = $user;
 
@@ -145,19 +152,10 @@ class CartProduct
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\User 
+     * @return \AppBundle\Entity\FosUser 
      */
     public function getUser()
     {
         return $this->user;
-    }
-
-    /** 
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
-    public function prePersist()
-    {
-        $this->addAt =  new \DateTime();
     }
 }

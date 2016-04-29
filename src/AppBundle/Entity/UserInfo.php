@@ -7,19 +7,17 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * UserInfo
  *
- * @ORM\Table()
+ * @ORM\Table(name="user_info")
  * @ORM\Entity
- * @ORM\HasLifecycleCallbacks()
- * @ORM\Entity(repositoryClass="AppBundle\Repository\UserInfoRepository")
  */
 class UserInfo
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
@@ -28,28 +26,28 @@ class UserInfo
      *
      * @ORM\Column(name="full_name", type="string", length=255, nullable=true)
      */
-    private $full_name;
-    
+    private $fullName;
+
     /**
      * @var integer
      *
-     * @ORM\Column(name="exp", type="integer", options={"unsigned":true})
+     * @ORM\Column(name="exp", type="integer", nullable=false)
      */
-    private $exp = "0";
+    private $exp;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="balance", type="decimal", precision=8, scale=2)
+     * @ORM\Column(name="balance", type="decimal", precision=8, scale=2, nullable=false)
      */
-    private $balance = "0";
+    private $balance;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="locked_balance", type="decimal", precision=8, scale=2)
+     * @ORM\Column(name="locked_balance", type="decimal", precision=8, scale=2, nullable=false)
      */
-    private $lockedBalance = "0";
+    private $lockedBalance;
 
     /**
      * @var string
@@ -94,35 +92,55 @@ class UserInfo
     private $city;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="points", type="string", length=255, nullable=true)
-     */
-    private $points = "0";
-
-    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="create_at", type="datetime")
+     * @ORM\Column(name="create_at", type="datetime", nullable=false)
      */
     private $createAt;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="update_at", type="datetime")
+     * @ORM\Column(name="update_at", type="datetime", nullable=false)
      */
-    private $updateAt;   
+    private $updateAt;
 
-    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="points", type="string", length=255, nullable=true)
+     */
+    private $points;
+
     /**
      * @var string
      *
      * @ORM\Column(name="birthday", type="string", length=255, nullable=true)
      */
     private $birthday;
-    
-    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postcode", type="string", length=255, nullable=true)
+     */
+    private $postcode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="text", nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="suburb", type="string", length=255, nullable=true)
+     */
+    private $suburb;
+
+
 
     /**
      * Get id
@@ -137,26 +155,26 @@ class UserInfo
     /**
      * Set fullName
      *
-     * @param string $full_name
-     * @return string
+     * @param string $fullName
+     * @return UserInfo
      */
-    public function setFullName($full_name)
+    public function setFullName($fullName)
     {
-    	$this->full_name = $full_name;
-    
-    	return $this;
+        $this->fullName = $fullName;
+
+        return $this;
     }
-    
+
     /**
      * Get fullName
      *
-     * @return string
+     * @return string 
      */
     public function getFullName()
     {
-    	return $this->full_name;
+        return $this->fullName;
     }
-    
+
     /**
      * Set exp
      *
@@ -365,6 +383,29 @@ class UserInfo
     }
 
     /**
+     * Set createAt
+     *
+     * @param \DateTime $createAt
+     * @return UserInfo
+     */
+    public function setCreateAt($createAt)
+    {
+        $this->createAt = $createAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreateAt()
+    {
+        return $this->createAt;
+    }
+
+    /**
      * Set updateAt
      *
      * @param \DateTime $updateAt
@@ -388,72 +429,9 @@ class UserInfo
     }
 
     /**
-     * Set user
-     *
-     * @param \AppBundle\Entity\User $user
-     * @return UserInfo
-     */
-    public function setUser(\AppBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \AppBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /** 
-     * @ORM\PrePersist
-     */
-    public function createAtPrePersist()
-    {
-        $this->createAt =  new \DateTime();
-    }
-
-    /** 
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
-    public function UpdatePreUpdate()
-    {
-        $this->updateAt =  new \DateTime();
-    }
-
-    /**
-     * Set createAt
-     *
-     * @param \DateTime $createAt
-     * @return UserInfo
-     */
-    public function setCreateAt($createAt)
-    {
-        $this->createAt = $createAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createAt
-     *
-     * @return \DateTime 
-     */
-    public function getCreateAt()
-    {
-        return $this->createAt;
-    }
-    
-    /**
      * Set points
      *
-     * @param \string $points
+     * @param string $points
      * @return UserInfo
      */
     public function setPoints($points)
@@ -466,17 +444,17 @@ class UserInfo
     /**
      * Get points
      *
-     * @return \string 
+     * @return string 
      */
     public function getPoints()
     {
         return $this->points;
     }
-    
-        /**
+
+    /**
      * Set birthday
      *
-     * @param \string $points
+     * @param string $birthday
      * @return UserInfo
      */
     public function setBirthday($birthday)
@@ -489,12 +467,79 @@ class UserInfo
     /**
      * Get birthday
      *
-     * @return \string 
+     * @return string 
      */
     public function getBirthday()
     {
         return $this->birthday;
     }
 
+    /**
+     * Set postcode
+     *
+     * @param string $postcode
+     * @return UserInfo
+     */
+    public function setPostcode($postcode)
+    {
+        $this->postcode = $postcode;
 
+        return $this;
+    }
+
+    /**
+     * Get postcode
+     *
+     * @return string 
+     */
+    public function getPostcode()
+    {
+        return $this->postcode;
+    }
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     * @return UserInfo
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string 
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set suburb
+     *
+     * @param string $suburb
+     * @return UserInfo
+     */
+    public function setSuburb($suburb)
+    {
+        $this->suburb = $suburb;
+
+        return $this;
+    }
+
+    /**
+     * Get suburb
+     *
+     * @return string 
+     */
+    public function getSuburb()
+    {
+        return $this->suburb;
+    }
 }

@@ -13,34 +13,35 @@ use Doctrine\ORM\Mapping as ORM;
 class Config
 {
     /**
-     * @ORM\Column(name="id", type="integer")
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")    
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="text")
+     * @ORM\Column(name="title", type="text", nullable=false)
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cfgvalue", type="text")
+     * @ORM\Column(name="cfgvalue", type="text", nullable=false)
      */
     private $cfgvalue;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="remark", type="text")
+     * @ORM\Column(name="remark", type="text", nullable=false)
      */
     private $remark;
 
-    
 
 
     /**
@@ -52,25 +53,12 @@ class Config
     {
         return $this->id;
     }
-    
-        /**
-     * Set id
-     *
-     * @param \string $id
-     * @return string
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * Set title
      *
-     * @param \string $title
-     * @return string
+     * @param string $title
+     * @return Config
      */
     public function setTitle($title)
     {
@@ -93,7 +81,7 @@ class Config
      * Set cfgvalue
      *
      * @param string $cfgvalue
-     * @return string
+     * @return Config
      */
     public function setCfgvalue($cfgvalue)
     {
@@ -116,7 +104,7 @@ class Config
      * Set remark
      *
      * @param string $remark
-     * @return string
+     * @return Config
      */
     public function setRemark($remark)
     {
@@ -134,6 +122,4 @@ class Config
     {
         return $this->remark;
     }
-
-    
 }
