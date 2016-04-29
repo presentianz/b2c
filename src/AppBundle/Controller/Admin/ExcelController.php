@@ -98,7 +98,7 @@
             foreach ($products as $product) {
                 $result['A'] = $order->getOrderId();
                 $result['B'] = '10301';  //Assgined Membership ID from Express Service.
-                $result['C'] = $user->getUser()->getFullName();
+                $result['C'] = $user->getUserInfo()->getFullName();
                 $result['D'] = $user->getContactNo();
 $result['E'] = 'Update DB';
 $result['F'] = 'Update DB';
