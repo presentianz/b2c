@@ -38,7 +38,7 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
             ->get('security.encoder_factory')
             ->getEncoder($user_test);
         $user_test->setPassword($encoder->encodePassword('test', $user_test->getSalt()));
-        $user_test->setEmail('test@caigou.co.nz');
+        $user_test->setEmail('support@pbay.co.nz');
         $user_test->setEnabled(true);
         $user_test->setRoles(array('ROLE_USER'));
         $user_test->setUserInfo($user_testInfo);
@@ -52,7 +52,7 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
             ->get('security.encoder_factory')
             ->getEncoder($user_admin);
         $user_admin->setPassword($encoder->encodePassword('admin', $user_admin->getSalt()));
-        $user_admin->setEmail('admin@caigou.co.nz');
+        $user_admin->setEmail('haokun@pbay.co.nz');
         $user_admin->setEnabled(true);
         $user_admin->setRoles(array('ROLE_ADMIN'));
         $user_admin->setUserInfo($user_adminInfo);
