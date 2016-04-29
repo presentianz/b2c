@@ -332,27 +332,4 @@ class UserOrder
     {
         return $this->postFee;
     }
-
-    /**
-     * Set points
-     *
-     * @param integer $points
-     * @return UserOrder
-     */
-    public function setPoints($points)
-    {
-        $this->points = $points;
-
-        return $this;
-    }
-
-    /**
-     * Get points
-     *
-     * @return integer 
-     */
-    public function getPoints()
-    {
-        return $this->points;
-    }
 }
