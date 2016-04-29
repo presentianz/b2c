@@ -94,21 +94,34 @@
          */
         private function getSingleResult($order, $user, $address, $products)
         {
-            $result['A'] = $order->getOrderId();
-            $result['B'] = $user->getUserName();
-            $result['C'] = $address->getContactNo();
-            $result['D'] = $address->getName();
-            $result['E'] = $address->__toString();
-            $result['F'] = $address->getPostCode();
-            $result['G'] = $address->getIdNo();
-            $result['H'] = $address->getComment();
-            $result['I'] = '';
+            $local_counter = 0;
             foreach ($products as $product) {
-                $product_name = $product->getProduct()->getName();
-                $product_count = $product->getCount();
-                $result['I'] .= ($product_name . 'x' . $product_count);
+                $result['A'] = $order->getOrderId();
+                $result['B'] = '10301';  //Assgined Membership ID from Express Service.
+                $result['C'] = $user->getFullName();
+                $result['D'] = $user->getContactNo();
+$result['E'] = 'Update DB';
+$result['F'] = 'Update DB';
+                $result['G'] = $address->getName();
+                $result['H'] = $address->getContactNo();
+                $result['I'] = $address->__toString();
+                $result['J'] = $address->getCountry();
+                $result['K'] = $address->getPostCode();
+                $result['L'] = $address->getIdNo();
+                $result['M'] = $product->getName();//$product->getProduct()->getName();
+                $result['N'] = $product->getCount();;
+                $result['O'] = $product->getWeight();//$product->getProduct()->getWeight();
+                $result['P'] = //$order->getTotalPrice();
+                $result['Q'] = '';
+                $result['R'] = $address->getComment();
+                $result['S'] = $local_counter;
+                $result['T'] = $this->getIdScanPath() . $address->getIdBack();
+                $result['U'] = $this->getIdScanPath() . $address->getIdFront();
+                local_counter++;
             }
-            $result['J'] = $order->getTotalPrice();
+            return $result;
+
+/*          //Old Code, save here just in case.
             $result['K'] = $order->getPostFee();
             if ($order->getCreateAt()) {
                 $result['L'] = $order->getCreateAt()->format('Y-m-d H:i:s');
@@ -140,9 +153,14 @@
                     $result['N'] = '未知状态';
                     break;
             }
-            $result['O'] = $this->getIdScanPath() . $address->getIdBack();
-            $result['P'] = $this->getIdScanPath() . $address->getIdFront();
-            return $result;
+
+            $result['M'] = '';
+            foreach ($products as $product) {
+                $product_name = $product->getProduct()->getName();
+                $product_count = 
+                $result['I'] .= ($product_name . 'x' . $product_count);
+            }
+*/
         }
 
 
