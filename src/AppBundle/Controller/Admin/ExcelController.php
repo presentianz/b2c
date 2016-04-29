@@ -45,14 +45,14 @@
          * @param $id
          * @return mixed
          */
-        private function getOneOrder($id)
+        private function getOneOrder($id, $local_counter)
         {
             $em = $this->getDoctrine()->getManager();
             $order = $em->getRepository('AppBundle:UserOrder')->find($id);
             $user = $order->getUser();
             $address = $order->getShipmentAddress();
             $products = $order->getOrderProducts();
-            $result = $this->getSingleResult($order, $user, $address, $products);
+            $result = $this->getSingleResult($order, $user, $address, $products, $local_counter);
             return $result;
         }
 
@@ -74,12 +74,13 @@
          * @param $sheet
          */
         private function setSheetContent($ids, $sheet)
-        {
+        {   $local_counter = 0;
             foreach ($ids as $num => $id) {
-                $result = $this->getOneOrder($id);
+                $result = $this->getOneOrder($id, $local_counter);
                 foreach ($result as $key => $value) {
                     $sheet->setCellValue($key . ($num + 2), $value);
                 }
+                $local_counter++;
             }
             return $sheet;
         }
@@ -92,33 +93,36 @@
          * @param $products
          * @return mixed
          */
-        private function getSingleResult($order, $user, $address, $products)
+        private function getSingleResult($order, $user, $address, $products, $local_counter)
         {
-            $local_counter = 0;
+            $result['A'] = $order->getOrderId();
+            $result['B'] = '10301';  //Assgined Membership ID from Express Service.
+            $result['C'] = $user->getUserInfo()->getFullName();
+            $result['D'] = $user->getUserInfo()->getContactNo();
+            $result['E'] = 'Update DB';
+            $result['F'] = 'Update DB';
+            $result['G'] = $address->getName();
+            $result['H'] = $address->getContactNo();
+            $result['I'] = $address->__toString();
+            $result['J'] = $address->getCountry();
+            $result['K'] = $address->getPostCode();
+            $result['L'] = $address->getIdNo();
+            $result['M'] = '';
+            $totalWeight = 0;
             foreach ($products as $product) {
-                $result['A'] = $order->getOrderId();
-                $result['B'] = '10301';  //Assgined Membership ID from Express Service.
-                $result['C'] = $user->getUserInfo()->getFullName();
-                $result['D'] = $user->getUserInfo()->getContactNo();
-$result['E'] = 'Update DB';
-$result['F'] = 'Update DB';
-                $result['G'] = $address->getName();
-                $result['H'] = $address->getContactNo();
-                $result['I'] = $address->__toString();
-                $result['J'] = $address->getCountry();
-                $result['K'] = $address->getPostCode();
-                $result['L'] = $address->getIdNo();
-                $result['M'] = $product->getProduct()->getName();
-                $result['N'] = $product->getCount();;
-                $result['O'] = $product->getProduct()->getWeight();
-                $result['P'] = //$order->getTotalPrice();
-                $result['Q'] = '';
-                $result['R'] = $address->getComment();
-                $result['S'] = $local_counter;
-                $result['T'] = $this->getIdScanPath() . $address->getIdBack();
-                $result['U'] = $this->getIdScanPath() . $address->getIdFront();
-                $local_counter++;
+                $product_name = $product->getProduct()->getName();
+                $product_count = $product->getCount();
+                $result['M'] .= ($product_name . 'x' . $product_count);
+                $totalWeight += $product->getProduct()->getWeight();
             }
+            $result['N'] = '1';
+            $result['O'] = $totalWeight;
+            $result['P'] = $order->getTotalPrice();
+            $result['Q'] = '';
+            $result['R'] = $address->getComment();
+            $result['S'] = $local_counter; //kjhkjkjhlj
+            $result['T'] = $this->getIdScanPath() . $address->getIdBack();
+            $result['U'] = $this->getIdScanPath() . $address->getIdFront();
             return $result;
 
 /*          //Old Code, save here just in case.
