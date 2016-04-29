@@ -102,12 +102,12 @@
                 $result['D'] = $user->getUserInfo()->getContactNo();
 $result['E'] = 'Update DB';
 $result['F'] = 'Update DB';
-                $result['G'] = $address->getShipmentAddress()->getName();
-                $result['H'] = $address->getShipmentAddress()->getContactNo();
+                $result['G'] = $address->getName();
+                $result['H'] = $address->getContactNo();
                 $result['I'] = $address->__toString();
-                $result['J'] = $address->getShipmentAddress()->getCountry();
-                $result['K'] = $address->getShipmentAddress()->getPostCode();
-                $result['L'] = $address->getShipmentAddress()->getIdNo();
+                $result['J'] = $address->getCountry();
+                $result['K'] = $address->getPostCode();
+                $result['L'] = $address->getIdNo();
                 $result['M'] = $product->$product->getProduct()->getName();
                 $result['N'] = $product->getProduct()->getCount();;
                 $result['O'] = $product->getProduct()->getWeight();
