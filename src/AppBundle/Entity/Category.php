@@ -2,71 +2,84 @@
 
 namespace AppBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Category
- *
- * @ORM\Table(name="category", indexes={@ORM\Index(name="IDX_64C19C1727ACA70", columns={"parent_id"})})
- * @ORM\Entity
+ * @Gedmo\Tree(type="nested")
+ * @ORM\Table(name="category")
+ * use repository for handy tree functions
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoryRepository")
  */
 class Category
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="lft", type="integer", nullable=false)
+     * @Gedmo\TreeLeft
+     * @ORM\Column(name="lft", type="integer")
      */
     private $lft;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="lvl", type="integer", nullable=false)
+     * @Gedmo\TreeLevel
+     * @ORM\Column(name="lvl", type="integer")
      */
     private $lvl;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="rgt", type="integer", nullable=false)
+     * @Gedmo\TreeRight
+     * @ORM\Column(name="rgt", type="integer")
      */
     private $rgt;
 
     /**
-     * @var integer
-     *
+     * @Gedmo\TreeRoot
      * @ORM\Column(name="root", type="integer", nullable=true)
      */
     private $root;
 
     /**
-     * @var \Category
-     *
-     * @ORM\ManyToOne(targetEntity="Category")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
-     * })
+     * @Gedmo\TreeParent
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\OrderBy({"root" = "ASC"})
      */
     private $parent;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="parent")
+     * @ORM\OrderBy({"lft" = "ASC"})
+     */
+    private $children;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
+     **/
+    private $products;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -214,5 +227,80 @@ class Category
     public function getParent()
     {
         return $this->parent;
+    }
+
+    /**
+     * Add children
+     *
+     * @param \AppBundle\Entity\Category $children
+     * @return Category
+     */
+    public function addChild(\AppBundle\Entity\Category $children)
+    {
+        $this->children[] = $children;
+
+        return $this;
+    }
+
+    /**
+     * Remove children
+     *
+     * @param \AppBundle\Entity\Category $children
+     */
+    public function removeChild(\AppBundle\Entity\Category $children)
+    {
+        $this->children->removeElement($children);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Add products
+     *
+     * @param \AppBundle\Entity\Product $products
+     * @return Category
+     */
+    public function addProduct(\AppBundle\Entity\Product $products)
+    {
+        $this->products[] = $products;
+
+        return $this;
+    }
+
+    /**
+     * Remove products
+     *
+     * @param \AppBundle\Entity\Product $products
+     */
+    public function removeProduct(\AppBundle\Entity\Product $products)
+    {
+        $this->products->removeElement($products);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    public function __toString()
+    {
+        $dash = '';
+        for ($i=0; $i < $this->lvl; $i++) { 
+            $dash .= ' --- ';
+        }
+        return $dash.$this->name;
     }
 }

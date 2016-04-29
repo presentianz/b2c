@@ -99,8 +99,8 @@
             $result['B'] = '10301';  //Assgined Membership ID from Express Service.
             $result['C'] = $user->getUserInfo()->getFullName();
             $result['D'] = $user->getUserInfo()->getContactNo();
-            $result['E'] = $user->getUserInfo()->getAddress();
-            $result['F'] = $user->getUserInfo()->getPostCode();
+            $result['E'] = 'Update DB';
+            $result['F'] = 'Update DB';
             $result['G'] = $address->getName();
             $result['H'] = $address->getContactNo();
             $result['I'] = $address->__toString();
@@ -112,7 +112,7 @@
             foreach ($products as $product) {
                 $product_name = $product->getProduct()->getName();
                 $product_count = $product->getCount();
-                $result['M'] .= ($product_name . ' x ' . $product_count);
+                $result['M'] .= ($product_name . 'x' . $product_count);
                 $totalWeight += $product->getProduct()->getWeight() * $product_count;
             }
             $result['N'] = '1';
@@ -156,6 +156,13 @@
                 default:
                     $result['N'] = '未知状态';
                     break;
+            }
+
+            $result['M'] = '';
+            foreach ($products as $product) {
+                $product_name = $product->getProduct()->getName();
+                $product_count = 
+                $result['I'] .= ($product_name . 'x' . $product_count);
             }
 */
         }

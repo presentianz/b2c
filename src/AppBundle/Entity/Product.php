@@ -7,61 +7,70 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Product
  *
- * @ORM\Table(name="product", indexes={@ORM\Index(name="IDX_D34A04AD12469DE2", columns={"category_id"})})
+ * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
  */
 class Product
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="price", type="decimal", precision=8, scale=2, nullable=false)
+     * @ORM\Column(name="price", type="decimal", precision=8, scale=2)
      */
-    private $price;
+    private $price = 0;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="price_discounted", type="decimal", precision=8, scale=2, nullable=false)
+     * @ORM\Column(name="price_discounted", type="decimal", precision=8, scale=2)
      */
-    private $priceDiscounted;
+    private $price_discounted = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="viewed_count", type="integer", nullable=false)
+     * @ORM\Column(name="viewed_count", type="integer")
      */
-    private $viewedCount;
+    private $viewed_count = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="sold_no", type="integer", nullable=false)
+     * @ORM\Column(name="sold_no", type="integer")
      */
-    private $soldNo;
+    private $soldNo = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="inventory", type="integer", nullable=false)
+     * @ORM\Column(name="inventory", type="integer")
      */
-    private $inventory;
+    private $inventory = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="click", type="integer")
+     */
+    private $click = 0;
 
     /**
      * @var string
@@ -73,30 +82,30 @@ class Product
     /**
      * @var integer
      *
-     * @ORM\Column(name="status", type="smallint", nullable=false)
+     * @ORM\Column(name="status", type="smallint")
      */
-    private $status;
+    private $status = 0;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updateAt", type="datetime", nullable=false)
+     * @var datetime
+     * @ORM\Column(name="updateAt", type="datetime")
      */
-    private $updateat;
+    private $updateAt;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image_link", type="string", length=255)
+     */
+    private $imageLink = "";
 
     /**
      * @var string
      *
      * @ORM\Column(name="poster", type="string", length=255, nullable=true)
      */
-    private $poster;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image_link", type="string", length=255, nullable=false)
-     */
-    private $imageLink;
+    private $poster = "";
 
     /**
      * @var string
@@ -120,36 +129,63 @@ class Product
     private $productKey;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="click", type="integer", nullable=false)
-     */
-    private $click;
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
+     **/
+    private $category;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="product")
+     **/
+    private $comments;
+
 
     /**
      * @var integer
      *
      * @ORM\Column(name="index_widget", type="integer", nullable=true)
      */
-    private $indexWidget;
+    private $index_widget;
+
 
     /**
      * @var integer
      *
      * @ORM\Column(name="widget_weight", type="integer", nullable=true)
      */
-    private $widgetWeight;
+    private $widget_weight;
 
     /**
-     * @var \Category
-     *
-     * @ORM\ManyToOne(targetEntity="Category")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     * })
+     * @return int
      */
-    private $category;
+    public function getWidgetWeight()
+    {
+        return $this->widget_weight;
+    }
 
+    /**
+     * @param int $widget_weight
+     */
+    public function setWidgetWeight($widget_weight)
+    {
+        $this->widget_weight = $widget_weight;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIndexWidget()
+    {
+        return $this->index_widget;
+    }
+
+    /**
+     * @param int $index_widget
+     */
+    public function setIndexWidget($index_widget)
+    {
+        $this->index_widget = $index_widget;
+    }
 
 
     /**
@@ -209,98 +245,6 @@ class Product
     }
 
     /**
-     * Set priceDiscounted
-     *
-     * @param string $priceDiscounted
-     * @return Product
-     */
-    public function setPriceDiscounted($priceDiscounted)
-    {
-        $this->priceDiscounted = $priceDiscounted;
-
-        return $this;
-    }
-
-    /**
-     * Get priceDiscounted
-     *
-     * @return string 
-     */
-    public function getPriceDiscounted()
-    {
-        return $this->priceDiscounted;
-    }
-
-    /**
-     * Set viewedCount
-     *
-     * @param integer $viewedCount
-     * @return Product
-     */
-    public function setViewedCount($viewedCount)
-    {
-        $this->viewedCount = $viewedCount;
-
-        return $this;
-    }
-
-    /**
-     * Get viewedCount
-     *
-     * @return integer 
-     */
-    public function getViewedCount()
-    {
-        return $this->viewedCount;
-    }
-
-    /**
-     * Set soldNo
-     *
-     * @param integer $soldNo
-     * @return Product
-     */
-    public function setSoldNo($soldNo)
-    {
-        $this->soldNo = $soldNo;
-
-        return $this;
-    }
-
-    /**
-     * Get soldNo
-     *
-     * @return integer 
-     */
-    public function getSoldNo()
-    {
-        return $this->soldNo;
-    }
-
-    /**
-     * Set inventory
-     *
-     * @param integer $inventory
-     * @return Product
-     */
-    public function setInventory($inventory)
-    {
-        $this->inventory = $inventory;
-
-        return $this;
-    }
-
-    /**
-     * Get inventory
-     *
-     * @return integer 
-     */
-    public function getInventory()
-    {
-        return $this->inventory;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
@@ -347,55 +291,9 @@ class Product
     }
 
     /**
-     * Set updateat
-     *
-     * @param \DateTime $updateat
-     * @return Product
-     */
-    public function setUpdateat($updateat)
-    {
-        $this->updateat = $updateat;
-
-        return $this;
-    }
-
-    /**
-     * Get updateat
-     *
-     * @return \DateTime 
-     */
-    public function getUpdateat()
-    {
-        return $this->updateat;
-    }
-
-    /**
-     * Set poster
-     *
-     * @param string $poster
-     * @return Product
-     */
-    public function setPoster($poster)
-    {
-        $this->poster = $poster;
-
-        return $this;
-    }
-
-    /**
-     * Get poster
-     *
-     * @return string 
-     */
-    public function getPoster()
-    {
-        return $this->poster;
-    }
-
-    /**
      * Set imageLink
      *
-     * @param string $imageLink
+     * @param array $imageLink
      * @return Product
      */
     public function setImageLink($imageLink)
@@ -408,12 +306,199 @@ class Product
     /**
      * Get imageLink
      *
-     * @return string 
+     * @return array 
      */
     public function getImageLink()
     {
         return $this->imageLink;
     }
+
+    /**
+     * Set soldNo
+     *
+     * @param integer $soldNo
+     * @return Product
+     */
+    public function setSoldNo($soldNo)
+    {
+        $this->soldNo = $soldNo;
+
+        return $this;
+    }
+
+    /**
+     * Get soldNo
+     *
+     * @return integer 
+     */
+    public function getSoldNo()
+    {
+        return $this->soldNo;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\Category $category
+     * @return Product
+     */
+    public function setCategory(\AppBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \AppBundle\Entity\Comment $comments
+     * @return Product
+     */
+    public function addComment(\AppBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \AppBundle\Entity\Comment $comments
+     */
+    public function removeComment(\AppBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Set price_discounted
+     *
+     * @param string $priceDiscounted
+     * @return Product
+     */
+    public function setPriceDiscounted($priceDiscounted)
+    {
+        $this->price_discounted = $priceDiscounted;
+
+        return $this;
+    }
+
+    /**
+     * Get price_discounted
+     *
+     * @return string 
+     */
+    public function getPriceDiscounted()
+    {
+        return $this->price_discounted;
+    }
+
+    /**
+     * Set viewed_count
+     *
+     * @param integer $viewedCount
+     * @return Product
+     */
+    public function setViewedCount($viewedCount)
+    {
+        $this->viewed_count = $viewedCount;
+
+        return $this;
+    }
+
+    /**
+     * Get viewed_count
+     *
+     * @return integer 
+     */
+    public function getViewedCount()
+    {
+        return $this->viewed_count;
+    }
+
+    /**
+     * Set inventory
+     *
+     * @param integer $inventory
+     * @return Product
+     */
+    public function setInventory($inventory)
+    {
+        $this->inventory = $inventory;
+
+        return $this;
+    }
+
+    /**
+     * Get inventory
+     *
+     * @return integer 
+     */
+    public function getInventory()
+    {
+        return $this->inventory;
+    }
+    /** 
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function UpdatePreUpdate()
+    {
+        $this->updateAt =  new \DateTime();
+    }
+
+    /**
+     * Set updateAt
+     *
+     * @param \DateTime $updateAt
+     * @return Product
+     */
+    public function setUpdateAt($updateAt)
+    {
+        $this->updateAt = $updateAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updateAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdateAt()
+    {
+        return $this->updateAt;
+    }
+
 
     /**
      * Set brand
@@ -508,71 +593,30 @@ class Product
     }
 
     /**
-     * Set indexWidget
+     * Set poster
      *
-     * @param integer $indexWidget
+     * @param string $poster
      * @return Product
      */
-    public function setIndexWidget($indexWidget)
+    public function setPoster($poster)
     {
-        $this->indexWidget = $indexWidget;
+        $this->poster = $poster;
 
         return $this;
     }
 
     /**
-     * Get indexWidget
+     * Get poster
      *
-     * @return integer 
+     * @return string 
      */
-    public function getIndexWidget()
+    public function getPoster()
     {
-        return $this->indexWidget;
+        return $this->poster;
     }
 
-    /**
-     * Set widgetWeight
-     *
-     * @param integer $widgetWeight
-     * @return Product
-     */
-    public function setWidgetWeight($widgetWeight)
-    {
-        $this->widgetWeight = $widgetWeight;
 
-        return $this;
-    }
-
-    /**
-     * Get widgetWeight
-     *
-     * @return integer 
-     */
-    public function getWidgetWeight()
-    {
-        return $this->widgetWeight;
-    }
-
-    /**
-     * Set category
-     *
-     * @param \AppBundle\Entity\Category $category
-     * @return Product
-     */
-    public function setCategory(\AppBundle\Entity\Category $category = null)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return \AppBundle\Entity\Category 
-     */
-    public function getCategory()
-    {
-        return $this->category;
+    public function __toString(){
+        return $this->name;
     }
 }

@@ -7,68 +7,61 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Comment
  *
- * @ORM\Table(name="comment", indexes={@ORM\Index(name="IDX_9474526CA76ED395", columns={"user_id"}), @ORM\Index(name="IDX_9474526C4584665A", columns={"product_id"})})
+ * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserCommentRepository")
  */
 class Comment
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="comment_at", type="datetime", nullable=false)
+     * @ORM\Column(name="comment_at", type="datetime")
      */
     private $commentAt;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="star", type="smallint", nullable=false)
+     * @ORM\Column(name="star", type="smallint")
      */
     private $star;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="text", type="text", nullable=false)
+     * @ORM\Column(name="text", type="text")
      */
     private $text;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="reply", type="text", nullable=false)
+     * @ORM\Column(name="reply", type="text")
      */
     private $reply;
 
     /**
-     * @var \Product
-     *
-     * @ORM\ManyToOne(targetEntity="Product")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     * })
-     */
-    private $product;
-
-    /**
-     * @var \FosUser
-     *
-     * @ORM\ManyToOne(targetEntity="FosUser")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * })
-     */
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="comments")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     **/
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Product", inversedBy="comments")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     **/
+    private $product;
 
 
     /**
@@ -97,7 +90,7 @@ class Comment
     /**
      * Get commentAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCommentAt()
     {
@@ -174,6 +167,29 @@ class Comment
     }
 
     /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     * @return Comment
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
      * Set product
      *
      * @param \AppBundle\Entity\Product $product
@@ -197,25 +213,12 @@ class Comment
     }
 
     /**
-     * Set user
-     *
-     * @param \AppBundle\Entity\FosUser $user
-     * @return Comment
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
      */
-    public function setUser(\AppBundle\Entity\FosUser $user = null)
+    public function prePersist()
     {
-        $this->user = $user;
-
-        return $this;
+        $this->commentAt =  new \DateTime();
     }
 
-    /**
-     * Get user
-     *
-     * @return \AppBundle\Entity\FosUser 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 }

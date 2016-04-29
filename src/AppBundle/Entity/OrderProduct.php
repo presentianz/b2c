@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * OrderProduct
  *
- * @ORM\Table(name="order_product", indexes={@ORM\Index(name="IDX_2530ADE66D128938", columns={"user_order_id"}), @ORM\Index(name="IDX_2530ADE64584665A", columns={"product_id"})})
+ * @ORM\Table()
  * @ORM\Entity
  */
 class OrderProduct
@@ -15,46 +15,37 @@ class OrderProduct
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="price", type="decimal", precision=8, scale=2, nullable=false)
+     * @ORM\Column(name="price", type="decimal", precision=8, scale=2)
      */
     private $price;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="count", type="integer", nullable=false)
+     * @ORM\Column(name="count", type="integer")
      */
     private $count;
 
     /**
-     * @var \Product
-     *
-     * @ORM\ManyToOne(targetEntity="Product")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     * })
-     */
-    private $product;
-
-    /**
-     * @var \UserOrder
-     *
-     * @ORM\ManyToOne(targetEntity="UserOrder")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="user_order_id", referencedColumnName="id")
-     * })
-     */
+     * @ORM\ManyToOne(targetEntity="UserOrder", inversedBy="orderProducts", cascade={"persist"})
+     * @ORM\JoinColumn(name="user_order_id", referencedColumnName="id")
+     **/
     private $userOrder;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Product")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     **/
+    private $product;
 
 
     /**
@@ -114,29 +105,6 @@ class OrderProduct
     }
 
     /**
-     * Set product
-     *
-     * @param \AppBundle\Entity\Product $product
-     * @return OrderProduct
-     */
-    public function setProduct(\AppBundle\Entity\Product $product = null)
-    {
-        $this->product = $product;
-
-        return $this;
-    }
-
-    /**
-     * Get product
-     *
-     * @return \AppBundle\Entity\Product 
-     */
-    public function getProduct()
-    {
-        return $this->product;
-    }
-
-    /**
      * Set userOrder
      *
      * @param \AppBundle\Entity\UserOrder $userOrder
@@ -157,5 +125,28 @@ class OrderProduct
     public function getUserOrder()
     {
         return $this->userOrder;
+    }
+
+    /**
+     * Set product
+     *
+     * @param \AppBundle\Entity\Product $product
+     * @return OrderProduct
+     */
+    public function setProduct(\AppBundle\Entity\Product $product = null)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \AppBundle\Entity\Product 
+     */
+    public function getProduct()
+    {
+        return $this->product;
     }
 }
