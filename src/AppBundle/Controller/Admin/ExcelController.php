@@ -117,7 +117,7 @@ $result['F'] = 'Update DB';
                 $result['S'] = $local_counter;
                 $result['T'] = $this->getIdScanPath() . $address->getIdBack();
                 $result['U'] = $this->getIdScanPath() . $address->getIdFront();
-                local_counter++;
+                $local_counter++;
             }
             return $result;
 
