@@ -1,21 +1,18 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="col-xs-6 user-info">
+<div class="col-xs-6 user-info" style="background-color: lightgray">
         <div class="user-info-each">
-            <label>{{ 'profile.show.username'|trans }}:</label>
-            <div>
-                <span class="edit-name">{{ user.username }}</span>
-                <a href="{{path('user_profile_edit')}}" class="fa fa-edit pull-right">{{ 'button.edit'|trans }}</a> 
-            </div>
+            
+
         </div>
         <div class="user-info-each">
-            <label>{{ 'profile.show.email'|trans }}:</label>
+            
             <div>
-                <span class="edit-email"> {{ user.email }}</span>
+                
             </div>
         </div>  
  </div>
- <div class="col-xs-6 user-info">
+ <div class="col-xs-6 user-info" style="background-color: lightgray">
     <div class="status-each">
         <h2>{{ user.userOrders|length }}</h2>
         <div><a href="{{path('user_order')}}">(查看所有订单)</a></div>
@@ -23,7 +20,6 @@
     <div class="status-each">
         <h2>${{user.userInfo.balance}}</h2>
         <div><a href="{{path('user_topup')}}">账户余额 (<span class="color">充值</span>)</a></div>
-
     </div>
     <div class="status-each">
         <h2>{{user.userInfo.points}}</h2>
@@ -31,53 +27,55 @@
     </div>   
 </div>
 
-<div class="panel panel-info">
+<div class="panel panel-info" style="border-color: #95B56F">
         <div class="panel-heading" tyle="background:silver">
-            <h3 class="panel-title">Sheena Kristin A.Eschor</h3>
+
         </div>
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-3 col-lg-3" align="center">
                     <i class="fa fa-user fa-5x" aria-hidden="true"></i>
+                    <br>
+                    <span class="edit-name">{{ user.username }} </span>
                 </div>
                 <div class=" col-md-9 col-lg-9 "> 
                     <table class="table table-user-information">
                         <tbody>
                           <tr>
-                            <td>Department:</td>
-                            <td>Programming</td>
+                            <td><label>{{ 'profile.show.email'|trans }}:</label></td>
+                            <td><span class="edit-email"> {{ user.email }}</span></td>
                           </tr>
                           <tr>
-                            <td>Hire date:</td>
-                            <td>06/23/2013</td>
+                            <td><label>用户姓名:</label></td>
+                            <td>{{ user.userInfo.fullname }}</td>
                           </tr>
                           <tr>
-                            <td>Date of Birth</td>
-                            <td>01/24/1988</td>
+                            <td><label>出生日期:</label></td>
+                            <td>{{ user.userInfo.birthday }}</td>
                           </tr>
-                    
                             <tr>
                                 <tr>
-                                    <td>Gender</td>
-                                    <td>Male</td>
+                                    <td><label>微信号码:</label></td>
+                                    <td>{{ user.userInfo.wechatNo }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Home Address</td>
-                                    <td>Metro Manila,Philippines</td>
+                                    <td><label>QQ号码:</label></td>
+                                    <td>{{ user.userInfo.qqNo }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Email</td>
-                                    <td><a href="mailto:info@support.com">info@support.com</a></td>
+                                    <td><label>联系电话:</label></td>
+                                    <td> {{ user.userInfo.contactNo }} </td>
                                 </tr>
-                                <td>Phone Number</td>
+                                <td><label>居住地址</label></td>
                                 <td>
-                                    123-4567-890(Landline)<br><br>555-4567-890(Mobile)
+                                    {{ user.userInfo.contactNo }}<br><br>{{ user.userInfo.city }}&nbsp;&nbsp;{{ user.userInfo.region }}&nbsp;&nbsp;{{ user.userInfo.country }}
                                 </td> 
                             </tr>
                         </tbody>
                     </table> 
-                    <a href="#" class="btn btn-primary">My Sales Performance</a>
-                    <a href="#" class="btn btn-primary">Team Sales Performance</a>
+                    <a href="{{path('user_profile_edit')}}" class="btn btn-primary"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑个人资料</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{{path('user_topup')}}" class="btn btn-primary"><i class="fa fa-battery-half" aria-hidden="true"></i>&nbsp;&nbsp;购物点数充值</a>
                 </div>
             </div>
         </div>
