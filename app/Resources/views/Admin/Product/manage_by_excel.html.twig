@@ -4,6 +4,13 @@
 {% block stylesheets %}
 <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
 <link rel="stylesheet" href="/js/jQuery-File-Upload/css/jquery.fileupload.css">
+<link rel="stylesheet" href="/css/manage_by_excel.html.twig.css">
+{% endblock %}
+
+
+{% block javacript_in_head_section %}
+<script src="{{ asset('/js/xlsx.js') }}"></script>
+	
 {% endblock %}
 
 {% block adminProduct %}
@@ -48,6 +55,7 @@
 </header>
 <div class="container">
     <div class="panel panel-default">
+    	<div id="drop">Drag and Drop an XLSX / XLS file here.</div>
         <div class="panel-heading">
             <h3 class="panel-title">Notes</h3>
         </div>
@@ -59,7 +67,6 @@
             </ul>
         </div>
     </div>
-    <br>
     <!-- The fileinput-button span is used to style the file input field as button -->
     <span class="btn btn-success fileinput-button">
         <i class="glyphicon glyphicon-plus"></i>

@@ -220,6 +220,7 @@ class UploadHandler
 
     protected function get_upload_path($file_name = null, $version = null) {
         $file_name = $file_name ? $file_name : '';
+        $file_name = iconv("utf-8", "cp936", $file_name);  //http://stackoverflow.com/questions/18204364/php-upload-utf-8-filename
         if (empty($version)) {
             $version_path = '';
         } else {
