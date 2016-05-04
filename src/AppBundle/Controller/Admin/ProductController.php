@@ -114,14 +114,7 @@
          */
         public function excelAction()
         {
-            $entity = new Product();
-            $entity->SetImageLink(uniqid());
-            $form = $this->createCreateForm($entity);
-
-            return $this->render('Admin/Product/manage_by_excel.html.twig', array(
-                'entity' => $entity,
-                'form' => $form->createView(),
-            ));
+            return $this->render('Admin/Product/manage_by_excel.html.twig');
         }
 
 
