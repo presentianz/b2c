@@ -138,16 +138,21 @@
             if (! (is_numeric($page) && $page > 1)) {
                 $page = 1;
             }
-            if (! (is_numeric($item_no) && $item_no > 1)) {
-                $item_no = 18;
-            }
+            //if (! (is_numeric($item_no) && $item_no > 1)) {
+            //    $item_no = 18;
+            //}
             //$item_no = $item_no <= 18 ? 18 : ($item_no <= 24 ? 24 : 36);
+
             $products->setFirstResult(($page - 1) * $item_no)->setMaxResults($item_no);
             $data['products'] = $products->getQuery()->getResult();
             $total_no = $products_no->getQuery()->getSingleScalarResult();
-            $data['total_page'] = ceil($total_no / $item_no);
             $data['total_no'] = $total_no;
             $data['row_no'] = ceil(count($data['products']) / 3);
+            if ( (is_numeric($item_no) && $item_no > 1) ) {
+                $data['total_page'] = ceil($total_no / $item_no);
+            } else {
+                $data['total_page'] = 1;
+            }
             return $data;
         }
 

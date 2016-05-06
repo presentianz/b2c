@@ -6,10 +6,9 @@
     padding: 25px;
     text-align: center;
     font: 20pt bold,"Vollkorn";
-    color: #bbb;
     background-color: initial;
 }
 
 #drop:hover{
-	background: white;
+	background: darkcyan;
 }

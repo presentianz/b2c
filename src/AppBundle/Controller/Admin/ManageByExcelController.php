@@ -13,15 +13,15 @@
     /**
      * Product controller.
      *
-     * @Route("/admin/product")
+     * @Route("/admin/product/manage_by_excel")
      */
-    class ProductController extends Controller
+    class ManageByExcelController extends Controller
     {
 
         /**
          * Lists all Product entities.
          *
-         * @Route("", name="admin_product")
+         * @Route("", name="admin_product_manage_by_excel")
          * @Method("GET")
          */
         public function indexAction(Request $request)
@@ -31,42 +31,17 @@
             $page = $request->query->get('page');
             $item_no = $request->query->get('item_no');
             $widget = $request->query->get('widget');
-            if (! (is_numeric($item_no) && $item_no > 1)) {
-                $item_no = 20;
-            }
+            $item_no = null;
             if (! $sort)
                 $sort = 7;
             $em = $this->getDoctrine()->getManager();
             $data = $em->getRepository('AppBundle:Product')->searchProduct($keys, $sort, $page, $item_no, $widget);
-            return $this->render('Admin/Product/index.html.twig', array(
+            return $this->render('Admin/Product/manage_by_excel.html.twig', array(
                 'data' => $data,
             ));
         }
 
-        /**
-         * Creates a new Product entity.
-         *
-         * @Route("/", name="admin_product_create")
-         * @Method("POST")
-         */
-        public function createAction(Request $request)
-        {
-            $entity = new Product();
-            $form = $this->createCreateForm($entity);
-            $form->handleRequest($request);
-
-            if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($entity);
-                $em->flush();
-
-                return $this->redirect($this->generateUrl('admin_product_show', array('id' => $entity->getId())));
-            }
-            return $this->render('Admin/Product/new.html.twig', array(
-                'entity' => $entity,
-                'form' => $form->createView(),
-            ));
-        }
+    
 
         /**
          * Creates a form to create a Product entity.
@@ -104,6 +79,7 @@
                 'form' => $form->createView(),
             ));
         }
+
 
         /**
          * Finds and displays a Product entity.

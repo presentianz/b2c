@@ -30,11 +30,19 @@
         {
             $ids = $request->get('export');
             $phpExcelObject = $this->get('phpexcel')->createPHPExcelObject();
-            $phpExcelObject->getProperties()->setCreator("liuggio")->setLastModifiedBy("Admin")->setTitle("订单详情")->setSubject("订单详情导出表")->setDescription("订单详情导出表")->setKeywords("订单 丰盛湾")->setCategory("订单");
+
+            $creator = "Plenty Bay eCommerce Ltd";
+            $title = "Orders Details";
+            $subject = "The Export List of Order Details";
+            $description = "The list of current orders, ready for shipping.";
+            $keywords = "Orders PlentyBay Ship";
+            $category = "Orders";
+
+            $phpExcelObject->getProperties()->setCreator($creator)->setLastModifiedBy($creator)->setTitle($title)->setSubject($subject)->setDescription($description)->setKeywords($keywords)->setCategory($category);
             $sheet = $phpExcelObject->setActiveSheetIndex(0);
             $sheet = $this->setSheetTitle($sheet);
             $sheet = $this->setSheetContent($ids, $sheet);
-            $phpExcelObject->getActiveSheet()->setTitle('Simple');
+            $phpExcelObject->getActiveSheet()->setTitle($title);
             $phpExcelObject->setActiveSheetIndex(0);
             $writer = $this->get('phpexcel')->createWriter($phpExcelObject, 'Excel5');
             $response = $this->setResponse($writer);
@@ -61,10 +69,6 @@
          */
         private function setSheetTitle($sheet)
         {
-            /*
-            $sheet->setCellValue('A1', '订单号')->setCellValue('B1', '会员号')->setCellValue('C1', '联系电话')->setCellValue('D1', '联系人')->setCellValue('E1', '地址')->setCellValue('F1', '邮编')->setCellValue('G1', '身份证号')->setCellValue('H1', '备注')->setCellValue('I1', '商品详情')->setCellValue('J1', '总价')->setCellValue('K1', '运费')->setCellValue('L1', '下单时间')->setCellValue('M1', '支付时间')->setCellValue('N1', '订单状态')->setCellValue('O1', '身份证正面')->setCellValue('P1', '身份证背面');
-            return $sheet;
-            */
             $sheet->setCellValue('A1', '单号')->setCellValue('B1', '会员号')->setCellValue('C1', '发件人姓名')->setCellValue('D1', '发件人电话')->setCellValue('E1', '发件人地址')->setCellValue('F1', '发件人邮编')->setCellValue('G1', '收件人姓名')->setCellValue('H1', '收件人电话')->setCellValue('I1', '收件人地址第1行')->setCellValue('J1', '收件人地址第2行')->setCellValue('K1', '收件人邮编')->setCellValue('L1', '收件人身份证号')->setCellValue('M1', '货物名称')->setCellValue('N1', '件数')->setCellValue('O1', '重量')->setCellValue('P1', '价值')->setCellValue('Q1', '体积')->setCellValue('R1', '说明')->setCellValue('S1', '编号')->setCellValue('T1', '身份证正面')->setCellValue('U1', '身份证背面');
             return $sheet;
         }

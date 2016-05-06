@@ -5,7 +5,8 @@ html {
 body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
-  color: #788288;
+  /* color: #788288; */
+  color: black;
   background-color: transparent;
   -webkit-font-smoothing: antialiased;
   line-height: 1.53846154;

@@ -42,14 +42,9 @@
 {% endblock %}
 
 {% block body %}
-
     <section id="content">
         <section class="vbox">
-            <header class="header bg-light b-b">
-                <p><strong>商品列表</strong></p>
-            </header>
             <section class="scrollable padder">
-
                 <section class="panel panel-default">
                     <div class="table-responsive">
                         <div class="dataTables_wrapper" role="grid">
@@ -59,8 +54,19 @@
                                         <a class="dropdown open">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                                                aria-expanded="true">
-                                                每页显示 <b class="caret"></b>
-                                            </a>
+                                                &nbsp;每页显示 <b class="caret"></b></a>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                            <a class="btn btn-success btn-sm {{ not app.request.get('widget')?'active':'' }}"
+                                               href="{{ path('admin_product', {'widget': 0}) }}">全部商品</a>
+                                            <a class="btn btn-success btn-sm {{ app.request.get('widget') == 1?'active':'' }}"
+                                               href="{{ path('admin_product',{'widget': 1}) }}">今日推荐</a>
+                                            <a class="btn btn-success btn-sm {{ app.request.get('widget') == 2?'active':'' }}"
+                                               href="{{ path('admin_product',{'widget': 2}) }}">热卖畅销</a>
+                                            <a class="btn btn-success btn-sm {{ app.request.get('widget') == 3?'active':'' }}"
+                                               href="{{ path('admin_product',{'widget': 3}) }}">限时特卖</a>
+                                            <a class="btn btn-success btn-sm {{ app.request.get('widget') == 4?'active':'' }}"
+                                               href="{{ path('admin_product',{'widget': 4}) }}">折扣商品</a>
+                                            <a class="btn btn-success btn-sm {{ app.request.get('widget') == 5?'active':'' }}"
+                                               href="{{ path('admin_product',{'widget': 5}) }}">人气商品</a>
                                             <ul class="dropdown-menu animated fadeInRight">
                                                 <li>
                                                     <span class="arrow top"></span>
@@ -69,7 +75,6 @@
                                                 <li>
                                                     <a href="{{ path('admin_product',{item_no : 40}) }}">40行</a>
                                                 </li>
-
                                                 <li>
                                                     <a href="{{ path('admin_product',{item_no : 60}) }}">60行</a>
                                                 </li>
@@ -85,20 +90,6 @@
                                             </label></form>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="panel-body">
-                                <a class="btn btn-success btn-sm {{ not app.request.get('widget')?'active':'' }}"
-                                   href="{{ path('admin_product', {'widget': 0}) }}">全部商品</a>
-                                <a class="btn btn-success btn-sm {{ app.request.get('widget') == 1?'active':'' }}"
-                                   href="{{ path('admin_product',{'widget': 1}) }}">今日推荐</a>
-                                <a class="btn btn-success btn-sm {{ app.request.get('widget') == 2?'active':'' }}"
-                                   href="{{ path('admin_product',{'widget': 2}) }}">热卖畅销</a>
-                                <a class="btn btn-success btn-sm {{ app.request.get('widget') == 3?'active':'' }}"
-                                   href="{{ path('admin_product',{'widget': 3}) }}">限时特卖</a>
-                                <a class="btn btn-success btn-sm {{ app.request.get('widget') == 4?'active':'' }}"
-                                   href="{{ path('admin_product',{'widget': 4}) }}">折扣商品</a>
-                                <a class="btn btn-success btn-sm {{ app.request.get('widget') == 5?'active':'' }}"
-                                   href="{{ path('admin_product',{'widget': 5}) }}">人气商品</a>
                             </div>
                             <table class="table table-striped m-b-none dataTable">
                                 <thead>
@@ -218,8 +209,8 @@
                                         </td>
 
                                         <td>
-                                            {% if entity.name|length > 20 %}
-                                                <span title="{{ entity.name }}">{{ entity.name|slice(0, 20) }}...</span>
+                                            {% if entity.name|length > 30 %}
+                                                <span title="{{ entity.name }}">{{ entity.name|slice(0, 30) }}...</span>
                                             {% else %}
                                                 <span title="{{ entity.name }}">{{ entity.name }}</span>
                                             {% endif %}</td>
@@ -251,8 +242,8 @@
                             </table>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="dataTables_info" id="DataTables_Table_0_info">Showing 1
-                                        to {{ data.total_page }} of {{ data.total_no }} entries
+                                    <div class="dataTables_info" id="DataTables_Table_0_info">Page 1
+                                        of <strong>{{ data.total_page }}</strong>  &nbsp; <i class="glyphicon glyphicon-transfer"></i>  &nbsp;  Total: <strong>{{ data.total_no }}</strong> entries 
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -264,16 +255,16 @@
                                         <a tabindex="0" class="previous paginate_button paginate_button_disabled"
                                            id="DataTables_Table_0_previous"
                                            href="{{ path('admin_product',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:(app.request.get('page')) ? app.request.get('page')-1 : 2,keys:app.request.get('keys')}) }}">上一页</a>
-                    <span>
-                      {% for i in 1..data.total_page %}
-                          <a tabindex="0" href="{{ path('admin_product', {
-                              keys : app.request.get('keys'),
-                              page : i,
-                              sort : app.request.get('sort'),
-                              item_no: app.request.get('item_no')
-                          }) }}" {% if not app.request.get('page') and i == 1 %} class="paginate_active paginate_button" {% elseif i == app.request.get('page') %} class="paginate_active paginate_button" {% else %} class="paginate_button" {% endif %}> {{ i }}</a>
-                      {% endfor %}
-                    </span>
+                                <span>
+                                  {% for i in 1..data.total_page %}
+                                      <a tabindex="0" href="{{ path('admin_product', {
+                                          keys : app.request.get('keys'),
+                                          page : i,
+                                          sort : app.request.get('sort'),
+                                          item_no: app.request.get('item_no')
+                                      }) }}" {% if not app.request.get('page') and i == 1 %} class="paginate_active paginate_button" {% elseif i == app.request.get('page') %} class="paginate_active paginate_button" {% else %} class="paginate_button" {% endif %}> {{ i }}</a>
+                                  {% endfor %}
+                                </span>
                                         <a tabindex="0" class="next paginate_button" id="DataTables_Table_0_next"
                                            href="{{ path('admin_product',{sort:app.request.get('sort'), item_no:app.request.get('item_no'),page:(app.request.get('page')) ? app.request.get('page')+1 : 2,keys:app.request.get('keys')}) }}">下一页</a>
                                         <a tabindex="0" class="last paginate_button" id="DataTables_Table_0_last"
