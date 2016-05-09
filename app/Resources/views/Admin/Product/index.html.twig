@@ -198,6 +198,27 @@
                                                     href="{{ path('admin_product',{sort:17, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">权重</a>
                                         </th>
                                     {% endif %}
+
+                                    <th>重量</th>
+
+                                    <th>商品编号</th>
+
+                                    {% if app.request.get('sort') == 17 %}
+                                        <th class="sorting_asc"><a
+                                                    href="{{ path('admin_product_manage_by_excel',{sort:17, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">点击量</a>
+                                        </th>
+                                    {% elseif app.request.get('sort') == 6 %}
+                                        <th class="sorting_desc"><a
+                                                    href="{{ path('admin_product_manage_by_excel',{sort:6, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">点击量</a>
+                                        </th>
+                                    {% else %}
+                                        <th class="sorting"><a
+                                                    href="{{ path('admin_product_manage_by_excel',{sort:6, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">点击量</a>
+                                        </th>
+                                    {% endif %}
+
+                                    <th>品牌</th>
+
                                     <th>编辑</th>
                                 </tr>
                                 </thead>
@@ -209,46 +230,48 @@
                                         </td>
 
                                         <td>
-                                            {% if entity.name|length > 30 %}
-                                                <span title="{{ entity.name }}">{{ entity.name|slice(0, 30) }}...</span>
+                                            {% if entity.name|length > 20 %}
+                                                <span title="{{ entity.name }}">{{ entity.name|slice(0, 18) }}...</span>
                                             {% else %}
                                                 <span title="{{ entity.name }}">{{ entity.name }}</span>
                                             {% endif %}</td>
 
-                                        <td>{{ entity.price }}</td>
+                                        <td align="center">{{ entity.price }}</td>
 
-                                        <td>{{ entity.priceDiscounted }}</td>
+                                        <td align="center">{{ entity.priceDiscounted }}</td>
 
-                                        <td>{{ entity.viewedCount }}</td>
+                                        <td align="center">{{ entity.viewedCount }}</td>
 
-                                        <td>{{ entity.inventory }}</td>
+                                        <td align="center">{{ entity.inventory }}</td>
 
-                                        <td>{{ entity.soldNo }}</td>
+                                        <td align="center">{{ entity.soldNo }}</td>
 
-                                        <td>{{ entity.index_weight }}</td>
+                                        <td align="center">{{ entity.widget_weight }}</td>
 
-                                        <td>{{ entity.weight }}</td>
+                                        <td align="center">{{ entity.weight }}</td>
 
                                         <td>{{ entity.productKey }}</td>
 
-                                        <td>{{ entity.click }}</td>
+                                        <td align="center">{{ entity.click }}</td>
 
-                                        <td>{{ entity.brand }}</td>
-
-                                        <td>{{ entity.widget_weight }}</td>
-
-                                        <td>
-                                            <a href="{{ path('admin_product_edit', { 'id': entity.id }) }}">编辑</a>
+                                        <td id="{{entity.id}}_entity_brand">
+                                            {% if entity.brand|length > 20 %}
+                                                <span title="{{ entity.brand }}">{{ entity.brand|slice(0, 18) }}...</span>
+                                            {% else %}
+                                                <span title="{{ entity.brand }}">{{ entity.brand }}</span>
+                                            {% endif %}
                                         </td>
 
+                                        <td align="center">
+                                            <a href="{{ path('admin_product_edit', { 'id': entity.id }) }}">编辑</a>
+                                        </td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>
                             </table>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="dataTables_info" id="DataTables_Table_0_info">Page 1
-                                        of <strong>{{ data.total_page }}</strong>  &nbsp; <i class="glyphicon glyphicon-transfer"></i>  &nbsp;  Total: <strong>{{ data.total_no }}</strong> entries 
+                                    <div class="dataTables_info" id="DataTables_Table_0_info">Total: <strong>{{ data.total_page }}</strong> page(s) &nbsp; <i class="glyphicon glyphicon-transfer"></i>  &nbsp; <strong>{{ data.total_no }}</strong> entrie(s) 
                                     </div>
                                 </div>
                                 <div class="col-sm-6">

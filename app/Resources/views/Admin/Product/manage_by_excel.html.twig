@@ -236,9 +236,9 @@
                                         </td>
                                         <td id="{{entity.id}}_entity_name">
                                             {% if entity.name|length > 20 %}
-                                                {{ entity.name|slice(0, 20) }}...
+                                                <span title="{{ entity.name }}">{{ entity.name|slice(0, 18) }}...</span>
                                             {% else %}
-                                                {{ entity.name }}
+                                                <span title="{{ entity.name }}">{{ entity.name }}</span>
                                             {% endif %}
                                         </td>
                                         <td id="{{entity.id}}_entity_price" align="center">{{ entity.price }}</td>
@@ -251,19 +251,20 @@
 
                                         <td id="{{entity.id}}_entity_soldno" align="center">{{ entity.soldNo }}</td>
 
+                                        <!-- 此处为 橱窗权重 -->
                                         <td id="{{entity.id}}_entity_widget_weight" align="center">{{ entity.widget_weight }}</td>
                                         
                                         <td id="{{entity.id}}_entity_weight" align="center">{{ entity.weight }}</td>
 
-                                        <td id="{{entity.id}}_entity_productkey" align="center">{{ entity.productKey }}</td>
+                                        <td id="{{entity.id}}_entity_productkey">{{ entity.productKey }}</td>
 
                                         <td id="{{entity.id}}_entity_click" align="center">{{ entity.click }}</td>
 
                                         <td id="{{entity.id}}_entity_brand">
                                             {% if entity.brand|length > 20 %}
-                                                {{ entity.brand|slice(0, 20) }}...
+                                                <span title="{{ entity.brand }}">{{ entity.brand|slice(0, 18) }}...</span>
                                             {% else %}
-                                                {{ entity.brand }}
+                                                 <span title="{{ entity.brand }}">{{ entity.brand }}</span>
                                             {% endif %}
                                         </td>
 
@@ -274,8 +275,7 @@
                         </table>
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="dataTables_info" id="DataTables_Table_0_info">Page 1
-                                        of <strong>{{ data.total_page }}</strong>  &nbsp; <i class="glyphicon glyphicon-transfer"></i>  &nbsp;  Total: <strong>{{ data.total_no }}</strong> entries 
+                                <div class="dataTables_info" id="DataTables_Table_0_info">Total: <strong>{{ data.total_page }}</strong> page(s) &nbsp; <i class="glyphicon glyphicon-transfer"></i>  &nbsp;  <strong>{{ data.total_no }}</strong> entrie(s) 
                                 </div>
                             </div>
                             <div class="col-sm-6">
