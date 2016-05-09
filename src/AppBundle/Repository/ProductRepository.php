@@ -51,11 +51,17 @@
                         p.name AS name,
                         p.price AS price,
                         p.price_discounted AS priceDiscounted,
+                        p.viewed_count AS viewedCount,
                         p.soldNo AS soldNo,
-                        p.click AS click,
-                        p.inventory as inventory,
+                        p.inventory AS inventory,
+                        p.description AS discription,
+                        p.weight AS weight,
+                        p.status AS status,
+                        p.productKey AS productKey,
                         p.poster AS poster,
                         p.widget_weight AS widget_weight,
+                        p.click AS click,
+                        p.brand As brand,
                         p.imageLink AS imageLink');
             $products_no = $this->createQueryBuilder('p');
             $products_no->select('COUNT(p.id) AS total_no');
@@ -110,14 +116,8 @@
                 case '13':
                     $products->orderBy('p.click', 'ASC');
                     break;
-                case '6':
-                    $products->orderBy('p.click', 'DESC');
-                    break;
                 case '14':
                     $products->orderBy('p.soldNo', 'ASC');
-                    break;
-                case '4':
-                    $products->orderBy('p.soldNo', 'DESC');
                     break;
                 case '15':
                     $products->orderBy('p.inventory', 'ASC');
@@ -131,6 +131,12 @@
                 case '18':
                     $products->orderBy('p.widget_weight', 'DESC');
                     break;
+                case '19':
+                    $products->orderBy('p.viewed_count', 'DESC');
+                    break;
+                case '20':
+                    $products->orderBy('p.viewed_count', 'DESC');
+                    break;   
                 default:
                     $products->addOrderBy('p.updateAt', 'DESC');
                     break;

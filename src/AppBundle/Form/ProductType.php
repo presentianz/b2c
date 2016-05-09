@@ -21,14 +21,14 @@ class ProductType extends AbstractType
             ->add('viewed_count')
             ->add('soldNo')
             ->add('inventory')
-            ->add('click')
             ->add('description')
             ->add('status')
-            ->add('imageLink')
             ->add('poster')
+            ->add('imageLink')
             ->add('brand')
             ->add('weight')
             ->add('productKey')
+            ->add('click')
             ->add('category', 'entity', array(
                 'class' => 'AppBundle:Category',
                 'query_builder' => function (EntityRepository $er) {

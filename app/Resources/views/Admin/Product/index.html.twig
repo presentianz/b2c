@@ -219,19 +219,24 @@
 
                                         <td>{{ entity.priceDiscounted }}</td>
 
-                                        <td>{{ entity.click }}</td>
+                                        <td>{{ entity.viewedCount }}</td>
 
                                         <td>{{ entity.inventory }}</td>
 
                                         <td>{{ entity.soldNo }}</td>
 
-                                        <td>
-                                            {% if entity.widget_weight %}
-                                                {{ entity.widget_weight }}
-                                            {% else %}
-                                                0
-                                            {% endif %}
-                                        </td>
+                                        <td>{{ entity.index_weight }}</td>
+
+                                        <td>{{ entity.weight }}</td>
+
+                                        <td>{{ entity.productKey }}</td>
+
+                                        <td>{{ entity.click }}</td>
+
+                                        <td>{{ entity.brand }}</td>
+
+                                        <td>{{ entity.widget_weight }}</td>
+
                                         <td>
                                             <a href="{{ path('admin_product_edit', { 'id': entity.id }) }}">编辑</a>
                                         </td>

@@ -106,6 +106,7 @@
                                                     href="{{ path('admin_product_manage_by_excel',{sort:7, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">ID</a>
                                         </th>
                                     {% endif %}
+
                                     {% if app.request.get('sort') == 9 %}
                                         <th class="sorting_asc"><a
                                                     href="{{ path('admin_product_manage_by_excel',{sort:10, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">名称</a>
@@ -119,6 +120,7 @@
                                                     href="{{ path('admin_product_manage_by_excel',{sort:9, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">名称</a>
                                         </th>
                                     {% endif %}
+
                                     {% if app.request.get('sort') == 2 %}
                                         <th class="sorting_asc"><a
                                                     href="{{ path('admin_product_manage_by_excel',{sort:3, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">原价</a>
@@ -132,6 +134,7 @@
                                                     href="{{ path('admin_product_manage_by_excel',{sort:2, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">原价</a>
                                         </th>
                                     {% endif %}
+
                                     {% if app.request.get('sort') == 11 %}
                                         <th class="sorting_asc"><a
                                                     href="{{ path('admin_product_manage_by_excel',{sort:12, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">折后价格</a>
@@ -145,6 +148,7 @@
                                                     href="{{ path('admin_product_manage_by_excel',{sort:11, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">折后价格</a>
                                         </th>
                                     {% endif %}
+
                                     {% if app.request.get('sort') == 13 %}
                                         <th class="sorting_asc"><a
                                                     href="{{ path('admin_product_manage_by_excel',{sort:6, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">浏览次数</a>
@@ -158,6 +162,7 @@
                                                     href="{{ path('admin_product_manage_by_excel',{sort:13, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">浏览次数</a>
                                         </th>
                                     {% endif %}
+
                                     {% if app.request.get('sort') == 15 %}
                                         <th class="sorting_asc"><a
                                                     href="{{ path('admin_product_manage_by_excel',{sort:16, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">库存</a>
@@ -171,6 +176,7 @@
                                                     href="{{ path('admin_product_manage_by_excel',{sort:15, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">库存</a>
                                         </th>
                                     {% endif %}
+
                                     {% if app.request.get('sort') == 14 %}
                                         <th class="sorting_asc"><a
                                                     href="{{ path('admin_product_manage_by_excel',{sort:4, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">销售</a>
@@ -184,6 +190,7 @@
                                                     href="{{ path('admin_product_manage_by_excel',{sort:14, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">销售</a>
                                         </th>
                                     {% endif %}
+
                                     {% if app.request.get('sort') == 17 %}
                                         <th class="sorting_asc"><a
                                                     href="{{ path('admin_product_manage_by_excel',{sort:18, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">权重</a>
@@ -197,6 +204,27 @@
                                                     href="{{ path('admin_product_manage_by_excel',{sort:17, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">权重</a>
                                         </th>
                                     {% endif %}
+
+                                    <th>重量</th>
+
+                                    <th>商品编号</th>
+
+                                    {% if app.request.get('sort') == 17 %}
+                                        <th class="sorting_asc"><a
+                                                    href="{{ path('admin_product_manage_by_excel',{sort:17, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">点击量</a>
+                                        </th>
+                                    {% elseif app.request.get('sort') == 6 %}
+                                        <th class="sorting_desc"><a
+                                                    href="{{ path('admin_product_manage_by_excel',{sort:6, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">点击量</a>
+                                        </th>
+                                    {% else %}
+                                        <th class="sorting"><a
+                                                    href="{{ path('admin_product_manage_by_excel',{sort:6, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">点击量</a>
+                                        </th>
+                                    {% endif %}
+
+                                    <th>品牌</th>
+
                                     <th>状态</th>
                                 </tr>
                                 </thead>
@@ -207,32 +235,39 @@
                                             <a href="{{ path('admin_product_show', { 'id': entity.id }) }}">{{ entity.id }}</a>
                                         </td>
                                         <td id="{{entity.id}}_entity_name">
-                                            {% if entity.name|length > 30 %}
-                                                <span title="{{ entity.name }}">{{ entity.name|slice(0, 30) }}...</span>
+                                            {% if entity.name|length > 20 %}
+                                                {{ entity.name|slice(0, 20) }}...
                                             {% else %}
-                                                <span title="{{ entity.name }}">{{ entity.name }}</span>
+                                                {{ entity.name }}
                                             {% endif %}
                                         </td>
-                                        <td id="{{entity.id}}_entity_price">{{ entity.price }}</td>
+                                        <td id="{{entity.id}}_entity_price" align="center">{{ entity.price }}</td>
 
-                                        <td id="{{entity.id}}_entity_pricediscounted">{{ entity.priceDiscounted }}</td>
+                                        <td id="{{entity.id}}_entity_pricediscounted" align="center">{{ entity.priceDiscounted }}</td>
 
-                                        <td id="{{entity.id}}_entity_click">{{ entity.click }}</td>
+                                        <td id="{{entity.id}}_entity_viewed_count" align="center">{{ entity.viewedCount }}</td>
 
-                                        <td id="{{entity.id}}_entity_inventory">{{ entity.inventory }}</td>
+                                        <td id="{{entity.id}}_entity_inventory" align="center">{{ entity.inventory }}</td>
 
-                                        <td id="{{entity.id}}_entity_soldno">{{ entity.soldNo }}</td>
+                                        <td id="{{entity.id}}_entity_soldno" align="center">{{ entity.soldNo }}</td>
 
-                                        <td id="{{entity.id}}_entity_weight">
-                                            {% if entity.widget_weight %}
-                                                {{ entity.widget_weight }}
+                                        <td id="{{entity.id}}_entity_widget_weight" align="center">{{ entity.widget_weight }}</td>
+                                        
+                                        <td id="{{entity.id}}_entity_weight" align="center">{{ entity.weight }}</td>
+
+                                        <td id="{{entity.id}}_entity_productkey" align="center">{{ entity.productKey }}</td>
+
+                                        <td id="{{entity.id}}_entity_click" align="center">{{ entity.click }}</td>
+
+                                        <td id="{{entity.id}}_entity_brand">
+                                            {% if entity.brand|length > 20 %}
+                                                {{ entity.brand|slice(0, 20) }}...
                                             {% else %}
-                                                0
+                                                {{ entity.brand }}
                                             {% endif %}
                                         </td>
-                                        <td id="{{entity.id}}_status">
-                                                
-                                        </td>
+
+                                        <td id="{{entity.id}}_entity_status" align="center"></td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>

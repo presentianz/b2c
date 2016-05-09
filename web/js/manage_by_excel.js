@@ -290,24 +290,23 @@ function ajax_update_wb(json_obj){
                 })
             }
 
-            /* //"浏览次数" -- 未知原因 不可任意修改
-            var currentClick = GetElementInsideContainer(currentID,  currentID + '_entity_click');
-            if(json_obj.Sheet1[i].浏览次数.trim() != currentClick.textContent.trim()){
+            var currentViewedCount = GetElementInsideContainer(currentID,  currentID + '_entity_viewed_count');
+            if(json_obj.Sheet1[i].浏览次数.trim() != currentViewedCount.textContent.trim()){
                 $.ajax({
-                    url: "/ajax_product_click",
+                    url: "/ajax_product_viewed_count",
                     method: "POST",
                     data: {
                         id: currentID,
-                        click: json_obj.Sheet1[i].浏览次数.trim()
+                        viewed_count: json_obj.Sheet1[i].浏览次数.trim()
                     },
                     dataType: "json"
                 })
                 .done(function (response) {
-                    GetElementInsideContainer(response.id,  response.id + '_entity_click').style.backgroundColor = "limegreen";
-                    GetElementInsideContainer(response.id,  response.id + '_entity_click').innerHTML = response.click;
+                    GetElementInsideContainer(response.id,  response.id + '_entity_viewed_count').style.backgroundColor = "limegreen";
+                    GetElementInsideContainer(response.id,  response.id + '_entity_viewed_count').innerHTML = response.viewed_count;
                 })
             }
-            */
+            
 
             var currentInventory = GetElementInsideContainer(currentID,  currentID + '_entity_inventory');
             if(json_obj.Sheet1[i].库存.trim() != currentInventory.textContent.trim()){
@@ -343,20 +342,72 @@ function ajax_update_wb(json_obj){
                 })
             }
             
+            var currentWidget_weight = GetElementInsideContainer(currentID,  currentID + '_entity_widget_weight');
+            if(json_obj.Sheet1[i].权重.trim() != currentWidget_weight.textContent.trim()){
+                $.ajax({
+                    url: "/ajax_product_widget_weight",
+                    method: "POST",
+                    data: {
+                        id: currentID,
+                        widget_weight: json_obj.Sheet1[i].权重.trim()
+                    },
+                    dataType: "json"
+                })
+                .done(function (response) {
+                    GetElementInsideContainer(response.id,  response.id + '_entity_widget_weight').style.backgroundColor = "limegreen"; 
+                    GetElementInsideContainer(response.id,  response.id + '_entity_widget_weight').innerHTML = response.widget_weight;
+                })      
+            }
+
+
             var currentWeight = GetElementInsideContainer(currentID,  currentID + '_entity_weight');
-            if(json_obj.Sheet1[i].权重.trim() != currentWeight.textContent.trim()){
+            if(json_obj.Sheet1[i].重量.trim() != currentWeight.textContent.trim()){
                 $.ajax({
                     url: "/ajax_product_weight",
                     method: "POST",
                     data: {
                         id: currentID,
-                        weight: json_obj.Sheet1[i].权重.trim()
+                        weight: json_obj.Sheet1[i].重量.trim()
                     },
                     dataType: "json"
                 })
                 .done(function (response) {
                     GetElementInsideContainer(response.id,  response.id + '_entity_weight').style.backgroundColor = "limegreen"; 
                     GetElementInsideContainer(response.id,  response.id + '_entity_weight').innerHTML = response.weight;
+                })      
+            }
+
+            var currentProductKey = GetElementInsideContainer(currentID,  currentID + '_entity_productkey');
+            if(json_obj.Sheet1[i].商品编号.trim() != currentProductKey.textContent.trim()){
+                $.ajax({
+                    url: "/ajax_product_productKey",
+                    method: "POST",
+                    data: {
+                        id: currentID,
+                        productKey: json_obj.Sheet1[i].商品编号.trim()
+                    },
+                    dataType: "json"
+                })
+                .done(function (response) {
+                    GetElementInsideContainer(response.id,  response.id + '_entity_productkey').style.backgroundColor = "limegreen"; 
+                    GetElementInsideContainer(response.id,  response.id + '_entity_productkey').innerHTML = response.productKey;
+                })      
+            }
+
+            var currentClick = GetElementInsideContainer(currentID,  currentID + '_entity_click');
+            if(json_obj.Sheet1[i].点击量.trim() != currentClick.textContent.trim()){
+                $.ajax({
+                    url: "/ajax_product_click",
+                    method: "POST",
+                    data: {
+                        id: currentID,
+                        click: json_obj.Sheet1[i].点击量.trim()
+                    },
+                    dataType: "json"
+                })
+                .done(function (response) {
+                    GetElementInsideContainer(response.id,  response.id + '_entity_click').style.backgroundColor = "limegreen"; 
+                    GetElementInsideContainer(response.id,  response.id + '_entity_click').innerHTML = response.click;
                 })      
             }
         } catch(err){
@@ -381,7 +432,8 @@ function process_wb(wb) {
             
             try{
                 GetElementInsideContainer(currentID,  currentID + '_entity_id').style.backgroundColor = "#95B56F";
-                GetElementInsideContainer(currentID,  currentID + '_entity_name').style.backgroundColor = "#95B56F";
+                GetElementInsideContainer(currentID,  currentID + '_entity_name').style.backgroundColor = "lightblue";
+                GetElementInsideContainer(currentID,  currentID + '_entity_brand').style.backgroundColor = "lightblue";
 
                 var currentPrice = GetElementInsideContainer(currentID,  currentID + '_entity_price');
                 if(json_obj.Sheet1[i].原价 == currentPrice.textContent){
@@ -401,16 +453,16 @@ function process_wb(wb) {
                     all_green = 0;
                 }
 
-                /* 
-                var currentClick = GetElementInsideContainer(currentID,  currentID + '_entity_click');
-                if(json_obj.Sheet1[i].浏览次数.trim() == currentClick.textContent.trim()){
-                    currentClick.style.backgroundColor = "#95B56F";
+                 
+                var currentViewedCount = GetElementInsideContainer(currentID,  currentID + '_entity_viewed_count');
+                if(json_obj.Sheet1[i].浏览次数.trim() == currentViewedCount.textContent.trim()){
+                    currentViewedCount.style.backgroundColor = "#95B56F";
                 } else {
-                    currentClick.style.backgroundColor = "pink";
-                    currentClick.innerHTML = json_obj.Sheet1[i].浏览次数 + " <strike>(" + currentClick.textContent +")</strike>";
+                    currentViewedCount.style.backgroundColor = "pink";
+                    currentViewedCount.innerHTML = json_obj.Sheet1[i].浏览次数 + " <strike>(" + currentViewedCount.textContent +")</strike>";
                     all_green = 0;
                 }
-                */
+                
 
                 var currentInventory = GetElementInsideContainer(currentID,  currentID + '_entity_inventory');
                 if(json_obj.Sheet1[i].库存.trim() == currentInventory.textContent.trim()){
@@ -428,16 +480,57 @@ function process_wb(wb) {
                     currentSoldNo.innerHTML = json_obj.Sheet1[i].销售 + " <strike>(" + currentSoldNo.textContent +")</strike>";
                     all_green = 0;
                 }
-                var currentWeight = GetElementInsideContainer(currentID,  currentID + '_entity_weight');
-                if(json_obj.Sheet1[i].权重.trim() == currentWeight.textContent.trim()){
-                    currentWeight.style.backgroundColor = "#95B56F";
-                } else {
-                    currentWeight.innerHTML = json_obj.Sheet1[i].权重 + " <strike>(" + currentWeight.textContent +")</strike>";
+
+                var currentWidget_weight = GetElementInsideContainer(currentID,  currentID + '_entity_widget_weight');
+                if(currentWidget_weight == 'undefined' || currentWidget_weight.textContent == null){
+                    currentWidget_weight.innerHTML = json_obj.Sheet1[i].权重 + " <strike>(N/A)</strike>";
                     all_green = 0;
-                    currentWeight.style.backgroundColor = "pink";
+                    currentWidget_weight.style.backgroundColor = "pink";
+                } else {
+                    if(json_obj.Sheet1[i].权重.trim() == currentWidget_weight.textContent.trim()){
+                        currentWidget_weight.style.backgroundColor = "#95B56F";
+                    } else {
+                        currentWidget_weight.innerHTML = json_obj.Sheet1[i].权重 + " <strike>(" + currentWidget_weight.textContent +")</strike>";
+                        all_green = 0;
+                        currentWidget_weight.style.backgroundColor = "pink";
+                    }
                 }
 
-                var status = GetElementInsideContainer(currentID,  currentID + '_status');
+                var currentWeight = GetElementInsideContainer(currentID,  currentID + '_entity_weight');
+                if(json_obj.Sheet1[i].重量.trim() == currentWeight.textContent.trim()){
+                    currentWeight.style.backgroundColor = "#95B56F";
+                } else {
+                    currentWeight.style.backgroundColor = "pink";
+                    currentWeight.innerHTML = json_obj.Sheet1[i].重量 + " <strike>(" + currentWeight.textContent +")</strike>";
+                    all_green = 0;
+                }
+
+
+                var currentProductKey = GetElementInsideContainer(currentID,  currentID + '_entity_productkey');
+                if(currentProductKey == 'undefined' || currentProductKey.textContent == null){
+                    currentProductKey.innerHTML = json_obj.Sheet1[i].商品编号 + " <strike>(N/A)</strike>";
+                    all_green = 0;
+                    currentProductKey.style.backgroundColor = "pink";
+                } else {
+                    if(json_obj.Sheet1[i].商品编号.trim() == currentProductKey.textContent.trim()){
+                        currentProductKey.style.backgroundColor = "#95B56F";
+                    } else {
+                        currentProductKey.style.backgroundColor = "pink";
+                        currentProductKey.innerHTML = json_obj.Sheet1[i].商品编号 + " <strike>(" + currentProductKey.textContent +")</strike>";
+                        all_green = 0;
+                    }
+                }
+
+                var currentClick = GetElementInsideContainer(currentID,  currentID + '_entity_click');
+                if(json_obj.Sheet1[i].点击量.trim() == currentClick.textContent.trim()){
+                    currentClick.style.backgroundColor = "#95B56F";
+                } else {
+                    currentClick.style.backgroundColor = "pink";
+                    currentClick.innerHTML = json_obj.Sheet1[i].点击量 + " <strike>(" + currentClick.textContent +")</strike>";
+                    all_green = 0;
+                }
+
+                var status = GetElementInsideContainer(currentID,  currentID + '_entity_status');
                 if(all_green == 1){
                     status.innerHTML = "<span class=\"glyphicon glyphicon-check\"></span>";
                     status.style.backgroundColor = "limegreen";
