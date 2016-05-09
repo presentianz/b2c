@@ -83,8 +83,6 @@ class DefaultController extends Controller
     }
 
   
-
-
     /**
      * @Route("/404", name="404")
      */

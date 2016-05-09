@@ -37,7 +37,9 @@
             if (! $sort)
                 $sort = 7;
             $em = $this->getDoctrine()->getManager();
+
             $data = $em->getRepository('AppBundle:Product')->searchProduct($keys, $sort, $page, $item_no, $widget);
+
             return $this->render('Admin/Product/index.html.twig', array(
                 'data' => $data,
             ));

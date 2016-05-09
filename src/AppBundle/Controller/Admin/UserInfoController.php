@@ -49,7 +49,7 @@
         /**
          * Creates a new UserInfo entity.
          *
-         * @Route("/", name="admin_user_info_create")
+         * @Route("/create", name="admin_user_info_create")
          * @Method("POST")
          */
         public function createAction(Request $request)
@@ -127,7 +127,7 @@
 
             return $this->render('Admin/UserInfo/show.html.twig', array(
                 'entity' => $entity,
-                'delete_form' => $deleteForm->createView(),
+                //'delete_form' => $deleteForm->createView(),
             ));
 
         }
@@ -149,12 +149,12 @@
             }
 
             $editForm = $this->createEditForm($entity);
-            $deleteForm = $this->createDeleteForm($id);
+            //$deleteForm = $this->createDeleteForm($id);
 
             return $this->render('Admin/UserInfo/edit.html.twig', array(
                 'entity'      => $entity,
                 'edit_form'   => $editForm->createView(),
-                'delete_form' => $deleteForm->createView(),
+                //'delete_form' => $deleteForm->createView(),
             ));
         }
 
@@ -192,7 +192,7 @@
                 throw $this->createNotFoundException('Unable to find UserInfo entity.');
             }
 
-            $deleteForm = $this->createDeleteForm($id);
+            //$deleteForm = $this->createDeleteForm($id);
             $editForm = $this->createEditForm($entity);
             $editForm->handleRequest($request);
 
@@ -205,13 +205,13 @@
             return $this->render('Admin/UserInfo/edit.html.twig', array(
                 'entity'      => $entity,
                 'edit_form'   => $editForm->createView(),
-                'delete_form' => $deleteForm->createView(),
+                //'delete_form' => $deleteForm->createView(),
             ));
         }
         /**
          * Deletes a UserInfo entity.
          *
-         * @Route("/{id}", name="admin_user_info_delete")
+         * @Route("/delete/{id}", name="admin_user_info_delete")
          * @Method("DELETE")
          */
         public function deleteAction(Request $request, $id)

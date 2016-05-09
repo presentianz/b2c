@@ -16,7 +16,6 @@
             <li>
                 <a href="{{ path('admin_user_info') }}" class="auto">
                     <i class="i i-dot"></i>
-
                     <span>用户列表</span>
                 </a>
             </li>
@@ -28,7 +27,7 @@
     <section id="content">
         <section class="vbox">
             <header class="header bg-light b-b">
-                <p><strong>评论</strong></p>
+                <p><strong>用户资料</strong></p>
             </header>
             <section class="scrollable padder">
                 <div class="form">
@@ -44,10 +43,10 @@
                     <div><label>积分：</label> {{ entity.points }}</div>
                     <div><label>电话：</label> {{ entity.contactNo }}</div>
                     <div class="admin-buttons">
-                        <a class="btn btn-success btn-sm"
-                           href="{{ path('admin_order', {'user_id': entity.id }) }}">查看订单</a>
                         <a href="{{ path('admin_user_info') }}">返回</a>
                         <a href="{{ path('admin_user_info_edit', { 'id': entity.id }) }}">编辑</a>
+                        <a class="btn btn-success btn-sm"
+                           href="{{ path('admin_order', {'user_id': entity.id }) }}">查看订单记录</a>
                     </div>
 
             </section>

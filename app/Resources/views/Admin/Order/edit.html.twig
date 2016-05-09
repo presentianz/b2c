@@ -14,14 +14,12 @@
             <li>
                 <a href="{{ path('admin_order') }}" class="auto">
                     <i class="i i-dot"></i>
-
                     <span>订单列表</span>
                 </a>
             </li>
             <li>
                 <a href="{{ path('admin_order_new') }}" class="auto">
                     <i class="i i-dot"></i>
-
                     <span>添加订单</span>
                 </a>
             </li>
@@ -32,7 +30,7 @@
     <section id="content">
         <section class="vbox">
             <header class="header bg-light b-b">
-                <p><strong>修改评论</strong></p>
+                <p><strong>编辑订单 (Database ID: {{entity.id}})</strong></p>
             </header>
             <section class="scrollable padder">
 
@@ -48,16 +46,12 @@
                     <div><label>收货地址：</label> {{ form_widget(edit_form.shipmentAddress) }}</div>
 
                     <div style="clear: both;"></div>
-
                     <div class="admin-buttons">
                         <a href="{{ path('admin_order') }}">返回</a>
-                        {{ form_widget(delete_form.submit, { 'label': '删除' }) }}
-                        {{ form_widget(edit_form.submit, { 'label': '更新' }) }}
+                        {{ form_widget(edit_form.submit, { 'label': '提交更新' }) }}
                     </div>
                     {{ form_end(edit_form) }}
-
                 </div>
-
             </section>
         </section>
     </section>

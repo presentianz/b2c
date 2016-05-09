@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * UserInfo
  *
- * @ORM\Table()
+ * @ORM\Table(name="user_info")
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserInfoRepository")

@@ -1,4 +1,5 @@
 {% extends 'Admin/admin_layout.html.twig' %}
+
 {% block adminUserInfo %}
     <li class="active">
         <a href="#" class="auto">
@@ -20,11 +21,12 @@
         </ul>
     </li>
 {% endblock %}
+
 {% block body %}
     <section id="content">
         <section class="vbox">
             <header class="header bg-light b-b">
-                <p><strong>管理用户信息</strong></p>
+                <p><strong>管理用户信息 (ID: {{entity.id}})</strong></p>
             </header>
             <section class="scrollable padder">
 
@@ -45,10 +47,9 @@
                     <div style="clear: both;"></div>
 
                     <div class="admin-buttons">
-                        <a href="{{ path('admin_order', {'user_id': entity.id }) }}">查看订单</a>
-                        <a href="{{ path('admin_comment') }}">返回</a>
-                        {{ form_widget(delete_form.submit, { 'label': '删除' }) }}
+                        <a href="{{ path('admin_comment') }}">返回</a>                        
                         {{ form_widget(edit_form.submit, { 'label': '更新' }) }}
+                        <!-- <a href="" onclick="delete_action({{entity.id}})">删除</a> -->
                     </div>
                     {{ form_end(edit_form) }}
 
@@ -60,6 +61,6 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('js/SimpleAjaxUploader.js') }}"></script>
-    <script src="{{ asset('js/admin-comment.js') }}"></script>
+    <script src="{{ asset('/js/SimpleAjaxUploader.js') }}"></script>
+    <script src="{{ asset('/js/admin-userInfo.js') }}"></script>
 {% endblock %}

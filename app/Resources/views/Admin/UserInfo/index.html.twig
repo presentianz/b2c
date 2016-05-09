@@ -10,18 +10,24 @@
                 <i class="i i-circle-sm-o text"></i>
                 <i class="i i-circle-sm text-active"></i>
             </span>
-            <i class="i i-users3 icon">
-            </i>
+            <i class="i i-users3 icon"></i>
             <span class="font-bold">用户管理</span>
         </a>
         <ul class="nav dk">
-            <li>
+            <li class="active">
                 <a href="{{ path('admin_user_info') }}" class="auto">
-                    <i class="i i-dot"></i>
-
-                    <span>用户列表</span>
+                    <span class="pull-right text-muted">
+                        <i class="i i-circle-sm-o text"></i>
+                        <i class="i i-circle-sm text-active"></i>
+                    </span>
+                    <i class="i i-dot"></i><span>用户列表</span>
                 </a>
             </li>
+            <!-- <li disable>
+                <a href="{{ path('admin_user_info_new') }}" class="auto">
+                <i class="i i-dot"></i><span>添加用户</span>
+                </a>
+            </li> -->
         </ul>
     </li>
 {% endblock %}

@@ -36,12 +36,12 @@
                 $sort = 7;
             $em = $this->getDoctrine()->getManager();
             $data = $em->getRepository('AppBundle:Product')->searchProduct($keys, $sort, $page, $item_no, $widget);
+            $em->flush();
             return $this->render('Admin/Product/manage_by_excel.html.twig', array(
                 'data' => $data,
             ));
         }
 
-    
 
         /**
          * Creates a form to create a Product entity.
@@ -81,75 +81,6 @@
         }
 
 
-        /**
-         * Finds and displays a Product entity.
-         *
-         * @Route("/{id}", name="admin_product_show")
-         * @Method("GET")
-         */
-        public function showAction($id)
-        {
-            $em = $this->getDoctrine()->getManager();
-
-            $entity = $em->getRepository('AppBundle:Product')->find($id);
-
-            if (! $entity) {
-                throw $this->createNotFoundException('Unable to find Product entity.');
-            }
-
-            $deleteForm = $this->createDeleteForm($id);
-
-            return $this->render('Admin/Product/show.html.twig', array(
-                'entity' => $entity,
-                'delete_form' => $deleteForm->createView(),
-            ));
-
-        }
-
-        /**
-         * Displays a form to edit an existing Product entity.
-         *
-         * @Route("/{id}/edit", name="admin_product_edit")
-         * @Method("GET")
-         */
-        public function editAction($id)
-        {
-            $em = $this->getDoctrine()->getManager();
-
-            $entity = $em->getRepository('AppBundle:Product')->find($id);
-
-            if (! $entity) {
-                throw $this->createNotFoundException('Unable to find Product entity.');
-            }
-
-            $editForm = $this->createEditForm($entity);
-            $deleteForm = $this->createDeleteForm($id);
-
-            return $this->render('Admin/Product/edit.html.twig', array(
-                'entity' => $entity,
-                'edit_form' => $editForm->createView(),
-                'delete_form' => $deleteForm->createView(),
-            ));
-        }
-
-        /**
-         * Creates a form to edit a Product entity.
-         *
-         * @param Product $entity The entity
-         *
-         * @return \Symfony\Component\Form\Form The form
-         */
-        private function createEditForm(Product $entity)
-        {
-            $form = $this->createForm(new ProductType(), $entity, array(
-                'action' => $this->generateUrl('admin_product_update', array('id' => $entity->getId())),
-                'method' => 'PUT',
-            ));
-
-            $form->add('submit', 'submit', array('label' => 'Update'));
-
-            return $form;
-        }
 
         /**
          * Edits an existing Product entity.
