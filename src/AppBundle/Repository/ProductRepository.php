@@ -44,25 +44,44 @@
                 $weight = implode(' + ', $weight);
                 $products->select($weight . ' as weight');
                 $products->addOrderBy('weight', 'DESC');
+                //add left columns
+                $products->addSelect('
+                            p.id AS id,  
+                            p.name AS name,
+                            p.price AS price,
+                            p.price_discounted AS priceDiscounted,
+                            p.viewed_count AS viewedCount,
+                            p.soldNo AS soldNo,
+                            p.inventory AS inventory,
+                            p.description AS discription,
+                            p.status AS status,
+                            p.productKey AS productKey,
+                            p.poster AS poster,
+                            p.widget_weight AS widget_weight,
+                            p.click AS click,
+                            p.brand As brand,
+                            p.imageLink AS imageLink');
+            } else {
+                //add left columns  diff:weight
+                $products->addSelect('
+                            p.id AS id,  
+                            p.name AS name,
+                            p.price AS price,
+                            p.price_discounted AS priceDiscounted,
+                            p.viewed_count AS viewedCount,
+                            p.soldNo AS soldNo,
+                            p.inventory AS inventory,
+                            p.description AS discription,
+                            p.status AS status,
+                            p.weight AS weight,
+                            p.productKey AS productKey,
+                            p.poster AS poster,
+                            p.widget_weight AS widget_weight,
+                            p.click AS click,
+                            p.brand As brand,
+                            p.imageLink AS imageLink');
             }
-            //add left columns
-            //p.weight AS weight,
-            $products->addSelect('
-                        p.id AS id,  
-                        p.name AS name,
-                        p.price AS price,
-                        p.price_discounted AS priceDiscounted,
-                        p.viewed_count AS viewedCount,
-                        p.soldNo AS soldNo,
-                        p.inventory AS inventory,
-                        p.description AS discription,
-                        p.status AS status,
-                        p.productKey AS productKey,
-                        p.poster AS poster,
-                        p.widget_weight AS widget_weight,
-                        p.click AS click,
-                        p.brand As brand,
-                        p.imageLink AS imageLink');
+
 
             $products_no = $this->createQueryBuilder('p');
             $products_no->select('COUNT(p.id) AS total_no');
