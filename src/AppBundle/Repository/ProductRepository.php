@@ -46,8 +46,9 @@
                 $products->addOrderBy('weight', 'DESC');
             }
             //add left columns
+            //p.weight AS weight,
             $products->addSelect('
-                        p.id AS id, 
+                        p.id AS id,  
                         p.name AS name,
                         p.price AS price,
                         p.price_discounted AS priceDiscounted,
@@ -55,7 +56,6 @@
                         p.soldNo AS soldNo,
                         p.inventory AS inventory,
                         p.description AS discription,
-                        p.weight AS weight,
                         p.status AS status,
                         p.productKey AS productKey,
                         p.poster AS poster,
@@ -63,6 +63,7 @@
                         p.click AS click,
                         p.brand As brand,
                         p.imageLink AS imageLink');
+
             $products_no = $this->createQueryBuilder('p');
             $products_no->select('COUNT(p.id) AS total_no');
             foreach ($keys as $i => $key) {
