@@ -60,64 +60,46 @@
         </div>
 {% endfor %}
 
-
-
 <script type="text/javascript">
-  function del(id)
-  {
-  
-  $.ajax({
-                type: "POST",
-                url: "{{ path('order_delorder') }}",               
-                dataType: "json",
-                data: { id: id},
-                success: function (data) {
-                    if (data == "") {
-                        alert("删除成功");   
-                        window.location.href=window.location.href;                     
-                    }
-                    else {
-                        alert(data);
-                    }
-
-
-                },
-                error: function (data) {
-
+function del(id)
+{
+    $.ajax({
+        type: "POST",
+        url: "{{ path('order_delorder') }}",               
+        dataType: "json",
+        data: { id: id},
+        success: function (data) {
+            if (data == "") {
+                window.location.href=window.location.href;                     
+            }
+            else {
+                alert(data);
+            }},
+        error: function (data) {
                     alert(data.responseText);
-
                 }
             });
-  
   }
   
-    function realdel(id)
-  {
+function realdel(id)
+{
+    $.ajax({
+        type: "POST",
+        url: "{{ path('order_delorder') }}",               
+        dataType: "json",
+        data: { id: id },
+        success: function (data) {
+            if (data == "") {
+                window.location.href=window.location.href;                     
+                } else {
+                    alert(data);
+            }},
+        error: function (data) {
+            alert(data.responseText);
+        }
+    });
   
-  $.ajax({
-                type: "POST",
-                url: "{{ path('order_delorder') }}",               
-                dataType: "json",
-                data: { id: id},
-                success: function (data) {
-                    if (data == "") {
-                        alert("删除成功");   
-                        window.location.href=window.location.href;                     
-                    }
-                    else {
-                        alert(data);
-                    }
-
-
-                },
-                error: function (data) {
-
-                    alert(data.responseText);
-
-                }
-            });
-  
-  }
-  </script>
+}
+</script>
 
        

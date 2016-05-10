@@ -25,6 +25,15 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/alipay", name="alipay")
+     */
+    public function alipayAction()
+    {
+        return $this->render('Page/other/alipay.html.twig');
+    }
+
+
+    /**
      * @Route("/error", name="error")
      */
     public function errorAction()
