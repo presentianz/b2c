@@ -13,3 +13,8 @@
 	background: darkcyan;
 }
 
+.progress {
+	height: 20px !important;
+	margin-bottom: 0px !important;
+	width: 945px !important;
+}

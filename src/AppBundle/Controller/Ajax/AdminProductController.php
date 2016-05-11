@@ -16,6 +16,28 @@ use AppBundle\Entity\Product;
 class AdminProductController extends Controller
 {
     /**
+    * @Route("/ajax_product_status", name="ajax_product_status")
+    *
+    */
+    public function updateStatusAction(Request $request)
+    {
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            $id = $_REQUEST["id"];
+            $status = $_REQUEST["status"];
+
+            $em = $this->getDoctrine()->getEntityManager();
+            $query = $em->createQuery('UPDATE AppBundle:Product P SET P.status = :status WHERE P.id = :id');
+            $query->setParameter('status', $status);
+            $query->setParameter('id', $id);
+            $query->getResult(); 
+
+            return new Response(json_encode(array('success' => true, 'id' => $id, 'status' => $status)));
+        } else {
+            return new Response(json_encode(array('success' => false, 'msg' => 'Permission denied')));
+        }
+    } 
+
+    /**
     * @Route("/ajax_product_price", name="ajax_product_price")
     *
     */

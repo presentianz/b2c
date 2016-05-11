@@ -10,6 +10,7 @@
 
 {% block javacript_in_head_section %}
 <script src="{{ asset('/js/xlsx.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
 {% endblock %}
 
 {% block adminProduct %}
@@ -66,23 +67,50 @@
                     </div> -->
                 </div>
                 <div>
-                <!-- The fileinput-button span is used to style the file input field as button -->
-                <span class="btn btn-success fileinput-button">
-                    <i class="glyphicon glyphicon-plus"></i>
-                    <span>选择批量管理Excel文件...</span>
-                    <!-- The file input field used as target for the file upload widget -->
-                    <input id="fileupload" type="file" name="files[]" multiple>
-                </span>
-                <br>
-                    <!-- The global progress bar -->
-                    <div id="progress" class="progress">
-                        <div class="progress-bar progress-bar-success"></div>
+                    <!-- The Anslysis progress bar -->
+                    <div class="panel panel-info">
+                        <div class="panel-body">
+                           <span id="select_input_file_btn" class="label label-info pull-left btn btn-primary fileinput-button" style="font-size:100%; margin-right: 10px;">
+                              <span>读取批量管理文件进度</span>
+                              <input id="fileupload" type="file" name="files[]" accept=".xls, .xlsx">
+                            </span>
+                            <div id="analysis_progress" class="progress">
+                                <div class="progress-bar progress-bar-info"></div>
+                            
+                                <span id="analysis_progress_percent" class="label label-info pull-right" style="font-size:100%; margin-left: -55px;"> 0 %</span>
+                            </div>
+                        </div>
                     </div>
+ 
 
                     <!-- The Anslysis progress bar -->
-                    <div id="analysis_progress" class="progress">
-                        <div class="progress-bar progress-bar-success"></div>
+                    <div class="panel panel-warning">
+                        <div class="panel-body">
+                           <span id="update_database_btn" class="label label-warning pull-left btn btn-warning" style="font-size:100%; margin-right: 10px;" disabled>
+                              数据库批量更改总进度
+                            </span>
+                            <div id="updatedatabase_progress" class="progress">
+                                <div class="progress-bar progress-bar-warning"></div>
+
+                                <span id="updatedatabase_progress_percent"class="label label-warning pull-right" style="font-size:100%; margin-left: -55px;"> 0 %</span>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- The file upload progress bar -->
+                    <div class="panel panel-success">
+                        <div class="panel-body">
+                           <span  id="fileupload_btn"  class="label  label-success  pull-left btn btn-info"  style="font-size:100%; margin-right: 10px;" disabled>
+                              管理文件备份上传进度
+                            </span>
+                            <div id="fileupload_progress" class="progress">
+                                <div class="progress-bar progress-bar-success"></div>
+
+                                <span id="fileupload_progress_percent" class="label label-success pull-right" style="font-size:100%; margin-left: -55px;"> 0 %</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- The container for the uploaded files -->
                     <div id="files" class="files"></div>
                 </div>
@@ -120,6 +148,19 @@
                                                     href="{{ path('admin_product_manage_by_excel',{sort:9, item_no:app.request.get('item_no'),page:app.request.get('page'),keys:app.request.get('keys')}) }}">名称</a>
                                         </th>
                                     {% endif %}
+
+                                        <th>
+                                            <div id="the_status_title_div" data-toggle-title="tooltip" 
+                                                title="" 
+                                                data-placement="bottom">
+                                            状态<div>
+                                            <script type="text/javascript">
+                                             $(document).ready(function(){
+                                                document.getElementById('the_status_title_div').title = "<div style='z-index:100;'>商品正常状态: 数值 &ge; 0<br>商品下架状态: 数值 < 0 </div>";   
+                                                $('[ data-toggle-title="tooltip" ]').tooltip({ html : true });
+                                            });  
+                                        </script> 
+                                        </th>
 
                                     {% if app.request.get('sort') == 2 %}
                                         <th class="sorting_asc"><a
@@ -225,7 +266,7 @@
 
                                     <th>品牌</th>
 
-                                    <th>状态</th>
+                                    <th>核对</th>
                                 </tr>
                                 </thead>
                                 <tbody role="alert" aria-live="polite" aria-relevant="all">
@@ -241,6 +282,9 @@
                                                 <span title="{{ entity.name }}">{{ entity.name }}</span>
                                             {% endif %}
                                         </td>
+
+                                        <td id="{{entity.id}}_entity_status"    >{{ entity.status }}</td>
+
                                         <td id="{{entity.id}}_entity_price" align="center">{{ entity.price }}</td>
 
                                         <td id="{{entity.id}}_entity_pricediscounted" align="center">{{ entity.priceDiscounted }}</td>
@@ -268,7 +312,7 @@
                                             {% endif %}
                                         </td>
 
-                                        <td id="{{entity.id}}_entity_status" align="center"></td>
+                                        <td id="{{entity.id}}_entity_test" align="center"></td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
@@ -337,9 +381,9 @@
 <!-- The File Upload image preview & resize plugin -->
 <script src="/js/jQuery-File-Upload/js/jquery.fileupload-image.js"></script>
 <!-- The File Upload audio preview plugin -->
-<script src="/js/jQuery-File-Upload/js/jquery.fileupload-audio.js"></script>
+<!-- <script src="/js/jQuery-File-Upload/js/jquery.fileupload-audio.js"></script> -->
 <!-- The File Upload video preview plugin -->
-<script src="/js/jQuery-File-Upload/js/jquery.fileupload-video.js"></script>
+<!--<script src="/js/jQuery-File-Upload/js/jquery.fileupload-video.js"></script> -->
 <!-- The File Upload validation plugin -->
 <script src="/js/jQuery-File-Upload/js/jquery.fileupload-validate.js"></script>
 
@@ -351,4 +395,13 @@
 
 <!-- Detailed Logic of the Manage_by_Excel Page. -->
 <script src="/js/manage_by_excel.js"></script>
+
+<script type="text/javascript">
+            $(function(){      
+                $('[ data-toggle-title="popover" ]').popover({ 
+                    html : true
+                });
+            });
+
+</script>
 {% endblock %}
