@@ -63,13 +63,14 @@ class DefaultController extends Controller
         if (!$order) {
             return $this->redirectToRoute('user_order');
         }
+
         if ($order->getStatus() != 0) {
             $this->redirectToRoute('user_order');
         }
         else {
             if ($type == 'online') {
                 $check = $this->get('app.skip.checkout');
-                $url = $check->checkout($order, $order->getTotalPrice()/* + $order->getPostFee()*/);
+                $url = $check->checkout($order, $order->getTotalPrice() + $order->getPostFee());
 
                 if($url != null) { //fixing now.
                     //跳转支付
@@ -81,9 +82,17 @@ class DefaultController extends Controller
                 }
             }
             else {
-                return $this->render('Order/default/order_confirm.html.twig', array(
-                    'data' => $order
-                ));
+                if($type == 'trans'){
+                    return $this->render('Order/default/order_confirm.html.twig', array(
+                        'order_id' => $id,
+                        'order_total' => $order->getTotalPrice() + $order->getPostFee(),
+                    ));
+                } else {
+                    return $this->render('Order/default/alipay_confirm.html.twig', array(
+                        'order_id' => $id,
+                        'order_total' => $order->getTotalPrice() + $order->getPostFee(),
+                    ));
+                }
             }
         }
     }

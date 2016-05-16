@@ -124,14 +124,16 @@
     <h3><i class="fa fa-info-circle"></i>
       <span>确定提交订单？</span></h3>
       <span>
-        <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="trans" class="btn-confirm" value="银行转帐" >
-        <input type="submit" title="在线支付" data-id="{{ ids }}" data-type="online" class="btn-confirm" value="在线支付" >
+        <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="alipay" class="btn-confirm" value="支付宝" >
+        <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="trans"  class="btn-confirm" value="银行转帐" >
+        <input type="submit" title="在线支付" data-id="{{ ids }}" data-type="online" class="btn-confirm" value="信用卡支付 " >
       </span>
-      <p>选择银行转帐将会生成订单，在跳转后请尽快转帐保证按时出货，转帐时请付言账单号后六位。</p>
       <p class="continue-shop">继续购物</p>
     </div>
 
-    {# <div id="need-address" class="pop-address">
+
+{# 
+<div id="need-address" class="pop-address">
     <h3><i class="fa fa-info-circle"></i>
       <span>请选择地址</span></h3>
       <div class="form">
@@ -145,12 +147,14 @@
         </div>
         
         <span>
-        <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="trans" class="btn-confirm" value="银行转帐" >
-        <input type="submit" title="在线支付" data-id="{{ ids }}" data-type="online" class="btn-confirm" value="在线支付" >
+        <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="alipay" class="btn-confirm" value="支付宝" >
+        <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="trans" data-total="{{  sum + post }}" class="btn-confirm" value="银行转帐" >
+        <input type="submit" title="在线支付" data-id="{{ ids }}" data-type="online" class="btn-confirm" value="信用卡支付 " >
       </span>
       <p>选择银行转帐将会生成订单，在跳转后请尽快转帐保证按时出货，转帐时请付言账单号后六位。</p>
       <p class="continue-shop">继续购物</p>
-    </div> #}
+    </div> 
+#}
 
     <div id="create-address" class="pop-address">
       <h3><i class="fa fa-info-circle"></i>

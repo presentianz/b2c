@@ -16,7 +16,6 @@ body {
 
 #login-header {
     border-bottom: 2px solid #95B570;
-    min-height: 100px;
     height: auto;
 }
 
@@ -26,7 +25,7 @@ body {
 }
 
 #login-header .logo > img {  
-    height: auto;
+    height: 66px;
     margin: 0;
 }
 
@@ -64,6 +63,9 @@ body {
 
 
 .login-content {
+    margin-bottom: 100px;
+    margin-top: 50px;
+    left: 25%;
     padding: 20px 30px;
     position: relative;
     border: 2px solid #eee;

@@ -33,35 +33,28 @@
                 <div class="cart-tab active">3.订单生成</div>
         </div>
 
-        <div class="order-confirm-content" style="margin-bottom: 81px;">
+        <div class="order-confirm-content" style="margin-top: 5px; margin-bottom: 5px;">
          	<h2>恭喜您, 下单成功! </h2>
          	<div class="order-confirm-id">
-                <br>
              	<label>订单号：<a href="{{ path('user_order') }}"><span class="color">{{ order_id }}</span></a> </label>
-                <br>   
-                
-                <label>金额：{{ order_total }} </label>
                 <br>
-                    <span>越早转账可以越快收到您的货品</span>
-                    <span>转帐时请务必付言账单号后六位</span>
+                <label> 人民币：￥{{ order_total * 5 }} <font color="gray">( 纽币：${{ order_total }} )</font></label> 
+                <br>   
+                <span>转帐时请务必付言订单号后六位</span>
          	</div>
             <hr>
-            <div>
-                <a href="https://www.anz.co.nz/personal/" target="_blank">
-                    <img class="bank_logo" src="/img/banks/anz.jpg">
-                </a>
-                &nbsp;&nbsp;&nbsp;
-                <a href="https://www.asb.co.nz/" target="_blank">
-                    <img class="bank_logo" src="/img/banks/asb.png">
-                </a>
-                &nbsp;&nbsp;&nbsp;
-                <a href="https://www.bnz.co.nz/" target="_blank">
-                    <img class="bank_logo" src="/img/banks/bnz.jpg">
-                </a>
-                &nbsp;&nbsp;&nbsp;
-                <a href="http://www.westpac.co.nz/" target="_blank">
-                    <img class="bank_logo" src="/img/banks/westpac.png">
-                </a>
+            <div align="center">
+                <span> <img src="/img/banks/alipay.png">&nbsp;&nbsp;支付宝账号: 13925082288 </span>
+            </div>
+            <hr>
+            <div align="center">
+                 您也可以扫描二维码或条码付款
+            </div>
+            <div align="center">
+                <img src="/img/banks/alipay_personal_temp.jpg" width="150px">
+            </div>
+            <div align="center">
+                自动识别不安全链接，安心付款
             </div>
             <hr>
         </div>
