@@ -188,9 +188,8 @@
     margin-bottom: 5px;
 }
 #cart-page-container .form label {
-    max-width: 200px;
-    width: 200px;
-
+    max-width: 210px;
+    width: 210px;
 } 
 
 #cart-page-container .form select {
@@ -202,8 +201,7 @@
 }
 
 #cart-page-container .form select.select-location { 
-    width: 579px;
-    left: -4px;
+    width: 570px;
     margin: 0px;
     position: relative;
 }

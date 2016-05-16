@@ -7,49 +7,51 @@
 {% endblock %}
 
 {% block body %}
-    <div class="col-xs-3 siderbar">
-        {{ render(controller('AppBundle:Widget/Menu:index')) }}
-        {{ render(controller('AppBundle:Widget/Default:brandList')) }}
-        {# {{ render(controller('AppBundle:Widget/Default:discountPro')) }} #}
-        {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
-        </div>
-  <div class="col-xs-9 page-right">
+<div class="col-xs-3 siderbar">
+  {{ render(controller('AppBundle:Widget/Menu:index')) }}
+  <br>
+  {{ render(controller('AppBundle:Widget/Default:postFee')) }} 
+</div>
 
-    <div class="page-content" id="cart-page-container">
-      <div class="page-title">
-        <div class="panel-primary" style="width: 100%">
-          <div class="panel-heading panel-heading-no-bottom-border" style="background-color:#95B570; font-size:18px;">  
+<div class="col-xs-9 page-right">
+  <div class="page-content" id="cart-page-container">
+    <div class="page-title">
+      <div class="panel-primary" style="width: 100%">
+        <div class="panel-heading panel-heading-no-bottom-border" style="background-color:#95B570; font-size:18px;">  
             <a href="{{ path('homepage')}}"><i class="fa fa-home" style="font-size: 25px"></i></a>
                 &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;
                 结算购物车
-          </div>
         </div>
-      </div>  
-      <div class="cart-tabs">
+      </div>
+    </div>  
+
+    <div class="cart-tabs">
         <div class="cart-tab">1.查看购物车</div> 
         <div class="cart-tab-arrow"></div>
         <div class="cart-tab active">2.填写购物信息</div>
         <div class="cart-tab-arrow"></div>
         <div class="cart-tab">3.完成订单</div>
-      </div>
-      <div class="col-xs-12 cart-content">
+    </div>
 
+    <div class="col-xs-12 cart-content">
       <div class="form">
         <div>
-          <label>邮寄地址</label>
-
+          <label>
+            邮寄地址 &nbsp;&nbsp;&nbsp;
+            <a class="new-address">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;添加地址 （<i class="fa fa-plus" aria-hidden="true"></i>）
+            </a>
+          </label>
           <select id="select-location" class="select-location">
             <option value=''>请选择邮寄地址</option>
             {% for address in app.user.shipmentAddresses %}
               <option value="{{address.id}}">{{address.name}}  {{address.phoneNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
             {% endfor %}
           </select>
-
-          <a class="new-address">新建地址</a>
         </div>
       </div>
 
-        <div class="table-header">请在此确认你的订单产品</div>           
+      <div class="table-header">请在此确认你的订单产品</div>           
         <table class="table no-margin">
           <thead>
             <tr>
@@ -93,98 +95,118 @@
                {% if data|length > 0 %}
                {% set weight = (weight/1000)|round(2, 'ceil') %}
                {% set post = ( ( ((weight/5)|round(0, 'ceil')) * 0.2 + weight) * 8)|round(2, 'ceil') %}
+                <hr>
                 <strong>总价：</strong><strong id="totalprice">NZ${{ sum + post }}（邮费：$8 一公斤）</strong><br>
                 商品价格：NZ${{ sum }}
                 总重：{{weight}} kg
                 邮费：  NZ${{ post }}
                {% else %}
-                 <strong>$0.00</strong> 
+                <strong>$0.00</strong> 
                  {% endif %}<br>
-                 <td  class="text-right">
-                 <input type="submit" value="返回购物车" onclick="window.history.back();">
+                <td  class="text-right">
+                  <input type="submit" value="返回购物车" onclick="window.history.back();">
+                </td>
+                <td  class="text-right">              
+                  <input type="submit" title="提交订单" class="btn-pay" value="确认无误，马上下单" >
+                </td>
               </td>
-              <td  class="text-right">              
-               <input type="submit" title="提交订单" class="btn-pay" value="确认无误，马上下单" >
-              </td>
-            </tr>
-             
+            </tr> 
           </tfoot>
         </table>
+        <div>
+          <hr>
         </div>
-          </div>
-        </div>
-      </div> 
-<div class="bg-mask"></div>
-<div id="loading" class="loading">
-  <div>
-    <i class="fa fa-spinner fa-pulse"></i>
-  </div>
-</div>
-    <div id="pop-cart" class="pop-cart">
-    <h3><i class="fa fa-info-circle"></i>
-      <span>确定提交订单？</span></h3>
-      <span>
-        <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="alipay" class="btn-confirm" value="支付宝" >
-        <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="trans"  class="btn-confirm" value="银行转帐" >
-        <input type="submit" title="在线支付" data-id="{{ ids }}" data-type="online" class="btn-confirm" value="信用卡支付 " >
-      </span>
-      <p class="continue-shop">继续购物</p>
-    </div>
-
-
-{# 
-<div id="need-address" class="pop-address">
-    <h3><i class="fa fa-info-circle"></i>
-      <span>请选择地址</span></h3>
-      <div class="form">
-          <select id="select-location" class="select-location">
-            <option value=''>请选择邮寄地址</option>
-            {% for address in app.user.shipmentAddresses %}
-              <option value="{{address.id}}">{{address.name}}  {{address.phoneNo}}, {{address.country}} {{address.region}} {{address.city}} {{address.address}}</option>
-            {% endfor %}
-          </select>  
-          <a class="new-address">新建地址</a>  
-        </div>
-        
-        <span>
-        <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="alipay" class="btn-confirm" value="支付宝" >
-        <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="trans" data-total="{{  sum + post }}" class="btn-confirm" value="银行转帐" >
-        <input type="submit" title="在线支付" data-id="{{ ids }}" data-type="online" class="btn-confirm" value="信用卡支付 " >
-      </span>
-      <p>选择银行转帐将会生成订单，在跳转后请尽快转帐保证按时出货，转帐时请付言账单号后六位。</p>
-      <p class="continue-shop">继续购物</p>
-    </div> 
-#}
-
-    <div id="create-address" class="pop-address">
-      <h3><i class="fa fa-info-circle"></i>
-      <span>新建地址</span></h3>
-
-      {{ form_start(form, {'attr': {'id':'add-address'}}) }} 
-       <h5>直邮中国的快递必须提供收件人身份证才可以正常通关</h5>
-       <p>二代身份证需要同时提交证件的正反面内容，请分别扫描正反面图片后分别上传。身份证需确保照片、文字信息都清晰可见，如需加水印请在空白处填写“仅供清关使用”字样，否则无效！文件类型：*.gif/*.jpg/*.png 尺寸像素宽600X高800，大小不超过100KB。</p>
-
-      <div class="form">
-        <div>{{ form_label(form.country) }}
-        {{ form_widget(form.country) }} {{ form_widget(form.region) }}</div>
-        <div>{{ form_label(form.city) }}{{ form_widget(form.city) }}</div>
-        <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
-        <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
-        <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
-        <div>{{ form_label(form.phone_no) }}{{ form_widget(form.phone_no) }}</div>
-        <div>{{ form_label(form.id_no) }}{{ form_widget(form.id_no) }}</div>
-        
-        <div style="display:none">
-          <div>{{ form_rest(form) }}</div>
-        </div>
-      </div> 
-      <div class='clear'>
-        <input type="submit" value="取消" class="close-address">
-        <!-- 这里提交直接存入用户地址并添加到选择地址下拉菜单里 -->
-        <input type="submit" value="提交" />
       </div>
-      {{ form_end(form) }}
     </div>
+    <div class="page-content" id="cart-page-container" style="min-height:0px">
+        <div class="product-tab product-tab-update clearfix">
+            <img src="{{ asset('img/leaf-green.jpg') }}" alt="logo" class="leaf">
+        </div>
+        <div class="tab-contents">
+            <div class="tab-content-desc">
+                <p>
+                <i class="fa fa-pagelines" aria-hidden="true"></i>&nbsp;
+                如果对于使用本站服务存有疑问，可查看我们的
+                <a href="/terms">
+                    <span class="label label-primary" style="font-size:95%; padding-bottom: 3px;padding-left: 3px;padding-right: 3px;padding-top: 3px;">服务条款</span>
+                </a>
+                或
+                <a href="/refundpolicy">
+                     <span class="label label-primary" style="font-size:95%; padding-bottom: 3px;padding-left: 3px;padding-right: 3px;padding-top: 3px;">退赔流程</span>
+                </a> 
+                了解更多详细信息。
+                </p>
+            </div>
+        </div>        
+    </div>
+  </div>  
+</div>
+
+  <!-- 弹出选择框 -->
+  <div class="bg-mask"></div>
+  <div id="loading" class="loading">
+    <div>
+          <i class="fa fa-spinner fa-pulse"></i>
+    </div>
+  </div>
+  <div id="pop-cart" class="pop-cart">
+      <h3><i class="fa fa-info-circle"></i>
+        <span>确定提交订单？</span></h3>
+        <span>
+          <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="alipay" class="btn-confirm" value="支付宝" >
+          <input type="submit" title="银行转帐" data-id="{{ ids }}" data-type="trans"  class="btn-confirm" value="银行转帐" >
+          <input type="submit" title="在线支付" data-id="{{ ids }}" data-type="online" class="btn-confirm" value="信用卡支付 " >
+        </span>
+        <p class="continue-shop">继续购物</p>
+  </div>
+
+  <div id="create-address" class="pop-address">
+    <h3><span><i class="fa fa-plus" aria-hidden="true"></i>新建地址</span></h3>
+
+        {{ form_start(form, {'attr': {'id':'add-address'}}) }} 
+         <h5>直邮中国的快递必须提供收件人身份证才可以正常通关</h5>
+         <p>二代身份证需要同时提交证件的正反面内容，请分别扫描正反面图片后分别上传。身份证需确保照片、文字信息都清晰可见，如需加水印请在空白处填写“仅供清关使用”字样，否则无效！文件类型：*.gif/*.jpg/*.png 尺寸像素宽600X高800，大小不超过100KB。</p>
+
+    <div class="form">
+          <div>{{ form_label(form.country) }}
+          {{ form_widget(form.country) }} {{ form_widget(form.region) }}</div>
+          <div>{{ form_label(form.city) }}{{ form_widget(form.city) }}</div>
+          <div>{{ form_label(form.address) }}{{ form_widget(form.address) }}</div>
+          <div>{{ form_label(form.post_code) }}{{ form_widget(form.post_code) }}</div>
+          <div>{{ form_label(form.name) }}{{ form_widget(form.name) }}</div>
+          <div>{{ form_label(form.phone_no) }}{{ form_widget(form.phone_no) }}</div>
+          <div>{{ form_label(form.id_no) }}{{ form_widget(form.id_no) }}</div>
+          
+          <div style="display:none">
+            <div>{{ form_rest(form) }}</div>
+          </div>
+    </div>
+    <div class='clear'>
+          <input type="submit" value="取消" class="close-address">
+          <!-- 这里提交直接存入用户地址并添加到选择地址下拉菜单里 -->
+          <input type="submit" value="提交" />
+    </div>
+    {{ form_end(form) }}
+      <div class="product-tab product-tab-update clearfix">
+            <img src="{{ asset('img/leaf-green.jpg') }}" alt="logo" class="leaf">
+      </div>
+      <div class="tab-contents">
+          <div class="tab-content-desc">
+                <p>
+                <i class="fa fa-pagelines" aria-hidden="true"></i>&nbsp;
+                如果对于使用本站服务存有疑问，可查看我们的
+                <a href="/terms">
+                    <span class="label label-primary" style="font-size:95%; padding-bottom: 3px;padding-left: 3px;padding-right: 3px;padding-top: 3px;">服务条款</span>
+                </a>
+                或
+                <a href="/refundpolicy">
+                     <span class="label label-primary" style="font-size:95%; padding-bottom: 3px;padding-left: 3px;padding-right: 3px;padding-top: 3px;">退赔流程</span>
+                </a> 
+                了解更多详细信息。
+                </p>
+          </div>
+      </div>
+  </div>
 {% endblock %}
 
 {% block javascripts %}
