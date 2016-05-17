@@ -20,6 +20,9 @@
         <div class="nav-item-leftmenu">{{ sub1.name }}</div>
       </a>
       <ul class="well dropdown-menu" role="menu">
+        <div>
+          <h5><span class="label label-default" style="margin-left: 2px;">{{ sub1.name }}</span></h5>
+        </div>
         <!-- <li class="dropdown-header">{{ sub1.name }}</li> -->
         {% for sub2 in sub1.__children %}       
         <li>
