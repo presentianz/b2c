@@ -41,3 +41,24 @@
   {% endif %}
 {% endfor %}
 </ul>
+
+<!--
+{% block javascripts %}
+<script type="text/javascript">
+$(document).ready(function() {
+  $(window).scroll(function () {
+      //if you hard code, then use console
+      //.log to determine when you want the 
+      //nav bar to stick.  
+      //console.log($(window).scrollTop())
+    if ($(window).scrollTop() > 157) {
+      $('#nav_menu').addClass('navbar-fixed');
+    }
+    if ($(window).scrollTop() < 158) {
+      $('#nav_menu').removeClass('navbar-fixed');
+    }
+  });
+});
+</script>
+{% endblock %}
+-->
