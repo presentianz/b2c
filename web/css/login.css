@@ -171,6 +171,12 @@ body {
     color: #aaa;
 }
 
+#login-footer a:hover{
+    color: black;
+    font-weight: bold;
+}
+
+
 #login-footer .copyright {
     clear: both;
     padding: 10px;

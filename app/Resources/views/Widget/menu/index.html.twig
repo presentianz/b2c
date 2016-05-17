@@ -1,31 +1,40 @@
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('css/nav_menu.css') }}"  type="text/css"/>
+{% endblock %}
 
-	<div class="nav-all-leftmenu">
-		<a href="{{ path('category') }}"><i class="fa fa-bars" aria-hidden="true"></i>&nbsp;全部商品分类</a>
-	</div>           
-		<ul class="nav nav-list">
-			{% for sub1 in data %}
-			<a href="{{ path('category', { id : sub1.id }) }}" ><li id="{{sub1.id}}">
-				<div class="nav-item-leftmenu">{{ sub1.name }}</div>
-	        </a>
-	        {% if sub1.__children|length > 0 %}
-	         <div class="well dropdown-menu">
-	        {% for sub2 in sub1.__children %}     	
-	        	<div>
-	        		<a href="{{ path('category', { id : sub2.id }) }}" class="search-keys">{{ sub2.name }}</a>
-	        		{% if sub2.__children|length > 0 %}
-	        		<div class="sub-menu">
-	        			{% for sub3 in sub2.__children %}
-	        			<a href="{{ path('category', { id : sub3.id }) }}" class="search-keys">{{ sub3.name }}</a>&nbsp;&nbsp;|&nbsp;
-	        			{% endfor %}
-	        		</div>
-	        		{% endif %}
-	        	</div>   
-	        	 {% endfor %}    	
-	        </div>
-	       {% endif %}
-	    </li>
-	    {% endfor %}
-	</ul>
-
-
-
+<div class="nav-all-leftmenu">
+  <a href="{{ path('category') }}"><i class="fa fa-bars" aria-hidden="true"></i>&nbsp;全部商品分类</a>
+</div>           
+    
+<ul class="nav nav-list">
+{% for sub1 in data %}
+  {% if sub1.__children|length <= 0 %}
+    <li id="{{sub1.id}}">
+      <a href="{{ path('category', { id : sub1.id }) }}" >
+        <div class="nav-item-leftmenu">{{ sub1.name }}</div>
+      </a>
+    </li>
+  {% else %}
+    <li id="{{sub1.id}}" class="dropdown">
+      <a href="{{ path('category', { id : sub1.id }) }}" >
+        <div class="nav-item-leftmenu">{{ sub1.name }}</div>
+      </a>
+      <ul class="well dropdown-menu" role="menu">
+        <!-- <li class="dropdown-header">{{ sub1.name }}</li> -->
+        {% for sub2 in sub1.__children %}       
+        <li>
+          <a href="{{ path('category', { id : sub2.id }) }}" class="search-keys">{{ sub2.name }}</a>
+            {% if sub2.__children|length > 0 %}
+            <div class="sub-menu">
+              {% for sub3 in sub2.__children %}
+              <a href="{{ path('category', { id : sub3.id }) }}" class="search-keys">{{ sub3.name }}</a>&nbsp;&nbsp;|&nbsp;
+              {% endfor %}
+            </div>
+            {% endif %}
+        </li>   
+        {% endfor %}     
+      </ul>
+    </li>
+  {% endif %}
+{% endfor %}
+</ul>

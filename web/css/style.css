@@ -797,34 +797,6 @@ ul.nav {
     display: block;
 }
 
-.nav li a:hover .nav-item-leftmenu {
-     color: antiquewhite;
-}
-
-.nav a .nav-item-leftmenu {
-    font-size: 20px;
-    font-weight: bold;
-    color: ghostwhite;;
-    padding: 10px 25px;
-    width: 100%;
-}
-
-.nav .dropdown-menu {
-    background-color: #fff;
-    left: 252px;
-    border-radius: 0px;
-    -webkit-border-radius:0px;  
-    -moz-border-radius:0px;
-    top: -3px;
-    width: 312px;
-    min-height: 100px;
-    padding: 5px 10px;
-    box-shadow: 0px 3px 5px #999;
-    -webkit-box-shadow: 0 3px 5px #999;
-    -moz-box-shadow: 0 3px 5px #999;
-    word-break: break-all;
-}
-
 .nav .dropdown-menu div {
      display: inline-block;
 }
