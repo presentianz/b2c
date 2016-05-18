@@ -1493,11 +1493,11 @@ ss.XhrUpload = {
 
         for ( var i in headers ) {
             if ( headers.hasOwnProperty( i ) ) {
-                if ( opts.encodeCustomHeaders && opts.customHeaders.hasOwnProperty( i ) ) {
+                //if ( opts.encodeCustomHeaders && opts.customHeaders.hasOwnProperty( i ) ) {
                     xhr.setRequestHeader( i, encodeURIComponent( headers[ i ] ) + '' );
-                } else {
-                    xhr.setRequestHeader( i, headers[ i ] + '' );
-                }
+                //} else {
+                    //xhr.setRequestHeader( i, headers[ i ] + '' );
+                //}
             }
         }
 

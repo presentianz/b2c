@@ -53,8 +53,6 @@ function deleteImg (imgLink, type, obj) {
 }
 
 window.onload = function() {
-
-
     var btn1 = $('#uploadBtn1');
     var btn2 = $('#uploadBtn2');
     var imgLink = $('#appbundle_product_imageLink').val();
@@ -68,7 +66,7 @@ window.onload = function() {
       responseType: 'json',
       name: 'uploadfile',
       multiple: true,
-      allowedExtensions: ['png','jpg'], // for example, if we were uploading pics
+      allowedExtensions: ['png','jpg','bmp','gif'], // for example, if we were uploading pics
       hoverClass: 'ui-state-hover',
       focusClass: 'ui-state-focus',
       disabledClass: 'ui-state-disabled',
