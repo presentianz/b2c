@@ -27,14 +27,14 @@
 
             $data = array();
             foreach ($tree as $key => $value) {
-                $products = $em->getRepository('AppBundle:Category')->getRandomProductsUnderCategory($value['id'], 3);
+                $products = $em->getRepository('AppBundle:Category')->getRandomProductsUnderCategory($value['id'], 5);
                 array_push($data, array(
                     'products' => $products,
                     'node' => $tree[$key]
                 ));
             }
             /* 今日推荐,热卖畅销,限时特卖 */
-            for ($i = 0; $i < 3; $i ++) {
+            for ($i = 0; $i < 5; $i ++) {
                 $widget[$i] = $em->getRepository('AppBundle:Product')->findIndexWidgetProducts($i + 1, 3);
             }
 
