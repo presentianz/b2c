@@ -6,58 +6,51 @@
     <link rel="stylesheet" href="{{ asset('css/user.css') }}" type="text/css">
 {% endblock %}
 
- {% block header %} 
+{% block header %} 
         {{parent()}}
-  {% endblock %}
+{% endblock %}
 
 {% block body %}
 
 <div id="user-page">
 	<div class="col-xs-3 siderbar">
 
-    <div class="nav-all">
-        <a href="{{ path('user_profile') }}">账户信息管理</a>
-    </div>
+        <div class="nav-all-leftmenu">
+            <a href="{{ path('user_profile') }}">账户信息管理</a>
+        </div>
 		<ul class="nav nav-list">
-			<li><a href="{{path("user_profile")}}"><div class="nav-item">账户管理</div></a></li>
-            <li><a href="{{path("fos_user_change_password")}}"><div class="nav-item">修改密码</div></a></li>
-            <li><a href="{{path("user_order")}}"><div class="nav-item">我的订单</div></a></li>
-			<li><a href="{{path("user_address")}}"><div class="nav-item">常用地址</div></a></li>
-            <li><a href="{{path("user_topup")}}"><div class="nav-item">充值</div></a></li>
-            {#<li><div class="nav-item"><a href="{{path("user_profile")}}">消费历史</a></div></li> #}
-            
-            {#<li><a href="{{path("user_email")}}"><div class="nav-item">邮件选择</div></a></li>#}
-            </ul>
+			<li><a href="{{path("user_profile")}}"><div class="nav-item-leftmenu">账户管理</div></a></li>
+            <li><a href="{{path("fos_user_change_password")}}"><div class="nav-item-leftmenu">修改密码</div></a></li>
+            <li><a href="{{path("user_order")}}"><div class="nav-item-leftmenu">我的订单</div></a></li>
+			<li><a href="{{path("user_address")}}"><div class="nav-item-leftmenu">常用地址</div></a></li>
+            <li><a href="{{path("user_topup")}}"><div class="nav-item-leftmenu">充值</div></a></li>
+            <!-- <li><div class="nav-item-leftmenu"><a href="{{path("user_profile")}}">消费历史</a></div></li> -->
+            <li><a href="{{path("user_email")}}"><div class="nav-item-leftmenu">邮件选择</div></a></li>
+        </ul>
 
             <!--best pros-->
-            {{ render(controller('AppBundle:Widget/Default:bestPro')) }}
+            {# {{ render(controller('AppBundle:Widget/Default:bestPro')) }} #}
             {{ render(controller('AppBundle:Widget/Default:postFee')) }}
 
-        </div>
-        <div class="col-xs-9 page-right">
-                <div class="page-breadcrumb">
-                    <ol>
-                        <li><a href="{{ path('homepage')}}"><i class="fa fa-home"></i></a></li>
-                        <li>&nbsp;>&nbsp;{% block page_breadcrumb %}用户信息{% endblock page_breadcrumb %}</li>
-                    </ol>
+    </div>
+    <div class="col-xs-9 page-right">
+        <div class="page-content">
+            <div class="page-title">
+                <div class="panel-primary" style="width: 100%">
+                    <div class="panel-heading panel-heading-no-bottom-border" style="background-color: #95B56F; font-size:20px;">  
+                        <i class="fa fa-user" aria-hidden="true"></i>&nbsp; {% block page_title %}用户信息{% endblock page_title %}
+                    </div>
                 </div>
-        	<div class="page-content">
-                <div class="page-title">
-                    <div class="page-leaf-top"></div>
-                    <div class="page-leaf"><img src="{{ asset('img/leaf.png') }}" alt=""></div>
-                    <div><h4>{% block page_title %}用户信息{% endblock page_title %}</h4></div>     
-                </div>
-                <div class="user-content">
+            </div>
+            <div class="user-content">
         	       {% block fos_user_content %}
                      {% include "FOSUserBundle:Profile:show_content.html.twig" %}
                    {% endblock fos_user_content %}
-                </div>
             </div>
+        </div>
         {#{{ render(controller('AppBundle:Widget/Default:index')) }}#}
          
     </div>
-
-
  </div>
 
     {% endblock %}

@@ -12,10 +12,13 @@
         <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
         <!-- Custom CSS -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/left-menu.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/top-navigation-bar.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/floating-button.css') }}" type="text/css">
         <!-- Custom upload image CSS -->
         <link rel="stylesheet" href="{{ asset('css/uploadimage.css') }}" type="text/css"/>
         <link rel="stylesheet" href="{{ asset('css/jquery.Jcrop.css') }}"  type="text/css"/>
-
+        <link rel="stylesheet" href="{{ asset('css/shopping-cart-icon.css') }}"  type="text/css"/>
         {% block stylesheets %}{% endblock %}
         <!-- Custom icon -->
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -23,21 +26,29 @@
     <body>
         <!-- Google Analytics -->
         <script src="{{ asset('js/analyticstracking.js') }}"></script>
-        
+        <!-- jQuery -->
+        <script type="text/javascript" src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.easing-1.3.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.scrollTo-1.4.3.1-min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.lazyload.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.Jcrop.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.SimpleCropper.js') }}"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <!-- Js Routing -->
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>      
         <div id="header">
             <div class="navbar">
                 <div class="container-non-responsive">
-                <div class="pull-left">
-                        <h6>欢迎来到丰盛湾在线购物平台!</h6>
-                        <!-- <a id="bookmarkme" href="javascript:;"><h6 class="color-basis">收藏网站</h6></a> -->       
-                        <!-- <h6>客服电话</h6> -->  
-                    </div>
+                <div class="pull-left">欢迎来到丰盛湾在线购物平台！</div>
                     <div class="pull-right">
-                        <a href="{{ path('about') }}"><h6>关于Plenty Bay丰盛湾</h6></a>
+                        <a href="{{ path('about') }}">关于Plenty Bay丰盛湾</a>
                        {# <a href="{{ path('contact') }}"><h6 class="color-basis">联系我们</h6></a> #}
                     </div>  
                 </div>
             </div>
+        <!-- End of JS Section at Top -->
 
              {% block header %}
             <!-- Lower Header Section -->
@@ -45,8 +56,8 @@
             <div id="mid-header">
                 <div class="container-non-responsive">
                     <div class="col-xs-2 logo-width">
-                        <a class="logo" href="{{ path('homepage') }}">
-                            <img src="{{ asset('img/logo-new.jpg') }}" alt="丰盛湾">
+                        <a href="{{ path('homepage') }}">
+                            <img class=".logo-img" src="{{ asset('img/logo/logo_mainpage.jpg') }}" alt="丰盛湾">
                         </a>
                         <!-- <h4 class="text-right">丰盛湾</h4> -->
                     </div>
@@ -60,33 +71,11 @@
                                 <a href="/s?keys=纽乐鱼油"><h6>纽乐鱼油</h6></a>
                                 <a href="/s?keys=护手霜"><h6>护手霜</h6></a>
                             </div>
-                            <div class="curreny pull-right">
-                                <!-- <select class="dollar-select">
-                                <option><h6>$ NZ Dollar</h6></option> -->
-                                <!-- <option><h6>$ AU Dollar</h6></option>
-                                <option><h6>$ UK EURO</h6></option>
-                                <option><h6>$ US Dollar</h6></option> -->
-                                <!-- </select> -->
-                                <!-- <select class="lang-select">
-                                    <option><h6>CN</h6></option> -->
-                                    <!-- <option><h6>EN</h6></option>
-                                    <option><h6>FR</h6></option> -->
-                                <!-- </select>     -->
-                            </div> 
                         </div>
                         <div class="navbar-below">
                             <div class="col-xs-6 no-padding">
                             <div class="navbar-search pull-left">
                             <form action="{{ path('search', {keys : app.request.get('keys') }) }}" method="get"  onsubmit="">
-                                <!-- <select class="search-select">
-                                    <option value="搜索关键词" selected><h6>搜索关键词</h6></option>
-                                    <option value="奶粉"><h6>奶粉</h6></option>
-                                    <option value="爱他美"><h6>爱他美</h6></option>
-                                    <option value="蜂蜜"><h6>蜂蜜</h6></option>
-                                    <option value="蜂胶"><h6>蜂胶</h6></option>
-                                    <option value="鱼油"><h6>鱼油</h6></option>
-                                    <option value="面膜"><h6>面膜</h6></option>
-                                </select> -->
                                 <div class="search-input">
                                     <input type="text" id="keys" name="keys" lang="zh-CN" placeholder="搜索产品..." class="search-query" value="{{ app.request.get('keys') }}">
                                     <i id="search-remove" class="fa fa-remove hide"></i>
@@ -104,68 +93,96 @@
                             <div class="my-detail">             
                                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                                 <div id="after-login">
-                                    <!-- <a class="a-login bg_hover_mainheader" href="{{path('fos_user_security_logout')}}">
-                                    <h6> |注销登录|</h6>
-                                    </a> -->
-                                    <!-- <a class="btn btn-default btn-sm" href="{{ path('user_profile') }}">
-                                      <i class="fa fa-cog"></i> 设置账户</a> -->
                                     
-                                    <div class="btn-group open">
-                                        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i> {{ app.user.username }}  <i class="fa fa-caret-down"></i></a>
+                                    <div class="btn-group right_a_bit" data-toggle-title="tooltip" data-placement="left" title="点击显示更多服务">
+                                        <a class="btn btn-default btn-sm dropdown-toggle" href="#" data-toggle="dropdown">
+                                            <i class="fa fa-user fa-fw"></i> 您好！<span class="caret"></span>
+                                        </a>  
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <a href="{{ path('user_profile') }}">
-                                                    <i class="fa fa-cog fa-spin"></i> 个人资料
+                                                    <i class="fa fa-cog fa-spin"></i>&nbsp;管理后台
+                                                </a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="{{ path('fos_user_change_password') }}">
+                                                    <i class="fa fa-key"></i>&nbsp;更改密码
                                                 </a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
                                                 <a href="#">
-                                                    <i class="fa fa-truck"></i> 订单查询
+                                                    <i class="fa fa-truck"></i>&nbsp;快递查询
                                                 </a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
                                                 <a href="{{ path('cart') }}">
-                                                    <i class="fa fa-shopping-cart"></i> 购物结算
+                                                    <i class="fa fa-shopping-cart"></i>&nbsp;购物结算
+                                                     <span class="badge">
+                                                        <div id="number_in_cart">
+                                                            <i class="fa fa-spinner fa-pulse"></i>
+                                                        </div> 
+                                                     </span>
                                                 </a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
                                                 <a href="{{path('fos_user_security_logout')}}">
-                                                    <i class="fa fa-power-off"></i> 注销账户
+                                                    <i class="fa fa-power-off"></i>&nbsp;登出账户
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
+
+                                    <script type="text/javascript">
+                                        $(document).ready(function(){
+                                            $('[data-toggle-title="tooltip"]').tooltip();   
+                                        });    
+                                    </script>
                                 </div>
+                                <!-- <div id="history-view" class="history a-login" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}" style="padding-left: 30px;">
+                                    <i class="fa fa-history"></i>&nbsp;&nbsp;最近浏览 
+                                    <div class="history-list history-view">
+                                        <div class="cart-spinner">
+                                            <i class="fa fa-spinner fa-pulse"></i>
+                                        </div>
+                                    </div>
+                                </div> -->
                                  {% else %}
                                 <div id="before-login">
                                     <a class="btn btn-default btn-sm" href="{{path('fos_user_security_login')}}">
-                                      <i class="fa fa-sign-in"></i> 登录</a>
+                                      <i class="fa fa-sign-in"></i>&nbsp;&nbsp;登入</a>
 
                                    <a class="btn btn-default btn-sm" href="{{path('fos_user_registration_register')}}">
-                                      <i class="fa fa-user-plus"></i> 注册</a>
-
-                                    <!-- <a class="a-login bg_hover_mainheader" href="{{path('fos_user_security_login')}}"><h6>登录</h6></a>
-                                    <a class="a-login bg_hover_mainheader" href="{{path('fos_user_registration_register')}}"><h6>注册</h6></a> -->
+                                      <i class="fa fa-user-plus"></i>&nbsp;&nbsp;注册</a>
                                 </div>
                                  {% endif %}            
-                                <div id="history-view" class="history a-login" data-hovered="unhovered" data-path="{{ path('recent_view_ajax_get') }}" style="padding-left: 50px;">
-                                    <h6>最近浏览</h6>
-                                    <div class="history-list history-view">
-                                        <div class="cart-spinner">
-                                            <img src="{{ asset('img/spinner.gif')}}">
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                        <div class="pull-right col-xs-2 no-padding">
+                        <div class="pull-right col-xs-2">
                             <div class="cart-wrapper" data-hovered="unhovered" data-path="{{ path('cart_ajax_get') }}">
+                                <div class='cart-show'>
+                                    <a href="{{ path('cart') }}">
+                                      <div class="icon-cart" style="clear: left; float: left">
+                                        <div class="cart-line-1" style="background-color: #2c3e50"></div>
+                                        <div class="cart-line-2" style="background-color: #2c3e50"></div>
+                                        <div class="cart-line-3" style="background-color: #2c3e50"></div>
+                                        <div class="cart-wheel" style="background-color: #2c3e50"></div>
+                                      </div>
+                                        -&nbsp;
+                                        <span class="badge">
+                                            <div id="number_in_cart2">
+                                                <i class="fa fa-spinner fa-pulse"></i>
+                                            </div> 
+                                        </span>
+                                        <b>件商品</b>
+                                    </a>
+                                </div>
                             {{ render(controller('AppBundle:Widget/Cart:index')) }}
                             </div>
-                        </div>
+                        </div> 
                     </div>
                 </div>
                 </div>
@@ -173,37 +190,56 @@
             </div>
             {% endblock %}
         </div>
-
         <!-- body -->
         <div class="container-non-responsive">
-            {% block body %}{% endblock %} 
+            {% block body %}
+
+            {% endblock %} 
         </div>
         <div id="footer">
-            <!-- <div class="container-non-responsive">
-                <div class="row no-border footer-desc">
-                    <div class="col-xs-6 footer-about">
-                    <a href="{{ path('about') }}">
-                        <h3>关于我们</h3>
-                        <div>丰盛湾是一家专注纽澳特产品，护肤品，保健品为一体的大型连锁专营店。<br>
-                    我们代理的都是新西兰澳洲药房所认可的大品牌，绝对一手货源，百分百保真。产品种类繁多，有上千种网络热销产品，代购追捧单品，经济实惠，价格合理。</div>
-                     </a>
+            <!-- Floating Button -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="material-button-anim">
+                              <ul class="list-inline" id="options">
+                                <li class="option">
+                                  <button class="material-button wechat_color option1" type="button" data-placement="top" data-trigger="focus" data-toggle-title="popover" 
+                                  title="扫扫关注丰盛湾官方微信"
+                                  data-content="<img src='{{ asset('/img/wechat_qr_code.gif') }}' width='168px' height='168px' > ">
+                                    <i class="fa fa-weixin fa-lg" aria-hidden="true"></i>
+                                  </button>
+                                </li> 
+                                <li class="option">
+                                    <a href="http://weibo.com/plentybay"  target="_blank">
+                                      <button class="material-button weibo_color option2" type="button" data-placement="top" data-toggle-title="tooltip" 
+                                  title="微博">
+                                       <i class="fa fa-weibo fa-lg" aria-hidden="true"></i>
+                                      </button>
+                                    </a>
+                                </li>
+                                <li class="option">
+                                    <a href="https://www.facebook.com/Plentybay-480054388853425/"  target="_blank" >
+                                      <button class="material-button facebook_color option3" type="button"  data-placement="top" data-toggle-title="tooltip" title="Facebook">
+                                        <i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
+                                      </button>
+                                    </a>
+                                </li>
+                              </ul>
+                              <button class="material-button material-button-toggle" type="button">
+                                <span class="fa fa-plus" aria-hidden="true"></span>
+                              </button>
+                        </div>
                     </div>
-                    <div class="col-xs-3 footer-feedback">
-                        <h3>客户反馈</h3>
-                        <div><img src="{{ asset('img/feedback.jpg') }}" alt=""></div>
-                    </div>
-                    <div class="col-xs-3 footer-guarantee">
-                        <h3>Plenty Bay 承诺</h3>
-                        <div><img src="{{ asset('img/guran.jpg') }}" alt=""></div>
-                    </div>
-                </div> 
-            </div> -->
+                </div>
+            </div> 
+
             <div class="container-non-responsive"> 
                 <div class="footer-up">
                     <div class="col-xs-2">
                         <h5>新手指南</h5><br>
                         <a href="{{ path('fos_user_registration_register') }}"><h6>账号注册</h6></a>
-                        <a href="{{ path('homepage') }}"><h6>购物流程</h6></a>
+                        <a href="{{ path('privacy') }}"><h6>用户隐私</h6></a>
                     </div>
                     <div class="col-xs-2">
                         <h5>发货说明</h5><br>
@@ -230,14 +266,14 @@
                      <div class="col-xs-2">
                         <h5>帮助中心</h5><br>
                         <a href="{{ path('contact') }}"><h6>在线客服</h6></a>
-                        <a href="{{path("fos_user_resetting_request")}}"><h6>找回密码</h6></a>
+                        <a href="{{path('fos_user_resetting_request')}}"><h6>找回密码</h6></a>
                     </div>
                 </div>
                 <div class="copyright"> 
                     <span><a href="https://paymentexpress.co.nz/security" target="_blank"><img src="{{ asset('img/payment/paymentexpress.png') }}" alt="payment"></a></span>    
-                    <span><img src="{{ asset('img/payment/mc.png') }}" alt="payment"></span>
-                    <span><img src="{{ asset('img/payment/pp.png') }}" alt="payment"></span>  
-                    <span><img src="{{ asset('img/payment/visa.png') }}" alt="payment"></span>
+                    <span><img src="{{ asset('img/payment/mc.png') }}" alt="mastercard"></span>
+                    <span><img src="{{ asset('img/payment/visa.png') }}" alt="visa"></span>
+                    <span><img src="{{ asset('img/payment/visa-debit.png') }}" alt="visa-debit"></span>
                     <span>&copy;Copyright 2008-2016 PLENTY BAY ECOMMERCE LTD (丰盛湾电子商务) All Rights Reserved</span>
                     <!--gototop -->
                     <div id="gototop">
@@ -247,32 +283,21 @@
             </div>
         </div>
        
-
-    <!-- No Javascript warnings -->
-    <noscript>
-        <div>You browser doesn't support JavaScript or has it turned off. This website requires JavaScript to working propertly.</div>
-    </noscript>
+        <!-- No Javascript warnings -->
+        <noscript>
+            <div>
+                You browser doesn't support JavaScript or has it turned off. This website requires JavaScript to working propertly.
+            </div>
+        </noscript>
     
         <!-- global asset var -->
         <script type="text/javascript">
             var assetsBaseDir = "{{ asset('/') }}";
         </script>
-        <!-- jQuery -->
-        <script type="text/javascript" src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.easing-1.3.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.scrollTo-1.4.3.1-min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.lazyload.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.Jcrop.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.SimpleCropper.js') }}"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <!-- Js Routing -->
-        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-
         <!-- Custom JavaScript -->
         <script src="{{ asset('js/shop.js') }}"></script>
+
+        <!-- Shopping Cart Part on the Header Section -->
         <script type="text/javascript">
             $(document).ready(function() { 
                 $.ajax({
@@ -284,20 +309,56 @@
                     var total = null;
                     if (rep == "none" || rep == "" || rep == null) {
                         num = 0;
-                        total = 0.00;           
+                        //total = 0.00;           
                     } else {
                         $.each(rep, function(index, value) {
                             num += Number(value.count);
-                            total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
+                            //total = Math.round((total + parseInt(value.count) * Number(value.price_discounted))*100)/100;
                         });   
                     }
-                    $('#cart').html("<div class='cart-show'><i class='fa fa-shopping-cart'><i class='fa fa-circle'><h6>" + num + "</h6></i></i>&nbsp;$" + total +"&nbsp;</div>");
+                    if(num <= 99){
+                        $('#number_in_cart').html(num);
+                        $('#number_in_cart2').html(num);
+                    } else {
+                        $('#number_in_cart').html("99+");
+                        $('#number_in_cart2').html("99+");
+                    }
                 })
             });
+
+            $(document).ready(function(){
+                $(".dropdown").hover(            
+                    function() {
+                        $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+                        $(this).toggleClass('open');        
+                    },
+                    function() {
+                        $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+                        $(this).toggleClass('open');       
+                    }
+                );
+            });       
+
+            /* Floating-button JS */
+            $(document).ready(function () {
+                $('.material-button-toggle').click(function () {
+                    $(this).toggleClass('open');
+                    $('.option').toggleClass('scale-on');                      
+                });
+            });
+           
+
+            $(function(){      
+                $('[ data-toggle-title="popover" ]').popover({ 
+                    html : true
+                });
+            });
+
+            $(document).ready(function(){
+                $('[data-toggle-title="tooltip"]').tooltip();   
+            });                               
         </script>
-     
         {% block javascripts %}
         {% endblock %}
-
     </body>
 </html>

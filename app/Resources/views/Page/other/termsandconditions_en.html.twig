@@ -4,14 +4,6 @@
 
 {% block stylesheets %}  
 <link rel="stylesheet" href="{{ asset('css/contact.css') }}" type="text/css">
-<style>
-    #map {
-        width: 380px;
-        height: 587px;
-        background-color: #CCC;
-    }
-</style>
-</style>
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {% endblock %}
 
@@ -22,15 +14,21 @@
             <div class="contact-part" style="padding-top: 2px">    
                         <hr>                
                         <div align="center">
+                        <a href="/terms" class="pull-right" data-toggle-title="tooltip" title="用户服务条款" data-placement="right"  style="color: #95B56F"><i class="fa fa-language" aria-hidden="true"></i> 中文版</a>
+                        <script type="text/javascript">
+                            $(document).ready(function(){
+                                $('[data-toggle-title="tooltip"]').tooltip();   
+                            });    
+                        </script>    
                         <h3><b>Terms and Conditions</b></h3>
                         <hr>
                         </div>
                         <p>
-                            Welcome to PlentyBay.co.nz. Plenty Bay Ecommerce Limited and/or its affiliates ("PlentyBay") provide website features and other products and services to you when you visit or shop at PlentyBay.co.nz, use PlentyBay products or services, use PlentyBay applications for mobile, or use software provided by PlentyBay in connection with any of the foregoing (collectively, " PlentyBay Services"). PlentyBay provides the PlentyBay Services subject to the following conditions.
+                            Welcome to Www.pBay.Co.Nz - Plenty Bay Ecommerce Limited and/or its affiliates ("PlentyBay") provide website features and other products and services to you when you visit or shop at Www.pBay.Co.Nz, use PlentyBay products or services, use PlentyBay applications for mobile, or use software provided by PlentyBay in connection with any of the foregoing (collectively, " PlentyBay Services"). PlentyBay provides the PlentyBay Services subject to the following conditions.
                         </p>
                         <p>
                             <strong>
-                                By using PlentyBay Services, you agree to these conditions. Please read them carefully. <a href="/terms">(中文版)</a>
+                                By using PlentyBay Services, you agree to these conditions. Please read them carefully. 
                             </strong>
                         </p>
                         <p>
@@ -86,7 +84,10 @@
                         <p>
                             PlentyBay respects the intellectual property of others. If you believe that your work has been copied in a way that constitutes copyright infringement, please contact us by email, see our ‘Contact Us’.
                         </p>
-                        <p><h3>RISK OF LOSS</h3></p>
+                        <p><h3>DELIVERY AND RISK OF LOSS</h3></p>
+                        <p>
+                            The average delivery time of a package is usually within two weeks. Once your payment is confirmed, your order will be sent as soon as possbile. However, Saturday and Sunday are not working days, so during the weekend, your package will be properly packed and ready for the delivery on the next Monday.
+                        </p>
                         <p>
                             All items purchased from PlentyBay are made pursuant to a shipment contract. This means that the risk of loss and title for such items pass to you upon our delivery to the carrier.
                         </p>
@@ -105,6 +106,9 @@
                             With respect to items sold by PlentyBay, we cannot confirm the price of an item until you order. Despite our best efforts, a small number of the items in our catalog may be mispriced. If the correct price of an item sold by PlentyBay is higher than our stated price, we will, at our discretion, either contact you for instructions before shipping or cancel your order and notify you of such cancellation. Other merchants may follow different policies in the event of a mispriced item.
 
                         </p>
+                        <p>
+                            All product prices (labelled with "$") are the New Zealand official currency (NZD) by default. If any other currency is used, the price will be clearly marked with words or the corresponding abbreviations (i.e. USD, CHY).
+                        </p>  
                         <p><h3>OTHER BUSINESSES</h3></p>
                         <p>
                             Parties other than PlentyBay operate stores, provide services, or sell product lines through the PlentyBay Services. In addition, we provide links to the sites of affiliated companies and certain other businesses. We are not responsible for examining or evaluating, and we do not warrant the offerings of, any of these businesses or individuals or the content of their Web sites. PlentyBay does not assume any responsibility or liability for the actions, product, and content of all these and any other third parties. You should carefully review their privacy statements and other conditions of use.

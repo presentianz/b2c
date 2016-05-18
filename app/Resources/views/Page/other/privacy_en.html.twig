@@ -1,0 +1,63 @@
+{% extends 'layout_main.html.twig' %}
+
+ {% block title %}隐私条款{% endblock %}
+
+{% block stylesheets %}  
+<link rel="stylesheet" href="{{ asset('css/contact.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div oncopy="return false" oncut="return false" onpaste="return false">
+        <div class="row no-border" id="contact-page">
+            <img src="{{ asset('img/privacy-policy.jpg') }}" width="100%">
+            <div class="contact-part" style="padding-top: 2spx">   
+                <hr>                 
+                <div align="center">
+                    <a href="/privacy" class="pull-right" data-toggle-title="tooltip" title="用户隐私条款" data-placement="right" style="color: #95B56F"><i class="fa fa-language" aria-hidden="true"></i> 中文版</a>
+                    <script type="text/javascript">
+                            $(document).ready(function(){
+                                    $('[data-toggle-title="tooltip"]').tooltip();   
+                            });    
+                    </script>   
+                    <h3><b>User Privacy Policy</b></h3>
+                    <hr>
+                </div>                   
+                <p>
+                    Plentybay  has created this privacy statement in order to demonstrate our firm commitment to privacy.
+                </p>
+                    In this policy we explain how we handle information about you that we gather, store and use. For additional information about your relationship with Plentybay, please review our <a href="/terms_en">Terms and Conditions</a>.
+                </p>
+                <p>
+                    In this policy, “Personal Information” means the same as it does in the Privacy Act 1993 (which is: information about an identifiable individual). Other terms that have capital letters in this Privacy Policy but aren't defined here carry the same meaning as in the Terms and Conditions.
+                </p>
+                <p><h3>Use of your information</h3></p>
+                <p>
+                    Plentybay does not sell or rent your Personal Information to third parties. Personal Information is information about an identifiable individual.
+                </p>
+                <p>
+                     Plentybay collects information about you through your use of the Services and the Website, including your registration details and information relating to your use of the Website and the Services, such as the content you access (like listings you have viewed and the search queries you input).
+                </p>
+                <p>
+                    Plentybay uses the information we collect to help us provide the Services to you, to verify your identity, to enforce or apply our terms and conditions, to protect the rights, property, or safety of Plentybay Limited, our users, or others, for internal research purposes, for promoting and marketing other Plentybay products and Services to you, and for any other use that you authorise.
+                </p>
+                <p>
+                    Your membership's trading history is published in your feedback if someone places feedback about you.
+                </p>
+                <p>
+                    We release Personal Information only when we believe release is appropriate for legal compliance and law enforcement (including to government agencies with statutory law enforcement responsibilities); to facilitate court proceedings; enforce or apply our terms and conditions; or protect the rights, property, or safety of Plentybay, our users, or others. Government agencies with statutory roles enabling them to request data from us include but are not restricted to the Police, Inland Revenue and the Ministry of Business, Innovation and Employment.
+                </p>
+                <p>
+                    You can contact Plentybay to ask whether your information has been provided, or with any other privacy-related question. Just email us.
+                </p>
+                <p>
+                    Where Plentybay uses third parties to undertake services, we may provide those third parties with some of your information if it is required to fulfil those services. For example, we use third parties to send you letters for address verification, to provide you with shipping services or to conduct research for us to ensure the Services we provide you are relevant and personalised to your interests. We also use third party software (such as customer relationship management, marketing automation and accounting software) that holds your information, sometimes overseas. We require any third party to undertake strict precautions to protect your information against unauthorised use or disclosure.
+                </p>
+                <p>
+                    If you wish to take Disputes Tribunal (or other) proceedings against another member, you can contact Plentybay for a statutory declaration form which must be completed before we will consider releasing anyone else's information to you. You may only request contact details for the sole purpose of making a claim.
+                </p>
+                    
+            </div>  
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>新西兰丰盛湾电子商务 - {% block title %}您的一站式跨境购物平台{% endblock %}</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">       
+ 
+    {% block stylesheets %}{% endblock %}
+    <!-- Custom icon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+</head>
+<body>
+
+<!-- Google Analytics -->
+<script src="{{ asset('js/analyticstracking.js') }}"></script>
+
+<div id="login-header">
+    <div class="container-login-responsive">
+        <div class="logo-width">
+            <a class="logo" href="{{ path('homepage') }}">
+                <img src="{{ asset('img/logo-new.jpg') }}" alt="丰盛湾">
+                <h4 class="text-right">丰盛湾在线购物&reg;</h4>
+            </a>      
+        </div> 
+        <div class="logo-title">{% block subtitle %}{% endblock subtitle %}</div>           
+    </div>
+</div>
+
+{% block body %}{% endblock %}
+
+     <!-- Footer -->
+    <div id="login-footer"> 
+            <div class="col-xs-2">
+                <h6><a class="bg_hover" href="{{ path('about') }}">关于我们</a></h6>
+            </div>
+            <div class="col-xs-2">
+                <h6><a class="bg_hover" href="{{ path('homepage') }}">丰盛湾合作</a></h6>
+            </div>
+            <div class="col-xs-2">
+                <h6><a class="bg_hover" href="{{ path('terms') }}">服务条款</a></h6>
+            </div>
+            <div class="col-xs-2">
+                <h6><a class="bg_hover" href="{{ path('contact') }}">支付方式</a></h6>
+            </div>
+            <div class="col-xs-2">
+                <h6><a class="bg_hover" href="{{ path('refundpolicy') }}">遇到问题</a></h6>
+            </div>
+            <div class="col-xs-2">
+                <h6><a class="bg_hover" href="{{ path('contact') }}">联系我们</a></h6>
+            </div>
+        <div class="copyright">         
+            <span>&copy;Copyright 2008-2016 PLENTY BAY ECOMMERCE LTD (丰盛湾电子商务) All Rights Reserved</span>
+        </div>
+    </div>
+
+
+    <script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.easing-1.3.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.scrollTo-1.4.3.1-min.js') }}"></script>
+    <script src="{{ asset('js/jquery.lazyload.min.js') }}"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="{{ asset('js/shop.js') }}"></script>
+    {% block javascripts %}
+    {% endblock %}
+
+</body>
+
+</html>
+

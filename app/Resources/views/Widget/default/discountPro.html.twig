@@ -1,34 +1,33 @@
-
-
-<div class="side">
-    <div class="side-title">
-        <h4>折扣商品</h4>
-        <h6>&nbsp;> &nbsp;<a href="">可瑞康 羊奶粉</a></h6>
-    </div>
-    <div class="side-content">
-        {% for product in data|slice(1,1) %}
+{% if products|length > 0 %}
+{% for product in products %}
+    <div class="side">
+        <div class="side-title">
+            <h4>折扣商品</h4>
+            <h6>&nbsp;> &nbsp;<a href="">可瑞康 羊奶粉</a></h6>
+        </div>
+        <div class="side-content">
             <div class="side-item">
                 <a href="{{ path('product', {id : product.id}) }}">
-                    <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
-                </a>
-            </div>
-        {% endfor %}
-    </div>
-</div> 
+                    <div class="not-tagged-side-image">
+                        <img class="lazy" src="{{ asset('img/default.jpg') }}"
+                         data-original="{{ asset('img/src') }}/{{ product.imageLink }}/poster/{{ product.poster }}"
+                         alt="">
+                    </div>
 
-
-<div class="side">
-    <div class="side-title">
-        <h4>折扣商品</h4>
-        <h6>&nbsp;> &nbsp;<a href="">纽乐 系列</a></h6>
-    </div>
-    <div class="side-content">
-        {% for product in data|slice(1,1) %}
-            <div class="side-item">
-            <a href="{{ path('product', {id : product.id}) }}">
-                    <img class="lazy" src="{{ asset('img/default.png') }}" data-original="{{ asset('img/src') }}/{{product.imageLink}}/poster/{{product.poster}}" alt="">
+                    <div class="pro-text">
+                        <div class="pull-left">
+                            <div class="pro-title">{{ product.name }}</div>
+                            <div class="sold-no">售出:&nbsp;{{ product.soldNo }}</div>
+                        </div>
+                        <div class="pull-right">
+                            <div class="price">${{ product.priceDiscounted }}</div>
+                            <del>${{ product.price }}</del>
+                        </div>
+                    </div>
                 </a>
+
             </div>
-        {% endfor %}
+        </div>
     </div>
-</div>
+{% endfor %}
+{% endif %}

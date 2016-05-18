@@ -26,7 +26,7 @@
     <div class="container-login-responsive">
         <div class="logo-width">
             <a class="logo" href="{{ path('homepage') }}">
-                <img src="{{ asset('img/logo-new.jpg') }}" alt="丰盛湾">
+                <img src="{{ asset('img/logo/logo_controlpanel.jpg') }}" alt="丰盛湾电商主页">
                 <h4 class="text-right">丰盛湾在线购物&reg;</h4>
             </a>      
         </div> 
@@ -48,7 +48,7 @@
                 <h6><a class="bg_hover" href="{{ path('terms') }}">服务条款</a></h6>
             </div>
             <div class="col-xs-2">
-                <h6><a class="bg_hover" href="{{ path('contact') }}">支付方式</a></h6>
+                <h6><a class="bg_hover" href="{{ path('privacy') }}">用户隐私</a></h6>
             </div>
             <div class="col-xs-2">
                 <h6><a class="bg_hover" href="{{ path('refundpolicy') }}">遇到问题</a></h6>
@@ -60,6 +60,14 @@
             <span>&copy;Copyright 2008-2016 PLENTY BAY ECOMMERCE LTD (丰盛湾电子商务) All Rights Reserved</span>
         </div>
     </div>
+
+<div class="bg-mask"></div>
+<div id="loading" class="loading">
+    <div>
+        <i class="fa fa-spinner fa-pulse"></i>
+        <!-- <img src="{{ asset('img/spinner.gif')}}"> -->
+    </div>
+</div>
 
 
     <script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>

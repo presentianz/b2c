@@ -56,12 +56,25 @@ registration:
     email:
         subject: %username%，欢迎你
         message: |
-            %username%，你好！
+            尊敬的用户，您好！
 
-            要启用你的用户帐号，请访问：%confirmationUrl%
+            新西兰丰盛湾电子商务欢迎您！在您使用之前，
+            请激活您的新注册帐号。激活只需点击以下链接
 
-            祝好
-            网站团队
+            -----------------------------------------
+
+            %confirmationUrl%
+
+            -----------------------------------------
+
+            或者拷贝此链接至您的浏览器地址栏。
+
+            此邮件为系统自动发送，请勿直接回复。
+
+            谢谢！
+            
+            Support Team,
+            新西兰丰盛湾电子商务 - Plenty Bay eCommerce Ltd.
 
 # Password resetting
 resetting:
@@ -78,12 +91,24 @@ resetting:
     email:
         subject: 重置密码
         message: |
-            %username%，你好！
+            尊敬的用户，你好！
 
-            请访问 %confirmationUrl% 以重置你的帐户密码。
+            请访问以下连接重置你的帐户密码。
 
-            祝好
-            网站团队
+            ------------------------------------
+
+            %confirmationUrl%
+            
+            ------------------------------------
+            
+            或者拷贝此链接至您的浏览器地址栏。
+
+            此邮件为系统自动发送，请勿直接回复。
+
+            谢谢！
+            
+            Support Team,
+            新西兰丰盛湾电子商务 - Plenty Bay eCommerce Ltd.
 
 # Global strings
 layout:

@@ -4,40 +4,62 @@
 
 {% block body -%}
     <section id="content">
-  <section class="vbox">
-    <header class="header bg-light b-b">
-        <p><strong>商品</strong></p>
-    </header>
-   <section class="scrollable padder">
+        <section class="vbox">
+            <header class="header bg-light b-b">
+                <p><strong>商品</strong></p>
+            </header>
+            <section class="scrollable padder">
 
-   <div class="form">
+                <div class="form">
 
-         <div> <label>商品ID：</label> {{ entity.id }}</div>
-        <div> <label>商品名称：</label> {{ entity.name}}</div>
-       <div> <label>原价：</label> {{ entity.price}}</div>
-       <div> <label>促销价：</label> {{ entity.pricediscounted}}</div>
-       <div> <label>浏览次数：</label> {{ entity.viewedcount}}</div>
-       <div> <label>售出数量：</label> {{ entity.soldNo}}</div>
-       <div> <label>库存：</label> {{ entity.inventory}}</div>
-       <div> <label>点击次数：</label> {{ entity.click}}</div>
-       <div> <label>商品描述：</label> {{ entity.description}}</div>
-       <div> <label>商品状态：</label> {{ entity.status}}</div>
-       <div> <label>更新日期：</label> {{ entity.updateAt|date('Y-m-d H:i:s') }}</div>
-       <div> <label>发布：</label> {{ entity.poster}}</div>
-       <div> <label>分类：</label> {{ entity.category}}</div>
-       <div> <label>品牌：</label> {{ entity.brand}}</div>
-       <div> <label>重量：</label> {{ entity.weight}}</div>
-       <div> <label>商品编号：</label> {{ entity.productKey}}</div>
+                    <div><label>商品ID：</label> {{ entity.id }}</div>
+                    <div><label>商品名称：</label> {{ entity.name }}</div>
+                    <div><label>原价：</label> {{ entity.price }}</div>
+                    <div><label>促销价：</label> {{ entity.pricediscounted }}</div>
+                    <div><label>浏览次数：</label> {{ entity.viewedcount }}</div>
+                    <div><label>售出数量：</label> {{ entity.soldNo }}</div>
+                    <div><label>库存：</label> {{ entity.inventory }}</div>
+                    <div><label>点击次数：</label> {{ entity.click }}</div>
+                    <div><label>商品描述：</label> {{ entity.description }}</div>
+                    <div><label>商品状态：</label> {{ entity.status }}</div>
+                    <div><label>更新日期：</label> {{ entity.updateAt|date('Y-m-d H:i:s') }}</div>
+                    <div><label>分类：</label> {{ entity.category }}</div>
+                    <div><label>品牌：</label> {{ entity.brand }}</div>
+                    <div><label>重量：</label> {{ entity.weight }}</div>
+                    <div><label>商品编号：</label> {{ entity.productKey }}</div>
+                    <div><label>首页橱窗推荐：</label>
+                        {% if entity.getIndexWidget == 0 or not entity.getIndexWidget %}
+                            无
+                        {% elseif entity.getIndexWidget == 1 %}
+                            今日推荐
+                        {% elseif entity.getIndexWidget == 2 %}
+                            热卖畅销
+                        {% elseif entity.getIndexWidget == 3 %}
+                            限时特卖
+                        {% elseif entity.getIndexWidget == 4 %}
+                            折扣商品
+                        {% elseif entity.getIndexWidget == 5 %}
+                            人气商品
+                        {% endif %}
+                    </div>
+                    <div><label>橱窗权重：</label>
+                        {% if entity.getWidgetWeight %}
+                            {{ entity.getWidgetWeight }}
+                        {% else %}
+                            0
+                        {% endif %}
+                    </div>
 
 
-     <div class="admin-buttons">
-        <a href="{{ path('admin_product') }}">返回</a>
-        <a href="{{ path('admin_product_edit', { 'id': entity.id }) }}">编辑</a>
-      </div>
+                    <div class="admin-buttons">
+                        <a href="{{ path('admin_product') }}">返回</a>
+                        <a href="{{ path('admin_product_edit', { 'id': entity.id }) }}">编辑</a>
+                        <a href="{{ path('product', { 'id': entity.id }) }}" target="_blank">预览</a>
+                    </div>
 
- </section>
-</section>
-</section>
+            </section>
+        </section>
+    </section>
 
 
 

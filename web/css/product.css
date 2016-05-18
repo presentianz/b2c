@@ -2,7 +2,7 @@
 
 /*product products*/
 #product-page .product-desc {
-    color: #a8df4e !important;
+    color: #95B570 !important;
     margin-top: 10px;
 }
 
@@ -59,7 +59,7 @@
 
 #product-page .product-info .col-xs-7 .product-promo {
     font-size: 20px;
-    color: #a8df4e;
+    color: #95B570;
     font-weight: bold;
 }
 
@@ -71,7 +71,7 @@
 #product-page .add-to-cart input[type="submit"] {
     margin-right: 30px;
     height: 35px;
-    background: #a8df4e !important;
+    background: #95B570 !important;
     color: #000;
 } 
 
@@ -101,19 +101,18 @@
     background: #fff;
     height: 30px;
     font-size: 20px;
-    color: #a8df4e;
+    color: #95B570;
     font-weight: bolder;
     line-height: 30px;
 }
 
 #product-page .product-tab-update {
-    background-color: #a8df4e;
+    background-color: #95B570;
 }
 
 #product-page .product-tab-update .leaf {
-    width: 120px;
     position: relative;
-    bottom: 30px;
+    height: 60px;
     float: right;
     right: -50px;
 }
@@ -129,19 +128,20 @@
     font-size: 16px;
     margin:10px 0px;
     line-height:25px;
-    color: #a8df4e;
+    color: #95B570;
     font-weight: bold;
 }
 
 #product-page .tab-contents .tab-content-desc {
-    font-size: 12px;
+    font-size: 15px;
     line-height:20px;
     margin-bottom: 10px;
+    padding-top: 10px;
 }
 
 #product-page .tab-contents .tab-content-foot {
     font-size: 12px;
-    color: #a8df4e;
+    color: #95B570;
 }
 
 #product-page .tab-contents img,
