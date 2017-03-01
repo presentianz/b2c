@@ -19,6 +19,9 @@ security:
                 default_target_path: /
             logout:       true
             anonymous:    true
+        js_router:
+            pattern: ^/(js\/routing)
+            security: false
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
